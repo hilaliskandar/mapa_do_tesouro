@@ -102,7 +102,9 @@ def _sem_acentos(valor: object) -> str:
 def _normalizar_busca(valor: object) -> str:
     texto = _sem_acentos(valor)
     texto = re.sub(r"[^a-z0-9]+", " ", texto)
-    return re.sub(r"\s+", " ", texto).strip()
+    texto = re.sub(r"\s+", " ", texto).strip()
+    texto = re.sub(r"\bintra\s+orcament", "intraorcament", texto)
+    return texto
 
 
 def _limpar_texto(valor: object) -> str:
@@ -119,7 +121,8 @@ def _limpar_texto(valor: object) -> str:
 
 def _texto_linha(linha: pd.Series) -> str:
     partes = [linha.get("rotulo_conta_original"), linha.get("descricao_conta")]
-    return " | ".join(_limpar_texto(p) for p in partes if pd.notna(p) and _limpar_texto(p))
+    limpas = [_limpar_texto(p) for p in partes if pd.notna(p)]
+    return " | ".join(p for p in limpas if p)
 
 
 def _codigo_ausente(valor: object) -> bool:
@@ -137,14 +140,12 @@ def _extrair_codigo_do_texto(texto: object, bloco: str) -> tuple[str | None, str
     valor = _texto_apos_estagio(texto)
     if not valor:
         return None, None
-
     if bloco == "receitas":
         padrao = PADRAO_CODIGO_RECEITA
     elif bloco == "despesa_por_funcao":
         padrao = PADRAO_CODIGO_FUNCAO
     else:
         padrao = PADRAO_CODIGO_DESPESA
-
     correspondencia = padrao.match(valor)
     if not correspondencia:
         return None, None
@@ -158,17 +159,17 @@ def _preencher_codigo_conta(resultado: pd.DataFrame, bloco: str) -> pd.DataFrame
     for indice, linha in quadro.iterrows():
         if not _codigo_ausente(linha.get("codigo_conta")):
             continue
-        candidatos = [linha.get("descricao_conta"), linha.get("rotulo_conta_original")]
-        for candidato in candidatos:
+        for candidato in (linha.get("descricao_conta"), linha.get("rotulo_conta_original")):
             codigo, descricao = _extrair_codigo_do_texto(candidato, bloco)
-            if codigo:
-                quadro.at[indice, "codigo_conta"] = codigo
-                descricao_atual = _limpar_texto(linha.get("descricao_conta"))
-                candidato_limpo = _limpar_texto(candidato)
-                if descricao and (not descricao_atual or descricao_atual == candidato_limpo):
-                    quadro.at[indice, "descricao_conta"] = descricao
-                quadro.at[indice, "origem_codigo_qualificado"] = "extraido_do_texto"
-                break
+            if not codigo:
+                continue
+            quadro.at[indice, "codigo_conta"] = codigo
+            descricao_atual = _limpar_texto(linha.get("descricao_conta"))
+            candidato_limpo = _limpar_texto(candidato)
+            if descricao and (not descricao_atual or descricao_atual == candidato_limpo):
+                quadro.at[indice, "descricao_conta"] = descricao
+            quadro.at[indice, "origem_codigo_qualificado"] = "extraido_do_texto"
+            break
     return quadro
 
 
@@ -179,13 +180,13 @@ def _eh_subtotal_estrutural(texto: str) -> bool:
 
 def _classificar_tipo_registro(linha: pd.Series) -> str:
     texto_original = _texto_linha(linha)
-    texto = _sem_acentos(texto_original)
+    texto = _normalizar_busca(texto_original)
     codigo = linha.get("codigo_conta")
     if "demais subfuncoes" in texto:
         return "agregado_funcional_residual"
     if _eh_subtotal_estrutural(texto_original):
         return "subtotal_estrutural"
-    if any(termo in texto for termo in TERMOS_TOTAL):
+    if any(_normalizar_busca(termo) in texto for termo in TERMOS_TOTAL):
         return "total_ou_subtotal"
     if _codigo_ausente(codigo):
         if "indicador" in texto or "percentual" in texto:
@@ -231,14 +232,14 @@ def _classificar_natureza_operacao(linha: pd.Series, bloco: str) -> str:
 def _classificar_deducao_receita(linha: pd.Series, bloco: str) -> bool:
     if bloco != "receitas":
         return False
-    texto = _sem_acentos(_texto_linha(linha))
-    return any(termo in texto for termo in TERMOS_DEDUCAO)
+    texto = _normalizar_busca(_texto_linha(linha))
+    return any(_normalizar_busca(termo) in texto for termo in TERMOS_DEDUCAO)
 
 
 def _classificar_tipo_deducao(linha: pd.Series, bloco: str) -> str:
     if bloco != "receitas":
         return "nao_se_aplica"
-    texto = _sem_acentos(_texto_linha(linha))
+    texto = _normalizar_busca(_texto_linha(linha))
     if "fundeb" in texto:
         return "fundeb"
     if "transferenc" in texto and "constitucional" in texto:
@@ -251,25 +252,21 @@ def _classificar_tipo_deducao(linha: pd.Series, bloco: str) -> str:
 
 
 def _motivo_pendencia(linha: pd.Series) -> str | None:
-    codigo = linha.get("codigo_conta")
-    if not _codigo_ausente(codigo):
+    if not _codigo_ausente(linha.get("codigo_conta")):
         return None
-    tipo = linha.get("tipo_registro")
-    if tipo in {
+    if linha.get("tipo_registro") in {
         "total_ou_subtotal",
         "subtotal_estrutural",
         "indicador_auxiliar",
         "agregado_funcional_residual",
     }:
         return "ausencia_justificada_por_tipo"
-    origem = linha.get("origem_metadados")
-    if origem == "regra_contingencia":
+    if linha.get("origem_metadados") == "regra_contingencia":
         return "cabecalho_sem_correspondencia_no_dicionario"
     texto = _texto_linha(linha)
     if not texto.strip():
         return "campo_vazio"
-    codigo_texto = re.search(r"(?<!\d)\d{1,2}(?:\.\d{1,3}){1,7}(?!\d)", texto)
-    if codigo_texto:
+    if re.search(r"(?<!\d)\d{1,2}(?:\.\d{1,3}){1,7}(?!\d)", texto):
         return "codigo_presente_texto_nao_extraido"
     return "codigo_obrigatorio_ausente"
 

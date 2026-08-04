@@ -7,6 +7,7 @@ import streamlit as st
 
 from nucleo.gerenciador_execucao import GerenciadorExecucao
 from processamentos.construir_hierarquia_contabil import construir_hierarquia_contabil
+from processamentos.construir_mapa_semantico import construir_mapa_semantico
 from processamentos.normalizar_finbra import normalizar_arquivo_finbra
 from processamentos.qualificar_codigos import qualificar_codigos
 from processamentos.selecionar_agregacao_hierarquica import selecionar_agregacao_hierarquica
@@ -24,7 +25,8 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.4.2"
+VERSAO_SISTEMA = "0.5.0"
+ARQUIVO_REGRAS_SEMANTICAS = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 st.title("Mapa do Tesouro")
@@ -50,6 +52,14 @@ executar_selecao = st.checkbox(
     help=(
         "Avalia cada bloco por municipio, ano, estagio e natureza da operacao. "
         "Usa conta-pai conciliada ou folhas observadas quando houver divergencia."
+    ),
+)
+executar_mapa_semantico = st.checkbox(
+    "Aplicar mapa semantico anual inicial",
+    value=True,
+    help=(
+        "Associa os registros selecionados a conceitos estaveis por regras YAML versionadas, "
+        "mantendo nao mapeados e ambiguidades para revisao."
     ),
 )
 
@@ -178,6 +188,7 @@ if st.button("Criar execucao e processar", type="primary"):
                     )
                 st.success("Hierarquia contabil concluida.")
 
+            resultado_selecao = None
             if executar_selecao and resultado_hierarquia is not None:
                 with st.spinner("Selecionando contas por recorte e conciliando ramos..."):
                     pasta_selecao = diretorio_execucao / "05_selecao_hierarquica"
@@ -207,12 +218,46 @@ if st.button("Criar execucao e processar", type="primary"):
                 st.dataframe([asdict(item) for item in resultado_selecao.blocos], use_container_width=True)
                 st.write(f"**Selecao auditavel:** `{resultado_selecao.arquivo_selecao_xlsx}`")
 
+            if executar_mapa_semantico and resultado_selecao is not None:
+                with st.spinner("Aplicando conceitos semanticos versionados..."):
+                    pasta_mapa = diretorio_execucao / "06_mapa_semantico"
+                    resultado_mapa = construir_mapa_semantico(
+                        diretorio_execucao / "05_selecao_hierarquica",
+                        diretorio_execucao / "04_hierarquia_contabil",
+                        ARQUIVO_REGRAS_SEMANTICAS,
+                        pasta_mapa,
+                    )
+                    gerenciador.atualizar_manifesto(
+                        diretorio_execucao,
+                        {"mapa_semantico": {
+                            "status": resultado_mapa.status,
+                            "versao_catalogo": resultado_mapa.versao_catalogo,
+                            "registros_selecionados": resultado_mapa.total_registros_selecionados,
+                            "registros_mapeados": resultado_mapa.total_registros_mapeados,
+                            "registros_nao_mapeados": resultado_mapa.total_registros_nao_mapeados,
+                            "ambiguidades": resultado_mapa.total_ambiguidades,
+                            "mapa_xlsx": resultado_mapa.arquivo_mapa_xlsx,
+                            "pendencias_xlsx": resultado_mapa.arquivo_pendencias_xlsx,
+                            "resultado_json": resultado_mapa.arquivo_resultado_json,
+                        }},
+                    )
+                st.success("Mapa semantico inicial concluido.")
+                metricas_mapa = st.columns(5)
+                metricas_mapa[0].metric("Selecionados", f"{resultado_mapa.total_registros_selecionados:,}")
+                metricas_mapa[1].metric("Mapeados", f"{resultado_mapa.total_registros_mapeados:,}")
+                metricas_mapa[2].metric("Nao mapeados", f"{resultado_mapa.total_registros_nao_mapeados:,}")
+                metricas_mapa[3].metric("Ambiguidades", f"{resultado_mapa.total_ambiguidades:,}")
+                metricas_mapa[4].metric("Status", resultado_mapa.status)
+                st.dataframe([asdict(item) for item in resultado_mapa.blocos], use_container_width=True)
+                st.write(f"**Mapa semantico:** `{resultado_mapa.arquivo_mapa_xlsx}`")
+                st.write(f"**Pendencias:** `{resultado_mapa.arquivo_pendencias_xlsx}`")
+
             st.write(f"**Diretorio:** `{contexto.diretorio}`")
             st.json(contexto.como_dicionario())
         except Exception as erro:
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: hierarquia contabil e selecao por municipio, ano, "
-    "estagio e natureza da operacao para prevenir dupla contagem."
+    f"Versao {VERSAO_SISTEMA}: selecao hierarquica e mapa semantico anual inicial "
+    "com regras externas versionadas e fila auditavel de pendencias."
 )

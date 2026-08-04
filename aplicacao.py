@@ -1,5 +1,6 @@
 """Ponto de entrada da interface do Mapa do Tesouro."""
 
+from dataclasses import asdict
 from pathlib import Path
 
 import streamlit as st

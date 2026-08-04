@@ -1,161 +1,187 @@
-versao: 1
+versao: 2
 nome: mapa_semantico_inicial
 observacao: >-
-  Catalogo inicial de conceitos atomicos para testar o motor de correspondencia.
-  As regras nao substituem os ementarios anuais e devem ser ampliadas e validadas
-  antes do calculo de agregados definitivos.
+  Catalogo inicial versionado. As regras nao substituem ementarios anuais nem
+  mapeamentos fiscais oficiais. O objetivo e preservar conceitos atomicos e
+  permitir cobertura auditavel antes da construcao dos agregados.
+parametros:
+  blocos_obrigatorios: [receitas, despesas, despesa_por_funcao]
+  cobertura_minima_alerta: 0.15
 regras:
   - id_semantico: REV_TRIB_IPTU_PRINCIPAL
     grupo_semantico: receita_tributaria
     bloco: receitas
+    nivel_semantico: conta_especifica
+    finalidade: indicador
     prioridade: 100
     confianca: alta
     descricao_contem_algum: ["iptu", "propriedade predial e territorial urbana"]
     descricao_nao_contem: ["multa", "juros", "divida ativa"]
     interpretacao: Arrecadacao principal do IPTU.
-
   - id_semantico: REV_TRIB_ISS_PRINCIPAL
     grupo_semantico: receita_tributaria
     bloco: receitas
+    nivel_semantico: conta_especifica
+    finalidade: indicador
     prioridade: 100
     confianca: alta
     descricao_contem_algum: ["imposto sobre servicos", "issqn", "iss"]
     descricao_nao_contem: ["multa", "juros", "divida ativa"]
     interpretacao: Arrecadacao principal do imposto sobre servicos.
-
   - id_semantico: REV_TRIB_ITBI_PRINCIPAL
     grupo_semantico: receita_tributaria
     bloco: receitas
+    nivel_semantico: conta_especifica
+    finalidade: indicador
     prioridade: 100
     confianca: alta
     descricao_contem_algum: ["itbi", "transmissao inter vivos"]
     descricao_nao_contem: ["multa", "juros", "divida ativa"]
     interpretacao: Arrecadacao principal do ITBI e sinal aproximado da atividade imobiliaria.
-
   - id_semantico: REV_TRIB_TAXAS
     grupo_semantico: receita_tributaria
     bloco: receitas
+    nivel_semantico: grupo
+    finalidade: composicao
     prioridade: 80
     confianca: media
     descricao_contem_algum: ["taxas", "taxa pelo exercicio", "taxa pela prestacao"]
-    interpretacao: Receitas de taxas municipais, sujeitas a revisao dos desdobramentos.
-
+    interpretacao: Receitas de taxas municipais.
   - id_semantico: REV_TRIB_CONTRIBUICAO_MELHORIA
     grupo_semantico: receita_tributaria
     bloco: receitas
+    nivel_semantico: conta_especifica
+    finalidade: indicador
     prioridade: 100
     confianca: alta
     descricao_contem_algum: ["contribuicao de melhoria"]
     interpretacao: Receita de contribuicao de melhoria.
-
   - id_semantico: REV_TRANSF_FPM
     grupo_semantico: transferencias_constitucionais
     bloco: receitas
+    nivel_semantico: conta_especifica
+    finalidade: indicador
     prioridade: 100
     confianca: alta
     descricao_contem_algum: ["fundo de participacao dos municipios", "fpm"]
     interpretacao: Transferencias do Fundo de Participacao dos Municipios.
-
   - id_semantico: REV_TRANSF_ICMS
     grupo_semantico: transferencias_constitucionais
     bloco: receitas
+    nivel_semantico: conta_especifica
+    finalidade: indicador
     prioridade: 100
     confianca: alta
     descricao_contem_algum: ["cota-parte do icms", "cota parte do icms"]
     interpretacao: Cota-parte municipal do ICMS.
-
   - id_semantico: REV_TRANSF_IPVA
     grupo_semantico: transferencias_constitucionais
     bloco: receitas
+    nivel_semantico: conta_especifica
+    finalidade: indicador
     prioridade: 100
     confianca: alta
     descricao_contem_algum: ["cota-parte do ipva", "cota parte do ipva"]
     interpretacao: Cota-parte municipal do IPVA.
 
+  - id_semantico: DESP_CORRENTES_TOTAL
+    grupo_semantico: despesa_categoria
+    bloco: despesas
+    nivel_semantico: categoria
+    finalidade: totalizacao
+    prioridade: 200
+    confianca: alta
+    codigo_regex: '^3(?:\.0+)*$'
+    interpretacao: Total da categoria economica Despesas Correntes.
+  - id_semantico: DESP_CAPITAL_TOTAL
+    grupo_semantico: despesa_categoria
+    bloco: despesas
+    nivel_semantico: categoria
+    finalidade: totalizacao
+    prioridade: 200
+    confianca: alta
+    codigo_regex: '^4(?:\.0+)*$'
+    interpretacao: Total da categoria economica Despesas de Capital.
   - id_semantico: DESP_PESSOAL_PROXY
     grupo_semantico: despesa_natureza
     bloco: despesas
+    nivel_semantico: grupo
+    finalidade: composicao
     prioridade: 100
     confianca: alta
     codigo_regex: '^3\.1(?:\.|$)'
     interpretacao: Grupo 3.1, proxy contabil de pessoal e encargos; nao equivale a DTP-LRF.
-
   - id_semantico: DESP_JUROS_ENCARGOS
     grupo_semantico: despesa_natureza
     bloco: despesas
+    nivel_semantico: grupo
+    finalidade: composicao
     prioridade: 100
     confianca: alta
     codigo_regex: '^3\.2(?:\.|$)'
     interpretacao: Juros e encargos da divida.
-
   - id_semantico: DESP_OUTRAS_CORRENTES
     grupo_semantico: despesa_natureza
     bloco: despesas
+    nivel_semantico: grupo
+    finalidade: composicao
     prioridade: 100
     confianca: alta
     codigo_regex: '^3\.3(?:\.|$)'
     interpretacao: Outras despesas correntes.
-
   - id_semantico: DESP_INVESTIMENTOS
     grupo_semantico: despesa_natureza
     bloco: despesas
+    nivel_semantico: grupo
+    finalidade: composicao
     prioridade: 100
     confianca: alta
     codigo_regex: '^4\.4(?:\.|$)'
     interpretacao: Grupo 4.4, investimentos.
-
   - id_semantico: DESP_INVERSOES_FINANCEIRAS
     grupo_semantico: despesa_natureza
     bloco: despesas
+    nivel_semantico: grupo
+    finalidade: composicao
     prioridade: 100
     confianca: alta
     codigo_regex: '^4\.5(?:\.|$)'
     interpretacao: Grupo 4.5, inversoes financeiras.
-
   - id_semantico: DESP_AMORTIZACAO_DIVIDA
     grupo_semantico: despesa_natureza
     bloco: despesas
+    nivel_semantico: grupo
+    finalidade: composicao
     prioridade: 100
     confianca: alta
     codigo_regex: '^4\.6(?:\.|$)'
     interpretacao: Grupo 4.6, amortizacao da divida.
 
-  - id_semantico: FUNCAO_URBANISMO
-    grupo_semantico: despesa_funcional
-    bloco: despesa_por_funcao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^15(?:\.|$)'
-    interpretacao: Despesas classificadas na funcao Urbanismo.
-
-  - id_semantico: FUNCAO_HABITACAO
-    grupo_semantico: despesa_funcional
-    bloco: despesa_por_funcao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^16(?:\.|$)'
-    interpretacao: Despesas classificadas na funcao Habitacao.
-
-  - id_semantico: FUNCAO_SANEAMENTO
-    grupo_semantico: despesa_funcional
-    bloco: despesa_por_funcao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^17(?:\.|$)'
-    interpretacao: Despesas classificadas na funcao Saneamento.
-
-  - id_semantico: FUNCAO_GESTAO_AMBIENTAL
-    grupo_semantico: despesa_funcional
-    bloco: despesa_por_funcao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^18(?:\.|$)'
-    interpretacao: Despesas classificadas na funcao Gestao Ambiental.
-
-  - id_semantico: FUNCAO_TRANSPORTE
-    grupo_semantico: despesa_funcional
-    bloco: despesa_por_funcao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^26(?:\.|$)'
-    interpretacao: Despesas classificadas na funcao Transporte.
+  - {id_semantico: FUNCAO_LEGISLATIVA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^01(?:\.|$)', interpretacao: Funcao Legislativa.}
+  - {id_semantico: FUNCAO_JUDICIARIA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^02(?:\.|$)', interpretacao: Funcao Judiciaria.}
+  - {id_semantico: FUNCAO_ESSENCIAL_JUSTICA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^03(?:\.|$)', interpretacao: Funcao Essencial a Justica.}
+  - {id_semantico: FUNCAO_ADMINISTRACAO, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^04(?:\.|$)', interpretacao: Funcao Administracao.}
+  - {id_semantico: FUNCAO_DEFESA_NACIONAL, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^05(?:\.|$)', interpretacao: Funcao Defesa Nacional.}
+  - {id_semantico: FUNCAO_SEGURANCA_PUBLICA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^06(?:\.|$)', interpretacao: Funcao Seguranca Publica.}
+  - {id_semantico: FUNCAO_RELACOES_EXTERIORES, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^07(?:\.|$)', interpretacao: Funcao Relacoes Exteriores.}
+  - {id_semantico: FUNCAO_ASSISTENCIA_SOCIAL, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^08(?:\.|$)', interpretacao: Funcao Assistencia Social.}
+  - {id_semantico: FUNCAO_PREVIDENCIA_SOCIAL, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^09(?:\.|$)', interpretacao: Funcao Previdencia Social.}
+  - {id_semantico: FUNCAO_SAUDE, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^10(?:\.|$)', interpretacao: Funcao Saude.}
+  - {id_semantico: FUNCAO_TRABALHO, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^11(?:\.|$)', interpretacao: Funcao Trabalho.}
+  - {id_semantico: FUNCAO_EDUCACAO, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^12(?:\.|$)', interpretacao: Funcao Educacao.}
+  - {id_semantico: FUNCAO_CULTURA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^13(?:\.|$)', interpretacao: Funcao Cultura.}
+  - {id_semantico: FUNCAO_DIREITOS_CIDADANIA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^14(?:\.|$)', interpretacao: Funcao Direitos da Cidadania.}
+  - {id_semantico: FUNCAO_URBANISMO, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^15(?:\.|$)', interpretacao: Funcao Urbanismo.}
+  - {id_semantico: FUNCAO_HABITACAO, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^16(?:\.|$)', interpretacao: Funcao Habitacao.}
+  - {id_semantico: FUNCAO_SANEAMENTO, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^17(?:\.|$)', interpretacao: Funcao Saneamento.}
+  - {id_semantico: FUNCAO_GESTAO_AMBIENTAL, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^18(?:\.|$)', interpretacao: Funcao Gestao Ambiental.}
+  - {id_semantico: FUNCAO_CIENCIA_TECNOLOGIA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^19(?:\.|$)', interpretacao: Funcao Ciencia e Tecnologia.}
+  - {id_semantico: FUNCAO_AGRICULTURA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^20(?:\.|$)', interpretacao: Funcao Agricultura.}
+  - {id_semantico: FUNCAO_ORGANIZACAO_AGRARIA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^21(?:\.|$)', interpretacao: Funcao Organizacao Agraria.}
+  - {id_semantico: FUNCAO_INDUSTRIA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^22(?:\.|$)', interpretacao: Funcao Industria.}
+  - {id_semantico: FUNCAO_COMERCIO_SERVICOS, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^23(?:\.|$)', interpretacao: Funcao Comercio e Servicos.}
+  - {id_semantico: FUNCAO_COMUNICACOES, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^24(?:\.|$)', interpretacao: Funcao Comunicacoes.}
+  - {id_semantico: FUNCAO_ENERGIA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^25(?:\.|$)', interpretacao: Funcao Energia.}
+  - {id_semantico: FUNCAO_TRANSPORTE, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^26(?:\.|$)', interpretacao: Funcao Transporte.}
+  - {id_semantico: FUNCAO_DESPORTO_LAZER, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^27(?:\.|$)', interpretacao: Funcao Desporto e Lazer.}
+  - {id_semantico: FUNCAO_ENCARGOS_ESPECIAIS, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^28(?:\.|$)', interpretacao: Funcao Encargos Especiais.}

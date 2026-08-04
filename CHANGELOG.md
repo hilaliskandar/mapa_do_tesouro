@@ -6,6 +6,19 @@
 - `x.x.1`: ajustes, aperfeicoamentos e correcoes dentro de uma etapa.
 - `x.x.xa`, `x.x.xb`, `x.x.xc`: alternativas experimentais de um mesmo procedimento.
 
+## 0.4.1 - Correcao da hierarquia contabil
+
+- substituicao da regra generica de remocao do ultimo segmento por regras especificas para cada bloco;
+- hierarquia posicional da receita com preenchimento progressivo por zeros e preservacao das larguras historicas;
+- hierarquia da despesa por natureza baseada em prefixos conceituais de categoria, grupo, modalidade, elemento e desdobramento;
+- manutencao da estrutura funcao e funcao-subfuncao no bloco funcional;
+- geracao de nos conceituais quando os niveis intermediarios nao aparecem como registros declarados;
+- separacao entre codigos observados e nos conceituais gerados;
+- criacao dos campos `origem_no`, `codigo_observado`, `regra_hierarquia` e `utilizavel_em_agregacao`;
+- substituicao dos totais acumulados ambiguos por `soma_nominal_registros_observados` e `soma_absoluta_para_auditoria`;
+- ampliacao do manifesto e da interface com quantidades de codigos observados e nos conceituais;
+- ampliacao dos testes para IPTU, despesa por natureza e classificacao funcional.
+
 ## 0.4.0 - Hierarquia e catalogo contabil
 
 - encerramento da fase inicial de preparacao e qualificacao dos dados;

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mapa-do-tesouro"
-version = "0.2.0"
+version = "0.2.1"
 description = "Aplicacao auditavel para processamento, analise e cartografia de financas municipais."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -20,6 +20,7 @@ dependencies = [
   "jinja2>=3.1",
   "weasyprint>=62",
   "pyarrow>=17",
+  "requests>=2.32",
 ]
 
 [project.optional-dependencies]

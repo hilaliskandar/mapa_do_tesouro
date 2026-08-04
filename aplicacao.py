@@ -17,7 +17,7 @@ from relatorios.gerar_relatorio_validacao import (
 )
 
 
-VERSAO_SISTEMA = "0.3.0"
+VERSAO_SISTEMA = "0.3.1"
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 

@@ -1,6 +1,6 @@
 sistema:
   nome: mapa_do_tesouro
-  versao: 0.3.2
+  versao: 0.3.3
   idioma_interno: pt_br_sem_acentos
 
 processamento:
@@ -36,21 +36,18 @@ normalizacao:
   reprovar_inconsistencia_populacional: true
   separar_populacao_das_contas: true
   arquivo_dimensao_municipio_ano: dimensao_municipio_ano.parquet
-  identificadores_padrao:
-    - uf
-    - codigo_ibge
-    - municipio
-    - ano
-    - populacao
-  abas_em_formato_longo:
-    - Receitas
-    - Despesas
-    - Despesa por função
-  abas_auxiliares_preservadas:
-    - Leia-me
-    - Cobertura
-    - Dicionário
-    - Fontes
+
+qualificacao_codigos:
+  executar_apos_normalizacao: true
+  classificar_tipo_registro: true
+  justificar_totais_sem_codigo: true
+  tratar_funcao_subfuncao: true
+  gerar_fila_revisao: true
+  formatos_fila_revisao:
+    - parquet
+    - xlsx
+  ordenar_por_valor_absoluto: true
+  pasta_saida: 03_classificacao_contabil
 
 cartografia:
   provedor: geojson_remoto

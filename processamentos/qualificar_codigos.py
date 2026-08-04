@@ -45,6 +45,9 @@ PADRAO_CODIGO_RECEITA = re.compile(
 PADRAO_CODIGO_DESPESA = re.compile(
     r"^\s*([1-9](?:\.\d{1,2}){1,5})\s*(?:[-–:]\s*)?(.+)?$"
 )
+PADRAO_CODIGO_FUNCAO = re.compile(
+    r"^\s*(\d{2}\.\d{3})\s*(?:[-–:]\s*)?(.+)?$"
+)
 PADRAO_FUNCAO_SUBFUNCAO = re.compile(r"(?<!\d)(\d{2})\.(\d{3})(?!\d)")
 PADRAO_FUNCAO_FU = re.compile(r"\bFU\s*0?(\d{1,2})\b", flags=re.IGNORECASE)
 PADRAO_FUNCAO_ISOLADA = re.compile(r"^\s*0?(\d{1,2})\s*(?:[-–:]\s*)?(.+)?$")
@@ -101,26 +104,25 @@ def _codigo_ausente(valor: object) -> bool:
 
 
 def _extrair_codigo_do_texto(texto: object, bloco: str) -> tuple[str | None, str | None]:
-    """Extrai codigo no inicio do texto ou apos um prefixo de estagio separado por barra."""
     if pd.isna(texto):
         return None, None
-
     valor = str(texto).strip()
-    padrao = PADRAO_CODIGO_RECEITA if bloco == "receitas" else PADRAO_CODIGO_DESPESA
+    if "|" in valor:
+        valor = valor.split("|", maxsplit=1)[1].strip()
 
-    # Cabecalhos da matriz costumam ter o formato
-    # "Estagio contabil | codigo descricao". A parte mais a direita deve ser
-    # testada primeiro, sem impedir a leitura de descricoes simples.
-    candidatos = [parte.strip() for parte in valor.split("|") if parte.strip()]
-    for candidato in reversed(candidatos):
-        correspondencia = padrao.match(candidato)
-        if not correspondencia:
-            continue
-        codigo = correspondencia.group(1)
-        descricao = correspondencia.group(2)
-        return codigo, descricao.strip() if descricao else None
+    if bloco == "receitas":
+        padrao = PADRAO_CODIGO_RECEITA
+    elif bloco == "despesa_por_funcao":
+        padrao = PADRAO_CODIGO_FUNCAO
+    else:
+        padrao = PADRAO_CODIGO_DESPESA
 
-    return None, None
+    correspondencia = padrao.match(valor)
+    if not correspondencia:
+        return None, None
+    codigo = correspondencia.group(1)
+    descricao = correspondencia.group(2)
+    return codigo, descricao.strip() if descricao else None
 
 
 def _preencher_codigo_conta(resultado: pd.DataFrame, bloco: str) -> pd.DataFrame:
@@ -167,9 +169,7 @@ def _extrair_funcao_subfuncao(linha: pd.Series) -> tuple[str | None, str | None]
     correspondencia_fu = PADRAO_FUNCAO_FU.search(texto)
     if correspondencia_fu:
         return correspondencia_fu.group(1).zfill(2), None
-    correspondencia_funcao = PADRAO_FUNCAO_ISOLADA.match(
-        codigo or str(linha.get("descricao_conta", ""))
-    )
+    correspondencia_funcao = PADRAO_FUNCAO_ISOLADA.match(codigo or str(linha.get("descricao_conta", "")))
     if correspondencia_funcao:
         return correspondencia_funcao.group(1).zfill(2), None
     return None, None
@@ -320,9 +320,7 @@ def qualificar_codigos(pasta_normalizacao: Path, pasta_saida: Path) -> Resultado
                 registros_sem_codigo_justificado=int(justificados.sum()),
                 registros_pendentes=int(qualificado["pendencia_revisao"].sum()),
                 cabecalhos_pendentes=int(
-                    qualificado.loc[
-                        qualificado["pendencia_revisao"], "rotulo_conta_original"
-                    ].nunique()
+                    qualificado.loc[qualificado["pendencia_revisao"], "rotulo_conta_original"].nunique()
                 ),
                 registros_com_funcao=int(funcoes.size),
                 registros_com_subfuncao=int(subfuncoes.size),

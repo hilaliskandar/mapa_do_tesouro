@@ -6,18 +6,22 @@ import streamlit as st
 
 from nucleo.gerenciador_execucao import GerenciadorExecucao
 from processamentos.normalizar_finbra import normalizar_arquivo_finbra
+from processamentos.qualificar_codigos import qualificar_codigos
 from processamentos.validar_finbra import validar_arquivo_finbra
 from relatorios.gerar_relatorio_normalizacao import (
     gerar_relatorio_html as gerar_relatorio_normalizacao_html,
     gerar_relatorio_json as gerar_relatorio_normalizacao_json,
+)
+from relatorios.gerar_relatorio_qualificacao import (
+    gerar_relatorio_html as gerar_relatorio_qualificacao_html,
+    gerar_relatorio_json as gerar_relatorio_qualificacao_json,
 )
 from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_html as gerar_relatorio_validacao_html,
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-
-VERSAO_SISTEMA = "0.3.2"
+VERSAO_SISTEMA = "0.3.3"
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 st.title("Mapa do Tesouro")
@@ -38,6 +42,11 @@ executar_normalizacao = st.checkbox(
     "Normalizar a base apos a validacao",
     value=True,
     help="Converte as abas contabeis para formato longo, aplica o dicionario e cria a dimensao municipio-ano.",
+)
+executar_qualificacao = st.checkbox(
+    "Qualificar codigos e gerar fila de revisao",
+    value=True,
+    help="Classifica totais e contas, trata funcao e subfuncao e gera planilha das pendencias.",
 )
 
 if st.button("Criar execucao e processar", type="primary"):
@@ -98,6 +107,7 @@ if st.button("Criar execucao e processar", type="primary"):
             colunas[5].metric("Alertas relevantes", resultado_validacao.alertas_relevantes)
             st.write(f"**Status da validacao:** {resultado_validacao.status}")
 
+            resultado_normalizacao = None
             if executar_normalizacao and resultado_validacao.status != "reprovado":
                 with st.spinner(
                     "Normalizando as abas, conciliando o dicionario e validando a populacao..."
@@ -155,24 +165,74 @@ if st.button("Criar execucao e processar", type="primary"):
                     "Populacao divergente", f"{resultado_normalizacao.inconsistencias_populacao:,}"
                 )
                 metricas[5].metric("Status", resultado_normalizacao.status)
+
+            if (
+                executar_qualificacao
+                and resultado_normalizacao is not None
+                and resultado_normalizacao.status != "reprovado"
+            ):
+                with st.spinner(
+                    "Qualificando codigos, totais, funcoes e preparando a fila de revisao..."
+                ):
+                    pasta_qualificacao = diretorio_execucao / "03_classificacao_contabil"
+                    resultado_qualificacao = qualificar_codigos(
+                        diretorio_execucao / "02_normalizacao", pasta_qualificacao
+                    )
+                    caminho_qualificacao_json = gerar_relatorio_qualificacao_json(
+                        resultado_qualificacao,
+                        pasta_qualificacao / "resultado_qualificacao.json",
+                    )
+                    caminho_qualificacao_html = gerar_relatorio_qualificacao_html(
+                        resultado_qualificacao,
+                        pasta_qualificacao / "relatorio_qualificacao.html",
+                    )
+                    gerenciador.atualizar_manifesto(
+                        diretorio_execucao,
+                        {
+                            "qualificacao_codigos": {
+                                "status": resultado_qualificacao.status,
+                                "registros": resultado_qualificacao.total_registros,
+                                "registros_pendentes": resultado_qualificacao.total_registros_pendentes,
+                                "cabecalhos_pendentes": resultado_qualificacao.total_cabecalhos_pendentes,
+                                "pendencias_parquet": resultado_qualificacao.arquivo_pendencias_parquet,
+                                "pendencias_xlsx": resultado_qualificacao.arquivo_pendencias_xlsx,
+                                "resultado_json": str(caminho_qualificacao_json),
+                                "relatorio_html": str(caminho_qualificacao_html),
+                            }
+                        },
+                    )
+
+                st.success("Qualificacao concluida.")
+                metricas_qualificacao = st.columns(4)
+                metricas_qualificacao[0].metric(
+                    "Registros qualificados", f"{resultado_qualificacao.total_registros:,}"
+                )
+                metricas_qualificacao[1].metric(
+                    "Registros pendentes", f"{resultado_qualificacao.total_registros_pendentes:,}"
+                )
+                metricas_qualificacao[2].metric(
+                    "Cabecalhos pendentes", f"{resultado_qualificacao.total_cabecalhos_pendentes:,}"
+                )
+                metricas_qualificacao[3].metric("Status", resultado_qualificacao.status)
                 st.dataframe(
                     [
                         {
-                            "aba": aba.aba_origem,
-                            "tipo": aba.tipo,
-                            "contas": aba.colunas_valores,
-                            "preenchidos_origem": aba.valores_preenchidos_origem,
-                            "registros_contabeis": aba.registros_contabeis_preservados,
-                            "cabecalhos_no_dicionario": aba.cabecalhos_correspondidos_dicionario,
-                            "sem_dicionario": aba.cabecalhos_sem_dicionario,
-                            "sem_codigo": aba.registros_sem_codigo_conta,
-                            "sem_estagio": aba.registros_sem_estagio,
-                            "duplicidades": aba.duplicidades_observacao,
-                            "alertas": len(aba.alertas),
+                            "bloco": bloco.bloco,
+                            "registros": bloco.registros,
+                            "cabecalhos": bloco.cabecalhos_distintos,
+                            "com_codigo": bloco.registros_com_codigo,
+                            "ausencia_justificada": bloco.registros_sem_codigo_justificado,
+                            "registros_pendentes": bloco.registros_pendentes,
+                            "cabecalhos_pendentes": bloco.cabecalhos_pendentes,
+                            "funcoes": bloco.funcoes_identificadas,
+                            "subfuncoes": bloco.subfuncoes_identificadas,
                         }
-                        for aba in resultado_normalizacao.abas
+                        for bloco in resultado_qualificacao.blocos
                     ],
                     use_container_width=True,
+                )
+                st.write(
+                    f"**Planilha de revisao:** `{resultado_qualificacao.arquivo_pendencias_xlsx}`"
                 )
 
             st.write(f"**Diretorio:** `{contexto.diretorio}`")
@@ -181,6 +241,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: populacao separada das contas, dicionario como fonte primaria, "
-    "reconciliacao quantitativa e controles semanticos da normalizacao."
+    f"Versao {VERSAO_SISTEMA}: normalizacao semantica, classificacao de totais, tratamento "
+    "de funcao e subfuncao e fila auditavel de revisao de codigos."
 )

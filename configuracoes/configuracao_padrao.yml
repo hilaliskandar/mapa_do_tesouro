@@ -1,6 +1,6 @@
 sistema:
   nome: mapa_do_tesouro
-  versao: 0.2.0
+  versao: 0.2.1
   idioma_interno: pt_br_sem_acentos
 
 processamento:
@@ -8,9 +8,19 @@ processamento:
   registrar_hashes: true
   interromper_em_alerta_critico: true
   formato_intermediario: parquet
-  validar_todas_as_abas: true
-  gerar_relatorio_validacao_json: true
-  gerar_relatorio_validacao_html: true
+
+validacao:
+  abas_dados:
+    - Cobertura
+    - Receitas
+    - Despesas
+    - Despesa por função
+  abas_auxiliares:
+    - Leia-me
+    - Dicionário
+    - Fontes
+  extrair_anos_somente_de_coluna_explicita: true
+  normalizar_acentos_em_cabecalhos: true
 
 cartografia:
   provedor: geojson_remoto

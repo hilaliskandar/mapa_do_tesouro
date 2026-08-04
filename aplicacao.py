@@ -22,7 +22,7 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.4.0"
+VERSAO_SISTEMA = "0.4.1"
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 st.title("Mapa do Tesouro")
@@ -45,8 +45,8 @@ executar_hierarquia = st.checkbox(
     "Construir hierarquia e catalogo contabil",
     value=True,
     help=(
-        "Gera o catalogo mestre de codigos, relacoes pai-filho, niveis hierarquicos, "
-        "ocorrencias temporais e classificacao calculada entre contas sinteticas e terminais."
+        "Aplica regras especificas para receita, despesa por natureza e classificacao "
+        "funcional, gerando tambem nos conceituais ausentes da declaracao."
     ),
 )
 
@@ -166,7 +166,7 @@ if st.button("Criar execucao e processar", type="primary"):
                 metricas[3].metric("Status", resultado_qualificacao.status)
 
             if executar_hierarquia and resultado_qualificacao is not None:
-                with st.spinner("Construindo catalogo e relacoes hierarquicas..."):
+                with st.spinner("Construindo hierarquias especificas por bloco..."):
                     pasta_hierarquia = diretorio_execucao / "04_hierarquia_contabil"
                     resultado_hierarquia = construir_hierarquia_contabil(
                         diretorio_execucao / "03_classificacao_contabil", pasta_hierarquia
@@ -177,6 +177,8 @@ if st.button("Criar execucao e processar", type="primary"):
                             "hierarquia_contabil": {
                                 "status": resultado_hierarquia.status,
                                 "codigos_distintos": resultado_hierarquia.total_codigos_distintos,
+                                "codigos_observados": resultado_hierarquia.total_codigos_observados,
+                                "nos_conceituais_gerados": resultado_hierarquia.total_nos_conceituais_gerados,
                                 "relacoes_pai_filho": resultado_hierarquia.total_relacoes_pai_filho,
                                 "catalogo_parquet": resultado_hierarquia.arquivo_catalogo_parquet,
                                 "catalogo_xlsx": resultado_hierarquia.arquivo_catalogo_xlsx,
@@ -186,22 +188,30 @@ if st.button("Criar execucao e processar", type="primary"):
                         },
                     )
                 st.success("Hierarquia contabil concluida.")
-                metricas_hierarquia = st.columns(3)
+                metricas_hierarquia = st.columns(5)
                 metricas_hierarquia[0].metric(
-                    "Codigos distintos", f"{resultado_hierarquia.total_codigos_distintos:,}"
+                    "Nos totais", f"{resultado_hierarquia.total_codigos_distintos:,}"
                 )
                 metricas_hierarquia[1].metric(
+                    "Codigos observados", f"{resultado_hierarquia.total_codigos_observados:,}"
+                )
+                metricas_hierarquia[2].metric(
+                    "Nos conceituais", f"{resultado_hierarquia.total_nos_conceituais_gerados:,}"
+                )
+                metricas_hierarquia[3].metric(
                     "Relacoes pai-filho", f"{resultado_hierarquia.total_relacoes_pai_filho:,}"
                 )
-                metricas_hierarquia[2].metric("Status", resultado_hierarquia.status)
+                metricas_hierarquia[4].metric("Status", resultado_hierarquia.status)
                 st.dataframe(
                     [
                         {
                             "bloco": item.bloco,
-                            "codigos": item.codigos_distintos,
+                            "observados": item.codigos_observados,
+                            "nos_conceituais": item.nos_conceituais_gerados,
+                            "nos_totais": item.codigos_distintos,
                             "terminais": item.contas_terminais,
                             "sinteticas": item.contas_sinteticas,
-                            "sem_pai_no_catalogo": item.codigos_sem_pai_identificado,
+                            "sem_pai": item.codigos_sem_pai_identificado,
                             "maior_nivel": item.maior_nivel,
                         }
                         for item in resultado_hierarquia.blocos
@@ -216,6 +226,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: preparacao auditavel dos dados e construcao inicial "
-    "da hierarquia e do catalogo contabil."
+    f"Versao {VERSAO_SISTEMA}: hierarquia especifica para receita, despesa por natureza "
+    "e classificacao funcional, com nos conceituais e auditoria."
 )

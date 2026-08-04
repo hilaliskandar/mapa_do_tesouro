@@ -1,0 +1,161 @@
+versao: 1
+nome: mapa_semantico_inicial
+observacao: >-
+  Catalogo inicial de conceitos atomicos para testar o motor de correspondencia.
+  As regras nao substituem os ementarios anuais e devem ser ampliadas e validadas
+  antes do calculo de agregados definitivos.
+regras:
+  - id_semantico: REV_TRIB_IPTU_PRINCIPAL
+    grupo_semantico: receita_tributaria
+    bloco: receitas
+    prioridade: 100
+    confianca: alta
+    descricao_contem_algum: ["iptu", "propriedade predial e territorial urbana"]
+    descricao_nao_contem: ["multa", "juros", "divida ativa"]
+    interpretacao: Arrecadacao principal do IPTU.
+
+  - id_semantico: REV_TRIB_ISS_PRINCIPAL
+    grupo_semantico: receita_tributaria
+    bloco: receitas
+    prioridade: 100
+    confianca: alta
+    descricao_contem_algum: ["imposto sobre servicos", "issqn", "iss"]
+    descricao_nao_contem: ["multa", "juros", "divida ativa"]
+    interpretacao: Arrecadacao principal do imposto sobre servicos.
+
+  - id_semantico: REV_TRIB_ITBI_PRINCIPAL
+    grupo_semantico: receita_tributaria
+    bloco: receitas
+    prioridade: 100
+    confianca: alta
+    descricao_contem_algum: ["itbi", "transmissao inter vivos"]
+    descricao_nao_contem: ["multa", "juros", "divida ativa"]
+    interpretacao: Arrecadacao principal do ITBI e sinal aproximado da atividade imobiliaria.
+
+  - id_semantico: REV_TRIB_TAXAS
+    grupo_semantico: receita_tributaria
+    bloco: receitas
+    prioridade: 80
+    confianca: media
+    descricao_contem_algum: ["taxas", "taxa pelo exercicio", "taxa pela prestacao"]
+    interpretacao: Receitas de taxas municipais, sujeitas a revisao dos desdobramentos.
+
+  - id_semantico: REV_TRIB_CONTRIBUICAO_MELHORIA
+    grupo_semantico: receita_tributaria
+    bloco: receitas
+    prioridade: 100
+    confianca: alta
+    descricao_contem_algum: ["contribuicao de melhoria"]
+    interpretacao: Receita de contribuicao de melhoria.
+
+  - id_semantico: REV_TRANSF_FPM
+    grupo_semantico: transferencias_constitucionais
+    bloco: receitas
+    prioridade: 100
+    confianca: alta
+    descricao_contem_algum: ["fundo de participacao dos municipios", "fpm"]
+    interpretacao: Transferencias do Fundo de Participacao dos Municipios.
+
+  - id_semantico: REV_TRANSF_ICMS
+    grupo_semantico: transferencias_constitucionais
+    bloco: receitas
+    prioridade: 100
+    confianca: alta
+    descricao_contem_algum: ["cota-parte do icms", "cota parte do icms"]
+    interpretacao: Cota-parte municipal do ICMS.
+
+  - id_semantico: REV_TRANSF_IPVA
+    grupo_semantico: transferencias_constitucionais
+    bloco: receitas
+    prioridade: 100
+    confianca: alta
+    descricao_contem_algum: ["cota-parte do ipva", "cota parte do ipva"]
+    interpretacao: Cota-parte municipal do IPVA.
+
+  - id_semantico: DESP_PESSOAL_PROXY
+    grupo_semantico: despesa_natureza
+    bloco: despesas
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^3\.1(?:\.|$)'
+    interpretacao: Grupo 3.1, proxy contabil de pessoal e encargos; nao equivale a DTP-LRF.
+
+  - id_semantico: DESP_JUROS_ENCARGOS
+    grupo_semantico: despesa_natureza
+    bloco: despesas
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^3\.2(?:\.|$)'
+    interpretacao: Juros e encargos da divida.
+
+  - id_semantico: DESP_OUTRAS_CORRENTES
+    grupo_semantico: despesa_natureza
+    bloco: despesas
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^3\.3(?:\.|$)'
+    interpretacao: Outras despesas correntes.
+
+  - id_semantico: DESP_INVESTIMENTOS
+    grupo_semantico: despesa_natureza
+    bloco: despesas
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^4\.4(?:\.|$)'
+    interpretacao: Grupo 4.4, investimentos.
+
+  - id_semantico: DESP_INVERSOES_FINANCEIRAS
+    grupo_semantico: despesa_natureza
+    bloco: despesas
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^4\.5(?:\.|$)'
+    interpretacao: Grupo 4.5, inversoes financeiras.
+
+  - id_semantico: DESP_AMORTIZACAO_DIVIDA
+    grupo_semantico: despesa_natureza
+    bloco: despesas
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^4\.6(?:\.|$)'
+    interpretacao: Grupo 4.6, amortizacao da divida.
+
+  - id_semantico: FUNCAO_URBANISMO
+    grupo_semantico: despesa_funcional
+    bloco: despesa_por_funcao
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^15(?:\.|$)'
+    interpretacao: Despesas classificadas na funcao Urbanismo.
+
+  - id_semantico: FUNCAO_HABITACAO
+    grupo_semantico: despesa_funcional
+    bloco: despesa_por_funcao
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^16(?:\.|$)'
+    interpretacao: Despesas classificadas na funcao Habitacao.
+
+  - id_semantico: FUNCAO_SANEAMENTO
+    grupo_semantico: despesa_funcional
+    bloco: despesa_por_funcao
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^17(?:\.|$)'
+    interpretacao: Despesas classificadas na funcao Saneamento.
+
+  - id_semantico: FUNCAO_GESTAO_AMBIENTAL
+    grupo_semantico: despesa_funcional
+    bloco: despesa_por_funcao
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^18(?:\.|$)'
+    interpretacao: Despesas classificadas na funcao Gestao Ambiental.
+
+  - id_semantico: FUNCAO_TRANSPORTE
+    grupo_semantico: despesa_funcional
+    bloco: despesa_por_funcao
+    prioridade: 100
+    confianca: alta
+    codigo_regex: '^26(?:\.|$)'
+    interpretacao: Despesas classificadas na funcao Transporte.

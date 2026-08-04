@@ -11,24 +11,51 @@ Aplicacao para processamento, auditoria, analise e visualizacao territorial de d
 - permitir substituicao simples da fonte cartografica;
 - manter nomes de pastas, scripts, funcoes e variaveis em portugues brasileiro sem acentos.
 
-## Arquitetura inicial
-
-```text
-mapa_do_tesouro/
-├── aplicacao.py
-├── configuracoes/
-├── dados/
-├── interface/
-├── nucleo/
-├── processamentos/
-├── relatorios/
-├── testes/
-└── execucoes/
-```
-
 ## Fluxo previsto
 
 entrada -> validacao -> normalizacao -> classificacao -> agregacoes -> deflacao -> indicadores -> cartografia -> relatorios -> auditoria
+
+## Versao 0.2.0
+
+A aplicacao ja executa a primeira etapa funcional do processamento:
+
+1. recebe o arquivo FINBRA pela interface;
+2. cria uma execucao auditavel e imutavel;
+3. preserva o arquivo original em `00_entrada`;
+4. calcula o hash SHA-256;
+5. le todas as abas do Excel;
+6. registra dimensoes, campos identificadores, anos e municipios reconhecidos;
+7. detecta abas vazias, colunas duplicadas e colunas sem nome;
+8. classifica alertas criticos e relevantes;
+9. grava o resultado em JSON;
+10. gera relatorio HTML em `01_validacao_estrutural`;
+11. atualiza o `manifest.json` da execucao.
+
+Esta etapa nao altera contas nem valores. A classificacao contabil e os calculos serao incorporados nas etapas seguintes.
+
+## Estrutura de uma execucao
+
+```text
+execucoes/<id_execucao>/
+├── 00_entrada/
+├── 01_validacao_estrutural/
+│   ├── resultado_validacao.json
+│   └── relatorio_validacao.html
+├── 02_normalizacao/
+├── 03_classificacao_contabil/
+├── 04_agregacoes/
+├── 05_deflacao/
+├── 06_per_capita/
+├── 07_indicadores/
+├── 08_series_historicas/
+├── 09_cartografia/
+├── 10_analises_municipais/
+├── 11_analise_regional/
+├── 12_relatorios/
+├── logs/
+├── manifest.json
+└── README.md
+```
 
 ## Cartografia do prototipo
 
@@ -42,58 +69,33 @@ https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-100-mun
 
 **Credito:** base cartografica derivada disponibilizada por **tbrugz/geodata-br**. O arquivo e utilizado no prototipo sob as condicoes e informacoes de licenciamento do repositorio de origem.
 
-A aplicacao nao incorpora essa base diretamente ao repositorio. Na primeira utilizacao, o modulo cartografico:
-
-1. baixa o arquivo da fonte configurada;
-2. valida a estrutura `FeatureCollection`;
-3. grava uma copia em `dados/cartografia/cache/`;
-4. calcula o hash SHA-256;
-5. registra URL, fonte, credito e data do download;
-6. reutiliza o cache nas execucoes seguintes, inclusive sem conexao.
-
-A fonte cartografica e desacoplada dos demais modulos. A futura substituicao por malha oficial do IBGE, GeoPackage, shapefile ou outro provedor exigira apenas nova configuracao e implementacao do respectivo adaptador, sem alterar os calculos fiscais, os indicadores ou os relatorios.
-
-## Configuracao cartografica
-
-A configuracao padrao encontra-se em `configuracoes/configuracao_padrao.yml`:
-
-```yaml
-cartografia:
-  provedor: geojson_remoto
-  url: https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-100-mun.json
-  arquivo_cache: dados/cartografia/cache/geojs-100-mun.json
-  campo_codigo: id
-  campo_nome: name
-  sistema_referencia: EPSG:4326
-  fonte: tbrugz/geodata-br
-  credito: Base cartografica derivada disponibilizada por tbrugz/geodata-br
-  uso: prototipo
-  permitir_substituicao_fonte: true
-```
-
-## Rastreabilidade cartografica
-
-Cada processamento deve registrar:
-
-- provedor e URL utilizados;
-- identificacao e credito da fonte;
-- caminho do arquivo em cache;
-- data e hora da obtencao;
-- hash SHA-256;
-- quantidade de feicoes;
-- campos usados para codigo e nome;
-- codigos municipais encontrados e ausentes;
-- recorte territorial gerado para o estudo.
+A aplicacao nao incorpora essa base diretamente ao repositorio. Na primeira utilizacao, o modulo cartografico baixa, valida, registra a procedencia e grava uma copia em cache local. A fonte podera ser substituida futuramente sem alterar os modulos fiscais.
 
 ## Execucao local
 
-```bash
+Com o ambiente Conda ativo, na raiz do repositorio:
+
+```powershell
 pip install -e .
 streamlit run aplicacao.py
 ```
 
-A base FINBRA deve ser selecionada pela interface. A cartografia padrao sera obtida automaticamente quando ainda nao existir no cache local.
+Para atualizar uma instalacao local:
+
+```powershell
+git pull
+pip install -e .
+streamlit run aplicacao.py
+```
+
+A base FINBRA deve ser selecionada pela interface. A cartografia alternativa e opcional.
+
+## Controle de versoes
+
+- `x.1`: grandes etapas funcionais;
+- `x.x.1`: ajustes, aperfeicoamentos e correcoes;
+- `x.x.xa`, `x.x.xb`: alternativas de procedimento.
 
 ## Estado
 
-Versao `0.1.1`: estrutura inicial com fonte cartografica remota, cache local, validacao basica e registro de procedencia.
+Versao `0.2.0`: ingestao, preservacao da entrada, validacao estrutural, hash, manifesto e relatorios JSON/HTML.

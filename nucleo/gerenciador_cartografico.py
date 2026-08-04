@@ -51,7 +51,7 @@ class GerenciadorCartografico:
         temporario = destino.with_suffix(destino.suffix + ".parcial")
         requisicao = Request(
             self.configuracao.url,
-            headers={"User-Agent": "mapa-do-tesouro/0.1.1"},
+            headers={"User-Agent": "mapa-do-tesouro/0.3.1"},
         )
 
         try:
@@ -119,6 +119,7 @@ class GerenciadorCartografico:
 
     def carregar_malha(self) -> gpd.GeoDataFrame:
         arquivo = self._resolver_arquivo()
+        self._validar_geojson_basico(arquivo)
         malha = gpd.read_file(arquivo)
         campos_obrigatorios = {
             self.configuracao.campo_codigo,

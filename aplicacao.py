@@ -12,7 +12,7 @@ from relatorios.gerar_relatorio_validacao import (
 )
 
 
-VERSAO_SISTEMA = "0.2.0"
+VERSAO_SISTEMA = "0.2.1"
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 
@@ -84,17 +84,20 @@ if st.button("Criar execucao e validar", type="primary"):
                 )
 
             st.success(f"Execucao validada: {contexto.identificador}")
-            colunas = st.columns(4)
+            colunas = st.columns(6)
             colunas[0].metric("Abas", len(resultado.abas))
             colunas[1].metric("Anos reconhecidos", len(resultado.anos_consolidados))
-            colunas[2].metric("Alertas criticos", resultado.alertas_criticos)
-            colunas[3].metric("Alertas relevantes", resultado.alertas_relevantes)
+            colunas[2].metric("Municipios", resultado.total_municipios_estimado or 0)
+            colunas[3].metric("Codigos IBGE", resultado.total_codigos_ibge or 0)
+            colunas[4].metric("Alertas criticos", resultado.alertas_criticos)
+            colunas[5].metric("Alertas relevantes", resultado.alertas_relevantes)
             st.write(f"**Status:** {resultado.status}")
             st.write(f"**Diretorio:** `{contexto.diretorio}`")
             st.dataframe(
                 [
                     {
                         "aba": aba.nome,
+                        "tipo": aba.tipo_aba,
                         "linhas": aba.linhas,
                         "colunas": aba.colunas,
                         "anos": ", ".join(map(str, aba.anos_encontrados)),
@@ -111,6 +114,6 @@ if st.button("Criar execucao e validar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: ingestao, preservacao da entrada, hash, leitura das abas, "
-    "validacao estrutural e relatorios JSON/HTML por execucao."
+    f"Versao {VERSAO_SISTEMA}: validacao distingue abas de dados e auxiliares, reconhece "
+    "cabecalhos com acentos e extrai exercicios apenas de colunas temporais explicitas."
 )

@@ -22,7 +22,7 @@ def _base(bloco: str, codigos: list[str], valores: list[float]) -> pd.DataFrame:
     )
 
 
-def teste_seleciona_pai_conciliado_e_folhas_quando_diverge(tmp_path: Path) -> None:
+def teste_separa_totalizacao_de_decomposicao(tmp_path: Path) -> None:
     qualificacao = tmp_path / "qualificacao"
     hierarquia = tmp_path / "hierarquia"
     saida = tmp_path / "selecao"
@@ -34,16 +34,8 @@ def teste_seleciona_pai_conciliado_e_folhas_quando_diverge(tmp_path: Path) -> No
         ["1.0.0.0.00.0.0", "1.1.0.0.00.0.0", "1.2.0.0.00.0.0"],
         [100.0, 60.0, 40.0],
     )
-    despesas = _base(
-        "despesas",
-        ["3", "3.1", "3.3"],
-        [120.0, 50.0, 60.0],
-    )
-    funcoes = _base(
-        "despesa_por_funcao",
-        ["15", "15.451"],
-        [30.0, 30.0],
-    )
+    despesas = _base("despesas", ["3", "3.1", "3.3"], [120.0, 50.0, 60.0])
+    funcoes = _base("despesa_por_funcao", ["15", "15.451"], [30.0, 30.0])
 
     receitas.to_parquet(qualificacao / "receitas_qualificado.parquet", index=False)
     despesas.to_parquet(qualificacao / "despesas_qualificado.parquet", index=False)
@@ -64,32 +56,29 @@ def teste_seleciona_pai_conciliado_e_folhas_quando_diverge(tmp_path: Path) -> No
     resultado = selecionar_agregacao_hierarquica(qualificacao, hierarquia, saida)
 
     assert resultado.status == "aprovado"
-    assert (saida / "selecao_agregacao_hierarquica.parquet").exists()
-    assert (saida / "selecao_agregacao_hierarquica.xlsx").exists()
-    assert (saida / "resultado_selecao_hierarquica.json").exists()
+    assert (saida / "selecao_totalizacao.parquet").exists()
+    assert (saida / "selecao_decomposicao.parquet").exists()
+    assert (saida / "conciliacao_hierarquica.parquet").exists()
+    assert (saida / "selecao_hierarquica.xlsx").exists()
 
-    selecao = pd.read_parquet(saida / "selecao_agregacao_hierarquica.parquet")
+    totalizacao = pd.read_parquet(saida / "selecao_totalizacao.parquet")
+    decomposicao = pd.read_parquet(saida / "selecao_decomposicao.parquet")
 
-    receita_pai = selecao[
-        (selecao["bloco"] == "receitas")
-        & (selecao["codigo_conta"] == "1.0.0.0.00.0.0")
+    receita_pai = totalizacao[
+        (totalizacao["bloco"] == "receitas")
+        & (totalizacao["codigo_conta"] == "1.0.0.0.00.0.0")
     ].iloc[0]
     assert bool(receita_pai["selecionado_para_agregacao"])
     assert receita_pai["regra_selecao"] == "conta_pai_conciliada"
 
-    receita_filha = selecao[
-        (selecao["bloco"] == "receitas")
-        & (selecao["codigo_conta"] == "1.1.0.0.00.0.0")
-    ].iloc[0]
-    assert not bool(receita_filha["selecionado_para_agregacao"])
+    folhas_receita = decomposicao[
+        (decomposicao["bloco"] == "receitas")
+        & decomposicao["selecionado_para_agregacao"]
+    ]["codigo_conta"].tolist()
+    assert folhas_receita == ["1.1.0.0.00.0.0", "1.2.0.0.00.0.0"]
 
-    despesa_pai = selecao[
-        (selecao["bloco"] == "despesas") & (selecao["codigo_conta"] == "3")
-    ].iloc[0]
-    assert not bool(despesa_pai["selecionado_para_agregacao"])
-    assert despesa_pai["regra_selecao"] == "descendentes_por_divergencia"
-
-    folhas_despesa = selecao[
-        (selecao["bloco"] == "despesas") & selecao["selecionado_para_agregacao"]
+    folhas_despesa = totalizacao[
+        (totalizacao["bloco"] == "despesas")
+        & totalizacao["selecionado_para_agregacao"]
     ]["codigo_conta"].tolist()
     assert folhas_despesa == ["3.1", "3.3"]

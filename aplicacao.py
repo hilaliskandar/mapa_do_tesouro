@@ -21,7 +21,7 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.3.4"
+VERSAO_SISTEMA = "0.3.5"
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 st.title("Mapa do Tesouro")
@@ -47,8 +47,8 @@ executar_qualificacao = st.checkbox(
     "Qualificar codigos e gerar fila de revisao",
     value=True,
     help=(
-        "Extrai codigos com variacoes de formato, classifica totais, operacoes "
-        "intraorcamentarias, deducoes, funcoes e subfuncoes."
+        "Extrai codigos com variacoes de formato, classifica totais, subtotais estruturais, "
+        "operacoes intraorcamentarias, deducoes, funcoes e subfuncoes."
     ),
 )
 
@@ -175,7 +175,7 @@ if st.button("Criar execucao e processar", type="primary"):
                 and resultado_normalizacao.status != "reprovado"
             ):
                 with st.spinner(
-                    "Qualificando codigos, totais, intraorcamentarias, deducoes e funcoes..."
+                    "Qualificando codigos, totais, subtotais estruturais, deducoes e funcoes..."
                 ):
                     pasta_qualificacao = diretorio_execucao / "03_classificacao_contabil"
                     resultado_qualificacao = qualificar_codigos(
@@ -232,6 +232,7 @@ if st.button("Criar execucao e processar", type="primary"):
                             "funcoes_distintas": bloco.funcoes_distintas,
                             "subfuncoes_distintas": bloco.subfuncoes_distintas,
                             "agregados_residuais": bloco.agregados_funcionais_residuais,
+                            "subtotais_estruturais": bloco.subtotais_estruturais,
                             "intraorcamentarios": bloco.registros_intraorcamentarios,
                             "deducoes_receita": bloco.registros_deducao_receita,
                         }
@@ -249,6 +250,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: qualificacao normativa de codigos, totais, operacoes "
+    f"Versao {VERSAO_SISTEMA}: qualificacao de codigos, subtotais estruturais, operacoes "
     "intraorcamentarias, deducoes, funcoes, subfuncoes e fila auditavel de revisao."
 )

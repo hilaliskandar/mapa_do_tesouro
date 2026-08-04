@@ -21,7 +21,7 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.3.3"
+VERSAO_SISTEMA = "0.3.4"
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 st.title("Mapa do Tesouro")
@@ -46,7 +46,10 @@ executar_normalizacao = st.checkbox(
 executar_qualificacao = st.checkbox(
     "Qualificar codigos e gerar fila de revisao",
     value=True,
-    help="Classifica totais e contas, trata funcao e subfuncao e gera planilha das pendencias.",
+    help=(
+        "Extrai codigos com variacoes de formato, classifica totais, operacoes "
+        "intraorcamentarias, deducoes, funcoes e subfuncoes."
+    ),
 )
 
 if st.button("Criar execucao e processar", type="primary"):
@@ -172,7 +175,7 @@ if st.button("Criar execucao e processar", type="primary"):
                 and resultado_normalizacao.status != "reprovado"
             ):
                 with st.spinner(
-                    "Qualificando codigos, totais, funcoes e preparando a fila de revisao..."
+                    "Qualificando codigos, totais, intraorcamentarias, deducoes e funcoes..."
                 ):
                     pasta_qualificacao = diretorio_execucao / "03_classificacao_contabil"
                     resultado_qualificacao = qualificar_codigos(
@@ -224,8 +227,13 @@ if st.button("Criar execucao e processar", type="primary"):
                             "ausencia_justificada": bloco.registros_sem_codigo_justificado,
                             "registros_pendentes": bloco.registros_pendentes,
                             "cabecalhos_pendentes": bloco.cabecalhos_pendentes,
-                            "funcoes": bloco.funcoes_identificadas,
-                            "subfuncoes": bloco.subfuncoes_identificadas,
+                            "registros_com_funcao": bloco.registros_com_funcao,
+                            "registros_com_subfuncao": bloco.registros_com_subfuncao,
+                            "funcoes_distintas": bloco.funcoes_distintas,
+                            "subfuncoes_distintas": bloco.subfuncoes_distintas,
+                            "agregados_residuais": bloco.agregados_funcionais_residuais,
+                            "intraorcamentarios": bloco.registros_intraorcamentarios,
+                            "deducoes_receita": bloco.registros_deducao_receita,
                         }
                         for bloco in resultado_qualificacao.blocos
                     ],
@@ -241,6 +249,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: normalizacao semantica, classificacao de totais, tratamento "
-    "de funcao e subfuncao e fila auditavel de revisao de codigos."
+    f"Versao {VERSAO_SISTEMA}: qualificacao normativa de codigos, totais, operacoes "
+    "intraorcamentarias, deducoes, funcoes, subfuncoes e fila auditavel de revisao."
 )

@@ -8,6 +8,7 @@ from nucleo.gerenciador_execucao import GerenciadorExecucao
 from processamentos.construir_hierarquia_contabil import construir_hierarquia_contabil
 from processamentos.normalizar_finbra import normalizar_arquivo_finbra
 from processamentos.qualificar_codigos import qualificar_codigos
+from processamentos.selecionar_agregacao_hierarquica import selecionar_agregacao_hierarquica
 from processamentos.validar_finbra import validar_arquivo_finbra
 from relatorios.gerar_relatorio_normalizacao import (
     gerar_relatorio_html as gerar_relatorio_normalizacao_html,
@@ -22,7 +23,7 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.4.1"
+VERSAO_SISTEMA = "0.4.2"
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 st.title("Mapa do Tesouro")
@@ -41,12 +42,13 @@ arquivo_cartografia = st.file_uploader(
 )
 executar_normalizacao = st.checkbox("Normalizar a base apos a validacao", value=True)
 executar_qualificacao = st.checkbox("Qualificar codigos e registros estruturais", value=True)
-executar_hierarquia = st.checkbox(
-    "Construir hierarquia e catalogo contabil",
+executar_hierarquia = st.checkbox("Construir hierarquia e catalogo contabil", value=True)
+executar_selecao = st.checkbox(
+    "Selecionar registros para agregacao sem dupla contagem",
     value=True,
     help=(
-        "Aplica regras especificas para receita, despesa por natureza e classificacao "
-        "funcional, gerando tambem nos conceituais ausentes da declaracao."
+        "Avalia cada bloco por municipio, ano, estagio e natureza da operacao. "
+        "Usa conta-pai conciliada ou folhas observadas quando houver divergencia."
     ),
 )
 
@@ -82,16 +84,14 @@ if st.button("Criar execucao e processar", type="primary"):
                 )
                 gerenciador.atualizar_manifesto(
                     diretorio_execucao,
-                    {
-                        "validacao_estrutural": {
-                            "status": resultado_validacao.status,
-                            "hash_finbra": resultado_validacao.hash_sha256,
-                            "alertas_criticos": resultado_validacao.alertas_criticos,
-                            "alertas_relevantes": resultado_validacao.alertas_relevantes,
-                            "resultado_json": str(validacao_json),
-                            "relatorio_html": str(validacao_html),
-                        }
-                    },
+                    {"validacao_estrutural": {
+                        "status": resultado_validacao.status,
+                        "hash_finbra": resultado_validacao.hash_sha256,
+                        "alertas_criticos": resultado_validacao.alertas_criticos,
+                        "alertas_relevantes": resultado_validacao.alertas_relevantes,
+                        "resultado_json": str(validacao_json),
+                        "relatorio_html": str(validacao_html),
+                    }},
                 )
 
             st.success(f"Execucao validada: {contexto.identificador}")
@@ -116,18 +116,16 @@ if st.button("Criar execucao e processar", type="primary"):
                     )
                     gerenciador.atualizar_manifesto(
                         diretorio_execucao,
-                        {
-                            "normalizacao": {
-                                "status": resultado_normalizacao.status,
-                                "registros_contabeis": resultado_normalizacao.total_registros_contabeis,
-                                "cabecalhos_sem_dicionario": resultado_normalizacao.total_cabecalhos_sem_dicionario,
-                                "registros_sem_codigo": resultado_normalizacao.total_registros_sem_codigo_conta,
-                                "duplicidades": resultado_normalizacao.total_duplicidades_observacao,
-                                "inconsistencias_populacao": resultado_normalizacao.inconsistencias_populacao,
-                                "resultado_json": str(normalizacao_json),
-                                "relatorio_html": str(normalizacao_html),
-                            }
-                        },
+                        {"normalizacao": {
+                            "status": resultado_normalizacao.status,
+                            "registros_contabeis": resultado_normalizacao.total_registros_contabeis,
+                            "cabecalhos_sem_dicionario": resultado_normalizacao.total_cabecalhos_sem_dicionario,
+                            "registros_sem_codigo": resultado_normalizacao.total_registros_sem_codigo_conta,
+                            "duplicidades": resultado_normalizacao.total_duplicidades_observacao,
+                            "inconsistencias_populacao": resultado_normalizacao.inconsistencias_populacao,
+                            "resultado_json": str(normalizacao_json),
+                            "relatorio_html": str(normalizacao_html),
+                        }},
                     )
                 st.success("Normalizacao concluida.")
 
@@ -146,25 +144,19 @@ if st.button("Criar execucao e processar", type="primary"):
                     )
                     gerenciador.atualizar_manifesto(
                         diretorio_execucao,
-                        {
-                            "qualificacao_codigos": {
-                                "status": resultado_qualificacao.status,
-                                "registros": resultado_qualificacao.total_registros,
-                                "registros_pendentes": resultado_qualificacao.total_registros_pendentes,
-                                "cabecalhos_pendentes": resultado_qualificacao.total_cabecalhos_pendentes,
-                                "pendencias_xlsx": resultado_qualificacao.arquivo_pendencias_xlsx,
-                                "resultado_json": str(qualificacao_json),
-                                "relatorio_html": str(qualificacao_html),
-                            }
-                        },
+                        {"qualificacao_codigos": {
+                            "status": resultado_qualificacao.status,
+                            "registros": resultado_qualificacao.total_registros,
+                            "registros_pendentes": resultado_qualificacao.total_registros_pendentes,
+                            "cabecalhos_pendentes": resultado_qualificacao.total_cabecalhos_pendentes,
+                            "pendencias_xlsx": resultado_qualificacao.arquivo_pendencias_xlsx,
+                            "resultado_json": str(qualificacao_json),
+                            "relatorio_html": str(qualificacao_html),
+                        }},
                     )
                 st.success("Qualificacao concluida.")
-                metricas = st.columns(4)
-                metricas[0].metric("Registros", f"{resultado_qualificacao.total_registros:,}")
-                metricas[1].metric("Pendentes", f"{resultado_qualificacao.total_registros_pendentes:,}")
-                metricas[2].metric("Cabecalhos pendentes", f"{resultado_qualificacao.total_cabecalhos_pendentes:,}")
-                metricas[3].metric("Status", resultado_qualificacao.status)
 
+            resultado_hierarquia = None
             if executar_hierarquia and resultado_qualificacao is not None:
                 with st.spinner("Construindo hierarquias especificas por bloco..."):
                     pasta_hierarquia = diretorio_execucao / "04_hierarquia_contabil"
@@ -173,52 +165,46 @@ if st.button("Criar execucao e processar", type="primary"):
                     )
                     gerenciador.atualizar_manifesto(
                         diretorio_execucao,
-                        {
-                            "hierarquia_contabil": {
-                                "status": resultado_hierarquia.status,
-                                "codigos_distintos": resultado_hierarquia.total_codigos_distintos,
-                                "codigos_observados": resultado_hierarquia.total_codigos_observados,
-                                "nos_conceituais_gerados": resultado_hierarquia.total_nos_conceituais_gerados,
-                                "relacoes_pai_filho": resultado_hierarquia.total_relacoes_pai_filho,
-                                "catalogo_parquet": resultado_hierarquia.arquivo_catalogo_parquet,
-                                "catalogo_xlsx": resultado_hierarquia.arquivo_catalogo_xlsx,
-                                "relacoes_parquet": resultado_hierarquia.arquivo_relacoes_parquet,
-                                "resultado_json": resultado_hierarquia.arquivo_resultado_json,
-                            }
-                        },
+                        {"hierarquia_contabil": {
+                            "status": resultado_hierarquia.status,
+                            "codigos_distintos": resultado_hierarquia.total_codigos_distintos,
+                            "codigos_observados": resultado_hierarquia.total_codigos_observados,
+                            "nos_conceituais_gerados": resultado_hierarquia.total_nos_conceituais_gerados,
+                            "relacoes_pai_filho": resultado_hierarquia.total_relacoes_pai_filho,
+                            "catalogo_xlsx": resultado_hierarquia.arquivo_catalogo_xlsx,
+                            "resultado_json": resultado_hierarquia.arquivo_resultado_json,
+                        }},
                     )
                 st.success("Hierarquia contabil concluida.")
-                metricas_hierarquia = st.columns(5)
-                metricas_hierarquia[0].metric(
-                    "Nos totais", f"{resultado_hierarquia.total_codigos_distintos:,}"
-                )
-                metricas_hierarquia[1].metric(
-                    "Codigos observados", f"{resultado_hierarquia.total_codigos_observados:,}"
-                )
-                metricas_hierarquia[2].metric(
-                    "Nos conceituais", f"{resultado_hierarquia.total_nos_conceituais_gerados:,}"
-                )
-                metricas_hierarquia[3].metric(
-                    "Relacoes pai-filho", f"{resultado_hierarquia.total_relacoes_pai_filho:,}"
-                )
-                metricas_hierarquia[4].metric("Status", resultado_hierarquia.status)
-                st.dataframe(
-                    [
-                        {
-                            "bloco": item.bloco,
-                            "observados": item.codigos_observados,
-                            "nos_conceituais": item.nos_conceituais_gerados,
-                            "nos_totais": item.codigos_distintos,
-                            "terminais": item.contas_terminais,
-                            "sinteticas": item.contas_sinteticas,
-                            "sem_pai": item.codigos_sem_pai_identificado,
-                            "maior_nivel": item.maior_nivel,
-                        }
-                        for item in resultado_hierarquia.blocos
-                    ],
-                    use_container_width=True,
-                )
-                st.write(f"**Catalogo contabil:** `{resultado_hierarquia.arquivo_catalogo_xlsx}`")
+
+            if executar_selecao and resultado_hierarquia is not None:
+                with st.spinner("Selecionando contas por recorte e conciliando ramos..."):
+                    pasta_selecao = diretorio_execucao / "05_selecao_hierarquica"
+                    resultado_selecao = selecionar_agregacao_hierarquica(
+                        diretorio_execucao / "03_classificacao_contabil",
+                        diretorio_execucao / "04_hierarquia_contabil",
+                        pasta_selecao,
+                    )
+                    gerenciador.atualizar_manifesto(
+                        diretorio_execucao,
+                        {"selecao_hierarquica": {
+                            "status": resultado_selecao.status,
+                            "registros_avaliados": resultado_selecao.total_registros_avaliados,
+                            "registros_selecionados": resultado_selecao.total_registros_selecionados,
+                            "divergencias_conciliacao": resultado_selecao.total_divergencias_conciliacao,
+                            "selecao_parquet": resultado_selecao.arquivo_selecao_parquet,
+                            "selecao_xlsx": resultado_selecao.arquivo_selecao_xlsx,
+                            "resultado_json": resultado_selecao.arquivo_resumo_json,
+                        }},
+                    )
+                st.success("Selecao hierarquica concluida.")
+                metricas = st.columns(4)
+                metricas[0].metric("Registros avaliados", f"{resultado_selecao.total_registros_avaliados:,}")
+                metricas[1].metric("Selecionados", f"{resultado_selecao.total_registros_selecionados:,}")
+                metricas[2].metric("Divergencias", f"{resultado_selecao.total_divergencias_conciliacao:,}")
+                metricas[3].metric("Status", resultado_selecao.status)
+                st.dataframe([asdict(item) for item in resultado_selecao.blocos], use_container_width=True)
+                st.write(f"**Selecao auditavel:** `{resultado_selecao.arquivo_selecao_xlsx}`")
 
             st.write(f"**Diretorio:** `{contexto.diretorio}`")
             st.json(contexto.como_dicionario())
@@ -226,6 +212,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: hierarquia especifica para receita, despesa por natureza "
-    "e classificacao funcional, com nos conceituais e auditoria."
+    f"Versao {VERSAO_SISTEMA}: hierarquia contabil e selecao por municipio, ano, "
+    "estagio e natureza da operacao para prevenir dupla contagem."
 )

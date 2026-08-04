@@ -6,13 +6,24 @@
 - `x.x.1`: ajustes, aperfeicoamentos e correcoes dentro de uma etapa.
 - `x.x.xa`, `x.x.xb`, `x.x.xc`: alternativas experimentais de um mesmo procedimento.
 
-Exemplos:
+## 0.3.2 - Correcao semantica da normalizacao
 
-- `0.1.0`: estrutura inicial do projeto.
-- `0.1.1`: primeira correcao da estrutura inicial.
-- `0.2.0`: ingestao e validacao funcional da base FINBRA.
-- `0.2.1`: aperfeicoamento da validacao.
-- `0.2.1a`: alternativa A para uma regra de validacao.
+- reconhecimento de `População` como variavel contextual, sem conversao em conta financeira;
+- criacao de `dimensao_municipio_ano.parquet`;
+- verificacao de consistencia populacional entre as tres matrizes contabeis;
+- uso da aba `Dicionário` como fonte primaria de estagio, codigo e descricao da conta;
+- regra de contingencia para cabecalhos ausentes do dicionario;
+- separacao correta de cabecalhos no formato `Estagio | codigo - descricao`;
+- reconciliacao entre celulas preenchidas na matriz e registros contabeis longos;
+- controles de cabecalhos sem dicionario, registros sem codigo, registros sem estagio e duplicidades;
+- separacao entre registros contabeis e celulas auxiliares nos relatorios e no manifesto;
+- criterios de aprovacao semantica mais restritivos;
+- ampliacao dos testes automatizados.
+
+## 0.3.1 - Correcao da validacao cartografica
+
+- validacao de `FeatureCollection` antes da leitura pelo GeoPandas;
+- mensagem de erro deterministica para GeoJSON estruturalmente invalido.
 
 ## 0.3.0 - Normalizacao auditavel da base FINBRA
 

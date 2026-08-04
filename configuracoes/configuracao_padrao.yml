@@ -1,6 +1,6 @@
 sistema:
   nome: mapa_do_tesouro
-  versao: 0.2.1
+  versao: 0.3.0
   idioma_interno: pt_br_sem_acentos
 
 processamento:
@@ -21,6 +21,29 @@ validacao:
     - Fontes
   extrair_anos_somente_de_coluna_explicita: true
   normalizar_acentos_em_cabecalhos: true
+
+normalizacao:
+  executar_apos_validacao: true
+  formato_saida: parquet
+  omitir_apenas_valores_ausentes: true
+  preservar_rotulo_conta_original: true
+  preservar_valor_original: true
+  gerar_valor_numerico_separado: true
+  decompor_rotulo_contabil: true
+  identificadores_padrao:
+    - uf
+    - codigo_ibge
+    - municipio
+    - ano
+  abas_em_formato_longo:
+    - Receitas
+    - Despesas
+    - Despesa por função
+  abas_auxiliares_preservadas:
+    - Leia-me
+    - Cobertura
+    - Dicionário
+    - Fontes
 
 cartografia:
   provedor: geojson_remoto

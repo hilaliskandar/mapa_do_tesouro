@@ -6,6 +6,19 @@
 - `x.x.1`: ajustes, aperfeicoamentos e correcoes dentro de uma etapa.
 - `x.x.xa`, `x.x.xb`, `x.x.xc`: alternativas experimentais de um mesmo procedimento.
 
+## 0.3.4 - Qualificacao normativa inicial
+
+- extracao de codigos de receita e despesa com ou sem hifen, travessao ou dois-pontos;
+- reconhecimento de codigos funcionais `NN.NNN` e agregados residuais `FUxx`;
+- classificacao de `Demais Subfuncoes` como agregado funcional residual com ausencia de codigo justificada;
+- identificacao de operacoes intraorcamentarias pelas categorias 7 e 8 da receita, modalidade 91 da despesa e rotulos explicitos;
+- identificacao preliminar de deducoes, restituicoes, retificacoes e registros associados ao Fundeb;
+- ampliacao da taxonomia de totais e subtotais para registros intraorcamentarios e exceto intraorcamentarios;
+- separacao entre registros com funcao, registros com subfuncao, funcoes distintas e subfuncoes distintas;
+- motivos de pendencia mais precisos;
+- ampliacao do relatorio HTML, da interface e da planilha de resumo;
+- testes automatizados para codigos sem separador, modalidade 91, categorias 7 e 8 e agregados `FUxx`.
+
 ## 0.3.3 - Qualificacao de codigos e fila de revisao
 
 - classificacao dos registros como conta terminal, conta sintetica, total ou subtotal, indicador auxiliar ou nao classificado;

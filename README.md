@@ -15,9 +15,9 @@ Aplicacao para processamento, auditoria, analise e visualizacao territorial de d
 
 entrada -> validacao -> normalizacao -> classificacao -> agregacoes -> deflacao -> indicadores -> cartografia -> relatorios -> auditoria
 
-## Versao 0.3.0
+## Versao 0.3.2
 
-A aplicacao executa duas etapas funcionais:
+A aplicacao executa validacao estrutural e normalizacao semantica auditavel.
 
 ### Validacao estrutural
 
@@ -25,25 +25,23 @@ A aplicacao executa duas etapas funcionais:
 2. cria uma execucao auditavel e imutavel;
 3. preserva o arquivo original em `00_entrada`;
 4. calcula o hash SHA-256;
-5. le todas as abas do Excel;
-6. identifica anos, municipios, codigos IBGE e tipos de aba;
-7. detecta problemas estruturais;
-8. grava resultado JSON e relatorio HTML;
-9. atualiza o manifesto da execucao.
+5. identifica abas, anos, municipios e codigos IBGE;
+6. gera resultado JSON, relatorio HTML e registro no manifesto.
 
-### Normalizacao
+### Normalizacao semantica
 
 1. converte `Receitas`, `Despesas` e `Despesa por função` do formato largo para o formato longo;
-2. padroniza `uf`, `codigo_ibge`, `municipio` e `ano`;
-3. preserva o rotulo e o valor originais de cada conta;
-4. cria um campo numerico separado;
-5. decompoe preliminarmente o rotulo em estagio, codigo e descricao;
-6. omite apenas celulas ausentes e registra sua quantidade;
-7. preserva as abas auxiliares em arquivos Parquet;
-8. gera resultado JSON e relatorio HTML da etapa;
-9. registra arquivos, metricas, alertas e status no manifesto.
+2. padroniza `uf`, `codigo_ibge`, `municipio`, `ano` e `populacao`;
+3. retira a populacao do universo de contas e gera `dimensao_municipio_ano.parquet`;
+4. usa a aba `Dicionário` como fonte primaria de estagio, codigo e descricao;
+5. aplica regra de contingencia apenas quando um cabecalho nao consta no dicionario;
+6. preserva rotulos e valores originais, alem do valor numerico;
+7. reconcilia celulas preenchidas da matriz com registros longos;
+8. detecta cabecalhos sem dicionario, codigos ausentes, estagios ausentes e duplicidades;
+9. verifica divergencias populacionais entre as matrizes;
+10. separa registros contabeis de celulas auxiliares nos relatorios e no manifesto.
 
-A normalizacao nao agrega contas, nao corrige valores e nao produz interpretacoes. A classificacao contabil sera realizada em etapa posterior.
+A normalizacao nao agrega contas nem altera valores. A classificacao analitica sera executada na etapa seguinte.
 
 ## Estrutura de uma execucao
 
@@ -57,6 +55,7 @@ execucoes/<id_execucao>/
 │   ├── receitas_longo.parquet
 │   ├── despesas_longo.parquet
 │   ├── despesa_por_funcao_longo.parquet
+│   ├── dimensao_municipio_ano.parquet
 │   ├── auxiliar_cobertura.parquet
 │   ├── auxiliar_dicionario.parquet
 │   ├── auxiliar_fontes.parquet
@@ -78,6 +77,18 @@ execucoes/<id_execucao>/
 └── README.md
 ```
 
+## Criterios de aprovacao da normalizacao
+
+A etapa e reprovada quando ocorrer pelo menos uma destas situacoes:
+
+- perda de registros preenchidos durante a conversao;
+- populacao tratada como conta;
+- divergencia populacional entre abas para o mesmo municipio e ano;
+- ausencia de identificadores obrigatorios;
+- duplicidade de observacoes contabeis.
+
+Cabecalhos ausentes do dicionario, codigos ausentes, estagios ausentes e valores nao numericos geram alertas relevantes.
+
 ## Cartografia do prototipo
 
 Na fase inicial, a aplicacao utiliza o arquivo `geojs-100-mun.json`, disponibilizado no projeto [tbrugz/geodata-br](https://github.com/tbrugz/geodata-br), como base cartografica leve para testes e visualizacao municipal.
@@ -90,31 +101,17 @@ https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-100-mun
 
 **Credito:** base cartografica derivada disponibilizada por **tbrugz/geodata-br**. O arquivo e utilizado no prototipo sob as condicoes e informacoes de licenciamento do repositorio de origem.
 
-A aplicacao nao incorpora essa base diretamente ao repositorio. Na primeira utilizacao, o modulo cartografico baixa, valida, registra a procedencia e grava uma copia em cache local. A fonte podera ser substituida futuramente sem alterar os modulos fiscais.
+A fonte cartografica e desacoplada dos modulos fiscais e podera ser substituida futuramente.
 
 ## Execucao local
 
 Com o ambiente Conda ativo, na raiz do repositorio:
 
 ```powershell
-pip install -e .
-streamlit run aplicacao.py
-```
-
-Para atualizar uma instalacao local:
-
-```powershell
 git pull
 pip install -e .
-streamlit run aplicacao.py
-```
-
-A normalizacao pode consumir alguns minutos e memoria proporcional ao numero de contas. Os arquivos Parquet resultantes tendem a ser menores e mais adequados para as etapas seguintes.
-
-## Testes
-
-```powershell
 pytest
+streamlit run aplicacao.py
 ```
 
 ## Controle de versoes
@@ -125,4 +122,4 @@ pytest
 
 ## Estado
 
-Versao `0.3.0`: validacao estrutural e normalizacao auditavel para formato longo, com arquivos Parquet e relatorios JSON/HTML por etapa.
+Versao `0.3.2`: normalizacao semantica com dimensao populacional, dicionario contabil, reconciliacao quantitativa e controles de auditoria.

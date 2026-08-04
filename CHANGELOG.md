@@ -14,6 +14,20 @@ Exemplos:
 - `0.2.1`: aperfeicoamento da validacao.
 - `0.2.1a`: alternativa A para uma regra de validacao.
 
+## 0.3.0 - Normalizacao auditavel da base FINBRA
+
+- conversao das abas `Receitas`, `Despesas` e `Despesa por função` do formato largo para o formato longo;
+- padronizacao dos identificadores `uf`, `codigo_ibge`, `municipio` e `ano`;
+- preservacao dos rotulos contabeis e valores originais;
+- criacao de campo numerico separado, sem substituir a informacao de origem;
+- decomposicao preliminar dos rotulos em estagio, codigo e descricao da conta;
+- omissao somente de celulas ausentes, com contabilizacao explicita no relatorio;
+- preservacao das abas auxiliares em arquivos Parquet separados;
+- geracao de resultado JSON e relatorio HTML da normalizacao;
+- registro da etapa no manifesto da execucao;
+- exibicao das metricas da normalizacao na interface;
+- teste automatizado inicial de preservacao de identificadores e valores.
+
 ## 0.2.1 - Aperfeicoamento da validacao estrutural
 
 - normalizacao de acentos nos cabecalhos antes da identificacao de campos;

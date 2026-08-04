@@ -99,6 +99,12 @@ def _sem_acentos(valor: object) -> str:
     return "".join(c for c in texto if not unicodedata.combining(c)).lower().strip()
 
 
+def _normalizar_busca(valor: object) -> str:
+    texto = _sem_acentos(valor)
+    texto = re.sub(r"[^a-z0-9]+", " ", texto)
+    return re.sub(r"\s+", " ", texto).strip()
+
+
 def _limpar_texto(valor: object) -> str:
     if pd.isna(valor):
         return ""
@@ -167,9 +173,8 @@ def _preencher_codigo_conta(resultado: pd.DataFrame, bloco: str) -> pd.DataFrame
 
 
 def _eh_subtotal_estrutural(texto: str) -> bool:
-    normalizado = _sem_acentos(texto).replace("-", "")
-    normalizado = re.sub(r"\s+", " ", normalizado)
-    return any(termo.replace("-", "") in normalizado for termo in TERMOS_ESTRUTURAIS)
+    normalizado = _normalizar_busca(texto)
+    return any(_normalizar_busca(termo) in normalizado for termo in TERMOS_ESTRUTURAIS)
 
 
 def _classificar_tipo_registro(linha: pd.Series) -> str:
@@ -208,7 +213,7 @@ def _extrair_funcao_subfuncao(linha: pd.Series) -> tuple[str | None, str | None]
 
 
 def _classificar_natureza_operacao(linha: pd.Series, bloco: str) -> str:
-    texto = _sem_acentos(_texto_linha(linha)).replace("-", "")
+    texto = _normalizar_busca(_texto_linha(linha))
     codigo = "" if _codigo_ausente(linha.get("codigo_conta")) else str(linha.get("codigo_conta"))
     if "exceto intraorcament" in texto:
         return "orcamentaria"

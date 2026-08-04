@@ -23,6 +23,9 @@ TERMOS_TOTAL = (
     "receitas de capital",
     "despesas correntes",
     "despesas de capital",
+)
+
+TERMOS_ESTRUTURAIS = (
     "receitas intraorcamentarias",
     "receitas exceto intraorcamentarias",
     "despesas intraorcamentarias",
@@ -40,17 +43,18 @@ TERMOS_DEDUCAO = (
 )
 
 PADRAO_CODIGO_RECEITA = re.compile(
-    r"^\s*(\d(?:\.\d{1,2}){2,7})\s*(?:[-–:]\s*)?(.+)?$"
+    r"^\s*(\d(?:\.\d{1,2}){2,7})\s*(?:[-–—:]\s*)?(.+)?$"
 )
 PADRAO_CODIGO_DESPESA = re.compile(
-    r"^\s*([1-9](?:\.\d{1,2}){1,5})\s*(?:[-–:]\s*)?(.+)?$"
+    r"^\s*([1-9](?:\.\d{1,2}){1,5})\s*(?:[-–—:]\s*)?(.+)?$"
 )
 PADRAO_CODIGO_FUNCAO = re.compile(
-    r"^\s*(\d{2}\.\d{3})\s*(?:[-–:]\s*)?(.+)?$"
+    r"^\s*(\d{2}\.\d{3})\s*(?:[-–—:]\s*)?(.+)?$"
 )
 PADRAO_FUNCAO_SUBFUNCAO = re.compile(r"(?<!\d)(\d{2})\.(\d{3})(?!\d)")
 PADRAO_FUNCAO_FU = re.compile(r"\bFU\s*0?(\d{1,2})\b", flags=re.IGNORECASE)
-PADRAO_FUNCAO_ISOLADA = re.compile(r"^\s*0?(\d{1,2})\s*(?:[-–:]\s*)?(.+)?$")
+PADRAO_FUNCAO_ISOLADA = re.compile(r"^\s*0?(\d{1,2})\s*(?:[-–—:]\s*)?(.+)?$")
+PADRAO_SUFIXO_EXCEL = re.compile(r"(?<=\S)\.\d+$")
 
 
 @dataclass
@@ -69,6 +73,7 @@ class ResultadoQualificacaoBloco:
     funcoes_distintas: int
     subfuncoes_distintas: int
     agregados_funcionais_residuais: int
+    subtotais_estruturais: int
     registros_intraorcamentarios: int
     registros_deducao_receita: int
 
@@ -94,21 +99,38 @@ def _sem_acentos(valor: object) -> str:
     return "".join(c for c in texto if not unicodedata.combining(c)).lower().strip()
 
 
+def _limpar_texto(valor: object) -> str:
+    if pd.isna(valor):
+        return ""
+    texto = str(valor)
+    texto = texto.replace("\r", " ").replace("\n", " ").replace("\t", " ")
+    texto = texto.replace("\ufffd", " ").replace("¿", " ")
+    texto = texto.replace("—", "-").replace("–", "-")
+    texto = re.sub(r"\s+", " ", texto).strip()
+    texto = PADRAO_SUFIXO_EXCEL.sub("", texto)
+    return texto.strip()
+
+
 def _texto_linha(linha: pd.Series) -> str:
     partes = [linha.get("rotulo_conta_original"), linha.get("descricao_conta")]
-    return " | ".join(str(p) for p in partes if pd.notna(p))
+    return " | ".join(_limpar_texto(p) for p in partes if pd.notna(p) and _limpar_texto(p))
 
 
 def _codigo_ausente(valor: object) -> bool:
     return pd.isna(valor) or str(valor).strip() == ""
 
 
-def _extrair_codigo_do_texto(texto: object, bloco: str) -> tuple[str | None, str | None]:
-    if pd.isna(texto):
-        return None, None
-    valor = str(texto).strip()
+def _texto_apos_estagio(texto: object) -> str:
+    valor = _limpar_texto(texto)
     if "|" in valor:
         valor = valor.split("|", maxsplit=1)[1].strip()
+    return valor
+
+
+def _extrair_codigo_do_texto(texto: object, bloco: str) -> tuple[str | None, str | None]:
+    valor = _texto_apos_estagio(texto)
+    if not valor:
+        return None, None
 
     if bloco == "receitas":
         padrao = PADRAO_CODIGO_RECEITA
@@ -122,7 +144,7 @@ def _extrair_codigo_do_texto(texto: object, bloco: str) -> tuple[str | None, str
         return None, None
     codigo = correspondencia.group(1)
     descricao = correspondencia.group(2)
-    return codigo, descricao.strip() if descricao else None
+    return codigo, _limpar_texto(descricao) if descricao else None
 
 
 def _preencher_codigo_conta(resultado: pd.DataFrame, bloco: str) -> pd.DataFrame:
@@ -135,21 +157,29 @@ def _preencher_codigo_conta(resultado: pd.DataFrame, bloco: str) -> pd.DataFrame
             codigo, descricao = _extrair_codigo_do_texto(candidato, bloco)
             if codigo:
                 quadro.at[indice, "codigo_conta"] = codigo
-                if descricao and (
-                    pd.isna(linha.get("descricao_conta"))
-                    or str(linha.get("descricao_conta")).strip() in {"", str(candidato).strip()}
-                ):
+                descricao_atual = _limpar_texto(linha.get("descricao_conta"))
+                candidato_limpo = _limpar_texto(candidato)
+                if descricao and (not descricao_atual or descricao_atual == candidato_limpo):
                     quadro.at[indice, "descricao_conta"] = descricao
                 quadro.at[indice, "origem_codigo_qualificado"] = "extraido_do_texto"
                 break
     return quadro
 
 
+def _eh_subtotal_estrutural(texto: str) -> bool:
+    normalizado = _sem_acentos(texto).replace("-", "")
+    normalizado = re.sub(r"\s+", " ", normalizado)
+    return any(termo.replace("-", "") in normalizado for termo in TERMOS_ESTRUTURAIS)
+
+
 def _classificar_tipo_registro(linha: pd.Series) -> str:
-    texto = _sem_acentos(_texto_linha(linha))
+    texto_original = _texto_linha(linha)
+    texto = _sem_acentos(texto_original)
     codigo = linha.get("codigo_conta")
     if "demais subfuncoes" in texto:
         return "agregado_funcional_residual"
+    if _eh_subtotal_estrutural(texto_original):
+        return "subtotal_estrutural"
     if any(termo in texto for termo in TERMOS_TOTAL):
         return "total_ou_subtotal"
     if _codigo_ausente(codigo):
@@ -169,15 +199,19 @@ def _extrair_funcao_subfuncao(linha: pd.Series) -> tuple[str | None, str | None]
     correspondencia_fu = PADRAO_FUNCAO_FU.search(texto)
     if correspondencia_fu:
         return correspondencia_fu.group(1).zfill(2), None
-    correspondencia_funcao = PADRAO_FUNCAO_ISOLADA.match(codigo or str(linha.get("descricao_conta", "")))
+    correspondencia_funcao = PADRAO_FUNCAO_ISOLADA.match(
+        codigo or _limpar_texto(linha.get("descricao_conta", ""))
+    )
     if correspondencia_funcao:
         return correspondencia_funcao.group(1).zfill(2), None
     return None, None
 
 
 def _classificar_natureza_operacao(linha: pd.Series, bloco: str) -> str:
-    texto = _sem_acentos(_texto_linha(linha))
+    texto = _sem_acentos(_texto_linha(linha)).replace("-", "")
     codigo = "" if _codigo_ausente(linha.get("codigo_conta")) else str(linha.get("codigo_conta"))
+    if "exceto intraorcament" in texto:
+        return "orcamentaria"
     if "intraorcament" in texto:
         return "intraorcamentaria"
     if bloco == "receitas" and codigo[:1] in {"7", "8"}:
@@ -196,6 +230,21 @@ def _classificar_deducao_receita(linha: pd.Series, bloco: str) -> bool:
     return any(termo in texto for termo in TERMOS_DEDUCAO)
 
 
+def _classificar_tipo_deducao(linha: pd.Series, bloco: str) -> str:
+    if bloco != "receitas":
+        return "nao_se_aplica"
+    texto = _sem_acentos(_texto_linha(linha))
+    if "fundeb" in texto:
+        return "fundeb"
+    if "transferenc" in texto and "constitucional" in texto:
+        return "transferencias_constitucionais"
+    if any(termo in texto for termo in ("outras deducoes", "restituicao", "retificacao")):
+        return "outras_deducoes"
+    if "deducao" in texto or "deducoes" in texto:
+        return "deducao_nao_especificada"
+    return "nao_se_aplica"
+
+
 def _motivo_pendencia(linha: pd.Series) -> str | None:
     codigo = linha.get("codigo_conta")
     if not _codigo_ausente(codigo):
@@ -203,6 +252,7 @@ def _motivo_pendencia(linha: pd.Series) -> str | None:
     tipo = linha.get("tipo_registro")
     if tipo in {
         "total_ou_subtotal",
+        "subtotal_estrutural",
         "indicador_auxiliar",
         "agregado_funcional_residual",
     }:
@@ -213,9 +263,10 @@ def _motivo_pendencia(linha: pd.Series) -> str | None:
     texto = _texto_linha(linha)
     if not texto.strip():
         return "campo_vazio"
-    if re.match(r"^\s*\d", texto):
-        return "formato_de_codigo_nao_reconhecido"
-    return "codigo_ausente_no_dicionario"
+    codigo_texto = re.search(r"(?<!\d)\d{1,2}(?:\.\d{1,3}){1,7}(?!\d)", texto)
+    if codigo_texto:
+        return "codigo_presente_texto_nao_extraido"
+    return "codigo_obrigatorio_ausente"
 
 
 def _qualificar_quadro(quadro: pd.DataFrame, bloco: str) -> pd.DataFrame:
@@ -229,6 +280,9 @@ def _qualificar_quadro(quadro: pd.DataFrame, bloco: str) -> pd.DataFrame:
     )
     resultado["deducao_receita"] = resultado.apply(
         lambda linha: _classificar_deducao_receita(linha, bloco), axis=1
+    )
+    resultado["tipo_deducao"] = resultado.apply(
+        lambda linha: _classificar_tipo_deducao(linha, bloco), axis=1
     )
     resultado["codigo_funcao"] = pd.NA
     resultado["codigo_subfuncao"] = pd.NA
@@ -328,6 +382,9 @@ def qualificar_codigos(pasta_normalizacao: Path, pasta_saida: Path) -> Resultado
                 subfuncoes_distintas=int(subfuncoes.nunique()),
                 agregados_funcionais_residuais=int(
                     qualificado["tipo_registro"].eq("agregado_funcional_residual").sum()
+                ),
+                subtotais_estruturais=int(
+                    qualificado["tipo_registro"].eq("subtotal_estrutural").sum()
                 ),
                 registros_intraorcamentarios=int(
                     qualificado["natureza_operacao"].eq("intraorcamentaria").sum()

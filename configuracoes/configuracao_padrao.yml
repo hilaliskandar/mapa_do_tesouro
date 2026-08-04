@@ -1,0 +1,33 @@
+sistema:
+  nome: mapa_do_tesouro
+  versao: 0.1.0
+  idioma_interno: pt_br_sem_acentos
+
+processamento:
+  preservar_entrada: true
+  registrar_hashes: true
+  interromper_em_alerta_critico: true
+  formato_intermediario: parquet
+
+cartografia:
+  provedor: geojson_local
+  arquivo: dados/cartografia/geojs-100-mun.json
+  campo_codigo: id
+  campo_nome: name
+  sistema_referencia: EPSG:4326
+  permitir_substituicao_fonte: true
+
+valores_monetarios:
+  indice: IPCA
+  mes_base: 2026-06
+  referencia_anual: dezembro
+  manter_valores_nominais: true
+  gerar_valores_reais: true
+
+relatorios:
+  formatos:
+    - html
+    - pdf
+    - xlsx
+  gerar_por_etapa: true
+  gerar_consolidado: true

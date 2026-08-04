@@ -101,16 +101,26 @@ def _codigo_ausente(valor: object) -> bool:
 
 
 def _extrair_codigo_do_texto(texto: object, bloco: str) -> tuple[str | None, str | None]:
+    """Extrai codigo no inicio do texto ou apos um prefixo de estagio separado por barra."""
     if pd.isna(texto):
         return None, None
+
     valor = str(texto).strip()
     padrao = PADRAO_CODIGO_RECEITA if bloco == "receitas" else PADRAO_CODIGO_DESPESA
-    correspondencia = padrao.match(valor)
-    if not correspondencia:
-        return None, None
-    codigo = correspondencia.group(1)
-    descricao = correspondencia.group(2)
-    return codigo, descricao.strip() if descricao else None
+
+    # Cabecalhos da matriz costumam ter o formato
+    # "Estagio contabil | codigo descricao". A parte mais a direita deve ser
+    # testada primeiro, sem impedir a leitura de descricoes simples.
+    candidatos = [parte.strip() for parte in valor.split("|") if parte.strip()]
+    for candidato in reversed(candidatos):
+        correspondencia = padrao.match(candidato)
+        if not correspondencia:
+            continue
+        codigo = correspondencia.group(1)
+        descricao = correspondencia.group(2)
+        return codigo, descricao.strip() if descricao else None
+
+    return None, None
 
 
 def _preencher_codigo_conta(resultado: pd.DataFrame, bloco: str) -> pd.DataFrame:
@@ -157,7 +167,9 @@ def _extrair_funcao_subfuncao(linha: pd.Series) -> tuple[str | None, str | None]
     correspondencia_fu = PADRAO_FUNCAO_FU.search(texto)
     if correspondencia_fu:
         return correspondencia_fu.group(1).zfill(2), None
-    correspondencia_funcao = PADRAO_FUNCAO_ISOLADA.match(codigo or str(linha.get("descricao_conta", "")))
+    correspondencia_funcao = PADRAO_FUNCAO_ISOLADA.match(
+        codigo or str(linha.get("descricao_conta", ""))
+    )
     if correspondencia_funcao:
         return correspondencia_funcao.group(1).zfill(2), None
     return None, None
@@ -308,7 +320,9 @@ def qualificar_codigos(pasta_normalizacao: Path, pasta_saida: Path) -> Resultado
                 registros_sem_codigo_justificado=int(justificados.sum()),
                 registros_pendentes=int(qualificado["pendencia_revisao"].sum()),
                 cabecalhos_pendentes=int(
-                    qualificado.loc[qualificado["pendencia_revisao"], "rotulo_conta_original"].nunique()
+                    qualificado.loc[
+                        qualificado["pendencia_revisao"], "rotulo_conta_original"
+                    ].nunique()
                 ),
                 registros_com_funcao=int(funcoes.size),
                 registros_com_subfuncao=int(subfuncoes.size),

@@ -14,6 +14,20 @@ Exemplos:
 - `0.2.1`: aperfeicoamento da validacao.
 - `0.2.1a`: alternativa A para uma regra de validacao.
 
+## 0.2.0 - Ingestao e validacao FINBRA
+
+- preservacao do arquivo enviado em `00_entrada`;
+- calculo de hash SHA-256 da base FINBRA;
+- leitura de todas as abas do arquivo Excel;
+- registro de linhas, colunas, celulas vazias e campos identificadores;
+- identificacao preliminar de exercicios, municipios e codigos IBGE;
+- deteccao de abas vazias, colunas duplicadas e colunas sem nome;
+- classificacao de alertas criticos e relevantes;
+- geracao de resultado estruturado em JSON;
+- geracao de relatorio HTML da validacao;
+- atualizacao do manifesto da execucao;
+- exibicao dos resultados na interface Streamlit.
+
 ## 0.1.1 - Cartografia remota e cache local
 
 - configuracao do GeoJSON remoto do projeto tbrugz/geodata-br;

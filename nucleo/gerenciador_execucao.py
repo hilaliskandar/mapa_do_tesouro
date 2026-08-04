@@ -7,6 +7,7 @@ from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
+import shutil
 from typing import Any
 
 
@@ -24,7 +25,7 @@ class ContextoExecucao:
 
 
 class GerenciadorExecucao:
-    """Cria diretorios imutaveis e o manifesto inicial de cada execucao."""
+    """Cria diretorios imutaveis e registra artefatos de cada execucao."""
 
     ETAPAS = (
         "00_entrada",
@@ -43,7 +44,7 @@ class GerenciadorExecucao:
         "logs",
     )
 
-    def __init__(self, diretorio_raiz: Path, versao_sistema: str = "0.1.0") -> None:
+    def __init__(self, diretorio_raiz: Path, versao_sistema: str = "0.2.0") -> None:
         self.diretorio_raiz = diretorio_raiz
         self.versao_sistema = versao_sistema
 
@@ -70,15 +71,45 @@ class GerenciadorExecucao:
             arquivo_cartografia=nome_arquivo_cartografia,
             diretorio=str(diretorio),
         )
-
-        (diretorio / "manifest.json").write_text(
-            json.dumps(contexto.como_dicionario(), ensure_ascii=False, indent=2),
-            encoding="utf-8",
-        )
+        self._gravar_manifesto(diretorio, contexto.como_dicionario())
         (diretorio / "README.md").write_text(
             self._gerar_readme_execucao(contexto), encoding="utf-8"
         )
         return contexto
+
+    @staticmethod
+    def preservar_arquivo_enviado(
+        conteudo: bytes,
+        nome_arquivo: str,
+        diretorio_execucao: Path,
+    ) -> Path:
+        destino = diretorio_execucao / "00_entrada" / Path(nome_arquivo).name
+        destino.write_bytes(conteudo)
+        return destino
+
+    @staticmethod
+    def preservar_arquivo_local(
+        origem: Path,
+        diretorio_execucao: Path,
+        nome_destino: str | None = None,
+    ) -> Path:
+        destino = diretorio_execucao / "00_entrada" / (nome_destino or origem.name)
+        shutil.copy2(origem, destino)
+        return destino
+
+    @staticmethod
+    def atualizar_manifesto(diretorio_execucao: Path, atualizacoes: dict[str, Any]) -> None:
+        caminho = diretorio_execucao / "manifest.json"
+        manifesto = json.loads(caminho.read_text(encoding="utf-8"))
+        manifesto.update(atualizacoes)
+        GerenciadorExecucao._gravar_manifesto(diretorio_execucao, manifesto)
+
+    @staticmethod
+    def _gravar_manifesto(diretorio_execucao: Path, conteudo: dict[str, Any]) -> None:
+        (diretorio_execucao / "manifest.json").write_text(
+            json.dumps(conteudo, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
 
     @staticmethod
     def _gerar_readme_execucao(contexto: ContextoExecucao) -> str:
@@ -87,7 +118,8 @@ class GerenciadorExecucao:
             f"- Criada em: {contexto.criada_em}\n"
             f"- Versao do sistema: {contexto.versao_sistema}\n"
             f"- Base FINBRA: {contexto.arquivo_finbra}\n"
-            f"- Cartografia: {contexto.arquivo_cartografia or 'nao informada'}\n\n"
+            f"- Cartografia: {contexto.arquivo_cartografia or 'fonte configurada'}\n\n"
             "Cada subdiretorio preserva entradas, saidas, parametros, alertas e relatorios "
-            "da respectiva etapa.\n"
+            "da respectiva etapa. A etapa 01 registra a validacao estrutural sem modificar "
+            "os valores da base original.\n"
         )

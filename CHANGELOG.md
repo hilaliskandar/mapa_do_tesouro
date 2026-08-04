@@ -6,6 +6,20 @@
 - `x.x.1`: ajustes, aperfeicoamentos e correcoes dentro de uma etapa.
 - `x.x.xa`, `x.x.xb`, `x.x.xc`: alternativas experimentais de um mesmo procedimento.
 
+## 0.3.3 - Qualificacao de codigos e fila de revisao
+
+- classificacao dos registros como conta terminal, conta sintetica, total ou subtotal, indicador auxiliar ou nao classificado;
+- separacao entre ausencia de codigo justificada e pendencia efetiva de revisao;
+- tratamento especifico de funcao e subfuncao no bloco de despesa por funcao;
+- geracao de arquivos qualificados sem alterar os Parquet normalizados;
+- criacao de `pendencias_codigos_conta.parquet` e `pendencias_codigos_conta.xlsx`;
+- agrupamento das pendencias por cabecalho, estagio, descricao, origem e motivo;
+- registro de quantidade de observacoes, anos, municipios e valor absoluto acumulado;
+- ordenacao da fila de revisao pelo impacto financeiro estimado;
+- relatorio JSON e HTML da qualificacao;
+- integracao da etapa ao manifesto e a interface Streamlit;
+- teste automatizado para totais, pendencias, funcao e subfuncao.
+
 ## 0.3.2 - Correcao semantica da normalizacao
 
 - reconhecimento de `População` como variavel contextual, sem conversao em conta financeira;

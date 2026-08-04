@@ -1,58 +1,100 @@
 # Mapa do Tesouro
 
-Aplicacao para processamento, auditoria, analise e visualizacao territorial de dados fiscais municipais, com foco inicial no FINBRA/SICONFI.
+Aplicacao auditavel para processamento, classificacao, analise e visualizacao territorial de financas municipais, com foco inicial no FINBRA/Siconfi.
 
-## Objetivos
+## Finalidade
 
-- preservar a base bruta e cada etapa do processamento;
-- documentar formulas, parametros, fontes e decisoes humanas;
-- calcular agregacoes, indicadores reais e per capita;
-- produzir mapas, planilhas e relatorios por fase e consolidados;
-- permitir substituicao simples da fonte cartografica;
-- manter nomes de pastas, scripts, funcoes e variaveis em portugues brasileiro sem acentos.
+O projeto transforma bases fiscais detalhadas em informacao comparavel, reproduzivel e territorializada sem descartar a granularidade original. Cada resultado deve poder ser reconstruido a partir da conta de origem, do exercicio, do estagio contabil, da regra aplicada e da versao metodologica.
 
-## Fluxo previsto
+A arquitetura foi iniciada para 30 municipios do corredor TIC/TIM, mas foi desenhada para ser reutilizada em outros recortes territoriais, inclusive fora do Estado de Sao Paulo.
 
-entrada -> validacao -> normalizacao -> classificacao -> agregacoes -> deflacao -> indicadores -> cartografia -> relatorios -> auditoria
+## Perguntas que orientam a analise
 
-## Versao 0.3.3
+1. O municipio gera receitas proprias compativeis com sua base economica e territorial?
+2. Quanto depende de transferencias constitucionais, finalisticas e extraordinarias?
+3. As receitas correntes sustentam as despesas correntes e geram poupanca?
+4. Ha espaco para investir sem comprometer pessoal, divida, liquidez e continuidade dos servicos?
+5. O orcamento autorizado se converte em despesa liquidada e paga?
+6. Os recursos sao direcionados as funcoes associadas as pressoes urbanas, habitacionais, ambientais e de mobilidade?
 
-A aplicacao executa validacao estrutural, normalizacao semantica auditavel e qualificacao inicial dos codigos contabeis.
+A aplicacao nao produz, nesta fase, uma nota unica de desempenho. As dimensoes permanecem separadas para evitar compensacoes artificiais entre fragilidades e resultados favoraveis.
+
+## Fluxo do processamento
+
+```text
+entrada
+-> validacao estrutural
+-> normalizacao
+-> classificacao contabil
+-> hierarquia contabil
+-> mapa semantico anual
+-> agregacoes auditaveis
+-> deflacao
+-> indicadores
+-> series historicas
+-> cartografia
+-> analises municipais e regionais
+-> relatorios
+```
+
+A descricao metodologica ampliada esta em [`docs/arquitetura_analitica.md`](docs/arquitetura_analitica.md).
+
+## Versao 0.4.0
+
+A versao 0.4.0 encerra a primeira fase de preparacao dos dados e inicia a camada analitica com a construcao da hierarquia e do catalogo contabil.
 
 ### Validacao estrutural
 
-1. recebe o arquivo FINBRA pela interface;
-2. cria uma execucao auditavel e imutavel;
-3. preserva o arquivo original em `00_entrada`;
-4. calcula o hash SHA-256;
-5. identifica abas, anos, municipios e codigos IBGE;
-6. gera resultado JSON, relatorio HTML e registro no manifesto.
+- preserva o arquivo original em `00_entrada`;
+- calcula hash SHA-256;
+- reconhece abas, anos, municipios e codigos IBGE;
+- verifica campos identificadores e cobertura;
+- gera JSON, HTML e registro no manifesto.
 
-### Normalizacao semantica
+### Normalizacao
 
-1. converte `Receitas`, `Despesas` e `Despesa por função` do formato largo para o formato longo;
-2. padroniza `uf`, `codigo_ibge`, `municipio`, `ano` e `populacao`;
-3. retira a populacao do universo de contas e gera `dimensao_municipio_ano.parquet`;
-4. usa a aba `Dicionário` como fonte primaria de estagio, codigo e descricao;
-5. aplica regra de contingencia apenas quando um cabecalho nao consta no dicionario;
-6. preserva rotulos e valores originais, alem do valor numerico;
-7. reconcilia celulas preenchidas da matriz com registros longos;
-8. detecta cabecalhos sem dicionario, codigos ausentes, estagios ausentes e duplicidades;
-9. verifica divergencias populacionais entre as matrizes;
-10. separa registros contabeis de celulas auxiliares nos relatorios e no manifesto.
+- converte receitas, despesas e despesa por funcao do formato largo para o formato longo;
+- separa populacao das contas financeiras;
+- usa o dicionario da base como fonte primaria de metadados;
+- preserva rotulos, valores e proveniencia;
+- reconcilia registros preenchidos;
+- verifica duplicidades, divergencias populacionais e ausencias relevantes.
 
-### Qualificacao de codigos
+### Classificacao contabil
 
-1. classifica registros como conta terminal, conta sintetica, total ou subtotal, indicador auxiliar ou nao classificado;
-2. separa ausencia de codigo justificada de pendencia efetiva;
-3. identifica funcao e subfuncao no bloco de despesa por funcao;
-4. gera arquivos qualificados sem alterar os Parquet normalizados;
-5. cria fila de revisao em formatos Parquet e Excel;
-6. registra quantidade de observacoes, anos, municipios e valor absoluto acumulado;
-7. ordena as pendencias pelo impacto financeiro estimado;
-8. gera relatorios JSON e HTML e registra a etapa no manifesto.
+- recupera codigos em diferentes formatos;
+- distingue contas, totais, subtotais estruturais e agregados funcionais;
+- separa receitas e despesas intraorcamentarias;
+- identifica deducoes e sua natureza;
+- separa funcao e subfuncao;
+- produz fila auditavel de revisao;
+- considera aprovada a etapa apenas quando nao ha pendencias efetivas.
 
-A normalizacao e a qualificacao nao agregam contas nem alteram valores originais.
+### Hierarquia e catalogo contabil
+
+A nova etapa `04_hierarquia_contabil` produz:
+
+- `catalogo_contabil.parquet`;
+- `catalogo_contabil.xlsx`;
+- `relacoes_pai_filho.parquet`;
+- `resultado_hierarquia.json`.
+
+O catalogo registra, para cada codigo:
+
+- bloco contabil;
+- descricao;
+- nivel hierarquico;
+- codigo-pai;
+- existencia de filhos;
+- classificacao calculada como sintetica ou terminal;
+- primeira e ultima ocorrencia;
+- quantidade de anos e municipios;
+- numero de registros;
+- valor nominal e absoluto acumulados;
+- natureza da operacao;
+- funcao e subfuncao, quando aplicaveis.
+
+Essa etapa prepara o controle contra dupla contagem e a futura construcao do mapa semantico anual.
 
 ## Estrutura de uma execucao
 
@@ -60,134 +102,161 @@ A normalizacao e a qualificacao nao agregam contas nem alteram valores originais
 execucoes/<id_execucao>/
 ├── 00_entrada/
 ├── 01_validacao_estrutural/
-│   ├── resultado_validacao.json
-│   └── relatorio_validacao.html
 ├── 02_normalizacao/
-│   ├── receitas_longo.parquet
-│   ├── despesas_longo.parquet
-│   ├── despesa_por_funcao_longo.parquet
-│   ├── dimensao_municipio_ano.parquet
-│   ├── auxiliar_cobertura.parquet
-│   ├── auxiliar_dicionario.parquet
-│   ├── auxiliar_fontes.parquet
-│   ├── auxiliar_leia_me.parquet
-│   ├── resultado_normalizacao.json
-│   └── relatorio_normalizacao.html
 ├── 03_classificacao_contabil/
-│   ├── receitas_qualificadas.parquet
-│   ├── despesas_qualificadas.parquet
-│   ├── despesa_por_funcao_qualificada.parquet
-│   ├── pendencias_codigos_conta.parquet
-│   ├── pendencias_codigos_conta.xlsx
-│   ├── resultado_classificacao.json
-│   └── relatorio_classificacao.html
-├── 04_agregacoes/
-├── 05_deflacao/
-├── 06_per_capita/
-├── 07_indicadores/
-├── 08_series_historicas/
-├── 09_cartografia/
-├── 10_analises_municipais/
-├── 11_analise_regional/
-├── 12_relatorios/
+├── 04_hierarquia_contabil/
+├── 05_mapa_semantico/
+├── 06_agregacoes/
+├── 07_deflacao/
+├── 08_indicadores/
+├── 09_series_historicas/
+├── 10_cartografia/
+├── 11_analises_municipais/
+├── 12_analise_regional/
+├── 13_relatorios/
 ├── logs/
 ├── manifest.json
 └── README.md
 ```
 
-## Criterios de aprovacao da normalizacao
+## Principios de processamento
 
-A etapa e reprovada quando ocorrer pelo menos uma destas situacoes:
+- preservar dados brutos e resultados intermediarios;
+- nao transformar ausencia em zero;
+- nao alterar silenciosamente valores declarados;
+- nao somar conta-pai e contas-filhas simultaneamente;
+- manter intraorcamentarias separadas na visao consolidada;
+- separar principal, multas e juros, divida ativa e acrescimos;
+- aplicar deducoes somente as receitas correspondentes;
+- nao misturar empenhado, liquidado e pago;
+- registrar fonte, edicao, vigencia e versao de cada regra;
+- tratar mudancas classificatorias como possiveis quebras de serie;
+- usar alertas e niveis de confianca, e nao correcoes automaticas, nos testes de consistencia.
 
-- perda de registros preenchidos durante a conversao;
-- populacao tratada como conta;
-- divergencia populacional entre abas para o mesmo municipio e ano;
-- ausencia de identificadores obrigatorios;
-- duplicidade de observacoes contabeis.
+## Fontes normativas, metodologicas e comparadas
 
-Cabecalhos ausentes do dicionario, codigos ausentes, estagios ausentes e valores nao numericos geram alertas relevantes.
-
-## Referencias normativas e metodologicas
-
-A formulacao dos procedimentos utiliza fontes oficiais, com controle temporal por exercicio. A documentacao completa esta em [`docs/referencias_normativas_e_procedimentos.md`](docs/referencias_normativas_e_procedimentos.md).
+A documentacao detalhada permanece em [`docs/referencias_normativas_e_procedimentos.md`](docs/referencias_normativas_e_procedimentos.md). As fontes abaixo contribuíram de formas diferentes para a formulacao do projeto.
 
 ### Manual de Contabilidade Aplicada ao Setor Publico - MCASP
 
 **Link:** https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-contabilidade-aplicada-ao-setor-publico-mcasp-1
 
-Manual nacional que disciplina procedimentos orcamentarios, patrimoniais e especificos, PCASP e demonstracoes contabeis. Contribuiu para a separacao entre os aspectos orcamentario, patrimonial e fiscal; para a decomposicao das naturezas de receita e despesa; para os estagios de execucao; e para as regras de operacoes intraorcamentarias, restos a pagar, fontes e classificacao funcional.
+Forneceu a base para distinguir aspectos orcamentario, patrimonial e fiscal; interpretar naturezas de receita e despesa; separar estagios da execucao; tratar intraorcamentarias, restos a pagar e classificacao funcional; e exigir controle temporal entre edicoes.
 
 ### Manual de Demonstrativos Fiscais - MDF
 
 **Link:** https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/manuais/manual-de-demonstrativos-fiscais-mdf
 
-Padroniza ARF, AMF, RREO e RGF e seus mapeamentos. Contribuiu para a interpretacao fiscal das contas, a classificacao de totais e subtotais, a separacao dos estagios da despesa, o controle de dupla contagem e o desenho das futuras conciliacoes com RREO e RGF.
+Ajudou a interpretar RREO e RGF, totais e subtotais, operacoes intraorcamentarias, estagios da despesa e futuras conciliacoes de RCL, pessoal, caixa, divida e limites fiscais.
 
-### Manual de Analise Fiscal de Estados e Municipios 2026
-
-**Link:** https://www.tesourotransparente.gov.br/publicacoes/manual-de-analise-fiscal-de-estados-e-municipios/2026/114?ano_selecionado=2026
-
-Manual operacional da STN para analise comparavel da situacao fiscal dos entes. Contribuiu para as regras de conciliacao, para a definicao de receitas proprias e primarias, transferencias, Fundeb, intraorcamentarias, despesas, disponibilidade de caixa e versionamento temporal dos conceitos.
-
-### Ementario da Receita Orcamentaria
+### Ementario da Classificacao por Natureza da Receita
 
 **Link:** https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/federacao/ementario-da-classificacao-por-natureza-de-receita-tabela-de-codigos
 
-Tabela oficial de codigos, especificacoes, descricoes, normas, inclusoes, exclusoes e alteracoes da natureza da receita. Contribuiu para o desenho da validacao automatica dos codigos, sua decomposicao hierarquica, o campo `status_codigo_receita` e a necessidade de manter tabelas anuais.
+Orientou a decomposicao dos codigos de receita, a identificacao de principal, multas, juros e divida ativa, o controle de inclusoes e exclusoes anuais e a necessidade de um mapa semantico versionado por exercicio.
 
 ### Portaria Interministerial STN/SOF n. 163/2001
 
 **Link:** https://www.gov.br/planejamento/pt-br/assuntos/orcamento/legislacao-sobre-orcamento
 
-Base normativa das classificacoes por natureza de receita e despesa e da consolidacao das contas publicas. Contribuiu para a hierarquia dos codigos e para a separacao entre contas sinteticas e terminais.
+Fundamentou a estrutura das naturezas da receita e da despesa e a consolidacao das contas publicas. Contribuiu para o desenho da hierarquia e para a separacao entre categorias, grupos, modalidades, elementos e desdobramentos.
 
 ### Portaria MOG n. 42/1999 e alteracoes
 
 **Link:** https://www.gov.br/planejamento/pt-br/assuntos/orcamento/legislacao-sobre-orcamento
 
-Referencia da classificacao funcional. Contribuiu para a separacao de funcao e subfuncao, a validacao de combinacoes funcionais e o tratamento de `FUxx - Demais Subfuncoes` como agregado funcional residual.
+Fundamentou a separacao entre funcao e subfuncao, a leitura das despesas por politica publica e o tratamento de agregados residuais como `FUxx - Demais Subfuncoes`.
 
 ### Plano de Contas Aplicado ao Setor Publico - PCASP
 
 **Link:** https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/federacao/plano-de-contas-aplicado-ao-setor-publico-pcasp-1
 
-Relacao padronizada de contas e atributos contabeis. Contribuiu para o desenho das futuras conciliacoes patrimoniais, de disponibilidade de caixa, divida e integridade de saldos, sem confundir conta contabil com natureza da receita ou da despesa.
+Contribuiu para o desenho das futuras conciliacoes patrimoniais e de caixa, sem confundir conta contabil com natureza orcamentaria.
 
 ### Matriz de Saldos Contabeis - MSC
 
 **Link:** https://siconfi.tesouro.gov.br/siconfi/pages/public/conteudo/conteudo.jsf?id=14103
 
-Formato estruturado de envio ao Siconfi. Contribuiu para o desenho da futura reconciliacao entre conta contabil, natureza, fonte, funcao, subfuncao e mapeamentos fiscais.
+Mostrou como conta contabil, natureza, fonte, funcao e subfuncao se combinam no envio estruturado ao Siconfi. Tambem fundamentou a necessidade de marcar possiveis rupturas na comparabilidade entre 2018 e 2019.
 
-## Principios consolidados dos procedimentos
+### Indice Firjan de Gestao Fiscal - IFGF
 
-- toda regra deve registrar fonte, edicao, periodo de vigencia e versao;
-- regras de 2026 nao devem ser aplicadas automaticamente a 2013-2025;
-- dados originais e resultados intermediarios devem ser preservados;
-- ajustes e reclassificacoes nao podem substituir silenciosamente os valores de origem;
-- contas terminais e sinteticas nao devem ser somadas simultaneamente;
-- operacoes intraorcamentarias devem ser identificadas para evitar dupla contagem;
-- funcao, subfuncao e agregados funcionais residuais devem ser tratados separadamente;
-- a aplicacao deve produzir fila de pendencias para revisao humana;
-- mudancas metodologicas devem ser registradas e refletidas nas notas de comparabilidade.
+**Link:** https://www.firjan.com.br/ifgf/
+
+Contribuiu com uma referencia multidimensional organizada em autonomia, pessoal, liquidez e investimentos. O projeto aproveita a separacao das dimensoes e parte das formulas, mas nao assume pesos iguais nem transforma o IFGF em unico criterio de avaliacao. Tambem reforcou a necessidade de distinguir autonomia tributaria estrita, receita propria ampliada e capacidade economica local.
+
+### Capacidade de Pagamento - CAPAG
+
+**Link:** https://www.tesourotransparente.gov.br/temas/estados-e-municipios/capacidade-de-pagamento-capag
+
+Contribuiu para separar endividamento, poupanca corrente e liquidez e para reconhecer que medidas oficiais de risco de credito dependem de RGF, RREO e dados patrimoniais. As aproximacoes produzidas apenas com FINBRA devem ser identificadas como proxies.
+
+### Ranking da Qualidade da Informacao Contabil e Fiscal - Siconfi
+
+**Link:** https://ranking-municipios.tesouro.gov.br/
+
+Contribuiu para tratar qualidade da informacao como dimensao propria. O ranking deve servir como sinalizador de confianca e consistencia, nunca como medida direta de saude fiscal.
+
+### IEG-M e Rede Indicon
+
+**Link:** https://irbcontas.org.br/iegm/
+
+Contribuiu para ampliar a compreensao de capacidade municipal para alem do equilibrio contabil, incluindo planejamento, tecnologia, ambiente, protecao dos cidadaos e resultados de politicas. O projeto nao tenta reproduzir o indice apenas com FINBRA.
+
+### Multi Cidades
+
+**Link:** https://multicidadesonline.com.br/
+
+Contribuiu para a comparacao per capita, a leitura por porte municipal e ciclos de governo e a separacao entre origem do financiamento e execucao do investimento. Tambem reforcou a necessidade de verificar o estagio da despesa em cada comparacao.
+
+### PEFA para governos subnacionais
+
+**Link:** https://www.pefa.org/resources/pefa-framework
+
+Contribuiu com a ideia de avaliar confiabilidade do orcamento, previsibilidade, gestao de ativos e passivos, contabilidade, controles e auditoria como dimensoes distintas. Parte desses componentes depende de documentos adicionais ao FINBRA.
+
+### OCDE - descentralizacao fiscal
+
+**Link:** https://www.oecd.org/tax/federalism/
+
+Contribuiu para distinguir participacao orcamentaria, receita diretamente arrecadada e autonomia legal sobre bases, aliquotas e uso dos recursos. O sistema nao deve inferir autonomia legal apenas a partir da composicao da receita.
+
+### BNDES - PMAT
+
+**Link:** https://www.bndes.gov.br/wps/portal/site/home/financiamento/produto/pmat
+
+Contribuiu para compreender capacidade fiscal como resultado tambem de cadastro, fiscalizacao, cobranca, tecnologia, patrimonio, planejamento e controle. Isso orienta futuras combinacoes entre despesas administrativas e evolucao da arrecadacao.
+
+### IBGE - IPCA e populacao
+
+**Links:**
+
+- https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidor-amplo.html
+- https://sidra.ibge.gov.br/
+
+O IBGE fornece os denominadores populacionais e o numero-indice necessario para converter valores nominais em precos constantes. O projeto preservara simultaneamente valores nominais, reais, per capita e relativos.
+
+## Limites interpretativos importantes
+
+- Receita observada nao equivale automaticamente a potencial tributario.
+- ITBI e indicador auxiliar da atividade imobiliaria formal, nao medida pura de numero de transacoes ou valorizacao.
+- Despesa por funcao mede esforco funcional, nao necessariamente investimento.
+- Os anexos separados de funcao e natureza nao permitem inferir diretamente investimento em determinada funcao.
+- Grupo 3.1 e proxy de pessoal, nao substituto automatico da Despesa Total com Pessoal da LRF.
+- Empenhado menos pago pode aproximar compromissos transferidos, mas nao substitui o estoque oficial de restos a pagar.
+- Valores per capita devem ser apresentados junto com valores absolutos e participacoes relativas.
 
 ## Cartografia do prototipo
 
-Na fase inicial, a aplicacao utiliza o arquivo `geojs-100-mun.json`, disponibilizado no projeto [tbrugz/geodata-br](https://github.com/tbrugz/geodata-br), como base cartografica leve para testes e visualizacao municipal.
-
-Fonte utilizada pelo sistema:
+A aplicacao utiliza inicialmente `geojs-100-mun.json`, disponibilizado por [tbrugz/geodata-br](https://github.com/tbrugz/geodata-br).
 
 ```text
 https://raw.githubusercontent.com/tbrugz/geodata-br/master/geojson/geojs-100-mun.json
 ```
 
-**Credito:** base cartografica derivada disponibilizada por **tbrugz/geodata-br**. O arquivo e utilizado no prototipo sob as condicoes e informacoes de licenciamento do repositorio de origem.
-
-A fonte cartografica e desacoplada dos modulos fiscais e podera ser substituida futuramente.
+A fonte cartografica e desacoplada dos modulos fiscais e podera ser substituida por malhas oficiais ou bases estaduais sem alterar o processamento fiscal.
 
 ## Execucao local
-
-Com o ambiente Conda ativo, na raiz do repositorio:
 
 ```powershell
 git pull
@@ -202,6 +271,6 @@ streamlit run aplicacao.py
 - `x.x.1`: ajustes, aperfeicoamentos e correcoes;
 - `x.x.xa`, `x.x.xb`: alternativas de procedimento.
 
-## Estado
+## Estado atual
 
-Versao `0.3.3`: normalizacao semantica, qualificacao de codigos, fila de revisao, reconciliacao quantitativa e controles de auditoria.
+Versao `0.4.0`: validacao, normalizacao, classificacao sem pendencias, catalogo contabil e construcao inicial das relacoes hierarquicas pai-filho.

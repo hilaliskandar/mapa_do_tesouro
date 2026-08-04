@@ -15,23 +15,35 @@ Aplicacao para processamento, auditoria, analise e visualizacao territorial de d
 
 entrada -> validacao -> normalizacao -> classificacao -> agregacoes -> deflacao -> indicadores -> cartografia -> relatorios -> auditoria
 
-## Versao 0.2.0
+## Versao 0.3.0
 
-A aplicacao ja executa a primeira etapa funcional do processamento:
+A aplicacao executa duas etapas funcionais:
+
+### Validacao estrutural
 
 1. recebe o arquivo FINBRA pela interface;
 2. cria uma execucao auditavel e imutavel;
 3. preserva o arquivo original em `00_entrada`;
 4. calcula o hash SHA-256;
 5. le todas as abas do Excel;
-6. registra dimensoes, campos identificadores, anos e municipios reconhecidos;
-7. detecta abas vazias, colunas duplicadas e colunas sem nome;
-8. classifica alertas criticos e relevantes;
-9. grava o resultado em JSON;
-10. gera relatorio HTML em `01_validacao_estrutural`;
-11. atualiza o `manifest.json` da execucao.
+6. identifica anos, municipios, codigos IBGE e tipos de aba;
+7. detecta problemas estruturais;
+8. grava resultado JSON e relatorio HTML;
+9. atualiza o manifesto da execucao.
 
-Esta etapa nao altera contas nem valores. A classificacao contabil e os calculos serao incorporados nas etapas seguintes.
+### Normalizacao
+
+1. converte `Receitas`, `Despesas` e `Despesa por função` do formato largo para o formato longo;
+2. padroniza `uf`, `codigo_ibge`, `municipio` e `ano`;
+3. preserva o rotulo e o valor originais de cada conta;
+4. cria um campo numerico separado;
+5. decompoe preliminarmente o rotulo em estagio, codigo e descricao;
+6. omite apenas celulas ausentes e registra sua quantidade;
+7. preserva as abas auxiliares em arquivos Parquet;
+8. gera resultado JSON e relatorio HTML da etapa;
+9. registra arquivos, metricas, alertas e status no manifesto.
+
+A normalizacao nao agrega contas, nao corrige valores e nao produz interpretacoes. A classificacao contabil sera realizada em etapa posterior.
 
 ## Estrutura de uma execucao
 
@@ -42,6 +54,15 @@ execucoes/<id_execucao>/
 │   ├── resultado_validacao.json
 │   └── relatorio_validacao.html
 ├── 02_normalizacao/
+│   ├── receitas_longo.parquet
+│   ├── despesas_longo.parquet
+│   ├── despesa_por_funcao_longo.parquet
+│   ├── auxiliar_cobertura.parquet
+│   ├── auxiliar_dicionario.parquet
+│   ├── auxiliar_fontes.parquet
+│   ├── auxiliar_leia_me.parquet
+│   ├── resultado_normalizacao.json
+│   └── relatorio_normalizacao.html
 ├── 03_classificacao_contabil/
 ├── 04_agregacoes/
 ├── 05_deflacao/
@@ -88,7 +109,13 @@ pip install -e .
 streamlit run aplicacao.py
 ```
 
-A base FINBRA deve ser selecionada pela interface. A cartografia alternativa e opcional.
+A normalizacao pode consumir alguns minutos e memoria proporcional ao numero de contas. Os arquivos Parquet resultantes tendem a ser menores e mais adequados para as etapas seguintes.
+
+## Testes
+
+```powershell
+pytest
+```
 
 ## Controle de versoes
 
@@ -98,4 +125,4 @@ A base FINBRA deve ser selecionada pela interface. A cartografia alternativa e o
 
 ## Estado
 
-Versao `0.2.0`: ingestao, preservacao da entrada, validacao estrutural, hash, manifesto e relatorios JSON/HTML.
+Versao `0.3.0`: validacao estrutural e normalizacao auditavel para formato longo, com arquivos Parquet e relatorios JSON/HTML por etapa.

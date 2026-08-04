@@ -6,6 +6,19 @@
 - `x.x.1`: ajustes, aperfeicoamentos e correcoes dentro de uma etapa.
 - `x.x.xa`, `x.x.xb`, `x.x.xc`: alternativas experimentais de um mesmo procedimento.
 
+## 0.4.2 - Selecao hierarquica por recorte
+
+- criacao de `processamentos/selecionar_agregacao_hierarquica.py`;
+- selecao calculada por bloco, municipio, ano, estagio e natureza da operacao;
+- conciliacao entre conta-pai e soma dos filhos diretos observados;
+- uso da conta-pai quando o ramo esta conciliado dentro da tolerancia numerica;
+- uso das folhas observadas quando ha divergencia entre pai e filhos;
+- preservacao integral dos valores e registros originais;
+- geracao de `selecao_agregacao_hierarquica.parquet` e planilha Excel auditavel;
+- registro da regra aplicada, diferenca de conciliacao, descendentes observados e decisao de selecao;
+- resumo por bloco com recortes, pais conciliados, divergencias e registros selecionados;
+- teste automatizado para ramos conciliados e divergentes.
+
 ## 0.4.1 - Correcao da hierarquia contabil
 
 - substituicao da regra generica de remocao do ultimo segmento por regras especificas para cada bloco;

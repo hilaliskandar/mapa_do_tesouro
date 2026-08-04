@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Ferramentas
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.streamlit/secrets.toml
+
+# Dados e execucoes
+dados/entrada/*
+!dados/entrada/.gitkeep
+dados/cartografia/*
+!dados/cartografia/.gitkeep
+execucoes/*
+!execucoes/.gitkeep
+
+# Saidas locais
+*.parquet
+*.xlsx
+*.xls
+*.pdf
+*.html
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db

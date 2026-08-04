@@ -1,6 +1,6 @@
 sistema:
   nome: mapa_do_tesouro
-  versao: 0.3.0
+  versao: 0.3.2
   idioma_interno: pt_br_sem_acentos
 
 processamento:
@@ -29,12 +29,19 @@ normalizacao:
   preservar_rotulo_conta_original: true
   preservar_valor_original: true
   gerar_valor_numerico_separado: true
-  decompor_rotulo_contabil: true
+  usar_dicionario_como_fonte_primaria: true
+  permitir_regra_contingencia: true
+  reconciliar_preenchidos_com_registros_longos: true
+  reprovar_duplicidades_contabeis: true
+  reprovar_inconsistencia_populacional: true
+  separar_populacao_das_contas: true
+  arquivo_dimensao_municipio_ano: dimensao_municipio_ano.parquet
   identificadores_padrao:
     - uf
     - codigo_ibge
     - municipio
     - ano
+    - populacao
   abas_em_formato_longo:
     - Receitas
     - Despesas

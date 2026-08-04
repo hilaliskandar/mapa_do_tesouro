@@ -7,6 +7,7 @@ from hashlib import sha256
 from pathlib import Path
 import re
 from typing import Any
+import unicodedata
 
 import pandas as pd
 
@@ -16,15 +17,30 @@ COLUNAS_IDENTIFICADORAS = {
     "exercicio",
     "codigo_ibge",
     "cod_ibge",
+    "codigo_municipio",
     "municipio",
     "nome_municipio",
     "uf",
+}
+
+ABAS_DADOS = {
+    "cobertura",
+    "receitas",
+    "despesas",
+    "despesa_por_funcao",
+}
+
+ABAS_AUXILIARES = {
+    "leia_me",
+    "dicionario",
+    "fontes",
 }
 
 
 @dataclass
 class ResultadoAba:
     nome: str
+    tipo_aba: str
     linhas: int
     colunas: int
     colunas_duplicadas: list[str] = field(default_factory=list)
@@ -64,8 +80,19 @@ def calcular_hash(caminho: Path) -> str:
 
 def normalizar_nome_coluna(valor: object) -> str:
     texto = str(valor).strip().lower()
+    texto = unicodedata.normalize("NFKD", texto)
+    texto = "".join(caractere for caractere in texto if not unicodedata.combining(caractere))
     texto = re.sub(r"[^a-z0-9]+", "_", texto)
     return texto.strip("_")
+
+
+def _classificar_aba(nome: str) -> str:
+    nome_normalizado = normalizar_nome_coluna(nome)
+    if nome_normalizado in ABAS_DADOS:
+        return "dados"
+    if nome_normalizado in ABAS_AUXILIARES:
+        return "auxiliar"
+    return "desconhecida"
 
 
 def _localizar_coluna(colunas: list[object], candidatos: set[str]) -> object | None:
@@ -76,16 +103,12 @@ def _localizar_coluna(colunas: list[object], candidatos: set[str]) -> object | N
 
 
 def _extrair_anos(quadro: pd.DataFrame) -> list[int]:
-    anos: set[int] = set()
+    """Extrai anos somente de coluna temporal explicita, evitando falsos positivos em rotulos."""
     coluna_ano = _localizar_coluna(list(quadro.columns), {"ano", "exercicio"})
-    if coluna_ano is not None:
-        valores = pd.to_numeric(quadro[coluna_ano], errors="coerce").dropna().astype(int)
-        anos.update(int(valor) for valor in valores if 1900 <= int(valor) <= 2100)
-
-    for coluna in quadro.columns:
-        for correspondencia in re.findall(r"(?<!\d)(20\d{2})(?!\d)", str(coluna)):
-            anos.add(int(correspondencia))
-    return sorted(anos)
+    if coluna_ano is None:
+        return []
+    valores = pd.to_numeric(quadro[coluna_ano], errors="coerce").dropna().astype(int)
+    return sorted({int(valor) for valor in valores if 1900 <= int(valor) <= 2100})
 
 
 def _contar_distintos(quadro: pd.DataFrame, candidatos: set[str]) -> int | None:
@@ -95,6 +118,42 @@ def _contar_distintos(quadro: pd.DataFrame, candidatos: set[str]) -> int | None:
     valores = quadro[coluna].dropna().astype(str).str.strip()
     valores = valores[valores.ne("")]
     return int(valores.nunique())
+
+
+def _alertas_da_aba(
+    quadro: pd.DataFrame,
+    tipo_aba: str,
+    duplicadas: list[str],
+    sem_nome: list[str],
+    identificadoras: list[str],
+    anos: list[int],
+) -> list[dict[str, str]]:
+    alertas: list[dict[str, str]] = []
+    if quadro.empty:
+        alertas.append({"nivel": "critico", "mensagem": "A aba esta vazia."})
+    if duplicadas:
+        alertas.append({"nivel": "critico", "mensagem": "Existem colunas duplicadas."})
+
+    if tipo_aba == "dados":
+        if sem_nome:
+            alertas.append({"nivel": "relevante", "mensagem": "Existem colunas sem rotulo."})
+        if not identificadoras:
+            alertas.append(
+                {
+                    "nivel": "relevante",
+                    "mensagem": "Nenhuma coluna identificadora padrao foi reconhecida.",
+                }
+            )
+        if not anos:
+            alertas.append({"nivel": "relevante", "mensagem": "Nenhum exercicio foi reconhecido."})
+    elif tipo_aba == "desconhecida":
+        alertas.append(
+            {
+                "nivel": "relevante",
+                "mensagem": "A finalidade da aba nao foi reconhecida pela configuracao.",
+            }
+        )
+    return alertas
 
 
 def validar_arquivo_finbra(caminho: Path) -> ResultadoValidacao:
@@ -112,6 +171,7 @@ def validar_arquivo_finbra(caminho: Path) -> ResultadoValidacao:
 
     for nome_aba in livro.sheet_names:
         quadro = pd.read_excel(livro, sheet_name=nome_aba)
+        tipo_aba = _classificar_aba(nome_aba)
         nomes = [str(coluna) for coluna in quadro.columns]
         duplicadas = sorted({nome for nome in nomes if nomes.count(nome) > 1})
         sem_nome = [nome for nome in nomes if nome.lower().startswith("unnamed")]
@@ -127,31 +187,18 @@ def validar_arquivo_finbra(caminho: Path) -> ResultadoValidacao:
         quantidade_codigos = _contar_distintos(
             quadro, {"codigo_ibge", "cod_ibge", "codigo_municipio"}
         )
-        alertas: list[dict[str, str]] = []
-        if quadro.empty:
-            alertas.append({"nivel": "critico", "mensagem": "A aba esta vazia."})
-        if duplicadas:
-            alertas.append(
-                {"nivel": "critico", "mensagem": "Existem colunas duplicadas."}
-            )
-        if sem_nome:
-            alertas.append(
-                {"nivel": "relevante", "mensagem": "Existem colunas sem rotulo."}
-            )
-        if not identificadoras:
-            alertas.append(
-                {
-                    "nivel": "relevante",
-                    "mensagem": "Nenhuma coluna identificadora padrao foi reconhecida.",
-                }
-            )
-        if not anos:
-            alertas.append(
-                {"nivel": "relevante", "mensagem": "Nenhum exercicio foi reconhecido."}
-            )
+        alertas = _alertas_da_aba(
+            quadro=quadro,
+            tipo_aba=tipo_aba,
+            duplicadas=duplicadas,
+            sem_nome=sem_nome,
+            identificadoras=identificadoras,
+            anos=anos,
+        )
 
         resultado = ResultadoAba(
             nome=nome_aba,
+            tipo_aba=tipo_aba,
             linhas=int(quadro.shape[0]),
             colunas=int(quadro.shape[1]),
             colunas_duplicadas=duplicadas,
@@ -164,11 +211,13 @@ def validar_arquivo_finbra(caminho: Path) -> ResultadoValidacao:
             alertas=alertas,
         )
         resultados.append(resultado)
-        anos_consolidados.update(anos)
-        if quantidade_municipios is not None:
-            municipios.append(quantidade_municipios)
-        if quantidade_codigos is not None:
-            codigos.append(quantidade_codigos)
+
+        if tipo_aba == "dados":
+            anos_consolidados.update(anos)
+            if quantidade_municipios is not None:
+                municipios.append(quantidade_municipios)
+            if quantidade_codigos is not None:
+                codigos.append(quantidade_codigos)
 
     alertas_criticos = sum(
         1
@@ -182,7 +231,13 @@ def validar_arquivo_finbra(caminho: Path) -> ResultadoValidacao:
         for alerta in aba.alertas
         if alerta["nivel"] == "relevante"
     )
-    status = "reprovado" if alertas_criticos else "aprovado_com_alertas" if alertas_relevantes else "aprovado"
+    status = (
+        "reprovado"
+        if alertas_criticos
+        else "aprovado_com_alertas"
+        if alertas_relevantes
+        else "aprovado"
+    )
 
     return ResultadoValidacao(
         arquivo=caminho.name,

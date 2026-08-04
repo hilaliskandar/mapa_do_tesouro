@@ -14,19 +14,28 @@ Exemplos:
 - `0.2.1`: aperfeicoamento da validacao.
 - `0.2.1a`: alternativa A para uma regra de validacao.
 
-## 0.2.0 - Ingestao e validacao FINBRA
+## 0.2.1 - Aperfeicoamento da validacao estrutural
 
-- preservacao do arquivo enviado em `00_entrada`;
-- calculo de hash SHA-256 da base FINBRA;
-- leitura de todas as abas do arquivo Excel;
-- registro de linhas, colunas, celulas vazias e campos identificadores;
-- identificacao preliminar de exercicios, municipios e codigos IBGE;
-- deteccao de abas vazias, colunas duplicadas e colunas sem nome;
-- classificacao de alertas criticos e relevantes;
+- normalizacao de acentos nos cabecalhos antes da identificacao de campos;
+- reconhecimento de `Município`, `Código IBGE` e variantes equivalentes;
+- classificacao das abas entre dados, auxiliares e desconhecidas;
+- supressao de alertas indevidos em abas documentais e de dicionario;
+- extracao de anos somente a partir de colunas explicitas `Ano` ou `Exercicio`;
+- eliminacao do falso reconhecimento de 2012 em rotulos de contas;
+- consolidacao de cobertura apenas a partir das abas de dados;
+- exibicao de municipios, codigos IBGE e tipo de aba na interface.
+
+## 0.2.0 - Ingestao e validacao funcional da base FINBRA
+
+- preservacao do arquivo FINBRA no diretorio da execucao;
+- calculo do hash SHA-256 e registro do tamanho do arquivo;
+- leitura de todas as abas do Excel;
+- levantamento de linhas, colunas, vazios e duplicidades;
+- identificacao preliminar de anos, municipios e codigos IBGE;
 - geracao de resultado estruturado em JSON;
 - geracao de relatorio HTML da validacao;
 - atualizacao do manifesto da execucao;
-- exibicao dos resultados na interface Streamlit.
+- resumo da validacao exibido na interface Streamlit.
 
 ## 0.1.1 - Cartografia remota e cache local
 

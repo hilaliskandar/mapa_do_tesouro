@@ -17,10 +17,9 @@ from relatorios.gerar_relatorio_validacao import (
 )
 
 
-VERSAO_SISTEMA = "0.3.1"
+VERSAO_SISTEMA = "0.3.2"
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
-
 st.title("Mapa do Tesouro")
 st.write(
     "Aplicacao auditavel para processamento, analise e visualizacao territorial "
@@ -28,20 +27,17 @@ st.write(
 )
 
 arquivo_finbra = st.file_uploader("Selecione a base FINBRA", type=["xlsx", "xls"])
-
 st.caption(
     "A cartografia padrao sera obtida de tbrugz/geodata-br e armazenada em cache local. "
     "Uma fonte alternativa pode ser fornecida para testes."
 )
 arquivo_cartografia = st.file_uploader(
-    "Cartografia alternativa opcional",
-    type=["json", "geojson"],
+    "Cartografia alternativa opcional", type=["json", "geojson"]
 )
-
 executar_normalizacao = st.checkbox(
     "Normalizar a base apos a validacao",
     value=True,
-    help="Converte as abas de dados para formato longo e grava arquivos Parquet auditaveis.",
+    help="Converte as abas contabeis para formato longo, aplica o dicionario e cria a dimensao municipio-ano.",
 )
 
 if st.button("Criar execucao e processar", type="primary"):
@@ -60,9 +56,7 @@ if st.button("Criar execucao e processar", type="primary"):
             )
             diretorio_execucao = Path(contexto.diretorio)
             caminho_finbra = gerenciador.preservar_arquivo_enviado(
-                arquivo_finbra.getvalue(),
-                arquivo_finbra.name,
-                diretorio_execucao,
+                arquivo_finbra.getvalue(), arquivo_finbra.name, diretorio_execucao
             )
             if arquivo_cartografia is not None:
                 gerenciador.preservar_arquivo_enviado(
@@ -75,12 +69,10 @@ if st.button("Criar execucao e processar", type="primary"):
                 resultado_validacao = validar_arquivo_finbra(caminho_finbra)
                 pasta_validacao = diretorio_execucao / "01_validacao_estrutural"
                 caminho_validacao_json = gerar_relatorio_validacao_json(
-                    resultado_validacao,
-                    pasta_validacao / "resultado_validacao.json",
+                    resultado_validacao, pasta_validacao / "resultado_validacao.json"
                 )
                 caminho_validacao_html = gerar_relatorio_validacao_html(
-                    resultado_validacao,
-                    pasta_validacao / "relatorio_validacao.html",
+                    resultado_validacao, pasta_validacao / "relatorio_validacao.html"
                 )
                 gerenciador.atualizar_manifesto(
                     diretorio_execucao,
@@ -108,12 +100,11 @@ if st.button("Criar execucao e processar", type="primary"):
 
             if executar_normalizacao and resultado_validacao.status != "reprovado":
                 with st.spinner(
-                    "Normalizando as abas. Esta etapa pode levar alguns minutos devido ao volume de contas..."
+                    "Normalizando as abas, conciliando o dicionario e validando a populacao..."
                 ):
                     pasta_normalizacao = diretorio_execucao / "02_normalizacao"
                     resultado_normalizacao = normalizar_arquivo_finbra(
-                        caminho_finbra,
-                        pasta_normalizacao,
+                        caminho_finbra, pasta_normalizacao
                     )
                     caminho_normalizacao_json = gerar_relatorio_normalizacao_json(
                         resultado_normalizacao,
@@ -128,9 +119,16 @@ if st.button("Criar execucao e processar", type="primary"):
                         {
                             "normalizacao": {
                                 "status": resultado_normalizacao.status,
-                                "valores_preservados": resultado_normalizacao.total_valores_preservados,
+                                "registros_contabeis": resultado_normalizacao.total_registros_contabeis,
+                                "celulas_auxiliares": resultado_normalizacao.total_celulas_auxiliares_preservadas,
                                 "ausentes_omitidos": resultado_normalizacao.total_ausentes_omitidos,
                                 "valores_nao_numericos": resultado_normalizacao.total_nao_numericos,
+                                "cabecalhos_sem_dicionario": resultado_normalizacao.total_cabecalhos_sem_dicionario,
+                                "registros_sem_codigo": resultado_normalizacao.total_registros_sem_codigo_conta,
+                                "registros_sem_estagio": resultado_normalizacao.total_registros_sem_estagio,
+                                "duplicidades": resultado_normalizacao.total_duplicidades_observacao,
+                                "inconsistencias_populacao": resultado_normalizacao.inconsistencias_populacao,
+                                "dimensao_municipio_ano": resultado_normalizacao.arquivo_dimensao_municipio_ano,
                                 "alertas_criticos": resultado_normalizacao.alertas_criticos,
                                 "alertas_relevantes": resultado_normalizacao.alertas_relevantes,
                                 "resultado_json": str(caminho_normalizacao_json),
@@ -140,34 +138,36 @@ if st.button("Criar execucao e processar", type="primary"):
                     )
 
                 st.success("Normalizacao concluida.")
-                metricas_normalizacao = st.columns(4)
-                metricas_normalizacao[0].metric(
-                    "Valores preservados",
-                    f"{resultado_normalizacao.total_valores_preservados:,}",
+                metricas = st.columns(6)
+                metricas[0].metric(
+                    "Registros contabeis", f"{resultado_normalizacao.total_registros_contabeis:,}"
                 )
-                metricas_normalizacao[1].metric(
-                    "Ausentes omitidos",
-                    f"{resultado_normalizacao.total_ausentes_omitidos:,}",
+                metricas[1].metric(
+                    "Sem dicionario", f"{resultado_normalizacao.total_cabecalhos_sem_dicionario:,}"
                 )
-                metricas_normalizacao[2].metric(
-                    "Nao numericos",
-                    f"{resultado_normalizacao.total_nao_numericos:,}",
+                metricas[2].metric(
+                    "Sem codigo", f"{resultado_normalizacao.total_registros_sem_codigo_conta:,}"
                 )
-                metricas_normalizacao[3].metric(
-                    "Status",
-                    resultado_normalizacao.status,
+                metricas[3].metric(
+                    "Sem estagio", f"{resultado_normalizacao.total_registros_sem_estagio:,}"
                 )
+                metricas[4].metric(
+                    "Populacao divergente", f"{resultado_normalizacao.inconsistencias_populacao:,}"
+                )
+                metricas[5].metric("Status", resultado_normalizacao.status)
                 st.dataframe(
                     [
                         {
                             "aba": aba.aba_origem,
                             "tipo": aba.tipo,
-                            "linhas_origem": aba.linhas_origem,
-                            "colunas_origem": aba.colunas_origem,
-                            "colunas_valores": aba.colunas_valores,
-                            "valores_preservados": aba.valores_preservados,
-                            "ausentes_omitidos": aba.valores_ausentes_omitidos,
-                            "nao_numericos": aba.valores_nao_numericos,
+                            "contas": aba.colunas_valores,
+                            "preenchidos_origem": aba.valores_preenchidos_origem,
+                            "registros_contabeis": aba.registros_contabeis_preservados,
+                            "cabecalhos_no_dicionario": aba.cabecalhos_correspondidos_dicionario,
+                            "sem_dicionario": aba.cabecalhos_sem_dicionario,
+                            "sem_codigo": aba.registros_sem_codigo_conta,
+                            "sem_estagio": aba.registros_sem_estagio,
+                            "duplicidades": aba.duplicidades_observacao,
                             "alertas": len(aba.alertas),
                         }
                         for aba in resultado_normalizacao.abas
@@ -181,6 +181,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: validacao estrutural e normalizacao auditavel para formato "
-    "longo, com preservacao dos rotulos originais, arquivos Parquet e relatorios por etapa."
+    f"Versao {VERSAO_SISTEMA}: populacao separada das contas, dicionario como fonte primaria, "
+    "reconciliacao quantitativa e controles semanticos da normalizacao."
 )

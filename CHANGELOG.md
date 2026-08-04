@@ -6,6 +6,28 @@
 - `x.x.1`: ajustes, aperfeicoamentos e correcoes dentro de uma etapa.
 - `x.x.xa`, `x.x.xb`, `x.x.xc`: alternativas experimentais de um mesmo procedimento.
 
+## 0.4.0 - Hierarquia e catalogo contabil
+
+- encerramento da fase inicial de preparacao e qualificacao dos dados;
+- criacao de `processamentos/construir_hierarquia_contabil.py`;
+- construcao automatica de niveis hierarquicos e codigos-pai;
+- identificacao calculada de contas sinteticas e terminais a partir da existencia de descendentes;
+- geracao de `catalogo_contabil.parquet` e `catalogo_contabil.xlsx`;
+- geracao de `relacoes_pai_filho.parquet`;
+- registro de primeira e ultima ocorrencia, anos, municipios, frequencia e valores acumulados;
+- integracao da nova etapa ao manifesto e a interface Streamlit;
+- criacao de teste automatizado da hierarquia;
+- ampliacao do README com finalidade, perguntas analiticas, limitacoes e fontes metodologicas;
+- criacao de `docs/arquitetura_analitica.md`.
+
+## 0.3.5 - Encerramento da qualificacao
+
+- normalizacao textual de hifens, parenteses, espacos e caracteres corrompidos;
+- reconhecimento de subtotais intraorcamentarios e exceto intraorcamentarios;
+- recuperacao de codigos em rotulos malformados;
+- classificacao detalhada de deducoes;
+- eliminacao das pendencias efetivas na base de referencia.
+
 ## 0.3.4 - Qualificacao normativa inicial
 
 - extracao de codigos de receita e despesa com ou sem hifen, travessao ou dois-pontos;

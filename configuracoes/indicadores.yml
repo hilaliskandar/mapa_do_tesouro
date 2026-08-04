@@ -1,0 +1,35 @@
+indicadores:
+  - codigo: REC_IPTU
+    nome: IPTU arrecadado
+    objetivo: Medir a arrecadacao municipal recorrente sobre a propriedade predial e territorial urbana.
+    formula: soma_contas_iptu
+    unidade_nominal: BRL
+    unidade_real: BRL_JUN_2026
+    gerar_per_capita: true
+    limitacoes: Nao mede diretamente o potencial tributario nem a atualizacao da planta generica de valores.
+
+  - codigo: REC_ISS
+    nome: ISS arrecadado
+    objetivo: Medir a arrecadacao municipal associada a prestacao de servicos.
+    formula: soma_contas_iss
+    unidade_nominal: BRL
+    unidade_real: BRL_JUN_2026
+    gerar_per_capita: true
+    limitacoes: E influenciado pela estrutura economica e pelas regras locais de administracao tributaria.
+
+  - codigo: REC_ITBI
+    nome: ITBI arrecadado
+    objetivo: Medir a arrecadacao sobre transmissoes imobiliarias e apoiar a leitura da atividade imobiliaria.
+    formula: soma_contas_itbi
+    unidade_nominal: BRL
+    unidade_real: BRL_JUN_2026
+    gerar_per_capita: true
+    limitacoes: Varia com transacoes, precos, aliquotas, avaliacao fiscal e capacidade administrativa.
+
+  - codigo: AUTONOMIA_TRIBUTARIA_ESTRITA
+    nome: Autonomia tributaria estrita
+    objetivo: Medir a participacao das receitas tributarias diretamente mobilizadas pelo municipio.
+    formula: (IPTU + ISS + ITBI + taxas + contribuicao_melhoria) / receita_corrente_referencia
+    unidade: percentual
+    gerar_per_capita: false
+    limitacoes: Nao equivale a esforco fiscal potencial nem a qualidade da gestao tributaria.

@@ -1,10 +1,19 @@
-"""Construcao auditavel da hierarquia e do catalogo contabil."""
+"""Construcao auditavel da hierarquia e do catalogo contabil.
+
+A hierarquia e especifica para cada bloco:
+- receita: estrutura posicional, com ascensao por substituicao por zeros;
+- despesa por natureza: prefixos conceituais de categoria, grupo, modalidade,
+  elemento e desdobramento;
+- despesa por funcao: funcao e funcao.subfuncao.
+
+Nos conceituais ausentes da declaracao sao gerados sem alterar os registros de origem.
+"""
 
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 import pandas as pd
 
@@ -19,6 +28,8 @@ ARQUIVOS_QUALIFICADOS = {
 class ResultadoHierarquiaBloco:
     bloco: str
     registros: int
+    codigos_observados: int
+    nos_conceituais_gerados: int
     codigos_distintos: int
     contas_terminais: int
     contas_sinteticas: int
@@ -32,6 +43,8 @@ class ResultadoHierarquia:
     pasta_saida: str
     blocos: list[ResultadoHierarquiaBloco]
     total_codigos_distintos: int
+    total_codigos_observados: int
+    total_nos_conceituais_gerados: int
     total_relacoes_pai_filho: int
     arquivo_catalogo_parquet: str
     arquivo_catalogo_xlsx: str
@@ -53,15 +66,70 @@ def _segmentos_codigo(codigo: object) -> list[str]:
     return [segmento.strip() for segmento in str(codigo).split(".") if segmento.strip()]
 
 
-def _codigo_pai(codigo: object) -> str | None:
+def _segmento_zero(segmento: str) -> str:
+    return "0" * max(1, len(segmento))
+
+
+def _eh_zero(segmento: str) -> bool:
+    return bool(segmento) and set(segmento) == {"0"}
+
+
+def _cadeia_receita(codigo: str) -> list[str]:
+    """Retorna a cadeia da raiz ate o codigo preservando larguras historicas."""
     segmentos = _segmentos_codigo(codigo)
-    if len(segmentos) <= 1:
-        return None
-    return ".".join(segmentos[:-1])
+    if not segmentos:
+        return []
+
+    cadeia: list[str] = []
+    for posicao in range(len(segmentos)):
+        atual = [
+            segmentos[i] if i <= posicao else _segmento_zero(segmentos[i])
+            for i in range(len(segmentos))
+        ]
+        candidato = ".".join(atual)
+        if candidato not in cadeia:
+            cadeia.append(candidato)
+
+    # Segmentos intermediarios iguais a zero nao criam novos niveis substantivos.
+    cadeia_filtrada: list[str] = []
+    for item in cadeia:
+        partes = _segmentos_codigo(item)
+        ultimo_nao_zero = max((i for i, p in enumerate(partes) if not _eh_zero(p)), default=0)
+        canonico = ".".join(
+            partes[i] if i <= ultimo_nao_zero else _segmento_zero(partes[i])
+            for i in range(len(partes))
+        )
+        if canonico not in cadeia_filtrada:
+            cadeia_filtrada.append(canonico)
+    return cadeia_filtrada
 
 
-def _nivel_hierarquico(codigo: object) -> int:
-    return len(_segmentos_codigo(codigo))
+def _cadeia_despesa(codigo: str) -> list[str]:
+    segmentos = _segmentos_codigo(codigo)
+    return [".".join(segmentos[:i]) for i in range(1, len(segmentos) + 1)]
+
+
+def _cadeia_funcional(codigo: str) -> list[str]:
+    segmentos = _segmentos_codigo(codigo)
+    if not segmentos:
+        return []
+    if len(segmentos) == 1:
+        return [segmentos[0].zfill(2)]
+    # A classificacao funcional operacional e funcao -> funcao.subfuncao.
+    return [segmentos[0].zfill(2), f"{segmentos[0].zfill(2)}.{segmentos[1].zfill(3)}"]
+
+
+def _cadeia_codigo(codigo: str, bloco: str) -> list[str]:
+    if bloco == "receitas":
+        return _cadeia_receita(codigo)
+    if bloco == "despesas":
+        return _cadeia_despesa(codigo)
+    return _cadeia_funcional(codigo)
+
+
+def _nivel_hierarquico(codigo: str, bloco: str) -> int:
+    cadeia = _cadeia_codigo(codigo, bloco)
+    return len(cadeia)
 
 
 def _primeiro_valido(serie: pd.Series) -> object:
@@ -73,59 +141,136 @@ def _primeiro_valido(serie: pd.Series) -> object:
     return textos.iloc[0] if not textos.empty else pd.NA
 
 
-def _construir_catalogo_bloco(quadro: pd.DataFrame, bloco: str) -> tuple[pd.DataFrame, pd.DataFrame]:
-    codificados = quadro[~quadro["codigo_conta"].apply(_codigo_ausente)].copy()
-    if codificados.empty:
-        return pd.DataFrame(), pd.DataFrame()
+def _pares_cadeia(cadeia: Iterable[str]) -> list[tuple[str, str]]:
+    itens = list(cadeia)
+    return [(itens[i - 1], itens[i]) for i in range(1, len(itens))]
 
-    codificados["codigo_conta"] = codificados["codigo_conta"].astype("string").str.strip()
-    codificados["nivel_hierarquico"] = codificados["codigo_conta"].map(_nivel_hierarquico)
-    codificados["codigo_pai"] = codificados["codigo_conta"].map(_codigo_pai).astype("string")
 
+def _construir_nos_e_relacoes(codigos: Iterable[str], bloco: str) -> tuple[set[str], set[tuple[str, str]]]:
+    nos: set[str] = set()
+    relacoes: set[tuple[str, str]] = set()
+    for codigo in codigos:
+        cadeia = _cadeia_codigo(codigo, bloco)
+        nos.update(cadeia)
+        relacoes.update(_pares_cadeia(cadeia))
+    return nos, relacoes
+
+
+def _construir_catalogo_observado(codificados: pd.DataFrame, bloco: str) -> pd.DataFrame:
+    quadro = codificados.copy()
+    quadro["codigo_conta"] = quadro["codigo_conta"].astype("string").str.strip()
     agrupadores = ["bloco", "codigo_conta"]
     catalogo = (
-        codificados.groupby(agrupadores, dropna=False)
+        quadro.groupby(agrupadores, dropna=False)
         .agg(
             descricao_conta=("descricao_conta", _primeiro_valido),
             tipo_registro=("tipo_registro", _primeiro_valido),
             natureza_operacao=("natureza_operacao", _primeiro_valido),
             codigo_funcao=("codigo_funcao", _primeiro_valido),
             codigo_subfuncao=("codigo_subfuncao", _primeiro_valido),
-            nivel_hierarquico=("nivel_hierarquico", "max"),
-            codigo_pai=("codigo_pai", _primeiro_valido),
             primeira_ocorrencia=("ano", "min"),
             ultima_ocorrencia=("ano", "max"),
             anos_validos=("ano", "nunique"),
             municipios=("codigo_ibge", "nunique"),
             registros=("valor", "size"),
-            valor_nominal_acumulado=("valor", "sum"),
-            valor_absoluto_acumulado=("valor", lambda s: float(s.abs().sum())),
+            soma_nominal_registros_observados=("valor", "sum"),
+            soma_absoluta_para_auditoria=("valor", lambda s: float(s.abs().sum())),
         )
         .reset_index()
     )
+    catalogo["origem_no"] = "observado"
+    catalogo["codigo_observado"] = True
+    catalogo["nivel_hierarquico"] = catalogo["codigo_conta"].map(
+        lambda c: _nivel_hierarquico(str(c), bloco)
+    )
+    return catalogo
 
-    codigos = set(catalogo["codigo_conta"].astype(str))
+
+def _adicionar_nos_conceituais(
+    catalogo_observado: pd.DataFrame, nos: set[str], bloco: str
+) -> pd.DataFrame:
+    observados = set(catalogo_observado["codigo_conta"].astype(str))
+    faltantes = sorted(nos - observados)
+    if not faltantes:
+        return catalogo_observado
+
+    conceituais = pd.DataFrame(
+        {
+            "bloco": bloco,
+            "codigo_conta": faltantes,
+            "descricao_conta": pd.NA,
+            "tipo_registro": "no_conceitual",
+            "natureza_operacao": pd.NA,
+            "codigo_funcao": pd.NA,
+            "codigo_subfuncao": pd.NA,
+            "primeira_ocorrencia": pd.NA,
+            "ultima_ocorrencia": pd.NA,
+            "anos_validos": 0,
+            "municipios": 0,
+            "registros": 0,
+            "soma_nominal_registros_observados": 0.0,
+            "soma_absoluta_para_auditoria": 0.0,
+            "origem_no": "conceitual_gerado",
+            "codigo_observado": False,
+            "nivel_hierarquico": [
+                _nivel_hierarquico(codigo, bloco) for codigo in faltantes
+            ],
+        }
+    )
+    return pd.concat([catalogo_observado, conceituais], ignore_index=True)
+
+
+def _construir_catalogo_bloco(quadro: pd.DataFrame, bloco: str) -> tuple[pd.DataFrame, pd.DataFrame]:
+    codificados = quadro[~quadro["codigo_conta"].apply(_codigo_ausente)].copy()
+    if codificados.empty:
+        return pd.DataFrame(), pd.DataFrame()
+
+    observados = codificados["codigo_conta"].astype("string").str.strip().dropna().astype(str)
+    nos, pares = _construir_nos_e_relacoes(observados, bloco)
+    catalogo = _construir_catalogo_observado(codificados, bloco)
+    catalogo = _adicionar_nos_conceituais(catalogo, nos, bloco)
+
+    relacoes = pd.DataFrame(
+        sorted(pares), columns=["codigo_pai", "codigo_filho"]
+    )
+    relacoes.insert(0, "bloco", bloco)
+    if relacoes.empty:
+        relacoes = pd.DataFrame(
+            columns=["bloco", "codigo_pai", "codigo_filho", "nivel_hierarquico_filho"]
+        )
+    else:
+        relacoes["nivel_hierarquico_filho"] = relacoes["codigo_filho"].map(
+            lambda c: _nivel_hierarquico(c, bloco)
+        )
+
+    mapa_pai = dict(zip(relacoes["codigo_filho"], relacoes["codigo_pai"]))
+    filhos = set(relacoes["codigo_pai"].astype(str))
+    catalogo["codigo_pai"] = catalogo["codigo_conta"].map(mapa_pai).astype("string")
+    codigos_catalogo = set(catalogo["codigo_conta"].astype(str))
     catalogo["pai_presente_no_catalogo"] = catalogo["codigo_pai"].map(
-        lambda pai: False if pd.isna(pai) else str(pai) in codigos
+        lambda pai: False if pd.isna(pai) else str(pai) in codigos_catalogo
     )
-    catalogo["possui_filhos"] = catalogo["codigo_conta"].map(
-        lambda codigo: any(str(pai) == str(codigo) for pai in catalogo["codigo_pai"].dropna())
-    )
+    catalogo["possui_filhos"] = catalogo["codigo_conta"].astype(str).isin(filhos)
     catalogo["conta_terminal_calculada"] = ~catalogo["possui_filhos"]
-    catalogo["classificacao_hierarquica"] = catalogo.apply(
-        lambda linha: "terminal" if linha["conta_terminal_calculada"] else "sintetica", axis=1
+    catalogo["classificacao_hierarquica"] = catalogo["possui_filhos"].map(
+        {True: "sintetica", False: "terminal"}
     )
+    catalogo["utilizavel_em_agregacao"] = catalogo["codigo_observado"] & catalogo[
+        "conta_terminal_calculada"
+    ]
+    catalogo["regra_hierarquia"] = {
+        "receitas": "posicional_com_zeros",
+        "despesas": "prefixos_natureza_despesa",
+        "despesa_por_funcao": "funcao_subfuncao",
+    }[bloco]
 
-    relacoes = catalogo.loc[
-        catalogo["codigo_pai"].notna(),
-        ["bloco", "codigo_pai", "codigo_conta", "nivel_hierarquico"],
-    ].rename(columns={"codigo_conta": "codigo_filho"})
-    relacoes["pai_presente_no_catalogo"] = relacoes["codigo_pai"].astype(str).isin(codigos)
-    return catalogo, relacoes
+    relacoes["pai_presente_no_catalogo"] = relacoes["codigo_pai"].isin(codigos_catalogo)
+    relacoes["filho_observado"] = relacoes["codigo_filho"].isin(set(observados))
+    return catalogo.sort_values(["nivel_hierarquico", "codigo_conta"]), relacoes
 
 
 def construir_hierarquia_contabil(pasta_qualificacao: Path, pasta_saida: Path) -> ResultadoHierarquia:
-    """Constroi catalogo mestre e relacoes pai-filho a partir dos arquivos qualificados."""
+    """Constroi catalogo mestre e relacoes pai-filho por regra especifica de bloco."""
     pasta_saida.mkdir(parents=True, exist_ok=True)
     catalogos: list[pd.DataFrame] = []
     relacoes: list[pd.DataFrame] = []
@@ -140,26 +285,25 @@ def construir_hierarquia_contabil(pasta_qualificacao: Path, pasta_saida: Path) -
         catalogos.append(catalogo)
         relacoes.append(relacao)
 
-        sem_pai = 0
-        maior_nivel = 0
-        terminais = 0
-        sinteticas = 0
-        if not catalogo.empty:
-            sem_pai = int(
-                (catalogo["codigo_pai"].notna() & ~catalogo["pai_presente_no_catalogo"]).sum()
-            )
-            maior_nivel = int(catalogo["nivel_hierarquico"].max())
-            terminais = int(catalogo["conta_terminal_calculada"].sum())
-            sinteticas = int((~catalogo["conta_terminal_calculada"]).sum())
+        observados = int(catalogo["codigo_observado"].sum()) if not catalogo.empty else 0
+        gerados = int((~catalogo["codigo_observado"]).sum()) if not catalogo.empty else 0
+        sem_pai = int(
+            (
+                catalogo["codigo_pai"].notna()
+                & ~catalogo["pai_presente_no_catalogo"]
+            ).sum()
+        ) if not catalogo.empty else 0
         resultados.append(
             ResultadoHierarquiaBloco(
                 bloco=bloco,
                 registros=int(len(quadro)),
+                codigos_observados=observados,
+                nos_conceituais_gerados=gerados,
                 codigos_distintos=int(len(catalogo)),
-                contas_terminais=terminais,
-                contas_sinteticas=sinteticas,
+                contas_terminais=int(catalogo["conta_terminal_calculada"].sum()) if not catalogo.empty else 0,
+                contas_sinteticas=int(catalogo["possui_filhos"].sum()) if not catalogo.empty else 0,
                 codigos_sem_pai_identificado=sem_pai,
-                maior_nivel=maior_nivel,
+                maior_nivel=int(catalogo["nivel_hierarquico"].max()) if not catalogo.empty else 0,
             )
         )
 
@@ -181,13 +325,21 @@ def construir_hierarquia_contabil(pasta_qualificacao: Path, pasta_saida: Path) -
         )
 
     total_codigos = sum(item.codigos_distintos for item in resultados)
+    total_observados = sum(item.codigos_observados for item in resultados)
+    total_gerados = sum(item.nos_conceituais_gerados for item in resultados)
     total_relacoes = int(len(relacoes_final))
-    status = "aprovado" if total_codigos > 0 else "reprovado"
+    total_orfaos = sum(item.codigos_sem_pai_identificado for item in resultados)
+    status = "aprovado" if total_codigos > 0 and total_orfaos == 0 else "aprovado_com_alertas"
+    if total_codigos == 0:
+        status = "reprovado"
+
     resultado = ResultadoHierarquia(
         pasta_origem=str(pasta_qualificacao),
         pasta_saida=str(pasta_saida),
         blocos=resultados,
         total_codigos_distintos=total_codigos,
+        total_codigos_observados=total_observados,
+        total_nos_conceituais_gerados=total_gerados,
         total_relacoes_pai_filho=total_relacoes,
         arquivo_catalogo_parquet=str(arquivo_catalogo_parquet),
         arquivo_catalogo_xlsx=str(arquivo_catalogo_xlsx),

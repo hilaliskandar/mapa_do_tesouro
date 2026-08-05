@@ -1,162 +1,111 @@
-versao: 2
+versao: 3
 nome: mapa_semantico_inicial
 observacao: >-
-  Catalogo inicial versionado. As regras nao substituem ementarios anuais nem
-  mapeamentos fiscais oficiais. O objetivo e preservar conceitos atomicos e
-  permitir cobertura auditavel antes da construcao dos agregados.
+  Catalogo semantico inicial ampliado para categorias e origens da receita,
+  transferencias prioritarias e componentes tributarios. As regras nao substituem
+  ementarios anuais nem mapeamentos fiscais oficiais e permanecem auditaveis.
 parametros:
   blocos_obrigatorios: [receitas, despesas, despesa_por_funcao]
   cobertura_minima_alerta: 0.15
 regras:
+  # Categorias economicas e origens da receita
+  - {id_semantico: REV_CORRENTES_TOTAL, grupo_semantico: receita_categoria, bloco: receitas, nivel_semantico: categoria, finalidade: totalizacao, prioridade: 200, confianca: alta, codigo_regex: '^[17](?:\.0+)+$', interpretacao: Total das receitas correntes, inclusive variante intraorcamentaria quando iniciada por 7.}
+  - {id_semantico: REV_CAPITAL_TOTAL, grupo_semantico: receita_categoria, bloco: receitas, nivel_semantico: categoria, finalidade: totalizacao, prioridade: 200, confianca: alta, codigo_regex: '^[28](?:\.0+)+$', interpretacao: Total das receitas de capital, inclusive variante intraorcamentaria quando iniciada por 8.}
+  - {id_semantico: REV_TRIBUTARIA_TOTAL, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 120, confianca: alta, codigo_regex: '^[17]\.1(?:\.|$)', interpretacao: Impostos, taxas e contribuicoes de melhoria.}
+  - {id_semantico: REV_CONTRIBUICOES, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[17]\.2(?:\.|$)', interpretacao: Receitas de contribuicoes.}
+  - {id_semantico: REV_PATRIMONIAL, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[17]\.3(?:\.|$)', interpretacao: Receita patrimonial.}
+  - {id_semantico: REV_AGROPECUARIA, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[17]\.4(?:\.|$)', interpretacao: Receita agropecuaria.}
+  - {id_semantico: REV_INDUSTRIAL, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[17]\.5(?:\.|$)', interpretacao: Receita industrial.}
+  - {id_semantico: REV_SERVICOS, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[17]\.6(?:\.|$)', interpretacao: Receita de servicos.}
+  - {id_semantico: REV_TRANSFERENCIAS_CORRENTES, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[17]\.7(?:\.|$)', interpretacao: Transferencias correntes.}
+  - {id_semantico: REV_OUTRAS_CORRENTES, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[17]\.9(?:\.|$)', interpretacao: Outras receitas correntes.}
+  - {id_semantico: REV_OPERACOES_CREDITO, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[28]\.1(?:\.|$)', interpretacao: Operacoes de credito.}
+  - {id_semantico: REV_ALIENACAO_BENS, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[28]\.2(?:\.|$)', interpretacao: Alienacao de bens.}
+  - {id_semantico: REV_AMORTIZACAO_EMPRESTIMOS, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[28]\.3(?:\.|$)', interpretacao: Amortizacao de emprestimos concedidos.}
+  - {id_semantico: REV_TRANSFERENCIAS_CAPITAL, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[28]\.4(?:\.|$)', interpretacao: Transferencias de capital.}
+  - {id_semantico: REV_OUTRAS_CAPITAL, grupo_semantico: receita_origem, bloco: receitas, nivel_semantico: origem, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^[28]\.9(?:\.|$)', interpretacao: Outras receitas de capital.}
+
+  # Tributos municipais prioritarios
   - id_semantico: REV_TRIB_IPTU_PRINCIPAL
-    grupo_semantico: receita_tributaria
+    grupo_semantico: receita_tributaria_especifica
     bloco: receitas
     nivel_semantico: conta_especifica
     finalidade: indicador
-    prioridade: 100
+    prioridade: 150
     confianca: alta
     descricao_contem_algum: ["iptu", "propriedade predial e territorial urbana"]
     descricao_nao_contem: ["multa", "juros", "divida ativa"]
     interpretacao: Arrecadacao principal do IPTU.
   - id_semantico: REV_TRIB_ISS_PRINCIPAL
-    grupo_semantico: receita_tributaria
+    grupo_semantico: receita_tributaria_especifica
     bloco: receitas
     nivel_semantico: conta_especifica
     finalidade: indicador
-    prioridade: 100
+    prioridade: 150
     confianca: alta
     descricao_contem_algum: ["imposto sobre servicos", "issqn", "iss"]
     descricao_nao_contem: ["multa", "juros", "divida ativa"]
     interpretacao: Arrecadacao principal do imposto sobre servicos.
   - id_semantico: REV_TRIB_ITBI_PRINCIPAL
-    grupo_semantico: receita_tributaria
+    grupo_semantico: receita_tributaria_especifica
     bloco: receitas
     nivel_semantico: conta_especifica
     finalidade: indicador
-    prioridade: 100
+    prioridade: 150
     confianca: alta
     descricao_contem_algum: ["itbi", "transmissao inter vivos"]
     descricao_nao_contem: ["multa", "juros", "divida ativa"]
     interpretacao: Arrecadacao principal do ITBI e sinal aproximado da atividade imobiliaria.
   - id_semantico: REV_TRIB_TAXAS
-    grupo_semantico: receita_tributaria
+    grupo_semantico: receita_tributaria_especifica
     bloco: receitas
-    nivel_semantico: grupo
+    nivel_semantico: especie
     finalidade: composicao
-    prioridade: 80
+    prioridade: 120
     confianca: media
     descricao_contem_algum: ["taxas", "taxa pelo exercicio", "taxa pela prestacao"]
-    interpretacao: Receitas de taxas municipais.
+    descricao_nao_contem: ["impostos taxas e contribuicoes de melhoria", "multa", "juros", "divida ativa"]
+    interpretacao: Receitas de taxas municipais, excluido o agregado tributario amplo.
   - id_semantico: REV_TRIB_CONTRIBUICAO_MELHORIA
-    grupo_semantico: receita_tributaria
+    grupo_semantico: receita_tributaria_especifica
     bloco: receitas
-    nivel_semantico: conta_especifica
+    nivel_semantico: especie
     finalidade: indicador
-    prioridade: 100
+    prioridade: 130
     confianca: alta
     descricao_contem_algum: ["contribuicao de melhoria"]
-    interpretacao: Receita de contribuicao de melhoria.
-  - id_semantico: REV_TRANSF_FPM
-    grupo_semantico: transferencias_constitucionais
-    bloco: receitas
-    nivel_semantico: conta_especifica
-    finalidade: indicador
-    prioridade: 100
-    confianca: alta
-    descricao_contem_algum: ["fundo de participacao dos municipios", "fpm"]
-    interpretacao: Transferencias do Fundo de Participacao dos Municipios.
-  - id_semantico: REV_TRANSF_ICMS
-    grupo_semantico: transferencias_constitucionais
-    bloco: receitas
-    nivel_semantico: conta_especifica
-    finalidade: indicador
-    prioridade: 100
-    confianca: alta
-    descricao_contem_algum: ["cota-parte do icms", "cota parte do icms"]
-    interpretacao: Cota-parte municipal do ICMS.
-  - id_semantico: REV_TRANSF_IPVA
-    grupo_semantico: transferencias_constitucionais
-    bloco: receitas
-    nivel_semantico: conta_especifica
-    finalidade: indicador
-    prioridade: 100
-    confianca: alta
-    descricao_contem_algum: ["cota-parte do ipva", "cota parte do ipva"]
-    interpretacao: Cota-parte municipal do IPVA.
+    descricao_nao_contem: ["impostos taxas e contribuicoes de melhoria", "multa", "juros", "divida ativa"]
+    interpretacao: Receita principal de contribuicao de melhoria.
 
-  - id_semantico: DESP_CORRENTES_TOTAL
-    grupo_semantico: despesa_categoria
-    bloco: despesas
-    nivel_semantico: categoria
-    finalidade: totalizacao
-    prioridade: 200
-    confianca: alta
-    codigo_regex: '^3(?:\.0+)*$'
-    interpretacao: Total da categoria economica Despesas Correntes.
-  - id_semantico: DESP_CAPITAL_TOTAL
-    grupo_semantico: despesa_categoria
-    bloco: despesas
-    nivel_semantico: categoria
-    finalidade: totalizacao
-    prioridade: 200
-    confianca: alta
-    codigo_regex: '^4(?:\.0+)*$'
-    interpretacao: Total da categoria economica Despesas de Capital.
-  - id_semantico: DESP_PESSOAL_PROXY
-    grupo_semantico: despesa_natureza
-    bloco: despesas
-    nivel_semantico: grupo
-    finalidade: composicao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^3\.1(?:\.|$)'
-    interpretacao: Grupo 3.1, proxy contabil de pessoal e encargos; nao equivale a DTP-LRF.
-  - id_semantico: DESP_JUROS_ENCARGOS
-    grupo_semantico: despesa_natureza
-    bloco: despesas
-    nivel_semantico: grupo
-    finalidade: composicao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^3\.2(?:\.|$)'
-    interpretacao: Juros e encargos da divida.
-  - id_semantico: DESP_OUTRAS_CORRENTES
-    grupo_semantico: despesa_natureza
-    bloco: despesas
-    nivel_semantico: grupo
-    finalidade: composicao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^3\.3(?:\.|$)'
-    interpretacao: Outras despesas correntes.
-  - id_semantico: DESP_INVESTIMENTOS
-    grupo_semantico: despesa_natureza
-    bloco: despesas
-    nivel_semantico: grupo
-    finalidade: composicao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^4\.4(?:\.|$)'
-    interpretacao: Grupo 4.4, investimentos.
-  - id_semantico: DESP_INVERSOES_FINANCEIRAS
-    grupo_semantico: despesa_natureza
-    bloco: despesas
-    nivel_semantico: grupo
-    finalidade: composicao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^4\.5(?:\.|$)'
-    interpretacao: Grupo 4.5, inversoes financeiras.
-  - id_semantico: DESP_AMORTIZACAO_DIVIDA
-    grupo_semantico: despesa_natureza
-    bloco: despesas
-    nivel_semantico: grupo
-    finalidade: composicao
-    prioridade: 100
-    confianca: alta
-    codigo_regex: '^4\.6(?:\.|$)'
-    interpretacao: Grupo 4.6, amortizacao da divida.
+  # Componentes acessorios dos principais tributos
+  - {id_semantico: REV_TRIB_IPTU_DIVIDA_ATIVA, grupo_semantico: componente_iptu, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 160, confianca: alta, descricao_contem_algum: ["iptu", "propriedade predial e territorial urbana"], descricao_contem_todos: ["divida ativa"], descricao_nao_contem: ["multa", "juros"], interpretacao: Divida ativa do IPTU sem multas e juros.}
+  - {id_semantico: REV_TRIB_IPTU_MULTAS_JUROS, grupo_semantico: componente_iptu, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 160, confianca: alta, descricao_contem_algum: ["iptu", "propriedade predial e territorial urbana"], descricao_contem_todos: ["multas e juros"], descricao_nao_contem: ["divida ativa"], interpretacao: Multas e juros do IPTU fora da divida ativa.}
+  - {id_semantico: REV_TRIB_IPTU_MULTAS_JUROS_DIVIDA_ATIVA, grupo_semantico: componente_iptu, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 170, confianca: alta, descricao_contem_algum: ["iptu", "propriedade predial e territorial urbana"], descricao_contem_todos: ["divida ativa", "multas e juros"], interpretacao: Multas e juros da divida ativa do IPTU.}
+  - {id_semantico: REV_TRIB_ISS_DIVIDA_ATIVA, grupo_semantico: componente_iss, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 160, confianca: alta, descricao_contem_algum: ["imposto sobre servicos", "issqn", "iss"], descricao_contem_todos: ["divida ativa"], descricao_nao_contem: ["multa", "juros"], interpretacao: Divida ativa do ISS sem multas e juros.}
+  - {id_semantico: REV_TRIB_ISS_MULTAS_JUROS, grupo_semantico: componente_iss, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 160, confianca: alta, descricao_contem_algum: ["imposto sobre servicos", "issqn", "iss"], descricao_contem_todos: ["multas e juros"], descricao_nao_contem: ["divida ativa"], interpretacao: Multas e juros do ISS fora da divida ativa.}
+  - {id_semantico: REV_TRIB_ISS_MULTAS_JUROS_DIVIDA_ATIVA, grupo_semantico: componente_iss, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 170, confianca: alta, descricao_contem_algum: ["imposto sobre servicos", "issqn", "iss"], descricao_contem_todos: ["divida ativa", "multas e juros"], interpretacao: Multas e juros da divida ativa do ISS.}
+  - {id_semantico: REV_TRIB_ITBI_DIVIDA_ATIVA, grupo_semantico: componente_itbi, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 160, confianca: alta, descricao_contem_algum: ["itbi", "transmissao inter vivos"], descricao_contem_todos: ["divida ativa"], descricao_nao_contem: ["multa", "juros"], interpretacao: Divida ativa do ITBI sem multas e juros.}
+  - {id_semantico: REV_TRIB_ITBI_MULTAS_JUROS, grupo_semantico: componente_itbi, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 160, confianca: alta, descricao_contem_algum: ["itbi", "transmissao inter vivos"], descricao_contem_todos: ["multas e juros"], descricao_nao_contem: ["divida ativa"], interpretacao: Multas e juros do ITBI fora da divida ativa.}
+  - {id_semantico: REV_TRIB_ITBI_MULTAS_JUROS_DIVIDA_ATIVA, grupo_semantico: componente_itbi, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 170, confianca: alta, descricao_contem_algum: ["itbi", "transmissao inter vivos"], descricao_contem_todos: ["divida ativa", "multas e juros"], interpretacao: Multas e juros da divida ativa do ITBI.}
 
+  # Transferencias prioritarias
+  - {id_semantico: REV_TRANSF_FPM, grupo_semantico: transferencia_especifica, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 150, confianca: alta, descricao_contem_algum: ["fundo de participacao dos municipios", "fpm"], interpretacao: Transferencias do Fundo de Participacao dos Municipios.}
+  - {id_semantico: REV_TRANSF_ICMS, grupo_semantico: transferencia_especifica, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 150, confianca: alta, descricao_contem_algum: ["cota-parte do icms", "cota parte do icms"], interpretacao: Cota-parte municipal do ICMS.}
+  - {id_semantico: REV_TRANSF_IPVA, grupo_semantico: transferencia_especifica, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 150, confianca: alta, descricao_contem_algum: ["cota-parte do ipva", "cota parte do ipva"], interpretacao: Cota-parte municipal do IPVA.}
+  - {id_semantico: REV_TRANSF_FUNDEB, grupo_semantico: transferencia_especifica, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 150, confianca: alta, descricao_contem_algum: ["fundeb", "fundo de manutencao e desenvolvimento da educacao basica"], interpretacao: Transferencias vinculadas ao Fundeb.}
+  - {id_semantico: REV_TRANSF_SUS, grupo_semantico: transferencia_especifica, bloco: receitas, nivel_semantico: conta_especifica, finalidade: indicador, prioridade: 150, confianca: alta, descricao_contem_algum: ["sistema unico de saude", "sus"], interpretacao: Transferencias de recursos do Sistema Unico de Saude.}
+
+  # Despesas por categoria e grupo
+  - {id_semantico: DESP_CORRENTES_TOTAL, grupo_semantico: despesa_categoria, bloco: despesas, nivel_semantico: categoria, finalidade: totalizacao, prioridade: 200, confianca: alta, codigo_regex: '^3(?:\.0+)*$', interpretacao: Total da categoria economica Despesas Correntes.}
+  - {id_semantico: DESP_CAPITAL_TOTAL, grupo_semantico: despesa_categoria, bloco: despesas, nivel_semantico: categoria, finalidade: totalizacao, prioridade: 200, confianca: alta, codigo_regex: '^4(?:\.0+)*$', interpretacao: Total da categoria economica Despesas de Capital.}
+  - {id_semantico: DESP_PESSOAL_PROXY, grupo_semantico: despesa_natureza, bloco: despesas, nivel_semantico: grupo, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^3\.1(?:\.|$)', interpretacao: Grupo 3.1, proxy contabil de pessoal e encargos; nao equivale a DTP-LRF.}
+  - {id_semantico: DESP_JUROS_ENCARGOS, grupo_semantico: despesa_natureza, bloco: despesas, nivel_semantico: grupo, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^3\.2(?:\.|$)', interpretacao: Juros e encargos da divida.}
+  - {id_semantico: DESP_OUTRAS_CORRENTES, grupo_semantico: despesa_natureza, bloco: despesas, nivel_semantico: grupo, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^3\.3(?:\.|$)', interpretacao: Outras despesas correntes.}
+  - {id_semantico: DESP_INVESTIMENTOS, grupo_semantico: despesa_natureza, bloco: despesas, nivel_semantico: grupo, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^4\.4(?:\.|$)', interpretacao: Grupo 4.4, investimentos.}
+  - {id_semantico: DESP_INVERSOES_FINANCEIRAS, grupo_semantico: despesa_natureza, bloco: despesas, nivel_semantico: grupo, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^4\.5(?:\.|$)', interpretacao: Grupo 4.5, inversoes financeiras.}
+  - {id_semantico: DESP_AMORTIZACAO_DIVIDA, grupo_semantico: despesa_natureza, bloco: despesas, nivel_semantico: grupo, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^4\.6(?:\.|$)', interpretacao: Grupo 4.6, amortizacao da divida.}
+
+  # Funcoes oficiais
   - {id_semantico: FUNCAO_LEGISLATIVA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^01(?:\.|$)', interpretacao: Funcao Legislativa.}
   - {id_semantico: FUNCAO_JUDICIARIA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^02(?:\.|$)', interpretacao: Funcao Judiciaria.}
   - {id_semantico: FUNCAO_ESSENCIAL_JUSTICA, grupo_semantico: despesa_funcional, bloco: despesa_por_funcao, nivel_semantico: funcao, finalidade: composicao, prioridade: 100, confianca: alta, codigo_regex: '^03(?:\.|$)', interpretacao: Funcao Essencial a Justica.}

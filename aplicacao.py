@@ -25,7 +25,7 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.5.1"
+VERSAO_SISTEMA = "0.5.2"
 ARQUIVO_REGRAS_SEMANTICAS = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
@@ -51,7 +51,7 @@ executar_mapa_semantico = st.checkbox(
     value=True,
     help=(
         "Classifica todos os codigos antes de qualquer selecao de totalizacao, preservando "
-        "contas detalhadas como IPTU, ISS, ITBI e transferencias."
+        "categorias, origens, tributos, transferencias e componentes acessorios."
     ),
 )
 executar_selecao = st.checkbox(
@@ -260,6 +260,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: mapa semantico anterior a selecao e modos separados "
-    "de totalizacao e decomposicao analitica."
+    f"Versao {VERSAO_SISTEMA}: mapa semantico ampliado para categorias, origens, "
+    "tributos, transferencias e componentes acessorios da receita."
 )

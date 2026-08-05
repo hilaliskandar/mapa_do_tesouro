@@ -94,7 +94,7 @@ regras:
 
 def teste_catalogo_nao_confunde_agregado_tributario_com_taxas() -> None:
     caminho = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
-    _, regras = _carregar_regras(caminho)
+    _, regras, _ = _carregar_regras(caminho)
     regra_taxas = next(regra for regra in regras if regra["id_semantico"] == "REV_TRIB_TAXAS")
 
     agregado = pd.Series(
@@ -120,7 +120,7 @@ def teste_catalogo_nao_confunde_agregado_tributario_com_taxas() -> None:
 
 def teste_catalogo_mapeia_origem_e_transferencias_prioritarias() -> None:
     caminho = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
-    _, regras = _carregar_regras(caminho)
+    _, regras, _ = _carregar_regras(caminho)
     por_id = {regra["id_semantico"]: regra for regra in regras}
 
     transferencia_corrente = pd.Series(

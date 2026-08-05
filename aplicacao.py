@@ -6,6 +6,7 @@ from pathlib import Path
 import streamlit as st
 
 from nucleo.gerenciador_execucao import GerenciadorExecucao
+from processamentos.agregar_conceitos_semanticos import agregar_conceitos_semanticos
 from processamentos.construir_hierarquia_contabil import construir_hierarquia_contabil
 from processamentos.construir_mapa_semantico import construir_mapa_semantico
 from processamentos.normalizar_finbra import normalizar_arquivo_finbra
@@ -25,7 +26,7 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.5.2"
+VERSAO_SISTEMA = "0.6.0"
 ARQUIVO_REGRAS_SEMANTICAS = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
@@ -60,6 +61,14 @@ executar_selecao = st.checkbox(
     help=(
         "Gera uma selecao para totais sem dupla contagem e outra para composicao analitica "
         "baseada nas folhas observadas de cada recorte."
+    ),
+)
+executar_agregacoes = st.checkbox(
+    "Gerar agregacoes semanticas e painel municipio-ano",
+    value=True,
+    help=(
+        "Combina conceitos semanticos com a selecao adequada a cada finalidade e preserva "
+        "uma trilha de linhagem para auditoria."
     ),
 )
 
@@ -254,12 +263,51 @@ if st.button("Criar execucao e processar", type="primary"):
                 metricas[4].metric("Status", resultado_selecao.status)
                 st.dataframe([asdict(item) for item in resultado_selecao.blocos], use_container_width=True)
 
+            if executar_agregacoes and resultado_mapa is not None and resultado_selecao is not None:
+                with st.spinner("Gerando agregacoes semanticas e trilha de linhagem..."):
+                    pasta_agregacoes = diretorio_execucao / "07_agregacoes_semanticas"
+                    resultado_agregacoes = agregar_conceitos_semanticos(
+                        diretorio_execucao / "05_mapa_semantico",
+                        diretorio_execucao / "06_selecao_hierarquica",
+                        pasta_agregacoes,
+                    )
+                    gerenciador.atualizar_manifesto(
+                        diretorio_execucao,
+                        {"agregacoes_semanticas": {
+                            "status": resultado_agregacoes.status,
+                            "registros_avaliados": resultado_agregacoes.registros_semanticos_avaliados,
+                            "registros_utilizados": resultado_agregacoes.registros_semanticos_utilizados,
+                            "agregados_gerados": resultado_agregacoes.agregados_gerados,
+                            "conceitos_distintos": resultado_agregacoes.conceitos_distintos,
+                            "agregados_xlsx": resultado_agregacoes.arquivo_agregados_xlsx,
+                            "painel_parquet": resultado_agregacoes.arquivo_painel_parquet,
+                            "linhagem_parquet": resultado_agregacoes.arquivo_linhagem_parquet,
+                            "resultado_json": resultado_agregacoes.arquivo_resultado_json,
+                        }},
+                    )
+                st.success("Agregacoes semanticas concluidas.")
+                metricas_agregacoes = st.columns(5)
+                metricas_agregacoes[0].metric(
+                    "Registros utilizados", f"{resultado_agregacoes.registros_semanticos_utilizados:,}"
+                )
+                metricas_agregacoes[1].metric(
+                    "Agregados", f"{resultado_agregacoes.agregados_gerados:,}"
+                )
+                metricas_agregacoes[2].metric(
+                    "Conceitos", f"{resultado_agregacoes.conceitos_distintos:,}"
+                )
+                metricas_agregacoes[3].metric(
+                    "Municipios", f"{resultado_agregacoes.municipios:,}"
+                )
+                metricas_agregacoes[4].metric("Status", resultado_agregacoes.status)
+                st.write(f"**Agregados:** `{resultado_agregacoes.arquivo_agregados_xlsx}`")
+
             st.write(f"**Diretorio:** `{contexto.diretorio}`")
             st.json(contexto.como_dicionario())
         except Exception as erro:
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: mapa semantico ampliado para categorias, origens, "
-    "tributos, transferencias e componentes acessorios da receita."
+    f"Versao {VERSAO_SISTEMA}: agregacoes semanticas auditaveis por municipio, ano, "
+    "estagio e natureza da operacao, com painel largo e linhagem dos registros."
 )

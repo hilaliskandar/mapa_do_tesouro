@@ -2,8 +2,8 @@
 
 A etapa combina o mapa semantico com as selecoes hierarquicas adequadas a cada
 finalidade. Conceitos de totalizacao usam a selecao de totalizacao; conceitos de
-composicao e indicador usam a selecao de decomposicao. Cada valor agregado mantem
-uma trilha de origem com codigos e identificadores dos registros utilizados.
+composicao e indicador usam a selecao de decomposicao. Antes da agregacao, o mapa
+semantico recebe correcoes historicas e controles de compatibilidade.
 """
 
 from __future__ import annotations
@@ -13,6 +13,11 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
+
+from processamentos.aperfeicoar_mapa_semantico import (
+    ARQUIVO_APERFEICOADO,
+    aperfeicoar_mapa_semantico,
+)
 
 CHAVES_RECORTE = [
     "bloco",
@@ -49,6 +54,8 @@ class ResultadoAgregacoesSemanticas:
     conceitos_distintos: int
     municipios: int
     anos: int
+    correcoes_historicas_semanticas: int
+    incompatibilidades_semanticas: int
     arquivo_agregados_parquet: str
     arquivo_agregados_xlsx: str
     arquivo_painel_parquet: str
@@ -85,9 +92,6 @@ def _escolher_selecao(
     selecionados = pd.concat([total, analiticos], ignore_index=True)
     if selecionados.empty:
         return selecionados
-
-    # Uma mesma regra pode reaparecer por correspondencias equivalentes. O valor
-    # somente deve participar uma vez por registro e conceito.
     return selecionados.drop_duplicates(["id_registro_semantico", "id_semantico"])
 
 
@@ -99,9 +103,14 @@ def agregar_conceitos_semanticos(
     """Gera base longa, painel largo e linhagem dos agregados semanticos."""
     pasta_saida.mkdir(parents=True, exist_ok=True)
 
-    registros = pd.read_parquet(
-        pasta_mapa_semantico / "registros_qualificados_semanticos.parquet"
-    )
+    fechamento = aperfeicoar_mapa_semantico(pasta_mapa_semantico)
+    if fechamento.incompatibilidades > 0:
+        raise ValueError(
+            "O mapa semantico possui conceitos incompatíveis no mesmo grupo; "
+            "consulte relatorio_consistencia_semantica.xlsx."
+        )
+
+    registros = pd.read_parquet(pasta_mapa_semantico / ARQUIVO_APERFEICOADO)
     registros = registros[
         registros["id_semantico"].notna() & (registros["status_mapeamento"] == "mapeado")
     ].copy()
@@ -147,6 +156,7 @@ def agregar_conceitos_semanticos(
                 "descricao_conta",
                 "valor",
                 "confianca_mapeamento",
+                "origem_ajuste_semantico",
             ]
         ].drop_duplicates()
 
@@ -198,6 +208,8 @@ def agregar_conceitos_semanticos(
         resumo.to_excel(escritor, sheet_name="Resumo", index=False)
 
     status = "aprovado" if not agregados.empty else "reprovado"
+    if fechamento.registros_nao_mapeados > 0 and status == "aprovado":
+        status = "aprovado_com_alertas"
     resultado = ResultadoAgregacoesSemanticas(
         pasta_mapa_semantico=str(pasta_mapa_semantico),
         pasta_selecao=str(pasta_selecao),
@@ -210,6 +222,8 @@ def agregar_conceitos_semanticos(
         conceitos_distintos=int(agregados["id_semantico"].nunique()) if not agregados.empty else 0,
         municipios=int(agregados["codigo_ibge"].nunique()) if not agregados.empty else 0,
         anos=int(agregados["ano"].nunique()) if not agregados.empty else 0,
+        correcoes_historicas_semanticas=fechamento.correcoes_historicas,
+        incompatibilidades_semanticas=fechamento.incompatibilidades,
         arquivo_agregados_parquet=str(arquivo_agregados_parquet),
         arquivo_agregados_xlsx=str(arquivo_agregados_xlsx),
         arquivo_painel_parquet=str(arquivo_painel),

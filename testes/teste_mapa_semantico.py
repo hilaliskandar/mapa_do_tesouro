@@ -2,7 +2,11 @@ from pathlib import Path
 
 import pandas as pd
 
-from processamentos.construir_mapa_semantico import construir_mapa_semantico
+from processamentos.construir_mapa_semantico import (
+    _carregar_regras,
+    _regra_corresponde,
+    construir_mapa_semantico,
+)
 
 
 def _gravar_qualificados(pasta: Path) -> None:
@@ -86,3 +90,58 @@ regras:
     assert registros.loc[registros["bloco"] == "despesas", "id_semantico"].iloc[0] == "DESP_INVESTIMENTOS"
     assert registros.loc[registros["bloco"] == "despesa_por_funcao", "id_semantico"].iloc[0] == "FUNCAO_SAUDE"
     assert (pasta_saida / "pendencias_mapa_semantico.xlsx").exists()
+
+
+def teste_catalogo_nao_confunde_agregado_tributario_com_taxas() -> None:
+    caminho = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
+    _, regras = _carregar_regras(caminho)
+    regra_taxas = next(regra for regra in regras if regra["id_semantico"] == "REV_TRIB_TAXAS")
+
+    agregado = pd.Series(
+        {
+            "bloco": "receitas",
+            "ano": 2024,
+            "codigo_conta": "1.1.0.0.00.0.0",
+            "descricao_conta": "Impostos, Taxas e Contribuicoes de Melhoria",
+        }
+    )
+    taxa = pd.Series(
+        {
+            "bloco": "receitas",
+            "ano": 2024,
+            "codigo_conta": "1.1.2.0.00.0.0",
+            "descricao_conta": "Taxas pelo Exercicio do Poder de Policia",
+        }
+    )
+
+    assert not _regra_corresponde(agregado, regra_taxas)
+    assert _regra_corresponde(taxa, regra_taxas)
+
+
+def teste_catalogo_mapeia_origem_e_transferencias_prioritarias() -> None:
+    caminho = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
+    _, regras = _carregar_regras(caminho)
+    por_id = {regra["id_semantico"]: regra for regra in regras}
+
+    transferencia_corrente = pd.Series(
+        {
+            "bloco": "receitas",
+            "ano": 2024,
+            "codigo_conta": "1.7.2.1.50.0.0",
+            "descricao_conta": "Cota-Parte do ICMS",
+        }
+    )
+    operacao_credito = pd.Series(
+        {
+            "bloco": "receitas",
+            "ano": 2024,
+            "codigo_conta": "2.1.1.0.00.0.0",
+            "descricao_conta": "Operacoes de Credito Internas",
+        }
+    )
+
+    assert _regra_corresponde(
+        transferencia_corrente, por_id["REV_TRANSFERENCIAS_CORRENTES"]
+    )
+    assert _regra_corresponde(transferencia_corrente, por_id["REV_TRANSF_ICMS"])
+    assert _regra_corresponde(operacao_credito, por_id["REV_OPERACOES_CREDITO"])

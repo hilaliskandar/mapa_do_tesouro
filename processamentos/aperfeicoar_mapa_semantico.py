@@ -31,6 +31,21 @@ class ResultadoAperfeicoamentoSemantico:
     arquivo_resultado_json: str
     status: str
 
+    @property
+    def arquivo_aperfeicoado(self) -> str:
+        """Alias mantido para compatibilidade com a interface 0.6.1."""
+        return self.arquivo_registros_aperfeicoados
+
+    @property
+    def arquivo_matriz_compatibilidade(self) -> str:
+        """Alias mantido para compatibilidade com o manifesto da interface."""
+        return self.arquivo_compatibilidade
+
+    @property
+    def arquivo_relatorio_consistencia(self) -> str:
+        """Alias mantido para compatibilidade com o manifesto da interface."""
+        return self.arquivo_consistencia_xlsx
+
     def como_dicionario(self) -> dict[str, Any]:
         return asdict(self)
 

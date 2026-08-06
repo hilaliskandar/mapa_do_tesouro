@@ -7,6 +7,7 @@ import streamlit as st
 
 from nucleo.gerenciador_execucao import GerenciadorExecucao
 from processamentos.agregar_conceitos_semanticos import agregar_conceitos_semanticos
+from processamentos.aperfeicoar_mapa_semantico import aperfeicoar_mapa_semantico
 from processamentos.construir_hierarquia_contabil import construir_hierarquia_contabil
 from processamentos.construir_mapa_semantico import construir_mapa_semantico
 from processamentos.normalizar_finbra import normalizar_arquivo_finbra
@@ -26,7 +27,7 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.6.0"
+VERSAO_SISTEMA = "0.6.1"
 ARQUIVO_REGRAS_SEMANTICAS = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
@@ -48,11 +49,11 @@ executar_normalizacao = st.checkbox("Normalizar a base apos a validacao", value=
 executar_qualificacao = st.checkbox("Qualificar codigos e registros estruturais", value=True)
 executar_hierarquia = st.checkbox("Construir hierarquia e catalogo contabil", value=True)
 executar_mapa_semantico = st.checkbox(
-    "Aplicar mapa semantico aos registros qualificados",
+    "Aplicar e aperfeicoar o mapa semantico",
     value=True,
     help=(
-        "Classifica todos os codigos antes de qualquer selecao de totalizacao, preservando "
-        "categorias, origens, tributos, transferencias e componentes acessorios."
+        "Classifica todos os codigos, aplica correcoes historicas, verifica compatibilidades "
+        "e produz controles dos componentes tributarios antes das agregacoes."
     ),
 )
 executar_selecao = st.checkbox(
@@ -198,6 +199,7 @@ if st.button("Criar execucao e processar", type="primary"):
                 st.success("Hierarquia contabil concluida.")
 
             resultado_mapa = None
+            resultado_aperfeicoamento = None
             if executar_mapa_semantico and resultado_hierarquia is not None:
                 with st.spinner("Aplicando conceitos semanticos a todos os codigos qualificados..."):
                     pasta_mapa = diretorio_execucao / "05_mapa_semantico"
@@ -209,7 +211,7 @@ if st.button("Criar execucao e processar", type="primary"):
                     )
                     gerenciador.atualizar_manifesto(
                         diretorio_execucao,
-                        {"mapa_semantico": {
+                        {"mapa_semantico_inicial": {
                             "status": resultado_mapa.status,
                             "versao_catalogo": resultado_mapa.versao_catalogo,
                             "registros_avaliados": resultado_mapa.total_registros_avaliados,
@@ -221,14 +223,54 @@ if st.button("Criar execucao e processar", type="primary"):
                             "resultado_json": resultado_mapa.arquivo_resultado_json,
                         }},
                     )
-                st.success("Mapa semantico concluido.")
-                metricas_mapa = st.columns(5)
+
+                with st.spinner("Aplicando correcoes historicas e controles semanticos..."):
+                    resultado_aperfeicoamento = aperfeicoar_mapa_semantico(pasta_mapa)
+                    gerenciador.atualizar_manifesto(
+                        diretorio_execucao,
+                        {"aperfeicoamento_semantico": {
+                            "status": resultado_aperfeicoamento.status,
+                            "registros_avaliados": resultado_aperfeicoamento.registros_avaliados,
+                            "correcoes_historicas": resultado_aperfeicoamento.correcoes_historicas,
+                            "registros_nao_mapeados_finais": (
+                                resultado_aperfeicoamento.registros_nao_mapeados
+                            ),
+                            "combinacoes_compativeis": (
+                                resultado_aperfeicoamento.combinacoes_compativeis
+                            ),
+                            "incompatibilidades": resultado_aperfeicoamento.incompatibilidades,
+                            "controles_tributarios": resultado_aperfeicoamento.controles_tributarios,
+                            "arquivo_aperfeicoado": resultado_aperfeicoamento.arquivo_aperfeicoado,
+                            "matriz_compatibilidade": (
+                                resultado_aperfeicoamento.arquivo_matriz_compatibilidade
+                            ),
+                            "matriz_componentes_tributarios": (
+                                resultado_aperfeicoamento.arquivo_componentes_tributarios
+                            ),
+                            "relatorio_consistencia": (
+                                resultado_aperfeicoamento.arquivo_relatorio_consistencia
+                            ),
+                            "resultado_json": resultado_aperfeicoamento.arquivo_resultado_json,
+                        }},
+                    )
+
+                st.success("Mapa semantico final concluido.")
+                metricas_mapa = st.columns(6)
                 metricas_mapa[0].metric("Avaliados", f"{resultado_mapa.total_registros_avaliados:,}")
-                metricas_mapa[1].metric("Mapeados", f"{resultado_mapa.total_registros_mapeados:,}")
-                metricas_mapa[2].metric("Nao mapeados", f"{resultado_mapa.total_registros_nao_mapeados:,}")
-                metricas_mapa[3].metric("Ambiguidades", f"{resultado_mapa.total_ambiguidades:,}")
-                metricas_mapa[4].metric("Status", resultado_mapa.status)
-                st.dataframe([asdict(item) for item in resultado_mapa.blocos], use_container_width=True)
+                metricas_mapa[1].metric(
+                    "Mapeados finais",
+                    f"{resultado_aperfeicoamento.registros_avaliados - resultado_aperfeicoamento.registros_nao_mapeados:,}",
+                )
+                metricas_mapa[2].metric(
+                    "Correcoes historicas", f"{resultado_aperfeicoamento.correcoes_historicas:,}"
+                )
+                metricas_mapa[3].metric(
+                    "Nao mapeados finais", f"{resultado_aperfeicoamento.registros_nao_mapeados:,}"
+                )
+                metricas_mapa[4].metric(
+                    "Incompatibilidades", f"{resultado_aperfeicoamento.incompatibilidades:,}"
+                )
+                metricas_mapa[5].metric("Status final", resultado_aperfeicoamento.status)
 
             resultado_selecao = None
             if executar_selecao and resultado_hierarquia is not None:
@@ -279,6 +321,12 @@ if st.button("Criar execucao e processar", type="primary"):
                             "registros_utilizados": resultado_agregacoes.registros_semanticos_utilizados,
                             "agregados_gerados": resultado_agregacoes.agregados_gerados,
                             "conceitos_distintos": resultado_agregacoes.conceitos_distintos,
+                            "correcoes_historicas": (
+                                resultado_agregacoes.correcoes_historicas_semanticas
+                            ),
+                            "incompatibilidades_semanticas": (
+                                resultado_agregacoes.incompatibilidades_semanticas
+                            ),
                             "agregados_xlsx": resultado_agregacoes.arquivo_agregados_xlsx,
                             "painel_parquet": resultado_agregacoes.arquivo_painel_parquet,
                             "linhagem_parquet": resultado_agregacoes.arquivo_linhagem_parquet,
@@ -308,6 +356,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: agregacoes semanticas auditaveis por municipio, ano, "
-    "estagio e natureza da operacao, com painel largo e linhagem dos registros."
+    f"Versao {VERSAO_SISTEMA}: mapa semantico final explicitamente registrado, "
+    "agregacoes auditaveis, painel largo e linhagem dos registros."
 )

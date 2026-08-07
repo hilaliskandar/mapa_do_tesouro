@@ -1,9 +1,9 @@
 """Calculo auditavel de indicadores a partir dos agregados semanticos.
 
-O motor nao codifica formulas fiscais diretamente em Python. As definicoes ficam em
-YAML versionado e informam conceitos, operacao, unidade e interpretacao. O modulo
-preserva ausencias como ausencias: um componente obrigatorio faltante nao e tratado
-como zero.
+As formulas e o universo analitico ficam em YAML versionado. Cada indicador pode
+restringir estagios contabeis e natureza da operacao. A cobertura passa a medir
+somente observacoes em que o indicador e aplicavel, e nao todos os recortes
+contabeis existentes. Ausencia continua distinta de zero.
 """
 
 from __future__ import annotations
@@ -33,6 +33,7 @@ class ResultadoIndicadores:
     pasta_saida: str
     indicadores_definidos: int
     indicadores_calculados: int
+    observacoes_aplicaveis: int
     observacoes_calculadas: int
     observacoes_incompletas: int
     municipios: int
@@ -78,6 +79,29 @@ def _lista(valor: object) -> list[str]:
     return [str(valor)]
 
 
+def _filtrar_universo(painel: pd.DataFrame, indicador: dict[str, Any]) -> pd.DataFrame:
+    """Seleciona somente recortes em que a formula declarada e aplicavel."""
+    resultado = painel.copy()
+    estagios = _lista(indicador.get("estagios_validos"))
+    naturezas = _lista(indicador.get("naturezas_validas"))
+    anos = indicador.get("anos_validos")
+
+    if estagios:
+        resultado = resultado[resultado["estagio"].astype("string").isin(estagios)].copy()
+    if naturezas:
+        resultado = resultado[
+            resultado["natureza_operacao"].astype("string").isin(naturezas)
+        ].copy()
+    if isinstance(anos, dict):
+        serie_ano = pd.to_numeric(resultado["ano"], errors="coerce")
+        if anos.get("inicial") is not None:
+            resultado = resultado[serie_ano.ge(int(anos["inicial"]))].copy()
+            serie_ano = pd.to_numeric(resultado["ano"], errors="coerce")
+        if anos.get("final") is not None:
+            resultado = resultado[serie_ano.le(int(anos["final"]))].copy()
+    return resultado
+
+
 def _somar_componentes(
     painel: pd.DataFrame,
     conceitos: list[str],
@@ -114,6 +138,10 @@ def _calcular_indicador(
     painel: pd.DataFrame,
     indicador: dict[str, Any],
 ) -> pd.DataFrame:
+    painel = _filtrar_universo(painel, indicador)
+    if painel.empty:
+        return pd.DataFrame()
+
     numerador_ids = _lista(indicador.get("numerador"))
     denominador_ids = _lista(indicador.get("denominador"))
     exigir_todos = bool(indicador.get("exigir_todos_componentes", True))
@@ -153,6 +181,8 @@ def _calcular_indicador(
     resultado["formula"] = _formula_texto(indicador)
     resultado["conceitos_numerador"] = ";".join(numerador_ids)
     resultado["conceitos_denominador"] = ";".join(denominador_ids)
+    resultado["estagios_validos"] = ";".join(_lista(indicador.get("estagios_validos")))
+    resultado["naturezas_validas"] = ";".join(_lista(indicador.get("naturezas_validas")))
     resultado["interpretacao"] = str(indicador.get("interpretacao", ""))
     resultado["fonte_metodologica"] = str(indicador.get("fonte_metodologica", ""))
     resultado["status_calculo"] = "calculado"
@@ -172,9 +202,10 @@ def _cobertura_indicadores(indicadores: pd.DataFrame) -> pd.DataFrame:
                 "id_indicador": valores[0],
                 "nome_indicador": valores[1],
                 "grupo_indicador": valores[2],
-                "observacoes": observacoes,
+                "observacoes_aplicaveis": observacoes,
                 "calculadas": calculadas,
                 "incompletas": observacoes - calculadas,
+                "municipios_aplicaveis": int(grupo["codigo_ibge"].nunique()),
                 "municipios_calculados": int(grupo.loc[calculado, "codigo_ibge"].nunique()),
                 "anos_calculados": int(grupo.loc[calculado, "ano"].nunique()),
                 "cobertura": calculadas / observacoes if observacoes else float("nan"),
@@ -208,6 +239,9 @@ def calcular_indicadores(
     painel.columns.name = None
 
     quadros = [_calcular_indicador(painel, indicador) for indicador in definicoes]
+    quadros = [quadro for quadro in quadros if not quadro.empty]
+    if not quadros:
+        raise ValueError("Nenhum recorte e aplicavel ao catalogo de indicadores.")
     indicadores = pd.concat(quadros, ignore_index=True)
 
     calculados = indicadores[indicadores["status_calculo"] == "calculado"].copy()
@@ -243,6 +277,7 @@ def calcular_indicadores(
     indicadores_calculados = int(
         cobertura.loc[cobertura["calculadas"].gt(0), "id_indicador"].nunique()
     )
+    observacoes_aplicaveis = int(len(indicadores))
     observacoes_calculadas = int((indicadores["status_calculo"] == "calculado").sum())
     observacoes_incompletas = int(
         (indicadores["status_calculo"] == "dados_insuficientes").sum()
@@ -260,6 +295,7 @@ def calcular_indicadores(
         pasta_saida=str(pasta_saida),
         indicadores_definidos=len(definicoes),
         indicadores_calculados=indicadores_calculados,
+        observacoes_aplicaveis=observacoes_aplicaveis,
         observacoes_calculadas=observacoes_calculadas,
         observacoes_incompletas=observacoes_incompletas,
         municipios=int(calculados["codigo_ibge"].nunique()) if not calculados.empty else 0,

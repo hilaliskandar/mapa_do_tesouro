@@ -1,0 +1,127 @@
+versao: 1
+nome: indicadores_iniciais
+observacao: >-
+  Catalogo inicial de indicadores calculaveis exclusivamente com os agregados
+  semanticos ja validados. Valores per capita, deflacionados e indicadores que
+  dependem de RGF, RREO ou dados patrimoniais permanecem para etapas posteriores.
+
+indicadores:
+  - id_indicador: AUTONOMIA_TRIBUTARIA_ESTRITA_PCT
+    nome: Autonomia tributaria estrita
+    grupo: autonomia_fiscal
+    operacao: razao
+    numerador: [REV_TRIBUTARIA_TOTAL]
+    denominador: [REV_CORRENTES_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Participacao da receita tributaria nas receitas correntes do mesmo recorte contabil.
+    fonte_metodologica: IFGF como referencia conceitual; formula adaptada ao escopo FINBRA do projeto.
+
+  - id_indicador: DEPENDENCIA_TRANSFERENCIAS_CORRENTES_PCT
+    nome: Dependencia de transferencias correntes
+    grupo: dependencia_transferencias
+    operacao: razao
+    numerador: [REV_TRANSFERENCIAS_CORRENTES]
+    denominador: [REV_CORRENTES_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Participacao das transferencias correntes nas receitas correntes.
+    fonte_metodologica: Literatura de federalismo fiscal e comparacoes de financas municipais.
+
+  - id_indicador: DEPENDENCIA_FPM_PCT
+    nome: Dependencia do FPM
+    grupo: dependencia_transferencias
+    operacao: razao
+    numerador: [REV_TRANSF_FPM]
+    denominador: [REV_CORRENTES_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Participacao do Fundo de Participacao dos Municipios nas receitas correntes.
+    fonte_metodologica: Analise de dependencia intergovernamental em financas municipais.
+
+  - id_indicador: DEPENDENCIA_ICMS_PCT
+    nome: Dependencia da cota-parte do ICMS
+    grupo: dependencia_transferencias
+    operacao: razao
+    numerador: [REV_TRANSF_ICMS]
+    denominador: [REV_CORRENTES_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Participacao da cota-parte municipal do ICMS nas receitas correntes.
+    fonte_metodologica: Analise de composicao das transferencias intergovernamentais.
+
+  - id_indicador: IPTU_NA_RECEITA_TRIBUTARIA_PCT
+    nome: Participacao do IPTU na receita tributaria
+    grupo: composicao_tributaria
+    operacao: razao
+    numerador: [REV_TRIB_IPTU_PRINCIPAL]
+    denominador: [REV_TRIBUTARIA_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Peso da arrecadacao principal do IPTU na receita tributaria.
+    fonte_metodologica: Analise de composicao da arrecadacao propria municipal.
+
+  - id_indicador: ISS_NA_RECEITA_TRIBUTARIA_PCT
+    nome: Participacao do ISS na receita tributaria
+    grupo: composicao_tributaria
+    operacao: razao
+    numerador: [REV_TRIB_ISS_PRINCIPAL]
+    denominador: [REV_TRIBUTARIA_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Peso da arrecadacao principal do ISS na receita tributaria.
+    fonte_metodologica: Analise de composicao da arrecadacao propria municipal.
+
+  - id_indicador: ITBI_NA_RECEITA_TRIBUTARIA_PCT
+    nome: Participacao do ITBI na receita tributaria
+    grupo: composicao_tributaria
+    operacao: razao
+    numerador: [REV_TRIB_ITBI_PRINCIPAL]
+    denominador: [REV_TRIBUTARIA_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Peso da arrecadacao principal do ITBI na receita tributaria; deve ser lido como sinal auxiliar da atividade imobiliaria formal.
+    fonte_metodologica: Analise de composicao tributaria e uso cauteloso do ITBI como indicador auxiliar imobiliario.
+
+  - id_indicador: INVESTIMENTOS_NA_DESPESA_CAPITAL_PCT
+    nome: Participacao dos investimentos na despesa de capital
+    grupo: capacidade_investimento
+    operacao: razao
+    numerador: [DESP_INVESTIMENTOS]
+    denominador: [DESP_CAPITAL_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Participacao do grupo de investimentos no total das despesas de capital.
+    fonte_metodologica: IFGF Investimentos e literatura comparada de financas municipais, sem reproduzir o indice composto.
+
+  - id_indicador: PESSOAL_PROXY_NAS_DESPESAS_CORRENTES_PCT
+    nome: Pessoal e encargos nas despesas correntes
+    grupo: rigidez_orcamentaria
+    operacao: razao
+    numerador: [DESP_PESSOAL_PROXY]
+    denominador: [DESP_CORRENTES_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Participacao do grupo 3.1 nas despesas correntes; e proxy contabil e nao equivale a Despesa Total com Pessoal da LRF.
+    fonte_metodologica: MCASP, classificacao por natureza da despesa e referencia conceitual do IFGF Pessoal.
+
+  - id_indicador: JUROS_NAS_DESPESAS_CORRENTES_PCT
+    nome: Juros e encargos nas despesas correntes
+    grupo: rigidez_orcamentaria
+    operacao: razao
+    numerador: [DESP_JUROS_ENCARGOS]
+    denominador: [DESP_CORRENTES_TOTAL]
+    multiplicador: 100
+    unidade: percentual
+    exigir_todos_componentes: true
+    interpretacao: Participacao de juros e encargos da divida nas despesas correntes.
+    fonte_metodologica: Classificacao por natureza da despesa e analise de rigidez fiscal.

@@ -8,6 +8,7 @@ import streamlit as st
 from nucleo.gerenciador_execucao import GerenciadorExecucao
 from processamentos.agregar_conceitos_semanticos import agregar_conceitos_semanticos
 from processamentos.aperfeicoar_mapa_semantico import aperfeicoar_mapa_semantico
+from processamentos.calcular_indicadores import calcular_indicadores
 from processamentos.construir_hierarquia_contabil import construir_hierarquia_contabil
 from processamentos.construir_mapa_semantico import construir_mapa_semantico
 from processamentos.normalizar_finbra import normalizar_arquivo_finbra
@@ -27,8 +28,9 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.6.1"
+VERSAO_SISTEMA = "0.7.0"
 ARQUIVO_REGRAS_SEMANTICAS = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
+ARQUIVO_CATALOGO_INDICADORES = Path("referencias/catalogos/indicadores_iniciais.yaml")
 
 st.set_page_config(page_title="Mapa do Tesouro", page_icon="🗺️", layout="wide")
 st.title("Mapa do Tesouro")
@@ -70,6 +72,14 @@ executar_agregacoes = st.checkbox(
     help=(
         "Combina conceitos semanticos com a selecao adequada a cada finalidade e preserva "
         "uma trilha de linhagem para auditoria."
+    ),
+)
+executar_indicadores = st.checkbox(
+    "Calcular indicadores fiscais declarativos",
+    value=True,
+    help=(
+        "Calcula apenas indicadores definidos em catalogo YAML versionado. Ausencias "
+        "permanecem ausencias e nao sao convertidas automaticamente em zero."
     ),
 )
 
@@ -305,6 +315,7 @@ if st.button("Criar execucao e processar", type="primary"):
                 metricas[4].metric("Status", resultado_selecao.status)
                 st.dataframe([asdict(item) for item in resultado_selecao.blocos], use_container_width=True)
 
+            resultado_agregacoes = None
             if executar_agregacoes and resultado_mapa is not None and resultado_selecao is not None:
                 with st.spinner("Gerando agregacoes semanticas e trilha de linhagem..."):
                     pasta_agregacoes = diretorio_execucao / "07_agregacoes_semanticas"
@@ -350,12 +361,54 @@ if st.button("Criar execucao e processar", type="primary"):
                 metricas_agregacoes[4].metric("Status", resultado_agregacoes.status)
                 st.write(f"**Agregados:** `{resultado_agregacoes.arquivo_agregados_xlsx}`")
 
+            if executar_indicadores and resultado_agregacoes is not None:
+                with st.spinner("Calculando indicadores declarativos e sua cobertura..."):
+                    pasta_indicadores = diretorio_execucao / "08_indicadores"
+                    resultado_indicadores = calcular_indicadores(
+                        diretorio_execucao / "07_agregacoes_semanticas",
+                        ARQUIVO_CATALOGO_INDICADORES,
+                        pasta_indicadores,
+                    )
+                    gerenciador.atualizar_manifesto(
+                        diretorio_execucao,
+                        {"indicadores": {
+                            "status": resultado_indicadores.status,
+                            "versao_catalogo": resultado_indicadores.versao_catalogo,
+                            "indicadores_definidos": resultado_indicadores.indicadores_definidos,
+                            "indicadores_calculados": resultado_indicadores.indicadores_calculados,
+                            "observacoes_calculadas": resultado_indicadores.observacoes_calculadas,
+                            "observacoes_incompletas": resultado_indicadores.observacoes_incompletas,
+                            "municipios": resultado_indicadores.municipios,
+                            "anos": resultado_indicadores.anos,
+                            "indicadores_xlsx": resultado_indicadores.arquivo_indicadores_xlsx,
+                            "painel_parquet": resultado_indicadores.arquivo_painel_parquet,
+                            "cobertura_parquet": resultado_indicadores.arquivo_cobertura_parquet,
+                            "resultado_json": resultado_indicadores.arquivo_resultado_json,
+                        }},
+                    )
+                st.success("Indicadores calculados.")
+                metricas_indicadores = st.columns(5)
+                metricas_indicadores[0].metric(
+                    "Indicadores definidos", f"{resultado_indicadores.indicadores_definidos:,}"
+                )
+                metricas_indicadores[1].metric(
+                    "Indicadores calculados", f"{resultado_indicadores.indicadores_calculados:,}"
+                )
+                metricas_indicadores[2].metric(
+                    "Observacoes calculadas", f"{resultado_indicadores.observacoes_calculadas:,}"
+                )
+                metricas_indicadores[3].metric(
+                    "Observacoes incompletas", f"{resultado_indicadores.observacoes_incompletas:,}"
+                )
+                metricas_indicadores[4].metric("Status", resultado_indicadores.status)
+                st.write(f"**Indicadores:** `{resultado_indicadores.arquivo_indicadores_xlsx}`")
+
             st.write(f"**Diretorio:** `{contexto.diretorio}`")
             st.json(contexto.como_dicionario())
         except Exception as erro:
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: mapa semantico final explicitamente registrado, "
-    "agregacoes auditaveis, painel largo e linhagem dos registros."
+    f"Versao {VERSAO_SISTEMA}: catalogo declarativo de indicadores, formulas auditaveis, "
+    "controle de cobertura e preservacao explicita de dados ausentes."
 )

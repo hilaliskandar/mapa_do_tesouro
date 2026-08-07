@@ -160,6 +160,29 @@ def _calcular_indicador(
     return resultado
 
 
+def _cobertura_indicadores(indicadores: pd.DataFrame) -> pd.DataFrame:
+    linhas: list[dict[str, Any]] = []
+    chaves = ["id_indicador", "nome_indicador", "grupo_indicador"]
+    for valores, grupo in indicadores.groupby(chaves, dropna=False, sort=False):
+        calculado = grupo["status_calculo"].eq("calculado")
+        observacoes = int(len(grupo))
+        calculadas = int(calculado.sum())
+        linhas.append(
+            {
+                "id_indicador": valores[0],
+                "nome_indicador": valores[1],
+                "grupo_indicador": valores[2],
+                "observacoes": observacoes,
+                "calculadas": calculadas,
+                "incompletas": observacoes - calculadas,
+                "municipios_calculados": int(grupo.loc[calculado, "codigo_ibge"].nunique()),
+                "anos_calculados": int(grupo.loc[calculado, "ano"].nunique()),
+                "cobertura": calculadas / observacoes if observacoes else float("nan"),
+            }
+        )
+    return pd.DataFrame(linhas)
+
+
 def calcular_indicadores(
     pasta_agregacoes: Path,
     arquivo_catalogo: Path,
@@ -179,7 +202,6 @@ def calcular_indicadores(
             columns="id_semantico",
             values="valor_nominal",
             aggfunc="sum",
-            dropna=False,
         )
         .reset_index()
     )
@@ -201,31 +223,7 @@ def calcular_indicadores(
         else pd.DataFrame(columns=CHAVES_PAINEL)
     )
     painel_indicadores.columns.name = None
-
-    cobertura = (
-        indicadores.groupby(["id_indicador", "nome_indicador", "grupo_indicador"], dropna=False)
-        .agg(
-            observacoes=("status_calculo", "size"),
-            calculadas=("status_calculo", lambda serie: int((serie == "calculado").sum())),
-            incompletas=(
-                "status_calculo",
-                lambda serie: int((serie == "dados_insuficientes").sum()),
-            ),
-            municipios_calculados=(
-                "codigo_ibge",
-                lambda serie: int(
-                    indicadores.loc[
-                        serie.index[indicadores.loc[serie.index, "status_calculo"].eq("calculado")],
-                        "codigo_ibge",
-                    ].nunique()
-                ),
-            ),
-        )
-        .reset_index()
-    )
-    cobertura["cobertura"] = cobertura["calculadas"] / cobertura["observacoes"].where(
-        cobertura["observacoes"].ne(0)
-    )
+    cobertura = _cobertura_indicadores(indicadores)
 
     arquivo_indicadores_parquet = pasta_saida / "indicadores.parquet"
     arquivo_indicadores_xlsx = pasta_saida / "indicadores.xlsx"

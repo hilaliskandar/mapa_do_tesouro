@@ -13,6 +13,7 @@ from processamentos.construir_hierarquia_contabil import construir_hierarquia_co
 from processamentos.construir_mapa_semantico import construir_mapa_semantico
 from processamentos.normalizar_finbra import normalizar_arquivo_finbra
 from processamentos.qualificar_codigos import qualificar_codigos
+from processamentos.reconciliar_alertas_normalizacao import reconciliar_alertas_normalizacao
 from processamentos.selecionar_agregacao_hierarquica import selecionar_agregacao_hierarquica
 from processamentos.validar_finbra import validar_arquivo_finbra
 from relatorios.gerar_relatorio_normalizacao import (
@@ -28,7 +29,7 @@ from relatorios.gerar_relatorio_validacao import (
     gerar_relatorio_json as gerar_relatorio_validacao_json,
 )
 
-VERSAO_SISTEMA = "0.7.0"
+VERSAO_SISTEMA = "0.7.1"
 ARQUIVO_REGRAS_SEMANTICAS = Path("referencias/catalogos/mapa_semantico_inicial.yaml")
 ARQUIVO_CATALOGO_INDICADORES = Path("referencias/catalogos/indicadores_iniciais.yaml")
 
@@ -78,8 +79,8 @@ executar_indicadores = st.checkbox(
     "Calcular indicadores fiscais declarativos",
     value=True,
     help=(
-        "Calcula apenas indicadores definidos em catalogo YAML versionado. Ausencias "
-        "permanecem ausencias e nao sao convertidas automaticamente em zero."
+        "Calcula apenas indicadores definidos em catalogo YAML versionado e somente nos "
+        "estagios e naturezas declarados como aplicaveis."
     ),
 )
 
@@ -148,7 +149,7 @@ if st.button("Criar execucao e processar", type="primary"):
                     gerenciador.atualizar_manifesto(
                         diretorio_execucao,
                         {"normalizacao": {
-                            "status": resultado_normalizacao.status,
+                            "status_inicial": resultado_normalizacao.status,
                             "registros_contabeis": resultado_normalizacao.total_registros_contabeis,
                             "cabecalhos_sem_dicionario": resultado_normalizacao.total_cabecalhos_sem_dicionario,
                             "registros_sem_codigo": resultado_normalizacao.total_registros_sem_codigo_conta,
@@ -185,7 +186,39 @@ if st.button("Criar execucao e processar", type="primary"):
                             "relatorio_html": str(qualificacao_html),
                         }},
                     )
-                st.success("Qualificacao concluida.")
+
+                resultado_reconciliacao = reconciliar_alertas_normalizacao(
+                    resultado_normalizacao,
+                    resultado_qualificacao,
+                    diretorio_execucao / "02_normalizacao",
+                )
+                gerenciador.atualizar_manifesto(
+                    diretorio_execucao,
+                    {"normalizacao_reconciliada": {
+                        "status_inicial": resultado_reconciliacao.status_inicial,
+                        "status_final": resultado_reconciliacao.status_final,
+                        "alertas_iniciais": resultado_reconciliacao.alertas_iniciais,
+                        "alertas_resolvidos": resultado_reconciliacao.alertas_resolvidos,
+                        "alertas_pendentes": resultado_reconciliacao.alertas_pendentes,
+                        "registros_sem_codigo_iniciais": (
+                            resultado_reconciliacao.registros_sem_codigo_iniciais
+                        ),
+                        "registros_pendentes_qualificacao": (
+                            resultado_reconciliacao.registros_pendentes_qualificacao
+                        ),
+                        "cabecalhos_sem_dicionario_iniciais": (
+                            resultado_reconciliacao.cabecalhos_sem_dicionario_iniciais
+                        ),
+                        "cabecalhos_pendentes_qualificacao": (
+                            resultado_reconciliacao.cabecalhos_pendentes_qualificacao
+                        ),
+                        "resultado_json": resultado_reconciliacao.arquivo_resultado_json,
+                    }},
+                )
+                st.success(
+                    "Qualificacao concluida. "
+                    f"Normalizacao reconciliada: {resultado_reconciliacao.status_final}."
+                )
 
             resultado_hierarquia = None
             if executar_hierarquia and resultado_qualificacao is not None:
@@ -362,7 +395,7 @@ if st.button("Criar execucao e processar", type="primary"):
                 st.write(f"**Agregados:** `{resultado_agregacoes.arquivo_agregados_xlsx}`")
 
             if executar_indicadores and resultado_agregacoes is not None:
-                with st.spinner("Calculando indicadores declarativos e sua cobertura..."):
+                with st.spinner("Calculando indicadores no universo analitico aplicavel..."):
                     pasta_indicadores = diretorio_execucao / "08_indicadores"
                     resultado_indicadores = calcular_indicadores(
                         diretorio_execucao / "07_agregacoes_semanticas",
@@ -376,6 +409,7 @@ if st.button("Criar execucao e processar", type="primary"):
                             "versao_catalogo": resultado_indicadores.versao_catalogo,
                             "indicadores_definidos": resultado_indicadores.indicadores_definidos,
                             "indicadores_calculados": resultado_indicadores.indicadores_calculados,
+                            "observacoes_aplicaveis": resultado_indicadores.observacoes_aplicaveis,
                             "observacoes_calculadas": resultado_indicadores.observacoes_calculadas,
                             "observacoes_incompletas": resultado_indicadores.observacoes_incompletas,
                             "municipios": resultado_indicadores.municipios,
@@ -387,7 +421,7 @@ if st.button("Criar execucao e processar", type="primary"):
                         }},
                     )
                 st.success("Indicadores calculados.")
-                metricas_indicadores = st.columns(5)
+                metricas_indicadores = st.columns(6)
                 metricas_indicadores[0].metric(
                     "Indicadores definidos", f"{resultado_indicadores.indicadores_definidos:,}"
                 )
@@ -395,12 +429,15 @@ if st.button("Criar execucao e processar", type="primary"):
                     "Indicadores calculados", f"{resultado_indicadores.indicadores_calculados:,}"
                 )
                 metricas_indicadores[2].metric(
-                    "Observacoes calculadas", f"{resultado_indicadores.observacoes_calculadas:,}"
+                    "Observacoes aplicaveis", f"{resultado_indicadores.observacoes_aplicaveis:,}"
                 )
                 metricas_indicadores[3].metric(
+                    "Observacoes calculadas", f"{resultado_indicadores.observacoes_calculadas:,}"
+                )
+                metricas_indicadores[4].metric(
                     "Observacoes incompletas", f"{resultado_indicadores.observacoes_incompletas:,}"
                 )
-                metricas_indicadores[4].metric("Status", resultado_indicadores.status)
+                metricas_indicadores[5].metric("Status", resultado_indicadores.status)
                 st.write(f"**Indicadores:** `{resultado_indicadores.arquivo_indicadores_xlsx}`")
 
             st.write(f"**Diretorio:** `{contexto.diretorio}`")
@@ -409,6 +446,6 @@ if st.button("Criar execucao e processar", type="primary"):
             st.exception(erro)
 
 st.info(
-    f"Versao {VERSAO_SISTEMA}: catalogo declarativo de indicadores, formulas auditaveis, "
-    "controle de cobertura e preservacao explicita de dados ausentes."
+    f"Versao {VERSAO_SISTEMA}: reconciliacao auditavel dos alertas da normalizacao e "
+    "indicadores restritos ao universo contábil declarado como aplicavel."
 )

@@ -1,0 +1,58 @@
+documentation_version: panel-v7-baseline
+sections:
+  - secao_id: ausencia
+    titulo: Ausência, zero e não aplicabilidade
+    ordem: 10
+    resumo: Ausência de observação não equivale a zero.
+    corpo_markdown: |
+      Célula sem valor significa dado não observado, não disponível, não aplicável ou não comparável conforme a camada. O painel não imputa zero.
+
+      Na base canônica, observado, ausente, nao_aplicavel e em_revisao são estados distintos. Zero é sempre um valor observado.
+  - secao_id: valores_monetarios
+    titulo: Valores monetários e comparação temporal
+    ordem: 20
+    resumo: O painel v7 utiliza valores monetários nominais.
+    corpo_markdown: |
+      Os valores monetários do baseline v7 são nominais. Para análise temporal de poder de compra deve existir camada deflacionada separada, sem substituir os valores nominais de origem.
+  - secao_id: contas_agregacoes
+    titulo: Contas oficiais e agregações analíticas
+    ordem: 30
+    resumo: Agregações criadas pelo projeto são identificadas explicitamente.
+    corpo_markdown: |
+      O catálogo distingue contas/agregados provenientes das fontes oficiais de agregações analíticas construídas pelo projeto. Uma agregação analítica não deve ser apresentada como classificação oficial.
+  - secao_id: crosswalk
+    titulo: Crosswalk e comparabilidade temporal
+    ordem: 40
+    resumo: Mudanças de código, ementário e estágio devem ser documentadas por exercício.
+    corpo_markdown: |
+      Séries como IPTU, ITBI, ISS, FPM, ICMS e IPVA preservam mudanças classificatórias ao longo do tempo por crosswalk explícito. A série comparável deve apontar ano, fonte, demonstrativo, estágio, código, descrição, campo bruto e regra de harmonização.
+  - secao_id: indicadores_legais
+    titulo: Indicadores legais
+    ordem: 50
+    resumo: DTP/RCL, DC/RCL e DCL/RCL usam os demonstrativos próprios.
+    corpo_markdown: |
+      DTP/RCL, DC/RCL e DCL/RCL utilizam os percentuais dos demonstrativos RGF. Não são substituídos por proxies calculadas a partir da DCA.
+  - secao_id: capag
+    titulo: CAPAG
+    ordem: 60
+    resumo: A classificação e os componentes oficiais permanecem canônicos.
+    corpo_markdown: |
+      A CAPAG exibida é a classificação oficial do Tesouro Nacional. Recalculos locais, quando feitos, servem apenas para QA e não substituem o valor oficial do snapshot.
+  - secao_id: rankings_pares
+    titulo: Rankings, posição relativa e pares
+    ordem: 70
+    resumo: Comparação relativa não é avaliação normativa.
+    corpo_markdown: |
+      Ordenações e posições relativas servem para comparação descritiva e não constituem nota de desempenho. Os pares do Bloco 3 são formados por coincidência categorial entre dimensões comparáveis, não por distância econômica contínua.
+  - secao_id: cobertura
+    titulo: Cobertura
+    ordem: 80
+    resumo: A cobertura deve ser lida por variável e camada.
+    corpo_markdown: |
+      Cobertura não deve ser inferida apenas pela existência de um arquivo ou demonstrativo. O novo núcleo registra cobertura por variável, exercício e universo, preservando ausências.
+  - secao_id: governanca
+    titulo: Governança, versões e paridade
+    ordem: 90
+    resumo: Dados, metodologia, schema e aplicação possuem versões independentes.
+    corpo_markdown: |
+      Cada publicação deve registrar schema_version, data_version, methodology_version, app_version, timestamp, hash dos dados e estado de QA. Funcionalidades e documentação aprovadas não podem desaparecer silenciosamente em versões futuras.

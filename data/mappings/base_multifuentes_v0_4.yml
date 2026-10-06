@@ -1,0 +1,177 @@
+source:
+  source_id: PROJETO_BASE_MULTIFONTES
+  workbook_name: FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
+  sheet: Base multifuentes
+  data_version: finbra-tic-tim-30m-multifuentes-v0.4
+  expected_rows: 390
+  expected_municipalities: 30
+  expected_years:
+    start: 2013
+    end: 2025
+
+keys:
+  codigo_ibge: cod_ibge
+  municipio: municipio
+  ano: ano
+
+variables:
+  receita_corrente_bruta:
+    column: dca_receita_corrente_bruta
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  receita_tributaria_bruta:
+    column: dca_receita_tributaria_bruta
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  iptu:
+    column: dca_iptu_principal
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  itbi:
+    column: dca_itbi_principal
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  iss:
+    column: dca_iss_principal
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  fpm:
+    column: dca_fpm_cota_mensal
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  icms:
+    column: dca_icms_cota_parte
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  ipva:
+    column: dca_ipva_cota_parte
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  investimento_liquidado:
+    column: dca_investimentos_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  urbanismo:
+    column: dca_func_urbanismo_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  habitacao:
+    column: dca_func_habitacao_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  saneamento:
+    column: dca_func_saneamento_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  gestao_ambiental:
+    column: dca_func_gestao_ambiental_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  transporte:
+    column: dca_func_transporte_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  populacao:
+    column: populacao_dca
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  rcl:
+    column: rreo_rcl_oficial
+    source_id: SICONFI_RREO
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  dtp:
+    column: rgf_despesa_total_pessoal
+    source_id: SICONFI_RGF_A01
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  dtp_pct_rcl:
+    column: rgf_dtp_percentual_rcl
+    source_id: SICONFI_RGF_A01
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  dc:
+    column: rgf02_divida_consolidada
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  dcl:
+    column: rgf02_divida_consolidada_liquida
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  dc_pct_rcl:
+    column: rgf02_dc_percentual_rcl
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  dcl_pct_rcl:
+    column: rgf02_dcl_percentual_rcl
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  capag_nota:
+    column: capag
+    source_id: TESOURO_CAPAG
+    availability_start: 2025
+    availability_end: 2025
+    value_type: text

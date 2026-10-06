@@ -203,7 +203,7 @@ def import_multifuentes(
                 else:
                     status = "observado"
                     if spec["value_type"] == "numeric":
-                        value_num = float(raw_value)
+                        value_num = float(raw_value) * float(spec.get("scale", 1.0))
                         value_text = None
                     else:
                         value_num = None

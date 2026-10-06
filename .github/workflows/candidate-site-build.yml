@@ -25,7 +25,7 @@ jobs:
       - name: Download canonical multifuentes workbook
         run: |
           mkdir -p inputs build
-          gdown "https://drive.google.com/file/d/16eAt7J9W5OZf48kUOy-FudxnU6OR2hS9/view"             --fuzzy             -O inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
+          gdown "16eAt7J9W5OZf48kUOy-FudxnU6OR2hS9" -O inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
           python - <<'PY'
           from pathlib import Path
           from zipfile import is_zipfile

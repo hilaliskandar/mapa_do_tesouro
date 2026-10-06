@@ -140,6 +140,7 @@ variables:
     availability_start: 2015
     availability_end: 2025
     value_type: numeric
+    scale: 0.01
 
   rgf02_divida_consolidada:
     column: rgf02_divida_consolidada
@@ -161,6 +162,7 @@ variables:
     availability_start: 2015
     availability_end: 2025
     value_type: numeric
+    scale: 0.01
 
   dcl_pct_rcl:
     column: rgf02_dcl_percentual_rcl
@@ -168,6 +170,7 @@ variables:
     availability_start: 2015
     availability_end: 2025
     value_type: numeric
+    scale: 0.01
 
   capag:
     column: capag

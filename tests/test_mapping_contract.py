@@ -2,13 +2,14 @@ from pathlib import Path
 
 import yaml
 
+from pipeline.build.load_catalog import DEFAULT_CATALOGS, read_catalogs
+
 ROOT = Path(__file__).resolve().parents[1]
-CATALOG = ROOT / "data" / "catalogs" / "variables_core.yml"
 MAPPING = ROOT / "data" / "mappings" / "base_multifuentes_v0_4.yml"
 
 
 def test_mapping_references_known_sources_and_variables():
-    catalog = yaml.safe_load(CATALOG.read_text(encoding="utf-8"))
+    catalog = read_catalogs(DEFAULT_CATALOGS)
     mapping = yaml.safe_load(MAPPING.read_text(encoding="utf-8"))
 
     source_ids = {item["fonte_id"] for item in catalog["fontes"]}
@@ -21,6 +22,7 @@ def test_mapping_references_known_sources_and_variables():
         assert spec["source_id"] in source_ids
         assert spec["availability_end"] >= spec["availability_start"]
         assert spec["value_type"] in {"numeric", "text"}
+        assert float(spec.get("scale", 1.0)) != 0.0
 
 
 def test_mapping_preserves_expected_initial_universe():

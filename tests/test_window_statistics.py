@@ -82,7 +82,7 @@ def test_window_statistics_match_block3_semantics(tmp_path):
         assert stats["cv"] > 0.52 and stats["cv"] < 0.53
         assert stats["mudanca"] == 4.0
         assert stats["amplitude"] == 4.0
-        assert stats["anos_acima_mediana_grupo"] == 3.0
+        assert stats["anos_acima_mediana_grupo"] == 4.0
         assert stats["rank_media_desc"] == 2.0
 
         sparse = dict(

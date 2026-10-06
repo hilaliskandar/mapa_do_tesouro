@@ -17,9 +17,9 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def initialize_database(output: Path) -> None:
+def initialize_database(output: Path, schema: Path = SCHEMA) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
-    sql = SCHEMA.read_text(encoding="utf-8")
+    sql = schema.read_text(encoding="utf-8")
     connection = sqlite3.connect(output)
     try:
         connection.executescript(sql)

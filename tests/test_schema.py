@@ -8,7 +8,7 @@ SCHEMA = ROOT / "data" / "schema" / "001_initial.sql"
 def make_db():
     con = sqlite3.connect(":memory:")
     con.execute("PRAGMA foreign_keys = ON")
-    con.executescript(SCHEMA.read_text(encoding="utf-8"))
+    for path in sorted((ROOT / "data" / "schema").glob("[0-9][0-9][0-9]_*.sql")):\n        con.executescript(path.read_text(encoding="utf-8"))
     return con
 
 
@@ -32,6 +32,13 @@ def test_schema_initializes():
         "cobertura",
         "build",
         "build_source",
+        "janela_analitica",
+        "metrica_janela",
+        "estatistica_janela",
+        "dimensao_tipologia",
+        "classificacao_relativa",
+        "marcador_comparavel",
+        "par_municipal",
     }
     assert expected.issubset(tables)
 

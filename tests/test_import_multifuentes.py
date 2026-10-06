@@ -103,3 +103,47 @@ def test_importer_preserves_applicability_and_observed_zero(tmp_path):
         ).fetchone() == ("observado", "A")
     finally:
         con.close()
+
+
+def test_percentage_scale_is_applied(tmp_path):
+    mapping_path = ROOT / "data" / "mappings" / "base_multifuentes_v0_4.yml"
+    mapping = yaml.safe_load(mapping_path.read_text(encoding="utf-8"))
+    mapping["source"]["expected_rows"] = 13
+    mapping["source"]["expected_municipalities"] = 1
+
+    local_mapping = tmp_path / "mapping.yml"
+    local_mapping.write_text(
+        yaml.safe_dump(mapping, sort_keys=False, allow_unicode=True),
+        encoding="utf-8",
+    )
+    workbook = tmp_path / "fixture.xlsx"
+    create_fixture(workbook, local_mapping)
+
+    wb = openpyxl.load_workbook(workbook)
+    ws = wb[mapping["source"]["sheet"]]
+    headers = [c.value for c in ws[1]]
+    col = headers.index(mapping["variables"]["dtp_pct_rcl"]["column"]) + 1
+    ws.cell(row=4, column=col, value=36.69)
+    wb.save(workbook)
+
+    database = tmp_path / "fixture.sqlite"
+    import_multifuentes(
+        workbook,
+        database,
+        mapping_path=local_mapping,
+        build_timestamp="2026-10-06T00:00:00-03:00",
+    )
+
+    con = sqlite3.connect(database)
+    try:
+        value = con.execute(
+            """
+            SELECT valor_num FROM observacao
+            WHERE codigo_ibge='3500000'
+              AND ano=2015
+              AND variavel_id='dtp_pct_rcl'
+            """
+        ).fetchone()[0]
+        assert abs(value - 0.3669) < 1e-12
+    finally:
+        con.close()

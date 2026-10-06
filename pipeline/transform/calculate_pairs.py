@@ -4,6 +4,8 @@ import argparse
 import sqlite3
 from pathlib import Path
 
+MARKER_ORDER = ["base", "invest", "territ", "pessoal", "divida", "liquidez"]
+
 
 def calculate_pairs(
     database: Path,
@@ -29,40 +31,29 @@ def calculate_pairs(
     if not municipalities:
         raise ValueError(f"Universo sem municipios: {universe_id}")
 
-    dimensions = [
-        row[0]
-        for row in con.execute(
-            "SELECT dimensao_id FROM dimensao_tipologia ORDER BY dimensao_id"
-        )
-    ]
-    if not dimensions:
-        raise ValueError("Nenhuma dimensao de tipologia carregada.")
-
     build = con.execute(
         "SELECT build_id FROM build ORDER BY build_timestamp DESC LIMIT 1"
     ).fetchone()
     build_id = build[0] if build else None
 
-    classifications: dict[str, dict[str, str]] = {}
-    for municipality in municipalities:
-        code = municipality["codigo_ibge"]
-        rows = con.execute(
-            """
-            SELECT dimensao_id,quadrante,status
-            FROM classificacao_relativa
-            WHERE codigo_ibge=?
-              AND universo_id=?
-              AND janela_id=?
-            """,
-            (code, universe_id, window_id),
-        ).fetchall()
-        classifications[code] = {
-            row["dimensao_id"]: row["quadrante"]
-            for row in rows
-            if row["status"] == "observado" and row["quadrante"]
+    names = {row["codigo_ibge"]: row["nome"] for row in municipalities}
+    markers: dict[str, dict[str, str]] = {}
+    for code in names:
+        markers[code] = {
+            row["marcador_id"]: row["valor_texto"]
+            for row in con.execute(
+                """
+                SELECT marcador_id,valor_texto
+                FROM marcador_comparavel
+                WHERE codigo_ibge=?
+                  AND universo_id=?
+                  AND janela_id=?
+                  AND status='observado'
+                """,
+                (code, universe_id, window_id),
+            )
         }
 
-    names = {row["codigo_ibge"]: row["nome"] for row in municipalities}
     candidates: dict[str, list[dict]] = {code: [] for code in names}
 
     try:
@@ -78,14 +69,14 @@ def calculate_pairs(
 
                 comparable = []
                 coincident = []
-                for dim in dimensions:
-                    left = classifications.get(ref, {}).get(dim)
-                    right = classifications.get(comp, {}).get(dim)
+                for marker_id in MARKER_ORDER:
+                    left = markers.get(ref, {}).get(marker_id)
+                    right = markers.get(comp, {}).get(marker_id)
                     if left is None or right is None:
                         continue
-                    comparable.append(dim)
+                    comparable.append(marker_id)
                     if left == right:
-                        coincident.append(dim)
+                        coincident.append(marker_id)
 
                 n_comparable = len(comparable)
                 n_coincident = len(coincident)
@@ -120,11 +111,11 @@ def calculate_pairs(
                         n_comparable, n_coincident, proportion,
                         None, 0, ", ".join(coincident) if coincident else None,
                         (
-                            "comparacao com cobertura limitada"
+                            "comparação com cobertura limitada"
                             if n_comparable < min_comparable_dimensions
                             else (
-                                "coincidencia categorial em dimensoes "
-                                "independentes; nao e score de desempenho"
+                                "coincidência categorial em seis marcadores "
+                                "independentes; CAPAG e DCL não entram na assinatura"
                             )
                         ),
                         build_id,
@@ -157,16 +148,19 @@ def calculate_pairs(
                       AND universo_id=?
                       AND janela_id=?
                     """,
-                    (
-                        order, ref, item["comp"], universe_id, window_id,
-                    ),
+                    (order, ref, item["comp"], universe_id, window_id),
                 )
                 if order == 1:
                     principal[ref] = item["comp"]
 
         reciprocal_pairs = 0
+        seen = set()
         for ref, comp in principal.items():
             if principal.get(comp) == ref:
+                key = tuple(sorted((ref, comp)))
+                if key not in seen:
+                    seen.add(key)
+                    reciprocal_pairs += 1
                 con.execute(
                     """
                     UPDATE par_municipal
@@ -181,8 +175,6 @@ def calculate_pairs(
                     """,
                     (universe_id, window_id, ref, comp, comp, ref),
                 )
-                if ref < comp:
-                    reciprocal_pairs += 1
 
         con.commit()
     except Exception:
@@ -195,7 +187,7 @@ def calculate_pairs(
         "universe_id": universe_id,
         "window_id": window_id,
         "municipalities": len(municipalities),
-        "dimensions": len(dimensions),
+        "markers": len(MARKER_ORDER),
         "directed_pairs": len(municipalities) * (len(municipalities) - 1),
         "reciprocal_principal_pairs": reciprocal_pairs,
     }
@@ -203,7 +195,7 @@ def calculate_pairs(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Calcula pares comparaveis e prioritarios."
+        description="Calcula pares comparáveis a partir dos seis marcadores."
     )
     parser.add_argument("database", type=Path)
     parser.add_argument("--universe", default="TIC_TIM_30")

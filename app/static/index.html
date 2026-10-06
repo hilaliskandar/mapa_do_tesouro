@@ -37,6 +37,9 @@
       <button class="tab" data-target="series">Séries</button>
       <button class="tab" data-target="compare">Comparação</button>
       <button class="tab" data-target="map">Mapa</button>
+      <button class="tab" data-target="themes">Análises</button>
+      <button class="tab" data-target="sources">Fontes e cobertura</button>
+      <button class="tab" data-target="crosswalk">Crosswalk</button>
       <button class="tab" data-target="dictionary">Dicionário</button>
       <button class="tab" data-target="methodology">Metodologia</button>
     </nav>
@@ -61,6 +64,17 @@
         <div class="selected-value" id="selected-variable-value">—</div>
         <p id="selected-variable-status" class="muted"></p>
       </article>
+
+      <div class="profile-grid">
+        <article class="panel profile-panel">
+          <p class="eyebrow">Marcadores comparáveis</p>
+          <div id="marker-list" class="badge-list"></div>
+        </article>
+        <article class="panel profile-panel">
+          <p class="eyebrow">Pares prioritários</p>
+          <div id="pair-list"></div>
+        </article>
+      </div>
     </section>
 
     <section id="series" class="view">
@@ -109,6 +123,47 @@
         <div id="map-empty" class="map-empty" hidden>Cartografia não disponível neste build.</div>
         <svg id="municipal-map" viewBox="0 0 960 620" role="img" aria-label="Mapa municipal temático"></svg>
         <div id="map-legend" class="map-legend"></div>
+      </article>
+    </section>
+
+    <section id="themes" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Análises temáticas</p>
+          <h2 id="themes-title">—</h2>
+        </div>
+      </div>
+      <div id="theme-groups" class="theme-groups"></div>
+    </section>
+
+    <section id="sources" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Proveniência e QA</p>
+          <h2>Fontes e cobertura</h2>
+        </div>
+      </div>
+      <div class="sources-grid">
+        <article class="panel">
+          <h3>Fontes</h3>
+          <div id="source-list"></div>
+        </article>
+        <article class="panel">
+          <h3>Cobertura da variável selecionada</h3>
+          <div id="coverage-wrap"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="crosswalk" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Harmonização temporal</p>
+          <h2>Crosswalk de variáveis</h2>
+        </div>
+      </div>
+      <article class="panel">
+        <div id="crosswalk-wrap"></div>
       </article>
     </section>
 

@@ -35,3 +35,6 @@
 - F203 — reservar API/banco remoto para consultas dinâmicas.
 - F204 — manter integrações de provedor fora do núcleo de domínio.
 - F205 — permitir implantação Cloudflare sem expor configuração operacional no repositório.
+
+- F117 — cada indicador, conta ou agregação exibida deve oferecer acesso à sua documentação canônica: fórmula/definição, componentes, fonte, período, como ler, limitações e regra de ausência.
+- F118 — a interface deve expor páginas estáveis de metodologia e dicionário, alimentadas pelo catálogo versionado e não por texto duplicado nos templates.

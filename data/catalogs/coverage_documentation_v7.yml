@@ -1,0 +1,25 @@
+- layer: DCA / FINBRA
+  period: 2013–2025
+  expected: '390'
+  valid: '390'
+  note: 30 municípios × 13 anos.
+- layer: RCL / RREO
+  period: 2015–2025
+  expected: '330'
+  valid: '328'
+  note: Ausências mantidas como NA; não imputar.
+- layer: RGF Anexos 01/05
+  period: 2015–2025
+  expected: '330'
+  valid: '321'
+  note: Cobertura conceitual varia por vigência.
+- layer: RGF Anexo 02
+  period: 2015–2025
+  expected: '330'
+  valid: '327'
+  note: '2015: 27/30; 2016–2025: 30/30.'
+- layer: CAPAG
+  period: '2025'
+  expected: '30'
+  valid: '30'
+  note: Snapshot 01/09/2026, ano-base 2025.

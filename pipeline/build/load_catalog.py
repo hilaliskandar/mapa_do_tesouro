@@ -7,11 +7,41 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_CATALOG = ROOT / "data" / "catalogs" / "variables_core.yml"
+CATALOG_DIR = ROOT / "data" / "catalogs"
+DEFAULT_CATALOGS = [
+    CATALOG_DIR / "variables_core.yml",
+    CATALOG_DIR / "variables_v7_extension.yml",
+]
 
 
-def load_catalog(database: Path, catalog: Path = DEFAULT_CATALOG) -> None:
-    payload = yaml.safe_load(catalog.read_text(encoding="utf-8"))
+def read_catalogs(catalogs: list[Path]) -> dict:
+    merged = {"fontes": [], "variaveis": []}
+    seen_sources: set[str] = set()
+    seen_variables: set[str] = set()
+
+    for catalog in catalogs:
+        payload = yaml.safe_load(catalog.read_text(encoding="utf-8")) or {}
+        for item in payload.get("fontes", []):
+            source_id = item["fonte_id"]
+            if source_id in seen_sources:
+                raise ValueError(f"Fonte duplicada nos catalogos: {source_id}")
+            seen_sources.add(source_id)
+            merged["fontes"].append(item)
+
+        for item in payload.get("variaveis", []):
+            variable_id = item["variavel_id"]
+            if variable_id in seen_variables:
+                raise ValueError(f"Variavel duplicada nos catalogos: {variable_id}")
+            seen_variables.add(variable_id)
+            merged["variaveis"].append(item)
+
+    return merged
+
+
+def load_catalog(database: Path, catalogs: list[Path] | None = None) -> None:
+    catalogs = catalogs or DEFAULT_CATALOGS
+    payload = read_catalogs(catalogs)
+
     connection = sqlite3.connect(database)
     connection.execute("PRAGMA foreign_keys = ON")
     try:
@@ -74,11 +104,17 @@ def load_catalog(database: Path, catalog: Path = DEFAULT_CATALOG) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Carrega catálogo canônico no SQLite.")
+    parser = argparse.ArgumentParser(description="Carrega catálogos canônicos no SQLite.")
     parser.add_argument("database", type=Path)
-    parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG)
+    parser.add_argument(
+        "--catalog",
+        action="append",
+        type=Path,
+        dest="catalogs",
+        help="Pode ser repetido. Sem uso, carrega core + extensão v7.",
+    )
     args = parser.parse_args()
-    load_catalog(args.database, args.catalog)
+    load_catalog(args.database, args.catalogs)
     print(f"Catálogo carregado em {args.database}")
 
 

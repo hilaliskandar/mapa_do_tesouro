@@ -39,3 +39,40 @@ Uso previsto:
 - D1/API: somente para consultas não cobertas pelos artefatos estáticos.
 
 O `manifest.json` registra SHA-256 dos artefatos gerados para controle de cache, paridade e publicação.
+
+
+## Primeira interface candidata
+
+A implementação inicial em `app/static/` cobre:
+
+- panorama municipal;
+- série histórica;
+- comparação anual entre municípios;
+- mapa temático SVG;
+- dicionário navegável;
+- metodologia navegável;
+- links contextuais “Como ler”.
+
+Não há dependência de framework JavaScript, CDN externa, Worker, D1 ou serviço Cloudflare para essas funções.
+
+### Build local completo
+
+```bash
+python -m pipeline.build.build_analytical_database \
+  FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx \
+  --database data/financas_municipais_sp.sqlite \
+  --site-output build/site \
+  --geojson caminho/geojs-100-mun.json \
+  --overwrite
+```
+
+### Visualização local
+
+```bash
+cd build/site
+python -m http.server 8000
+```
+
+Abrir `http://localhost:8000`.
+
+O site deve funcionar integralmente com os arquivos locais gerados.

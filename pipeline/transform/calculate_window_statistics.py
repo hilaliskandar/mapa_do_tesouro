@@ -170,7 +170,7 @@ def calculate_window_statistics(
                     if mean != 0:
                         upsert_stat(
                             con, code, universe_id, variable, window_id,
-                            "cv", std / abs(mean), "observado", n, build_id,
+                            "cv", std / mean, "observado", n, build_id,
                         )
                     else:
                         upsert_stat(

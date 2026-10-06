@@ -1,0 +1,9 @@
+provider: tbrugz/geodata-br
+repository: https://github.com/tbrugz/geodata-br
+commit: c39dfb040bfd466fe2a476bafed00749c5c42f16
+path: geojson/geojs-100-mun.json
+raw_url: https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-100-mun.json
+license_note: Verificar e preservar os termos de licença do repositório-fonte na publicação.
+code_field: id
+crs: EPSG:4326
+runtime_policy: "O frontend não acessa esta URL; o arquivo é usado apenas no build."

@@ -36,6 +36,7 @@
       <button class="tab is-active" data-target="overview">Panorama</button>
       <button class="tab" data-target="series">Séries</button>
       <button class="tab" data-target="compare">Comparação</button>
+      <button class="tab" data-target="map">Mapa</button>
       <button class="tab" data-target="dictionary">Dicionário</button>
       <button class="tab" data-target="methodology">Metodologia</button>
     </nav>
@@ -93,6 +94,21 @@
           </thead>
           <tbody id="compare-body"></tbody>
         </table>
+      </article>
+    </section>
+
+    <section id="map" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Mapa temático</p>
+          <h2 id="map-title">—</h2>
+        </div>
+        <button id="map-help" class="link-button" type="button">Como ler</button>
+      </div>
+      <article class="panel map-panel">
+        <div id="map-empty" class="map-empty" hidden>Cartografia não disponível neste build.</div>
+        <svg id="municipal-map" viewBox="0 0 960 620" role="img" aria-label="Mapa municipal temático"></svg>
+        <div id="map-legend" class="map-legend"></div>
       </article>
     </section>
 

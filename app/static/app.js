@@ -9,6 +9,76 @@ const state = {
   annual: null,
   municipal: null,
   mapGeoJSON: null,
+  references: [],
+  coverage: [],
+  crosswalk: [],
+};
+
+const THEMES = {
+  "Receitas e autonomia": [
+    "dca_receita_corrente_bruta",
+    "dca_receita_tributaria_bruta",
+    "dca_iptu_principal",
+    "dca_itbi_principal",
+    "dca_iss_principal",
+    "dca_fpm_cota_mensal",
+    "dca_icms_cota_parte",
+    "dca_ipva_cota_parte",
+    "tributos_imobiliarios",
+    "tributos_selecionados",
+    "transferencias_selecionadas",
+    "receita_tributaria_pct_receita_corrente",
+    "tributos_imobiliarios_pct_receita_tributaria",
+    "transferencias_selecionadas_pct_receita_corrente"
+  ],
+  "Despesas e investimento": [
+    "dca_despesa_total_liquidada",
+    "dca_despesa_corrente_liquidada",
+    "dca_pessoal_encargos_liquidada",
+    "dca_investimentos_liquidada",
+    "dca_inversoes_financeiras_liquidada",
+    "dca_amortizacao_divida_liquidada",
+    "servico_divida_liquidado",
+    "despesas_capital_selecionadas",
+    "gasto_social_selecionado",
+    "saldo_corrente_simplificado",
+    "investimento_pct_receita_corrente",
+    "investimento_pc"
+  ],
+  "Território": [
+    "dca_func_urbanismo_liquidada",
+    "dca_func_habitacao_liquidada",
+    "dca_func_saneamento_liquidada",
+    "dca_func_gestao_ambiental_liquidada",
+    "dca_func_transporte_liquidada",
+    "despesa_territorial",
+    "despesa_territorial_pct_despesa",
+    "despesa_territorial_pc",
+    "urbanismo_pct_territorial",
+    "habitacao_pct_territorial",
+    "saneamento_pct_territorial",
+    "gestao_ambiental_pct_territorial",
+    "transporte_pct_territorial"
+  ],
+  "Dívida e liquidez": [
+    "rreo_rcl_oficial",
+    "rgf_despesa_total_pessoal",
+    "rgf_caixa_liquida_apos_rpnp",
+    "rgf02_divida_consolidada",
+    "rgf02_divida_consolidada_liquida",
+    "rgf02_divida_contratual",
+    "rgf02_parcelamento_dividas",
+    "rgf02_precatorios_vencidos_nao_pagos",
+    "rgf02_deducoes_divida_consolidada",
+    "rgf02_disponibilidade_caixa",
+    "rgf02_demais_haveres_financeiros",
+    "rgf02_restos_pagar_processados",
+    "dtp_pct_rcl",
+    "dc_pct_rcl",
+    "dcl_pct_rcl",
+    "caixa_pos_rpnp_pct_rcl"
+  ],
+  "CAPAG": ["capag", "indicador_1", "indicador_2", "indicador_3"]
 };
 
 const KPI_IDS = [
@@ -135,6 +205,7 @@ function renderOverview() {
     `${municipality?.nome || "—"} · ${state.currentYear || "—"}`;
   renderKpis();
   renderSelectedVariable();
+  renderProfile();
 }
 
 function renderSeries() {
@@ -365,6 +436,7 @@ function renderMap() {
       renderOverview();
       renderSeries();
       renderMap();
+      renderThemes();
     });
 
     svg.appendChild(path);
@@ -418,6 +490,133 @@ function renderComparison() {
       <td>${statusLabel(row.entry.status)}</td>
     </tr>
   `).join("");
+}
+
+
+function renderProfile() {
+  const markers = (state.municipal?.markers || []).filter(
+    (item) => item.valor_texto
+  );
+  $("#marker-list").innerHTML = markers.length
+    ? markers.map((item) =>
+        `<span class="badge">${item.valor_texto}</span>`
+      ).join("")
+    : '<span class="muted">Sem marcadores disponíveis.</span>';
+
+  const pairs = (state.municipal?.pairs || []).filter(
+    (item) => item.ordem_prioritaria !== null
+  ).slice(0, 3);
+  $("#pair-list").innerHTML = pairs.length
+    ? pairs.map((item) => `
+        <div class="pair-item">
+          <strong>${item.ordem_prioritaria}. ${item.municipio_comparado}</strong>
+          <div class="muted">
+            ${item.dimensoes_coincidentes}/${item.dimensoes_comparaveis} marcadores coincidentes
+            · ${new Intl.NumberFormat("pt-BR", {style:"percent", maximumFractionDigits:0}).format(item.proporcao_coincidencia)}
+            ${item.reciproco ? " · recíproco" : ""}
+          </div>
+        </div>
+      `).join("")
+    : '<span class="muted">Sem pares prioritários disponíveis.</span>';
+}
+
+function renderThemes() {
+  const municipality = state.municipalities.find(
+    (item) => item.codigo_ibge === state.currentMunicipality
+  );
+  $("#themes-title").textContent =
+    `${municipality?.nome || "—"} · ${state.currentYear || "—"}`;
+
+  $("#theme-groups").innerHTML = Object.entries(THEMES).map(([group, ids]) => {
+    const cards = ids
+      .map((id) => {
+        const doc = catalogItem(id);
+        if (!doc) return "";
+        const entry = variableValue(id);
+        return `
+          <article class="metric-card">
+            <div class="metric-name">${doc.titulo_publico || doc.nome_tecnico || id}</div>
+            <div class="metric-value">${formatValue(entry.value, doc)}</div>
+            <div class="muted">${statusLabel(entry.status)}</div>
+            <button class="link-button" data-help="${id}">Como ler</button>
+          </article>
+        `;
+      })
+      .join("");
+    return `
+      <section class="theme-section panel">
+        <h3>${group}</h3>
+        <div class="metric-grid">${cards}</div>
+      </section>
+    `;
+  }).join("");
+}
+
+function renderSourcesAndCoverage() {
+  $("#source-list").innerHTML = (state.references || []).map((item) => `
+    <div class="source-item">
+      <strong>${item.titulo}</strong>
+      <div class="muted">${item.descricao || ""}</div>
+      ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener">Abrir fonte</a>` : ""}
+    </div>
+  `).join("") || '<p class="muted">Nenhuma referência carregada.</p>';
+
+  const doc = catalogItem(state.currentVariable);
+  const rows = (state.coverage || []).filter(
+    (item) => item.variavel_id === state.currentVariable
+  );
+  $("#coverage-wrap").innerHTML = `
+    <p><strong>${doc?.titulo_publico || doc?.nome_tecnico || state.currentVariable}</strong></p>
+    <table class="data-table">
+      <thead><tr><th>Ano</th><th>Observado</th><th>Esperado</th><th>Ausente</th><th>Não aplicável</th></tr></thead>
+      <tbody>
+        ${rows.map((item) => `
+          <tr>
+            <td>${item.ano}</td>
+            <td>${item.observado}</td>
+            <td>${item.esperado}</td>
+            <td>${item.ausente}</td>
+            <td>${item.nao_aplicavel}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+function renderCrosswalk() {
+  const rows = (state.crosswalk || []).filter(
+    (item) => item.variavel_id === state.currentVariable
+  );
+  if (!rows.length) {
+    $("#crosswalk-wrap").innerHTML =
+      '<p class="muted">Não há regra de crosswalk carregada para a variável selecionada neste build.</p>';
+    return;
+  }
+  $("#crosswalk-wrap").innerHTML = `
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Período</th><th>Fonte</th><th>Demonstrativo</th><th>Estágio</th>
+          <th>Código</th><th>Descrição</th><th>Regra</th><th>Confiança</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map((item) => `
+          <tr>
+            <td>${item.ano_inicio}–${item.ano_fim}</td>
+            <td>${item.fonte_id || "—"}</td>
+            <td>${item.demonstrativo || "—"}</td>
+            <td>${item.estagio || "—"}</td>
+            <td><code>${item.codigo_conta || "—"}</code></td>
+            <td>${item.descricao_conta || "—"}</td>
+            <td>${item.regra_harmonizacao || "—"}</td>
+            <td>${item.confianca || "—"}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+  `;
 }
 
 function showHelp(id) {
@@ -497,6 +696,9 @@ async function refresh() {
   renderSeries();
   renderComparison();
   renderMap();
+  renderThemes();
+  renderSourcesAndCoverage();
+  renderCrosswalk();
 }
 
 function bindTabs() {
@@ -527,11 +729,17 @@ async function init() {
       state.municipalities,
       state.catalog,
       state.methodology,
+      state.references,
+      state.coverage,
+      state.crosswalk,
     ] = await Promise.all([
       getJSON("./data/metadata.json"),
       getJSON("./data/municipalities.json"),
       getJSON("./data/catalog/variables.json"),
       getJSON("./data/methodology/index.json"),
+      getJSON("./data/references.json"),
+      getJSON("./data/coverage.json"),
+      getJSON("./data/crosswalk.json"),
     ]);
 
     const years = state.metadata.years || [];
@@ -577,6 +785,7 @@ async function init() {
       renderOverview();
       renderComparison();
       renderMap();
+      renderThemes();
     });
 
     $("#variable-select").addEventListener("change", (event) => {
@@ -585,6 +794,9 @@ async function init() {
       renderSeries();
       renderComparison();
       renderMap();
+      renderThemes();
+      renderSourcesAndCoverage();
+      renderCrosswalk();
     });
 
     $("#open-help").addEventListener("click", () =>

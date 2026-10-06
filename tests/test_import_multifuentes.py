@@ -71,7 +71,7 @@ def test_importer_preserves_applicability_and_observed_zero(tmp_path):
             SELECT status FROM observacao
             WHERE codigo_ibge='3500000'
               AND ano=2013
-              AND variavel_id='rcl'
+              AND variavel_id='rreo_rcl_oficial'
             """
         ).fetchone()[0] == "nao_aplicavel"
 
@@ -80,7 +80,7 @@ def test_importer_preserves_applicability_and_observed_zero(tmp_path):
             SELECT status FROM observacao
             WHERE codigo_ibge='3500000'
               AND ano=2015
-              AND variavel_id='rcl'
+              AND variavel_id='rreo_rcl_oficial'
             """
         ).fetchone()[0] == "observado"
 
@@ -89,7 +89,7 @@ def test_importer_preserves_applicability_and_observed_zero(tmp_path):
             SELECT status FROM observacao
             WHERE codigo_ibge='3500000'
               AND ano=2024
-              AND variavel_id='capag_nota'
+              AND variavel_id='capag'
             """
         ).fetchone()[0] == "nao_aplicavel"
 
@@ -98,7 +98,7 @@ def test_importer_preserves_applicability_and_observed_zero(tmp_path):
             SELECT status, valor_texto FROM observacao
             WHERE codigo_ibge='3500000'
               AND ano=2025
-              AND variavel_id='capag_nota'
+              AND variavel_id='capag'
             """
         ).fetchone() == ("observado", "A")
     finally:

@@ -175,3 +175,164 @@ variables:
     availability_start: 2025
     availability_end: 2025
     value_type: text
+
+  dca_operacoes_credito:
+    column: dca_operacoes_credito
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_alienacao_bens:
+    column: dca_alienacao_bens
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_transferencias_capital:
+    column: dca_transferencias_capital
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_despesa_total_liquidada:
+    column: dca_despesa_total_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_despesa_corrente_liquidada:
+    column: dca_despesa_corrente_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_pessoal_encargos_liquidada:
+    column: dca_pessoal_encargos_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_juros_encargos_liquidada:
+    column: dca_juros_encargos_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_inversoes_financeiras_liquidada:
+    column: dca_inversoes_financeiras_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_amortizacao_divida_liquidada:
+    column: dca_amortizacao_divida_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_saude_liquidada:
+    column: dca_func_saude_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_educacao_liquidada:
+    column: dca_func_educacao_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2013
+    availability_end: 2025
+    value_type: numeric
+
+  rgf_caixa_liquida_apos_rpnp:
+    column: rgf_caixa_liquida_apos_rpnp
+    source_id: SICONFI_RGF_A05
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_divida_contratual:
+    column: rgf02_divida_contratual
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_parcelamento_dividas:
+    column: rgf02_parcelamento_dividas
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_precatorios_vencidos_nao_pagos:
+    column: rgf02_precatorios_vencidos_nao_pagos
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_outras_dividas:
+    column: rgf02_outras_dividas
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_deducoes_divida_consolidada:
+    column: rgf02_deducoes_divida_consolidada
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_disponibilidade_caixa:
+    column: rgf02_disponibilidade_caixa
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_demais_haveres_financeiros:
+    column: rgf02_demais_haveres_financeiros
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_restos_pagar_processados:
+    column: rgf02_restos_pagar_processados
+    source_id: SICONFI_RGF_A02
+    availability_start: 2015
+    availability_end: 2025
+    value_type: numeric
+
+  indicador_1:
+    column: indicador_1
+    source_id: TESOURO_CAPAG
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  indicador_2:
+    column: indicador_2
+    source_id: TESOURO_CAPAG
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  indicador_3:
+    column: indicador_3
+    source_id: TESOURO_CAPAG
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric

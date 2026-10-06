@@ -38,8 +38,19 @@ def read_catalogs(catalogs: list[Path]) -> dict:
     return merged
 
 
-def load_catalog(database: Path, catalogs: list[Path] | None = None) -> None:
-    catalogs = catalogs or DEFAULT_CATALOGS
+def load_catalog(
+    database: Path,
+    catalogs: Path | list[Path] | None = None,
+) -> None:
+    if catalogs is None:
+        catalogs = DEFAULT_CATALOGS
+    elif isinstance(catalogs, Path):
+        # Compatibilidade com chamadas anteriores que informavam um único catálogo.
+        # O core informado é complementado automaticamente pela extensão v7 padrão.
+        if catalogs == DEFAULT_CATALOGS[0]:
+            catalogs = DEFAULT_CATALOGS
+        else:
+            catalogs = [catalogs]
     payload = read_catalogs(catalogs)
 
     connection = sqlite3.connect(database)

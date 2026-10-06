@@ -1,0 +1,41 @@
+dimensions:
+  - dimensao_id: receita_tributaria
+    nome: Base tributária
+    variavel_id: receita_tributaria_pct_receita_corrente
+    sentido_interpretativo: maior
+    min_anos_observados: 3
+  - dimensao_id: investimento
+    nome: Investimento
+    variavel_id: investimento_pct_receita_corrente
+    sentido_interpretativo: maior
+    min_anos_observados: 3
+  - dimensao_id: territorial
+    nome: Gasto territorial
+    variavel_id: despesa_territorial_pct_despesa
+    sentido_interpretativo: maior
+    min_anos_observados: 3
+  - dimensao_id: dtp
+    nome: Despesa total com pessoal
+    variavel_id: dtp_pct_rcl
+    sentido_interpretativo: menor
+    min_anos_observados: 3
+  - dimensao_id: dc
+    nome: Dívida consolidada
+    variavel_id: dc_pct_rcl
+    sentido_interpretativo: menor
+    min_anos_observados: 3
+  - dimensao_id: dcl
+    nome: Dívida consolidada líquida
+    variavel_id: dcl_pct_rcl
+    sentido_interpretativo: menor
+    min_anos_observados: 3
+  - dimensao_id: caixa
+    nome: Liquidez
+    variavel_id: caixa_pos_rpnp_pct_rcl
+    sentido_interpretativo: maior
+    min_anos_observados: 3
+rules:
+  nivel: "media >= mediana das medias do universo => acima da mediana; caso contrario => abaixo da mediana"
+  estabilidade: "cv <= mediana dos CVs do universo => mais estavel; caso contrario => mais volatil"
+  classificacao_minima: "exige pelo menos 3 anos observados na janela"
+  synthetic_score: false

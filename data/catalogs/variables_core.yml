@@ -1,4 +1,10 @@
 fontes:
+  - fonte_id: PROJETO_BASE_MULTIFONTES
+    nome: Base multifuentes FINBRA TIC-TIM 30M
+    orgao: Projeto Financas Municipais SP
+    sistema: Integracao interna
+    finalidade: Artefato integrado e auditavel usado como primeira fonte de migracao
+
   - fonte_id: SICONFI_DCA
     nome: DCA / FINBRA
     orgao: Tesouro Nacional
@@ -187,12 +193,12 @@ variaveis:
     definicao: Divida Consolidada Liquida oficial do RGF Anexo 02.
 
   - variavel_id: populacao
-    nome: Populacao
+    nome: Populacao DCA
     grupo: contexto
     tipo: contextual
     unidade: habitantes
-    fonte_preferencial_id: IBGE_POP
-    definicao: Populacao utilizada como denominador dos indicadores per capita.
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Populacao registrada na base DCA utilizada na integracao inicial. Uma futura serie IBGE deve ser cadastrada como variavel distinta, sem sobrescrever esta.
 
   - variavel_id: tributos_imobiliarios
     nome: Tributos imobiliarios

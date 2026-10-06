@@ -111,6 +111,8 @@ def export_static_data(
                 "municipality": "/data/municipalities/{codigo_ibge}.json",
                 "catalog": "/data/catalog/variables/{variavel_id}.json",
                 "methodology": "/data/methodology/{secao_id}.json",
+                "crosswalk": "/data/crosswalk.json",
+                "coverage": "/data/coverage.json",
             },
         }
 
@@ -271,6 +273,25 @@ def export_static_data(
             }
             rel = f"municipalities/{code}.json"
             hashes[rel] = write_json(output / rel, payload)
+
+        crosswalk = [
+            dict(row)
+            for row in con.execute(
+                """
+                SELECT
+                    c.crosswalk_id,c.variavel_id,v.nome AS variavel,
+                    c.ano_inicio,c.ano_fim,c.fonte_id,c.demonstrativo,
+                    c.estagio,c.codigo_conta,c.descricao_conta,c.campo_bruto,
+                    c.finalidade,c.regra_harmonizacao,c.prioridade,c.confianca
+                FROM crosswalk_variavel c
+                JOIN variavel v USING(variavel_id)
+                ORDER BY c.variavel_id,c.ano_inicio,c.prioridade
+                """
+            )
+        ]
+        hashes["crosswalk.json"] = write_json(
+            output / "crosswalk.json", crosswalk
+        )
 
         coverage = [
             dict(row)

@@ -1,0 +1,268 @@
+fontes:
+  - fonte_id: SICONFI_DCA
+    nome: DCA / FINBRA
+    orgao: Tesouro Nacional
+    sistema: Siconfi
+    finalidade: receitas, despesas e despesa por funcao
+
+  - fonte_id: SICONFI_RREO
+    nome: RREO
+    orgao: Tesouro Nacional
+    sistema: Siconfi
+    finalidade: receita corrente liquida e demonstrativos fiscais
+
+  - fonte_id: SICONFI_RGF_A01
+    nome: RGF Anexo 01
+    orgao: Tesouro Nacional
+    sistema: Siconfi
+    finalidade: despesa total com pessoal
+
+  - fonte_id: SICONFI_RGF_A02
+    nome: RGF Anexo 02
+    orgao: Tesouro Nacional
+    sistema: Siconfi
+    finalidade: divida consolidada e divida consolidada liquida
+
+  - fonte_id: SICONFI_RGF_A05
+    nome: RGF Anexo 05
+    orgao: Tesouro Nacional
+    sistema: Siconfi
+    finalidade: disponibilidade de caixa e restos a pagar
+
+  - fonte_id: TESOURO_CAPAG
+    nome: CAPAG
+    orgao: Tesouro Nacional
+    sistema: Tesouro Transparente
+    finalidade: classificacao oficial e componentes
+
+  - fonte_id: IBGE_POP
+    nome: Populacao
+    orgao: IBGE
+    finalidade: denominadores per capita
+
+variaveis:
+  - variavel_id: receita_corrente_bruta
+    nome: Receita corrente bruta
+    grupo: receitas
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Receita corrente observada na DCA, preservando a definicao da fonte e do exercicio.
+
+  - variavel_id: receita_tributaria_bruta
+    nome: Receita tributaria bruta
+    grupo: receitas
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Receita tributaria observada na DCA.
+
+  - variavel_id: iptu
+    nome: IPTU
+    grupo: receitas
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Arrecadacao de IPTU harmonizada por exercicio.
+
+  - variavel_id: itbi
+    nome: ITBI
+    grupo: receitas
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Arrecadacao de ITBI harmonizada por exercicio.
+    cautelas: Indicador auxiliar da atividade imobiliaria formal; nao mede isoladamente numero de transacoes ou valorizacao.
+
+  - variavel_id: iss
+    nome: ISS
+    grupo: receitas
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Arrecadacao de ISS harmonizada por exercicio.
+
+  - variavel_id: fpm
+    nome: FPM
+    grupo: transferencias
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Transferencias do Fundo de Participacao dos Municipios.
+
+  - variavel_id: icms
+    nome: ICMS
+    grupo: transferencias
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Cota-parte municipal do ICMS conforme fonte harmonizada.
+
+  - variavel_id: ipva
+    nome: IPVA
+    grupo: transferencias
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Cota-parte municipal do IPVA conforme fonte harmonizada.
+
+  - variavel_id: investimento_liquidado
+    nome: Investimentos liquidados
+    grupo: despesas
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Despesa liquidada classificada como investimentos.
+
+  - variavel_id: urbanismo
+    nome: Urbanismo
+    grupo: funcoes_territoriais
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Despesa por funcao Urbanismo.
+
+  - variavel_id: habitacao
+    nome: Habitacao
+    grupo: funcoes_territoriais
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Despesa por funcao Habitacao.
+
+  - variavel_id: saneamento
+    nome: Saneamento
+    grupo: funcoes_territoriais
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Despesa por funcao Saneamento.
+
+  - variavel_id: gestao_ambiental
+    nome: Gestao ambiental
+    grupo: funcoes_territoriais
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Despesa por funcao Gestao Ambiental.
+
+  - variavel_id: transporte
+    nome: Transporte
+    grupo: funcoes_territoriais
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Despesa por funcao Transporte.
+
+  - variavel_id: rcl
+    nome: Receita Corrente Liquida
+    grupo: fiscal
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_RREO
+    definicao: RCL oficial do demonstrativo aplicavel.
+
+  - variavel_id: dtp
+    nome: Despesa Total com Pessoal
+    grupo: fiscal
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_RGF_A01
+    definicao: DTP oficial do RGF Anexo 01.
+
+  - variavel_id: dc
+    nome: Divida Consolidada
+    grupo: divida
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_RGF_A02
+    definicao: Divida Consolidada oficial do RGF Anexo 02.
+
+  - variavel_id: dcl
+    nome: Divida Consolidada Liquida
+    grupo: divida
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_RGF_A02
+    definicao: Divida Consolidada Liquida oficial do RGF Anexo 02.
+
+  - variavel_id: populacao
+    nome: Populacao
+    grupo: contexto
+    tipo: contextual
+    unidade: habitantes
+    fonte_preferencial_id: IBGE_POP
+    definicao: Populacao utilizada como denominador dos indicadores per capita.
+
+  - variavel_id: tributos_imobiliarios
+    nome: Tributos imobiliarios
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Soma estrita de IPTU e ITBI quando ambos os componentes estao disponiveis.
+    formula: iptu + itbi
+
+  - variavel_id: despesa_territorial
+    nome: Despesa territorial selecionada
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Soma de Urbanismo, Habitacao, Saneamento, Gestao Ambiental e Transporte, com regra estrita de disponibilidade.
+    formula: urbanismo + habitacao + saneamento + gestao_ambiental + transporte
+
+  - variavel_id: receita_tributaria_pct_receita_corrente
+    nome: Receita tributaria sobre receita corrente
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participacao da receita tributaria bruta na receita corrente bruta.
+    formula: 100 * receita_tributaria_bruta / receita_corrente_bruta
+
+  - variavel_id: investimento_pct_receita_corrente
+    nome: Investimento sobre receita corrente
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participacao dos investimentos liquidados na receita corrente bruta.
+    formula: 100 * investimento_liquidado / receita_corrente_bruta
+
+  - variavel_id: investimento_per_capita
+    nome: Investimento per capita
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: BRL_por_habitante
+    definicao: Investimentos liquidados divididos pela populacao de referencia.
+    formula: investimento_liquidado / populacao
+
+  - variavel_id: dtp_pct_rcl
+    nome: DTP sobre RCL
+    grupo: indicadores_legais
+    tipo: indicador_legal
+    unidade: percentual
+    fonte_preferencial_id: SICONFI_RGF_A01
+    definicao: Percentual oficial de Despesa Total com Pessoal sobre RCL publicado no demonstrativo proprio.
+    cautelas: Nao substituir por proxy calculada a partir da DCA.
+
+  - variavel_id: dc_pct_rcl
+    nome: DC sobre RCL
+    grupo: indicadores_legais
+    tipo: indicador_legal
+    unidade: percentual
+    fonte_preferencial_id: SICONFI_RGF_A02
+    definicao: Percentual oficial de Divida Consolidada sobre RCL quando publicado ou reproduzido estritamente a partir do demonstrativo proprio.
+
+  - variavel_id: dcl_pct_rcl
+    nome: DCL sobre RCL
+    grupo: indicadores_legais
+    tipo: indicador_legal
+    unidade: percentual
+    fonte_preferencial_id: SICONFI_RGF_A02
+    definicao: Percentual oficial de Divida Consolidada Liquida sobre RCL quando publicado ou reproduzido estritamente a partir do demonstrativo proprio.
+
+  - variavel_id: capag_nota
+    nome: Nota CAPAG
+    grupo: capag
+    tipo: classificacao_oficial
+    unidade: categoria
+    fonte_preferencial_id: TESOURO_CAPAG
+    definicao: Classificacao oficial CAPAG publicada pelo Tesouro Nacional.

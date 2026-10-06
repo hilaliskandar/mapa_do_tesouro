@@ -1,0 +1,300 @@
+- id: dca_func_gestao_ambiental_liquidada
+  label: Gestão Ambiental — função liquidada
+  group: Funções territoriais
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesa liquidada em Gestão Ambiental; integra a agregação territorial do painel.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_func_gestao_ambiental_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_func_transporte_liquidada
+  label: Transporte — função liquidada
+  group: Funções territoriais
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesa liquidada em Transporte; integra a agregação territorial do painel.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_func_transporte_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: rreo_rcl_oficial
+  label: Receita Corrente Líquida — RCL oficial
+  group: Indicadores legais — denominadores
+  unit: brl
+  source: RREO / Siconfi
+  read: RCL oficial usada como denominador em indicadores legais e na razão de caixa deste painel.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rreo_rcl_oficial
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo
+- id: rgf_despesa_total_pessoal
+  label: Despesa Total com Pessoal — DTP
+  group: RGF Anexo 01
+  unit: brl
+  source: RGF Anexo 01 / Siconfi
+  read: Valor oficial de DTP do demonstrativo; deve ser lido com o percentual sobre RCL e limites legais.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf_despesa_total_pessoal
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf_caixa_liquida_apos_rpnp
+  label: Caixa líquido após RPNP
+  group: RGF Anexo 05
+  unit: brl
+  source: RGF Anexo 05 / Siconfi
+  read: Disponibilidade líquida após considerar Restos a Pagar Não Processados na métrica harmonizada.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf_caixa_liquida_apos_rpnp
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_divida_consolidada
+  label: Dívida Consolidada — DC
+  group: RGF Anexo 02
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Estoque de dívida consolidada no 3º quadrimestre.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_divida_consolidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_divida_consolidada_liquida
+  label: Dívida Consolidada Líquida — DCL
+  group: RGF Anexo 02
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Dívida consolidada líquida das deduções previstas no demonstrativo. Pode ser negativa.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_divida_consolidada_liquida
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_divida_contratual
+  label: Dívida contratual
+  group: RGF Anexo 02 — composição
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Componente contratual do estoque de dívida consolidada.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_divida_contratual
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_parcelamento_dividas
+  label: Parcelamento de dívidas
+  group: RGF Anexo 02 — composição
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Componente de parcelamentos dentro do demonstrativo de dívida.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_parcelamento_dividas
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_precatorios_vencidos_nao_pagos
+  label: Precatórios vencidos e não pagos
+  group: RGF Anexo 02 — composição
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Componente de precatórios vencidos e não pagos incluídos no demonstrativo.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_precatorios_vencidos_nao_pagos
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_outras_dividas
+  label: Outras dívidas
+  group: RGF Anexo 02 — composição
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Outros componentes do estoque de dívida consolidada conforme taxonomia do RGF.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_outras_dividas
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_deducoes_divida_consolidada
+  label: Deduções da Dívida Consolidada
+  group: RGF Anexo 02 — deduções
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Deduções usadas na passagem de DC para DCL, conforme demonstrativo.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_deducoes_divida_consolidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_disponibilidade_caixa
+  label: Disponibilidade de caixa
+  group: RGF Anexo 02 — deduções
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Disponibilidade de caixa reportada no Anexo 02, componente relevante das deduções da dívida.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_disponibilidade_caixa
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_demais_haveres_financeiros
+  label: Demais haveres financeiros
+  group: RGF Anexo 02 — deduções
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Demais haveres financeiros considerados no demonstrativo.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_demais_haveres_financeiros
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: rgf02_restos_pagar_processados
+  label: Restos a pagar processados
+  group: RGF Anexo 02 — deduções
+  unit: brl
+  source: RGF Anexo 02 / Siconfi
+  read: Componente que afeta as deduções/posição líquida no demonstrativo.
+  period: 2015–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: rgf02_restos_pagar_processados
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: tributos_imobiliarios
+  label: Tributos imobiliários selecionados — IPTU + ITBI
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Soma analítica dos dois tributos diretamente ligados à propriedade e transmissão imobiliária. Não corresponde a uma conta oficial única.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: dca_iptu_principal + dca_itbi_principal
+  inputs: tributos_imobiliarios
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: tributos_selecionados
+  label: Tributos selecionados — IPTU + ITBI + ISS
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Agregação analítica dos três tributos usados na leitura comparativa. Não equivale à Receita Tributária total.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: dca_iptu_principal + dca_itbi_principal + dca_iss_principal
+  inputs: tributos_selecionados
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: transferencias_selecionadas
+  label: Transferências selecionadas — FPM + ICMS + IPVA
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Soma analítica das três transferências selecionadas. Não equivale ao total de transferências correntes.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: dca_fpm_cota_mensal + dca_icms_cota_parte + dca_ipva_cota_parte
+  inputs: transferencias_selecionadas
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: despesa_territorial
+  label: Agregado territorial — 5 funções
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / despesas por função
+  read: Agregação analítica criada para acompanhar o gasto associado a cinco funções com conteúdo territorial. Não é uma classificação oficial denominada “despesa territorial”.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: Urbanismo + Habitação + Saneamento + Gestão Ambiental + Transporte
+  inputs: despesa_territorial
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: servico_divida_liquidado
+  label: Serviço da dívida selecionado — liquidado
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / FINBRA
+  read: Soma analítica de juros/encargos e amortização no estágio liquidado. Ajuda a observar pressão orçamentária do serviço da dívida, mas não substitui demonstrativos legais da dívida.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: Juros e encargos liquidados + Amortização da dívida liquidada
+  inputs: servico_divida_liquidado
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: receitas_capital_selecionadas
+  label: Ingressos de capital selecionados
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / FINBRA
+  read: Soma analítica de três fontes de receita de capital relevantes para contextualizar investimento. Não equivale necessariamente à totalidade das receitas de capital.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: Operações de crédito + Alienação de bens + Transferências de capital
+  inputs: dca_operacoes_credito + dca_alienacao_bens + dca_transferencias_capital
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: despesas_capital_selecionadas
+  label: Despesas de capital selecionadas
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / FINBRA
+  read: Soma analítica das três categorias de despesa de capital disponíveis na camada consolidada. Útil para distinguir formação de capital, inversões e amortização; não deve ser lida como investimento em sentido estrito.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: Investimentos liquidados + Inversões financeiras liquidadas + Amortização da dívida liquidada
+  inputs: dca_investimentos_liquidada + dca_inversoes_financeiras_liquidada + dca_amortizacao_divida_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: gasto_social_selecionado
+  label: Gasto social selecionado — Saúde + Educação
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / despesas por função
+  read: Soma analítica de duas funções sociais centrais para contextualizar o peso relativo das funções territoriais. Não equivale ao total de gasto social municipal.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: Saúde liquidada + Educação liquidada
+  inputs: dca_func_saude_liquidada + dca_func_educacao_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: saldo_corrente_simplificado
+  label: Saldo corrente simplificado
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / FINBRA
+  read: Diferença analítica entre receita corrente bruta e despesa corrente liquidada. Valor positivo indica folga nessa comparação simplificada; não é resultado orçamentário oficial e mistura conceitos de receita realizada e despesa liquidada.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: Receita Corrente bruta − Despesa Corrente liquidada
+  inputs: dca_receita_corrente_bruta - dca_despesa_corrente_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: diferenca_capital_selecionada
+  label: Diferença de capital selecionada
+  group: Agregações analíticas
+  unit: brl
+  source: DCA / FINBRA
+  read: Diferença entre as três fontes de capital selecionadas e as três categorias de despesa de capital selecionadas. Serve apenas como leitura estrutural auxiliar; não é resultado de capital oficial.
+  period: 2013–2025
+  kind: Agregação analítica
+  formula: Ingressos de capital selecionados − Despesas de capital selecionadas
+  inputs: receitas_capital_selecionadas - despesas_capital_selecionadas
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca

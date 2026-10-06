@@ -1,0 +1,129 @@
+name: Candidate Site Build
+
+on:
+  push:
+    branches:
+      - bootstrap-financas-municipais-sp
+  workflow_dispatch:
+
+jobs:
+  build-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install minimal build dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install openpyxl pyyaml pytest
+
+      - name: Download canonical multifuentes workbook
+        run: |
+          mkdir -p inputs build
+          python - <<'PY'
+          from urllib.request import urlopen
+          from pathlib import Path
+
+          url = "https://drive.usercontent.google.com/download?id=16eAt7J9W5OZf48kUOy-FudxnU6OR2hS9&export=download&confirm=t"
+          target = Path("inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx")
+          with urlopen(url, timeout=120) as response:
+              data = response.read()
+          if len(data) < 100000:
+              raise SystemExit(f"Download da base parece inválido: {len(data)} bytes")
+          target.write_bytes(data)
+          print(f"base_bytes={len(data)}")
+          PY
+
+      - name: Download pinned municipal cartography
+        run: |
+          python - <<'PY'
+          from urllib.request import urlopen
+          from pathlib import Path
+
+          url = "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-100-mun.json"
+          target = Path("inputs/geojs-100-mun.json")
+          with urlopen(url, timeout=120) as response:
+              data = response.read()
+          if len(data) < 1000000:
+              raise SystemExit(f"Download da cartografia parece inválido: {len(data)} bytes")
+          target.write_bytes(data)
+          print(f"geojson_bytes={len(data)}")
+          PY
+
+      - name: Run full analytical build
+        run: |
+          python -m pipeline.build.build_analytical_database             inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx             --database build/financas_municipais_sp.sqlite             --site-output build/site             --geojson inputs/geojs-100-mun.json             --overwrite
+
+      - name: Smoke-check candidate site
+        run: |
+          python - <<'PY'
+          import json
+          import sqlite3
+          from pathlib import Path
+
+          site = Path("build/site")
+          required = [
+              site / "index.html",
+              site / "styles.css",
+              site / "app.js",
+              site / "data" / "metadata.json",
+              site / "data" / "manifest.json",
+              site / "data" / "maps" / "municipalities.geojson",
+              site / "data" / "annual" / "2025.json",
+          ]
+          missing = [str(p) for p in required if not p.exists()]
+          if missing:
+              raise SystemExit("Arquivos ausentes: " + ", ".join(missing))
+
+          meta = json.loads((site / "data" / "metadata.json").read_text())
+          if meta["municipality_count"] != 30:
+              raise SystemExit(f"municipality_count={meta['municipality_count']}")
+          if meta["years"] != list(range(2013, 2026)):
+              raise SystemExit(f"years={meta['years']}")
+
+          geo = json.loads(
+              (site / "data" / "maps" / "municipalities.geojson").read_text()
+          )
+          if len(geo["features"]) != 30:
+              raise SystemExit(f"map_features={len(geo['features'])}")
+
+          db = sqlite3.connect("build/financas_municipais_sp.sqlite")
+          try:
+              variables = db.execute("select count(*) from variavel").fetchone()[0]
+              docs = db.execute("select count(*) from variavel_documentacao").fetchone()[0]
+              observations = db.execute("select count(*) from observacao").fetchone()[0]
+              pairs = db.execute(
+                  "select count(*) from par_municipal where universo_id='TIC_TIM_30'"
+              ).fetchone()[0]
+          finally:
+              db.close()
+
+          if variables != 75 or docs != 75:
+              raise SystemExit(f"variables={variables}, docs={docs}")
+          if pairs != 870:
+              raise SystemExit(f"pairs={pairs}")
+          print({
+              "municipalities": meta["municipality_count"],
+              "years": len(meta["years"]),
+              "variables": variables,
+              "documentation": docs,
+              "observations": observations,
+              "pairs": pairs,
+              "map_features": len(geo["features"]),
+          })
+          PY
+
+      - name: Upload candidate site
+        uses: actions/upload-artifact@v4
+        with:
+          name: financas-municipais-sp-candidate-site
+          path: |
+            build/site
+            build/financas_municipais_sp.sqlite
+          if-no-files-found: error
+          retention-days: 14

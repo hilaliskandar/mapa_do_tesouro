@@ -8,6 +8,7 @@ const state = {
   currentVariable: "investimento_pct_receita_corrente",
   annual: null,
   municipal: null,
+  mapGeoJSON: null,
 };
 
 const KPI_IDS = [
@@ -29,6 +30,12 @@ async function getJSON(url) {
   if (!response.ok) {
     throw new Error(`Falha ao carregar ${url}: ${response.status}`);
   }
+  return response.json();
+}
+
+async function getOptionalJSON(url) {
+  const response = await fetch(url, { cache: "no-store" });
+  if (!response.ok) return null;
   return response.json();
 }
 
@@ -226,6 +233,165 @@ function renderSeries() {
   `;
 }
 
+
+function geometryRings(geometry) {
+  if (!geometry) return [];
+  if (geometry.type === "Polygon") return geometry.coordinates;
+  if (geometry.type === "MultiPolygon") {
+    return geometry.coordinates.flat();
+  }
+  return [];
+}
+
+function mapBounds(features) {
+  const points = [];
+  for (const feature of features) {
+    for (const ring of geometryRings(feature.geometry)) {
+      for (const point of ring) points.push(point);
+    }
+  }
+  if (!points.length) return null;
+  return {
+    minX: Math.min(...points.map((p) => p[0])),
+    maxX: Math.max(...points.map((p) => p[0])),
+    minY: Math.min(...points.map((p) => p[1])),
+    maxY: Math.max(...points.map((p) => p[1])),
+  };
+}
+
+function quantileBreaks(values, bins = 5) {
+  const sorted = values.slice().sort((a, b) => a - b);
+  if (!sorted.length) return [];
+  const breaks = [];
+  for (let i = 1; i < bins; i++) {
+    const index = Math.min(
+      sorted.length - 1,
+      Math.floor((i * sorted.length) / bins)
+    );
+    breaks.push(sorted[index]);
+  }
+  return [...new Set(breaks)];
+}
+
+function mapFill(value, breaks) {
+  if (typeof value !== "number") return "#dfe4e9";
+  const palette = ["#dbe8f0", "#b9d0df", "#8eb4ca", "#5e94b4", "#2e6f95"];
+  let index = breaks.findIndex((cut) => value <= cut);
+  if (index < 0) index = breaks.length;
+  return palette[Math.min(index, palette.length - 1)];
+}
+
+function renderMap() {
+  const svg = $("#municipal-map");
+  const empty = $("#map-empty");
+  const legend = $("#map-legend");
+  const doc = catalogItem(state.currentVariable);
+  $("#map-title").textContent =
+    `${doc?.titulo_publico || state.currentVariable} · ${state.currentYear}`;
+
+  if (!state.mapGeoJSON?.features?.length) {
+    svg.innerHTML = "";
+    legend.innerHTML = "";
+    empty.hidden = false;
+    return;
+  }
+  empty.hidden = true;
+
+  const annualByCode = new Map(
+    (state.annual?.municipalities || []).map((item) => [
+      item.codigo_ibge,
+      item.values?.[state.currentVariable] || { status: "ausente", value: null },
+    ])
+  );
+  const numericValues = [...annualByCode.values()]
+    .filter((entry) => entry.status === "observado" && typeof entry.value === "number")
+    .map((entry) => entry.value);
+  const breaks = quantileBreaks(numericValues, 5);
+
+  const width = 960;
+  const height = 620;
+  const pad = 22;
+  const bounds = mapBounds(state.mapGeoJSON.features);
+  if (!bounds) return;
+
+  const spanX = Math.max(1e-9, bounds.maxX - bounds.minX);
+  const spanY = Math.max(1e-9, bounds.maxY - bounds.minY);
+  const scale = Math.min(
+    (width - pad * 2) / spanX,
+    (height - pad * 2) / spanY
+  );
+  const offsetX = (width - spanX * scale) / 2;
+  const offsetY = (height - spanY * scale) / 2;
+
+  const project = ([lon, lat]) => [
+    offsetX + (lon - bounds.minX) * scale,
+    height - (offsetY + (lat - bounds.minY) * scale),
+  ];
+
+  svg.innerHTML = "";
+  for (const feature of state.mapGeoJSON.features) {
+    const code = String(feature.properties?.codigo_ibge || feature.id || "");
+    const municipality = state.municipalities.find((m) => m.codigo_ibge === code);
+    const entry = annualByCode.get(code) || { status: "ausente", value: null };
+
+    const commands = [];
+    for (const ring of geometryRings(feature.geometry)) {
+      if (!ring.length) continue;
+      ring.forEach((point, index) => {
+        const [x, y] = project(point);
+        commands.push(`${index === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`);
+      });
+      commands.push("Z");
+    }
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", commands.join(" "));
+    path.setAttribute(
+      "class",
+      `map-feature${entry.status !== "observado" ? " is-missing" : ""}${code === state.currentMunicipality ? " is-selected" : ""}`
+    );
+    path.setAttribute("fill", mapFill(entry.value, breaks));
+    path.dataset.code = code;
+
+    const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+    title.textContent =
+      `${municipality?.nome || code}: ${formatValue(entry.value, doc)} (${statusLabel(entry.status)})`;
+    path.appendChild(title);
+
+    path.addEventListener("click", async () => {
+      state.currentMunicipality = code;
+      $("#municipality-select").value = code;
+      await loadMunicipal();
+      renderOverview();
+      renderSeries();
+      renderMap();
+    });
+
+    svg.appendChild(path);
+  }
+
+  const labels = [];
+  let previous = -Infinity;
+  for (const cut of [...breaks, Infinity]) {
+    const text = cut === Infinity
+      ? `> ${formatValue(previous, doc)}`
+      : previous === -Infinity
+        ? `≤ ${formatValue(cut, doc)}`
+        : `${formatValue(previous, doc)} – ${formatValue(cut, doc)}`;
+    labels.push(text);
+    previous = cut;
+  }
+  legend.innerHTML = labels.map((label, index) => `
+    <span>
+      <i class="map-swatch" style="background:${mapFill(
+        index < breaks.length ? breaks[index] : Number.MAX_SAFE_INTEGER,
+        breaks
+      )}"></i>
+      ${label}
+    </span>
+  `).join("") + '<span><i class="map-swatch" style="background:#dfe4e9"></i>NA</span>';
+}
+
 function renderComparison() {
   const doc = catalogItem(state.currentVariable);
   $("#compare-title").textContent =
@@ -330,6 +496,7 @@ async function refresh() {
   renderOverview();
   renderSeries();
   renderComparison();
+  renderMap();
 }
 
 function bindTabs() {
@@ -401,6 +568,7 @@ async function init() {
       await loadMunicipal();
       renderOverview();
       renderSeries();
+      renderMap();
     });
 
     $("#year-select").addEventListener("change", async (event) => {
@@ -408,6 +576,7 @@ async function init() {
       await loadAnnual();
       renderOverview();
       renderComparison();
+      renderMap();
     });
 
     $("#variable-select").addEventListener("change", (event) => {
@@ -415,15 +584,21 @@ async function init() {
       renderSelectedVariable();
       renderSeries();
       renderComparison();
+      renderMap();
     });
 
     $("#open-help").addEventListener("click", () =>
+      showHelp(state.currentVariable)
+    );
+    $("#map-help").addEventListener("click", () =>
       showHelp(state.currentVariable)
     );
 
     $("#dictionary-search").addEventListener("input", (event) =>
       renderDictionary(event.target.value)
     );
+
+    state.mapGeoJSON = await getOptionalJSON("./data/maps/municipalities.geojson");
 
     bindTabs();
     bindDelegatedHelp();

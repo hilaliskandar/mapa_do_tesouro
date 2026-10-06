@@ -21,7 +21,7 @@ def test_core_catalog_loads(tmp_path):
         assert fontes >= 7
         assert variaveis >= 20
         assert con.execute(
-            "SELECT tipo FROM variavel WHERE variavel_id='capag_nota'"
+            "SELECT tipo FROM variavel WHERE variavel_id='capag'"
         ).fetchone()[0] == "classificacao_oficial"
         assert con.execute(
             "SELECT tipo FROM variavel WHERE variavel_id='dtp_pct_rcl'"

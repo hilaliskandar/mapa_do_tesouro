@@ -12,6 +12,7 @@ from pipeline.transform.calculate_window_statistics import calculate_window_stat
 from pipeline.transform.calculate_typologies import calculate_typologies
 from pipeline.transform.calculate_markers import calculate_markers
 from pipeline.transform.calculate_pairs import calculate_pairs
+from pipeline.build.export_static_data import export_static_data
 
 
 def build_analytical_database(
@@ -19,6 +20,7 @@ def build_analytical_database(
     database: Path,
     *,
     overwrite: bool = False,
+    static_output: Path | None = None,
 ) -> dict:
     if database.exists() and not overwrite:
         raise FileExistsError(
@@ -37,6 +39,8 @@ def build_analytical_database(
     result["typologies"] = calculate_typologies(database)
     result["markers"] = calculate_markers(database)
     result["pairs"] = calculate_pairs(database)
+    if static_output is not None:
+        result["static"] = export_static_data(database, static_output)
     return result
 
 
@@ -51,12 +55,14 @@ def main() -> None:
         default=Path("data/financas_municipais_sp.sqlite"),
     )
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--static-output", type=Path)
     args = parser.parse_args()
 
     result = build_analytical_database(
         args.workbook,
         args.database,
         overwrite=args.overwrite,
+        static_output=args.static_output,
     )
     for stage, values in result.items():
         print(f"[{stage}]")

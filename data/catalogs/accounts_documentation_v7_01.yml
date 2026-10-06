@@ -1,0 +1,300 @@
+- id: populacao_dca
+  label: População
+  group: Referência
+  unit: num
+  source: DCA / FINBRA
+  read: População associada à camada DCA, usada nos denominadores per capita deste painel.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: populacao_dca
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: capag
+  label: CAPAG — classificação oficial
+  group: Classificação oficial
+  unit: text
+  source: Tesouro Nacional / CAPAG
+  read: Classificação oficial da capacidade de pagamento. No painel, disponível para o ano-base 2025 conforme snapshot de 01/09/2026. Não é recalculada pelo painel.
+  period: '2025'
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: capag
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://www.tesourotransparente.gov.br/ckan/dataset/capag-municipios
+- id: dca_receita_corrente_bruta
+  label: Receita Corrente bruta
+  group: Receitas — agregados
+  unit: brl
+  source: DCA / FINBRA
+  read: Agregado de receitas correntes observado na matriz DCA; usado como denominador em vários indicadores deste painel.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_receita_corrente_bruta
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_receita_tributaria_bruta
+  label: Receita Tributária bruta
+  group: Receitas — agregados
+  unit: brl
+  source: DCA / FINBRA
+  read: Agregado de receitas tributárias; inclui mais componentes que IPTU, ITBI e ISS.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_receita_tributaria_bruta
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_iptu_principal
+  label: IPTU — principal
+  group: Receitas próprias
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Receita principal observada do IPTU. Preserva mudanças de ementário ao longo do tempo por crosswalk explícito.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_iptu_principal
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_itbi_principal
+  label: ITBI — principal
+  group: Receitas próprias
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Receita principal observada do ITBI; sensível ao ciclo de transações imobiliárias.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_itbi_principal
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_iss_principal
+  label: ISS — principal
+  group: Receitas próprias
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Receita principal observada do ISS.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_iss_principal
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_fpm_cota_mensal
+  label: FPM — cota mensal
+  group: Transferências selecionadas
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Valor observado da cota mensal do FPM utilizada na análise comparativa.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_fpm_cota_mensal
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_icms_cota_parte
+  label: ICMS — cota-parte
+  group: Transferências selecionadas
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Cota-parte municipal do ICMS observada na DCA.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_icms_cota_parte
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_ipva_cota_parte
+  label: IPVA — cota-parte
+  group: Transferências selecionadas
+  unit: brl
+  source: DCA / FINBRA — crosswalk temporal
+  read: Cota-parte municipal do IPVA observada na DCA.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_ipva_cota_parte
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_operacoes_credito
+  label: Operações de crédito
+  group: Receitas de capital
+  unit: brl
+  source: DCA / FINBRA
+  read: Ingressos de operações de crédito. Úteis para interpretar financiamento de investimento e endividamento.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_operacoes_credito
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_alienacao_bens
+  label: Alienação de bens
+  group: Receitas de capital
+  unit: brl
+  source: DCA / FINBRA
+  read: Receitas decorrentes de alienação de ativos. Pode ser episódica.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_alienacao_bens
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_transferencias_capital
+  label: Transferências de capital
+  group: Receitas de capital
+  unit: brl
+  source: DCA / FINBRA
+  read: Transferências destinadas à formação/aquisição de bens de capital ou finalidades equivalentes conforme classificação orçamentária.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_transferencias_capital
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_despesa_total_liquidada
+  label: Despesa total liquidada
+  group: Despesas — agregados
+  unit: brl
+  source: DCA / FINBRA
+  read: Total de despesas no estágio liquidado; denominador do indicador de peso territorial.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_despesa_total_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_despesa_corrente_liquidada
+  label: Despesa corrente liquidada
+  group: Despesas — agregados
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesas correntes no estágio liquidado.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_despesa_corrente_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_pessoal_encargos_liquidada
+  label: Pessoal e encargos — liquidado
+  group: Despesas — categoria econômica
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesa liquidada de pessoal e encargos na classificação orçamentária da DCA. Não substitui a DTP legal do RGF.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_pessoal_encargos_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_juros_encargos_liquidada
+  label: Juros e encargos da dívida — liquidado
+  group: Despesas — categoria econômica
+  unit: brl
+  source: DCA / FINBRA
+  read: Juros e encargos liquidados. Útil para analisar serviço da dívida em conjunto com amortização.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_juros_encargos_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_investimentos_liquidada
+  label: Investimentos — liquidado
+  group: Despesas de capital
+  unit: brl
+  source: DCA / FINBRA
+  read: Investimentos no estágio liquidado; base dos indicadores de investimento relativo e per capita.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_investimentos_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_inversoes_financeiras_liquidada
+  label: Inversões financeiras — liquidado
+  group: Despesas de capital
+  unit: brl
+  source: DCA / FINBRA
+  read: Inversões financeiras liquidadas, mantidas separadas de investimentos.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_inversoes_financeiras_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_amortizacao_divida_liquidada
+  label: Amortização da dívida — liquidado
+  group: Despesas de capital
+  unit: brl
+  source: DCA / FINBRA
+  read: Pagamento do principal da dívida no estágio liquidado.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_amortizacao_divida_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_func_saude_liquidada
+  label: Saúde — função liquidada
+  group: Despesa por função
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesa liquidada classificada na função Saúde.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_func_saude_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_func_educacao_liquidada
+  label: Educação — função liquidada
+  group: Despesa por função
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesa liquidada classificada na função Educação.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_func_educacao_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_func_urbanismo_liquidada
+  label: Urbanismo — função liquidada
+  group: Funções territoriais
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesa liquidada em Urbanismo; integra a agregação territorial do painel.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_func_urbanismo_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_func_habitacao_liquidada
+  label: Habitação — função liquidada
+  group: Funções territoriais
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesa liquidada em Habitação; integra a agregação territorial do painel.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_func_habitacao_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dca_func_saneamento_liquidada
+  label: Saneamento — função liquidada
+  group: Funções territoriais
+  unit: brl
+  source: DCA / FINBRA
+  read: Despesa liquidada em Saneamento; integra a agregação territorial do painel.
+  period: 2013–2025
+  kind: Conta/agregado da fonte
+  formula: Valor observado diretamente na camada indicada; ver estágio/definição no rótulo e na descrição.
+  inputs: dca_func_saneamento_liquidada
+  na_rule: Se o valor não estiver observado na fonte para a chave município-ano, permanece NA; ausência não é zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca

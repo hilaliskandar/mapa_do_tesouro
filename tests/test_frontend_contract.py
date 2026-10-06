@@ -13,6 +13,9 @@ def test_frontend_has_required_views_and_no_remote_runtime_dependency():
         'id="series"',
         'id="compare"',
         'id="map"',
+        'id="themes"',
+        'id="sources"',
+        'id="crosswalk"',
         'id="dictionary"',
         'id="methodology"',
     ):
@@ -24,6 +27,9 @@ def test_frontend_has_required_views_and_no_remote_runtime_dependency():
         "./data/catalog/variables.json",
         "./data/methodology/index.json",
         "./data/maps/municipalities.geojson",
+        "./data/references.json",
+        "./data/coverage.json",
+        "./data/crosswalk.json",
     ):
         assert resource in js
 

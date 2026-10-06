@@ -15,8 +15,10 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - name: Install
-        run: pip install -e ".[desenvolvimento]"
+      - name: Install new-core dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install openpyxl pyyaml pytest
       - name: Compile new pipeline
         run: python -m compileall -q pipeline
       - name: Run new-core tests

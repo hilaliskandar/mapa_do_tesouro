@@ -13,6 +13,7 @@ from pipeline.transform.calculate_typologies import calculate_typologies
 from pipeline.transform.calculate_markers import calculate_markers
 from pipeline.transform.calculate_pairs import calculate_pairs
 from pipeline.build.export_static_data import export_static_data
+from pipeline.build.build_static_site import build_static_site
 
 
 def build_analytical_database(
@@ -21,6 +22,8 @@ def build_analytical_database(
     *,
     overwrite: bool = False,
     static_output: Path | None = None,
+    site_output: Path | None = None,
+    source_geojson: Path | None = None,
 ) -> dict:
     if database.exists() and not overwrite:
         raise FileExistsError(
@@ -41,6 +44,12 @@ def build_analytical_database(
     result["pairs"] = calculate_pairs(database)
     if static_output is not None:
         result["static"] = export_static_data(database, static_output)
+    if site_output is not None:
+        result["site"] = build_static_site(
+            database,
+            site_output,
+            source_geojson=source_geojson,
+        )
     return result
 
 
@@ -56,6 +65,8 @@ def main() -> None:
     )
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--static-output", type=Path)
+    parser.add_argument("--site-output", type=Path)
+    parser.add_argument("--geojson", type=Path)
     args = parser.parse_args()
 
     result = build_analytical_database(
@@ -63,6 +74,8 @@ def main() -> None:
         args.database,
         overwrite=args.overwrite,
         static_output=args.static_output,
+        site_output=args.site_output,
+        source_geojson=args.geojson,
     )
     for stage, values in result.items():
         print(f"[{stage}]")

@@ -2,13 +2,15 @@ from pathlib import Path
 import sqlite3
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = ROOT / "data" / "schema" / "001_initial.sql"
 
 
 def make_db():
     con = sqlite3.connect(":memory:")
     con.execute("PRAGMA foreign_keys = ON")
-    for path in sorted((ROOT / "data" / "schema").glob("[0-9][0-9][0-9]_*.sql")):\n        con.executescript(path.read_text(encoding="utf-8"))
+    for path in sorted(
+        (ROOT / "data" / "schema").glob("[0-9][0-9][0-9]_*.sql")
+    ):
+        con.executescript(path.read_text(encoding="utf-8"))
     return con
 
 
@@ -39,6 +41,10 @@ def test_schema_initializes():
         "classificacao_relativa",
         "marcador_comparavel",
         "par_municipal",
+        "variavel_documentacao",
+        "documentacao_secao",
+        "referencia_documental",
+        "variavel_referencia",
     }
     assert expected.issubset(tables)
 

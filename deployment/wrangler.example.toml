@@ -1,0 +1,22 @@
+# Exemplo de configuracao Cloudflare.
+# Copie para wrangler.toml apenas no ambiente local/privado.
+# Nao versionar wrangler.toml real.
+
+name = "financas-municipais-sp"
+main = "app/worker/index.py"
+compatibility_date = "2026-10-06"
+workers_dev = false
+
+[assets]
+directory = "./build/public"
+
+# Bindings abaixo sao exemplos logicos. IDs reais ficam fora do Git.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "financas-municipais-sp"
+database_id = "<PRIVATE_D1_DATABASE_ID>"
+
+[[r2_buckets]]
+binding = "ARTIFACTS"
+bucket_name = "<PRIVATE_R2_BUCKET_NAME>"

@@ -1,0 +1,35 @@
+name: Canonical source check
+
+on:
+  workflow_dispatch:
+    inputs:
+      object_key:
+        description: "Object key declared by a versioned snapshot manifest"
+        required: true
+        type: string
+      sha256:
+        description: "Expected SHA-256 from the snapshot manifest"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download and verify source
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key "${{ inputs.object_key }}" \
+            --output build/canonical-source \
+            --expected-sha256 "${{ inputs.sha256 }}"

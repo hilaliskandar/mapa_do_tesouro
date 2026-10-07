@@ -17,6 +17,14 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SCHEMA = ROOT / "data" / "schema" / "001_initial.sql"
 DEFAULT_CATALOG = ROOT / "data" / "catalogs" / "variables_core.yml"
 DEFAULT_MAPPING = ROOT / "data" / "mappings" / "base_multifuentes_v0_4.yml"
+VERSION_FILE = ROOT / "VERSION"
+
+
+def read_app_version() -> str | None:
+    if not VERSION_FILE.exists():
+        return None
+    version = VERSION_FILE.read_text(encoding="utf-8").strip()
+    return version or None
 
 
 def sha256(path: Path) -> str:
@@ -155,7 +163,7 @@ def import_multifuentes(
                 timestamp,
                 source["data_version"],
                 "0.1.0",
-                None,
+                read_app_version(),
                 "0.1.0",
                 source_hash,
                 "candidate",

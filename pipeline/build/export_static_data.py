@@ -254,6 +254,7 @@ def export_static_data(
                       ON m.codigo_ibge=p.codigo_ibge_comparado
                     WHERE p.codigo_ibge_referencia=?
                       AND p.universo_id=?
+                      AND p.ordem_prioritaria IS NOT NULL
                     ORDER BY
                         CASE WHEN p.ordem_prioritaria IS NULL THEN 999 ELSE p.ordem_prioritaria END,
                         p.proporcao_coincidencia DESC,

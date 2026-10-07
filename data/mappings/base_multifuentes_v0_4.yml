@@ -1,3 +1,9 @@
+universe:
+  id: TIC_TIM_30
+  name: TIC-TIM 30
+  description: Universo inicial de 30 municipios do projeto TIC-TIM.
+  type: analitico
+
 source:
   source_id: PROJETO_BASE_MULTIFONTES
   workbook_name: FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx

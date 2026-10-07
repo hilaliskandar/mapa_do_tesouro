@@ -24,6 +24,7 @@ def build_analytical_database(
     static_output: Path | None = None,
     site_output: Path | None = None,
     source_geojson: Path | None = None,
+    universe_id: str | None = None,
 ) -> dict:
     if database.exists() and not overwrite:
         raise FileExistsError(
@@ -35,27 +36,40 @@ def build_analytical_database(
         workbook,
         database,
         overwrite=overwrite,
+        universe_id=universe_id,
     )
+    active_universe = result["ingest"]["universe_id"]
     load_documentation(database, strict=True)
     result["annual"] = calculate_annual(database)
-    result["window"] = calculate_window_statistics(database)
-    result["typologies"] = calculate_typologies(database)
-    result["markers"] = calculate_markers(database)
-    result["pairs"] = calculate_pairs(database)
+    result["window"] = calculate_window_statistics(
+        database, universe_id=active_universe
+    )
+    result["typologies"] = calculate_typologies(
+        database, universe_id=active_universe
+    )
+    result["markers"] = calculate_markers(
+        database, universe_id=active_universe
+    )
+    result["pairs"] = calculate_pairs(
+        database, universe_id=active_universe
+    )
     if static_output is not None:
-        result["static"] = export_static_data(database, static_output)
+        result["static"] = export_static_data(
+            database, static_output, universe_id=active_universe
+        )
     if site_output is not None:
         result["site"] = build_static_site(
             database,
             site_output,
             source_geojson=source_geojson,
+            universe_id=active_universe,
         )
     return result
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Reconstrói a base analítica canônica dos 30 municípios."
+        description="Reconstrói uma base analítica canônica por universo municipal."
     )
     parser.add_argument("workbook", type=Path)
     parser.add_argument(
@@ -67,6 +81,7 @@ def main() -> None:
     parser.add_argument("--static-output", type=Path)
     parser.add_argument("--site-output", type=Path)
     parser.add_argument("--geojson", type=Path)
+    parser.add_argument("--universe")
     args = parser.parse_args()
 
     result = build_analytical_database(
@@ -76,6 +91,7 @@ def main() -> None:
         static_output=args.static_output,
         site_output=args.site_output,
         source_geojson=args.geojson,
+        universe_id=args.universe,
     )
     for stage, values in result.items():
         print(f"[{stage}]")

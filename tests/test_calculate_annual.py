@@ -194,3 +194,133 @@ def test_annual_calculation_preserves_imported_legal_indicators(tmp_path):
         }
     finally:
         con.close()
+
+
+def test_strict_sum_all_not_applicable_returns_not_applicable(tmp_path):
+    db = tmp_path / "all_na.sqlite"
+    initialize_database(db)
+    load_catalog(db)
+
+    con = sqlite3.connect(db)
+    try:
+        con.execute(
+            "INSERT INTO municipio(codigo_ibge,nome,uf) VALUES ('3500000','Teste','SP')"
+        )
+        for variable_id in ("dca_iptu_principal", "dca_itbi_principal"):
+            con.execute(
+                """
+                INSERT INTO observacao(
+                    codigo_ibge,ano,variavel_id,status
+                ) VALUES ('3500000',2025,?,'nao_aplicavel')
+                """,
+                (variable_id,),
+            )
+        con.commit()
+    finally:
+        con.close()
+
+    calculate_annual(db)
+
+    con = sqlite3.connect(db)
+    try:
+        assert con.execute(
+            """
+            SELECT status, valor_num
+            FROM observacao
+            WHERE codigo_ibge='3500000'
+              AND ano=2025
+              AND variavel_id='tributos_imobiliarios'
+            """
+        ).fetchone() == ("nao_aplicavel", None)
+    finally:
+        con.close()
+
+
+def test_strict_sum_mixed_not_applicable_and_observed_returns_absent(tmp_path):
+    db = tmp_path / "mixed_na.sqlite"
+    initialize_database(db)
+    load_catalog(db)
+
+    con = sqlite3.connect(db)
+    try:
+        con.execute(
+            "INSERT INTO municipio(codigo_ibge,nome,uf) VALUES ('3500000','Teste','SP')"
+        )
+        con.execute(
+            """
+            INSERT INTO observacao(
+                codigo_ibge,ano,variavel_id,status
+            ) VALUES ('3500000',2025,'dca_iptu_principal','nao_aplicavel')
+            """
+        )
+        con.execute(
+            """
+            INSERT INTO observacao(
+                codigo_ibge,ano,variavel_id,valor_num,status
+            ) VALUES ('3500000',2025,'dca_itbi_principal',50,'observado')
+            """
+        )
+        con.commit()
+    finally:
+        con.close()
+
+    calculate_annual(db)
+
+    con = sqlite3.connect(db)
+    try:
+        assert con.execute(
+            """
+            SELECT status, valor_num
+            FROM observacao
+            WHERE codigo_ibge='3500000'
+              AND ano=2025
+              AND variavel_id='tributos_imobiliarios'
+            """
+        ).fetchone() == ("ausente", None)
+    finally:
+        con.close()
+
+
+def test_strict_sum_not_applicable_followed_by_absent_returns_absent(tmp_path):
+    db = tmp_path / "na_then_absent.sqlite"
+    initialize_database(db)
+    load_catalog(db)
+
+    con = sqlite3.connect(db)
+    try:
+        con.execute(
+            "INSERT INTO municipio(codigo_ibge,nome,uf) VALUES ('3500000','Teste','SP')"
+        )
+        con.execute(
+            """
+            INSERT INTO observacao(
+                codigo_ibge,ano,variavel_id,status
+            ) VALUES ('3500000',2025,'dca_iptu_principal','nao_aplicavel')
+            """
+        )
+        con.execute(
+            """
+            INSERT INTO observacao(
+                codigo_ibge,ano,variavel_id,status
+            ) VALUES ('3500000',2025,'dca_itbi_principal','ausente')
+            """
+        )
+        con.commit()
+    finally:
+        con.close()
+
+    calculate_annual(db)
+
+    con = sqlite3.connect(db)
+    try:
+        assert con.execute(
+            """
+            SELECT status, valor_num
+            FROM observacao
+            WHERE codigo_ibge='3500000'
+              AND ano=2025
+              AND variavel_id='tributos_imobiliarios'
+            """
+        ).fetchone() == ("ausente", None)
+    finally:
+        con.close()

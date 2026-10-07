@@ -103,13 +103,6 @@ PER_CAPITA = {
     "despesa_territorial_pc": ("despesa_territorial", "populacao_dca"),
 }
 
-DIRECT_OFFICIAL = {
-    "dtp_pct_rcl": "rgf_dtp_percentual_rcl",
-    "dc_pct_rcl": "rgf02_dc_percentual_rcl",
-    "dcl_pct_rcl": "rgf02_dcl_percentual_rcl",
-}
-
-
 def fetch_numeric(
     connection: sqlite3.Connection,
     code: str,
@@ -236,15 +229,6 @@ def calculate_annual(database: Path) -> dict:
                 )
                 written += 1
 
-            for variable_id, source_variable in DIRECT_OFFICIAL.items():
-                status, value = fetch_numeric(connection, code, year, source_variable)
-                if status == "observado" and value is not None:
-                    value = float(value) / 100.0
-                upsert_numeric(
-                    connection, code, year, variable_id, status, value,
-                    build_id, f"pipeline:official_copy:{source_variable}"
-                )
-                written += 1
 
         connection.commit()
     except Exception:

@@ -22,6 +22,20 @@ jobs:
           pip install -e . --no-deps
           pip install openpyxl pyyaml pytest gdown
 
+      - name: Upload build source snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: financas-municipais-sp-build-source
+          path: |
+            pipeline
+            data/schema
+            data/catalogs
+            data/mappings
+            app/static
+            pyproject.toml
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Download canonical multifuentes workbook
         run: |
           mkdir -p inputs build

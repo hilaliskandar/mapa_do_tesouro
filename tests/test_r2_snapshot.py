@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-import base64
-import gzip
-import hashlib
 from pathlib import Path
 
 import yaml
@@ -19,10 +16,7 @@ def test_sp645_pilot_manifest_contract():
     assert manifest["universe"]["municipalities"] == 645
     assert manifest["rows"] == 2580
     assert manifest["period"] == {"start": 2020, "end": 2023}
-    parts = manifest["r2"]["parts"]
-    assert len({part["file"] for part in parts}) == len(parts)
-    assert len(parts) == 10
-    assert sum(part["chars"] for part in parts) == 77136
+    assert manifest["r2"]["object"] == "sp_645/pilot_2020_2023/snapshot.csv.gz"
     assert manifest["compressed"]["sha256"] == (
         "3f5ebf5a6482b7627cd2c1bd121c722e53e2632fed2340ae5ccae7e02290088a"
     )

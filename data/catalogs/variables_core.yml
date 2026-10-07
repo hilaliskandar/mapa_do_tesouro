@@ -1,4 +1,10 @@
 fontes:
+  - fonte_id: PROJETO_SP_645_PILOTO
+    nome: Piloto estadual de receitas SP 645
+    orgao: Projeto Financas Municipais SP
+    sistema: Integracao interna
+    finalidade: Artefato de smoke test de escala estadual, sem uso em producao
+
   - fonte_id: PROJETO_BASE_MULTIFONTES
     nome: Base multifuentes FINBRA TIC-TIM 30M
     orgao: Projeto Financas Municipais SP

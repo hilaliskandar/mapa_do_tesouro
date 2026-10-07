@@ -55,7 +55,7 @@ def read_tabular_source(path: Path, source: dict) -> tuple[list[str], list[tuple
     if source_format == "xlsx":
         workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
         try:
-            sheet_name = source_location
+            sheet_name = source["sheet"]
             worksheet = workbook[sheet_name]
             iterator = worksheet.iter_rows(values_only=True)
             headers = [str(value) if value is not None else "" for value in next(iterator)]

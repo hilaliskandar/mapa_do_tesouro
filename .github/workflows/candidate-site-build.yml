@@ -38,6 +38,7 @@ jobs:
 
       - name: Download pinned municipal cartography
         run: |
+          mkdir -p inputs
           python - <<'PY'
           from urllib.request import urlopen
           from pathlib import Path

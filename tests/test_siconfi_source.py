@@ -25,7 +25,9 @@ def test_siconfi_follows_next_link_and_aggregates_items():
         {
             "items": [{"valor": 1}],
             "hasMore": True,
-            "links": [{"rel": "next", "href": "https://example.test/page2"}],
+            "limit": 1,
+            "offset": 0,
+            "links": [],
         },
         {
             "items": [{"valor": 2}],
@@ -43,16 +45,22 @@ def test_siconfi_follows_next_link_and_aggregates_items():
         min_interval=0,
         opener=opener,
     )
-    result = client.fetch_dca(year=2025, entity_id="3501608")
+    result = client.fetch_all(
+        "dca",
+        {"an_exercicio": 2025, "id_ente": "3501608"},
+        page_limit=1,
+    )
 
     assert result.items == [{"valor": 1}, {"valor": 2}]
     assert result.pages == 2
     assert result.request_count == 2
     assert calls[0][0].startswith("https://example.test/dca?")
-    assert calls[1][0] == "https://example.test/page2"
+    assert "offset=0" in calls[0][0]
+    assert calls[1][0].startswith("https://example.test/dca?")
+    assert "offset=1" in calls[1][0]
 
 
-def test_siconfi_rejects_has_more_without_next_link():
+def test_siconfi_rejects_has_more_without_usable_offset():
     def opener(request, timeout):
         return FakeResponse({"items": [], "hasMore": True, "links": []})
 
@@ -64,7 +72,7 @@ def test_siconfi_rejects_has_more_without_next_link():
     try:
         client.fetch_dca(year=2025, entity_id="3501608")
     except RuntimeError as exc:
-        assert "hasMore=true" in str(exc)
+        assert "usable offset" in str(exc)
     else:
         raise AssertionError("Expected pagination failure.")
 

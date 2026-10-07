@@ -69,3 +69,70 @@ def test_static_first_contract(tmp_path):
     )
     assert "annual/2025.json" in manifest["files"]
     assert "municipalities/3500001.json" in manifest["files"]
+
+
+def test_static_export_only_includes_priority_pairs(tmp_path):
+    db = tmp_path / "pairs.sqlite"
+    out = tmp_path / "public" / "data"
+    initialize_database(db)
+    load_catalog(db)
+    load_documentation(db, strict=True)
+
+    con = sqlite3.connect(db)
+    try:
+        con.execute(
+            "INSERT INTO universo(universo_id,nome) VALUES ('SP_TESTE','Teste')"
+        )
+        codes = ["3500001", "3500002", "3500003", "3500004"]
+        for idx, code in enumerate(codes, start=1):
+            con.execute(
+                "INSERT INTO municipio(codigo_ibge,nome,uf) VALUES (?,?,?)",
+                (code, f"M{idx}", "SP"),
+            )
+            con.execute(
+                """
+                INSERT INTO universo_municipio(universo_id,codigo_ibge)
+                VALUES ('SP_TESTE',?)
+                """,
+                (code,),
+            )
+
+        pairs = [
+            ("3500002", 1),
+            ("3500003", None),
+            ("3500004", 2),
+        ]
+        for compared, priority in pairs:
+            con.execute(
+                """
+                INSERT INTO par_municipal(
+                    codigo_ibge_referencia,codigo_ibge_comparado,
+                    universo_id,janela_id,dimensoes_comparaveis,
+                    dimensoes_coincidentes,proporcao_coincidencia,
+                    ordem_prioritaria,reciproco
+                ) VALUES (?,?,?,?,?,?,?,?,0)
+                """,
+                (
+                    "3500001",
+                    compared,
+                    "SP_TESTE",
+                    "2021_2025",
+                    6,
+                    4,
+                    4 / 6,
+                    priority,
+                ),
+            )
+        con.commit()
+    finally:
+        con.close()
+
+    export_static_data(db, out, universe_id="SP_TESTE")
+    municipal = json.loads(
+        (out / "municipalities" / "3500001.json").read_text(encoding="utf-8")
+    )
+    assert [item["codigo_ibge_comparado"] for item in municipal["pairs"]] == [
+        "3500002",
+        "3500004",
+    ]
+    assert all(item["ordem_prioritaria"] is not None for item in municipal["pairs"])

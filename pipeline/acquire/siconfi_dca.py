@@ -105,10 +105,23 @@ def acquire(
         "minimum_interval_seconds": min_interval,
     }
     output.mkdir(parents=True, exist_ok=True)
+    manifest_text = json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
     (output / "manifest.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+        manifest_text,
         encoding="utf-8",
     )
+    years_key = (
+        str(manifest["years"][0])
+        if len(manifest["years"]) == 1
+        else f'{manifest["years"][0]}-{manifest["years"][-1]}'
+    )
+    manifest_dir = output / "manifests"
+    manifest_dir.mkdir(parents=True, exist_ok=True)
+    manifest_path = manifest_dir / (
+        f'{annex_slug(annex)}-{years_key}.json'
+    )
+    manifest_path.write_text(manifest_text, encoding="utf-8")
+    manifest["manifest_path"] = str(manifest_path)
     return manifest
 
 

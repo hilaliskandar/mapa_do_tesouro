@@ -96,7 +96,7 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
 async function getJSON(url) {
-  const response = await fetch(url, { cache: "no-store" });
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Falha ao carregar ${url}: ${response.status}`);
   }
@@ -104,7 +104,7 @@ async function getJSON(url) {
 }
 
 async function getOptionalJSON(url) {
-  const response = await fetch(url, { cache: "no-store" });
+  const response = await fetch(url);
   if (!response.ok) return null;
   return response.json();
 }

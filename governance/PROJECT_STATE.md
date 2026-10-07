@@ -6,26 +6,23 @@ Data de referência: 2026-10-07.
 
 A `main` é a fonte de verdade.
 
-O baseline público TIC-TIM 30 está publicado e protegido por CI, QA de paridade e contratos metodológicos. A infraestrutura de deploy automático está ativa.
+O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual já ultrapassou a prova conceitual: o pipeline processa 645 municípios em piloto privado, a aquisição direta DCA do Siconfi possui smoke test e crosscheck contra o baseline publicado, e existe acervo histórico local no Google Drive com os anexos FINBRA/DCA estaduais organizados por exercício.
+A expansão estadual está no estado `gate_b_active`.
 
 ## Hierarquia de fontes operacionais
 
-Para reconstrução histórica e processamento em lote, deve-se preferir o acervo local do Google Drive antes de realizar coleta externa em massa.
+Para reconstrução histórica e processamento em lote, o acervo local do Google Drive é a fonte operacional preferencial.
 
-Pasta canônica de trabalho FINBRA/SP:
+Pasta FINBRA/SP:
+
 `https://drive.google.com/drive/folders/1K_Raj0pKEyktVY5BVa_raOZ4cQdJ8HQ4`
 
-A pasta contém diretórios anuais de 2013 a 2025, a base `FINBRA_DCA_CANONICA_FINAL_2013_2025_2026-09-26`, caderno metodológico e diversos artefatos de QA e tratamento.
+Regra:
 
-Regra operacional:
-
-1. Google Drive local = fonte preferencial para reconstrução histórica, cargas em lote e reprocessamento;
-2. Siconfi externo = validação por amostra, atualização incremental, confirmação de versão e investigação de lacunas/divergências;
-3. coleta externa integral só deve ocorrer quando não houver arquivo local equivalente, quando a versão local estiver desatualizada ou quando houver necessidade explícita de auditoria independente.
-
-Essa regra reduz carga desnecessária sobre os serviços externos e melhora a reprodutibilidade.
+1. Drive local para reconstrução histórica, cargas em lote e reprocessamento;
+2. Siconfi externo para validação por amostra, atualização incremental, confirmação de versão e investigação de lacunas/divergências;
+3. aquisição externa integral somente quando necessária para auditoria independente ou ausência de snapshot local adequado.
 
 ## Baseline público
 
@@ -36,69 +33,57 @@ Essa regra reduz carga desnecessária sobre os serviços externos e melhora a re
 - preview: `https://preview.finbra-tic-tim-referencia.pages.dev`;
 - metodologia territorial: `strict_complete`.
 
-Esse baseline não deve ser substituído por cargas estaduais incompletas.
-
 ## SP_645
 
-### Estado atual
+### Gate A — aprovado
 
-`pilot_scale`.
+A aquisição direta estadual de 2025 foi concluída com sucesso:
 
-O snapshot estadual de receitas 2020–2023 é prova de escala e infraestrutura. Ele contém apenas variáveis semanticamente compatíveis e não constitui baseline estadual.
+- 645 municípios;
+- I-C, I-D e I-E;
+- 1.935 respostas brutas;
+- zero falhas;
+- 645 linhas normalizadas;
+- 26 variáveis;
+- zero issues;
+- SHA-256 normalizado `619367dd8b2c5b3db6f7a6c902b41e2f2685616cf8560e2e852e7583f386eec7`.
 
-### Gate A
+A execução independente anterior produziu o mesmo hash normalizado.
 
-O Gate A formal usa aquisição direta do Siconfi para um exercício completo como teste de auditoria independente e de robustez da rotina de coleta.
+### Gate B — ativo
 
-Para expansão temporal, não se deve repetir por padrão esse padrão de 1.935 requisições por ano se o acervo local contiver os três anexos equivalentes.
+A reconstrução local já foi testada para 2020–2025.
 
-### Gate B — série DCA
+Situação:
 
-A série deve ser construída prioritariamente a partir do acervo local do Drive.
+- 2020: 645 municípios nos três anexos;
+- 2021: 645 municípios nos três anexos;
+- 2022: 644 em I-C; 645 em I-D/I-E;
+- 2023: 645 municípios nos três anexos;
+- 2024: 630 municípios nos três anexos;
+- 2025 local: 632 municípios; aquisição direta atual: 645.
 
-Já verificado:
+O normalizador já aceita CSV e XLSX locais e produz cobertura/ausência frente ao universo estadual.
 
-- 2023: anexos estaduais I-C, I-D e I-E disponíveis em XLSX;
-- 2024: anexos estaduais I-C, I-D e I-E disponíveis em XLSX;
-- 2025: anexos estaduais I-C, I-D e I-E disponíveis em CSV;
-- diretórios anuais também existem para 2013–2022.
+### Crosswalk temporal
 
-O Siconfi deve ser usado no Gate B para sentinelas, divergências, lacunas e atualização incremental.
+Foi incorporada variante explícita para 2018–2021 nas contas de IPTU, ITBI, ISS, FPM mensal, ICMS e IPVA. Os códigos foram verificados diretamente nos anexos locais de 2018–2021.
 
-## Sequência recomendada
+## Próximo gate operacional
 
-### Gate A — DCA estadual
-
-Concluir a execução estadual controlada de 2025, validar cobertura e performance e armazenar o resultado como artifact/snapshot de QA.
-
-### Gate B — série DCA
-
-Ingerir e harmonizar a série histórica a partir dos arquivos locais do Drive, começando por 2023–2025 e depois retrocedendo progressivamente até 2013. Em cada exercício, registrar hash, estrutura, cobertura e paridade por sentinelas com o Siconfi.
-
-### Gate C — população
-
-Integrar denominadores anuais compatíveis antes de promover indicadores per capita.
-
-### Gate D — RREO/RGF
-
-Integrar RCL, pessoal, dívida e liquidez pelos demonstrativos próprios.
-
-### Gate E — CAPAG
-
-Integrar classificação e componentes oficiais, com data de posição identificada.
-
-### Gate F — baseline estadual
-
-Somente então gerar indicadores derivados, tipologias, pares, static-first e candidate estadual.
+1. processar integralmente 2018 e 2019 com o mapping temporal já corrigido;
+2. identificar o regime contábil anterior a 2018;
+3. expandir progressivamente para 2013–2017;
+4. produzir delta incremental apenas para exercícios/snapshots incompletos;
+5. promover snapshots anuais aprovados para armazenamento privado versionado;
+6. somente depois integrar RREO, RGF, CAPAG e demais fontes estaduais.
 
 ## Regras para retomada
 
-Em nova conversa ou sessão:
-
 1. ler este arquivo;
-2. verificar `main`, PRs abertos e CI;
-3. ler `INVENTORY.md`;
-4. consultar primeiro o acervo local do Drive antes de planejar coleta externa em massa;
-5. ler o documento específico do gate em andamento;
-6. nunca reabrir ramo superado sem justificar no changelog;
-7. registrar toda decisão metodológica antes de alterar dados publicados.
+2. verificar `main`, PRs e CI;
+3. consultar primeiro o acervo local do Drive;
+4. não repetir coleta externa integral se houver snapshot local adequado;
+5. preservar ausência como ausência;
+6. registrar toda variante temporal explicitamente;
+7. manter TIC-TIM 30 como baseline de regressão até a promoção formal do baseline estadual.

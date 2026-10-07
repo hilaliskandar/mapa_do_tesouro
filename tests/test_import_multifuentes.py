@@ -147,3 +147,70 @@ def test_percentage_scale_is_applied(tmp_path):
         assert abs(value - 0.3669) < 1e-12
     finally:
         con.close()
+
+
+def test_importer_records_source_artifact_and_field_provenance(tmp_path):
+    mapping_path = ROOT / "data" / "mappings" / "base_multifuentes_v0_4.yml"
+    mapping = yaml.safe_load(mapping_path.read_text(encoding="utf-8"))
+    mapping["source"]["expected_rows"] = 13
+    mapping["source"]["expected_municipalities"] = 1
+
+    local_mapping = tmp_path / "mapping.yml"
+    local_mapping.write_text(
+        yaml.safe_dump(mapping, sort_keys=False, allow_unicode=True),
+        encoding="utf-8",
+    )
+    workbook = tmp_path / "fixture.xlsx"
+    create_fixture(workbook, local_mapping)
+
+    database = tmp_path / "fixture.sqlite"
+    result = import_multifuentes(
+        workbook,
+        database,
+        mapping_path=local_mapping,
+        build_timestamp="2026-10-06T00:00:00-03:00",
+    )
+
+    con = sqlite3.connect(database)
+    try:
+        artifact = con.execute(
+            """
+            SELECT fonte_id,nome,sha256,mime_type
+            FROM artefato_fonte
+            WHERE artefato_id=?
+            """,
+            (result["source_artifact_id"],),
+        ).fetchone()
+        assert artifact is not None
+        assert artifact[0] == "PROJETO_BASE_MULTIFONTES"
+        assert artifact[1] == workbook.name
+        assert artifact[2] == result["source_sha256"]
+        assert artifact[3] == (
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        )
+
+        provenance = con.execute(
+            """
+            SELECT tipo,artefato_id,origem_aba,origem_campo,origem_referencia
+            FROM observacao_proveniencia
+            WHERE codigo_ibge='3500000'
+              AND ano=2015
+              AND variavel_id='dtp_pct_rcl'
+            """
+        ).fetchone()
+        assert provenance[0] == "campo_fonte"
+        assert provenance[1] == result["source_artifact_id"]
+        assert provenance[2] == mapping["source"]["sheet"]
+        assert provenance[3] == mapping["variables"]["dtp_pct_rcl"]["column"]
+        assert "row=4" in provenance[4]
+
+        assert result["schema_version"] == "0.2.0"
+        assert result["provenance_rows"] == (
+            result["observations"]
+        )
+        assert con.execute(
+            "SELECT schema_version FROM build WHERE build_id=?",
+            (result["build_id"],),
+        ).fetchone()[0] == "0.2.0"
+    finally:
+        con.close()

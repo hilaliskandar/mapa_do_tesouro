@@ -52,7 +52,7 @@ def import_multifuentes(
     workbook: Path,
     database: Path,
     *,
-    schema: Path = DEFAULT_SCHEMA,
+    schema: Path | None = None,
     catalog: Path = DEFAULT_CATALOG,
     mapping_path: Path = DEFAULT_MAPPING,
     overwrite: bool = False,
@@ -72,6 +72,10 @@ def import_multifuentes(
     connection = sqlite3.connect(database)
     connection.execute("PRAGMA foreign_keys = ON")
     load_catalog(database, catalog)
+    schema_version_row = connection.execute(
+        "SELECT value FROM schema_metadata WHERE key='schema_version'"
+    ).fetchone()
+    schema_version = schema_version_row[0] if schema_version_row else "unknown"
 
     workbook_handle = openpyxl.load_workbook(workbook, read_only=True, data_only=True)
     try:
@@ -124,6 +128,7 @@ def import_multifuentes(
 
         source_hash = sha256(workbook)
         build_id = f"multifuentes-v0.4-{source_hash[:12]}"
+        artifact_id = f"{source['source_id']}:{source_hash[:16]}"
         timestamp = build_timestamp or datetime.now().astimezone().isoformat(timespec="seconds")
 
         connection.execute(
@@ -164,7 +169,7 @@ def import_multifuentes(
                 source["data_version"],
                 "0.1.0",
                 read_app_version(),
-                "0.1.0",
+                schema_version,
                 source_hash,
                 "candidate",
                 "Primeira carga de migracao. data_sha256 corresponde ao XLSX integrado de origem.",
@@ -184,12 +189,32 @@ def import_multifuentes(
                 source_hash,
             ),
         )
+        connection.execute(
+            """
+            INSERT INTO artefato_fonte(
+                artefato_id,fonte_id,nome,source_version,
+                retrieved_at,sha256,mime_type,observacao
+            ) VALUES (?,?,?,?,?,?,?,?)
+            """,
+            (
+                artifact_id,
+                source["source_id"],
+                workbook.name,
+                source["data_version"],
+                timestamp,
+                source_hash,
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "Workbook integrado usado como artefato de carga canônica.",
+            ),
+        )
 
         coverage = defaultdict(
             lambda: {"observado": 0, "ausente": 0, "nao_aplicavel": 0}
         )
 
-        for row in rows:
+        provenance_written = 0
+
+        for row_number, row in enumerate(rows, start=2):
             code = normalize_ibge(row[code_col])
             year = int(row[year_col])
 
@@ -237,6 +262,28 @@ def import_multifuentes(
                         build_id,
                     ),
                 )
+                connection.execute(
+                    """
+                    INSERT INTO observacao_proveniencia(
+                        codigo_ibge,ano,variavel_id,sequencia,tipo,
+                        artefato_id,origem_aba,origem_campo,
+                        origem_referencia,build_id
+                    ) VALUES (?,?,?,?,?,?,?,?,?,?)
+                    """,
+                    (
+                        code,
+                        year,
+                        variable_id,
+                        1,
+                        "campo_fonte",
+                        artifact_id,
+                        source["sheet"],
+                        spec["column"],
+                        f"{source['sheet']}!{spec['column']};row={row_number}",
+                        build_id,
+                    ),
+                )
+                provenance_written += 1
                 coverage[(variable_id, year)][status] += 1
 
         expected_per_year = len(municipalities)
@@ -275,6 +322,9 @@ def import_multifuentes(
         "years": years,
         "variables": len(mapping["variables"]),
         "observations": len(rows) * len(mapping["variables"]),
+        "provenance_rows": provenance_written,
+        "source_artifact_id": artifact_id,
+        "schema_version": schema_version,
     }
 
 

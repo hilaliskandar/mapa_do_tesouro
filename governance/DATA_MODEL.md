@@ -1,4 +1,4 @@
-# Modelo de dados 0.1.0
+# Modelo de dados 0.2.0
 
 ## Decisão central
 
@@ -48,3 +48,21 @@ Isso impede que uma classificação oficial como CAPAG seja confundida com um es
 ## Versionamento
 
 A tabela `build` registra versões de dados, metodologia, schema e aplicação, além do SHA-256 da base e do resultado de QA.
+
+
+## Proveniência e linhagem
+
+A versão 0.2.0 adiciona duas estruturas de auditoria:
+
+- `artefato_fonte`: identifica o arquivo ou artefato efetivamente usado em uma carga, com fonte lógica, versão, hash SHA-256, data de obtenção e tipo MIME;
+- `observacao_proveniencia`: registra a origem de cada observação, inclusive quando o valor final é ausente ou não aplicável.
+
+A proveniência distingue três tipos:
+
+- `campo_fonte`: observação importada de um campo de um artefato, preservando aba, campo e referência de linha;
+- `observacao`: observação derivada de outras variáveis do mesmo ou de outro recorte, com a regra de transformação aplicada;
+- `regra`: regra metodológica sem componente observacional direto, reservada para transformações que não possam ser representadas por arestas entre observações.
+
+A linhagem de uma observação derivada é registrada independentemente do seu status. Assim, um agregado `ausente` continua auditável: é possível identificar quais componentes eram esperados e qual regra produziu a ausência.
+
+A tabela `observacao` continua sendo o contrato de valores. Proveniência não altera valor, status ou fonte preferencial; apenas documenta como o registro foi produzido.

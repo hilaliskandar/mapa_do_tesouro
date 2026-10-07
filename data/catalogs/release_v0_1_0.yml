@@ -1,0 +1,36 @@
+version: 0.1.0
+status: frozen_candidate
+date: 2026-10-07
+universe:
+  id: TIC_TIM_30
+  municipalities: 30
+  years:
+    start: 2013
+    end: 2025
+  municipality_year_rows: 390
+catalog:
+  technical_documented_objects: 75
+  public_indicators_v7: 25
+  documented_accounts_aggregations_v7: 50
+build_real:
+  imported_observations: 17940
+  total_observations_after_derivations: 29250
+  window_statistics: 1890
+  typology_classifications: 210
+  comparable_markers: 180
+  directed_pairs: 870
+  reciprocal_primary_pairs: 6
+  map_features: 30
+methodology:
+  territorial_rule: strict_complete
+  absence_rule: absence_is_not_zero
+  legal_indicators:
+    - dtp_pct_rcl
+    - dc_pct_rcl
+    - dcl_pct_rcl
+  legal_indicator_policy: preserve_official_imported_values
+hashes:
+  base_multifuentes_v0_4: f51d8615f3742b1d414f1edff67805cac1a10cbc18764b454aab518de9c9e3f1
+  panel_v7_xlsx: 3db0d6782e1c31d0f0dd0292aca4542f9faac2d2b23c4ce2dd0f34905c5f298f
+  bloco3_v0_7_xlsx: 2099d6c6c7af28f92701b8c1b9d3d880c3e2325b824ddf984a8e309cd193f101
+  preview_zip: 3ca3ceb8aebd8df1b37db4edfd91c6b9792e3aa4bdeda1509428348eb0014a90

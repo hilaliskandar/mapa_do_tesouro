@@ -25,6 +25,7 @@ def build_analytical_database(
     site_output: Path | None = None,
     source_geojson: Path | None = None,
     universe_id: str | None = None,
+    mapping_path: Path | None = None,
 ) -> dict:
     if database.exists() and not overwrite:
         raise FileExistsError(
@@ -37,6 +38,7 @@ def build_analytical_database(
         database,
         overwrite=overwrite,
         universe_id=universe_id,
+        **({"mapping_path": mapping_path} if mapping_path is not None else {}),
     )
     active_universe = result["ingest"]["universe_id"]
     load_documentation(database, strict=True)
@@ -82,6 +84,7 @@ def main() -> None:
     parser.add_argument("--site-output", type=Path)
     parser.add_argument("--geojson", type=Path)
     parser.add_argument("--universe")
+    parser.add_argument("--mapping", type=Path)
     args = parser.parse_args()
 
     result = build_analytical_database(
@@ -92,6 +95,7 @@ def main() -> None:
         site_output=args.site_output,
         source_geojson=args.geojson,
         universe_id=args.universe,
+        mapping_path=args.mapping,
     )
     for stage, values in result.items():
         print(f"[{stage}]")

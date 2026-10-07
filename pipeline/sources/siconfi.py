@@ -6,7 +6,7 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
-from urllib.parse import urlencode
+from urllib.parse import parse_qsl, urlencode, urlparse
 from urllib.request import Request, urlopen
 
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt"
@@ -65,28 +65,67 @@ class SiconfiClient:
         return payload
 
     @staticmethod
-    def _next_link(payload: dict) -> str | None:
-        for link in payload.get("links", []) or []:
-            rel = str(link.get("rel", "")).lower()
-            href = link.get("href")
-            if rel == "next" and href:
-                return str(href)
-        return None
+    def _next_offset(payload: dict) -> int | None:
+        if not payload.get("hasMore"):
+            return None
 
-    def fetch_all(self, endpoint: str, params: dict[str, object]) -> FetchResult:
-        query = urlencode(
-            [(key, value) for key, value in params.items() if value is not None]
+        try:
+            offset = int(payload.get("offset", 0))
+            limit = int(payload["limit"])
+        except (KeyError, TypeError, ValueError):
+            offset = None
+            limit = None
+
+        if offset is not None and limit is not None and limit > 0:
+            return offset + limit
+
+        for link in payload.get("links", []) or []:
+            if str(link.get("rel", "")).lower() != "next":
+                continue
+            href = link.get("href")
+            if not href:
+                continue
+            query = dict(parse_qsl(urlparse(str(href)).query))
+            try:
+                return int(query["offset"])
+            except (KeyError, TypeError, ValueError):
+                continue
+
+        raise RuntimeError(
+            "SICONFI response indicates hasMore=true without a usable offset."
         )
-        url = f"{self.base_url}/{endpoint.lstrip('/')}?{query}"
+
+    def fetch_all(
+        self,
+        endpoint: str,
+        params: dict[str, object],
+        *,
+        page_limit: int = 5000,
+    ) -> FetchResult:
+        base_params = {
+            key: value
+            for key, value in params.items()
+            if value is not None
+        }
+        if page_limit <= 0:
+            raise ValueError("page_limit must be greater than zero.")
+
         items: list[dict] = []
         pages = 0
         initial_requests = self.request_count
-        seen_urls: set[str] = set()
+        seen_offsets: set[int] = set()
+        offset = 0
 
-        while url:
-            if url in seen_urls:
-                raise RuntimeError(f"Pagination loop detected: {url}")
-            seen_urls.add(url)
+        while True:
+            if offset in seen_offsets:
+                raise RuntimeError(f"Pagination loop detected at offset={offset}.")
+            seen_offsets.add(offset)
+
+            query_params = dict(base_params)
+            query_params["limit"] = int(page_limit)
+            query_params["offset"] = int(offset)
+            query = urlencode(list(query_params.items()))
+            url = f"{self.base_url}/{endpoint.lstrip('/')}?{query}"
 
             payload = self._request_json(url)
             page_items = payload.get("items", [])
@@ -95,16 +134,14 @@ class SiconfiClient:
             items.extend(page_items)
             pages += 1
 
-            next_url = self._next_link(payload)
-            if next_url:
-                url = next_url
-                continue
-
-            if payload.get("hasMore"):
+            next_offset = self._next_offset(payload)
+            if next_offset is None:
+                break
+            if next_offset <= offset:
                 raise RuntimeError(
-                    "SICONFI response indicates hasMore=true without a next link."
+                    f"Invalid SICONFI next offset: {next_offset} <= {offset}."
                 )
-            url = None
+            offset = next_offset
 
         return FetchResult(
             items=items,
@@ -128,6 +165,9 @@ class SiconfiClient:
             },
         )
 
+
+    def fetch_entities(self) -> FetchResult:
+        return self.fetch_all("entes", {})
 
 def write_raw_dca(
     output: Path,

@@ -1,0 +1,150 @@
+name: Acquire SP 645 DCA Year
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "DCA exercise year"
+        required: true
+        default: "2025"
+        type: string
+      limit_codes:
+        description: "Optional municipality limit for a controlled test; 0 means all 645"
+        required: false
+        default: "0"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: siconfi-sp645-dca
+  cancel-in-progress: false
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Validate inputs
+        id: inputs
+        shell: bash
+        env:
+          YEAR: ${{ inputs.year }}
+          LIMIT_CODES: ${{ inputs.limit_codes }}
+        run: |
+          case "$YEAR" in
+            2013|2014|2015|2016|2017|2018|2019|2020|2021|2022|2023|2024|2025) ;;
+            *) echo "Unsupported year: $YEAR"; exit 1 ;;
+          esac
+          if ! [[ "$LIMIT_CODES" =~ ^[0-9]+$ ]]; then
+            echo "limit_codes must be a non-negative integer"
+            exit 1
+          fi
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          echo "limit=$LIMIT_CODES" >> "$GITHUB_OUTPUT"
+
+      - name: Install pipeline dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install pyyaml
+
+      - name: Download pinned Sao Paulo municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 \
+            "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
+            --output build/sp.geojson
+
+      - name: Validate 645 municipality universe
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload=json.loads(Path("build/sp.geojson").read_text(encoding="utf-8"))
+          codes=[str(f["properties"]["id"]) for f in payload["features"]]
+          assert len(codes) == 645, len(codes)
+          assert len(set(codes)) == 645
+          assert all(code.startswith("35") and len(code) == 7 for code in codes)
+          print("SP municipality universe: 645 unique IBGE codes")
+          PY
+
+      - name: Acquire and normalize official DCA
+        shell: bash
+        env:
+          YEAR: ${{ steps.inputs.outputs.year }}
+          LIMIT_CODES: ${{ steps.inputs.outputs.limit }}
+        run: |
+          ARGS=()
+          if [ "$LIMIT_CODES" -gt 0 ]; then
+            ARGS+=(--limit-codes "$LIMIT_CODES")
+          fi
+          python -m pipeline.acquire.siconfi_dca_state \
+            --geojson build/sp.geojson \
+            --year "$YEAR" \
+            --output "build/raw/dca" \
+            --normalized-csv "build/normalized/dca_sp_${YEAR}.csv" \
+            --min-interval 1.05 \
+            "${ARGS[@]}"
+
+      - name: Validate acquisition manifest
+        shell: bash
+        env:
+          YEAR: ${{ steps.inputs.outputs.year }}
+          LIMIT_CODES: ${{ steps.inputs.outputs.limit }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          year=int(os.environ["YEAR"])
+          limit=int(os.environ["LIMIT_CODES"])
+          manifest=json.loads(
+              Path(f"build/raw/dca/manifests/state-{year}.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          expected=limit if limit > 0 else 645
+          assert manifest["municipalities_in_geojson"] == 645
+          assert manifest["municipalities_requested"] == expected
+          assert manifest["failed"] == [], manifest["failed"][:10]
+          assert manifest["normalization"]["rows"] == expected
+          assert len(manifest["normalized_sha256"]) == 64
+          assert len(manifest["raw_tree_sha256"]) == 64
+          print(
+              "DCA statewide acquisition: OK",
+              year,
+              expected,
+              manifest["normalized_sha256"],
+          )
+          PY
+
+      - name: Upload raw and normalized canonical candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: siconfi-dca-sp-${{ steps.inputs.outputs.year }}-${{ github.run_id }}
+          path: |
+            build/raw/dca
+            build/normalized
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish run summary
+        shell: bash
+        env:
+          YEAR: ${{ steps.inputs.outputs.year }}
+        run: |
+          echo "### SICONFI DCA SP" >> "$GITHUB_STEP_SUMMARY"
+          echo "Exercise: $YEAR" >> "$GITHUB_STEP_SUMMARY"
+          echo "Source: official SICONFI open-data API" >> "$GITHUB_STEP_SUMMARY"
+          echo "Annexes: I-C, I-D, I-E" >> "$GITHUB_STEP_SUMMARY"
+          echo "Expense stage: liquidated only" >> "$GITHUB_STEP_SUMMARY"

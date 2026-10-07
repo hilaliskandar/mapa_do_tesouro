@@ -1,0 +1,66 @@
+version: 1
+name: finbra_dca_sp_drive_2023_2025
+storage:
+  provider: google_drive
+  folder_id: 1K_Raj0pKEyktVY5BVa_raOZ4cQdJ8HQ4
+  folder_url: https://drive.google.com/drive/folders/1K_Raj0pKEyktVY5BVa_raOZ4cQdJ8HQ4
+policy:
+  historical_batch_source: preferred
+  external_siconfi_role:
+    - sample_validation
+    - incremental_update
+    - gap_investigation
+    - independent_audit
+files:
+  2023:
+    i_c:
+      file_id: 1SeGGScw5Vd9PrZzLBDcPg9KDXDAjjjRI
+      name: Receitas orçamentárias (Anexo I-C) - Municípios de SP 2023.xlsx
+      format: xlsx
+      size_bytes: 2933426
+    i_d:
+      file_id: 1xsoUpcQiWA5lle2JLpO5GZZDzRymtVTb
+      name: Despesas por função (Anexo I-D) - Municípios de SP 2023.xlsx
+      format: xlsx
+      size_bytes: 3646735
+    i_e:
+      file_id: 1ODlch6HSQOKjZgu-NMHv8OEDlQhbL5SJ
+      name: Despesas por função (Anexo I-E) - Municípios de SP 2023.xlsx
+      format: xlsx
+      size_bytes: 4117381
+  2024:
+    i_c:
+      file_id: 1ZJyPzXbwB7jvnrOmQXjv5tS1Fpuq5enu
+      name: Receitas orçamentárias (Anexo I-C) - Municípios de SP 2024.xlsx
+      format: xlsx
+      size_bytes: 2873589
+    i_d:
+      file_id: 1IS2EUnPguhUiRroX6Pm6Egx58lXZbKah
+      name: Despesas por função (Anexo I-D) - Municípios de 2024.xlsx
+      format: xlsx
+      size_bytes: 3601251
+    i_e:
+      file_id: 1SP1cHfVLvHS3qYvNnYVnwS-EgQpzUCi0
+      name: Despesas por função (Anexo I-E) - Municípios de SP 2024.xlsx
+      format: xlsx
+      size_bytes: 4057499
+  2025:
+    i_c:
+      file_id: 185x_7zgX9aGOy0Z6Drh-iA9vBY83JU1F
+      name: receitas orçamentárias (anexo I-C) - municípios de sp 2025.csv
+      format: csv
+      size_bytes: 16946392
+    i_d:
+      file_id: 12qfplHoUJRqe91GpsjXGqOPvljJXoq1C
+      name: despesas orçamentárias (anexo I-D) - municípios de sp 2025.csv
+      format: csv
+      size_bytes: 19258567
+    i_e:
+      file_id: 1emNY64pw4dvo2EChwWyBKlfCD200mTxT
+      name: despesas por função (anexo I-E) - municípios de sp 2025.csv
+      format: csv
+      size_bytes: 19196424
+notes:
+  - O snapshot local de 2025 foi produzido antes da consulta Siconfi de outubro de 2026.
+  - Em comparação independente, o snapshot local de 2025 contém 632 municípios; a consulta atual contém 645.
+  - Para os municípios em comum, a paridade é quase total; revisões posteriores foram detectadas em poucos casos.

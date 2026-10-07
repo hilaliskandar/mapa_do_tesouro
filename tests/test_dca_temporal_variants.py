@@ -86,9 +86,32 @@ def test_pre_2018_variant_can_override_source_column():
             }
         ],
     }
-    resolved = resolve_rule_for_year(rule, 2017)
-    assert resolved["column"] == "Receitas Realizadas"
-    assert resolved["cod_conta"] == "OLD"
+    resolved_2013 = resolve_rule_for_year(rule, 2013)
+    assert resolved_2013["column"] == "Receitas Realizadas"
+    assert resolved_2013["cod_conta"] == "OLD"
+
+    resolved_2017 = resolve_rule_for_year(
+        {
+            "column": "Receitas Brutas Realizadas",
+            "cod_conta": "CURRENT",
+            "variants": [
+                {
+                    "from_year": 2013,
+                    "to_year": 2013,
+                    "column": "Receitas Realizadas",
+                    "cod_conta": "OLD",
+                },
+                {
+                    "from_year": 2014,
+                    "to_year": 2017,
+                    "cod_conta": "OLD",
+                },
+            ],
+        },
+        2017,
+    )
+    assert resolved_2017["column"] == "Receitas Brutas Realizadas"
+    assert resolved_2017["cod_conta"] == "OLD"
 
     current = resolve_rule_for_year(rule, 2022)
     assert current["column"] == "Receitas Brutas Realizadas"

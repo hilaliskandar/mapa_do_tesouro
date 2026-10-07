@@ -1,0 +1,28 @@
+name: Verify canonical source access
+
+on:
+  push:
+    branches:
+      - r2-canonical-source-rebuild
+
+jobs:
+  verify-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test anonymous Google Drive download
+        shell: bash
+        run: |
+          curl --fail --location --retry 2 --retry-delay 2             "https://drive.usercontent.google.com/download?id=1n7cZN3-37CxGXZiU7f9RGd6wwJRwJxAG&export=download&confirm=t"             --output source.xlsx
+
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import is_zipfile
+          p = Path("source.xlsx")
+          print("size=", p.stat().st_size)
+          if not is_zipfile(p):
+              raise SystemExit("Downloaded object is not a valid XLSX")
+          PY

@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
 from urllib.parse import parse_qsl, urlencode, urlparse
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 BASE_URL = "https://apidatalake.tesouro.gov.br/ords/siconfi/tt"
@@ -28,12 +29,16 @@ class SiconfiClient:
         timeout: int = 90,
         sleep: Callable[[float], None] = time.sleep,
         opener=urlopen,
+        max_retries: int = 3,
+        retry_backoff: float = 1.0,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.min_interval = max(0.0, float(min_interval))
         self.timeout = timeout
         self.sleep = sleep
         self.opener = opener
+        self.max_retries = max(0, int(max_retries))
+        self.retry_backoff = max(0.0, float(retry_backoff))
         self._last_request_at: float | None = None
         self.request_count = 0
 
@@ -46,7 +51,6 @@ class SiconfiClient:
             self.sleep(remaining)
 
     def _request_json(self, url: str) -> dict:
-        self._throttle()
         request = Request(
             url,
             headers={
@@ -54,15 +58,34 @@ class SiconfiClient:
                 "User-Agent": "financas-municipais-sp/0.1 (+GitHub)",
             },
         )
-        try:
-            with self.opener(request, timeout=self.timeout) as response:
-                payload = json.loads(response.read().decode("utf-8"))
-        finally:
-            self._last_request_at = time.monotonic()
-            self.request_count += 1
-        if not isinstance(payload, dict):
-            raise ValueError(f"Unexpected SICONFI payload type: {type(payload)!r}")
-        return payload
+        retryable_http = {429, 500, 502, 503, 504}
+
+        for attempt in range(self.max_retries + 1):
+            self._throttle()
+            try:
+                with self.opener(request, timeout=self.timeout) as response:
+                    payload = json.loads(response.read().decode("utf-8"))
+            except HTTPError as exc:
+                if exc.code not in retryable_http or attempt >= self.max_retries:
+                    raise
+                self.sleep(self.retry_backoff * (2 ** attempt))
+                continue
+            except (URLError, TimeoutError):
+                if attempt >= self.max_retries:
+                    raise
+                self.sleep(self.retry_backoff * (2 ** attempt))
+                continue
+            finally:
+                self._last_request_at = time.monotonic()
+                self.request_count += 1
+
+            if not isinstance(payload, dict):
+                raise ValueError(
+                    f"Unexpected SICONFI payload type: {type(payload)!r}"
+                )
+            return payload
+
+        raise RuntimeError("SICONFI retry loop ended unexpectedly.")
 
     @staticmethod
     def _next_offset(payload: dict) -> int | None:

@@ -324,3 +324,45 @@ def test_strict_sum_not_applicable_followed_by_absent_returns_absent(tmp_path):
         ).fetchone() == ("ausente", None)
     finally:
         con.close()
+
+
+def test_annual_calculation_records_component_lineage(tmp_path):
+    db = tmp_path / "lineage.sqlite"
+    initialize_database(db)
+    load_catalog(db)
+
+    con = sqlite3.connect(db)
+    try:
+        seed(
+            con,
+            "3500000",
+            2025,
+            {
+                "dca_iptu_principal": 100.0,
+                "dca_itbi_principal": 50.0,
+            },
+        )
+    finally:
+        con.close()
+
+    calculate_annual(db)
+
+    con = sqlite3.connect(db)
+    try:
+        lineage = con.execute(
+            """
+            SELECT sequencia,tipo,origem_codigo_ibge,origem_ano,
+                   origem_variavel_id,regra_transformacao
+            FROM observacao_proveniencia
+            WHERE codigo_ibge='3500000'
+              AND ano=2025
+              AND variavel_id='tributos_imobiliarios'
+            ORDER BY sequencia
+            """
+        ).fetchall()
+        assert lineage == [
+            (1, "observacao", "3500000", 2025, "dca_iptu_principal", "strict_sum"),
+            (2, "observacao", "3500000", 2025, "dca_itbi_principal", "strict_sum"),
+        ]
+    finally:
+        con.close()

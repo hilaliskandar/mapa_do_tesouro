@@ -1,0 +1,66 @@
+name: SICONFI Smoke Test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "pipeline/sources/**"
+      - "pipeline/acquire/**"
+      - "tests/test_siconfi_*.py"
+      - ".github/workflows/siconfi-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dca-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download pinned SP municipality list
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 \
+            "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
+            --output build/sp.geojson
+
+      - name: Fetch one official DCA artifact
+        run: |
+          python -m pipeline.acquire.siconfi_dca \
+            --geojson build/sp.geojson \
+            --years 2025 \
+            --output build/siconfi-smoke \
+            --annex "DCA-Anexo I-C" \
+            --limit-codes 1 \
+            --min-interval 1.05
+
+      - name: Validate official payload contract
+        run: |
+          python - <<'PY'
+          import gzip
+          import json
+          from pathlib import Path
+
+          manifest=json.loads(Path("build/siconfi-smoke/manifest.json").read_text(encoding="utf-8"))
+          assert manifest["failed"] == [], manifest["failed"]
+          assert manifest["completed_now"] == 1
+          files=list(Path("build/siconfi-smoke/2025").glob("*.json.gz"))
+          assert len(files) == 1
+          with gzip.open(files[0], "rt", encoding="utf-8") as f:
+              payload=json.load(f)
+          assert payload["items"], "SICONFI returned no DCA items"
+          fields=set(payload["items"][0])
+          required={"cod_ibge","coluna","conta","valor"}
+          missing=required-fields
+          assert not missing, missing
+          print("SICONFI DCA smoke: OK", files[0].name, len(payload["items"]))
+          PY

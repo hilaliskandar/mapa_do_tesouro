@@ -1,0 +1,139 @@
+name: SP 645 Scale Test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "pipeline/**"
+      - "data/schema/**"
+      - "data/catalogs/**"
+      - "data/mappings/**"
+      - "tools/generate_sp645_scale_fixture.py"
+      - ".github/workflows/sp645-scale-test.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sp645-scale-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install openpyxl pyyaml pytest
+
+      - name: Download pinned SP cartography
+        shell: bash
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 \
+            "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
+            --output build/sp.geojson
+          python - <<'PY'
+          import json
+          p=json.load(open("build/sp.geojson", encoding="utf-8"))
+          assert len(p["features"]) == 645, len(p["features"])
+          assert len({f["properties"]["id"] for f in p["features"]}) == 645
+          print("cartography=645")
+          PY
+
+      - name: Generate synthetic scale fixture
+        run: |
+          python tools/generate_sp645_scale_fixture.py \
+            --geojson build/sp.geojson \
+            --workbook build/sp645_synthetic.xlsx \
+            --mapping build/sp645_synthetic.yml
+
+      - name: Build full analytical database
+        shell: bash
+        run: |
+          START=$(date +%s)
+          python -m pipeline.build.build_analytical_database \
+            build/sp645_synthetic.xlsx \
+            --mapping build/sp645_synthetic.yml \
+            --database build/sp645.sqlite \
+            --site-output build/site \
+            --geojson build/sp.geojson \
+            --universe SP_645_SYNTHETIC \
+            --overwrite
+          END=$(date +%s)
+          echo "elapsed_seconds=$((END-START))" | tee build/benchmark.txt
+
+      - name: Validate scale contract
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import sqlite3
+          from pathlib import Path
+
+          db=Path("build/sp645.sqlite")
+          con=sqlite3.connect(db)
+          try:
+              assert con.execute("SELECT COUNT(*) FROM municipio").fetchone()[0] == 645
+              assert con.execute(
+                  "SELECT COUNT(*) FROM universo_municipio WHERE universo_id='SP_645_SYNTHETIC'"
+              ).fetchone()[0] == 645
+              assert con.execute(
+                  "SELECT COUNT(*) FROM par_municipal WHERE universo_id='SP_645_SYNTHETIC'"
+              ).fetchone()[0] == 645 * 644
+              priority=con.execute(
+                  """
+                  SELECT COUNT(*) FROM par_municipal
+                  WHERE universo_id='SP_645_SYNTHETIC'
+                    AND ordem_prioritaria IS NOT NULL
+                  """
+              ).fetchone()[0]
+              assert priority == 645 * 3, priority
+          finally:
+              con.close()
+
+          metadata=json.loads(Path("build/site/data/metadata.json").read_text(encoding="utf-8"))
+          assert metadata["municipality_count"] == 645, metadata["municipality_count"]
+
+          geo=json.loads(Path("build/site/data/maps/municipalities.geojson").read_text(encoding="utf-8"))
+          assert len(geo["features"]) == 645, len(geo["features"])
+
+          municipality_files=list((Path("build/site/data/municipalities")).glob("*.json"))
+          assert len(municipality_files) == 645, len(municipality_files)
+          for path in municipality_files:
+              payload=json.loads(path.read_text(encoding="utf-8"))
+              assert len(payload.get("priority_pairs", [])) <= 3
+
+          print("SP-645 scale validation: OK")
+          PY
+
+      - name: Publish benchmark summary
+        shell: bash
+        run: |
+          echo "### SP 645 synthetic scale test" >> "$GITHUB_STEP_SUMMARY"
+          echo "- municipalities: 645" >> "$GITHUB_STEP_SUMMARY"
+          echo "- years: 2021-2025" >> "$GITHUB_STEP_SUMMARY"
+          echo "- directed pairs: 415380" >> "$GITHUB_STEP_SUMMARY"
+          echo "- public priority pairs: 1935" >> "$GITHUB_STEP_SUMMARY"
+          echo "- $(cat build/benchmark.txt)" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: sp645-scale-benchmark
+          path: |
+            build/benchmark.txt
+            build/sp645.sqlite
+          retention-days: 7

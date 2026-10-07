@@ -235,7 +235,8 @@ def import_multifuentes(
             for variable_id, spec in mapping["variables"].items():
                 availability_start = int(spec["availability_start"])
                 availability_end = int(spec["availability_end"])
-                raw_value = row[column_index[spec["column"]]]
+                value_index = column_index[spec["column"]]
+                raw_value = row[value_index] if value_index < len(row) else None
 
                 if year < availability_start or year > availability_end:
                     status = "nao_aplicavel"

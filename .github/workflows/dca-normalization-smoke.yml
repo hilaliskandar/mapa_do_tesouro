@@ -1,0 +1,68 @@
+name: DCA Normalization Smoke
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "pipeline/normalize/**"
+      - "pipeline/acquire/siconfi_dca.py"
+      - "data/mappings/dca_canonical_v1.yml"
+      - "tests/test_dca_*.py"
+      - ".github/workflows/dca-normalization-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  americana-2025:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install mapping dependency
+        run: pip install pyyaml
+      - name: Fetch and normalize official sample
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pipeline.normalize.dca import load_mapping, normalize_bundle
+          from pipeline.sources.siconfi import SiconfiClient
+
+          client=SiconfiClient(min_interval=1.05)
+          payloads={}
+          for annex in ("DCA-Anexo I-C","DCA-Anexo I-D","DCA-Anexo I-E"):
+              result=client.fetch_dca(year=2025, entity_id="3501608", annex=annex)
+              payloads[annex]={
+                  "source":"SICONFI",
+                  "endpoint":"dca",
+                  "year":2025,
+                  "entity_id":"3501608",
+                  "annex":annex,
+                  "items":result.items,
+              }
+
+          normalized=normalize_bundle(payloads, mapping=load_mapping())
+          v=normalized["variables"]
+          assert normalized["issues"] == [], normalized["issues"]
+          assert v["dca_receita_corrente_bruta"]["value"] == 1592595003.39
+          assert v["dca_receita_tributaria_bruta"]["value"] == 477674797.85
+          assert v["dca_iptu_principal"]["value"] == 130662404.65
+          assert v["dca_itbi_principal"]["value"] == 43054408.31
+          assert v["dca_iss_principal"]["value"] == 191343966.59
+          assert v["dca_investimentos_liquidada"]["value"] == 32907117.2
+          assert v["dca_despesa_total_liquidada"]["value"] == 1458748174.64
+          assert v["dca_func_saude_liquidada"]["value"] == 379459138.47
+          assert v["dca_func_urbanismo_liquidada"]["value"] == 115895254.37
+          assert v["dca_func_habitacao_liquidada"]["value"] == 795099.7
+          assert v["dca_func_saneamento_liquidada"]["value"] == 158401000.8
+          assert v["dca_func_gestao_ambiental_liquidada"]["value"] == 30955043.83
+          assert v["dca_func_transporte_liquidada"]["value"] == 22084609.34
+          assert v["populacao_dca"]["value"] == 243674.0
+          print("DCA normalization smoke: OK", len(v), "variables")
+          PY

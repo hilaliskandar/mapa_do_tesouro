@@ -19,10 +19,12 @@ def test_raw_tree_sha256_is_order_stable(tmp_path):
     first.parent.mkdir(parents=True)
     second.parent.mkdir(parents=True)
 
-    with gzip.open(first, "wb", mtime=0) as handle:
-        handle.write(b"two")
-    with gzip.open(second, "wb", mtime=0) as handle:
-        handle.write(b"one")
+    with first.open("wb") as raw:
+        with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as handle:
+            handle.write(b"two")
+    with second.open("wb") as raw:
+        with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as handle:
+            handle.write(b"one")
 
     digest_a = raw_tree_sha256(tmp_path)
     digest_b = raw_tree_sha256(tmp_path)

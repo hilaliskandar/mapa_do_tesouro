@@ -60,6 +60,21 @@ jobs:
                   ):
                       print("TARGET", {k:item.get(k) for k in ("anexo","rotulo","coluna","cod_conta","conta","valor","populacao")})
                   if (
+                      annex == "DCA-Anexo I-C"
+                      and item.get("coluna") == "Receitas Brutas Realizadas"
+                      and str(item.get("cod_conta") or "") == "RO1.1.0.0.00.0.0"
+                  ):
+                      print("VERIFY", {k:item.get(k) for k in ("anexo","rotulo","coluna","cod_conta","conta","valor","populacao")})
+                  if (
+                      annex == "DCA-Anexo I-D"
+                      and item.get("coluna") == "Despesas Liquidadas"
+                      and (
+                          str(item.get("conta") or "").lower().startswith("total")
+                          or str(item.get("cod_conta") or "").lower().startswith("total")
+                      )
+                  ):
+                      print("VERIFY", {k:item.get(k) for k in ("anexo","rotulo","coluna","cod_conta","conta","valor","populacao")})
+                  if (
                       annex == "DCA-Anexo I-E"
                       and item.get("coluna") == "Despesas Liquidadas"
                       and conta.startswith("10 - ")

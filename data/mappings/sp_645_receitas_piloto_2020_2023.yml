@@ -1,14 +1,18 @@
 universe:
-  id: SP_645
-  name: Sao Paulo 645
-  description: Piloto estadual de escala com 645 municipios e receitas compativeis, 2020-2023.
-  type: analitico_piloto
+  id: SP_645_PILOTO_RECEITAS_2020_2023
+  name: Sao Paulo 645 - piloto de receitas 2020-2023
+  description: Piloto estadual de escala com 645 municipios e receitas compativeis com o contrato DCA atual.
+  type: piloto
 
 source:
-  source_id: PROJETO_BASE_MULTIFONTES
-  workbook_name: sp_645_finbra_receitas_piloto_2020_2023.xlsx
-  sheet: Base multifuentes
-  data_version: finbra-sp-645-receitas-piloto-2020-2023
+  source_id: PROJETO_SP_645_PILOTO
+  format: csv
+  encoding: utf-8-sig
+  delimiter: ","
+  sheet: CSV
+  data_version: finbra-sp-645-receitas-piloto-2020-2023-v0.1
+  build_prefix: sp645-receitas-piloto-v0.1
+  expected_sha256: 1bc6b7a32585c111aa2d25f2cabe794ce6bf6550c2ba1e26ab136806b7a94626
   expected_rows: 2580
   expected_municipalities: 645
   expected_years:
@@ -27,28 +31,24 @@ variables:
     availability_start: 2020
     availability_end: 2023
     value_type: numeric
-
   dca_receita_tributaria_bruta:
     column: dca_receita_tributaria_bruta
     source_id: SICONFI_DCA
     availability_start: 2020
     availability_end: 2023
     value_type: numeric
-
   dca_iptu_principal:
     column: dca_iptu_principal
     source_id: SICONFI_DCA
     availability_start: 2020
     availability_end: 2023
     value_type: numeric
-
   dca_itbi_principal:
     column: dca_itbi_principal
     source_id: SICONFI_DCA
     availability_start: 2020
     availability_end: 2023
     value_type: numeric
-
   dca_iss_principal:
     column: dca_iss_principal
     source_id: SICONFI_DCA

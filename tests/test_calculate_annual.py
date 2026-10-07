@@ -142,3 +142,55 @@ def test_strict_sum_propagates_absence(tmp_path):
         ).fetchone() == ("ausente", None)
     finally:
         con.close()
+
+
+def test_annual_calculation_preserves_imported_legal_indicators(tmp_path):
+    db = tmp_path / "legal.sqlite"
+    initialize_database(db)
+    load_catalog(db)
+
+    con = sqlite3.connect(db)
+    try:
+        con.execute(
+            "INSERT INTO municipio(codigo_ibge,nome,uf) VALUES ('3500000','Teste','SP')"
+        )
+        for variable_id, value in {
+            "dtp_pct_rcl": 0.3669,
+            "dc_pct_rcl": 0.9322,
+            "dcl_pct_rcl": 0.8368,
+        }.items():
+            con.execute(
+                """
+                INSERT INTO observacao(
+                    codigo_ibge,ano,variavel_id,valor_num,status,
+                    referencia_origem
+                ) VALUES ('3500000',2025,?,?, 'observado','fonte_oficial')
+                """,
+                (variable_id, value),
+            )
+        con.commit()
+    finally:
+        con.close()
+
+    calculate_annual(db)
+
+    con = sqlite3.connect(db)
+    try:
+        values = dict(
+            con.execute(
+                """
+                SELECT variavel_id,valor_num
+                FROM observacao
+                WHERE codigo_ibge='3500000'
+                  AND ano=2025
+                  AND variavel_id IN ('dtp_pct_rcl','dc_pct_rcl','dcl_pct_rcl')
+                """
+            ).fetchall()
+        )
+        assert values == {
+            "dtp_pct_rcl": 0.3669,
+            "dc_pct_rcl": 0.9322,
+            "dcl_pct_rcl": 0.8368,
+        }
+    finally:
+        con.close()

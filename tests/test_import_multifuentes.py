@@ -260,3 +260,51 @@ def test_importer_supports_custom_universe_from_mapping(tmp_path):
         ).fetchall() == [("SP_TESTE",)]
     finally:
         con.close()
+
+
+def test_importer_treats_trailing_empty_cells_as_absent(tmp_path):
+    mapping_path = ROOT / "data" / "mappings" / "base_multifuentes_v0_4.yml"
+    mapping = yaml.safe_load(mapping_path.read_text(encoding="utf-8"))
+    mapping["source"]["expected_rows"] = 13
+    mapping["source"]["expected_municipalities"] = 1
+
+    local_mapping = tmp_path / "mapping.yml"
+    local_mapping.write_text(
+        yaml.safe_dump(mapping, sort_keys=False, allow_unicode=True),
+        encoding="utf-8",
+    )
+    workbook = tmp_path / "fixture.xlsx"
+    create_fixture(workbook, local_mapping)
+
+    wb = openpyxl.load_workbook(workbook)
+    ws = wb[mapping["source"]["sheet"]]
+    trailing_column = mapping["variables"]["indicador_3"]["column"]
+    trailing_index = {
+        cell.value: cell.column
+        for cell in ws[1]
+        if cell.value is not None
+    }[trailing_column]
+    for row in range(2, ws.max_row + 1):
+        ws.cell(row=row, column=trailing_index).value = None
+    wb.save(workbook)
+
+    database = tmp_path / "trailing.sqlite"
+    import_multifuentes(
+        workbook,
+        database,
+        mapping_path=local_mapping,
+        build_timestamp="2026-10-07T00:00:00-03:00",
+    )
+
+    con = sqlite3.connect(database)
+    try:
+        assert con.execute(
+            """
+            SELECT COUNT(*)
+            FROM observacao
+            WHERE variavel_id='indicador_3'
+              AND status IN ('ausente','nao_aplicavel')
+            """
+        ).fetchone()[0] == 13
+    finally:
+        con.close()

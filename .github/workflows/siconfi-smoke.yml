@@ -53,7 +53,7 @@ jobs:
           manifest=json.loads(Path("build/siconfi-smoke/manifest.json").read_text(encoding="utf-8"))
           assert manifest["failed"] == [], manifest["failed"]
           assert manifest["completed_now"] == 1
-          files=list(Path("build/siconfi-smoke/2025").glob("*.json.gz"))
+          files=list(Path("build/siconfi-smoke/i-c/2025").glob("*.json.gz"))
           assert len(files) == 1
           with gzip.open(files[0], "rt", encoding="utf-8") as f:
               payload=json.load(f)

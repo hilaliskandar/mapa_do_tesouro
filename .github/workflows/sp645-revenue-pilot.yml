@@ -1,0 +1,84 @@
+name: SP645 Revenue Pilot Rebuild
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      R2_BUCKET: ${{ vars.CLOUDFLARE_R2_CANONICAL_BUCKET }}
+      R2_OBJECT: ${{ vars.SP645_PILOT_SOURCE_OBJECT }}
+      SOURCE_SHA256: ${{ vars.SP645_PILOT_SOURCE_SHA256 }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install openpyxl pyyaml
+
+      - name: Check private source configuration
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$R2_BUCKET"
+          test -n "$R2_OBJECT"
+          test -n "$SOURCE_SHA256"
+
+      - name: Download canonical source from private R2
+        run: |
+          mkdir -p build
+          curl --fail --silent --show-error \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/r2/buckets/$R2_BUCKET/objects/$R2_OBJECT" \
+            --output build/source.xlsx
+          echo "$SOURCE_SHA256  build/source.xlsx" | sha256sum --check -
+
+      - name: Prepare isolated statewide pilot
+        run: |
+          python -m pipeline.ingest.prepare_sp645_revenue_pilot \
+            build/source.xlsx build/sp645_pilot.xlsx
+
+      - name: Import pilot into canonical schema
+        run: |
+          python -m pipeline.ingest.import_multifuentes \
+            build/sp645_pilot.xlsx \
+            --database build/sp645_pilot.sqlite \
+            --mapping data/mappings/sp_645_revenue_pilot_2020_2023.yml \
+            --catalog data/catalogs/variables_sp645_pilot.yml
+
+      - name: Validate scale contract
+        run: |
+          python - <<'PY'
+          import sqlite3
+          con = sqlite3.connect("build/sp645_pilot.sqlite")
+          assert con.execute("SELECT COUNT(*) FROM municipio").fetchone()[0] == 645
+          assert con.execute("SELECT COUNT(*) FROM observacao").fetchone()[0] == 12900
+          assert con.execute("SELECT COUNT(DISTINCT ano) FROM observacao").fetchone()[0] == 4
+          assert con.execute("SELECT COUNT(*) FROM variavel").fetchone()[0] == 5
+          assert con.execute(
+              "SELECT COUNT(*) FROM universo_municipio WHERE universo_id='SP_645_RECEITAS_PILOTO'"
+          ).fetchone()[0] == 645
+          con.close()
+          print("SP645 pilot rebuild QA: OK")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sp645-revenue-pilot
+          path: |
+            build/sp645_pilot.xlsx
+            build/sp645_pilot.sqlite
+          retention-days: 14

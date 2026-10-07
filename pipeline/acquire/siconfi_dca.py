@@ -8,6 +8,17 @@ from pathlib import Path
 from pipeline.sources.siconfi import SiconfiClient, read_raw_dca, write_raw_dca
 
 
+def annex_slug(annex: str | None) -> str:
+    if annex is None:
+        return "all"
+    return (
+        annex.lower()
+        .replace("dca-anexo ", "")
+        .replace(" ", "-")
+        .replace("/", "-")
+    )
+
+
 def load_codes(geojson: Path) -> list[tuple[str, str]]:
     payload = json.loads(geojson.read_text(encoding="utf-8"))
     codes = sorted(
@@ -42,7 +53,7 @@ def acquire(
 
     for year in sorted(set(int(year) for year in years)):
         for code, name in codes:
-            target = output / str(year) / f"{code}.json.gz"
+            target = output / annex_slug(annex) / str(year) / f"{code}.json.gz"
             if target.exists():
                 try:
                     payload = read_raw_dca(target)

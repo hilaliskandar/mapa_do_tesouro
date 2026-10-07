@@ -1,0 +1,217 @@
+name: SICONFI SP 645 Full DCA Gate A
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "DCA exercise to acquire for all 645 municipalities"
+        required: true
+        default: "2025"
+        type: string
+      min_interval:
+        description: "Minimum interval between SICONFI requests, in seconds"
+        required: true
+        default: "1.05"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: siconfi-sp645-full-dca-${{ inputs.year }}
+  cancel-in-progress: false
+
+jobs:
+  acquire-full-state-year:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 \
+            "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
+            --output build/sp.geojson
+
+      - name: Acquire full SP DCA
+        run: |
+          python -m pipeline.acquire.siconfi_dca_state \
+            --geojson build/sp.geojson \
+            --year "${{ inputs.year }}" \
+            --output "build/raw/dca/${{ inputs.year }}" \
+            --normalized-csv "build/normalized/dca_sp_${{ inputs.year }}.csv" \
+            --expected-municipalities 645 \
+            --min-interval "${{ inputs.min_interval }}"
+
+      - name: QA coverage and integrity
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          year = "${{ inputs.year }}"
+          raw_root = Path(f"build/raw/dca/{year}")
+          normalized = Path(f"build/normalized/dca_sp_{year}.csv")
+          manifest_path = raw_root / "manifests" / f"state-{year}.json"
+
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+          if manifest["municipalities_in_geojson"] != 645:
+              raise SystemExit(
+                  f"municipalities_in_geojson={manifest['municipalities_in_geojson']}"
+              )
+          if manifest["municipalities_requested"] != 645:
+              raise SystemExit(
+                  f"municipalities_requested={manifest['municipalities_requested']}"
+              )
+          if manifest["failed"]:
+              raise SystemExit(
+                  f"acquisition failures={len(manifest['failed'])}: "
+                  + repr(manifest["failed"][:20])
+              )
+
+          raw_files = list(raw_root.glob("**/*.json.gz"))
+          if len(raw_files) != 645 * 3:
+              raise SystemExit(
+                  f"raw_files={len(raw_files)}, expected={645 * 3}"
+              )
+
+          with normalized.open(
+              encoding="utf-8-sig",
+              newline="",
+          ) as handle:
+              rows = list(csv.DictReader(handle))
+
+          if len(rows) != 645:
+              raise SystemExit(f"normalized_rows={len(rows)}, expected=645")
+
+          codes = [row["cod_ibge"] for row in rows]
+          if len(set(codes)) != 645:
+              raise SystemExit(
+                  f"unique_codes={len(set(codes))}, expected=645"
+              )
+
+          id_fields = {
+              "cod_ibge",
+              "municipio",
+              "ano",
+              "uf",
+          }
+          value_fields = [
+              field
+              for field in rows[0]
+              if field not in id_fields
+          ]
+
+          coverage = {}
+          for field in value_fields:
+              observed = sum(
+                  1 for row in rows
+                  if row.get(field, "") not in ("", None)
+              )
+              coverage[field] = {
+                  "observed": observed,
+                  "missing": 645 - observed,
+                  "coverage_pct": round(observed / 645 * 100, 2),
+              }
+
+          report = {
+              "year": int(year),
+              "municipalities": 645,
+              "normalized_rows": len(rows),
+              "raw_files": len(raw_files),
+              "annexes": manifest["annexes"],
+              "failed": len(manifest["failed"]),
+              "normalized_sha256": manifest["normalized_sha256"],
+              "raw_tree_sha256": manifest["raw_tree_sha256"],
+              "coverage": coverage,
+          }
+
+          qa_path = Path(f"build/qa/sp645_dca_{year}_coverage.json")
+          qa_path.parent.mkdir(parents=True, exist_ok=True)
+          qa_path.write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          print("SP 645 full DCA Gate A: OK")
+          print(f"year={year}")
+          print("municipalities=645")
+          print(f"raw_files={len(raw_files)}")
+          print(f"variables={len(value_fields)}")
+          for field, item in coverage.items():
+              print(
+                  f"{field}: observed={item['observed']} "
+                  f"coverage={item['coverage_pct']}%"
+              )
+          PY
+
+      - name: Publish QA summary
+        if: success()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          year = "${{ inputs.year }}"
+          report = json.loads(
+              Path(f"build/qa/sp645_dca_{year}_coverage.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+
+          summary = Path(__import__("os").environ["GITHUB_STEP_SUMMARY"])
+          with summary.open("a", encoding="utf-8") as out:
+              out.write("### SP 645 — DCA Gate A\n\n")
+              out.write(f"- exercise: {year}\n")
+              out.write("- municipalities: 645\n")
+              out.write(f"- raw files: {report['raw_files']}\n")
+              out.write(f"- failed requests: {report['failed']}\n")
+              out.write(
+                  f"- normalized SHA-256: `{report['normalized_sha256']}`\n"
+              )
+              out.write(
+                  f"- raw tree SHA-256: `{report['raw_tree_sha256']}`\n\n"
+              )
+              out.write("| Variable | Observed | Missing | Coverage |\n")
+              out.write("|---|---:|---:|---:|\n")
+              for field, item in report["coverage"].items():
+                  out.write(
+                      f"| `{field}` | {item['observed']} | "
+                      f"{item['missing']} | {item['coverage_pct']}% |\n"
+                  )
+          PY
+
+      - name: Upload normalized and QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sp645-full-dca-${{ inputs.year }}-qa
+          path: |
+            build/normalized
+            build/qa
+            build/raw/dca/${{ inputs.year }}/manifests
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Upload raw SICONFI responses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sp645-full-dca-${{ inputs.year }}-raw
+          path: build/raw/dca/${{ inputs.year }}
+          if-no-files-found: warn
+          retention-days: 7

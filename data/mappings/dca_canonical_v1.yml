@@ -1,0 +1,148 @@
+version: 1
+name: dca_canonical_v1
+source: SICONFI_DCA
+principles:
+  - one_exact_source_row_per_variable
+  - absence_is_not_zero
+  - liquidated_expenses_only
+  - budgetary_revenue_only
+  - function_total_not_subfunction_sum
+
+variables:
+  dca_receita_corrente_bruta:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO1.0.0.0.00.0.0
+  dca_receita_tributaria_bruta:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO1.1.0.0.00.0.0
+  dca_iptu_principal:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO1.1.1.2.50.0.0
+  dca_itbi_principal:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO1.1.1.2.53.0.0
+  dca_iss_principal:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO1.1.1.4.51.1.0
+  dca_fpm_cota_mensal:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO1.7.1.1.51.0.0
+  dca_icms_cota_parte:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO1.7.2.1.50.0.0
+  dca_ipva_cota_parte:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO1.7.2.1.51.0.0
+  dca_operacoes_credito:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO2.1.0.0.00.0.0
+  dca_alienacao_bens:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO2.2.0.0.00.0.0
+  dca_transferencias_capital:
+    annex: DCA-Anexo I-C
+    column: Receitas Brutas Realizadas
+    rotulo: Padrão
+    cod_conta: RO2.4.0.0.00.0.0
+
+  dca_despesa_total_liquidada:
+    annex: DCA-Anexo I-D
+    column: Despesas Liquidadas
+    rotulo: Padrão
+    cod_conta: TotalDespesas
+  dca_despesa_corrente_liquidada:
+    annex: DCA-Anexo I-D
+    column: Despesas Liquidadas
+    rotulo: Padrão
+    cod_conta: DO3.0.00.00.00.00
+  dca_pessoal_encargos_liquidada:
+    annex: DCA-Anexo I-D
+    column: Despesas Liquidadas
+    rotulo: Padrão
+    cod_conta: DO3.1.00.00.00.00
+  dca_juros_encargos_liquidada:
+    annex: DCA-Anexo I-D
+    column: Despesas Liquidadas
+    rotulo: Padrão
+    cod_conta: DO3.2.00.00.00.00
+  dca_investimentos_liquidada:
+    annex: DCA-Anexo I-D
+    column: Despesas Liquidadas
+    rotulo: Padrão
+    cod_conta: DO4.4.00.00.00.00
+  dca_inversoes_financeiras_liquidada:
+    annex: DCA-Anexo I-D
+    column: Despesas Liquidadas
+    rotulo: Padrão
+    cod_conta: DO4.5.00.00.00.00
+  dca_amortizacao_divida_liquidada:
+    annex: DCA-Anexo I-D
+    column: Despesas Liquidadas
+    rotulo: Padrão
+    cod_conta: DO4.6.00.00.00.00
+
+  dca_func_saude_liquidada:
+    annex: DCA-Anexo I-E
+    column: Despesas Liquidadas
+    rotulo: Total Geral da Despesa por Função
+    conta_regex: '^10\s+-\s+'
+    cod_conta: TotalDespesas
+  dca_func_educacao_liquidada:
+    annex: DCA-Anexo I-E
+    column: Despesas Liquidadas
+    rotulo: Total Geral da Despesa por Função
+    conta_regex: '^12\s+-\s+'
+    cod_conta: TotalDespesas
+  dca_func_urbanismo_liquidada:
+    annex: DCA-Anexo I-E
+    column: Despesas Liquidadas
+    rotulo: Total Geral da Despesa por Função
+    conta_regex: '^15\s+-\s+'
+    cod_conta: TotalDespesas
+  dca_func_habitacao_liquidada:
+    annex: DCA-Anexo I-E
+    column: Despesas Liquidadas
+    rotulo: Total Geral da Despesa por Função
+    conta_regex: '^16\s+-\s+'
+    cod_conta: TotalDespesas
+  dca_func_saneamento_liquidada:
+    annex: DCA-Anexo I-E
+    column: Despesas Liquidadas
+    rotulo: Total Geral da Despesa por Função
+    conta_regex: '^17\s+-\s+'
+    cod_conta: TotalDespesas
+  dca_func_gestao_ambiental_liquidada:
+    annex: DCA-Anexo I-E
+    column: Despesas Liquidadas
+    rotulo: Total Geral da Despesa por Função
+    conta_regex: '^18\s+-\s+'
+    cod_conta: TotalDespesas
+  dca_func_transporte_liquidada:
+    annex: DCA-Anexo I-E
+    column: Despesas Liquidadas
+    rotulo: Total Geral da Despesa por Função
+    conta_regex: '^26\s+-\s+'
+    cod_conta: TotalDespesas
+
+  populacao_dca:
+    special: population_consensus

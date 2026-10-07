@@ -25,6 +25,24 @@ def build_static_site(
     for filename in ("index.html", "styles.css", "app.js"):
         shutil.copy2(FRONTEND / filename, output / filename)
 
+    headers = """/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'
+
+/data/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/*.js
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/*.css
+  Cache-Control: public, max-age=3600, must-revalidate
+"""
+    (output / "_headers").write_text(headers, encoding="utf-8")
+
     result = {
         "data": export_static_data(
             database,

@@ -1,0 +1,53 @@
+universe:
+  id: SP_645_RECEITAS_PILOTO
+  name: Sao Paulo 645 - piloto de receitas
+  description: Piloto estadual de escala com 645 municipios e exercicios 2020-2023.
+  type: analitico
+
+source:
+  source_id: FINBRA_SP_TABULAR_PILOT
+  workbook_name: sp_645_receitas_piloto_2020_2023.xlsx
+  sheet: Base multifuentes
+  data_version: finbra-sp-645-receitas-piloto-2020-2023-v1
+  expected_rows: 2580
+  expected_municipalities: 645
+  expected_years:
+    start: 2020
+    end: 2023
+
+keys:
+  codigo_ibge: cod_ibge
+  municipio: municipio
+  ano: ano
+
+variables:
+  sp645_receitas_correntes:
+    column: sp645_receitas_correntes
+    source_id: FINBRA_SP_TABULAR_PILOT
+    availability_start: 2020
+    availability_end: 2023
+    value_type: numeric
+  sp645_receita_tributaria_total:
+    column: sp645_receita_tributaria_total
+    source_id: FINBRA_SP_TABULAR_PILOT
+    availability_start: 2020
+    availability_end: 2023
+    value_type: numeric
+  sp645_iptu:
+    column: sp645_iptu
+    source_id: FINBRA_SP_TABULAR_PILOT
+    availability_start: 2020
+    availability_end: 2023
+    value_type: numeric
+  sp645_itbi:
+    column: sp645_itbi
+    source_id: FINBRA_SP_TABULAR_PILOT
+    availability_start: 2020
+    availability_end: 2023
+    value_type: numeric
+  sp645_iss:
+    column: sp645_iss
+    source_id: FINBRA_SP_TABULAR_PILOT
+    availability_start: 2020
+    availability_end: 2023
+    value_type: numeric

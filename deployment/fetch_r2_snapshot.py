@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import argparse
-import base64
 import csv
 import gzip
 import hashlib
@@ -43,7 +42,10 @@ def validate_csv(csv_bytes: bytes, manifest: dict) -> dict:
     municipalities = {row["cod_ibge"] for row in rows}
     years = sorted({int(row["ano"]) for row in rows})
     expected_years = list(
-        range(int(manifest["period"]["start"]), int(manifest["period"]["end"]) + 1)
+        range(
+            int(manifest["period"]["start"]),
+            int(manifest["period"]["end"]) + 1,
+        )
     )
     if len(municipalities) != int(manifest["universe"]["municipalities"]):
         raise ValueError(
@@ -100,26 +102,20 @@ def fetch_snapshot(
     sheet_name: str = "Base multifuentes",
 ) -> dict:
     manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
-    prefix = manifest["r2"]["prefix"].rstrip("/")
+    key = manifest["r2"]["object"]
 
-    encoded_parts: list[bytes] = []
-    for part in manifest["r2"]["parts"]:
-        key = f"{prefix}/{part['file']}"
-        payload = fetch_object(account_id, token, bucket, key)
-        if len(payload) != int(part["chars"]):
-            raise ValueError(f"{key}: size={len(payload)} != {part['chars']}")
-        digest = sha256_bytes(payload)
-        if digest != part["sha256"]:
-            raise ValueError(f"{key}: sha256={digest} != {part['sha256']}")
-        encoded_parts.append(payload)
-
-    encoded = b"".join(encoded_parts)
-    compressed = base64.b64decode(encoded, validate=True)
+    compressed = fetch_object(account_id, token, bucket, key)
     if len(compressed) != int(manifest["compressed"]["size_bytes"]):
-        raise ValueError("compressed size mismatch")
+        raise ValueError(
+            f"compressed size={len(compressed)} "
+            f"!= {manifest['compressed']['size_bytes']}"
+        )
     compressed_sha = sha256_bytes(compressed)
     if compressed_sha != manifest["compressed"]["sha256"]:
-        raise ValueError("compressed sha256 mismatch")
+        raise ValueError(
+            f"compressed sha256={compressed_sha} "
+            f"!= {manifest['compressed']['sha256']}"
+        )
 
     csv_bytes = gzip.decompress(compressed)
     if len(csv_bytes) != int(manifest["csv"]["size_bytes"]):
@@ -137,6 +133,7 @@ def fetch_snapshot(
 
     return {
         **validation,
+        "object": key,
         "compressed_sha256": compressed_sha,
         "csv_sha256": csv_sha,
         "csv_output": str(csv_output),

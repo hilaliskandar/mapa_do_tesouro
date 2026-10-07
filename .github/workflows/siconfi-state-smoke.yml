@@ -1,0 +1,89 @@
+name: SICONFI State Smoke Test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "pipeline/sources/**"
+      - "pipeline/acquire/**"
+      - "pipeline/normalize/**"
+      - "tests/test_siconfi_*.py"
+      - ".github/workflows/siconfi-state-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dca-state-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download pinned SP municipality list
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3             "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json"             --output build/sp.geojson
+
+      - name: Acquire 5 municipalities across all DCA annexes
+        run: |
+          python -m pipeline.acquire.siconfi_dca_state             --geojson build/sp.geojson             --year 2025             --output build/raw/dca             --normalized-csv build/normalized/dca_sp_2025.csv             --limit-codes 5             --min-interval 1.05
+
+      - name: Validate statewide acquisition contract
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          manifest=json.loads(
+              Path("build/raw/dca/manifests/state-2025.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          assert manifest["municipalities_in_geojson"] == 645
+          assert manifest["municipalities_requested"] == 5
+          assert manifest["failed"] == [], manifest["failed"]
+          assert manifest["annexes"] == [
+              "DCA-Anexo I-C",
+              "DCA-Anexo I-D",
+              "DCA-Anexo I-E",
+          ]
+          assert manifest["normalization"]["rows"] == 5
+          assert len(manifest["normalized_sha256"]) == 64
+          assert len(manifest["raw_tree_sha256"]) == 64
+
+          raw_files=list(Path("build/raw/dca").glob("**/*.json.gz"))
+          assert len(raw_files) == 15, len(raw_files)
+
+          with open(
+              "build/normalized/dca_sp_2025.csv",
+              encoding="utf-8-sig",
+              newline="",
+          ) as handle:
+              rows=list(csv.DictReader(handle))
+          assert len(rows) == 5
+          assert len({row["cod_ibge"] for row in rows}) == 5
+
+          print("SICONFI statewide smoke: OK")
+          print("raw_files=15")
+          print("normalized_rows=5")
+          PY
+
+      - name: Upload smoke artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: siconfi-state-smoke-2025
+          path: |
+            build/raw/dca/manifests
+            build/normalized/dca_sp_2025.csv
+          if-no-files-found: error
+          retention-days: 7

@@ -1,6 +1,15 @@
 name: SP 645 Pilot Scale
 
 on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "data/catalogs/sp_645_pilot_2020_2023.yml"
+      - "data/mappings/sp_645_receitas_piloto_2020_2023.yml"
+      - "deployment/fetch_r2_snapshot.py"
+      - "tests/test_r2_snapshot.py"
+      - ".github/workflows/sp645-pilot-scale.yml"
   workflow_dispatch:
 
 permissions:

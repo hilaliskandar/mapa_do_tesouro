@@ -23,8 +23,19 @@ def fail(message: str) -> None:
     raise SystemExit(message)
 
 
-def validate_payloads(metadata: dict, municipalities: list, annual_2025: dict, geo: dict) -> None:
+def validate_payloads(
+    metadata: dict,
+    municipalities: list,
+    annual_2025: dict,
+    geo: dict,
+    *,
+    expected_app_version: str | None = None,
+) -> None:
     build = metadata.get("build", {})
+    if expected_app_version is not None and build.get("app_version") != expected_app_version:
+        fail(
+            f"app_version={build.get('app_version')}, expected={expected_app_version}"
+        )
     if build.get("data_sha256") != EXPECTED_SOURCE_SHA256:
         fail(f"Unexpected source hash: {build.get('data_sha256')}")
     if metadata.get("municipality_count") != EXPECTED_MUNICIPALITIES:
@@ -60,7 +71,7 @@ def read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def validate_local(site: Path) -> None:
+def validate_local(site: Path, expected_app_version: str | None = None) -> None:
     required = [
         site / "index.html",
         site / "styles.css",
@@ -81,6 +92,7 @@ def validate_local(site: Path) -> None:
         read_json(site / "data" / "municipalities.json"),
         read_json(site / "data" / "annual" / "2025.json"),
         read_json(site / "data" / "maps" / "municipalities.geojson"),
+        expected_app_version=expected_app_version,
     )
 
     headers = (site / "_headers").read_text(encoding="utf-8")
@@ -121,7 +133,7 @@ def fetch_json(base_url: str, path: str):
     return json.loads(body.decode("utf-8"))
 
 
-def validate_remote(base_url: str) -> None:
+def validate_remote(base_url: str, expected_app_version: str | None = None) -> None:
     status, headers, html = fetch(base_url.rstrip("/") + "/")
     if status != 200:
         fail(f"root: HTTP {status}")
@@ -141,6 +153,7 @@ def validate_remote(base_url: str) -> None:
         fetch_json(base_url, "/data/municipalities.json"),
         fetch_json(base_url, "/data/annual/2025.json"),
         fetch_json(base_url, "/data/maps/municipalities.geojson"),
+        expected_app_version=expected_app_version,
     )
 
     print(f"Remote deployment QA: OK ({base_url})")
@@ -151,12 +164,13 @@ def main() -> None:
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--site", type=Path)
     group.add_argument("--url")
+    parser.add_argument("--expected-app-version")
     args = parser.parse_args()
 
     if args.site is not None:
-        validate_local(args.site)
+        validate_local(args.site, args.expected_app_version)
     else:
-        validate_remote(args.url)
+        validate_remote(args.url, args.expected_app_version)
 
 
 if __name__ == "__main__":

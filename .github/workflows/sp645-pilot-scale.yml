@@ -1,0 +1,146 @@
+name: SP 645 Pilot Scale
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sp645-pilot-scale
+  cancel-in-progress: false
+
+jobs:
+  validate-statewide-pilot:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Check private-source configuration
+        shell: bash
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo "Missing CLOUDFLARE_API_TOKEN"; exit 1; }
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "Missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+          test -n "$CLOUDFLARE_R2_BUCKET" || { echo "Missing CLOUDFLARE_R2_BUCKET"; exit 1; }
+
+      - name: Install dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install openpyxl pyyaml pytest
+
+      - name: Run repository tests
+        run: pytest -q tests
+
+      - name: Fetch and validate private statewide snapshot
+        run: |
+          mkdir -p build
+          python deployment/fetch_r2_snapshot.py \
+            --manifest data/catalogs/sp_645_pilot_2020_2023.yml \
+            --csv-output build/sp645_pilot.csv \
+            --xlsx-output build/sp645_pilot.xlsx
+
+      - name: Import statewide pilot
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sqlite3
+
+          from pipeline.ingest.import_multifuentes import import_multifuentes
+
+          database = Path("build/sp645_pilot.sqlite")
+          result = import_multifuentes(
+              Path("build/sp645_pilot.xlsx"),
+              database,
+              mapping_path=Path(
+                  "data/mappings/sp_645_receitas_piloto_2020_2023.yml"
+              ),
+              overwrite=True,
+              build_timestamp="2026-10-07T00:00:00-03:00",
+          )
+
+          expected = {
+              "rows": 2580,
+              "municipalities": 645,
+              "variables": 5,
+              "observations": 12900,
+              "provenance_rows": 12900,
+              "universe_id": "SP_645",
+          }
+          for key, value in expected.items():
+              actual = result[key]
+              if actual != value:
+                  raise SystemExit(f"{key}={actual!r}, expected={value!r}")
+
+          con = sqlite3.connect(database)
+          try:
+              checks = {
+                  "municipios": con.execute(
+                      "SELECT COUNT(*) FROM municipio"
+                  ).fetchone()[0],
+                  "universo_municipios": con.execute(
+                      """
+                      SELECT COUNT(*)
+                      FROM universo_municipio
+                      WHERE universo_id='SP_645'
+                      """
+                  ).fetchone()[0],
+                  "observacoes": con.execute(
+                      "SELECT COUNT(*) FROM observacao"
+                  ).fetchone()[0],
+                  "proveniencia": con.execute(
+                      "SELECT COUNT(*) FROM observacao_proveniencia"
+                  ).fetchone()[0],
+                  "cobertura": con.execute(
+                      """
+                      SELECT COUNT(*)
+                      FROM cobertura
+                      WHERE universo_id='SP_645'
+                      """
+                  ).fetchone()[0],
+              }
+              expected_checks = {
+                  "municipios": 645,
+                  "universo_municipios": 645,
+                  "observacoes": 12900,
+                  "proveniencia": 12900,
+                  "cobertura": 20,
+              }
+              if checks != expected_checks:
+                  raise SystemExit(
+                      f"SQLite QA mismatch: {checks} != {expected_checks}"
+                  )
+          finally:
+              con.close()
+
+          print("SP 645 pilot ingestion QA: OK")
+          print(result)
+          PY
+
+      - name: Upload validated pilot database
+        uses: actions/upload-artifact@v4
+        with:
+          name: sp645-pilot-scale-sqlite
+          path: build/sp645_pilot.sqlite
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Publish QA summary
+        run: |
+          echo "### SP 645 pilot scale" >> "$GITHUB_STEP_SUMMARY"
+          echo "- municipalities: 645" >> "$GITHUB_STEP_SUMMARY"
+          echo "- years: 2020-2023" >> "$GITHUB_STEP_SUMMARY"
+          echo "- municipality-year rows: 2,580" >> "$GITHUB_STEP_SUMMARY"
+          echo "- imported source variables: 5" >> "$GITHUB_STEP_SUMMARY"
+          echo "- imported observations: 12,900" >> "$GITHUB_STEP_SUMMARY"
+          echo "- status: validated pilot only; not public baseline" >> "$GITHUB_STEP_SUMMARY"

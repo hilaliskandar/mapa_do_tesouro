@@ -53,3 +53,10 @@ def test_frontend_uses_documentation_catalog_for_help():
 def test_frontend_does_not_force_no_store_cache():
     js = (STATIC / "app.js").read_text(encoding="utf-8")
     assert 'cache: "no-store"' not in js
+
+
+def test_tabs_remain_single_row_with_horizontal_overflow():
+    css = (STATIC / "styles.css").read_text(encoding="utf-8")
+    assert "flex-wrap: nowrap" in css
+    assert "overflow-x: auto" in css
+    assert "white-space: nowrap" in css

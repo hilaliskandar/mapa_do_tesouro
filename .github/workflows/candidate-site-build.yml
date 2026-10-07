@@ -36,6 +36,30 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      - name: Download pinned municipal cartography
+        run: |
+          python - <<'PY'
+          from urllib.request import urlopen
+          from pathlib import Path
+
+          url = "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-100-mun.json"
+          target = Path("inputs/geojs-100-mun.json")
+          with urlopen(url, timeout=120) as response:
+              data = response.read()
+          if len(data) < 1000000:
+              raise SystemExit(f"Download da cartografia parece inválido: {len(data)} bytes")
+          target.write_bytes(data)
+          print(f"geojson_bytes={len(data)}")
+          PY
+
+      - name: Upload pinned cartography snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: financas-municipais-sp-cartography
+          path: inputs/geojs-100-mun.json
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Download canonical multifuentes workbook
         run: |
           mkdir -p inputs build
@@ -53,22 +77,6 @@ jobs:
                   f"Download não é XLSX/ZIP: {target.stat().st_size} bytes; prefixo={prefix!r}"
               )
           print(f"base_bytes={target.stat().st_size}")
-          PY
-
-      - name: Download pinned municipal cartography
-        run: |
-          python - <<'PY'
-          from urllib.request import urlopen
-          from pathlib import Path
-
-          url = "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-100-mun.json"
-          target = Path("inputs/geojs-100-mun.json")
-          with urlopen(url, timeout=120) as response:
-              data = response.read()
-          if len(data) < 1000000:
-              raise SystemExit(f"Download da cartografia parece inválido: {len(data)} bytes")
-          target.write_bytes(data)
-          print(f"geojson_bytes={len(data)}")
           PY
 
       - name: Run full analytical build

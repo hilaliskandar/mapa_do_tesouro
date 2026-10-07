@@ -169,6 +169,54 @@ class SiconfiClient:
     def fetch_entities(self) -> FetchResult:
         return self.fetch_all("entes", {})
 
+    def fetch_rreo(
+        self,
+        *,
+        year: int,
+        period: int,
+        entity_id: str | int,
+        annex: str,
+        report_type: str = "RREO",
+        sphere: str = "M",
+    ) -> FetchResult:
+        return self.fetch_all(
+            "rreo",
+            {
+                "an_exercicio": int(year),
+                "nr_periodo": int(period),
+                "co_tipo_demonstrativo": report_type,
+                "no_anexo": annex,
+                "co_esfera": sphere,
+                "id_ente": str(entity_id),
+            },
+        )
+
+    def fetch_rgf(
+        self,
+        *,
+        year: int,
+        periodicity: str,
+        period: int,
+        entity_id: str | int,
+        annex: str,
+        report_type: str = "RGF",
+        sphere: str = "M",
+        branch: str = "E",
+    ) -> FetchResult:
+        return self.fetch_all(
+            "rgf",
+            {
+                "an_exercicio": int(year),
+                "in_periodicidade": periodicity,
+                "nr_periodo": int(period),
+                "co_tipo_demonstrativo": report_type,
+                "no_anexo": annex,
+                "co_esfera": sphere,
+                "co_poder": branch,
+                "id_ente": str(entity_id),
+            },
+        )
+
 def write_raw_dca(
     output: Path,
     *,

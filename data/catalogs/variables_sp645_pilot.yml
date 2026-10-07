@@ -1,0 +1,49 @@
+fontes:
+  - fonte_id: FINBRA_SP_TABULAR_PILOT
+    nome: FINBRA SP tabular - piloto 645
+    orgao: Projeto Financas Municipais SP
+    sistema: Integracao estadual de escala
+    finalidade: prova de ingestao estadual 2020-2023 com semantica preservada
+
+variaveis:
+  - variavel_id: sp645_receitas_correntes
+    nome: Receitas correntes - piloto SP 645
+    grupo: receitas_piloto_estadual
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: FINBRA_SP_TABULAR_PILOT
+    definicao: Campo receitas_correntes preservado do artefato estadual 2020-2023; nao substitui dca_receita_corrente_bruta.
+    cautelas: Usar apenas no piloto estadual ate conciliacao semantica com a base DCA canonica.
+
+  - variavel_id: sp645_receita_tributaria_total
+    nome: Receita tributaria total - piloto SP 645
+    grupo: receitas_piloto_estadual
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: FINBRA_SP_TABULAR_PILOT
+    definicao: Campo receita_tributaria_total preservado do artefato estadual 2020-2023.
+    cautelas: Nao substituir silenciosamente a serie DCA harmonizada.
+
+  - variavel_id: sp645_iptu
+    nome: IPTU - piloto SP 645
+    grupo: receitas_piloto_estadual
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: FINBRA_SP_TABULAR_PILOT
+    definicao: Campo IPTU preservado do artefato estadual 2020-2023.
+
+  - variavel_id: sp645_itbi
+    nome: ITBI - piloto SP 645
+    grupo: receitas_piloto_estadual
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: FINBRA_SP_TABULAR_PILOT
+    definicao: Campo ITBI preservado do artefato estadual 2020-2023.
+
+  - variavel_id: sp645_iss
+    nome: ISS - piloto SP 645
+    grupo: receitas_piloto_estadual
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: FINBRA_SP_TABULAR_PILOT
+    definicao: Campo ISS preservado do artefato estadual 2020-2023.

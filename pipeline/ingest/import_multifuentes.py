@@ -57,9 +57,22 @@ def import_multifuentes(
     mapping_path: Path = DEFAULT_MAPPING,
     overwrite: bool = False,
     build_timestamp: str | None = None,
+    universe_id: str | None = None,
+    universe_name: str | None = None,
+    universe_description: str | None = None,
+    universe_type: str | None = None,
 ) -> dict:
     mapping = load_yaml(mapping_path)
     source = mapping["source"]
+    universe = mapping.get("universe", {})
+    universe_id = universe_id or universe.get("id") or "TIC_TIM_30"
+    universe_name = universe_name or universe.get("name") or universe_id
+    universe_description = (
+        universe_description
+        or universe.get("description")
+        or f"Universo analitico {universe_name}."
+    )
+    universe_type = universe_type or universe.get("type") or "analitico"
 
     if database.exists():
         if not overwrite:
@@ -133,13 +146,14 @@ def import_multifuentes(
 
         connection.execute(
             """
-            INSERT INTO universo(universo_id,nome,descricao)
-            VALUES (?,?,?)
+            INSERT INTO universo(universo_id,nome,descricao,tipo)
+            VALUES (?,?,?,?)
             """,
             (
-                "TIC_TIM_30",
-                "TIC-TIM 30",
-                "Universo inicial de 30 municipios do projeto TIC-TIM.",
+                universe_id,
+                universe_name,
+                universe_description,
+                universe_type,
             ),
         )
 
@@ -153,7 +167,7 @@ def import_multifuentes(
                 INSERT INTO universo_municipio(universo_id,codigo_ibge)
                 VALUES (?,?)
                 """,
-                ("TIC_TIM_30", code),
+                (universe_id, code),
             )
 
         connection.execute(
@@ -298,7 +312,7 @@ def import_multifuentes(
                 (
                     variable_id,
                     year,
-                    "TIC_TIM_30",
+                    universe_id,
                     expected_per_year,
                     counts["observado"],
                     counts["ausente"],
@@ -325,6 +339,8 @@ def import_multifuentes(
         "provenance_rows": provenance_written,
         "source_artifact_id": artifact_id,
         "schema_version": schema_version,
+        "universe_id": universe_id,
+        "universe_name": universe_name,
     }
 
 

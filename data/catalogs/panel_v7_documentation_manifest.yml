@@ -1,0 +1,18 @@
+source_artifact: FINBRA_TIC_TIM_30M_PAINEL_FISCAL_INTERATIVO_v7.xlsx
+source_panel_version: v7
+data_parity_sha256: e85482ee4ab1c512bdc1d1efebd395177e51a47a98b71de7bbb0de751ddc7534
+documentation_version: panel-v7-baseline
+counts:
+  indicators: 25
+  accounts_and_aggregations: 50
+  sources: 10
+  coverage_layers: 5
+  priority_accounts: 16
+rules:
+  absence: "NA permanece NA; nunca imputar zero"
+  monetary_values: "nominais"
+  publication_status: "candidata; v6 permanece referência até promoção formal"
+interface_contract:
+  indicator_route: "/indicadores/{variavel_id}"
+  variable_route: "/variaveis/{variavel_id}"
+  methodology_route: "/metodologia/{secao_id}"

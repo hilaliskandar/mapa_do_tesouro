@@ -1,0 +1,33 @@
+version: 1
+date: 2026-10-06
+artifacts:
+  base_multifuentes:
+    name: FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
+    sha256: f51d8615f3742b1d414f1edff67805cac1a10cbc18764b454aab518de9c9e3f1
+  panel_v7:
+    name: FINBRA_TIC_TIM_30M_PAINEL_FISCAL_INTERATIVO_v7.xlsx
+    sha256: 3db0d6782e1c31d0f0dd0292aca4542f9faac2d2b23c4ce2dd0f34905c5f298f
+  block3:
+    name: FINBRA_TIC_TIM_30M_BLOCO3_INDICADORES_TRAJETORIAS_v0_7.xlsx
+    sha256: 2099d6c6c7af28f92701b8c1b9d3d880c3e2325b824ddf984a8e309cd193f101
+universe:
+  municipalities: 30
+  years: 13
+  rows: 390
+source_parity:
+  shared_fields: 59
+  cells_compared: 23010
+  mismatches: 0
+materialized_aggregate_parity:
+  servico_divida_liquidado: {observed: 328, mismatches: 0}
+  receitas_capital_selecionadas: {observed: 140, mismatches: 0}
+  despesas_capital_selecionadas: {observed: 42, mismatches: 0}
+  gasto_social_selecionado: {observed: 389, mismatches: 0}
+  saldo_corrente_simplificado: {observed: 389, mismatches: 0}
+  diferenca_capital_selecionada: {observed: 26, mismatches: 0}
+territorial_rule:
+  status: methodological_review
+  issue: 3
+  strict_complete_rows: 85
+  legacy_nonempty_rows: 389
+  affected_rows: 304

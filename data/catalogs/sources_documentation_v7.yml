@@ -1,0 +1,30 @@
+- label: Siconfi API — DCA
+  url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+  desc: Endpoint oficial das Declarações de Contas Anuais.
+- label: Siconfi API — RREO
+  url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo
+  desc: Endpoint oficial dos Relatórios Resumidos da Execução Orçamentária.
+- label: Tesouro Transparente — CAPAG Municípios
+  url: https://www.tesourotransparente.gov.br/ckan/dataset/capag-municipios
+  desc: Conjunto oficial da CAPAG municipal.
+- label: Base multifuentes v0.4
+  url: https://docs.google.com/spreadsheets/d/16eAt7J9W5OZf48kUOy-FudxnU6OR2hS9/edit
+  desc: Base canônica integrada 30 municípios, 2013–2025.
+- label: DCA bruto 30M
+  url: https://docs.google.com/spreadsheets/d/1Sz0cBGm0nnsaQqITgInUfxxcg-jbBCpJ/edit
+  desc: Matrizes de receitas, despesas e despesa por função.
+- label: RCL/RREO 30M
+  url: https://docs.google.com/spreadsheets/d/1bRhklfhtoqhFlmcBDZaJ45qLDCddAjjLaoNfzf3dFBs/edit
+  desc: Camada de RCL oficial 2015–2025.
+- label: RGF Anexos 01/05
+  url: https://docs.google.com/spreadsheets/d/1U3l1dUEryYOWInFcN4GO5kKBWD0s5SSLDMhOXqRENfs/edit
+  desc: Despesa com pessoal e disponibilidade de caixa.
+- label: RGF Anexo 02 histórico
+  url: https://docs.google.com/spreadsheets/d/1t0HYxI9J4zvpKURDZJebkXNagdrf1f3PaZIMFzGcrDM/edit
+  desc: Dívida consolidada e componentes, 2015–2025.
+- label: CAPAG canônica 2025
+  url: https://docs.google.com/spreadsheets/d/1477zhSo1f-WeYDa14BwFdGj0r_yR-xjC/edit
+  desc: Snapshot oficial CAPAG de 01/09/2026, ano-base 2025.
+- label: Siconfi API — RGF
+  url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+  desc: API oficial usada para os demonstrativos RGF.

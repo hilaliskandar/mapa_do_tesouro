@@ -31,12 +31,12 @@ desenvolvimento = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["testes"]
-python_files = ["teste_*.py"]
+testpaths = ["testes", "tests"]
+python_files = ["teste_*.py", "test_*.py"]
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
 
 [tool.setuptools.packages.find]
-include = ["nucleo*", "processamentos*", "relatorios*", "interface*"]
+include = ["nucleo*", "processamentos*", "relatorios*", "interface*", "pipeline*"]

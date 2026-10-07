@@ -1,0 +1,379 @@
+variaveis:
+  - variavel_id: iptu_pc
+    nome: IPTU por habitante
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: BRL_por_habitante
+    definicao: Arrecadação principal de IPTU dividida pela população DCA.
+    formula: dca_iptu_principal / populacao_dca
+
+  - variavel_id: itbi_pc
+    nome: ITBI por habitante
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: BRL_por_habitante
+    definicao: Arrecadação principal de ITBI dividida pela população DCA.
+    formula: dca_itbi_principal / populacao_dca
+
+  - variavel_id: iss_pc
+    nome: ISS por habitante
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: BRL_por_habitante
+    definicao: Arrecadação principal de ISS dividida pela população DCA.
+    formula: dca_iss_principal / populacao_dca
+
+  - variavel_id: fpm_pct_receita_corrente
+    nome: FPM sobre receita corrente
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação da cota mensal do FPM na receita corrente bruta.
+    formula: 100 * dca_fpm_cota_mensal / dca_receita_corrente_bruta
+
+  - variavel_id: icms_pct_receita_corrente
+    nome: ICMS sobre receita corrente
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação da cota-parte do ICMS na receita corrente bruta.
+    formula: 100 * dca_icms_cota_parte / dca_receita_corrente_bruta
+
+  - variavel_id: ipva_pct_receita_corrente
+    nome: IPVA sobre receita corrente
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação da cota-parte do IPVA na receita corrente bruta.
+    formula: 100 * dca_ipva_cota_parte / dca_receita_corrente_bruta
+
+  - variavel_id: tributos_imobiliarios_pct_receita_tributaria
+    nome: Tributos imobiliários sobre receita tributária
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação de IPTU e ITBI na receita tributária bruta.
+    formula: 100 * tributos_imobiliarios / dca_receita_tributaria_bruta
+
+  - variavel_id: transferencias_selecionadas_pct_receita_corrente
+    nome: Transferências selecionadas sobre receita corrente
+    grupo: indicadores
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação de FPM, ICMS e IPVA na receita corrente bruta.
+    formula: 100 * transferencias_selecionadas / dca_receita_corrente_bruta
+
+  - variavel_id: urbanismo_pct_territorial
+    nome: Urbanismo no agregado territorial
+    grupo: indicadores_territoriais
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação da função Urbanismo no agregado territorial selecionado.
+    formula: 100 * dca_func_urbanismo_liquidada / despesa_territorial
+
+  - variavel_id: habitacao_pct_territorial
+    nome: Habitação no agregado territorial
+    grupo: indicadores_territoriais
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação da função Habitação no agregado territorial selecionado.
+    formula: 100 * dca_func_habitacao_liquidada / despesa_territorial
+
+  - variavel_id: saneamento_pct_territorial
+    nome: Saneamento no agregado territorial
+    grupo: indicadores_territoriais
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação da função Saneamento no agregado territorial selecionado.
+    formula: 100 * dca_func_saneamento_liquidada / despesa_territorial
+
+  - variavel_id: gestao_ambiental_pct_territorial
+    nome: Gestão ambiental no agregado territorial
+    grupo: indicadores_territoriais
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação da função Gestão Ambiental no agregado territorial selecionado.
+    formula: 100 * dca_func_gestao_ambiental_liquidada / despesa_territorial
+
+  - variavel_id: transporte_pct_territorial
+    nome: Transporte no agregado territorial
+    grupo: indicadores_territoriais
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação da função Transporte no agregado territorial selecionado.
+    formula: 100 * dca_func_transporte_liquidada / despesa_territorial
+
+  - variavel_id: despesa_territorial_pct_despesa
+    nome: Despesa territorial sobre despesa total
+    grupo: indicadores_territoriais
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Participação do agregado territorial selecionado na despesa total liquidada.
+    formula: 100 * despesa_territorial / dca_despesa_total_liquidada
+
+  - variavel_id: despesa_territorial_pc
+    nome: Despesa territorial por habitante
+    grupo: indicadores_territoriais
+    tipo: indicador_derivado
+    unidade: BRL_por_habitante
+    definicao: Agregado territorial selecionado dividido pela população DCA.
+    formula: despesa_territorial / populacao_dca
+
+  - variavel_id: caixa_pos_rpnp_pct_rcl
+    nome: Caixa após RPNP sobre RCL
+    grupo: indicadores_legais
+    tipo: indicador_derivado
+    unidade: percentual
+    definicao: Caixa líquido após restos a pagar não processados dividido pela RCL oficial.
+    formula: 100 * rgf_caixa_liquida_apos_rpnp / rreo_rcl_oficial
+
+  - variavel_id: indicador_1
+    nome: CAPAG I1 — Endividamento
+    grupo: capag
+    tipo: indicador_derivado
+    unidade: razao
+    definicao: Componente oficial de endividamento da CAPAG.
+    formula: formula oficial CAPAG I1
+    fonte_preferencial_id: TESOURO_CAPAG
+
+  - variavel_id: indicador_2
+    nome: CAPAG I2 — Poupança corrente
+    grupo: capag
+    tipo: indicador_derivado
+    unidade: razao
+    definicao: Componente oficial de poupança corrente da CAPAG.
+    formula: formula oficial CAPAG I2
+    fonte_preferencial_id: TESOURO_CAPAG
+
+  - variavel_id: indicador_3
+    nome: CAPAG I3 — Liquidez relativa
+    grupo: capag
+    tipo: indicador_derivado
+    unidade: razao
+    definicao: Componente oficial de liquidez da CAPAG.
+    formula: formula oficial CAPAG I3
+    fonte_preferencial_id: TESOURO_CAPAG
+
+  - variavel_id: dca_operacoes_credito
+    nome: Operações de crédito
+    grupo: receitas_capital
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Receitas de operações de crédito observadas na DCA.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_alienacao_bens
+    nome: Alienação de bens
+    grupo: receitas_capital
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Receitas de alienação de bens observadas na DCA.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_transferencias_capital
+    nome: Transferências de capital
+    grupo: receitas_capital
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Transferências de capital observadas na DCA.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_despesa_total_liquidada
+    nome: Despesa total liquidada
+    grupo: despesas
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Despesa total no estágio liquidado observada na DCA.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_despesa_corrente_liquidada
+    nome: Despesa corrente liquidada
+    grupo: despesas
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Despesa corrente no estágio liquidado observada na DCA.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_pessoal_encargos_liquidada
+    nome: Pessoal e encargos liquidados
+    grupo: despesas
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Pessoal e encargos no estágio liquidado observados na DCA; não substitui DTP do RGF.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_juros_encargos_liquidada
+    nome: Juros e encargos da dívida liquidados
+    grupo: despesas
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Juros e encargos da dívida no estágio liquidado observados na DCA.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_inversoes_financeiras_liquidada
+    nome: Inversões financeiras liquidadas
+    grupo: despesas_capital
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Inversões financeiras no estágio liquidado observadas na DCA.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_amortizacao_divida_liquidada
+    nome: Amortização da dívida liquidada
+    grupo: despesas_capital
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Amortização da dívida no estágio liquidado observada na DCA.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_func_saude_liquidada
+    nome: Saúde — função liquidada
+    grupo: funcoes_sociais
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Despesa liquidada na função Saúde.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: dca_func_educacao_liquidada
+    nome: Educação — função liquidada
+    grupo: funcoes_sociais
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Despesa liquidada na função Educação.
+    fonte_preferencial_id: SICONFI_DCA
+
+  - variavel_id: rgf_caixa_liquida_apos_rpnp
+    nome: Caixa líquido após RPNP
+    grupo: liquidez
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Disponibilidade líquida após restos a pagar não processados na camada harmonizada do RGF Anexo 05.
+    fonte_preferencial_id: SICONFI_RGF_A05
+
+  - variavel_id: rgf02_divida_contratual
+    nome: Dívida contratual
+    grupo: divida_componentes
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Componente contratual da dívida no RGF Anexo 02.
+    fonte_preferencial_id: SICONFI_RGF_A02
+
+  - variavel_id: rgf02_parcelamento_dividas
+    nome: Parcelamento de dívidas
+    grupo: divida_componentes
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Parcelamentos de dívidas reportados no RGF Anexo 02.
+    fonte_preferencial_id: SICONFI_RGF_A02
+
+  - variavel_id: rgf02_precatorios_vencidos_nao_pagos
+    nome: Precatórios vencidos e não pagos
+    grupo: divida_componentes
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Precatórios vencidos e não pagos reportados no RGF Anexo 02.
+    fonte_preferencial_id: SICONFI_RGF_A02
+
+  - variavel_id: rgf02_outras_dividas
+    nome: Outras dívidas
+    grupo: divida_componentes
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Outros componentes da dívida reportados no RGF Anexo 02.
+    fonte_preferencial_id: SICONFI_RGF_A02
+
+  - variavel_id: rgf02_deducoes_divida_consolidada
+    nome: Deduções da dívida consolidada
+    grupo: divida_deducoes
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Deduções usadas no cálculo da dívida consolidada líquida.
+    fonte_preferencial_id: SICONFI_RGF_A02
+
+  - variavel_id: rgf02_disponibilidade_caixa
+    nome: Disponibilidade de caixa
+    grupo: divida_deducoes
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Disponibilidade de caixa reportada no RGF Anexo 02.
+    fonte_preferencial_id: SICONFI_RGF_A02
+
+  - variavel_id: rgf02_demais_haveres_financeiros
+    nome: Demais haveres financeiros
+    grupo: divida_deducoes
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Demais haveres financeiros reportados no RGF Anexo 02.
+    fonte_preferencial_id: SICONFI_RGF_A02
+
+  - variavel_id: rgf02_restos_pagar_processados
+    nome: Restos a pagar processados
+    grupo: divida_deducoes
+    tipo: conta_oficial
+    unidade: BRL
+    definicao: Restos a pagar processados reportados no RGF Anexo 02.
+    fonte_preferencial_id: SICONFI_RGF_A02
+
+  - variavel_id: tributos_selecionados
+    nome: Tributos selecionados
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Soma estrita de IPTU, ITBI e ISS.
+    formula: dca_iptu_principal + dca_itbi_principal + dca_iss_principal
+
+  - variavel_id: transferencias_selecionadas
+    nome: Transferências selecionadas
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Soma estrita de FPM, ICMS e IPVA.
+    formula: dca_fpm_cota_mensal + dca_icms_cota_parte + dca_ipva_cota_parte
+
+  - variavel_id: servico_divida_liquidado
+    nome: Serviço da dívida selecionado
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Soma estrita de juros e encargos com amortização da dívida, ambos liquidados.
+    formula: dca_juros_encargos_liquidada + dca_amortizacao_divida_liquidada
+
+  - variavel_id: receitas_capital_selecionadas
+    nome: Receitas de capital selecionadas
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Soma estrita de operações de crédito, alienação de bens e transferências de capital.
+    formula: dca_operacoes_credito + dca_alienacao_bens + dca_transferencias_capital
+
+  - variavel_id: despesas_capital_selecionadas
+    nome: Despesas de capital selecionadas
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Soma estrita de investimentos, inversões financeiras e amortização da dívida, no estágio liquidado.
+    formula: dca_investimentos_liquidada + dca_inversoes_financeiras_liquidada + dca_amortizacao_divida_liquidada
+
+  - variavel_id: gasto_social_selecionado
+    nome: Gasto social selecionado
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Soma estrita das funções Saúde e Educação, no estágio liquidado.
+    formula: dca_func_saude_liquidada + dca_func_educacao_liquidada
+
+  - variavel_id: saldo_corrente_simplificado
+    nome: Saldo corrente simplificado
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Diferença analítica entre receita corrente bruta e despesa corrente liquidada; não é resultado orçamentário oficial.
+    formula: dca_receita_corrente_bruta - dca_despesa_corrente_liquidada
+
+  - variavel_id: diferenca_capital_selecionada
+    nome: Diferença de capital selecionada
+    grupo: agregados
+    tipo: agregado_analitico
+    unidade: BRL
+    definicao: Diferença entre receitas e despesas de capital selecionadas; não é resultado de capital oficial.
+    formula: receitas_capital_selecionadas - despesas_capital_selecionadas

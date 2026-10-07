@@ -1,0 +1,275 @@
+- id: receita_tributaria_pct_receita_corrente
+  label: Receita tributária / receita corrente
+  unit: pct
+  formula: Receita Tributária bruta ÷ Receita Corrente bruta
+  source: DCA / FINBRA — matriz 30M
+  period: 2013–2025
+  read: Mede a participação das receitas tributárias próprias no conjunto da receita corrente. Valor maior indica maior peso relativo da tributação própria; não equivale, isoladamente, a melhor situação fiscal.
+  limits: Não mede esforço tributário potencial nem incorpora diferenças de base econômica.
+  inputs: dca_receita_tributaria_bruta ÷ dca_receita_corrente_bruta
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: iptu_pc
+  label: IPTU por habitante
+  unit: brlpc
+  formula: IPTU principal ÷ população
+  source: DCA / FINBRA + população DCA
+  period: 2013–2025
+  read: Mostra a arrecadação observada de IPTU por habitante. Útil para comparar escala de arrecadação, mas diferenças cadastrais e de política tributária afetam a leitura.
+  limits: Receita principal observada; não soma automaticamente dívida ativa, juros ou multas.
+  inputs: dca_iptu_principal ÷ populacao_dca
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: itbi_pc
+  label: ITBI por habitante
+  unit: brlpc
+  formula: ITBI principal ÷ população
+  source: DCA / FINBRA + população DCA
+  period: 2013–2025
+  read: Aproxima a intensidade de arrecadação associada a transações imobiliárias por habitante. Pode oscilar fortemente com o ciclo imobiliário.
+  limits: Não é medida direta de preços imobiliários ou volume físico de transações.
+  inputs: dca_itbi_principal ÷ populacao_dca
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: iss_pc
+  label: ISS por habitante
+  unit: brlpc
+  formula: ISS principal ÷ população
+  source: DCA / FINBRA + população DCA
+  period: 2013–2025
+  read: Mostra arrecadação observada de ISS por habitante e ajuda a caracterizar a base econômica de serviços.
+  limits: Comparações devem considerar estrutura produtiva e regras locais.
+  inputs: dca_iss_principal ÷ populacao_dca
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: fpm_pct_receita_corrente
+  label: FPM / receita corrente
+  unit: pct
+  formula: Cota mensal do FPM ÷ Receita Corrente bruta
+  source: DCA / FINBRA
+  period: 2013–2025
+  read: Indica o peso da transferência federal selecionada na receita corrente. Valor maior sugere maior relevância relativa do FPM.
+  limits: Não representa o total de transferências correntes.
+  inputs: dca_fpm_cota_mensal ÷ dca_receita_corrente_bruta
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: icms_pct_receita_corrente
+  label: ICMS / receita corrente
+  unit: pct
+  formula: Cota-parte do ICMS ÷ Receita Corrente bruta
+  source: DCA / FINBRA
+  period: 2013–2025
+  read: Indica o peso da cota-parte municipal do ICMS na receita corrente.
+  limits: Não representa o total das transferências estaduais.
+  inputs: dca_icms_cota_parte ÷ dca_receita_corrente_bruta
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: ipva_pct_receita_corrente
+  label: IPVA / receita corrente
+  unit: pct
+  formula: Cota-parte do IPVA ÷ Receita Corrente bruta
+  source: DCA / FINBRA
+  period: 2013–2025
+  read: Indica o peso da cota-parte municipal do IPVA na receita corrente.
+  limits: Deve ser interpretado junto à frota, renda e demais transferências.
+  inputs: dca_ipva_cota_parte ÷ dca_receita_corrente_bruta
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: tributos_imobiliarios_pct_receita_tributaria
+  label: Tributos imobiliários / receita tributária
+  unit: pct
+  formula: (IPTU + ITBI) ÷ Receita Tributária bruta
+  source: DCA / FINBRA
+  period: 2013–2025
+  read: Mostra quanto da receita tributária é formada pelos dois tributos diretamente associados ao imóvel e à transmissão imobiliária.
+  limits: Não inclui taxas ou contribuições relacionadas ao território.
+  inputs: tributos_imobiliarios (IPTU + ITBI) ÷ dca_receita_tributaria_bruta
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: transferencias_selecionadas_pct_receita_corrente
+  label: FPM + ICMS + IPVA / receita corrente
+  unit: pct
+  formula: (FPM + ICMS + IPVA) ÷ Receita Corrente bruta
+  source: DCA / FINBRA
+  period: 2013–2025
+  read: Mostra o peso de três transferências relevantes na receita corrente.
+  limits: É uma agregação selecionada, não o total de transferências correntes.
+  inputs: transferencias_selecionadas (FPM + ICMS + IPVA) ÷ dca_receita_corrente_bruta
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: urbanismo_pct_territorial
+  label: Urbanismo / agregado territorial
+  unit: pct
+  formula: Urbanismo ÷ (Urbanismo + Habitação + Saneamento + Gestão Ambiental + Transporte)
+  source: DCA / despesas por função
+  period: 2013–2025
+  read: Mostra a composição interna do agregado territorial selecionado.
+  limits: O denominador é uma agregação analítica de cinco funções, não a despesa territorial oficial de uma classificação própria.
+  inputs: dca_func_urbanismo_liquidada ÷ despesa_territorial
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: habitacao_pct_territorial
+  label: Habitação / agregado territorial
+  unit: pct
+  formula: Habitação ÷ agregado territorial selecionado
+  source: DCA / despesas por função
+  period: 2013–2025
+  read: Mostra a participação de Habitação entre as cinco funções territoriais selecionadas.
+  limits: Ausência em qualquer função necessária preserva a limitação da agregação.
+  inputs: dca_func_habitacao_liquidada ÷ despesa_territorial
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: saneamento_pct_territorial
+  label: Saneamento / agregado territorial
+  unit: pct
+  formula: Saneamento ÷ agregado territorial selecionado
+  source: DCA / despesas por função
+  period: 2013–2025
+  read: Mostra a participação de Saneamento entre as cinco funções territoriais selecionadas.
+  limits: Não mede cobertura física de saneamento.
+  inputs: dca_func_saneamento_liquidada ÷ despesa_territorial
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: gestao_ambiental_pct_territorial
+  label: Gestão Ambiental / agregado territorial
+  unit: pct
+  formula: Gestão Ambiental ÷ agregado territorial selecionado
+  source: DCA / despesas por função
+  period: 2013–2025
+  read: Mostra a participação de Gestão Ambiental entre as cinco funções territoriais selecionadas.
+  limits: Não mede desempenho ambiental.
+  inputs: dca_func_gestao_ambiental_liquidada ÷ despesa_territorial
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: transporte_pct_territorial
+  label: Transporte / agregado territorial
+  unit: pct
+  formula: Transporte ÷ agregado territorial selecionado
+  source: DCA / despesas por função
+  period: 2013–2025
+  read: Mostra a participação de Transporte entre as cinco funções territoriais selecionadas.
+  limits: Não distingue modal, custeio e investimento dentro da função.
+  inputs: dca_func_transporte_liquidada ÷ despesa_territorial
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: investimento_pct_receita_corrente
+  label: Investimentos / receita corrente
+  unit: pct
+  formula: Investimentos liquidados ÷ Receita Corrente bruta
+  source: DCA / FINBRA
+  period: 2013–2025
+  read: Mede o esforço relativo de investimento no exercício. Deve ser lido em série, pois investimentos são cíclicos e podem concentrar-se em projetos específicos.
+  limits: Não mede qualidade, execução física ou origem dos recursos.
+  inputs: dca_investimentos_liquidada ÷ dca_receita_corrente_bruta
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: investimento_pc
+  label: Investimento por habitante
+  unit: brlpc
+  formula: Investimentos liquidados ÷ população
+  source: DCA / FINBRA + população DCA
+  period: 2013–2025
+  read: Mostra o investimento liquidado por habitante, permitindo comparação de escala entre municípios.
+  limits: Sensível a projetos extraordinários e ao porte populacional.
+  inputs: dca_investimentos_liquidada ÷ populacao_dca
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: despesa_territorial_pct_despesa
+  label: Despesa territorial / despesa total
+  unit: pct
+  formula: (Urbanismo + Habitação + Saneamento + Gestão Ambiental + Transporte) ÷ Despesa Total liquidada
+  source: DCA / despesas por função
+  period: 2013–2025
+  read: Mede o peso das cinco funções territoriais selecionadas no gasto municipal.
+  limits: Não significa que todo gasto dessas funções esteja relacionado ao TIC-TIM; a cobertura funcional varia historicamente.
+  inputs: despesa_territorial ÷ dca_despesa_total_liquidada
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: despesa_territorial_pc
+  label: Despesa territorial por habitante
+  unit: brlpc
+  formula: Soma das cinco funções territoriais ÷ população
+  source: DCA / despesas por função + população
+  period: 2013–2025
+  read: Mostra a escala do gasto territorial selecionado por habitante.
+  limits: Comparar junto à composição das funções e ao ciclo de investimentos.
+  inputs: despesa_territorial ÷ populacao_dca
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca
+- id: dtp_pct_rcl
+  label: Despesa Total com Pessoal / RCL
+  unit: pct
+  formula: Percentual publicado no RGF Anexo 01
+  source: RGF Anexo 01 / Siconfi
+  period: 2015–2025
+  read: Valor maior indica maior comprometimento da receita corrente líquida com despesa total de pessoal. A leitura deve considerar limites legais e a trajetória.
+  limits: Indicador legal; não substituir por proxy calculada a partir da DCA.
+  inputs: rgf_dtp_percentual_rcl (percentual oficial do RGF Anexo 01)
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: dc_pct_rcl
+  label: Dívida Consolidada / RCL
+  unit: pct
+  formula: Percentual da Dívida Consolidada sobre a RCL, publicado no RGF Anexo 02
+  source: RGF Anexo 02 / Siconfi
+  period: 2015–2025
+  read: Valor maior indica maior estoque de dívida consolidada em relação à RCL. Deve ser lido com DCL, caixa e limites aplicáveis.
+  limits: 2015 tem cobertura 27/30; ausências não são zero.
+  inputs: rgf02_dc_percentual_rcl (percentual oficial do RGF Anexo 02)
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: dcl_pct_rcl
+  label: Dívida Consolidada Líquida / RCL
+  unit: pct
+  formula: Percentual da Dívida Consolidada Líquida sobre a RCL, publicado no RGF Anexo 02
+  source: RGF Anexo 02 / Siconfi
+  period: 2015–2025
+  read: A DCL desconta deduções financeiras da dívida consolidada. Valores negativos podem ocorrer quando disponibilidades/deduções superam a dívida consolidada.
+  limits: Ler junto aos componentes de dedução e disponibilidade.
+  inputs: rgf02_dcl_percentual_rcl (percentual oficial do RGF Anexo 02)
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: caixa_pos_rpnp_pct_rcl
+  label: Caixa após RPNP / RCL
+  unit: pct
+  formula: Caixa líquido após Restos a Pagar Não Processados ÷ RCL oficial
+  source: RGF Anexo 05 + RREO / RCL
+  period: 2015–2025
+  read: Valor positivo indica folga de caixa nessa métrica; valor negativo indica insuficiência depois de consideradas as obrigações selecionadas.
+  limits: Cobertura comparável do Anexo 05 é menor nos anos iniciais; não imputar ausências.
+  inputs: rgf_caixa_liquida_apos_rpnp ÷ rreo_rcl_oficial
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf
+- id: indicador_1
+  label: CAPAG I1 — Endividamento
+  unit: pct
+  formula: Dívida Consolidada ÷ Receita Corrente Líquida
+  source: Tesouro Nacional / CAPAG — componentes do RGF Anexo 02
+  period: '2025'
+  read: Componente oficial de endividamento da CAPAG. Valores menores representam menor dívida consolidada em relação à RCL. A nota oficial é preservada separadamente no campo nota_1.
+  limits: No painel, o valor oficial do snapshot CAPAG é canônico; o recálculo local foi usado apenas como QA.
+  inputs: 'CAPAG: Dívida Consolidada ÷ Receita Corrente Líquida (componentes oficiais do RGF Anexo 02)'
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://www.tesourotransparente.gov.br/ckan/dataset/capag-municipios
+- id: indicador_2
+  label: CAPAG I2 — Poupança corrente
+  unit: pct
+  formula: 20% × razão 2023 + 30% × razão 2024 + 50% × razão 2025, em que razão = Despesas Correntes empenhadas ÷ Receitas Correntes ajustadas
+  source: Tesouro Nacional / CAPAG — componentes DCA 2023–2025
+  period: '2025'
+  read: Componente oficial que mede o comprometimento das receitas correntes ajustadas com despesas correntes, ponderando mais fortemente o exercício mais recente. Valores menores são mais favoráveis na metodologia CAPAG.
+  limits: Usa componentes e regras oficiais da CAPAG, inclusive ajustes de receitas; não deve ser substituído por uma razão simples de despesa corrente/receita corrente do painel.
+  inputs: 'CAPAG: ponderação 20%/30%/50% das razões Despesas Correntes empenhadas ÷ Receitas Correntes ajustadas de 2023/2024/2025'
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://www.tesourotransparente.gov.br/ckan/dataset/capag-municipios
+- id: indicador_3
+  label: CAPAG I3 — Liquidez relativa
+  unit: pct
+  formula: (Disponibilidade Bruta Não Vinculada + Insuficiência de Caixa − Obrigações Financeiras consideradas) ÷ RCL
+  source: Tesouro Nacional / CAPAG — componentes do RGF Anexo 05
+  period: '2025'
+  read: Componente oficial de liquidez da CAPAG. Valores maiores indicam maior disponibilidade relativa após as obrigações consideradas pela metodologia. A nota oficial é preservada separadamente no campo nota_3.
+  limits: A metodologia oficial contém regras de validação/invalidação; o painel exibe o valor oficial e não simplifica essas regras.
+  inputs: 'CAPAG: (Disponibilidade Bruta Não Vinculada + Insuficiência de Caixa − Obrigações Financeiras consideradas) ÷ RCL'
+  na_rule: Se qualquer componente necessário estiver ausente ou não comparável, o indicador permanece NA; ausência nunca é convertida em zero.
+  source_url: https://www.tesourotransparente.gov.br/ckan/dataset/capag-municipios

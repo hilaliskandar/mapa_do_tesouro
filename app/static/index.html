@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finanças Municipais SP</title>
+  <meta name="description" content="Painel auditável de finanças municipais de São Paulo.">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Finanças Municipais SP</p>
+      <h1>Painel fiscal municipal</h1>
+      <p id="build-meta" class="muted">Carregando metadados…</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls panel" aria-label="Filtros">
+      <label>
+        Município
+        <select id="municipality-select"></select>
+      </label>
+      <label>
+        Ano
+        <select id="year-select"></select>
+      </label>
+      <label>
+        Indicador principal
+        <select id="variable-select"></select>
+      </label>
+    </section>
+
+    <nav class="tabs" aria-label="Seções">
+      <button class="tab is-active" data-target="overview">Panorama</button>
+      <button class="tab" data-target="series">Séries</button>
+      <button class="tab" data-target="compare">Comparação</button>
+      <button class="tab" data-target="map">Mapa</button>
+      <button class="tab" data-target="themes">Análises</button>
+      <button class="tab" data-target="sources">Fontes e cobertura</button>
+      <button class="tab" data-target="crosswalk">Crosswalk</button>
+      <button class="tab" data-target="dictionary">Dicionário</button>
+      <button class="tab" data-target="methodology">Metodologia</button>
+    </nav>
+
+    <section id="overview" class="view is-active">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Panorama</p>
+          <h2 id="overview-title">—</h2>
+        </div>
+      </div>
+      <div id="kpi-grid" class="kpi-grid"></div>
+
+      <article class="panel">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Indicador selecionado</p>
+            <h3 id="selected-variable-label">—</h3>
+          </div>
+          <button id="open-help" class="link-button" type="button">Como ler</button>
+        </div>
+        <div class="selected-value" id="selected-variable-value">—</div>
+        <p id="selected-variable-status" class="muted"></p>
+      </article>
+
+      <div class="profile-grid">
+        <article class="panel profile-panel">
+          <p class="eyebrow">Marcadores comparáveis</p>
+          <div id="marker-list" class="badge-list"></div>
+        </article>
+        <article class="panel profile-panel">
+          <p class="eyebrow">Pares prioritários</p>
+          <div id="pair-list"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="series" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Série histórica</p>
+          <h2 id="series-title">—</h2>
+        </div>
+      </div>
+      <article class="panel">
+        <svg id="series-chart" viewBox="0 0 900 320" role="img" aria-label="Série histórica"></svg>
+        <div id="series-table-wrap"></div>
+      </article>
+    </section>
+
+    <section id="compare" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Comparação anual</p>
+          <h2 id="compare-title">—</h2>
+        </div>
+      </div>
+      <article class="panel">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Município</th>
+              <th>Valor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="compare-body"></tbody>
+        </table>
+      </article>
+    </section>
+
+    <section id="map" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Mapa temático</p>
+          <h2 id="map-title">—</h2>
+        </div>
+        <button id="map-help" class="link-button" type="button">Como ler</button>
+      </div>
+      <article class="panel map-panel">
+        <div id="map-empty" class="map-empty" hidden>Cartografia não disponível neste build.</div>
+        <svg id="municipal-map" viewBox="0 0 960 620" role="img" aria-label="Mapa municipal temático"></svg>
+        <div id="map-legend" class="map-legend"></div>
+      </article>
+    </section>
+
+    <section id="themes" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Análises temáticas</p>
+          <h2 id="themes-title">—</h2>
+        </div>
+      </div>
+      <div id="theme-groups" class="theme-groups"></div>
+    </section>
+
+    <section id="sources" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Proveniência e QA</p>
+          <h2>Fontes e cobertura</h2>
+        </div>
+      </div>
+      <div class="sources-grid">
+        <article class="panel">
+          <h3>Fontes</h3>
+          <div id="source-list"></div>
+        </article>
+        <article class="panel">
+          <h3>Cobertura da variável selecionada</h3>
+          <div id="coverage-wrap"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="crosswalk" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Harmonização temporal</p>
+          <h2>Crosswalk de variáveis</h2>
+        </div>
+      </div>
+      <article class="panel">
+        <div id="crosswalk-wrap"></div>
+      </article>
+    </section>
+
+    <section id="dictionary" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Dicionário</p>
+          <h2>Indicadores, contas e agregações</h2>
+        </div>
+      </div>
+      <article class="panel">
+        <input id="dictionary-search" class="search" type="search" placeholder="Buscar por nome, grupo ou ID">
+        <div id="dictionary-list" class="dictionary-list"></div>
+      </article>
+    </section>
+
+    <section id="methodology" class="view">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Metodologia</p>
+          <h2>Regras de leitura e governança</h2>
+        </div>
+      </div>
+      <div id="methodology-list" class="methodology-list"></div>
+    </section>
+  </main>
+
+  <dialog id="help-dialog">
+    <form method="dialog" class="dialog-shell">
+      <button class="dialog-close" aria-label="Fechar">×</button>
+      <div id="help-content"></div>
+    </form>
+  </dialog>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -60,7 +60,7 @@ def import_multifuentes(
             )
         database.unlink()
 
-    initialize_database(database, schema)
+    initialize_database(database, schema=schema)
     connection = sqlite3.connect(database)
     connection.execute("PRAGMA foreign_keys = ON")
     load_catalog(database, catalog)

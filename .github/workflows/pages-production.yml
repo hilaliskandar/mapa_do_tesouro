@@ -1,0 +1,122 @@
+name: Pages Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Stable release tag to deploy, for example v0.1.1"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-production
+  cancel-in-progress: false
+
+jobs:
+  build-deploy-qa:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+
+    steps:
+      - name: Check release tag
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_tag }}
+
+      - name: Resolve checked-out commit
+        id: commit
+        shell: bash
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check Cloudflare configuration
+        shell: bash
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo "Missing CLOUDFLARE_API_TOKEN"; exit 1; }
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "Missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+          test -n "$CLOUDFLARE_PAGES_PROJECT" || { echo "Missing CLOUDFLARE_PAGES_PROJECT"; exit 1; }
+
+      - name: Install validation dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install openpyxl pyyaml pytest
+
+      - name: Run tests
+        run: pytest -q tests
+
+      - name: Resolve release version
+        id: version
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          VERSION="${RELEASE_TAG#v}"
+          test -n "$VERSION"
+          test "$(tr -d '[:space:]' < VERSION)" = "$VERSION"
+          echo "value=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Materialize production candidate from approved preview
+        run: |
+          python deployment/materialize_preview.py \
+            --url "https://preview.$CLOUDFLARE_PAGES_PROJECT.pages.dev" \
+            --output build/site \
+            --app-version "${{ steps.version.outputs.value }}"
+
+      - name: Validate candidate locally
+        run: |
+          python deployment/qa_pages.py \
+            --site build/site \
+            --expected-app-version "${{ steps.version.outputs.value }}"
+
+      - name: Upload production artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages-production-${{ inputs.release_tag }}
+          path: build/site
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Deploy production
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          npx --yes wrangler@4.148.0 pages deploy build/site \
+            --project-name="$CLOUDFLARE_PAGES_PROJECT" \
+            --branch=main \
+            --commit-hash="${{ steps.commit.outputs.sha }}" \
+            --commit-message="Production deploy $RELEASE_TAG" \
+            --commit-dirty=false
+
+      - name: Validate production
+        run: |
+          python deployment/qa_pages.py \
+            --url "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev" \
+            --expected-app-version "${{ steps.version.outputs.value }}"
+
+      - name: Publish production URL
+        run: |
+          echo "### Cloudflare Pages production" >> "$GITHUB_STEP_SUMMARY"
+          echo "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev" >> "$GITHUB_STEP_SUMMARY"

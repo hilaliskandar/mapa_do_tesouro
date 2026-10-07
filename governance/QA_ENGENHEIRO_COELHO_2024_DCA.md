@@ -21,6 +21,8 @@ Apesar disso, a aba `Base multifuentes` registra:
 
 Essas duas flags são inconsistentes com o conteúdo efetivamente disponível para o município-ano.
 
+Uma varredura das 390 combinações município-ano da aba `Base multifuentes` mostrou que este é o único caso em que todos os campos DCA de valor estão nulos e, simultaneamente, `tem_dca_30m="SIM"` ou `dca_status_nucleo="OK"`.
+
 ## Efeito sobre a base analítica
 
 O importador canônico não usa `dca_status_nucleo` nem `tem_dca_30m` para fabricar valores. Cada variável DCA é importada individualmente. Campo vazio dentro da janela de disponibilidade é classificado como `ausente`, com valor nulo.

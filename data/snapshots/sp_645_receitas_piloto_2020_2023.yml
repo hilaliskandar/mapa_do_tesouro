@@ -1,0 +1,28 @@
+snapshot_id: sp_645_receitas_piloto_2020_2023
+status: local_qa_only
+universe:
+  id: SP_645
+  name: Sao Paulo 645
+period:
+  start: 2020
+  end: 2023
+expected:
+  municipalities: 645
+  rows: 2580
+semantic_scope:
+  included:
+    - receita_corrente
+    - receita_tributaria
+    - iptu
+    - itbi
+    - iss
+  excluded:
+    - despesas_empenhadas_reconstruidas
+    - populacao_fixa_2024
+    - indicadores_derivados
+source:
+  title: base_orcamentaria_finbra_sp_tabular.xlsx
+  provenance: Google Drive project archive
+notes:
+  - Piloto de escala; nao substitui o baseline multifuentes 2013-2025.
+  - O objeto R2 definitivo nao e declarado enquanto o upload auditavel nao estiver concluido.

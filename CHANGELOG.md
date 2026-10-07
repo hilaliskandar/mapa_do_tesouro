@@ -1,5 +1,22 @@
 # Historico de versoes
 
+## 0.1.0 - Financas Municipais SP — baseline TIC-TIM 30
+
+- congelamento do primeiro baseline auditável do novo núcleo;
+- universo inicial de 30 municípios, 2013–2025;
+- schema SQLite versionado;
+- 75 objetos técnicos e documentais;
+- pipeline completo de ingestão, derivados, estatísticas, tipologias, marcadores e pares;
+- regra territorial canônica `strict_complete`;
+- preservação de DTP/RCL, DC/RCL e DCL/RCL como indicadores legais oficiais;
+- frontend static-first com panorama, séries, comparação, mapa, análises temáticas, fontes/cobertura, crosswalk, dicionário e metodologia;
+- build real validada com 29.250 observações após derivados, 870 pares dirigidos e 30 geometrias;
+- paridade documentada contra painel v7 e Bloco 3;
+- candidate de preview empacotado e identificado por SHA-256;
+- preparação para Cloudflare Pages Direct Upload;
+- governança de CI na `main` consolidada.
+
+
 ## Convencao
 
 - `x.1`: grandes etapas funcionais do projeto.

@@ -150,15 +150,22 @@ def upsert_numeric(
 
 
 def strict_sum(connection, code, year, components):
-    values = []
-    statuses = []
-    for variable_id in components:
-        status, value = fetch_numeric(connection, code, year, variable_id)
-        statuses.append(status)
-        if status != "observado" or value is None:
-            return ("nao_aplicavel" if all(s == "nao_aplicavel" for s in statuses) else "ausente", None)
-        values.append(float(value))
-    return "observado", sum(values)
+    observations = [
+        fetch_numeric(connection, code, year, variable_id)
+        for variable_id in components
+    ]
+    statuses = [status for status, _ in observations]
+
+    if statuses and all(status == "nao_aplicavel" for status in statuses):
+        return "nao_aplicavel", None
+
+    if all(
+        status == "observado" and value is not None
+        for status, value in observations
+    ):
+        return "observado", sum(float(value) for _, value in observations)
+
+    return "ausente", None
 
 
 def strict_difference(connection, code, year, left, right):

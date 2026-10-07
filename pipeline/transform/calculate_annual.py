@@ -149,6 +149,46 @@ def upsert_numeric(
     )
 
 
+def replace_lineage(
+    connection: sqlite3.Connection,
+    code: str,
+    year: int,
+    variable_id: str,
+    source_variables,
+    rule: str,
+    build_id: str | None,
+) -> None:
+    connection.execute(
+        """
+        DELETE FROM observacao_proveniencia
+        WHERE codigo_ibge=? AND ano=? AND variavel_id=?
+        """,
+        (code, year, variable_id),
+    )
+    for sequence, source_variable in enumerate(source_variables, start=1):
+        connection.execute(
+            """
+            INSERT INTO observacao_proveniencia(
+                codigo_ibge,ano,variavel_id,sequencia,tipo,
+                origem_codigo_ibge,origem_ano,origem_variavel_id,
+                regra_transformacao,build_id
+            ) VALUES (?,?,?,?,?,?,?,?,?,?)
+            """,
+            (
+                code,
+                year,
+                variable_id,
+                sequence,
+                "observacao",
+                code,
+                year,
+                source_variable,
+                rule,
+                build_id,
+            ),
+        )
+
+
 def strict_sum(connection, code, year, components):
     observations = [
         fetch_numeric(connection, code, year, variable_id)
@@ -210,6 +250,15 @@ def calculate_annual(database: Path) -> dict:
                     connection, code, year, variable_id, status, value,
                     build_id, "pipeline:aggregation_strict"
                 )
+                replace_lineage(
+                    connection,
+                    code,
+                    year,
+                    variable_id,
+                    components,
+                    "strict_sum",
+                    build_id,
+                )
                 written += 1
 
             for variable_id, (left, right) in DIFFERENCES.items():
@@ -217,6 +266,15 @@ def calculate_annual(database: Path) -> dict:
                 upsert_numeric(
                     connection, code, year, variable_id, status, value,
                     build_id, "pipeline:difference_strict"
+                )
+                replace_lineage(
+                    connection,
+                    code,
+                    year,
+                    variable_id,
+                    (left, right),
+                    "strict_difference",
+                    build_id,
                 )
                 written += 1
 
@@ -226,6 +284,15 @@ def calculate_annual(database: Path) -> dict:
                     connection, code, year, variable_id, status, value,
                     build_id, "pipeline:ratio"
                 )
+                replace_lineage(
+                    connection,
+                    code,
+                    year,
+                    variable_id,
+                    (num, den),
+                    "strict_ratio",
+                    build_id,
+                )
                 written += 1
 
             for variable_id, (num, den) in PER_CAPITA.items():
@@ -233,6 +300,15 @@ def calculate_annual(database: Path) -> dict:
                 upsert_numeric(
                     connection, code, year, variable_id, status, value,
                     build_id, "pipeline:per_capita"
+                )
+                replace_lineage(
+                    connection,
+                    code,
+                    year,
+                    variable_id,
+                    (num, den),
+                    "per_capita_ratio",
+                    build_id,
                 )
                 written += 1
 

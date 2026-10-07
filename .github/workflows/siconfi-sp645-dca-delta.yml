@@ -1,0 +1,142 @@
+name: SICONFI SP 645 DCA Selective Delta
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "DCA exercise to complement"
+        required: true
+        type: string
+      codes:
+        description: "Explicit 7-digit IBGE codes, comma/space separated"
+        required: true
+        type: string
+      min_interval:
+        description: "Minimum interval between requests, in seconds"
+        required: true
+        default: "1.05"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: siconfi-sp645-delta-${{ inputs.year }}
+  cancel-in-progress: false
+
+jobs:
+  acquire-delta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 \
+            "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
+            --output build/sp.geojson
+
+      - name: Validate explicit delta size
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pipeline.acquire.siconfi_dca_delta import parse_codes
+          codes = parse_codes("""${{ inputs.codes }}""")
+          if len(codes) > 100:
+              raise SystemExit(
+                  f"Delta contains {len(codes)} municipalities; maximum is 100."
+              )
+          print(f"delta_municipalities={len(codes)}")
+          print("codes=" + ",".join(codes))
+          PY
+
+      - name: Acquire targeted DCA delta
+        run: |
+          python -m pipeline.acquire.siconfi_dca_delta \
+            --geojson build/sp.geojson \
+            --year "${{ inputs.year }}" \
+            --codes "${{ inputs.codes }}" \
+            --output "build/raw/delta/${{ inputs.year }}" \
+            --normalized-csv "build/normalized/dca_delta_${{ inputs.year }}.csv" \
+            --min-interval "${{ inputs.min_interval }}" \
+            --max-codes 100
+
+      - name: Validate delta
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          year = "${{ inputs.year }}"
+          path = Path(f"build/raw/delta/{year}/manifests/delta-{year}.json")
+          manifest = json.loads(path.read_text(encoding="utf-8"))
+          if manifest["failed"]:
+              raise SystemExit(
+                  f"Delta has unresolved failures: {manifest['failed'][:20]}"
+              )
+          expected = manifest["municipalities_requested"] * 3
+          completed = sum(
+              item["completed_now"] + item["reused"]
+              for item in manifest["annex_results"].values()
+          )
+          if completed != expected:
+              raise SystemExit(
+                  f"Delta artifacts mismatch: {completed} != {expected}"
+              )
+          if manifest["normalization"]["rows"] != manifest["municipalities_requested"]:
+              raise SystemExit("Normalized row count mismatch")
+          print("Selective DCA delta: OK")
+          print("normalized_sha256=" + manifest["normalized_sha256"])
+          PY
+
+      - name: Publish summary
+        if: success()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          year = "${{ inputs.year }}"
+          manifest = json.loads(
+              Path(f"build/raw/delta/{year}/manifests/delta-{year}.json")
+              .read_text(encoding="utf-8")
+          )
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open(
+              "a", encoding="utf-8"
+          ) as out:
+              out.write("### SP 645 — selective DCA delta\n\n")
+              out.write(f"- exercise: {year}\n")
+              out.write(
+                  f"- municipalities: {manifest['municipalities_requested']}\n"
+              )
+              out.write("- codes: " + ", ".join(manifest["codes"]) + "\n")
+              out.write("- annexes: I-C, I-D, I-E\n")
+              out.write("- unresolved failures: 0\n")
+              out.write(
+                  f"- normalized SHA-256: `{manifest['normalized_sha256']}`\n"
+              )
+          PY
+
+      - name: Upload delta artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sp645-dca-delta-${{ inputs.year }}
+          path: |
+            build/raw/delta/${{ inputs.year }}
+            build/normalized/dca_delta_${{ inputs.year }}.csv
+          if-no-files-found: warn
+          retention-days: 14

@@ -81,56 +81,35 @@ jobs:
           test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "Missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
           test -n "$CLOUDFLARE_PAGES_PROJECT" || { echo "Missing CLOUDFLARE_PAGES_PROJECT"; exit 1; }
 
-      - name: Install build dependencies
+      - name: Install validation dependencies
         run: |
           pip install -e . --no-deps
           pip install openpyxl pyyaml pytest
 
-      - name: Download pinned inputs
-        shell: bash
-        run: |
-          mkdir -p inputs build
-          curl --fail --location --retry 3 --retry-delay 2 \
-            "https://drive.usercontent.google.com/download?id=16eAt7J9W5OZf48kUOy-FudxnU6OR2hS9&export=download&confirm=t" \
-            --output inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
-
-          python - <<'PY'
-          from hashlib import sha256
-          from pathlib import Path
-          from urllib.request import urlopen
-          from zipfile import is_zipfile
-
-          workbook = Path("inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx")
-          if not workbook.exists() or not is_zipfile(workbook):
-              raise SystemExit("Canonical workbook download is not a valid XLSX")
-          digest = sha256(workbook.read_bytes()).hexdigest()
-          expected = "f51d8615f3742b1d414f1edff67805cac1a10cbc18764b454aab518de9c9e3f1"
-          if digest != expected:
-              raise SystemExit(f"Canonical workbook hash mismatch: {digest}")
-
-          url = "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-100-mun.json"
-          geo = Path("inputs/geojs-100-mun.json")
-          with urlopen(url, timeout=120) as response:
-              data = response.read()
-          if len(data) < 1_000_000:
-              raise SystemExit(f"Pinned cartography download looks invalid: {len(data)} bytes")
-          geo.write_bytes(data)
-          PY
-
       - name: Run tests
         run: pytest -q tests
 
-      - name: Build candidate site
+      - name: Resolve application version
+        id: version
+        shell: bash
         run: |
-          python -m pipeline.build.build_analytical_database \
-            inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx \
-            --database build/financas_municipais_sp.sqlite \
-            --site-output build/site \
-            --geojson inputs/geojs-100-mun.json \
-            --overwrite
+          VERSION="$(tr -d '[:space:]' < VERSION)"
+          test -n "$VERSION"
+          echo "value=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Materialize candidate from published data snapshot
+        shell: bash
+        run: |
+          python deployment/materialize_preview.py \
+            --url "https://preview.$CLOUDFLARE_PAGES_PROJECT.pages.dev" \
+            --output build/site \
+            --app-version "${{ steps.version.outputs.value }}"
 
       - name: Validate candidate locally
-        run: python deployment/qa_pages.py --site build/site
+        run: |
+          python deployment/qa_pages.py \
+            --site build/site \
+            --expected-app-version "${{ steps.version.outputs.value }}"
 
       - name: Upload candidate artifact
         uses: actions/upload-artifact@v4
@@ -159,7 +138,8 @@ jobs:
           DEPLOY_ALIAS: ${{ steps.target.outputs.alias }}
         run: |
           python deployment/qa_pages.py \
-            --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+            --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" \
+            --expected-app-version "${{ steps.version.outputs.value }}"
 
       - name: Publish preview URL
         shell: bash

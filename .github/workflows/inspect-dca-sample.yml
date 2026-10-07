@@ -37,4 +37,32 @@ jobs:
                       "habita","saneamento","ambiental","transporte","saude","educa"
                   )):
                       print("ITEM", {k:item.get(k) for k in ("anexo","rotulo","coluna","cod_conta","conta","valor","populacao")})
+              for item in result.items:
+                  conta=str(item.get("conta") or "")
+                  if (
+                      annex == "DCA-Anexo I-C"
+                      and item.get("coluna") == "Receitas Brutas Realizadas"
+                      and (
+                          conta.startswith("1.1.1.2.")
+                          or conta.startswith("2.1.")
+                          or conta.startswith("2.2.")
+                          or conta.startswith("2.4.")
+                      )
+                  ):
+                      print("TARGET", {k:item.get(k) for k in ("anexo","rotulo","coluna","cod_conta","conta","valor","populacao")})
+                  if (
+                      annex == "DCA-Anexo I-D"
+                      and item.get("coluna") == "Despesas Liquidadas"
+                      and (
+                          conta.startswith("4.0.")
+                          or conta.startswith("4.5.")
+                      )
+                  ):
+                      print("TARGET", {k:item.get(k) for k in ("anexo","rotulo","coluna","cod_conta","conta","valor","populacao")})
+                  if (
+                      annex == "DCA-Anexo I-E"
+                      and item.get("coluna") == "Despesas Liquidadas"
+                      and conta.startswith("10 - ")
+                  ):
+                      print("TARGET", {k:item.get(k) for k in ("anexo","rotulo","coluna","cod_conta","conta","valor","populacao")})
           PY

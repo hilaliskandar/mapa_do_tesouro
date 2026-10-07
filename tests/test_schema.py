@@ -45,6 +45,8 @@ def test_schema_initializes():
         "documentacao_secao",
         "referencia_documental",
         "variavel_referencia",
+        "artefato_fonte",
+        "observacao_proveniencia",
     }
     assert expected.issubset(tables)
 
@@ -117,3 +119,48 @@ def test_universe_membership_uses_ibge_key():
     assert con.execute(
         "SELECT count(*) FROM universo_municipio"
     ).fetchone()[0] == 1
+
+
+def test_schema_version_is_updated_by_provenance_migration():
+    con = make_db()
+    try:
+        assert con.execute(
+            "SELECT value FROM schema_metadata WHERE key='schema_version'"
+        ).fetchone()[0] == "0.2.0"
+    finally:
+        con.close()
+
+
+def test_provenance_rejects_source_field_without_artifact():
+    con = make_db()
+    con.execute(
+        "INSERT INTO municipio(codigo_ibge,nome,uf) VALUES ('3500000','Teste','SP')"
+    )
+    con.execute(
+        """
+        INSERT INTO variavel(
+            variavel_id,nome,grupo,tipo,unidade,definicao
+        ) VALUES ('x','X','teste','contextual','u','Teste')
+        """
+    )
+    con.execute(
+        """
+        INSERT INTO observacao(
+            codigo_ibge,ano,variavel_id,valor_num,status
+        ) VALUES ('3500000',2025,'x',1,'observado')
+        """
+    )
+    try:
+        con.execute(
+            """
+            INSERT INTO observacao_proveniencia(
+                codigo_ibge,ano,variavel_id,sequencia,tipo
+            ) VALUES ('3500000',2025,'x',1,'campo_fonte')
+            """
+        )
+    except sqlite3.IntegrityError:
+        pass
+    else:
+        raise AssertionError("Proveniencia de campo sem artefato foi aceita.")
+    finally:
+        con.close()

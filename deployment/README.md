@@ -55,3 +55,43 @@ A configuração real deverá existir apenas no ambiente privado de operação.
 ## Regra de portabilidade
 
 Nenhum módulo de domínio ou pipeline pode depender diretamente de APIs Cloudflare. Integrações de provedor devem ficar confinadas à camada de deployment/adapters.
+
+
+## Publicação estática inicial — Cloudflare Pages
+
+Para a primeira publicação, a opção recomendada é **Pages Direct Upload** do diretório `build/site`.
+
+O fluxo público e reproduzível é:
+
+```bash
+# 1. construir localmente / em ambiente autorizado
+python -m pipeline.build.build_analytical_database \
+  <BASE_MULTIFONTES.xlsx> \
+  --database build/financas_municipais_sp.sqlite \
+  --site-output build/site \
+  --geojson <GEOJSON_MUNICIPAL> \
+  --overwrite
+
+# 2. autenticar o Wrangler no ambiente privado
+npx wrangler login
+
+# 3. criar o projeto apenas na primeira vez
+npx wrangler pages project create
+
+# 4. publicar a pasta pronta
+npx wrangler pages deploy build/site --project-name=<PROJECT_NAME>
+```
+
+O nome real do projeto, account ID, domínio, token e demais dados operacionais permanecem fora do repositório.
+
+### Por que Pages primeiro
+
+A versão atual é integralmente estática. Usar Worker, D1 ou R2 agora aumentaria a superfície operacional sem requisito funcional correspondente.
+
+A migração futura para Worker Static Assets continua possível caso surja necessidade real de API ou lógica dinâmica.
+
+### Headers
+
+O build gera `build/site/_headers` com proteção contra framing, `nosniff`, política de referrer, bloqueio de câmera/microfone/geolocalização, Content Security Policy restrita ao próprio site e cache HTTP controlado para dados, JS e CSS.
+
+Não editar esse arquivo manualmente na pasta de build: ele é gerado pelo pipeline.

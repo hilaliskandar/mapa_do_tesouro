@@ -89,12 +89,13 @@ variaveis:
     definicao: Arrecadacao de ISS harmonizada por exercicio.
 
   - variavel_id: dca_fpm_cota_mensal
-    nome: FPM
+    nome: FPM — cota mensal
     grupo: transferencias
     tipo: conta_oficial
     unidade: BRL
     fonte_preferencial_id: SICONFI_DCA
-    definicao: Transferencias do Fundo de Participacao dos Municipios.
+    definicao: Cota mensal do Fundo de Participacao dos Municipios, sem as cotas extraordinarias.
+    cautelas: Nao confundir com a conta-pai do FPM, que agrega tambem cotas extraordinarias.
 
   - variavel_id: dca_icms_cota_parte
     nome: ICMS

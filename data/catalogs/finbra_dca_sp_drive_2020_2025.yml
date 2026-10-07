@@ -1,0 +1,117 @@
+version: 2
+name: finbra_dca_sp_drive_2020_2025
+storage:
+  provider: google_drive
+  folder_id: 1K_Raj0pKEyktVY5BVa_raOZ4cQdJ8HQ4
+  folder_url: https://drive.google.com/drive/folders/1K_Raj0pKEyktVY5BVa_raOZ4cQdJ8HQ4
+policy:
+  historical_batch_source: preferred
+  external_siconfi_role:
+    - sample_validation
+    - incremental_update
+    - gap_investigation
+    - independent_audit
+files:
+  2020:
+    i_c:
+      file_id: 1l5E_in3CFmz_PDUcgK8kEABbtRCMpYnu
+      format: xlsx
+      size_bytes: 2780515
+      sha256: 172c99af01a3fe556341e49eae232207ecd78a957b1e242e4a44c4baf0a62e1c
+    i_d:
+      file_id: 1sSgIS9VF93Q9n-o-jjM1SsCBmHcEOgnj
+      format: xlsx
+      size_bytes: 3349451
+      sha256: 091230d21bde0aa7261d2da774abce824c214dccc693635e794146eaeea286e9
+    i_e:
+      file_id: 1aSkevuUrTrKHCirmAE1Xu9JIdcg_RtG2
+      format: xlsx
+      size_bytes: 3656591
+      sha256: 41f4c28e1b08d00fd9b39d179cbc2756ec433aabfbba84d58cdbd04ad8e7ce45
+  2021:
+    i_c:
+      file_id: 1m8SwRQooXJRd6RHHzr7UVnnbUSqYMW8R
+      format: xlsx
+      size_bytes: 2745852
+      sha256: 819dfa147258f74b9f1f4e6de1dd969052e932c77f80213a88f194e6b4064c59
+    i_d:
+      file_id: 1PSfHa-z26gI-6X-LWBzfJsZ3SN52l1In
+      format: xlsx
+      size_bytes: 3416700
+      sha256: 42d8d67e21483201fa04a3360c210c942e0d618994a65e84a16afab19a7943ac
+    i_e:
+      file_id: 1OFrtZbhnsHHyPQa5KLAZ65uao5mhXO25
+      format: xlsx
+      size_bytes: 3769819
+      sha256: f8235e4091e512018060c8abada17017e3e9149c9196f8714a44351ec9d93166
+  2022:
+    i_c:
+      file_id: 1q8ZjZ1W7L8cOY1bqOLHxBDFYGrgPb63s
+      format: xlsx
+      size_bytes: 2916625
+      sha256: 73f017f200d2b0380f07342ccef36a822c17637df254cca337a02317c6345609
+    i_d:
+      file_id: 13fTmhqr49fH0t1uiO893gDEGkyGq41FU
+      format: xlsx
+      size_bytes: 3513922
+      sha256: 1cbbc93ea3a23b6feff3fdccac1ec4299df0d03325302ddac3b27467dd6b1b62
+    i_e:
+      file_id: 1_WrX-aPk_12AuzRwzqmnLI9WMCpTQF27
+      format: xlsx
+      size_bytes: 3928695
+      sha256: 79449294bac8898d586fd126fcb8aeecffc91fed5119625ef217b5eaee37c114
+  2023:
+    i_c:
+      file_id: 1SeGGScw5Vd9PrZzLBDcPg9KDXDAjjjRI
+      format: xlsx
+      size_bytes: 2933426
+      sha256: 8255731899f9b93919b8202e6af497d683a95791408c1692e087f0fad2c2f28d
+    i_d:
+      file_id: 1xsoUpcQiWA5lle2JLpO5GZZDzRymtVTb
+      format: xlsx
+      size_bytes: 3646735
+      sha256: e049bdd45e0380dcabe7f9eb0cf87ef35d1c06b68d4a1eb2975886ce793ecf08
+    i_e:
+      file_id: 1ODlch6HSQOKjZgu-NMHv8OEDlQhbL5SJ
+      format: xlsx
+      size_bytes: 4117381
+      sha256: 97b39c7e3c0526777e9d8a1ab1d7ea94e6636ccea34b3011753c3ccff3456e19
+  2024:
+    i_c:
+      file_id: 1ZJyPzXbwB7jvnrOmQXjv5tS1Fpuq5enu
+      format: xlsx
+      size_bytes: 2873589
+      sha256: 3557de4f7f99cb7953051c8a025c3d347339502b3a40eb6827a78402ddd1b1b1
+    i_d:
+      file_id: 1IS2EUnPguhUiRroX6Pm6Egx58lXZbKah
+      format: xlsx
+      size_bytes: 3601251
+      sha256: e5f884aa19c384da8c75f1c39ed28b7824ad02f4c00b489fa743f561dfc08177
+    i_e:
+      file_id: 1SP1cHfVLvHS3qYvNnYVnwS-EgQpzUCi0
+      format: xlsx
+      size_bytes: 4057499
+      sha256: baac61c4e7a25ac77d842530908c269570a261ca4e1c32d256d9a67ad7ed37f6
+  2025:
+    i_c:
+      file_id: 185x_7zgX9aGOy0Z6Drh-iA9vBY83JU1F
+      format: csv
+      size_bytes: 16946392
+      sha256: 502b0edb79d2fc7c330854877b5f6f2bfbd97fffca8189fb58f53a8b830a3827
+    i_d:
+      file_id: 12qfplHoUJRqe91GpsjXGqOPvljJXoq1C
+      format: csv
+      size_bytes: 19258567
+      sha256: ba7c36af142523962cd48c572aa28cae97b18f3e646aa5eff796cb3abca548fe
+    i_e:
+      file_id: 1emNY64pw4dvo2EChwWyBKlfCD200mTxT
+      format: csv
+      size_bytes: 19196424
+      sha256: fa519ff00db840b1cb7cd4ce570780025f4ccf819ecbb2406bf97287d9f4956e
+notes:
+  - 2025 local contém 632 municípios e deve ser combinado com atualização incremental.
+  - Gate A 2025 confirmou 645 municípios por aquisição direta e CSV normalizado estável.
+  - 2024 local contém 630 municípios nos três anexos e requer delta de 15 municípios.
+  - 2023 local contém 645 municípios nos três anexos.
+  - 2022 local contém 644 municípios em I-C e 645 em I-D/I-E.
+  - 2020 e 2021 contêm 645 municípios nos três anexos e exigem variantes temporais de códigos para seis receitas.

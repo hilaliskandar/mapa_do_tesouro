@@ -1,4 +1,4 @@
-version: 1
+version: 2
 name: dca_canonical_v1
 source: SICONFI_DCA
 principles:
@@ -7,6 +7,7 @@ principles:
   - liquidated_expenses_only
   - budgetary_revenue_only
   - function_total_not_subfunction_sum
+  - explicit_temporal_variants_only
 
 variables:
   dca_receita_corrente_bruta:
@@ -24,31 +25,55 @@ variables:
     column: Receitas Brutas Realizadas
     rotulo: Padrão
     cod_conta: RO1.1.1.2.50.0.0
+    variants:
+      - from_year: 2018
+        to_year: 2021
+        cod_conta: RO1.1.1.8.01.1.0
   dca_itbi_principal:
     annex: DCA-Anexo I-C
     column: Receitas Brutas Realizadas
     rotulo: Padrão
     cod_conta: RO1.1.1.2.53.0.0
+    variants:
+      - from_year: 2018
+        to_year: 2021
+        cod_conta: RO1.1.1.8.01.4.0
   dca_iss_principal:
     annex: DCA-Anexo I-C
     column: Receitas Brutas Realizadas
     rotulo: Padrão
     cod_conta: RO1.1.1.4.51.1.0
+    variants:
+      - from_year: 2018
+        to_year: 2021
+        cod_conta: RO1.1.1.8.02.3.0
   dca_fpm_cota_mensal:
     annex: DCA-Anexo I-C
     column: Receitas Brutas Realizadas
     rotulo: Padrão
     cod_conta: RO1.7.1.1.51.1.0
+    variants:
+      - from_year: 2018
+        to_year: 2021
+        cod_conta: RO1.7.1.8.01.2.0
   dca_icms_cota_parte:
     annex: DCA-Anexo I-C
     column: Receitas Brutas Realizadas
     rotulo: Padrão
     cod_conta: RO1.7.2.1.50.0.0
+    variants:
+      - from_year: 2018
+        to_year: 2021
+        cod_conta: RO1.7.2.8.01.1.0
   dca_ipva_cota_parte:
     annex: DCA-Anexo I-C
     column: Receitas Brutas Realizadas
     rotulo: Padrão
     cod_conta: RO1.7.2.1.51.0.0
+    variants:
+      - from_year: 2018
+        to_year: 2021
+        cod_conta: RO1.7.2.8.01.2.0
   dca_operacoes_credito:
     annex: DCA-Anexo I-C
     column: Receitas Brutas Realizadas

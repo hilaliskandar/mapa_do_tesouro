@@ -18,6 +18,36 @@ def load_mapping(path: Path = DEFAULT_MAPPING) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
+def resolve_rule_for_year(rule: dict, year: int | None) -> dict:
+    resolved = {key: value for key, value in rule.items() if key != "variants"}
+    if year is None:
+        return resolved
+
+    matches = []
+    for variant in rule.get("variants", []):
+        from_year = variant.get("from_year")
+        to_year = variant.get("to_year")
+        if from_year is not None and year < int(from_year):
+            continue
+        if to_year is not None and year > int(to_year):
+            continue
+        matches.append(variant)
+
+    if len(matches) > 1:
+        raise ValueError(
+            f"Overlapping temporal variants for year {year}: {matches!r}"
+        )
+    if matches:
+        resolved.update(
+            {
+                key: value
+                for key, value in matches[0].items()
+                if key not in {"from_year", "to_year"}
+            }
+        )
+    return resolved
+
+
 def _match(item: dict, rule: dict) -> bool:
     if rule.get("column") is not None and item.get("coluna") != rule["column"]:
         return False
@@ -39,7 +69,21 @@ def normalize_bundle(
     variables: dict[str, dict] = {}
     issues: list[dict] = []
 
-    for variable_id, rule in mapping["variables"].items():
+    entity_ids = {
+        str(payload.get("entity_id"))
+        for payload in payloads.values()
+        if payload.get("entity_id") is not None
+    }
+    years = {
+        int(payload.get("year"))
+        for payload in payloads.values()
+        if payload.get("year") is not None
+    }
+    bundle_year = next(iter(years)) if len(years) == 1 else None
+
+    for variable_id, base_rule in mapping["variables"].items():
+        rule = resolve_rule_for_year(base_rule, bundle_year)
+
         if rule.get("special") == "population_consensus":
             values = {
                 int(item["populacao"])
@@ -142,16 +186,6 @@ def normalize_bundle(
                 }
             )
 
-    entity_ids = {
-        str(payload.get("entity_id"))
-        for payload in payloads.values()
-        if payload.get("entity_id") is not None
-    }
-    years = {
-        int(payload.get("year"))
-        for payload in payloads.values()
-        if payload.get("year") is not None
-    }
     if len(entity_ids) != 1 or len(years) != 1:
         issues.append(
             {

@@ -37,6 +37,11 @@ jobs:
         with:
           ref: ${{ inputs.release_tag }}
 
+      - name: Resolve checked-out commit
+        id: commit
+        shell: bash
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -119,7 +124,7 @@ jobs:
           npx --yes wrangler@4.148.0 pages deploy build/site \
             --project-name="$CLOUDFLARE_PAGES_PROJECT" \
             --branch=main \
-            --commit-hash="$GITHUB_SHA" \
+            --commit-hash="${{ steps.commit.outputs.sha }}" \
             --commit-message="Production deploy $RELEASE_TAG" \
             --commit-dirty=false
 

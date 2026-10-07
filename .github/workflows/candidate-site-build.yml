@@ -25,7 +25,7 @@ jobs:
       - name: Download canonical multifuentes workbook
         run: |
           mkdir -p inputs build
-          gdown "16eAt7J9W5OZf48kUOy-FudxnU6OR2hS9" -O inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
+          gdown 16eAt7J9W5OZf48kUOy-FudxnU6OR2hS9             -O inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
           python - <<'PY'
           from pathlib import Path
           from zipfile import is_zipfile
@@ -34,7 +34,7 @@ jobs:
           if not target.exists():
               raise SystemExit("Base não foi baixada.")
           if not is_zipfile(target):
-              prefix = target.read_bytes()[:80]
+              prefix = target.read_bytes()[:100]
               raise SystemExit(
                   f"Download não é XLSX/ZIP: {target.stat().st_size} bytes; prefixo={prefix!r}"
               )
@@ -109,6 +109,7 @@ jobs:
               raise SystemExit(f"variables={variables}, docs={docs}")
           if pairs != 870:
               raise SystemExit(f"pairs={pairs}")
+
           print({
               "municipalities": meta["municipality_count"],
               "years": len(meta["years"]),

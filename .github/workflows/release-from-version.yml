@@ -6,8 +6,8 @@ on:
       - main
     paths:
       - VERSION
-      - governance/RELEASE_BASELINE_V0_1_0.md
-      - data/catalogs/release_v0_1_0.yml
+      - governance/RELEASE_*.md
+      - data/catalogs/release_*.yml
 
 permissions:
   contents: write
@@ -24,13 +24,32 @@ jobs:
         run: |
           VERSION="$(tr -d '[:space:]' < VERSION)"
           test -n "$VERSION"
+          SAFE_VERSION="${VERSION//./_}"
+          NOTES="governance/RELEASE_NOTES_V${SAFE_VERSION^^}.md"
+          BASELINE="governance/RELEASE_BASELINE_V${SAFE_VERSION^^}.md"
+          MANIFEST="data/catalogs/release_v${SAFE_VERSION}.yml"
+
+          if [ -f "$NOTES" ]; then
+            RELEASE_NOTES="$NOTES"
+          elif [ -f "$BASELINE" ]; then
+            RELEASE_NOTES="$BASELINE"
+          else
+            echo "No release notes found for $VERSION" >&2
+            exit 1
+          fi
+
+          test -f "$MANIFEST"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+          echo "notes=$RELEASE_NOTES" >> "$GITHUB_OUTPUT"
+          echo "manifest=$MANIFEST" >> "$GITHUB_OUTPUT"
 
       - name: Create release if absent
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.version.outputs.tag }}
+          NOTES: ${{ steps.version.outputs.notes }}
+          MANIFEST: ${{ steps.version.outputs.manifest }}
         shell: bash
         run: |
           if gh release view "$TAG" >/dev/null 2>&1; then
@@ -41,9 +60,9 @@ jobs:
           gh release create "$TAG" \
             --target "$GITHUB_SHA" \
             --title "Finanças Municipais SP $TAG" \
-            --notes-file governance/RELEASE_BASELINE_V0_1_0.md
+            --notes-file "$NOTES"
 
           gh release upload "$TAG" \
             VERSION \
-            data/catalogs/release_v0_1_0.yml \
-            governance/RELEASE_BASELINE_V0_1_0.md
+            "$MANIFEST" \
+            "$NOTES"

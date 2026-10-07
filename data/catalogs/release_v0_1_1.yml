@@ -1,0 +1,15 @@
+version: 0.1.1
+type: patch
+date: 2026-10-07
+parent_release: 0.1.0
+scope:
+  - frontend_responsiveness
+changes:
+  tabs_single_row: true
+  horizontal_overflow: true
+  tab_label_wrap: false
+data_baseline:
+  release: 0.1.0
+  unchanged: true
+methodology:
+  unchanged: true

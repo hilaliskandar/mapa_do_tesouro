@@ -71,3 +71,25 @@ def test_pre_2018_revenue_variants_are_explicit():
     assert resolve_rule_for_year(mapping, 2018)["cod_conta"] == "MID"
     assert resolve_rule_for_year(mapping, 2021)["cod_conta"] == "MID"
     assert resolve_rule_for_year(mapping, 2022)["cod_conta"] == "CURRENT"
+
+
+def test_pre_2018_variant_can_override_source_column():
+    rule = {
+        "column": "Receitas Brutas Realizadas",
+        "cod_conta": "CURRENT",
+        "variants": [
+            {
+                "from_year": 2013,
+                "to_year": 2017,
+                "column": "Receitas Realizadas",
+                "cod_conta": "OLD",
+            }
+        ],
+    }
+    resolved = resolve_rule_for_year(rule, 2017)
+    assert resolved["column"] == "Receitas Realizadas"
+    assert resolved["cod_conta"] == "OLD"
+
+    current = resolve_rule_for_year(rule, 2022)
+    assert current["column"] == "Receitas Brutas Realizadas"
+    assert current["cod_conta"] == "CURRENT"

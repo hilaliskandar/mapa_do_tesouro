@@ -40,10 +40,20 @@ def acquire(
     *,
     annex: str | None = None,
     limit_codes: int | None = None,
+    only_codes: set[str] | None = None,
     min_interval: float = 1.05,
 ) -> dict:
     codes = load_codes(geojson)
-    if limit_codes is not None:
+    if only_codes is not None and limit_codes is not None:
+        raise ValueError("only_codes and limit_codes are mutually exclusive.")
+    if only_codes is not None:
+        requested = {str(code).strip() for code in only_codes if str(code).strip()}
+        available = {code for code, _ in codes}
+        unknown = sorted(requested - available)
+        if unknown:
+            raise ValueError(f"Unknown municipality codes: {unknown}")
+        codes = [(code, name) for code, name in codes if code in requested]
+    elif limit_codes is not None:
         codes = codes[:limit_codes]
 
     client = SiconfiClient(min_interval=min_interval)
@@ -134,6 +144,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--annex")
     parser.add_argument("--limit-codes", type=int)
+    parser.add_argument("--only-codes", nargs="+")
     parser.add_argument("--min-interval", type=float, default=1.05)
     args = parser.parse_args()
 
@@ -143,6 +154,7 @@ def main() -> None:
         args.output,
         annex=args.annex,
         limit_codes=args.limit_codes,
+        only_codes=set(args.only_codes) if args.only_codes else None,
         min_interval=args.min_interval,
     )
     print(json.dumps(manifest, ensure_ascii=False, indent=2))

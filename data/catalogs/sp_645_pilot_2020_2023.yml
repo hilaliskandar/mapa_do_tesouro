@@ -36,12 +36,18 @@ r2:
     - file: part-05.b64
       chars: 9642
       sha256: e650954b97421fddf8f198757674a06cb6a52c66266fd59590c9f98eb24a7a93
-    - file: part-06.b64
-      chars: 9642
-      sha256: 38087a7a5e957451c030e3ade0e8d2d3666a78f8a3329e8303d2e63b4adf61a6
-    - file: part-07.b64
-      chars: 9642
-      sha256: 4789eae6316f795c043f58e0f97be85a0b2b4f963e1f9f946395cafeedfc562a
+    - file: part-06a.b64
+      chars: 4821
+      sha256: ee9e477abf2f43b3efae882643125e2c55d1fd69e1e19dc1f77c632c2fd36632
+    - file: part-06b.b64
+      chars: 4821
+      sha256: d8384e8a23885a7abb1d978904f2d04972da6733fd4a113907c0e42550044629
+    - file: part-07a.b64
+      chars: 4821
+      sha256: 2188fad66b60162ef3ac768eb0de61a803ac7e1a42e31aa97907a7447725e978
+    - file: part-07b.b64
+      chars: 4821
+      sha256: 773058284b29a430e2348163bb5348af9b668a52923984aad11f116f0ca063a5
 variables:
   - dca_receita_corrente_bruta
   - dca_receita_tributaria_bruta

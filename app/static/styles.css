@@ -76,8 +76,17 @@ select, .search {
 .tabs {
   display: flex;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin: 20px 0;
+  padding-bottom: 4px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+
+.tab {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .tab, .link-button {

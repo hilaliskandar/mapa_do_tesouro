@@ -1,0 +1,134 @@
+name: Pages Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Stable release tag to deploy, for example v0.1.1"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-production
+  cancel-in-progress: false
+
+jobs:
+  build-deploy-qa:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+
+    steps:
+      - name: Check release tag
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_tag }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check Cloudflare configuration
+        shell: bash
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo "Missing CLOUDFLARE_API_TOKEN"; exit 1; }
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "Missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+          test -n "$CLOUDFLARE_PAGES_PROJECT" || { echo "Missing CLOUDFLARE_PAGES_PROJECT"; exit 1; }
+
+      - name: Install build dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install openpyxl pyyaml pytest gdown
+
+      - name: Download pinned inputs
+        shell: bash
+        run: |
+          mkdir -p inputs build
+          gdown 16eAt7J9W5OZf48kUOy-FudxnU6OR2hS9 \
+            -O inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
+
+          python - <<'PY'
+          from hashlib import sha256
+          from pathlib import Path
+          from urllib.request import urlopen
+          from zipfile import is_zipfile
+
+          workbook = Path("inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx")
+          if not workbook.exists() or not is_zipfile(workbook):
+              raise SystemExit("Canonical workbook download is not a valid XLSX")
+          digest = sha256(workbook.read_bytes()).hexdigest()
+          expected = "f51d8615f3742b1d414f1edff67805cac1a10cbc18764b454aab518de9c9e3f1"
+          if digest != expected:
+              raise SystemExit(f"Canonical workbook hash mismatch: {digest}")
+
+          url = "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-100-mun.json"
+          geo = Path("inputs/geojs-100-mun.json")
+          with urlopen(url, timeout=120) as response:
+              data = response.read()
+          if len(data) < 1_000_000:
+              raise SystemExit(f"Pinned cartography download looks invalid: {len(data)} bytes")
+          geo.write_bytes(data)
+          PY
+
+      - name: Run tests
+        run: pytest -q tests
+
+      - name: Build production candidate
+        run: |
+          python -m pipeline.build.build_analytical_database \
+            inputs/FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx \
+            --database build/financas_municipais_sp.sqlite \
+            --site-output build/site \
+            --geojson inputs/geojs-100-mun.json \
+            --overwrite
+
+      - name: Validate candidate locally
+        run: python deployment/qa_pages.py --site build/site
+
+      - name: Upload production artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pages-production-${{ inputs.release_tag }}
+          path: build/site
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Deploy production
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          npx --yes wrangler@4.148.0 pages deploy build/site \
+            --project-name="$CLOUDFLARE_PAGES_PROJECT" \
+            --branch=main \
+            --commit-hash="$GITHUB_SHA" \
+            --commit-message="Production deploy $RELEASE_TAG" \
+            --commit-dirty=false
+
+      - name: Validate production
+        run: |
+          python deployment/qa_pages.py \
+            --url "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+
+      - name: Publish production URL
+        run: |
+          echo "### Cloudflare Pages production" >> "$GITHUB_STEP_SUMMARY"
+          echo "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev" >> "$GITHUB_STEP_SUMMARY"

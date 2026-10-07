@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install acquisition dependencies
+        run: pip install pyyaml
+
       - name: Download pinned SP municipality list
         run: |
           mkdir -p build

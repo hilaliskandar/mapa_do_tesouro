@@ -101,8 +101,8 @@ Não editar esse arquivo manualmente na pasta de build: ele é gerado pelo pipel
 
 A publicação estática usa dois workflows separados:
 
-- `.github/workflows/pages-preview.yml`: reconstrói o site, executa testes e QA, publica previews de PRs e releases e valida a URL publicada;
-- `.github/workflows/pages-production.yml`: somente por `workflow_dispatch`, exige uma tag de release existente, reconstrói e valida o mesmo artefato antes de publicar na branch de produção.
+- `.github/workflows/pages-preview.yml`: materializa o snapshot de dados já aprovado, sobrepõe o frontend do ref selecionado, executa testes e QA, publica previews de PRs e releases e valida a URL publicada;
+- `.github/workflows/pages-production.yml`: somente por `workflow_dispatch`, exige uma tag de release existente, materializa o snapshot aprovado e valida o candidato antes de publicar na branch de produção.
 
 A automação depende apenas de configuração privada no GitHub Actions:
 
@@ -118,9 +118,10 @@ Os valores não são versionados.
 2. Uma release publicada gera o alias estável `preview`.
 3. Produção nunca é acionada por `push`, PR ou release.
 4. Produção exige acionamento manual e uma `release_tag` existente.
-5. O workflow reconstrói a aplicação a partir da tag informada; não reaproveita arquivos locais.
-6. O workbook canônico é aceito somente se o SHA-256 coincidir com o hash fixado no QA.
-7. O QA remoto verifica HTTP, headers de segurança, universo, anos, cartografia e indicadores sentinela.
+5. O workflow nunca usa arquivos locais do operador; o candidato é montado no runner a partir do snapshot estático publicado e do frontend versionado no GitHub.
+6. O QA verifica o SHA-256 da fonte de dados registrado no próprio snapshot e rejeita qualquer baseline diferente do aprovado.
+7. O QA remoto verifica HTTP, headers de segurança, versão da aplicação, universo, anos, cartografia e indicadores sentinela.
+8. Esta automação cobre deployment. A reconstrução automática da base canônica permanece uma etapa separada até existir uma fonte de build autenticável e estável para o runner.
 
 ### QA pós-deploy
 

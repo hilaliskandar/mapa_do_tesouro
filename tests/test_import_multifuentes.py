@@ -214,3 +214,49 @@ def test_importer_records_source_artifact_and_field_provenance(tmp_path):
         ).fetchone()[0] == "0.2.0"
     finally:
         con.close()
+
+
+def test_importer_supports_custom_universe_from_mapping(tmp_path):
+    mapping_path = ROOT / "data" / "mappings" / "base_multifuentes_v0_4.yml"
+    mapping = yaml.safe_load(mapping_path.read_text(encoding="utf-8"))
+    mapping["source"]["expected_rows"] = 13
+    mapping["source"]["expected_municipalities"] = 1
+    mapping["universe"] = {
+        "id": "SP_TESTE",
+        "name": "São Paulo teste",
+        "description": "Universo de teste.",
+        "type": "analitico",
+    }
+
+    local_mapping = tmp_path / "mapping.yml"
+    local_mapping.write_text(
+        yaml.safe_dump(mapping, sort_keys=False, allow_unicode=True),
+        encoding="utf-8",
+    )
+    workbook = tmp_path / "fixture.xlsx"
+    create_fixture(workbook, local_mapping)
+
+    database = tmp_path / "fixture.sqlite"
+    result = import_multifuentes(
+        workbook,
+        database,
+        mapping_path=local_mapping,
+        build_timestamp="2026-10-07T00:00:00-03:00",
+    )
+
+    assert result["universe_id"] == "SP_TESTE"
+    assert result["universe_name"] == "São Paulo teste"
+
+    con = sqlite3.connect(database)
+    try:
+        assert con.execute(
+            "SELECT universo_id,nome FROM universo"
+        ).fetchall() == [("SP_TESTE", "São Paulo teste")]
+        assert con.execute(
+            "SELECT DISTINCT universo_id FROM universo_municipio"
+        ).fetchall() == [("SP_TESTE",)]
+        assert con.execute(
+            "SELECT DISTINCT universo_id FROM cobertura"
+        ).fetchall() == [("SP_TESTE",)]
+    finally:
+        con.close()

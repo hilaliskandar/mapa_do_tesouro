@@ -56,3 +56,18 @@ def test_normalize_bundle_applies_temporal_variant():
     assert result["variables"]["iptu"]["status"] == "observado"
     assert result["variables"]["iptu"]["value"] == 123.45
     assert result["variables"]["iptu"]["source"]["cod_conta"] == "RO1.1.1.8.01.1.0"
+
+
+def test_pre_2018_revenue_variants_are_explicit():
+    mapping = {
+        "cod_conta": "CURRENT",
+        "variants": [
+            {"from_year": 2013, "to_year": 2017, "cod_conta": "OLD"},
+            {"from_year": 2018, "to_year": 2021, "cod_conta": "MID"},
+        ],
+    }
+    assert resolve_rule_for_year(mapping, 2013)["cod_conta"] == "OLD"
+    assert resolve_rule_for_year(mapping, 2017)["cod_conta"] == "OLD"
+    assert resolve_rule_for_year(mapping, 2018)["cod_conta"] == "MID"
+    assert resolve_rule_for_year(mapping, 2021)["cod_conta"] == "MID"
+    assert resolve_rule_for_year(mapping, 2022)["cod_conta"] == "CURRENT"

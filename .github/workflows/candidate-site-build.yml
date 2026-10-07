@@ -1,9 +1,6 @@
-name: Candidate Site Build
+name: Candidate Site Build - authorized environment
 
 on:
-  push:
-    branches:
-      - bootstrap-financas-municipais-sp
   workflow_dispatch:
 
 jobs:

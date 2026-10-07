@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import sqlite3
 from collections import defaultdict
@@ -48,6 +49,38 @@ def normalize_ibge(value: object) -> str:
     return code
 
 
+def read_tabular_source(path: Path, source: dict) -> tuple[list[str], list[tuple], str, str]:
+    source_format = str(source.get("format", "xlsx")).lower()
+
+    if source_format == "xlsx":
+        workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
+        try:
+            sheet_name = source_location
+            worksheet = workbook[sheet_name]
+            iterator = worksheet.iter_rows(values_only=True)
+            headers = [str(value) if value is not None else "" for value in next(iterator)]
+            rows = list(iterator)
+        finally:
+            workbook.close()
+        return (
+            headers,
+            rows,
+            sheet_name,
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+
+    if source_format == "csv":
+        delimiter = str(source.get("delimiter", ","))
+        encoding = str(source.get("encoding", "utf-8-sig"))
+        with path.open("r", encoding=encoding, newline="") as handle:
+            reader = csv.reader(handle, delimiter=delimiter)
+            headers = next(reader)
+            rows = [tuple(row) for row in reader]
+        return headers, rows, source.get("sheet", "CSV"), "text/csv"
+
+    raise ValueError(f"Formato de fonte nao suportado: {source_format!r}")
+
+
 def import_multifuentes(
     workbook: Path,
     database: Path,
@@ -90,11 +123,17 @@ def import_multifuentes(
     ).fetchone()
     schema_version = schema_version_row[0] if schema_version_row else "unknown"
 
-    workbook_handle = openpyxl.load_workbook(workbook, read_only=True, data_only=True)
+    source_hash = sha256(workbook)
+    expected_sha256 = source.get("expected_sha256")
+    if expected_sha256 and source_hash != expected_sha256:
+        raise ValueError(
+            f"SHA-256 inesperado para a fonte: {source_hash} != {expected_sha256}"
+        )
+
+    headers, rows, source_location, source_mime_type = read_tabular_source(
+        workbook, source
+    )
     try:
-        worksheet = workbook_handle[source["sheet"]]
-        row_iterator = worksheet.iter_rows(values_only=True)
-        headers = [str(value) if value is not None else "" for value in next(row_iterator)]
         column_index = {name: index for index, name in enumerate(headers)}
 
         required_columns = set(mapping["keys"].values())
@@ -103,7 +142,6 @@ def import_multifuentes(
         if missing_columns:
             raise ValueError(f"Colunas ausentes na base: {missing_columns}")
 
-        rows = list(row_iterator)
         code_col = column_index[mapping["keys"]["codigo_ibge"]]
         name_col = column_index[mapping["keys"]["municipio"]]
         year_col = column_index[mapping["keys"]["ano"]]
@@ -139,8 +177,8 @@ def import_multifuentes(
         if len(pairs) != len(rows):
             raise ValueError("Foram encontrados pares municipio-ano duplicados.")
 
-        source_hash = sha256(workbook)
-        build_id = f"multifuentes-v0.4-{source_hash[:12]}"
+        build_prefix = str(source.get("build_prefix", "multifuentes"))
+        build_id = f"{build_prefix}-{source_hash[:12]}"
         artifact_id = f"{source['source_id']}:{source_hash[:16]}"
         timestamp = build_timestamp or datetime.now().astimezone().isoformat(timespec="seconds")
 
@@ -186,7 +224,7 @@ def import_multifuentes(
                 schema_version,
                 source_hash,
                 "candidate",
-                "Primeira carga de migracao. data_sha256 corresponde ao XLSX integrado de origem.",
+                "Carga tabular auditavel. data_sha256 corresponde ao artefato integrado de origem.",
             ),
         )
         connection.execute(
@@ -217,8 +255,8 @@ def import_multifuentes(
                 source["data_version"],
                 timestamp,
                 source_hash,
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                "Workbook integrado usado como artefato de carga canônica.",
+                source_mime_type,
+                "Artefato tabular integrado usado como fonte de carga.",
             ),
         )
 
@@ -292,7 +330,7 @@ def import_multifuentes(
                         1,
                         "campo_fonte",
                         artifact_id,
-                        source["sheet"],
+                        source_location,
                         spec["column"],
                         f"{source['sheet']}!{spec['column']};row={row_number}",
                         build_id,
@@ -327,7 +365,6 @@ def import_multifuentes(
         raise
     finally:
         connection.close()
-        workbook_handle.close()
 
     return {
         "build_id": build_id,

@@ -1,0 +1,61 @@
+snapshot_id: sp_645_finbra_receitas_piloto_2020_2023
+status: pilot_scale
+universe:
+  id: SP_645
+  name: Sao Paulo 645
+  municipalities: 645
+period:
+  start: 2020
+  end: 2023
+rows: 2580
+encoding: base64_chunks_gzip
+compressed:
+  sha256: 3f5ebf5a6482b7627cd2c1bd121c722e53e2632fed2340ae5ccae7e02290088a
+  size_bytes: 57851
+csv:
+  sha256: 1bc6b7a32585c111aa2d25f2cabe794ce6bf6550c2ba1e26ab136806b7a94626
+  size_bytes: 160510
+r2:
+  prefix: sp_645/pilot_2020_2023
+  parts:
+    - file: part-00.b64
+      chars: 9642
+      sha256: 34bf8f5228ce7cc8ccb8a17bf028126bde44e68c895127fbba057c5f73787299
+    - file: part-01.b64
+      chars: 9642
+      sha256: 1c8e4c88caeb5fe927da9c4a91d9bdc684912b28beb1ed46bc1efb299ebeb4c6
+    - file: part-02.b64
+      chars: 9642
+      sha256: 6d7d8b013cc56ad6ac6b0e2a021a6b19b469275b37336b776013100bab94e87e
+    - file: part-03.b64
+      chars: 9642
+      sha256: ff633543308707482be0605f3c2447f7d0e46b3e24ecb701e77cef772e97d9f1
+    - file: part-04.b64
+      chars: 9642
+      sha256: 84473288863991d1a4e752bc34999dae424ccc2238422c8fb6ebce415c483a81
+    - file: part-05.b64
+      chars: 9642
+      sha256: e650954b97421fddf8f198757674a06cb6a52c66266fd59590c9f98eb24a7a93
+    - file: part-06a.b64
+      chars: 4821
+      sha256: ee9e477abf2f43b3efae882643125e2c55d1fd69e1e19dc1f77c632c2fd36632
+    - file: part-06b.b64
+      chars: 4821
+      sha256: d8384e8a23885a7abb1d978904f2d04972da6733fd4a113907c0e42550044629
+    - file: part-07a.b64
+      chars: 4821
+      sha256: 2188fad66b60162ef3ac768eb0de61a803ac7e1a42e31aa97907a7447725e978
+    - file: part-07b.b64
+      chars: 4821
+      sha256: 773058284b29a430e2348163bb5348af9b668a52923984aad11f116f0ca063a5
+variables:
+  - dca_receita_corrente_bruta
+  - dca_receita_tributaria_bruta
+  - dca_iptu_principal
+  - dca_itbi_principal
+  - dca_iss_principal
+semantic_limits:
+  - O snapshot e prova de escala, nao substitui o baseline multifuentes TIC-TIM 30.
+  - Despesas foram excluidas porque o ativo estadual disponivel usa empenhado reconstruido, enquanto o painel canonico usa estagios liquidados em variaveis centrais.
+  - Populacao foi excluida porque o ativo estadual encontrado usa referencia fixa de 2024.
+  - RREO, RGF, RGF02 e CAPAG nao integram este snapshot.

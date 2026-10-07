@@ -1,0 +1,140 @@
+name: Promote approved SP 645 DCA to R2
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Successful Gate A workflow run ID"
+        required: true
+        type: string
+      year:
+        description: "DCA exercise contained in the approved run"
+        required: true
+        type: string
+      confirm:
+        description: "Type PROMOTE to allow private R2 write"
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  promote:
+    if: ${{ inputs.confirm == 'PROMOTE' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate configuration
+        shell: bash
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo "Missing CLOUDFLARE_API_TOKEN"; exit 1; }
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "Missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+          test -n "$CLOUDFLARE_R2_BUCKET" || { echo "Missing CLOUDFLARE_R2_BUCKET"; exit 1; }
+
+      - name: Validate source run
+        shell: bash
+        run: |
+          conclusion="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/${{ inputs.run_id }}" --jq .conclusion)"
+          workflow_path="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/${{ inputs.run_id }}" --jq .path)"
+          head_sha="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/${{ inputs.run_id }}" --jq .head_sha)"
+          test "$conclusion" = "success" || { echo "Source run is not successful: $conclusion"; exit 1; }
+          test "$workflow_path" = ".github/workflows/siconfi-sp645-full-dca.yml" || {
+            echo "Unexpected source workflow: $workflow_path"; exit 1;
+          }
+          echo "source_run=${{ inputs.run_id }}"
+          echo "source_head_sha=$head_sha"
+
+      - name: Download approved Gate A artifacts
+        run: |
+          mkdir -p build/source
+          gh run download "${{ inputs.run_id }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --dir build/source
+
+      - name: Resolve downloaded inputs
+        shell: bash
+        run: |
+          YEAR="${{ inputs.year }}"
+          NORMALIZED="$(find build/source -type f -name "dca_sp_${YEAR}.csv" -print -quit)"
+          STATE="$(find build/source -type f -name "state-${YEAR}.json" -print -quit)"
+          RAW_DIR="$(find build/source -type d -path "*/raw/dca/${YEAR}" -print -quit)"
+
+          test -n "$NORMALIZED" || { echo "Normalized CSV not found"; exit 1; }
+          test -n "$STATE" || { echo "State manifest not found"; exit 1; }
+          test -n "$RAW_DIR" || { echo "Raw directory not found"; exit 1; }
+
+          echo "NORMALIZED=$NORMALIZED" >> "$GITHUB_ENV"
+          echo "STATE=$STATE" >> "$GITHUB_ENV"
+          echo "RAW_DIR=$RAW_DIR" >> "$GITHUB_ENV"
+
+      - name: Package deterministic snapshot
+        run: |
+          python deployment/package_dca_snapshot.py \
+            --year "${{ inputs.year }}" \
+            --normalized-csv "$NORMALIZED" \
+            --raw-root "$RAW_DIR" \
+            --state-manifest "$STATE" \
+            --output-dir build/package
+
+      - name: Upload normalized snapshot
+        run: |
+          SHA="$(python -c 'import json; print(json.load(open("build/package/manifest.json"))["normalized"]["sha256"])')"
+          python deployment/upload_r2_source.py \
+            --source build/package/normalized.csv.gz \
+            --object-key "sp_645/dca/${{ inputs.year }}/normalized.csv.gz" \
+            --content-type application/gzip \
+            --expected-sha256 "$SHA"
+
+      - name: Upload raw archive
+        run: |
+          SHA="$(python -c 'import json; print(json.load(open("build/package/manifest.json"))["raw"]["sha256"])')"
+          python deployment/upload_r2_source.py \
+            --source build/package/raw.tar.gz \
+            --object-key "sp_645/dca/${{ inputs.year }}/raw.tar.gz" \
+            --content-type application/gzip \
+            --expected-sha256 "$SHA"
+
+      - name: Upload private manifest
+        run: |
+          python deployment/upload_r2_source.py \
+            --source build/package/manifest.json \
+            --object-key "sp_645/dca/${{ inputs.year }}/manifest.json" \
+            --content-type application/json
+
+      - name: Verify uploaded normalized object
+        run: |
+          SHA="$(python -c 'import json; print(json.load(open("build/package/manifest.json"))["normalized"]["sha256"])')"
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/dca/${{ inputs.year }}/normalized.csv.gz" \
+            --output build/verify-normalized.csv.gz \
+            --expected-sha256 "$SHA"
+
+      - name: Verify uploaded raw object
+        run: |
+          SHA="$(python -c 'import json; print(json.load(open("build/package/manifest.json"))["raw"]["sha256"])')"
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/dca/${{ inputs.year }}/raw.tar.gz" \
+            --output build/verify-raw.tar.gz \
+            --expected-sha256 "$SHA"
+
+      - name: Retain promotion manifest for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: sp645-dca-${{ inputs.year }}-promotion-manifest
+          path: build/package/manifest.json
+          if-no-files-found: error
+          retention-days: 30

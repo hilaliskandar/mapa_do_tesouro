@@ -8,8 +8,9 @@ def test_pages_preview_workflow_contract():
     assert "pull_request:" in workflow
     assert "release:" in workflow
     assert "workflow_dispatch:" in workflow
-    assert "deployment/qa_pages.py --site build/site" in workflow
     assert "deployment/qa_pages.py" in workflow
+    assert "--site build/site" in workflow
+    assert "deployment/materialize_preview.py" in workflow
     assert "--branch=\"$DEPLOY_ALIAS\"" in workflow
     assert "CLOUDFLARE_API_TOKEN" in workflow
     assert "CLOUDFLARE_ACCOUNT_ID" in workflow

@@ -113,3 +113,31 @@ A tentativa de inspeção por Chromium headless no ambiente atual ficou bloquead
 ## Status
 
 **candidate — build real concluída com QA estrutural aprovado e QA visual pendente.**
+
+
+## QA de runtime local
+
+Após a build real, o site foi servido localmente por HTTP e submetido às seguintes verificações:
+
+- `node --check app.js`: aprovado;
+- carregamento HTTP de `index.html`: aprovado;
+- carregamento HTTP de `metadata.json`, `municipalities.json`, catálogo, metodologia, mapa e snapshot 2025: aprovado;
+- seletores de ID usados em JavaScript versus IDs existentes no HTML: **32 seletores, zero ausências**;
+- municípios no metadata: **30**;
+- período: **2013–2025**;
+- municípios no snapshot 2025: **30**;
+- feições cartográficas: **30**;
+- objetos no catálogo: **75**;
+- presença dos objetos críticos `investimento_pct_receita_corrente`, `dtp_pct_rcl`, `dc_pct_rcl`, `dcl_pct_rcl` e `capag`: aprovada.
+
+A execução do Chromium headless continua limitada por DBus/processo no ambiente de QA. Isso não produziu evidência de falha do site; por isso o gate visual humano permanece recomendado antes de publicação pública.
+
+## Estado do PR
+
+No head validado:
+
+- PR aberto e mergeable;
+- `Bootstrap CI`: aprovado;
+- build real local: aprovada;
+- runtime estático local: aprovado;
+- QA visual humano: recomendado antes da publicação, mas não bloqueia a integração do núcleo técnico.

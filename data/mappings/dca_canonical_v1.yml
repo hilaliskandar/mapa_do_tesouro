@@ -38,7 +38,7 @@ variables:
     annex: DCA-Anexo I-C
     column: Receitas Brutas Realizadas
     rotulo: Padrão
-    cod_conta: RO1.7.1.1.51.0.0
+    cod_conta: RO1.7.1.1.51.1.0
   dca_icms_cota_parte:
     annex: DCA-Anexo I-C
     column: Receitas Brutas Realizadas

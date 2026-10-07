@@ -46,3 +46,16 @@ A versão v1 cobre as variáveis DCA usadas pela base multifuentes atual:
 - população DCA.
 
 Essa camada ainda não incorpora RREO, RGF ou CAPAG. Esses blocos permanecem separados.
+
+
+## FPM — cota mensal
+
+A variável `dca_fpm_cota_mensal` usa a conta analítica
+`RO1.7.1.1.51.1.0`, correspondente à cota mensal do Fundo de Participação
+dos Municípios.
+
+A conta-pai `RO1.7.1.1.51.0.0` não deve ser usada para essa variável,
+porque agrega também as cotas extraordinárias do FPM. Essas parcelas são
+conceitualmente distintas da cota mensal e, portanto, não integram o indicador
+`fpm_pct_receita_corrente` nem o agregado `transferencias_selecionadas`
+quando estes usam `dca_fpm_cota_mensal`.

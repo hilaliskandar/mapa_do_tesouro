@@ -1,0 +1,235 @@
+name: SICONFI Baseline Crosscheck
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "pipeline/sources/**"
+      - "pipeline/acquire/**"
+      - "pipeline/normalize/**"
+      - "data/mappings/dca_canonical_v1.yml"
+      - ".github/workflows/siconfi-baseline-crosscheck.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  crosscheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 \
+            "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
+            --output build/sp.geojson
+
+      - name: Build TIC-TIM sentinel subset
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          sentinel = {
+              "3501608": "Americana",
+              "3509502": "Campinas",
+              "3520509": "Indaiatuba",
+              "3525904": "Jundiai",
+              "3556206": "Valinhos",
+          }
+          payload=json.loads(Path("build/sp.geojson").read_text(encoding="utf-8"))
+          features=[
+              feature
+              for feature in payload["features"]
+              if str(feature["properties"]["id"]) in sentinel
+          ]
+          codes={str(feature["properties"]["id"]) for feature in features}
+          if codes != set(sentinel):
+              raise SystemExit(
+                  f"sentinel geometry mismatch: {sorted(codes)}"
+              )
+          subset={
+              "type": "FeatureCollection",
+              "features": features,
+          }
+          Path("build/sentinel.geojson").write_text(
+              json.dumps(subset, ensure_ascii=False),
+              encoding="utf-8",
+          )
+          print("sentinels=", sorted(codes))
+          PY
+
+      - name: Acquire official DCA for sentinels
+        run: |
+          python -m pipeline.acquire.siconfi_dca_state \
+            --geojson build/sentinel.geojson \
+            --year 2025 \
+            --output build/raw/dca \
+            --normalized-csv build/normalized/dca_sentinels_2025.csv \
+            --expected-municipalities 5 \
+            --min-interval 1.05
+
+      - name: Download published baseline
+        run: |
+          curl --fail --location --retry 3 \
+            "https://finbra-tic-tim-referencia.pages.dev/data/annual/2025.json" \
+            --output build/annual_2025.json
+
+      - name: Compare official acquisition with published baseline
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          import math
+          from pathlib import Path
+
+          sentinel={
+              "3501608",
+              "3509502",
+              "3520509",
+              "3525904",
+              "3556206",
+          }
+
+          with Path("build/normalized/dca_sentinels_2025.csv").open(
+              encoding="utf-8",
+              newline="",
+          ) as handle:
+              official={
+                  row["cod_ibge"]: row
+                  for row in csv.DictReader(handle)
+              }
+
+          published=json.loads(
+              Path("build/annual_2025.json").read_text(encoding="utf-8")
+          )
+          baseline={
+              row["codigo_ibge"]: row["values"]
+              for row in published["municipalities"]
+              if row["codigo_ibge"] in sentinel
+          }
+
+          if set(official) != sentinel:
+              raise SystemExit(
+                  f"official codes={sorted(official)}"
+              )
+          if set(baseline) != sentinel:
+              raise SystemExit(
+                  f"baseline codes={sorted(baseline)}"
+              )
+
+          variables=[
+              "dca_receita_corrente_bruta",
+              "dca_receita_tributaria_bruta",
+              "dca_iptu_principal",
+              "dca_itbi_principal",
+              "dca_iss_principal",
+              "dca_fpm_cota_mensal",
+              "dca_icms_cota_parte",
+              "dca_ipva_cota_parte",
+              "dca_operacoes_credito",
+              "dca_alienacao_bens",
+              "dca_transferencias_capital",
+              "dca_despesa_total_liquidada",
+              "dca_despesa_corrente_liquidada",
+              "dca_pessoal_encargos_liquidada",
+              "dca_juros_encargos_liquidada",
+              "dca_investimentos_liquidada",
+              "dca_inversoes_financeiras_liquidada",
+              "dca_amortizacao_divida_liquidada",
+              "dca_func_saude_liquidada",
+              "dca_func_educacao_liquidada",
+              "dca_func_urbanismo_liquidada",
+              "dca_func_habitacao_liquidada",
+              "dca_func_saneamento_liquidada",
+              "dca_func_gestao_ambiental_liquidada",
+              "dca_func_transporte_liquidada",
+              "populacao_dca",
+          ]
+
+          compared=0
+          mismatches=[]
+          absence_mismatches=[]
+          for code in sorted(sentinel):
+              for variable in variables:
+                  entry=baseline[code].get(variable)
+                  if entry is None:
+                      continue
+                  raw=official[code].get(variable, "")
+                  if entry["status"] == "observado":
+                      if raw == "":
+                          mismatches.append(
+                              (code, variable, entry["value"], None)
+                          )
+                          continue
+                      actual=float(raw)
+                      expected=float(entry["value"])
+                      if not math.isclose(
+                          actual,
+                          expected,
+                          rel_tol=1e-10,
+                          abs_tol=0.01,
+                      ):
+                          mismatches.append(
+                              (code, variable, expected, actual)
+                          )
+                      compared += 1
+                  elif entry["status"] == "ausente" and raw != "":
+                      absence_mismatches.append(
+                          (code, variable, raw)
+                      )
+
+          if mismatches:
+              raise SystemExit(
+                  "value mismatches: " + repr(mismatches[:20])
+              )
+          if absence_mismatches:
+              raise SystemExit(
+                  "absence mismatches: "
+                  + repr(absence_mismatches[:20])
+              )
+          if compared < 80:
+              raise SystemExit(
+                  f"too few observed comparisons: {compared}"
+              )
+
+          manifest=json.loads(
+              Path("build/raw/dca/manifests/state-2025.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          if manifest["failed"]:
+              raise SystemExit(
+                  f"acquisition failures: {manifest['failed']}"
+              )
+          print(
+              "SICONFI baseline crosscheck: OK",
+              f"municipalities={len(sentinel)}",
+              f"observed_comparisons={compared}",
+          )
+          PY
+
+      - name: Upload crosscheck diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: siconfi-baseline-crosscheck-2025
+          path: |
+            build/raw/dca/manifests
+            build/normalized/dca_sentinels_2025.csv
+          if-no-files-found: error
+          retention-days: 7

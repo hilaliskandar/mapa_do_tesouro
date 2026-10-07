@@ -1,0 +1,85 @@
+version: 3
+name: finbra_dca_sp_drive_2013_2025
+storage:
+  provider: google_drive
+  folder_id: 1K_Raj0pKEyktVY5BVa_raOZ4cQdJ8HQ4
+  folder_url: https://drive.google.com/drive/folders/1K_Raj0pKEyktVY5BVa_raOZ4cQdJ8HQ4
+policy:
+  historical_batch_source: preferred
+  external_siconfi_role:
+    - sample_validation
+    - incremental_update
+    - gap_investigation
+    - independent_audit
+years:
+  2013:
+    municipalities: {i_c: 641, i_d: 641, i_e: 638, all_three: 638}
+    i_c: {file_id: 1HmDO4Zqb5isct93eGAhG7BpibhwuP-tj, size_bytes: 10682929, sha256: d680d2e1e4c55ef3de2d66e749a3ea810616d350242cc0f59cf2830280b18c64}
+    i_d: {file_id: 10pRywT236NrCJOuyntZG95q5D2a_Rz-0, size_bytes: 16074979, sha256: 1245c047479e2aedc8352dda4c4e0c7fb9753de82411c2e1b0a09c8d7aab074a}
+    i_e: {file_id: 1Sfr37SCqpEaZz5_UBmWYXln8xQ_0prjH, size_bytes: 16513986, sha256: 5ad6e4b708281bdfafdb655429822af0ced12fe1b24a1d1fe1e58e32787a19fe}
+  2014:
+    municipalities: {i_c: 626, i_d: 625, i_e: 625, all_three: 625}
+    i_c: {file_id: 1IyA_P0JsnYjOazuMCOsu0KhdWz-CGJBW, size_bytes: 11705201, sha256: 8e2b48ba7231fcc1cfeb9eb4017f25903f470cf7dec933508d23ba87a3aacf04}
+    i_d: {file_id: 1XqC1-E1ODyM3mt_UveqINjgikMnC0KLE, size_bytes: 16713557, sha256: bf3b562298aa57ef69be7ce2505c7acc0ddad43fc75ca1728b68be91f4987e79}
+    i_e: {file_id: 1ewh0X2EzP5slEWPwPH2DHRhMDbn5e2Ua, size_bytes: 16925679, sha256: 7cd018266dc8ee6d5681dd59d7db08ad3574e5c030c46d58f7a8db2d76cd7f89}
+  2015:
+    municipalities: {i_c: 643, i_d: 643, i_e: 643, all_three: 643}
+    i_c: {file_id: 1cjMzL3fkURGADzrPUk5e03XTepsWPNYT, size_bytes: 13704033, sha256: 73358ed138a554d2393f8ee9bf87ca9e475e65d768b80fcd68ee854806ecc834}
+    i_d: {file_id: 1Stx9CHZmf7OdrrnBSr5AgQdsb5OSTX3v, size_bytes: 17462899, sha256: e6bfcf5f2a51d44906d06a048c652384ee5b95a03486f02d779ca8dff7735356}
+    i_e: {file_id: 1QRHu1DF6Sspdz71XQ_u1XOUT3eafO435, size_bytes: 17246891, sha256: f41a86674a5d04e851b6b5ffda29052952cc1b62d72475df90f39142453511fc}
+  2016:
+    municipalities: {i_c: 644, i_d: 644, i_e: 644, all_three: 643}
+    i_c: {file_id: 15v4u-l43387IqlQBIS1Q7lswSMhuHsJx, size_bytes: 14089289, sha256: 5351324ac4c76628265651fb1aae7795e8d347f03a92dde2fc4017e8dc2ce663}
+    i_d: {file_id: 1HfP4QroRnBUnopd46K-YMKYjH0q3T9E0, size_bytes: 16997195, sha256: 1b60bc9dac7dc2586cd303fe588f3bb870ef6f10d5b5538c460adae7919079bc}
+    i_e: {file_id: 1aOABVgQch7lK6OLiaxPmKzYyzEG1URCY, size_bytes: 17096157, sha256: c9f1982352cc3d2dd21dd70caa714db99e8b14c5aa02adeaa930ff1717efbb3f}
+  2017:
+    municipalities: {i_c: 645, i_d: 645, i_e: 645, all_three: 645}
+    i_c: {file_id: 1Xtfn92i3fXDSupxMJLcTbdAkm3N6QYwv, size_bytes: 14322421, sha256: 94da74c44d54d103bc72e6155a739507f5270b3485390c49dcfeca4dfb47dc76}
+    i_d: {file_id: 1ynGLUUGM9NKwobdJNiOzawmL2GCEjSY8, size_bytes: 17455331, sha256: 05037e3758faa2dd79e4bf2fc903ba52194ba403b043eb94b51929df422f3469}
+    i_e: {file_id: 1n_hHUbDdJZ_8ro-_eeatXy4yX0j4-X1v, size_bytes: 17711487, sha256: a98f3322711aaa4b27b9dbe2690350998f4c73ea0c7c0b5890542d464745cb92}
+  2018:
+    municipalities: {i_c: 643, i_d: 643, i_e: 643, all_three: 643}
+    i_c: {file_id: 1y3xbmTK_-t-jg8wia57U0B4zTSwJuG0p, size_bytes: 13849848, sha256: 72b924e47d3f747977a2ac58e2269e09018793a0b3904fc2ff9d342866255ed9}
+    i_d: {file_id: 1LZ_PB8ZUnkDm8B6VDnc-q2-7RCzp1Y4p, size_bytes: 17745293, sha256: 25fa1f7b72d298d49cce84ea1033db406b1d26117da746ce55f603bffaa5dedc}
+    i_e: {file_id: 1jwuhj83UguSO4AzF3scweiag3n7Fm54U, size_bytes: 18206751, sha256: 99421a5e26c0bccd60b311ee0d67ece22935f482c0de8d074a00a77cdafa8c27}
+  2019:
+    municipalities: {i_c: 642, i_d: 643, i_e: 643, all_three: 642}
+    i_c: {file_id: 1x3qBHY5PwZBC5xzS77NoFbjk2aoEA3av, size_bytes: 15417931, sha256: 83721200928c2069c020758f90430d430e71689802e1bab9448c937b17399934}
+    i_d: {file_id: 1W2mWkun-R6DtaSI-OFbJ8dDilZ8SCqs7, size_bytes: 17431265, sha256: cd1b93bf192720ccd0314a151486494b2d8489ba980b3f394570dc6f6a2df9bf}
+    i_e: {file_id: 13I2oOpwD_T7yb0ldfpButJ8MCbCZYxhH, size_bytes: 17372482, sha256: 1019fbb595ed726da6135f3f49f7ae329621be52fc531f368913a529b244c425}
+  2020:
+    municipalities: {i_c: 645, i_d: 645, i_e: 645, all_three: 645}
+    i_c: {file_id: 1l5E_in3CFmz_PDUcgK8kEABbtRCMpYnu, size_bytes: 2780515, sha256: 172c99af01a3fe556341e49eae232207ecd78a957b1e242e4a44c4baf0a62e1c}
+    i_d: {file_id: 1sSgIS9VF93Q9n-o-jjM1SsCBmHcEOgnj, size_bytes: 3349451, sha256: 091230d21bde0aa7261d2da774abce824c214dccc693635e794146eaeea286e9}
+    i_e: {file_id: 1aSkevuUrTrKHCirmAE1Xu9JIdcg_RtG2, size_bytes: 3656591, sha256: 41f4c28e1b08d00fd9b39d179cbc2756ec433aabfbba84d58cdbd04ad8e7ce45}
+  2021:
+    municipalities: {i_c: 645, i_d: 645, i_e: 645, all_three: 645}
+    i_c: {file_id: 1m8SwRQooXJRd6RHHzr7UVnnbUSqYMW8R, size_bytes: 2745852, sha256: 819dfa147258f74b9f1f4e6de1dd969052e932c77f80213a88f194e6b4064c59}
+    i_d: {file_id: 1PSfHa-z26gI-6X-LWBzfJsZ3SN52l1In, size_bytes: 3416700, sha256: 42d8d67e21483201fa04a3360c210c942e0d618994a65e84a16afab19a7943ac}
+    i_e: {file_id: 1OFrtZbhnsHHyPQa5KLAZ65uao5mhXO25, size_bytes: 3769819, sha256: f8235e4091e512018060c8abada17017e3e9149c9196f8714a44351ec9d93166}
+  2022:
+    municipalities: {i_c: 644, i_d: 645, i_e: 645, all_three: 644}
+    i_c: {file_id: 1q8ZjZ1W7L8cOY1bqOLHxBDFYGrgPb63s, size_bytes: 2916625, sha256: 73f017f200d2b0380f07342ccef36a822c17637df254cca337a02317c6345609}
+    i_d: {file_id: 13fTmhqr49fH0t1uiO893gDEGkyGq41FU, size_bytes: 3513922, sha256: 1cbbc93ea3a23b6feff3fdccac1ec4299df0d03325302ddac3b27467dd6b1b62}
+    i_e: {file_id: 1_WrX-aPk_12AuzRwzqmnLI9WMCpTQF27, size_bytes: 3928695, sha256: 79449294bac8898d586fd126fcb8aeecffc91fed5119625ef217b5eaee37c114}
+  2023:
+    municipalities: {i_c: 645, i_d: 645, i_e: 645, all_three: 645}
+    i_c: {file_id: 1SeGGScw5Vd9PrZzLBDcPg9KDXDAjjjRI, size_bytes: 2933426, sha256: 8255731899f9b93919b8202e6af497d683a95791408c1692e087f0fad2c2f28d}
+    i_d: {file_id: 1xsoUpcQiWA5lle2JLpO5GZZDzRymtVTb, size_bytes: 3646735, sha256: e049bdd45e0380dcabe7f9eb0cf87ef35d1c06b68d4a1eb2975886ce793ecf08}
+    i_e: {file_id: 1ODlch6HSQOKjZgu-NMHv8OEDlQhbL5SJ, size_bytes: 4117381, sha256: 97b39c7e3c0526777e9d8a1ab1d7ea94e6636ccea34b3011753c3ccff3456e19}
+  2024:
+    municipalities: {i_c: 630, i_d: 630, i_e: 630, all_three: 630}
+    i_c: {file_id: 1ZJyPzXbwB7jvnrOmQXjv5tS1Fpuq5enu, size_bytes: 2873589, sha256: 3557de4f7f99cb7953051c8a025c3d347339502b3a40eb6827a78402ddd1b1b1}
+    i_d: {file_id: 1IS2EUnPguhUiRroX6Pm6Egx58lXZbKah, size_bytes: 3601251, sha256: e5f884aa19c384da8c75f1c39ed28b7824ad02f4c00b489fa743f561dfc08177}
+    i_e: {file_id: 1SP1cHfVLvHS3qYvNnYVnwS-EgQpzUCi0, size_bytes: 4057499, sha256: baac61c4e7a25ac77d842530908c269570a261ca4e1c32d256d9a67ad7ed37f6}
+  2025:
+    municipalities: {local_all_three: 632, gate_a_all_three: 645}
+    i_c: {file_id: 185x_7zgX9aGOy0Z6Drh-iA9vBY83JU1F, size_bytes: 16946392, sha256: 502b0edb79d2fc7c330854877b5f6f2bfbd97fffca8189fb58f53a8b830a3827}
+    i_d: {file_id: 12qfplHoUJRqe91GpsjXGqOPvljJXoq1C, size_bytes: 19258567, sha256: ba7c36af142523962cd48c572aa28cae97b18f3e646aa5eff796cb3abca548fe}
+    i_e: {file_id: 1emNY64pw4dvo2EChwWyBKlfCD200mTxT, size_bytes: 19196424, sha256: fa519ff00db840b1cb7cd4ce570780025f4ccf819ecbb2406bf97287d9f4956e}
+gate_a_2025:
+  normalized_sha256: 619367dd8b2c5b3db6f7a6c902b41e2f2685616cf8560e2e852e7583f386eec7
+  municipalities: 645
+notes:
+  - Arquivos são snapshots locais e podem anteceder revisões posteriores do Siconfi.
+  - Ausências são preservadas e complementadas somente por delta explícito.

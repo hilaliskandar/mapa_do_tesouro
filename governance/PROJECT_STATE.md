@@ -8,21 +8,22 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_b_active`.
+A expansão estadual está no estado `gate_b_history_characterized`.
 
 ## Hierarquia de fontes operacionais
 
-Para reconstrução histórica e processamento em lote, o acervo local do Google Drive é a fonte operacional preferencial.
-
-Pasta FINBRA/SP:
+O acervo FINBRA/DCA no Google Drive é a fonte operacional preferencial para reconstrução histórica e processamento em lote:
 
 `https://drive.google.com/drive/folders/1K_Raj0pKEyktVY5BVa_raOZ4cQdJ8HQ4`
 
-Regra:
+O Siconfi externo deve ser usado para:
 
-1. Drive local para reconstrução histórica, cargas em lote e reprocessamento;
-2. Siconfi externo para validação por amostra, atualização incremental, confirmação de versão e investigação de lacunas/divergências;
-3. aquisição externa integral somente quando necessária para auditoria independente ou ausência de snapshot local adequado.
+- validação por amostra;
+- complementação incremental de lacunas;
+- atualização posterior ao snapshot local;
+- auditoria independente.
+
+Não se deve repetir coleta estadual completa quando existir snapshot local adequado.
 
 ## Baseline público
 
@@ -37,10 +38,9 @@ Regra:
 
 ### Gate A — aprovado
 
-A aquisição direta estadual de 2025 foi concluída com sucesso:
+A aquisição estadual independente de 2025 foi concluída:
 
-- 645 municípios;
-- I-C, I-D e I-E;
+- 645 municípios solicitados;
 - 1.935 respostas brutas;
 - zero falhas;
 - 645 linhas normalizadas;
@@ -48,42 +48,58 @@ A aquisição direta estadual de 2025 foi concluída com sucesso:
 - zero issues;
 - SHA-256 normalizado `619367dd8b2c5b3db6f7a6c902b41e2f2685616cf8560e2e852e7583f386eec7`.
 
-A execução independente anterior produziu o mesmo hash normalizado.
+### Gate B — série histórica caracterizada
 
-### Gate B — ativo
+Os anexos locais I-C, I-D e I-E foram inspecionados para todos os exercícios de 2013 a 2025.
 
-A reconstrução local já foi testada para 2020–2025.
+A cardinalidade mínima anual na interseção dos três anexos é:
 
-Situação:
+- 2013: 638;
+- 2014: 625;
+- 2015: 643;
+- 2016: 643;
+- 2017: 645;
+- 2018: 643;
+- 2019: 642;
+- 2020: 645;
+- 2021: 645;
+- 2022: 644;
+- 2023: 645;
+- 2024: 630;
+- 2025 local: 632;
+- 2025 Gate A: 645.
 
-- 2020: 645 municípios nos três anexos;
-- 2021: 645 municípios nos três anexos;
-- 2022: 644 em I-C; 645 em I-D/I-E;
-- 2023: 645 municípios nos três anexos;
-- 2024: 630 municípios nos três anexos;
-- 2025 local: 632 municípios; aquisição direta atual: 645.
+O normalizador aceita CSV e XLSX locais, registra hashes, cobertura e códigos faltantes.
 
-O normalizador já aceita CSV e XLSX locais e produz cobertura/ausência frente ao universo estadual.
+### Crosswalk temporal concluído para receitas centrais
 
-### Crosswalk temporal
+Foram comprovados diretamente nos arquivos locais quatro regimes:
 
-Foi incorporada variante explícita para 2018–2021 nas contas de IPTU, ITBI, ISS, FPM mensal, ICMS e IPVA. Os códigos foram verificados diretamente nos anexos locais de 2018–2021.
+- 2013: códigos antigos + `Receitas Realizadas`;
+- 2014–2017: códigos antigos + `Receitas Brutas Realizadas`;
+- 2018–2021: códigos intermediários + `Receitas Brutas Realizadas`;
+- 2022+: códigos atuais + `Receitas Brutas Realizadas`.
+
+As variantes estão explicitadas no mapping canônico. As despesas centrais permanecem no mesmo contrato observado.
 
 ## Próximo gate operacional
 
-1. processar integralmente 2018 e 2019 com o mapping temporal já corrigido;
-2. identificar o regime contábil anterior a 2018;
-3. expandir progressivamente para 2013–2017;
-4. produzir delta incremental apenas para exercícios/snapshots incompletos;
-5. promover snapshots anuais aprovados para armazenamento privado versionado;
-6. somente depois integrar RREO, RGF, CAPAG e demais fontes estaduais.
+O próximo trabalho é completar a série com **delta incremental**, não repetir aquisições estaduais integrais:
+
+1. priorizar exercícios com poucas lacunas: 2022, 2018, 2019, 2015, 2016 e 2013;
+2. tratar 2024 e o snapshot local de 2025 com deltas maiores;
+3. avaliar 2014 separadamente por ser o snapshot local mais incompleto;
+4. preservar snapshot original e delta como artefatos distintos;
+5. promover anos aprovados ao R2 privado;
+6. consolidar snapshot multianual estadual;
+7. somente então iniciar integração estadual de RREO, RGF e CAPAG.
 
 ## Regras para retomada
 
 1. ler este arquivo;
 2. verificar `main`, PRs e CI;
-3. consultar primeiro o acervo local do Drive;
-4. não repetir coleta externa integral se houver snapshot local adequado;
+3. consultar o Drive antes de qualquer coleta externa;
+4. consultar apenas os códigos/anexos faltantes quando houver snapshot local;
 5. preservar ausência como ausência;
-6. registrar toda variante temporal explicitamente;
-7. manter TIC-TIM 30 como baseline de regressão até a promoção formal do baseline estadual.
+6. respeitar o crosswalk por exercício;
+7. manter TIC-TIM 30 como baseline de regressão até promoção formal do baseline estadual.

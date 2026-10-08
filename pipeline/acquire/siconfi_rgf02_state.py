@@ -61,6 +61,7 @@ def acquire_state_year(
     *,
     min_interval: float = 1.05,
     limit_codes: int | None = None,
+    start_index: int = 0,
     expected_municipalities: int | None = 645,
 ) -> dict:
     codes = load_codes(geojson)
@@ -68,7 +69,10 @@ def acquire_state_year(
         raise ValueError(
             f"Unexpected municipality count: {len(codes)} != {expected_municipalities}"
         )
-    selected = codes[:limit_codes] if limit_codes is not None else codes
+    if start_index < 0 or start_index > len(codes):
+        raise ValueError(f"Invalid start_index: {start_index}")
+    tail = codes[start_index:]
+    selected = tail[:limit_codes] if limit_codes is not None else tail
     client = SiconfiClient(min_interval=min_interval)
 
     completed_now = 0
@@ -175,6 +179,7 @@ def acquire_state_year(
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "municipalities_in_geojson": len(codes),
         "municipalities_requested": len(selected),
+        "start_index": int(start_index),
         "observed_municipalities": observed_municipalities,
         "long_rows": municipality_rows,
         "distinct_account_codes": len(accounts),
@@ -207,6 +212,7 @@ def main() -> None:
     parser.add_argument("--long-csv", type=Path, required=True)
     parser.add_argument("--min-interval", type=float, default=1.05)
     parser.add_argument("--limit-codes", type=int)
+    parser.add_argument("--start-index", type=int, default=0)
     parser.add_argument("--expected-municipalities", type=int, default=645)
     args = parser.parse_args()
 
@@ -217,6 +223,7 @@ def main() -> None:
         args.long_csv,
         min_interval=args.min_interval,
         limit_codes=args.limit_codes,
+        start_index=args.start_index,
         expected_municipalities=args.expected_municipalities,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))

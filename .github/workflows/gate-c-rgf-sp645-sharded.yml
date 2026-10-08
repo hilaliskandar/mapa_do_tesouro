@@ -13,12 +13,19 @@ on:
         required: true
         default: "1.05"
         type: string
+  workflow_run:
+    workflows: ["Gate C RGF SP645"]
+    types: [completed]
 
 permissions:
   contents: read
 
 jobs:
   acquire-shards:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion != 'success'
+    env:
+      RGF_YEAR: ${{ github.event_name == 'workflow_dispatch' && inputs.year || '2025' }}
+      MIN_INTERVAL: ${{ github.event_name == 'workflow_dispatch' && inputs.min_interval || '1.05' }}
     strategy:
       fail-fast: false
       matrix:
@@ -41,12 +48,12 @@ jobs:
           curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
       - name: Acquire shard
         run: |
-          python -m pipeline.acquire.siconfi_rgf_state             --geojson build/sp.geojson             --year "${{ inputs.year }}"             --output "build/raw/rgf/${{ inputs.year }}"             --normalized-csv "build/normalized/rgf_01_05_${{ inputs.year }}_${{ matrix.shard.name }}.csv"             --start-index "${{ matrix.shard.start }}"             --limit-codes "${{ matrix.shard.count }}"             --min-interval "${{ inputs.min_interval }}"
+          python -m pipeline.acquire.siconfi_rgf_state             --geojson build/sp.geojson             --year "${{ env.RGF_YEAR }}"             --output "build/raw/rgf/${{ env.RGF_YEAR }}"             --normalized-csv "build/normalized/rgf_01_05_${{ env.RGF_YEAR }}_${{ matrix.shard.name }}.csv"             --start-index "${{ matrix.shard.start }}"             --limit-codes "${{ matrix.shard.count }}"             --min-interval "${{ env.MIN_INTERVAL }}"
       - name: Upload shard
         uses: actions/upload-artifact@v4
         with:
-          name: gate-c-rgf-${{ inputs.year }}-${{ matrix.shard.name }}
+          name: gate-c-rgf-${{ env.RGF_YEAR }}-${{ matrix.shard.name }}
           path: |
-            build/raw/rgf/${{ inputs.year }}
-            build/normalized/rgf_01_05_${{ inputs.year }}_${{ matrix.shard.name }}.csv
+            build/raw/rgf/${{ env.RGF_YEAR }}
+            build/normalized/rgf_01_05_${{ env.RGF_YEAR }}_${{ matrix.shard.name }}.csv
           retention-days: 30

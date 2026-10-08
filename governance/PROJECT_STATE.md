@@ -151,6 +151,6 @@ O DCA permanece fonte analítica e não substitui declarações legais dessas fo
 2. registrar cobertura estadual, hashes e ausências;
 3. expandir RGF Anexo 01 e 05 com paridade contra o TIC-TIM 30;
 4. integrar RGF Anexo 02;
-5. incorporar CAPAG oficial;
+5. incorporar CAPAG oficial — fonte SP645 já validada em 645/645 no snapshot de setembro de 2026;
 6. somente então recalcular indicadores e avaliar promoção estadual.
 

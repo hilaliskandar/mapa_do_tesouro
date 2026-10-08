@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_c_contracts_defined`: o Gate B DCA está concluído e os contratos multifuentes de RREO, RGF e CAPAG foram definidos a partir das bases locais já validadas.
+A expansão estadual está no estado `gate_c_rreo_rcl_smoke_approved`: os contratos multifuentes estão definidos e o RREO Anexo 03 / RCL anual passou em paridade 5/5 contra o Drive.
 
 ## Hierarquia de fontes operacionais
 
@@ -147,8 +147,8 @@ O DCA permanece fonte analítica e não substitui declarações legais dessas fo
 
 ## Próximo gate operacional
 
-1. localizar snapshots estaduais locais de RREO/RGF antes de qualquer coleta externa ampla;
-2. construir carga SP645 de RREO Anexo 03;
+1. executar e auditar a primeira carga SP645 de RREO Anexo 03 para 2025;
+2. registrar cobertura estadual, hashes e ausências;
 3. expandir RGF Anexo 01 e 05 com paridade contra o TIC-TIM 30;
 4. integrar RGF Anexo 02;
 5. incorporar CAPAG oficial;

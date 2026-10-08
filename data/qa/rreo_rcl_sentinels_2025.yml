@@ -1,0 +1,21 @@
+version: 1
+year: 2025
+source:
+  provider: google_drive
+  file_id: 1aIxOzvqkbEAEAyf2nn05pqFlijaVahSLW4ZwyBfGIJE
+  title: FINBRA_RCL_OFICIAL_2015_2025
+  sheet: RCL_2015_2025
+contract:
+  annex: RREO-Anexo 03
+  period: 6
+  cod_conta: RREO3ReceitaCorrenteLiquida
+  coluna: TOTAL (ÚLTIMOS 12 MESES)
+sentinels:
+  "3501608": {municipio: Americana, rcl_total_12m: 1459192239.74, populacao_rreo: 243674}
+  "3502804": {municipio: Aracatuba, rcl_total_12m: 1016032329.93, populacao_rreo: 213929}
+  "3503208": {municipio: Araraquara, rcl_total_12m: 1584274467.19, populacao_rreo: 250304}
+  "3505708": {municipio: Barueri, rcl_total_12m: 5297954244.57, populacao_rreo: 342613}
+  "3506003": {municipio: Bauru, rcl_total_12m: 1947805073.71, populacao_rreo: 388686}
+tolerance:
+  absolute_brl: 0.01
+  population: 0

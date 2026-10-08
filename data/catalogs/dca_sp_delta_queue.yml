@@ -10,6 +10,25 @@ years:
   2013:
     priority: 6
     codes:
+    - 3514106
+    - 3515400
+    - 3527603
+    - 3528700
+    - 3544004
+    - 3554607
+    - 3556602
+    missing_by_annex:
+      i_c:
+      - 3514106
+      - 3527603
+      - 3544004
+      - 3554607
+      i_d:
+      - 3514106
+      - 3527603
+      - 3544004
+      - 3554607
+      i_e:
       - 3514106
       - 3515400
       - 3527603
@@ -17,13 +36,51 @@ years:
       - 3544004
       - 3554607
       - 3556602
-    missing_by_annex:
-      i_c: [3514106, 3527603, 3544004, 3554607]
-      i_d: [3514106, 3527603, 3544004, 3554607]
-      i_e: [3514106, 3515400, 3527603, 3528700, 3544004, 3554607, 3556602]
   2014:
     priority: 9
     codes:
+    - 3500550
+    - 3501152
+    - 3506607
+    - 3508009
+    - 3508504
+    - 3508900
+    - 3510302
+    - 3512605
+    - 3522505
+    - 3526605
+    - 3534005
+    - 3535705
+    - 3537404
+    - 3544202
+    - 3546504
+    - 3551405
+    - 3552809
+    - 3554607
+    - 3556453
+    - 3557303
+    missing_by_annex:
+      i_c:
+      - 3500550
+      - 3506607
+      - 3508009
+      - 3508504
+      - 3508900
+      - 3510302
+      - 3512605
+      - 3522505
+      - 3526605
+      - 3534005
+      - 3535705
+      - 3537404
+      - 3544202
+      - 3546504
+      - 3551405
+      - 3552809
+      - 3554607
+      - 3556453
+      - 3557303
+      i_d:
       - 3500550
       - 3501152
       - 3506607
@@ -44,31 +101,69 @@ years:
       - 3554607
       - 3556453
       - 3557303
-    missing_by_annex:
-      i_c: [3500550, 3506607, 3508009, 3508504, 3508900, 3510302, 3512605, 3522505, 3526605, 3534005, 3535705, 3537404, 3544202, 3546504, 3551405, 3552809, 3554607, 3556453, 3557303]
-      i_d: [3500550, 3501152, 3506607, 3508009, 3508504, 3508900, 3510302, 3512605, 3522505, 3526605, 3534005, 3535705, 3537404, 3544202, 3546504, 3551405, 3552809, 3554607, 3556453, 3557303]
-      i_e: [3500550, 3501152, 3506607, 3508009, 3508504, 3508900, 3510302, 3512605, 3522505, 3526605, 3534005, 3535705, 3537404, 3544202, 3546504, 3551405, 3552809, 3554607, 3556453, 3557303]
+      i_e:
+      - 3500550
+      - 3501152
+      - 3506607
+      - 3508009
+      - 3508504
+      - 3508900
+      - 3510302
+      - 3512605
+      - 3522505
+      - 3526605
+      - 3534005
+      - 3535705
+      - 3537404
+      - 3544202
+      - 3546504
+      - 3551405
+      - 3552809
+      - 3554607
+      - 3556453
+      - 3557303
   2015:
     priority: null
     codes: []
     status: source_confirmed_absence
     original_missing_by_annex:
-      i_c: [3515707, 3553401]
-      i_d: [3515707, 3553401]
-      i_e: [3515707, 3553401]
+      i_c:
+      - 3515707
+      - 3553401
+      i_d:
+      - 3515707
+      - 3553401
+      i_e:
+      - 3515707
+      - 3553401
     source_check:
       run_id: 37720988539
       normalized_sha256: b4e0e5df5329a7eb0883914711103f870f5973049aafc9fe114db4bf735f1178
-      codes: [3515707, 3553401]
+      codes:
+      - 3515707
+      - 3553401
       empty_source_pairs: 6
       result: items_empty_in_all_requested_pairs
   2016:
-    priority: 3
-    codes: [3543238, 3554607]
-    missing_by_annex:
-      i_c: [3554607]
-      i_d: [3543238]
-      i_e: [3543238]
+    priority: null
+    codes: []
+    status: source_confirmed_absence
+    original_missing_by_annex:
+      i_c:
+      - 3554607
+      i_d:
+      - 3543238
+      i_e:
+      - 3543238
+    source_check:
+      run_id: 37722964526
+      normalized_sha256: aae129a804cd3614c4a3e375e3a347c538bb279a25e22a4c579e813a0da58e20
+      codes:
+      - '3543238'
+      - '3554607'
+      municipality_annex_pairs_requested: 3
+      empty_source_pairs: 3
+      result: source_confirmed_absence
   2017:
     priority: null
     codes: []
@@ -78,21 +173,39 @@ years:
     codes: []
     status: source_confirmed_absence
     original_missing_by_annex:
-      i_c: [3502408, 3531407]
-      i_d: [3502408, 3531407]
-      i_e: [3502408, 3531407]
+      i_c:
+      - 3502408
+      - 3531407
+      i_d:
+      - 3502408
+      - 3531407
+      i_e:
+      - 3502408
+      - 3531407
     source_check:
       run_id: 37720130237
       normalized_sha256: 5e9aba6ee6d627eceeddd1e7648be8bd4abfe5476a34a339dd39da2ad2dd9a79
-      codes: [3502408, 3531407]
+      codes:
+      - 3502408
+      - 3531407
       result: items_empty_in_all_three_annexes
   2019:
     priority: 4
-    codes: [3532157, 3548302, 3554607]
+    codes:
+    - 3532157
+    - 3548302
+    - 3554607
     missing_by_annex:
-      i_c: [3532157, 3548302, 3554607]
-      i_d: [3548302, 3554607]
-      i_e: [3548302, 3554607]
+      i_c:
+      - 3532157
+      - 3548302
+      - 3554607
+      i_d:
+      - 3548302
+      - 3554607
+      i_e:
+      - 3548302
+      - 3554607
   2020:
     priority: null
     codes: []
@@ -106,38 +219,119 @@ years:
     codes: []
     status: resolved_by_local_revenue_supplement
     original_missing_by_annex:
-      i_c: [3517802]
+      i_c:
+      - 3517802
       i_d: []
       i_e: []
     local_supplement:
       file_id: 1FX1QFhv3_lUhfqxEW0z5KJ0EWGPoMZGQ
       worksheet: 2022-finbra
-      codes: [3517802]
+      codes:
+      - 3517802
   2023:
     priority: null
     codes: []
     status: complete_snapshot
   2024:
     priority: 8
-    codes: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
+    codes:
+    - 3500303
+    - 3503000
+    - 3509403
+    - 3509957
+    - 3514304
+    - 3515152
+    - 3522158
+    - 3525409
+    - 3531902
+    - 3536802
+    - 3537800
+    - 3542701
+    - 3549607
+    - 3550209
+    - 3557204
     missing_by_annex:
       i_c: []
-      i_d: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
-      i_e: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
+      i_d:
+      - 3500303
+      - 3503000
+      - 3509403
+      - 3509957
+      - 3514304
+      - 3515152
+      - 3522158
+      - 3525409
+      - 3531902
+      - 3536802
+      - 3537800
+      - 3542701
+      - 3549607
+      - 3550209
+      - 3557204
+      i_e:
+      - 3500303
+      - 3503000
+      - 3509403
+      - 3509957
+      - 3514304
+      - 3515152
+      - 3522158
+      - 3525409
+      - 3531902
+      - 3536802
+      - 3537800
+      - 3542701
+      - 3549607
+      - 3550209
+      - 3557204
     local_revenue_supplement:
       file_id: 1FX1QFhv3_lUhfqxEW0z5KJ0EWGPoMZGQ
       worksheet: 2024-finbra
-      codes: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
+      codes:
+      - 3500303
+      - 3503000
+      - 3509403
+      - 3509957
+      - 3514304
+      - 3515152
+      - 3522158
+      - 3525409
+      - 3531902
+      - 3536802
+      - 3537800
+      - 3542701
+      - 3549607
+      - 3550209
+      - 3557204
   2025:
     priority: null
     status: resolved_by_gate_a
-    local_snapshot_codes_missing: [3503505, 3503604, 3506607, 3507704, 3514007, 3521705, 3528106, 3533700, 3537404, 3540408, 3542701, 3551207, 3553401]
+    local_snapshot_codes_missing:
+    - 3503505
+    - 3503604
+    - 3506607
+    - 3507704
+    - 3514007
+    - 3521705
+    - 3528106
+    - 3533700
+    - 3537404
+    - 3540408
+    - 3542701
+    - 3551207
+    - 3553401
     gate_a:
       municipalities: 645
       normalized_sha256: 619367dd8b2c5b3db6f7a6c902b41e2f2685616cf8560e2e852e7583f386eec7
 notes:
-  - priority 1 indica menor custo de complemento; empates podem ser executados em qualquer ordem.
-  - complete_snapshot significa 645 codigos presentes nos tres anexos, nao cobertura de 100% de todas as rubricas.
-  - resolved_by_gate_a significa que uma aquisicao estadual independente ja cobre o universo, preservando ausencias declaratorias.
-  - resolved_by_local_revenue_supplement significa que a lacuna do Anexo I-C foi preenchida por fonte local adicional, sem consulta externa.
-  - source_confirmed_absence significa que a consulta seletiva atual ao Siconfi retornou items=[] nos anexos faltantes; a lacuna permanece como ausência confirmada da fonte e não deve ser reconsultada automaticamente.
+- priority 1 indica menor custo de complemento; empates podem ser executados em qualquer
+  ordem.
+- complete_snapshot significa 645 codigos presentes nos tres anexos, nao cobertura
+  de 100% de todas as rubricas.
+- resolved_by_gate_a significa que uma aquisicao estadual independente ja cobre o
+  universo, preservando ausencias declaratorias.
+- resolved_by_local_revenue_supplement significa que a lacuna do Anexo I-C foi preenchida
+  por fonte local adicional, sem consulta externa.
+- source_confirmed_absence significa que a consulta seletiva atual ao Siconfi retornou
+  items=[] nos anexos faltantes; a lacuna permanece como ausência confirmada da fonte
+  e não deve ser reconsultada automaticamente.

@@ -1,0 +1,26 @@
+version: 1
+name: sp645_2025_tictim30_parity
+baseline:
+  artifact: FINBRA_TIC_TIM_30M_BASE_MULTIFONTES_2013_2025_v0_4.xlsx
+  year: 2025
+  municipalities: 30
+state:
+  artifact: FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx
+  drive_file_id: 12XfaN7ati-wGgw_a5puwechp7ipFdWRG
+  municipalities: 645
+comparison:
+  common_fields: 55
+  fields_with_exact_parity: 54
+  substantive_differences: 1
+capag_snapshot_revisions:
+  count: 5
+  municipalities:
+    - {cod_ibge: "3503802", municipio: Artur Nogueira, baseline: B, state: B+}
+    - {cod_ibge: "3516309", municipio: Francisco Morato, baseline: B+, state: B}
+    - {cod_ibge: "3524709", municipio: Jaguariúna, baseline: A+, state: A}
+    - {cod_ibge: "3525201", municipio: Jarinu, baseline: A+, state: A}
+    - {cod_ibge: "3556206", municipio: Valinhos, baseline: A+, state: A}
+classification:
+  capag_differences: official_snapshot_revision
+  regression_detected: false
+decision: parity_approved

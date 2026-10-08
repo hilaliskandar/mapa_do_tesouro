@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_c_2025_multisource_core_approved`: RREO 2025, CAPAG 2025 e RGF Anexos 01/05 2025 estão validados em escala estadual; o RGF possui também composição fill-only com suplemento CAPAG local, sem conflitos.
+A expansão estadual está no estado `gate_c_2025_multisource_core_complete`: RREO 2025, CAPAG 2025 e RGF Anexos 01/05 2025 estão validados em escala estadual; o RGF possui também composição fill-only com suplemento CAPAG local, sem conflitos.
 
 ## Hierarquia de fontes operacionais
 
@@ -178,14 +178,17 @@ O DCA permanece fonte analítica e não substitui declarações legais dessas fo
 - demais obrigações: 108/645;
 - caixa líquida antes/depois RPNP permanece 528/645;
 - fallback shardado permanece como contingência;
-- Anexo 02: infraestrutura pronta em workflow manual, ainda não disparada.
+- Anexo 02: carga estadual concluída; 530 municípios observados, 43.920 linhas longas, 40 códigos de conta, zero falhas e zero conflitos;
+- SHA-256 canônico do Anexo 02 `8e4709727aa8fbf0023056982fe7927f5bd8e323354807604dbdc2a91cf8d75a`;
+- suplemento CAPAG fill-only adiciona 100 Dívidas Consolidadas e 114 RCL brutas, zero conflitos;
+- composto RGF02 SHA-256 `0b31196dd1a692632b7c2b48a044ed64f5f56493eb8d50f818810cdd583fc139`.
 
 ## Próximo gate operacional
 
-1. decidir a necessidade efetiva da carga estadual do RGF Anexo 02, considerando que CAPAG já cobre os componentes oficiais centrais de endividamento;
-2. consolidar denominadores complementares;
-3. recalcular indicadores legais e derivados no universo SP645;
-4. recalcular tipologias e pares por `universo_id`;
+1. consolidar denominadores complementares necessários aos indicadores;
+2. recalcular indicadores legais e derivados no universo SP645;
+3. recalcular tipologias e pares por `universo_id`;
+4. produzir a camada cartográfica estadual canônica;
 5. executar paridade estadual contra TIC-TIM 30;
 6. somente então avaliar release estadual pública.
 

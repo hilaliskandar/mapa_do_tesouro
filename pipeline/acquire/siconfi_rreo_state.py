@@ -45,6 +45,7 @@ def acquire_state_year(
     *,
     min_interval: float = 1.05,
     limit_codes: int | None = None,
+    only_codes: set[str] | None = None,
     expected_municipalities: int | None = 645,
 ) -> dict:
     codes = load_codes(geojson)
@@ -53,7 +54,17 @@ def acquire_state_year(
             f"Unexpected municipality count: {len(codes)} != {expected_municipalities}"
         )
 
-    selected = codes[:limit_codes] if limit_codes is not None else codes
+    if only_codes is not None and limit_codes is not None:
+        raise ValueError("only_codes and limit_codes are mutually exclusive.")
+    if only_codes is not None:
+        requested = {str(code).strip() for code in only_codes if str(code).strip()}
+        available = {code for code, _ in codes}
+        unknown = sorted(requested - available)
+        if unknown:
+            raise ValueError(f"Unknown municipality codes: {unknown}")
+        selected = [(code, name) for code, name in codes if code in requested]
+    else:
+        selected = codes[:limit_codes] if limit_codes is not None else codes
     client = SiconfiClient(min_interval=min_interval)
     completed_now = 0
     reused = 0
@@ -147,6 +158,7 @@ def main() -> None:
     parser.add_argument("--normalized-csv", type=Path, required=True)
     parser.add_argument("--min-interval", type=float, default=1.05)
     parser.add_argument("--limit-codes", type=int)
+    parser.add_argument("--only-codes", nargs="+")
     parser.add_argument("--expected-municipalities", type=int, default=645)
     args = parser.parse_args()
 
@@ -157,6 +169,7 @@ def main() -> None:
         args.normalized_csv,
         min_interval=args.min_interval,
         limit_codes=args.limit_codes,
+        only_codes=set(args.only_codes) if args.only_codes else None,
         expected_municipalities=args.expected_municipalities,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))

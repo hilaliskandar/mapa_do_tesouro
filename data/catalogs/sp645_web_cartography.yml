@@ -1,0 +1,32 @@
+version: 1
+name: sp645_web_cartography
+status: private_qa_approved
+universe_id: SP_645
+source:
+  repository: tbrugz/geodata-br
+  commit: c39dfb040bfd466fe2a476bafed00749c5c42f16
+  path: geojson/geojs-35-mun.json
+  git_blob_sha: 05d28607a949ee195b4cca2ab59989ca0c3fafb7
+validation:
+  features: 645
+  unique_codes: 645
+  invalid_codes: 0
+  duplicate_codes: 0
+  null_geometries: 0
+  geometry_types:
+    Polygon: 645
+universe_signature:
+  count: 645
+  first_code: "3500105"
+  last_code: "3557303"
+  numeric_sum: 2276010133
+  fnv1a64_sorted_codes: 4f8bce5efa826743
+  missing_from_geometry: 0
+  extra_in_geometry: 0
+usage:
+  approved_for_web_map: true
+  approved_for_metric_analysis: false
+  join_key: codigo_ibge
+caution:
+  - source_geojson_has_no_explicit_crs_metadata
+  - use_explicit_EPSG_4674_layer_for_metric_or_analytical_geoprocessing

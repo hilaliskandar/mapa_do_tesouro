@@ -1,0 +1,45 @@
+version: 1
+name: capag_sp645_official_snapshot_2026_09
+source:
+  provider: google_drive
+  file_id: 1BlT2WxtBIGVeP1b4-GM3Auv0OdU6p7C9
+  title: capag-municipios-posicao-2026-set.xlsx
+  sha256: 1b1379a5a531920223f1d448be155b70f51eb50180d8c819f1b7da3575a8eb11
+  size_bytes: 24569807
+  snapshot_position: 2026-09-01
+  legal_year_base: 2025
+sheets:
+  official_preview:
+    name: Prévia da CAPAG
+    header_row: 3
+    sp_rows: 645
+    unique_sp_codes: 645
+    capag_nonblank: 645
+  components_2025:
+    name: CAPAG Ano Base 2025
+    header_row: 4
+    sp_rows: 645
+    unique_sp_codes: 645
+coverage:
+  expected_sp_municipalities: 645
+  observed_sp_municipalities: 645
+  status: complete
+official_distribution:
+  A_plus: 27
+  A: 108
+  B_plus: 17
+  B: 68
+  C: 371
+  D: 1
+  n_d: 53
+policy:
+  - official_CAPAG_classification_is_observed_not_derived
+  - n_d_is_an_official_category_not_missing_data
+  - local_recalculation_is_QA_only
+  - preserve_snapshot_position_separately_from_legal_year_base
+  - do_not_replace_official_CAPAG_with_DCA_or_RGF_proxies
+tic_tim_reference:
+  file_id: 1477zhSo1f-WeYDa14BwFdGj0r_yR-xjC
+  title: FINBRA_TIC_TIM_30M_CAPAG_CANONICA_2025_v1.xlsx
+  sha256: d59cc5df8b0ebdf5bc7a75a2863dd385085e1e3b5344a63ca5c8cad4490f40ac
+  coverage: 30_of_30

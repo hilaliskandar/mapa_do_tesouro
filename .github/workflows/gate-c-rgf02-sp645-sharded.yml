@@ -1,0 +1,132 @@
+name: Gate C RGF02 SP645 Sharded
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "RGF Annex 02 exercise"
+        required: true
+        default: "2025"
+        type: string
+      min_interval:
+        description: "Minimum interval between requests"
+        required: true
+        default: "1.05"
+        type: string
+  workflow_run:
+    workflows: ["Gate C RGF02 SP645"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-shards:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion != 'success'
+    env:
+      RGF_YEAR: ${{ github.event_name == 'workflow_dispatch' && inputs.year || '2025' }}
+      MIN_INTERVAL: ${{ github.event_name == 'workflow_dispatch' && inputs.min_interval || '1.05' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        shard:
+          - {name: "000-128", start: 0, count: 129}
+          - {name: "129-257", start: 129, count: 129}
+          - {name: "258-386", start: 258, count: 129}
+          - {name: "387-515", start: 387, count: 129}
+          - {name: "516-644", start: 516, count: 129}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
+      - name: Acquire RGF02 shard
+        run: |
+          python -m pipeline.acquire.siconfi_rgf02_state             --geojson build/sp.geojson             --year "$RGF_YEAR"             --output "build/raw/rgf02/$RGF_YEAR"             --long-csv "build/normalized/rgf02_long_${RGF_YEAR}_${{ matrix.shard.name }}.csv"             --start-index "${{ matrix.shard.start }}"             --limit-codes "${{ matrix.shard.count }}"             --min-interval "$MIN_INTERVAL"
+      - name: Upload RGF02 shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf02-${{ env.RGF_YEAR }}-${{ matrix.shard.name }}
+          path: build/normalized/rgf02_long_${{ env.RGF_YEAR }}_${{ matrix.shard.name }}.csv
+          retention-days: 30
+
+  finalize:
+    needs: acquire-shards
+    if: always() && needs.acquire-shards.result == 'success'
+    runs-on: ubuntu-latest
+    env:
+      RGF_YEAR: ${{ github.event_name == 'workflow_dispatch' && inputs.year || '2025' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download all RGF02 shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gate-c-rgf02-${{ env.RGF_YEAR }}-*
+          path: build/shards
+          merge-multiple: true
+      - name: Combine long shards
+        run: |
+          python - <<'PY'
+          import csv, glob, os
+          from pathlib import Path
+
+          year=os.environ["RGF_YEAR"]
+          paths=sorted(glob.glob(f"build/shards/rgf02_long_{year}_*.csv"))
+          if len(paths)!=5:
+              raise SystemExit(f"Expected 5 shard CSVs, got {len(paths)}")
+          rows=[]
+          header=None
+          codes=set()
+          for path in paths:
+              with open(path,encoding="utf-8",newline="") as handle:
+                  reader=csv.DictReader(handle)
+                  if header is None:
+                      header=list(reader.fieldnames or [])
+                  elif list(reader.fieldnames or []) != header:
+                      raise SystemExit(f"Schema mismatch: {path}")
+                  for row in reader:
+                      rows.append(row)
+                      codes.add(row["cod_ibge"])
+          if len(codes) > 645:
+              raise SystemExit(f"Unexpected municipality count: {len(codes)}")
+          out=Path(f"build/normalized/rgf02_long_{year}.csv")
+          out.parent.mkdir(parents=True,exist_ok=True)
+          with out.open("w",encoding="utf-8",newline="") as handle:
+              writer=csv.DictWriter(handle,fieldnames=header)
+              writer.writeheader()
+              writer.writerows(rows)
+          print(f"long_rows={len(rows)}")
+          print(f"observed_municipalities={len(codes)}")
+          PY
+      - name: Normalize canonical RGF02
+        run: |
+          python -m pipeline.normalize.rgf02             --long-csv "build/normalized/rgf02_long_$RGF_YEAR.csv"             --output-csv "build/normalized/rgf02_canonical_$RGF_YEAR.csv"             --manifest "build/normalized/rgf02_canonical_$RGF_YEAR.json"
+      - name: Validate canonical output
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          year=os.environ["RGF_YEAR"]
+          data=json.loads(Path(f"build/normalized/rgf02_canonical_{year}.json").read_text(encoding="utf-8"))
+          if data["conflicts"]:
+              raise SystemExit(f"Conflicts: {data['conflicts'][:20]}")
+          if data["rows"] > 645:
+              raise SystemExit(f"Unexpected canonical rows: {data['rows']}")
+          print("canonical_rows=" + str(data["rows"]))
+          print("canonical_sha256=" + data["output_sha256"])
+          PY
+      - name: Upload combined RGF02 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf02-${{ env.RGF_YEAR }}-combined
+          path: |
+            build/normalized/rgf02_long_${{ env.RGF_YEAR }}.csv
+            build/normalized/rgf02_canonical_${{ env.RGF_YEAR }}.csv
+            build/normalized/rgf02_canonical_${{ env.RGF_YEAR }}.json
+          retention-days: 30

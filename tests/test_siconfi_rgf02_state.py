@@ -65,3 +65,37 @@ def test_rgf02_state_preserves_long_taxonomy(tmp_path, monkeypatch):
     assert result["failed"] == []
     assert rows[0]["coluna"] == "Até o 3º Quadrimestre"
     assert rows[0]["fonte"] == "SICONFI_API"
+
+
+
+def test_rgf02_state_supports_indexed_shard(tmp_path, monkeypatch):
+    geo = tmp_path / "sp.json"
+    geo.write_text(
+        json.dumps(
+            {
+                "features": [
+                    {"properties": {"id": "3500105", "name": "A"}},
+                    {"properties": {"id": "3500204", "name": "B"}},
+                    {"properties": {"id": "3500303", "name": "C"}},
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(module, "SiconfiClient", FakeClient)
+
+    output = tmp_path / "rgf02.csv"
+    result = module.acquire_state_year(
+        geo,
+        2025,
+        tmp_path / "raw",
+        output,
+        min_interval=0,
+        start_index=1,
+        limit_codes=1,
+        expected_municipalities=3,
+    )
+
+    assert result["start_index"] == 1
+    assert result["municipalities_requested"] == 1
+    assert result["observed_municipalities"] == 1

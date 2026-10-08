@@ -187,7 +187,7 @@ O Gate B DCA estadual está concluído. No Gate C:
 
 - RREO Anexo 03 / RCL 2025: aquisição estadual concluída, com 531/645 valores observados e 114 ausências preservadas;
 - CAPAG 2025: snapshot oficial validado em 645/645 municípios;
-- RGF Anexos 01/05: carga estadual 2025 em execução, com fallback shardado e QA automático;
+- RGF Anexos 01/05: carga estadual 2025 concluída; composição fill-only com CAPAG local validada, zero conflitos;
 - RGF Anexo 02: coletor estadual em formato longo preparado e mantido manual até o encerramento do 01/05.
 
 Depois disso vêm denominadores complementares, recomposição dos indicadores, tipologias, pares e paridade estadual.

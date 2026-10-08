@@ -8,6 +8,7 @@ on:
       - "pipeline/acquire/siconfi_rreo_state.py"
       - "pipeline/normalize/rreo_rcl.py"
       - "data/mappings/fiscal_legal_contract_v1.yml"
+      - "data/qa/rreo_rcl_sentinels_2025.yml"
       - ".github/workflows/gate-c-rreo-rcl-smoke.yml"
 
 permissions:
@@ -30,17 +31,20 @@ jobs:
       - name: Download pinned SP municipality geometry
         run: |
           mkdir -p build
-          curl --fail --location --retry 3             "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json"             --output build/sp.geojson
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
 
-      - name: Acquire five-municipality RREO smoke
+      - name: Acquire validated RREO sentinels
         run: |
-          python -m pipeline.acquire.siconfi_rreo_state             --geojson build/sp.geojson             --year 2025             --output build/raw/rreo             --normalized-csv build/normalized/rreo_rcl_2025_smoke.csv             --limit-codes 5             --min-interval 1.05
+          python -m pipeline.acquire.siconfi_rreo_state             --geojson build/sp.geojson             --year 2025             --output build/raw/rreo             --normalized-csv build/normalized/rreo_rcl_2025_smoke.csv             --only-codes 3501608 3502804 3503208 3505708 3506003             --min-interval 1.05
 
-      - name: Validate smoke
+      - name: Validate smoke and Drive parity
         run: |
           python - <<'PY'
+          import csv
           import json
           from pathlib import Path
+
+          import yaml
 
           manifest = json.loads(
               Path("build/raw/rreo/manifests/rreo-rcl-2025.json")
@@ -54,8 +58,42 @@ jobs:
               raise SystemExit("Expected five normalized rows")
           if manifest["normalization"]["issues"] != 0:
               raise SystemExit("Normalization issues found")
-          print("Gate C RREO smoke: OK")
-          print("observed_rcl_rows=" + str(manifest["normalization"]["observed_rcl_rows"]))
+          if manifest["normalization"]["observed_rcl_rows"] != 5:
+              raise SystemExit(
+                  "Expected five observed RCL rows, got "
+                  + str(manifest["normalization"]["observed_rcl_rows"])
+              )
+
+          reference = yaml.safe_load(
+              Path("data/qa/rreo_rcl_sentinels_2025.yml")
+              .read_text(encoding="utf-8")
+          )
+          expected = reference["sentinels"]
+          tolerance = float(reference["tolerance"]["absolute_brl"])
+
+          with Path("build/normalized/rreo_rcl_2025_smoke.csv").open(
+              encoding="utf-8", newline=""
+          ) as handle:
+              rows = {row["cod_ibge"]: row for row in csv.DictReader(handle)}
+
+          for code, item in expected.items():
+              if code not in rows:
+                  raise SystemExit(f"Missing sentinel {code}")
+              observed = float(rows[code]["rreo_rcl_total_12m"])
+              target = float(item["rcl_total_12m"])
+              if abs(observed - target) > tolerance:
+                  raise SystemExit(
+                      f"RCL parity failure for {code}: {observed} != {target}"
+                  )
+              pop = float(rows[code]["populacao_rreo"])
+              if pop != float(item["populacao_rreo"]):
+                  raise SystemExit(
+                      f"Population parity failure for {code}: "
+                      f"{pop} != {item['populacao_rreo']}"
+                  )
+
+          print("Gate C RREO smoke parity: OK")
+          print("observed_rcl_rows=5")
           print("normalized_sha256=" + manifest["normalized_sha256"])
           PY
 

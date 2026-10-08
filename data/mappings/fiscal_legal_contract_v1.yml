@@ -5,7 +5,7 @@ rreo:
   annual_rcl:
     source: RREO-Anexo 03
     period: 6
-    account_code: ReceitaCorrenteLiquida
+    account_code: RREO3ReceitaCorrenteLiquida
     account_label: RECEITA CORRENTE LÍQUIDA (III) = (I - II)
     column: TOTAL (ÚLTIMOS 12 MESES)
     variable_id: rreo_rcl_total_12m

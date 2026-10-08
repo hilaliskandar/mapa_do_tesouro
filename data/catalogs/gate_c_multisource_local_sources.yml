@@ -20,7 +20,7 @@ sources:
     years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
     period: 6
     annex: RREO-Anexo 03
-    official_account: ReceitaCorrenteLiquida
+    official_account: RREO3ReceitaCorrenteLiquida
     official_column: TOTAL (ÚLTIMOS 12 MESES)
     qa_status: validated_local_reference
 

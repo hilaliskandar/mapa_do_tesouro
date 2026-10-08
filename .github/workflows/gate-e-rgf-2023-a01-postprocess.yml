@@ -40,11 +40,29 @@ jobs:
           repository: ${{ github.repository }}
           run-id: 37746201460
 
+      - name: Resolve downloaded artifact paths
+        id: paths
+        run: |
+          HISTORY_CSV="$(find build/original -type f -name 'rgf_history_2023_2024.csv' -print -quit)"
+          A01_CSV="$(find build/a01 -type f -name 'rgf_a01_2023.csv' -print -quit)"
+          if [ -z "$HISTORY_CSV" ]; then
+            echo "Original history CSV not found." >&2
+            find build/original -maxdepth 4 -type f -print >&2
+            exit 1
+          fi
+          if [ -z "$A01_CSV" ]; then
+            echo "Corrected A01 CSV not found." >&2
+            find build/a01 -maxdepth 4 -type f -print >&2
+            exit 1
+          fi
+          echo "history_csv=$HISTORY_CSV" >> "$GITHUB_OUTPUT"
+          echo "a01_csv=$A01_CSV" >> "$GITHUB_OUTPUT"
+
       - name: Patch corrected A01 into existing history
         run: |
           python -m pipeline.qa.rgf_history_patch_a01 \
-            --history-csv build/original/rgf_history_2023_2024.csv \
-            --a01-csv build/a01/rgf_a01_2023.csv \
+            --history-csv "${{ steps.paths.outputs.history_csv }}" \
+            --a01-csv "${{ steps.paths.outputs.a01_csv }}" \
             --output-csv build/corrected/rgf_history_2023_2024_corrected.csv \
             --summary build/corrected/rgf_history_2023_2024_corrected_summary.json
 

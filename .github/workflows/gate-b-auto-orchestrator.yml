@@ -1,0 +1,161 @@
+name: Gate B DCA Auto Orchestrator
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: gate-b-dca-auto-orchestrator
+  cancel-in-progress: false
+
+jobs:
+  process-next:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Resolve next pending delta
+        id: next
+        run: |
+          mkdir -p build
+          python -m pipeline.acquire.dca_delta_orchestrator next \
+            --github-output "$GITHUB_OUTPUT" \
+            --plan-output build/delta-plan.json
+
+      - name: Stop when queue is empty
+        if: steps.next.outputs.has_work != 'true'
+        run: |
+          echo "No pending Gate B delta work."
+          echo "### Gate B auto orchestrator" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "No pending selective DCA deltas." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check for existing automatic PR
+        if: steps.next.outputs.has_work == 'true'
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YEAR: ${{ steps.next.outputs.year }}
+        run: |
+          BRANCH="gate-b-auto-$YEAR"
+          COUNT="$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --head "$BRANCH" --json number --jq 'length')"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Stop when an automatic PR is already open
+        if: steps.next.outputs.has_work == 'true' && steps.existing.outputs.count != '0'
+        run: |
+          echo "Automatic PR already open for year ${{ steps.next.outputs.year }}."
+          echo "No new external requests were made."
+
+      - name: Download pinned SP municipality geometry
+        if: steps.next.outputs.has_work == 'true' && steps.existing.outputs.count == '0'
+        run: |
+          curl --fail --location --retry 3 \
+            "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
+            --output build/sp.geojson
+
+      - name: Acquire next selective delta
+        if: steps.next.outputs.has_work == 'true' && steps.existing.outputs.count == '0'
+        run: |
+          YEAR="${{ steps.next.outputs.year }}"
+          python -m pipeline.acquire.siconfi_dca_delta \
+            --geojson build/sp.geojson \
+            --year "$YEAR" \
+            --plan build/delta-plan.json \
+            --output "build/raw/delta/$YEAR" \
+            --normalized-csv "build/normalized/dca_delta_$YEAR.csv" \
+            --min-interval 1.05 \
+            --max-codes 100
+
+      - name: Validate acquisition
+        if: steps.next.outputs.has_work == 'true' && steps.existing.outputs.count == '0'
+        env:
+          YEAR: ${{ steps.next.outputs.year }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          year = os.environ["YEAR"]
+          manifest = json.loads(Path(f"build/raw/delta/{year}/manifests/delta-{year}.json").read_text(encoding="utf-8"))
+          if manifest["failed"]:
+              raise SystemExit(f"Unresolved acquisition failures: {manifest['failed'][:20]}")
+          expected = manifest["municipality_annex_pairs_requested"]
+          completed = sum(item["completed_now"] + item["reused"] for item in manifest["annex_results"].values())
+          if completed != expected:
+              raise SystemExit(f"Artifact mismatch: {completed} != {expected}")
+          if manifest["normalization"]["rows"] != manifest["municipalities_requested"]:
+              raise SystemExit("Normalized row count mismatch")
+          PY
+
+      - name: Classify result and update governance branch
+        if: steps.next.outputs.has_work == 'true' && steps.existing.outputs.count == '0'
+        id: classify
+        run: |
+          YEAR="${{ steps.next.outputs.year }}"
+          python -m pipeline.acquire.dca_delta_orchestrator apply \
+            --manifest "build/raw/delta/$YEAR/manifests/delta-$YEAR.json" \
+            --qa-output "governance/auto/QA_DCA_DELTA_${YEAR}_RUN_${GITHUB_RUN_ID}.md" \
+            --run-id "$GITHUB_RUN_ID" \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Upload acquisition artifact
+        if: steps.next.outputs.has_work == 'true' && steps.existing.outputs.count == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-b-auto-dca-${{ steps.next.outputs.year }}-${{ github.run_id }}
+          path: |
+            build/raw/delta/${{ steps.next.outputs.year }}
+            build/normalized/dca_delta_${{ steps.next.outputs.year }}.csv
+            build/delta-plan.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Create governance PR
+        if: steps.next.outputs.has_work == 'true' && steps.existing.outputs.count == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          YEAR: ${{ steps.next.outputs.year }}
+          CLASSIFICATION: ${{ steps.classify.outputs.classification }}
+          AUTO_BRANCH: ${{ steps.existing.outputs.branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$AUTO_BRANCH"
+          git add data/catalogs/dca_sp_delta_queue.yml governance/auto/
+          git commit -m "gate-b: classify selective DCA delta $YEAR"
+          git push origin "$AUTO_BRANCH"
+          BODY_FILE="$(mktemp)"
+          printf "Automatic Gate B result for DCA exercise %s.\n\nClassification: %s\nRun: %s\n\nThis PR only updates the versioned queue and QA record. It does not overwrite historical observed values. Any recovered values remain pending fill-only merge and conflict review.\n" "$YEAR" "$CLASSIFICATION" "$GITHUB_RUN_ID" > "$BODY_FILE"
+          PR_URL="$(gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$AUTO_BRANCH" --title "[gate-b-auto] Classify DCA delta $YEAR" --body-file "$BODY_FILE")"
+          echo "pr_url=$PR_URL" >> "$GITHUB_STEP_SUMMARY"
+          gh pr merge "$PR_URL" --auto --squash || true
+
+      - name: Publish run summary
+        if: steps.next.outputs.has_work == 'true' && steps.existing.outputs.count == '0'
+        run: |
+          echo "### Gate B auto orchestrator" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- year: ${{ steps.next.outputs.year }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- municipality-annex pairs: ${{ steps.next.outputs.pair_count }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- classification: ${{ steps.classify.outputs.classification }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- empty source pairs: ${{ steps.classify.outputs.empty_source_pairs }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- normalized SHA-256: `${{ steps.classify.outputs.normalized_sha256 }}`" >> "$GITHUB_STEP_SUMMARY"

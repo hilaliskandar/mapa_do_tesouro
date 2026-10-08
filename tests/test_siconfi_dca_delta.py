@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 import pipeline.acquire.siconfi_dca as module
-from pipeline.acquire.siconfi_dca_delta import parse_codes
+from pipeline.acquire.siconfi_dca_delta import normalize_plan, parse_codes
 from pipeline.sources.siconfi import FetchResult
 
 
@@ -87,3 +87,19 @@ def test_acquire_rejects_unknown_explicit_code(tmp_path, monkeypatch):
         assert "Unknown municipality codes" in str(exc)
     else:
         raise AssertionError("Expected ValueError for unknown municipality code")
+
+
+
+def test_normalize_plan_preserves_only_requested_annex_pairs():
+    plan = normalize_plan(
+        {
+            "i_c": ["3554607"],
+            "i_d": ["3543238"],
+            "i_e": ["3543238"],
+        }
+    )
+    assert plan == {
+        "DCA-Anexo I-C": ["3554607"],
+        "DCA-Anexo I-D": ["3543238"],
+        "DCA-Anexo I-E": ["3543238"],
+    }

@@ -1,0 +1,79 @@
+name: Gate C RREO RCL SP645
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "RREO exercise"
+        required: true
+        default: "2025"
+        type: string
+      min_interval:
+        description: "Minimum interval between requests"
+        required: true
+        default: "1.05"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gate-c-rreo-rcl-sp645-${{ inputs.year }}
+  cancel-in-progress: false
+
+jobs:
+  acquire-state:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3             "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json"             --output build/sp.geojson
+
+      - name: Acquire SP645 RREO RCL
+        run: |
+          python -m pipeline.acquire.siconfi_rreo_state             --geojson build/sp.geojson             --year "${{ inputs.year }}"             --output "build/raw/rreo/${{ inputs.year }}"             --normalized-csv "build/normalized/rreo_rcl_${{ inputs.year }}.csv"             --min-interval "${{ inputs.min_interval }}"
+
+      - name: Validate state acquisition
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          year = os.environ["YEAR"]
+          manifest = json.loads(
+              Path(f"build/raw/rreo/{year}/manifests/rreo-rcl-{year}.json")
+              .read_text(encoding="utf-8")
+          )
+          if manifest["failed"]:
+              raise SystemExit(f"Unresolved failures: {manifest['failed'][:20]}")
+          if manifest["municipalities_requested"] != 645:
+              raise SystemExit("Expected 645 municipalities")
+          if manifest["normalization"]["rows"] != 645:
+              raise SystemExit("Expected 645 normalized rows")
+          print("SP645 RREO RCL acquisition: OK")
+          print("observed_rcl_rows=" + str(manifest["normalization"]["observed_rcl_rows"]))
+          print("normalized_sha256=" + manifest["normalized_sha256"])
+          PY
+        env:
+          YEAR: ${{ inputs.year }}
+
+      - name: Upload state artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rreo-rcl-sp645-${{ inputs.year }}
+          path: |
+            build/raw/rreo/${{ inputs.year }}
+            build/normalized/rreo_rcl_${{ inputs.year }}.csv
+          retention-days: 30

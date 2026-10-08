@@ -1,0 +1,56 @@
+name: Gate C RGF Taxonomy Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-c-rgf-taxonomy-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Acquire Americana RGF annexes 01 and 05
+        run: |
+          python -m pipeline.acquire.siconfi_legal_reports             --endpoint rgf             --entity-id 3501608             --years 2025             --annexes "RGF-Anexo 01" "RGF-Anexo 05"             --periodicity Q             --period 3             --report-type RGF             --sphere M             --branch E             --output build/raw/rgf-taxonomy-smoke             --min-interval 1.05
+
+      - name: Inspect taxonomy presence
+        run: |
+          python - <<'PY'
+          import gzip
+          import json
+          from pathlib import Path
+
+          root = Path("build/raw/rgf-taxonomy-smoke")
+          paths = sorted(root.glob("**/*.json.gz"))
+          if len(paths) != 2:
+              raise SystemExit(f"Expected 2 raw files, got {len(paths)}")
+
+          for path in paths:
+              with gzip.open(path, "rt", encoding="utf-8") as handle:
+                  payload = json.load(handle)
+              if payload.get("endpoint") != "rgf":
+                  raise SystemExit(f"Unexpected endpoint in {path}")
+              print(path)
+              print("items=" + str(len(payload.get("items", []))))
+              if not payload.get("items"):
+                  raise SystemExit(f"Empty RGF payload: {path}")
+          PY
+
+      - name: Upload taxonomy artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf-taxonomy-smoke-2025
+          path: build/raw/rgf-taxonomy-smoke
+          retention-days: 14

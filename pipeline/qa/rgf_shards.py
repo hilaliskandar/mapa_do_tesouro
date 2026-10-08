@@ -73,12 +73,46 @@ def combine_shards(input_root: Path, output_csv: Path, expected_rows: int = 645)
     }
 
 
+def write_qa(result: dict, output: Path, *, year: int) -> None:
+    total = int(result["rows"])
+    lines = [
+        f"# QA — RGF SP645 shardado — {year}",
+        "",
+        f"- shards: {result['shard_files']};",
+        f"- linhas combinadas: {total};",
+        f"- issues: {result['issues']};",
+        f"- SHA-256 combinado: `{result['sha256']}`.",
+        "",
+        "## Cobertura por variável",
+        "",
+        "| Variável | Observados | Ausentes | Cobertura |",
+        "|---|---:|---:|---:|",
+    ]
+    for field in sorted(result["coverage"]):
+        observed = int(result["coverage"][field])
+        missing = total - observed
+        pct = 100.0 * observed / total if total else 0.0
+        lines.append(f"| `{field}` | {observed} | {missing} | {pct:.2f}% |")
+    lines.extend(
+        [
+            "",
+            "Resultado produzido por consolidação de shards independentes.",
+            "Ausências permanecem vazias; não há imputação nem soma de sublinhas.",
+            "",
+        ]
+    )
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text("\n".join(lines), encoding="utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Combine RGF statewide shard CSVs.")
     parser.add_argument("--input-root", type=Path, required=True)
     parser.add_argument("--output-csv", type=Path, required=True)
     parser.add_argument("--expected-rows", type=int, default=645)
     parser.add_argument("--summary", type=Path, required=True)
+    parser.add_argument("--qa-output", type=Path)
+    parser.add_argument("--year", type=int)
     args = parser.parse_args()
 
     result = combine_shards(args.input_root, args.output_csv, args.expected_rows)
@@ -87,6 +121,10 @@ def main() -> None:
         json.dumps(result, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    if args.qa_output:
+        if args.year is None:
+            raise ValueError("--year is required with --qa-output.")
+        write_qa(result, args.qa_output, year=args.year)
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

@@ -83,3 +83,52 @@ cross_source_rules:
   - official percentages should be stored as observed legal indicators
   - absence remains null
   - every record keeps source annex period year and source vintage
+
+
+observed_api_taxonomy_2025:
+  rgf_annex_01:
+    source_sentinel: Americana_3501608
+    item_count: 173
+    legal_personnel_expense:
+      cod_conta: DespesaComPessoalTotal
+      conta: DESPESA TOTAL COM PESSOAL - DTP (VI) = (IIIa + IIIb)
+      coluna: Valor
+    legal_rcl_denominator:
+      cod_conta: ReceitaCorrenteLiquidaAjustada
+      conta: = RECEITA CORRENTE LÍQUIDA AJUSTADA PARA CÁLCULO DOS LIMITES DA DESPESA COM PESSOAL (V)
+      coluna: Valor
+    legal_personnel_ratio:
+      cod_conta: DespesaComPessoalTotal
+      conta: DESPESA TOTAL COM PESSOAL - DTP (VI) = (IIIa + IIIb)
+      coluna: "% sobre a RCL Ajustada"
+
+  rgf_annex_05:
+    source_sentinel: Americana_3501608
+    item_count: 140
+    canonical_row: TOTAL DOS RECURSOS NÃO VINCULADOS (I)
+    variables:
+      rgf_caixa_bruta_nao_vinculada:
+        cod_conta: DisponibilidadeDeCaixaBruta
+        coluna: DISPONIBILIDADE DE CAIXA BRUTA (a)
+      rgf_rp_liquidados_anteriores_nao_vinculados:
+        cod_conta: RestosAPagarLiquidadosENaoPagosDeExerciciosAnteriores
+        coluna: De Exercícios Anteriores (b)
+      rgf_rp_liquidados_exercicio_nao_vinculados:
+        cod_conta: RestosAPagarLiquidadosENaoPagosDoExercicio
+        coluna: Do Exercício (c)
+      rgf_rp_nao_liquidados_anteriores_nao_vinculados:
+        cod_conta: RestosAPagarEmpenhadosENaoLiquidadosDeExerciciosAnteriores
+        coluna: Restos a Pagar Empenhados e Não Liquidados de Exercícios Anteriores (d)
+      rgf_demais_obrigacoes_nao_vinculadas:
+        cod_conta: DemaisObrigacoesFinanceiras
+        coluna: Demais Obrigações Financeiras (e)
+        note: Americana 2025 has no TOTAL DOS RECURSOS NÃO VINCULADOS (I) row for this cod_conta; canonical value remains absent.
+      rgf_caixa_liquida_antes_rpnp:
+        cod_conta: DisponibilidadeDeCaixaLiquida
+        coluna: DISPONIBILIDADE DE CAIXA LÍQUIDA (ANTES DA INSCRIÇÃO EM RESTOS A PAGAR NÃO PROCESSADOS DO EXERCÍCIO) (g)=(a-(b+c+d+e)-f)
+      rgf_rp_nao_liquidados_exercicio_nao_vinculados:
+        cod_conta: RestosAPagarEmpenhadosENaoLiquidadosDoExercicio
+        coluna: RESTOS A PAGAR EMPENHADOS E NÃO LIQUIDADOS DO EXERCÍCIO (h)
+      rgf_caixa_liquida_apos_rpnp:
+        cod_conta: DisponibilidadeDeCaixaLiquidaAposRP
+        coluna: DISPONIBILIDADE DE CAIXA LÍQUIDA (APÓS A INSCRIÇÃO EM RESTOS A PAGAR NÃO PROCESSADOS DO EXERCÍCIO) (i) = (g - h)

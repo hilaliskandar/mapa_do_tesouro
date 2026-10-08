@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_c_2025_multisource_core_complete`: RREO 2025, CAPAG 2025 e RGF Anexos 01/05 2025 estão validados em escala estadual; o RGF possui também composição fill-only com suplemento CAPAG local, sem conflitos.
+A expansão estadual está no estado `gate_e_history_parity_approved`: o núcleo multifuentes 2025 está concluído, o histórico mínimo RGF 2023–2024 foi corrigido e a paridade estrita contra TIC-TIM 30 passou em 420/420 comparações, sem divergências.
 
 ## Hierarquia de fontes operacionais
 
@@ -219,12 +219,28 @@ A build estadual foi comparada diretamente ao baseline multifuentes TIC-TIM 30:
 - as cinco diferenças correspondem a revisão oficial entre `CAPAG Ano Base 2025` e a `Prévia da CAPAG` de setembro de 2026;
 - regressões detectadas: zero.
 
+## Gate E — histórico mínimo aprovado
+
+O histórico RGF 2023–2024 corrigido contém:
+
+- 1.290 município-ano;
+- DTP/RCL legal 2023 em 527/645 e 2024 em 530/645;
+- dívida consolidada e DCL preservadas do histórico original;
+- SHA-256 `7faef8188fd56bff6bb8031dfe3a8eeec11fe56e67f986bdc0007a4ee7646eeb`.
+
+A paridade histórica contra o baseline TIC-TIM 30 foi aprovada:
+
+- 30 municípios;
+- 60 chaves município-ano;
+- 420 comparações;
+- zero divergências.
+
 ## Próximo gate operacional
 
-1. consolidar denominadores complementares necessários aos indicadores;
-2. recalcular indicadores legais e derivados no universo SP645;
-3. recalcular tipologias e pares por `universo_id`;
-4. produzir a camada cartográfica estadual canônica;
-5. executar paridade estadual contra TIC-TIM 30;
+1. materializar a entrada canônica SP645 2021–2025 para tipologias e pares;
+2. medir cobertura efetiva com mínimo de três anos por dimensão;
+3. recalcular tipologias por `universo_id = SP_645`;
+4. recalcular pares com o mínimo de quatro marcadores comparáveis;
+5. produzir a camada cartográfica estadual canônica;
 6. somente então avaliar release estadual pública.
 

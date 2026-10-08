@@ -1,0 +1,39 @@
+version: 1
+name: gate_e_rgf_history_parity_2023_2024
+status: approved
+candidate:
+  artifact_name: gate-e-rgf-history-2023-2024-corrected
+  artifact_id: 11548799933
+  source_run_id: 37776058337
+  csv_sha256: 7faef8188fd56bff6bb8031dfe3a8eeec11fe56e67f986bdc0007a4ee7646eeb
+  artifact_digest: sha256:68ebd055625a5960f5450d54a45840057caef487dd2f6986607a54e488d2a054
+  rows: 1290
+  municipalities: 645
+  years: [2023, 2024]
+references:
+  rgf_annex_01:
+    provider: google_drive
+    file_id: 1U3l1dUEryYOWInFcN4GO5kKBWD0s5SSLDMhOXqRENfs
+    title: FINBRA_TIC_TIM_30M_RGF_2015_2025_ANEXOS_01_05_v1
+    sheets: [RGF_2023, RGF_2024]
+  rgf_annex_02:
+    provider: google_drive
+    file_id: 1t0HYxI9J4zvpKURDZJebkXNagdrf1f3PaZIMFzGcrDM
+    title: FINBRA_TIC_TIM_30M_RGF_ANEXO02_2015_2025_v1
+    sheet: RGF02_LONGA
+validation:
+  validator: pipeline/qa/rgf_history_parity.py
+  reference_municipalities: 30
+  reference_keys: 60
+  comparisons: 420
+  matched_within_tolerance: 420
+  both_absent: 0
+  mismatch_count: 0
+  strict_pass: true
+  money_tolerance: 0.01
+  percentage_point_tolerance: 0.01
+  parity_json_sha256: c2503a004d7ebb215f2ecdb3465e3828a2443de8f94a2c0b62c4c42b5496b5f7
+decision:
+  - historical_rgf_input_is_authorized_for_gate_e
+  - absence_remains_absence
+  - no_proxy_substitution

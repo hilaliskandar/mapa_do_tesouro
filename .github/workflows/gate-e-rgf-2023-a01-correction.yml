@@ -1,0 +1,78 @@
+name: Gate E Corrected RGF A01 2023
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-e-rgf-2023-a01-correction.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquire:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard:
+          - {name: "000-128", start: 0, count: 129}
+          - {name: "129-257", start: 129, count: 129}
+          - {name: "258-386", start: 258, count: 129}
+          - {name: "387-515", start: 387, count: 129}
+          - {name: "516-644", start: 516, count: 129}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
+      - name: Acquire corrected RGF A01 2023 shard
+        run: |
+          python -m pipeline.acquire.siconfi_rgf_history_a01 \
+            --geojson build/sp.geojson \
+            --year 2023 \
+            --output build/raw/rgf-a01-2023 \
+            --normalized-csv "build/normalized/rgf_a01_2023_${{ matrix.shard.name }}.csv" \
+            --start-index "${{ matrix.shard.start }}" \
+            --limit-codes "${{ matrix.shard.count }}" \
+            --min-interval 1.05
+      - name: Upload shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-e-rgf-a01-2023-${{ matrix.shard.name }}
+          path: "build/normalized/rgf_a01_2023_${{ matrix.shard.name }}.csv"
+          retention-days: 30
+
+  finalize:
+    needs: acquire
+    if: always() && needs.acquire.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download corrected A01 shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gate-e-rgf-a01-2023-*
+          path: build/shards
+          merge-multiple: true
+      - name: Combine corrected A01 2023
+        run: |
+          python -m pipeline.qa.rgf_history_a01 \
+            --input-root build/shards \
+            --output-csv build/normalized/rgf_a01_2023.csv \
+            --summary build/rgf_a01_2023_summary.json
+      - name: Upload corrected A01 history
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-e-rgf-a01-2023-combined
+          path: |
+            build/normalized/rgf_a01_2023.csv
+            build/rgf_a01_2023_summary.json
+          retention-days: 30

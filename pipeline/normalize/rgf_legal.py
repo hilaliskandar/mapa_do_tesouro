@@ -18,17 +18,14 @@ class FieldSpec:
 ANNEX01_FIELDS = {
     "rgf_despesa_total_pessoal": FieldSpec(
         cod_conta="DespesaComPessoalTotal",
-        conta="DESPESA TOTAL COM PESSOAL - DTP (VI) = (IIIa + IIIb)",
         coluna="Valor",
     ),
     "rgf_rcl_denominador_legal": FieldSpec(
         cod_conta="ReceitaCorrenteLiquidaAjustada",
-        conta="= RECEITA CORRENTE LÍQUIDA AJUSTADA PARA CÁLCULO DOS LIMITES DA DESPESA COM PESSOAL (V)",
         coluna="Valor",
     ),
     "rgf_dtp_percentual_rcl": FieldSpec(
         cod_conta="DespesaComPessoalTotal",
-        conta="DESPESA TOTAL COM PESSOAL - DTP (VI) = (IIIa + IIIb)",
         coluna="% sobre a RCL Ajustada",
     ),
 }

@@ -208,6 +208,17 @@ O artefato privado de indicadores contém 645 municípios e 25 indicadores:
 - CAPAG I1/I2/I3: 645;
 - indicadores territoriais strict_complete: 65.
 
+## Paridade TIC-TIM 30 — 2025
+
+A build estadual foi comparada diretamente ao baseline multifuentes TIC-TIM 30:
+
+- 30/30 municípios presentes;
+- 55 campos comuns;
+- 54/55 campos em paridade integral;
+- única diferença substantiva: nota final CAPAG em 5 municípios;
+- as cinco diferenças correspondem a revisão oficial entre `CAPAG Ano Base 2025` e a `Prévia da CAPAG` de setembro de 2026;
+- regressões detectadas: zero.
+
 ## Próximo gate operacional
 
 1. consolidar denominadores complementares necessários aos indicadores;

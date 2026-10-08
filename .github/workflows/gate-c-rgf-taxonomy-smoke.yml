@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "pipeline/acquire/siconfi_legal_reports.py"
       - ".github/workflows/gate-c-rgf-taxonomy-smoke.yml"
 
 permissions:

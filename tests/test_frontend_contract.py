@@ -60,3 +60,12 @@ def test_tabs_remain_single_row_with_horizontal_overflow():
     assert "flex-wrap: nowrap" in css
     assert "overflow-x: auto" in css
     assert "white-space: nowrap" in css
+
+
+
+def test_frontend_treats_unclassified_markers_as_missing_coverage():
+    js = (STATIC / "app.js").read_text(encoding="utf-8")
+    assert 'item.status === "observado"' in js
+    assert "marcadores classificáveis por cobertura suficiente" in js
+    assert "são necessários pelo menos 4" in js
+    assert "observedMarkerCount < 4" in js

@@ -71,6 +71,12 @@ A cardinalidade mínima anual na interseção dos três anexos é:
 
 O normalizador aceita CSV e XLSX locais, registra hashes, cobertura e códigos faltantes.
 
+A fonte suplementar local de receitas foi validada empiricamente:
+
+- 2022/Guaraçaí: 9 células preenchidas, zero conflitos, SHA-256 composto `387b61416817db342f94c86759811000ef40a627320308651ccd6e34cec7d9d0`;
+- 2024/15 municípios: receitas estruturais e população presentes em 15/15, SHA-256 do suplemento `6638fece3b2849c5c24295787f32f68ea499df2eee3e418386cdf3638f6391b2`.
+
+
 ### Crosswalk temporal concluído para receitas centrais
 
 Foram comprovados diretamente nos arquivos locais quatro regimes:

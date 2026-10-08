@@ -7,9 +7,10 @@ on:
         description: "DCA exercise to complement"
         required: true
         type: string
-      codes:
-        description: "Explicit 7-digit IBGE codes, comma/space separated"
-        required: true
+      codes_override:
+        description: "Optional explicit IBGE codes; leave blank to use the versioned delta queue"
+        required: false
+        default: ""
         type: string
       min_interval:
         description: "Minimum interval between requests, in seconds"
@@ -46,26 +47,49 @@ jobs:
             "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
             --output build/sp.geojson
 
-      - name: Validate explicit delta size
+      - name: Resolve approved delta codes
+        id: resolve
         shell: bash
+        env:
+          CODES_OVERRIDE: ${{ inputs.codes_override }}
         run: |
-          python - <<'PY'
+          if [ -n "$CODES_OVERRIDE" ]; then
+            python - <<'PY'
+          import os
+          from pathlib import Path
           from pipeline.acquire.siconfi_dca_delta import parse_codes
-          codes = parse_codes("""${{ inputs.codes }}""")
+
+          codes = parse_codes(os.environ["CODES_OVERRIDE"])
           if len(codes) > 100:
               raise SystemExit(
                   f"Delta contains {len(codes)} municipalities; maximum is 100."
               )
-          print(f"delta_municipalities={len(codes)}")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as out:
+              out.write("codes=" + " ".join(codes) + "\n")
+              out.write(f"count={len(codes)}\n")
           print("codes=" + ",".join(codes))
           PY
+          else
+            python -m pipeline.acquire.dca_delta_queue \
+              --year "${{ inputs.year }}" \
+              --github-output "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate resolved delta size
+        shell: bash
+        run: |
+          COUNT="${{ steps.resolve.outputs.count }}"
+          test -n "$COUNT" || { echo "No resolved delta count"; exit 1; }
+          test "$COUNT" -le 100 || { echo "Delta too large: $COUNT"; exit 1; }
+          echo "delta_municipalities=$COUNT"
+          echo "codes=${{ steps.resolve.outputs.codes }}"
 
       - name: Acquire targeted DCA delta
         run: |
           python -m pipeline.acquire.siconfi_dca_delta \
             --geojson build/sp.geojson \
             --year "${{ inputs.year }}" \
-            --codes "${{ inputs.codes }}" \
+            --codes "${{ steps.resolve.outputs.codes }}" \
             --output "build/raw/delta/${{ inputs.year }}" \
             --normalized-csv "build/normalized/dca_delta_${{ inputs.year }}.csv" \
             --min-interval "${{ inputs.min_interval }}" \

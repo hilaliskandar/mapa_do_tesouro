@@ -20,7 +20,7 @@ def marker_text(kind: str, quadrant: str | None) -> str | None:
         return "sem classificação"
 
     above = quadrant.startswith("acima")
-    stable = "mais estável" in quadrant
+    stable = "mais estável" in quadrant or "mais estavel" in quadrant
 
     if kind == "base":
         return (

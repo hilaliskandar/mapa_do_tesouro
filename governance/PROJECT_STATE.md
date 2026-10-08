@@ -76,6 +76,15 @@ A fonte suplementar local de receitas foi validada empiricamente:
 - 2022/Guaraçaí: 9 células preenchidas, zero conflitos, SHA-256 composto `387b61416817db342f94c86759811000ef40a627320308651ccd6e34cec7d9d0`;
 - 2024/15 municípios: receitas estruturais e população presentes em 15/15, SHA-256 do suplemento `6638fece3b2849c5c24295787f32f68ea499df2eee3e418386cdf3638f6391b2`.
 
+A primeira complementação seletiva externa foi executada para 2018:
+
+- Anhumas (`3502408`) e Monte Aprazível (`3531407`);
+- 6 respostas consultadas: 2 municípios × 3 anexos;
+- zero falhas de requisição;
+- os seis payloads retornaram `items=[]`;
+- SHA-256 do delta normalizado `5e9aba6ee6d627eceeddd1e7648be8bd4abfe5476a34a339dd39da2ad2dd9a79`;
+- decisão: preservar as lacunas como ausência confirmada da fonte atual, sem novas tentativas automáticas.
+
 
 ### Crosswalk temporal concluído para receitas centrais
 
@@ -92,7 +101,7 @@ As variantes estão explicitadas no mapping canônico. As despesas centrais perm
 
 O próximo trabalho é completar a série com **delta incremental**, não repetir aquisições estaduais integrais:
 
-1. priorizar exercícios com poucas lacunas externas remanescentes: 2018, 2015, 2016, 2019 e 2013;
+1. priorizar exercícios com poucas lacunas externas remanescentes: 2015, 2016, 2019 e 2013;
 2. em 2024, consultar externamente apenas I-D/I-E dos 15 municípios ausentes, pois I-C já foi recuperado localmente;
 3. tratar o snapshot local de 2025 apenas como histórico, usando o Gate A como referência estadual aprovada;
 4. avaliar 2014 separadamente por ser o snapshot local mais incompleto;

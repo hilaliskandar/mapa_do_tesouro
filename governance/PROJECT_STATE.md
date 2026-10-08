@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_c_rreo_2025_state_approved`: o RREO 2025 foi adquirido para 645/645 municípios, com RCL observada em 531 e 114 ausências preservadas; a taxonomia RGF 2025 também foi validada por sentinela.
+A expansão estadual está no estado `gate_c_rgf_2025_acquiring`: RREO 2025 foi adquirido para 645/645 municípios, CAPAG 2025 foi validada em 645/645, a taxonomia RGF 2025 passou por paridade de sentinela e a carga estadual dos Anexos 01/05 está em execução.
 
 ## Hierarquia de fontes operacionais
 
@@ -145,12 +145,36 @@ As fontes legais passam a ser tratadas separadamente:
 
 O DCA permanece fonte analítica e não substitui declarações legais dessas fontes.
 
+## Gate C — progresso consolidado
+
+### RREO 2025
+
+- 645/645 consultas concluídas;
+- 531 RCL observadas;
+- 114 ausências;
+- zero falhas;
+- zero issues;
+- SHA-256 normalizado `d66d92bd8b75e319d0c6bb432961e791f2c5ad10d25f197b3a10db512ed75ba3`.
+
+### CAPAG 2025
+
+- snapshot oficial posição setembro de 2026;
+- 645/645 municípios paulistas;
+- suplemento local RGF/CAPAG catalogado para reduzir deltas externos.
+
+### RGF 2025
+
+- Anexos 01/05: taxonomia validada contra Americana;
+- run estadual monolítico em execução;
+- sucesso gera QA e commit seguro automaticamente;
+- falha dispara fallback em cinco shards, recomposição de 645 linhas e QA automático;
+- Anexo 02: infraestrutura pronta em workflow manual, ainda não disparada.
+
 ## Próximo gate operacional
 
-1. executar e auditar a primeira carga SP645 de RREO Anexo 03 para 2025;
-2. registrar cobertura estadual, hashes e ausências;
-3. expandir RGF Anexo 01 e 05 com paridade contra o TIC-TIM 30;
-4. integrar RGF Anexo 02;
-5. incorporar CAPAG oficial — fonte SP645 já validada em 645/645 no snapshot de setembro de 2026;
-6. somente então recalcular indicadores e avaliar promoção estadual.
+1. encerrar e auditar RGF Anexos 01/05 2025;
+2. aplicar primeiro o suplemento local CAPAG/RGF a eventuais lacunas semanticamente equivalentes;
+3. decidir a necessidade efetiva da carga estadual do RGF Anexo 02;
+4. consolidar denominadores complementares;
+5. recalcular indicadores e executar paridade estadual antes de qualquer promoção pública.
 

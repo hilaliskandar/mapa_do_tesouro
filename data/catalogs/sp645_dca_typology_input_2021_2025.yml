@@ -1,0 +1,33 @@
+version: 1
+name: sp645_dca_typology_input_2021_2025
+universe: SP_645
+window: 2021_2025
+source:
+  artifact: DCA_SP_645_2013_2025_CANONICO.csv
+  drive_file_id: 1BtXY_FxydMREEbMACJtaoW2n24ohVH33
+  source_sha256: 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5
+output:
+  artifact: SP645_DCA_TYPOLOGY_INPUT_2021_2025.csv
+  drive_file_id: 14rp3tR2T2HrzGqg9-fDxse1ODGvrTjwK
+  rows: 3225
+  sha256: bd1bfe175886fe84c969778bb9d545c5deb4836e16de4ddd6d7ddc9c4848f93d
+dimensions:
+  receita_tributaria:
+    variable: receita_tributaria_pct_receita_corrente
+    municipalities_with_at_least_3_years: 645
+    municipalities_with_all_5_years: 644
+  investimento:
+    variable: investimento_pct_receita_corrente
+    municipalities_with_at_least_3_years: 645
+    municipalities_with_all_5_years: 644
+  territorial:
+    variable: despesa_territorial_pct_despesa
+    municipalities_with_at_least_3_years: 56
+    municipalities_with_all_5_years: 41
+policy:
+  - approved_window_remains_2021_2025
+  - minimum_observations_per_dimension_is_3
+  - territorial_aggregate_is_strict_complete
+  - absence_is_not_zero
+notes:
+  - SP645_DCA_TYPOLOGY_INPUT_2023_2025.csv was a diagnostic intermediate and is not the canonical typology input.

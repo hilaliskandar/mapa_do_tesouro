@@ -122,3 +122,32 @@ gate_a_2025:
 notes:
   - Arquivos são snapshots locais e podem anteceder revisões posteriores do Siconfi.
   - Ausências são preservadas e complementadas somente por delta explícito.
+
+canonical_multiyear:
+  status: gate_b_dca_complete
+  period: 2013_2025
+  municipalities_per_year: 645
+  years: 13
+  rows: 8385
+  variables: 26
+  qa_issue_count: 0
+  normalized_sha256: 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5
+  size_bytes: 2096525
+  drive_file_id: 1BtXY_FxydMREEbMACJtaoW2n24ohVH33
+  r2_bucket: financas-municipais-sp-canonico
+  r2_object: sp_645/dca/2013_2025/normalized.csv
+  r2_manifest: sp_645/dca/2013_2025/manifest.json
+  annual_sha256:
+    2013: 4a3d7520ba163bde158091813cc2860a5eca5fe0ab588b817560a8c4219a6a59
+    2014: 1167fbb26ee435bf326f03a879b3b3c5e247f45b2e29303f57a4804d1ce7a4ab
+    2015: 27fb359a6d67a131d5a878dadf383fe3c39ca65531a9bd743bc1340e6c542e79
+    2016: 6b528933efc7ef43665c721ca29085e90e7a8229e4191a76edf5635116a71d9c
+    2017: 43dbb0f99fbae994a763e5f3d0103a0eec28e4344c175a7a27140d137204cbcc
+    2018: e66c306cd76034fa879033f7c06b8c96ba606ea4a56d81efe78570e090bf1206
+    2019: 11faa69d046bfef7403dee8756df2097f8d2a4f13dbe6b190f24e18a888b726d
+    2020: 9f3e884471a4fef64196f252d6477f25f65c6963d08337a85975b3c8fd8e4a6e
+    2021: 1679ed4ec7e074be9a7b031c153d5e716fdb7a107bcc4dcc544c767e07629242
+    2022: 387b61416817db342f94c86759811000ef40a627320308651ccd6e34cec7d9d0
+    2023: ee190ca21c4f5bcb2f51577a3fdf2bdfde2fa6832a98e44c2a51131f0f6af572
+    2024: 81804ece28290ddaec5360b1ff57059fbb3f53ceb15e466c940f4db467f68c63
+    2025: 619367dd8b2c5b3db6f7a6c902b41e2f2685616cf8560e2e852e7583f386eec7

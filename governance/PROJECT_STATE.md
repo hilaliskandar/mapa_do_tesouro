@@ -183,6 +183,17 @@ O DCA permanece fonte analítica e não substitui declarações legais dessas fo
 - suplemento CAPAG fill-only adiciona 100 Dívidas Consolidadas e 114 RCL brutas, zero conflitos;
 - composto RGF02 SHA-256 `0b31196dd1a692632b7c2b48a044ed64f5f56493eb8d50f818810cdd583fc139`.
 
+## Base multifuentes canônica 2025
+
+A base integrada SP645 2025 foi materializada e armazenada no Drive:
+
+- file ID `12XfaN7ati-wGgw_a5puwechp7ipFdWRG`;
+- 645 municípios;
+- 64 campos;
+- SHA-256 `ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566`.
+
+A prontidão dos indicadores foi medida por interseção real dos insumos, preservando ausência.
+
 ## Próximo gate operacional
 
 1. consolidar denominadores complementares necessários aos indicadores;

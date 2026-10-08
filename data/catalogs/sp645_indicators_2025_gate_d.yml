@@ -1,0 +1,29 @@
+version: 1
+name: finbra_sp645_indicadores_2025_gate_d
+universe: SP_645
+year: 2025
+artifact:
+  provider: google_drive
+  file_id: 1wYnFB8Dg000qrBM1do8pe083FlqWzHDk
+  title: FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx
+  rows: 645
+  indicators: 25
+  sha256: adb9b5b6abbd3f439f3b39cc356522d21430de74117de4bf9ca1589c40e9c161
+input:
+  multisource_sha256: ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566
+rules:
+  absence_is_not_zero: true
+  territorial_strict_complete: true
+  legal_percentages_are_observed: true
+  capag_indicators_are_observed: true
+coverage:
+  fiscal_dca_min: 641
+  fiscal_dca_max: 644
+  dtp_pct_rcl: 530
+  dc_pct_rcl: 476
+  dcl_pct_rcl: 530
+  caixa_pos_rpnp_pct_rcl: 528
+  territorial_strict: 65
+  indicador_1: 645
+  indicador_2: 645
+  indicador_3: 645

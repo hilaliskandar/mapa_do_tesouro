@@ -32,3 +32,16 @@ A cobertura de 82,33% é cobertura da variável, não cobertura de requisição:
 RREO 2025 aprovado como snapshot estadual privado, com cobertura variável explicitada.
 
 Antes de qualquer promoção analítica, as 114 ausências devem ser tratadas por fila seletiva de validação/recuperação, sem alterar o valor observado dos 531 municípios.
+
+
+## Diagnóstico cruzado sem imputação
+
+As 114 ausências do RREO foram comparadas ao snapshot oficial CAPAG, aba `CAPAG Ano Base 2025`.
+
+Resultado:
+
+- 114/114 possuem RCL preenchida no snapshot CAPAG/RGF;
+- portanto, as 114 lacunas são específicas do contrato RREO Anexo 03 na consulta executada;
+- não representam ausência geral de RCL do município.
+
+Essa comparação é apenas diagnóstica. O valor da outra fonte não é usado para preencher `rreo_rcl_total_12m`, porque RREO e RGF/CAPAG permanecem objetos de fonte distintos.

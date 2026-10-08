@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_e_typologies_pairs_private_qa`: o histórico RGF 2023–2024 passou em paridade estrita, a entrada SP645 2021–2025 foi materializada e as tipologias/pares foram calculados em camada privada com 440 municípios elegíveis a pares.
+A expansão estadual está no estado `gate_e_cartography_private_qa`: tipologias/pares SP645 estão em QA privado e a cartografia web estadual foi validada em 645/645 municípios, sem códigos faltantes ou extras.
 
 ## Hierarquia de fontes operacionais
 
@@ -258,10 +258,16 @@ Pares:
 
 Artifact privado no Drive: `1zA0zNM_pYzkMk88XttNi17on6w_l98__`.
 
+## Cartografia estadual validada
+
+A geometria web pinada contém 645 Polygons e corresponde exatamente ao universo SP645 por código IBGE.
+
+Ela está aprovada para visualização do painel. Como o GeoJSON não declara CRS, análises métricas continuam reservadas a camadas com CRS explícito, preferencialmente EPSG:4674.
+
 ## Próximo gate operacional
 
-1. produzir e validar a camada cartográfica estadual canônica;
-2. definir apresentação explícita para municípios sem tipologia/par por cobertura insuficiente;
+1. definir apresentação explícita para municípios sem tipologia/par por cobertura insuficiente;
+2. montar build privado do site SP645;
 3. executar regressão final do site estadual contra TIC-TIM 30;
 4. somente então avaliar release estadual pública.
 

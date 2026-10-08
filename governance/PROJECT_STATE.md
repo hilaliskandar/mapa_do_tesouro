@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_e_history_parity_approved`: o núcleo multifuentes 2025 está concluído, o histórico mínimo RGF 2023–2024 foi corrigido e a paridade estrita contra TIC-TIM 30 passou em 420/420 comparações, sem divergências.
+A expansão estadual está no estado `gate_e_typologies_pairs_private_qa`: o histórico RGF 2023–2024 passou em paridade estrita, a entrada SP645 2021–2025 foi materializada e as tipologias/pares foram calculados em camada privada com 440 municípios elegíveis a pares.
 
 ## Hierarquia de fontes operacionais
 
@@ -235,12 +235,33 @@ A paridade histórica contra o baseline TIC-TIM 30 foi aprovada:
 - 420 comparações;
 - zero divergências.
 
+## Gate E — tipologias e pares em QA privado
+
+A entrada SP645 2021–2025 contém 3.225 linhas.
+
+Classificação com pelo menos três anos:
+
+- base tributária: 645;
+- investimento: 645;
+- territorial: 56;
+- DTP: 505;
+- DC: 439;
+- DCL: 505;
+- liquidez: 0.
+
+Pares:
+
+- 440 municípios com pelo menos quatro marcadores;
+- 205 sem par elegível;
+- 1.320 posições prioritárias;
+- 40 pares principais recíprocos.
+
+Artifact privado no Drive: `1zA0zNM_pYzkMk88XttNi17on6w_l98__`.
+
 ## Próximo gate operacional
 
-1. materializar a entrada canônica SP645 2021–2025 para tipologias e pares;
-2. medir cobertura efetiva com mínimo de três anos por dimensão;
-3. recalcular tipologias por `universo_id = SP_645`;
-4. recalcular pares com o mínimo de quatro marcadores comparáveis;
-5. produzir a camada cartográfica estadual canônica;
-6. somente então avaliar release estadual pública.
+1. produzir e validar a camada cartográfica estadual canônica;
+2. definir apresentação explícita para municípios sem tipologia/par por cobertura insuficiente;
+3. executar regressão final do site estadual contra TIC-TIM 30;
+4. somente então avaliar release estadual pública.
 

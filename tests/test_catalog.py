@@ -28,3 +28,20 @@ def test_core_catalog_loads(tmp_path):
         ).fetchone()[0] == "indicador_legal"
     finally:
         con.close()
+
+
+
+def test_sp645_multisource_source_is_registered(tmp_path):
+    database = tmp_path / "test_sp645.sqlite"
+    initialize_database(database)
+    load_catalog(database)
+
+    con = sqlite3.connect(database)
+    try:
+        row = con.execute(
+            "SELECT nome FROM fonte WHERE fonte_id='PROJETO_BASE_MULTIFONTES_SP645_2025'"
+        ).fetchone()
+        assert row is not None
+        assert "SP645" in row[0]
+    finally:
+        con.close()

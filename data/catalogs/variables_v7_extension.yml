@@ -1,3 +1,10 @@
+fontes:
+  - fonte_id: PROJETO_BASE_MULTIFONTES_SP645_2025
+    nome: Base multifuentes FINBRA SP645 2025
+    orgao: Projeto Financas Municipais SP
+    sistema: Integracao interna
+    finalidade: Artefato integrado estadual do Gate C 2025 para carga canônica privada
+
 variaveis:
   - variavel_id: iptu_pc
     nome: IPTU por habitante

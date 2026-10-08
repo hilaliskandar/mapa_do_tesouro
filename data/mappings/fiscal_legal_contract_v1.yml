@@ -1,0 +1,85 @@
+version: 1
+name: fiscal_legal_contract_v1
+
+rreo:
+  annual_rcl:
+    source: RREO-Anexo 03
+    period: 6
+    account_code: ReceitaCorrenteLiquida
+    account_label: RECEITA CORRENTE LÍQUIDA (III) = (I - II)
+    column: TOTAL (ÚLTIMOS 12 MESES)
+    variable_id: rreo_rcl_total_12m
+    role: official_annual_rcl
+    population_variable: populacao_rreo
+
+rgf:
+  common_parameters:
+    periodicity: Q
+    period: 3
+    sphere: M
+    power: E
+    interpretation: municipal_executive_year_end
+
+  annex_01:
+    legal_personnel_expense:
+      source: RGF-Anexo 01
+      variable_id: rgf_despesa_total_pessoal
+      canonical_concept: DESPESA_TOTAL_PESSOAL
+      role: legal_numerator
+    legal_rcl_denominator:
+      source: RGF-Anexo 01
+      variable_id: rgf_rcl_denominador_legal
+      canonical_concept: RCL_DENOMINADOR_LEGAL
+      role: legal_denominator
+      temporal_rule:
+        2015_2017: RCL limite legal
+        2018_plus: RCL ajustada
+    legal_personnel_ratio:
+      source: RGF-Anexo 01
+      variable_id: rgf_dtp_percentual_rcl
+      canonical_concept: DTP_PERCENTUAL_RCL
+      role: official_legal_ratio
+      do_not_recompute_when_official_percentage_is_available: true
+
+  annex_05:
+    comparable_period:
+      from_year: 2019
+      note: estrutura 2019+ comparável; anos anteriores preservados sem forçar equivalência
+    variables:
+      - {variable_id: rgf_caixa_bruta_nao_vinculada, canonical_concept: CAIXA_BRUTA_NAO_VINCULADA}
+      - {variable_id: rgf_rp_liquidados_anteriores_nao_vinculados, canonical_concept: RP_LIQUIDADOS_ANTERIORES_NAO_VINCULADOS}
+      - {variable_id: rgf_rp_liquidados_exercicio_nao_vinculados, canonical_concept: RP_LIQUIDADOS_EXERCICIO_NAO_VINCULADOS}
+      - {variable_id: rgf_rp_nao_liquidados_anteriores_nao_vinculados, canonical_concept: RP_NAO_LIQUIDADOS_ANTERIORES_NAO_VINCULADOS}
+      - {variable_id: rgf_demais_obrigacoes_nao_vinculadas, canonical_concept: DEMAIS_OBRIGACOES_NAO_VINCULADAS}
+      - {variable_id: rgf_caixa_liquida_antes_rpnp, canonical_concept: CAIXA_LIQUIDA_ANTES_RPNP}
+      - {variable_id: rgf_rp_nao_liquidados_exercicio_nao_vinculados, canonical_concept: RP_NAO_LIQUIDADOS_EXERCICIO_NAO_VINCULADOS}
+      - {variable_id: rgf_caixa_liquida_apos_rpnp, canonical_concept: CAIXA_LIQUIDA_APOS_RPNP}
+    aggregation_rule: use_official_total_line_not_sum_of_sublines
+
+  annex_02:
+    source: RGF-Anexo 02
+    preservation:
+      - cod_conta
+      - conta
+      - coluna
+      - valor
+      - populacao
+      - fonte_url
+      - fonte
+    rule: preserve_official_taxonomy_and_do_not_infer_missing_accounts
+
+capag:
+  source: official_CAPAG_result
+  year_base: 2025
+  snapshot_position: 2026-09
+  policy:
+    - official_classification_precedes_local_reconstruction
+    - do_not_derive_official_grade_from_dca_proxies
+    - store_snapshot_date_and_year_base_separately
+
+cross_source_rules:
+  - DCA grupo 3.1 liquidado is exploratory only and must not replace RGF legal DTP
+  - RREO RCL and RGF legal denominator are distinct source objects
+  - official percentages should be stored as observed legal indicators
+  - absence remains null
+  - every record keeps source annex period year and source vintage

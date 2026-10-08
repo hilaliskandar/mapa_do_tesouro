@@ -494,14 +494,18 @@ function renderComparison() {
 
 
 function renderProfile() {
-  const markers = (state.municipal?.markers || []).filter(
-    (item) => item.valor_texto
+  const allMarkers = state.municipal?.markers || [];
+  const markers = allMarkers.filter(
+    (item) => item.status === "observado" && item.valor_texto
   );
+  const observedMarkerCount = markers.length;
+
   $("#marker-list").innerHTML = markers.length
     ? markers.map((item) =>
         `<span class="badge">${item.valor_texto}</span>`
-      ).join("")
-    : '<span class="muted">Sem marcadores disponíveis.</span>';
+      ).join("") +
+      `<p class="muted profile-coverage">${observedMarkerCount}/6 marcadores comparáveis observados nesta janela.</p>`
+    : '<span class="muted">Sem marcadores classificáveis por cobertura suficiente nesta janela.</span>';
 
   const pairs = (state.municipal?.pairs || []).filter(
     (item) => item.ordem_prioritaria !== null
@@ -517,7 +521,11 @@ function renderProfile() {
           </div>
         </div>
       `).join("")
-    : '<span class="muted">Sem pares prioritários disponíveis.</span>';
+    : (
+        observedMarkerCount < 4
+          ? `<span class="muted">Sem par prioritário: ${observedMarkerCount}/6 marcadores comparáveis observados; são necessários pelo menos 4.</span>`
+          : '<span class="muted">Sem pares prioritários disponíveis neste build.</span>'
+      );
 }
 
 function renderThemes() {

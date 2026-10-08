@@ -7,6 +7,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "data/catalogs/dca_sp_delta_queue.yml"
       - ".github/workflows/gate-b-auto-orchestrator.yml"
       - "pipeline/acquire/dca_delta_batch.py"
 

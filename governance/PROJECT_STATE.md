@@ -194,6 +194,20 @@ A base integrada SP645 2025 foi materializada e armazenada no Drive:
 
 A prontidão dos indicadores foi medida por interseção real dos insumos, preservando ausência.
 
+## Gate D — indicadores 2025 calculados
+
+O artefato privado de indicadores contém 645 municípios e 25 indicadores:
+
+- Drive file ID `1wYnFB8Dg000qrBM1do8pe083FlqWzHDk`;
+- SHA-256 `adb9b5b6abbd3f439f3b39cc356522d21430de74117de4bf9ca1589c40e9c161`;
+- indicadores fiscais DCA: 641–644 municípios;
+- DTP/RCL: 530;
+- DC/RCL: 476;
+- DCL/RCL: 530;
+- caixa após RPNP/RCL: 528;
+- CAPAG I1/I2/I3: 645;
+- indicadores territoriais strict_complete: 65.
+
 ## Próximo gate operacional
 
 1. consolidar denominadores complementares necessários aos indicadores;

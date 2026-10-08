@@ -1,6 +1,6 @@
 # Inventário canônico
 
-Atualizado em 2026-10-07.
+Atualizado em 2026-10-08.
 
 ## Núcleo aprovado
 
@@ -112,14 +112,27 @@ Atualizado em 2026-10-07.
 
 Os PRs #18 e #20 foram encerrados sem merge porque suas funções foram substituídas pela linha posterior já integrada à `main`.
 
+## Gate B DCA concluído
+
+- 645 municípios;
+- 2013–2025;
+- 8.385 município-ano;
+- 26 variáveis;
+- zero issues de normalização;
+- snapshot multianual SHA-256 `67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5`;
+- arquivo canônico no Drive;
+- snapshot e manifesto no R2 privado;
+- fila seletiva histórica encerrada;
+- ausências históricas confirmadas preservadas como ausência.
+
 ## Pendências estruturais
 
-1. construir carga DCA estadual real para mais exercícios;
-2. registrar cobertura por variável e exercício;
-3. decidir janela inicial da primeira release estadual;
-4. integrar população anual compatível;
-5. integrar RREO e RGF com QA;
-6. integrar CAPAG;
-7. recalcular tipologias e pares por `universo_id`;
-8. produzir cartografia estadual canônica;
-9. criar release estadual somente após paridade e QA.
+1. integrar RREO estadual com QA;
+2. integrar RGF estadual com QA;
+3. integrar CAPAG;
+4. consolidar denominadores anuais complementares;
+5. recalcular indicadores derivados e legais;
+6. recalcular tipologias e pares por `universo_id`;
+7. produzir cartografia estadual canônica;
+8. executar paridade completa contra TIC-TIM 30;
+9. criar release estadual somente após aprovação multifuentes.

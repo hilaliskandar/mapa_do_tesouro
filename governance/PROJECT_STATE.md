@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_c_rreo_rcl_smoke_approved`: os contratos multifuentes estão definidos e o RREO Anexo 03 / RCL anual passou em paridade 5/5 contra o Drive.
+A expansão estadual está no estado `gate_c_rreo_2025_state_approved`: o RREO 2025 foi adquirido para 645/645 municípios, com RCL observada em 531 e 114 ausências preservadas; a taxonomia RGF 2025 também foi validada por sentinela.
 
 ## Hierarquia de fontes operacionais
 

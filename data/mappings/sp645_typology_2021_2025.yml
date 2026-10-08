@@ -1,0 +1,78 @@
+universe:
+  id: SP_645
+  name: São Paulo — 645 municípios
+  description: Universo estadual canônico para tipologias e pares.
+  type: estadual
+
+source:
+  source_id: PROJETO_BASE_MULTIFONTES
+  workbook_name: SP645_TYPOLOGY_INPUT_2021_2025.xlsx
+  sheet: Tipologia SP645
+  data_version: sp645-typology-input-2021-2025-v1
+  expected_rows: 3225
+  expected_municipalities: 645
+  expected_years:
+    start: 2021
+    end: 2025
+
+keys:
+  codigo_ibge: cod_ibge
+  municipio: municipio
+  ano: ano
+
+variables:
+  receita_tributaria_pct_receita_corrente:
+    column: receita_tributaria_pct_receita_corrente
+    source_id: SICONFI_DCA
+    availability_start: 2021
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  investimento_pct_receita_corrente:
+    column: investimento_pct_receita_corrente
+    source_id: SICONFI_DCA
+    availability_start: 2021
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  despesa_territorial_pct_despesa:
+    column: despesa_territorial_pct_despesa
+    source_id: SICONFI_DCA
+    availability_start: 2021
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  dtp_pct_rcl:
+    column: dtp_pct_rcl
+    source_id: SICONFI_RGF_A01
+    availability_start: 2023
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  dc_pct_rcl:
+    column: dc_pct_rcl
+    source_id: SICONFI_RGF_A02
+    availability_start: 2023
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  dcl_pct_rcl:
+    column: dcl_pct_rcl
+    source_id: SICONFI_RGF_A02
+    availability_start: 2023
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  caixa_pos_rpnp_pct_rcl:
+    column: caixa_pos_rpnp_pct_rcl
+    source_id: SICONFI_RGF_A05
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01

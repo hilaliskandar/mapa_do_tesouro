@@ -63,9 +63,9 @@ A cardinalidade mínima anual na interseção dos três anexos é:
 - 2019: 642;
 - 2020: 645;
 - 2021: 645;
-- 2022: 644;
+- 2022: 644 no snapshot anual; I-C complementado localmente para 645;
 - 2023: 645;
-- 2024: 630;
+- 2024: 630 no snapshot anual; I-C complementado localmente para 645;
 - 2025 local: 632;
 - 2025 Gate A: 645.
 
@@ -86,13 +86,14 @@ As variantes estão explicitadas no mapping canônico. As despesas centrais perm
 
 O próximo trabalho é completar a série com **delta incremental**, não repetir aquisições estaduais integrais:
 
-1. priorizar exercícios com poucas lacunas: 2022, 2018, 2019, 2015, 2016 e 2013;
-2. tratar 2024 e o snapshot local de 2025 com deltas maiores;
-3. avaliar 2014 separadamente por ser o snapshot local mais incompleto;
-4. preservar snapshot original e delta como artefatos distintos;
-5. promover anos aprovados ao R2 privado;
-6. consolidar snapshot multianual estadual;
-7. somente então iniciar integração estadual de RREO, RGF e CAPAG.
+1. priorizar exercícios com poucas lacunas externas remanescentes: 2018, 2015, 2016, 2019 e 2013;
+2. em 2024, consultar externamente apenas I-D/I-E dos 15 municípios ausentes, pois I-C já foi recuperado localmente;
+3. tratar o snapshot local de 2025 apenas como histórico, usando o Gate A como referência estadual aprovada;
+4. avaliar 2014 separadamente por ser o snapshot local mais incompleto;
+5. preservar snapshot original e suplemento/delta como artefatos distintos;
+6. promover anos aprovados ao R2 privado;
+7. consolidar snapshot multianual estadual;
+8. somente então iniciar integração estadual de RREO, RGF e CAPAG.
 
 ## Regras para retomada
 

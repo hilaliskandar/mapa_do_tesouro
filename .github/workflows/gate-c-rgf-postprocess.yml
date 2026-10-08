@@ -1,0 +1,63 @@
+name: Gate C RGF Postprocess
+
+on:
+  workflow_run:
+    workflows: ["Gate C RGF SP645"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: gate-c-rgf-postprocess
+  cancel-in-progress: false
+
+jobs:
+  qa:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    env:
+      RGF_YEAR: "2025"
+      SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download RGF state artifact from source run
+        uses: actions/download-artifact@v4
+        with:
+          name: gate-c-rgf-sp645-2025
+          path: build/source
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Generate statewide QA
+        run: |
+          python -m pipeline.qa.rgf_state             --manifest "build/source/build/raw/rgf/2025/manifests/rgf-01-05-2025.json"             --normalized-csv "build/source/build/normalized/rgf_01_05_2025.csv"             --output "governance/auto/QA_GATE_C_RGF_SP645_2025_RUN_${SOURCE_RUN_ID}.md"
+
+      - name: Record source run metadata
+        run: |
+          cat > "governance/auto/RGF_SP645_2025_RUN_${SOURCE_RUN_ID}.json" <<EOF
+          {
+            "source_run_id": "${SOURCE_RUN_ID}",
+            "year": 2025,
+            "artifact": "gate-c-rgf-sp645-2025",
+            "source_workflow": "Gate C RGF SP645"
+          }
+          EOF
+
+      - name: Commit safe QA update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add governance/auto/
+          if git diff --cached --quiet; then
+            echo "No QA changes to commit."
+            exit 0
+          fi
+          git commit -m "gate-c: record statewide RGF 2025 QA"
+          git push origin HEAD:main

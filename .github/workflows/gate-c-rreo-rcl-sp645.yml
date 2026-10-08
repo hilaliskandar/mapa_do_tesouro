@@ -13,18 +13,26 @@ on:
         required: true
         default: "1.05"
         type: string
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-c-rreo-rcl-sp645.yml"
 
 permissions:
   contents: read
 
 concurrency:
-  group: gate-c-rreo-rcl-sp645-${{ inputs.year }}
+  group: gate-c-rreo-rcl-sp645-${{ github.event_name == 'workflow_dispatch' && inputs.year || '2025' }}
   cancel-in-progress: false
 
 jobs:
   acquire-state:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      RREO_YEAR: ${{ github.event_name == 'workflow_dispatch' && inputs.year || '2025' }}
+      MIN_INTERVAL: ${{ github.event_name == 'workflow_dispatch' && inputs.min_interval || '1.05' }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -38,11 +46,11 @@ jobs:
       - name: Download pinned SP municipality geometry
         run: |
           mkdir -p build
-          curl --fail --location --retry 3             "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json"             --output build/sp.geojson
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
 
       - name: Acquire SP645 RREO RCL
         run: |
-          python -m pipeline.acquire.siconfi_rreo_state             --geojson build/sp.geojson             --year "${{ inputs.year }}"             --output "build/raw/rreo/${{ inputs.year }}"             --normalized-csv "build/normalized/rreo_rcl_${{ inputs.year }}.csv"             --min-interval "${{ inputs.min_interval }}"
+          python -m pipeline.acquire.siconfi_rreo_state             --geojson build/sp.geojson             --year "$RREO_YEAR"             --output "build/raw/rreo/$RREO_YEAR"             --normalized-csv "build/normalized/rreo_rcl_$RREO_YEAR.csv"             --min-interval "$MIN_INTERVAL"
 
       - name: Validate state acquisition
         run: |
@@ -51,7 +59,7 @@ jobs:
           import os
           from pathlib import Path
 
-          year = os.environ["YEAR"]
+          year = os.environ["RREO_YEAR"]
           manifest = json.loads(
               Path(f"build/raw/rreo/{year}/manifests/rreo-rcl-{year}.json")
               .read_text(encoding="utf-8")
@@ -62,18 +70,42 @@ jobs:
               raise SystemExit("Expected 645 municipalities")
           if manifest["normalization"]["rows"] != 645:
               raise SystemExit("Expected 645 normalized rows")
+          if manifest["normalization"]["issues"] != 0:
+              raise SystemExit(
+                  f"Normalization issues: {manifest['normalization']['issues']}"
+              )
           print("SP645 RREO RCL acquisition: OK")
           print("observed_rcl_rows=" + str(manifest["normalization"]["observed_rcl_rows"]))
           print("normalized_sha256=" + manifest["normalized_sha256"])
           PY
-        env:
-          YEAR: ${{ inputs.year }}
+
+      - name: Publish summary
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          year = os.environ["RREO_YEAR"]
+          manifest = json.loads(
+              Path(f"build/raw/rreo/{year}/manifests/rreo-rcl-{year}.json")
+              .read_text(encoding="utf-8")
+          )
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as out:
+              out.write("### Gate C RREO RCL SP645\n\n")
+              out.write(f"- year: {year}\n")
+              out.write(f"- requested municipalities: {manifest['municipalities_requested']}\n")
+              out.write(f"- observed RCL rows: {manifest['normalization']['observed_rcl_rows']}\n")
+              out.write(f"- issues: {manifest['normalization']['issues']}\n")
+              out.write(f"- normalized SHA-256: {manifest['normalized_sha256']}\n")
+              out.write(f"- raw tree SHA-256: {manifest['raw_tree_sha256']}\n")
+          PY
 
       - name: Upload state artifact
         uses: actions/upload-artifact@v4
         with:
-          name: gate-c-rreo-rcl-sp645-${{ inputs.year }}
+          name: gate-c-rreo-rcl-sp645-${{ env.RREO_YEAR }}
           path: |
-            build/raw/rreo/${{ inputs.year }}
-            build/normalized/rreo_rcl_${{ inputs.year }}.csv
+            build/raw/rreo/${{ env.RREO_YEAR }}
+            build/normalized/rreo_rcl_${{ env.RREO_YEAR }}.csv
           retention-days: 30

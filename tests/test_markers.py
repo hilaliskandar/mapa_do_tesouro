@@ -3,6 +3,7 @@ import sqlite3
 from pipeline.build.init_db import initialize_database
 from pipeline.build.load_catalog import load_catalog
 from pipeline.transform.calculate_markers import calculate_markers
+from pipeline.transform.calculate_typologies import calculate_typologies
 
 
 def test_markers_collapse_quadrants_exactly_like_block3(tmp_path):
@@ -76,5 +77,64 @@ def test_markers_collapse_quadrants_exactly_like_block3(tmp_path):
         assert values["divida"] == "dívida abaixo da mediana"
         assert values["liquidez"] == "liquidez acima da mediana"
         assert "dcl" not in values
+    finally:
+        con.close()
+
+
+
+def test_markers_accept_typology_output_stability_spelling(tmp_path):
+    db = tmp_path / "integration.sqlite"
+    initialize_database(db)
+    load_catalog(db)
+    con = sqlite3.connect(db)
+    try:
+        con.execute(
+            "INSERT INTO universo(universo_id,nome) VALUES ('TIC_TIM_30','Teste')"
+        )
+        for code, mean, cv in (
+            ("3500001", 0.30, 0.10),
+            ("3500002", 0.20, 0.20),
+            ("3500003", 0.10, 0.30),
+        ):
+            con.execute(
+                "INSERT INTO municipio(codigo_ibge,nome,uf) VALUES (?,?,?)",
+                (code, code, "SP"),
+            )
+            con.execute(
+                "INSERT INTO universo_municipio(universo_id,codigo_ibge) VALUES ('TIC_TIM_30',?)",
+                (code,),
+            )
+            for metric, value in (("media", mean), ("cv", cv)):
+                con.execute(
+                    """
+                    INSERT INTO estatistica_janela(
+                        codigo_ibge,universo_id,variavel_id,janela_id,
+                        metrica_id,valor_num,status,n_observacoes
+                    ) VALUES (?,?,?,?,?,?,?,?)
+                    """,
+                    (
+                        code, "TIC_TIM_30",
+                        "investimento_pct_receita_corrente",
+                        "2021_2025", metric, value, "observado", 5,
+                    ),
+                )
+        con.commit()
+    finally:
+        con.close()
+
+    calculate_typologies(db)
+    calculate_markers(db)
+
+    con = sqlite3.connect(db)
+    try:
+        value = con.execute(
+            """
+            SELECT valor_texto
+            FROM marcador_comparavel
+            WHERE codigo_ibge='3500001'
+              AND marcador_id='invest'
+            """
+        ).fetchone()[0]
+        assert value == "investimento alto e mais estável"
     finally:
         con.close()

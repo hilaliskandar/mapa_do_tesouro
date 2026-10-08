@@ -57,3 +57,30 @@ jobs:
             build/raw/rgf/${{ env.RGF_YEAR }}
             build/normalized/rgf_01_05_${{ env.RGF_YEAR }}_${{ matrix.shard.name }}.csv
           retention-days: 30
+
+
+  finalize:
+    needs: acquire-shards
+    if: always() && needs.acquire-shards.result == 'success'
+    runs-on: ubuntu-latest
+    env:
+      RGF_YEAR: ${{ github.event_name == 'workflow_dispatch' && inputs.year || '2025' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download all shard artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gate-c-rgf-${{ env.RGF_YEAR }}-*
+          path: build/shards
+          merge-multiple: true
+      - name: Combine and validate 645 rows
+        run: |
+          python -m pipeline.qa.rgf_shards             --input-root build/shards             --output-csv "build/normalized/rgf_01_05_${RGF_YEAR}_combined.csv"             --expected-rows 645             --summary "build/rgf_${RGF_YEAR}_shard_summary.json"
+      - name: Upload combined artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf-${{ env.RGF_YEAR }}-combined
+          path: |
+            build/normalized/rgf_01_05_${{ env.RGF_YEAR }}_combined.csv
+            build/rgf_${{ env.RGF_YEAR }}_shard_summary.json
+          retention-days: 30

@@ -47,7 +47,7 @@ jobs:
             "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
             --output build/sp.geojson
 
-      - name: Resolve approved delta codes
+      - name: Resolve approved delta plan
         id: resolve
         shell: bash
         env:
@@ -55,6 +55,7 @@ jobs:
         run: |
           if [ -n "$CODES_OVERRIDE" ]; then
             python - <<'PY'
+          import json
           import os
           from pathlib import Path
           from pipeline.acquire.siconfi_dca_delta import parse_codes
@@ -64,32 +65,42 @@ jobs:
               raise SystemExit(
                   f"Delta contains {len(codes)} municipalities; maximum is 100."
               )
+          plan = {"i_c": codes, "i_d": codes, "i_e": codes}
+          Path("build/delta-plan.json").write_text(
+              json.dumps(plan, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
           with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as out:
               out.write("codes=" + " ".join(codes) + "\n")
               out.write(f"count={len(codes)}\n")
+              out.write(f"pair_count={len(codes) * 3}\n")
           print("codes=" + ",".join(codes))
           PY
           else
             python -m pipeline.acquire.dca_delta_queue \
               --year "${{ inputs.year }}" \
-              --github-output "$GITHUB_OUTPUT"
+              --github-output "$GITHUB_OUTPUT" \
+              --output-json build/delta-plan.json
           fi
 
       - name: Validate resolved delta size
         shell: bash
         run: |
           COUNT="${{ steps.resolve.outputs.count }}"
+          PAIRS="${{ steps.resolve.outputs.pair_count }}"
           test -n "$COUNT" || { echo "No resolved delta count"; exit 1; }
+          test -n "$PAIRS" || { echo "No resolved pair count"; exit 1; }
           test "$COUNT" -le 100 || { echo "Delta too large: $COUNT"; exit 1; }
           echo "delta_municipalities=$COUNT"
-          echo "codes=${{ steps.resolve.outputs.codes }}"
+          echo "municipality_annex_pairs=$PAIRS"
+          cat build/delta-plan.json
 
       - name: Acquire targeted DCA delta
         run: |
           python -m pipeline.acquire.siconfi_dca_delta \
             --geojson build/sp.geojson \
             --year "${{ inputs.year }}" \
-            --codes "${{ steps.resolve.outputs.codes }}" \
+            --plan build/delta-plan.json \
             --output "build/raw/delta/${{ inputs.year }}" \
             --normalized-csv "build/normalized/dca_delta_${{ inputs.year }}.csv" \
             --min-interval "${{ inputs.min_interval }}" \
@@ -109,7 +120,7 @@ jobs:
               raise SystemExit(
                   f"Delta has unresolved failures: {manifest['failed'][:20]}"
               )
-          expected = manifest["municipalities_requested"] * 3
+          expected = manifest["municipality_annex_pairs_requested"]
           completed = sum(
               item["completed_now"] + item["reused"]
               for item in manifest["annex_results"].values()
@@ -122,6 +133,7 @@ jobs:
               raise SystemExit("Normalized row count mismatch")
           print("Selective DCA delta: OK")
           print("normalized_sha256=" + manifest["normalized_sha256"])
+          print("empty_source_pairs=" + str(manifest["empty_source_pair_count"]))
           PY
 
       - name: Publish summary
@@ -146,8 +158,13 @@ jobs:
               out.write(
                   f"- municipalities: {manifest['municipalities_requested']}\n"
               )
-              out.write("- codes: " + ", ".join(manifest["codes"]) + "\n")
-              out.write("- annexes: I-C, I-D, I-E\n")
+              out.write(
+                  f"- municipality-annex pairs: "
+                  f"{manifest['municipality_annex_pairs_requested']}\n"
+              )
+              out.write(
+                  f"- empty source pairs: {manifest['empty_source_pair_count']}\n"
+              )
               out.write("- unresolved failures: 0\n")
               out.write(
                   f"- normalized SHA-256: `{manifest['normalized_sha256']}`\n"
@@ -162,5 +179,6 @@ jobs:
           path: |
             build/raw/delta/${{ inputs.year }}
             build/normalized/dca_delta_${{ inputs.year }}.csv
+            build/delta-plan.json
           if-no-files-found: warn
           retention-days: 14

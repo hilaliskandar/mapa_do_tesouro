@@ -1,0 +1,26 @@
+version: 1
+year: 2025
+municipality:
+  cod_ibge: "3501608"
+  name: Americana
+source:
+  file_id: 1t0HYxI9J4zvpKURDZJebkXNagdrf1f3PaZIMFzGcrDM
+  title: FINBRA_TIC_TIM_30M_RGF_ANEXO02_2015_2025_v1
+expected:
+  DividaConsolidada: 1356268505.50
+  DividaContratual: 970462017.25
+  RGF2ParcelamentoERenegociacaoDeDividas: 932466346.74
+  PrecatoriosPosterioresA05052000VencidosENaoPagos: 367031751.75
+  OutrasDividas: 18774736.50
+  DeducoesDaDividaConsolidada: 138834676.30
+  RGF2DisponibilidadeDeCaixa: 84265140.30
+  RestosAPagarProcessadosExcetoPrecatorios: 70574690.81
+  DemaisHaveresFinanceiros: 54569536.00
+  DividaConsolidadaLiquida: 1217433829.20
+  RGF2ReceitaCorrenteLiquida: 1459192239.74
+  ReceitaCorrenteLiquidaAjustadaParaCalculoDosLimitesDeEndividamento: 1454899326.74
+  PercentualDaDCSobreARCL: 93.22
+  PercentualDaDCLSobreARCL: 83.68
+tolerance:
+  monetary: 0.01
+  percentage_points: 0.001

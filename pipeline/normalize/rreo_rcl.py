@@ -6,7 +6,7 @@ from pathlib import Path
 from pipeline.acquire.siconfi_legal_reports import read_raw, slug
 
 ANNEX = "RREO-Anexo 03"
-ACCOUNT_CODE = "ReceitaCorrenteLiquida"
+ACCOUNT_CODE = "RREO3ReceitaCorrenteLiquida"
 COLUMN = "TOTAL (ÚLTIMOS 12 MESES)"
 
 

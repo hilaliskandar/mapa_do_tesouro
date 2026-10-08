@@ -1,0 +1,83 @@
+name: Gate E Minimum Historical RGF
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-e-rgf-history-minimum.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gate-e-rgf-history-minimum
+  cancel-in-progress: false
+
+jobs:
+  acquire:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        year: [2023, 2024]
+        shard:
+          - {name: "000-128", start: 0, count: 129}
+          - {name: "129-257", start: 129, count: 129}
+          - {name: "258-386", start: 258, count: 129}
+          - {name: "387-515", start: 387, count: 129}
+          - {name: "516-644", start: 516, count: 129}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
+      - name: Acquire minimum historical RGF shard
+        run: |
+          python -m pipeline.acquire.siconfi_rgf_history_minimum \
+            --geojson build/sp.geojson \
+            --year "${{ matrix.year }}" \
+            --output "build/raw/rgf-history/${{ matrix.year }}" \
+            --normalized-csv "build/normalized/rgf_history_${{ matrix.year }}_${{ matrix.shard.name }}.csv" \
+            --start-index "${{ matrix.shard.start }}" \
+            --limit-codes "${{ matrix.shard.count }}" \
+            --min-interval 1.05
+      - name: Upload shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-e-rgf-history-${{ matrix.year }}-${{ matrix.shard.name }}
+          path: build/normalized/rgf_history_${{ matrix.year }}_${{ matrix.shard.name }}.csv
+          retention-days: 30
+
+  finalize:
+    needs: acquire
+    if: always() && needs.acquire.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download all shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: gate-e-rgf-history-*
+          path: build/shards
+          merge-multiple: true
+      - name: Combine 2023-2024 history
+        run: |
+          python -m pipeline.qa.rgf_history_minimum \
+            --input-root build/shards \
+            --output-csv build/normalized/rgf_history_2023_2024.csv \
+            --summary build/rgf_history_2023_2024_summary.json
+      - name: Upload combined history
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-e-rgf-history-2023-2024-combined
+          path: |
+            build/normalized/rgf_history_2023_2024.csv
+            build/rgf_history_2023_2024_summary.json
+          retention-days: 30

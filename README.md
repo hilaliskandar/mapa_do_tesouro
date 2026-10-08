@@ -19,7 +19,7 @@ O baseline público vigente é o universo `TIC_TIM_30`:
 - publicação no Cloudflare Pages;
 - preview e produção com QA automatizado.
 
-O universo estadual `SP_645` está em expansão controlada. Existe um piloto validado de escala para 645 municípios e 2020–2023 com cinco variáveis de receita, armazenado em R2 privado e reconstruído pelo CI. Esse piloto não substitui o baseline público.
+O universo estadual `SP_645` está em expansão controlada. O Gate B DCA foi concluído para 2013–2025: 645 municípios por exercício, 8.385 município-ano, 26 variáveis e zero issues de normalização. O snapshot multianual está versionado no Drive e no R2 privado. Essa conclusão do DCA ainda não substitui o baseline público TIC-TIM 30, pois RREO, RGF, CAPAG e demais contratos estaduais permanecem em integração.
 
 ## Arquitetura atual
 
@@ -183,17 +183,9 @@ O deployment é separado do rebuild dos dados. Alterações de interface podem s
 
 ## Próximo gate
 
-A próxima etapa estrutural é deixar de tratar o `SP_645` apenas como prova de escala e construir uma primeira base DCA estadual auditável diretamente do Siconfi, preservando:
+O Gate B DCA estadual está concluído. O próximo bloco é integrar RREO, RGF e CAPAG, preservar seus demonstrativos legais próprios, consolidar denominadores complementares e somente depois recalcular indicadores, tipologias e pares estaduais.
 
-- artefatos brutos;
-- manifestos por exercício;
-- hashes;
-- cobertura variável a variável;
-- paridade com sentinelas do TIC-TIM 30;
-- ausência como ausência;
-- contrato de estágios contábeis.
-
-Somente após esse gate entram RREO, RGF, CAPAG e a recomposição de tipologias/pares estaduais.
+O baseline público TIC-TIM 30 permanece como referência de regressão até a aprovação de uma release estadual multifuentes.
 
 ## Legado
 

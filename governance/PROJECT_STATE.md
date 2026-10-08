@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_b_active`, com a fila DCA automatizada e 2024 já promovido como snapshot estadual anual resolvido.
+A expansão estadual está no estado `gate_b_dca_complete`: a série DCA SP645 2013–2025 foi consolidada, versionada e armazenada no Drive e no R2 privado.
 
 ## Hierarquia de fontes operacionais
 
@@ -117,23 +117,31 @@ Resultados já consolidados:
 - 2024: `resolved_composite_fill_only`, 645 linhas, zero conflitos, SHA-256 `81804ece28290ddaec5360b1ff57059fbb3f53ceb15e466c940f4db467f68c63`;
 - 2024 está armazenado no Drive e no R2 privado em `sp_645/dca/2024/normalized.csv`.
 
+## Gate B DCA — concluído
+
+A série estadual canônica contém:
+
+- 645 municípios por exercício;
+- 2013–2025;
+- 8.385 município-ano;
+- 26 variáveis;
+- zero issues de normalização;
+- SHA-256 multianual `67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5`;
+- Drive file ID `1BtXY_FxydMREEbMACJtaoW2n24ohVH33`;
+- R2 `sp_645/dca/2013_2025/normalized.csv`;
+- manifesto R2 `sp_645/dca/2013_2025/manifest.json`.
+
+A fila seletiva DCA está vazia. As lacunas não recuperáveis em 2013, 2014, 2015, 2016, 2018 e 2019 foram confirmadas por consulta seletiva ao Siconfi e permanecem como ausência.
+
 ## Próximo gate operacional
 
-A única lacuna ainda pendente na fila DCA histórica é 2014. O lote automático deve tratá-la sem repetir exercícios já encerrados:
+O próximo bloco estadual deixa de ser DCA e passa à integração das demais fontes oficiais:
 
-1. executar o delta seletivo de 2014;
-2. se houver valores recuperados, aplicar composição fill-only e QA de conflitos;
-3. preservar ausências confirmadas sem convertê-las em zero;
-4. promover snapshots anuais resolvidos ao R2 privado;
-5. consolidar o snapshot multianual estadual;
-6. somente então iniciar integração estadual de RREO, RGF e CAPAG.
+1. RREO;
+2. RGF;
+3. CAPAG;
+4. denominadores complementares;
+5. indicadores derivados e legais;
+6. tipologias, pares e cartografia estadual;
+7. paridade final antes de qualquer promoção do SP645 ao painel público.
 
-## Regras para retomada
-
-1. ler este arquivo;
-2. verificar `main`, PRs e CI;
-3. consultar o Drive antes de qualquer coleta externa;
-4. consultar apenas os códigos/anexos faltantes quando houver snapshot local;
-5. preservar ausência como ausência;
-6. respeitar o crosswalk por exercício;
-7. manter TIC-TIM 30 como baseline de regressão até promoção formal do baseline estadual.

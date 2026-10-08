@@ -1,0 +1,74 @@
+name: Gate C RGF Parity Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "pipeline/normalize/rgf_legal.py"
+      - "data/qa/rgf_sentinel_americana_2025.yml"
+      - ".github/workflows/gate-c-rgf-parity-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Acquire Americana RGF 2025
+        run: |
+          python -m pipeline.acquire.siconfi_legal_reports             --endpoint rgf             --entity-id 3501608             --years 2025             --annexes "RGF-Anexo 01" "RGF-Anexo 05"             --periodicity Q             --period 3             --report-type RGF             --sphere M             --branch E             --output build/raw/rgf-parity             --min-interval 1.05
+
+      - name: Validate parity
+        run: |
+          python - <<'PY'
+          import math
+          from pathlib import Path
+          import yaml
+
+          from pipeline.acquire.siconfi_legal_reports import read_raw
+          from pipeline.normalize.rgf_legal import normalize_annex01, normalize_annex05
+
+          ref = yaml.safe_load(Path("data/qa/rgf_sentinel_americana_2025.yml").read_text(encoding="utf-8"))
+          root = Path("build/raw/rgf-parity/rgf")
+          a1 = normalize_annex01(read_raw(root / "rgf-anexo-01" / "2025" / "3501608.json.gz"))
+          a5 = normalize_annex05(read_raw(root / "rgf-anexo-05" / "2025" / "3501608.json.gz"))
+
+          for actual, expected, tol in [
+              (a1, ref["expected"]["annex_01"], float(ref["tolerance"]["absolute_brl"])),
+              (a5, ref["expected"]["annex_05"], float(ref["tolerance"]["absolute_brl"])),
+          ]:
+              if actual["qa_issue_count"] != 0:
+                  raise SystemExit(f"Normalization issues: {actual['issues']}")
+              for key, target in expected.items():
+                  value = actual[key]
+                  if target is None:
+                      if value is not None:
+                          raise SystemExit(f"{key}: expected absence, got {value}")
+                  elif abs(float(value) - float(target)) > tol:
+                      raise SystemExit(f"{key}: {value} != {target}")
+
+          print("RGF Americana 2025 parity: OK")
+          print("DTP=" + str(a1["rgf_despesa_total_pessoal"]))
+          print("RCL_legal=" + str(a1["rgf_rcl_denominador_legal"]))
+          print("DTP_percent=" + str(a1["rgf_dtp_percentual_rcl"]))
+          print("Caixa_pos_RPNP=" + str(a5["rgf_caixa_liquida_apos_rpnp"]))
+          PY
+
+      - name: Upload parity artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf-parity-americana-2025
+          path: build/raw/rgf-parity
+          retention-days: 14

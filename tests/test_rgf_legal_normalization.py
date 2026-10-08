@@ -56,3 +56,36 @@ def test_annex05_uses_non_linked_total_and_preserves_absence():
     assert row["rgf_caixa_bruta_nao_vinculada"] == 129054745.41
     assert row["rgf_demais_obrigacoes_nao_vinculadas"] is None
     assert row["qa_issue_count"] == 0
+
+
+
+def test_annex01_accepts_2023_account_labels():
+    payload = {
+        "entity_id": "3501608",
+        "year": 2023,
+        "items": [
+            {
+                "cod_conta": "ReceitaCorrenteLiquidaAjustada",
+                "conta": "= RECEITA CORRENTE LÍQUIDA AJUSTADA PARA CÁLCULO DOS LIMITES DA DESPESA COM PESSOAL (VII) = (IV - V - VI)",
+                "coluna": "Valor",
+                "valor": 1162379660.5,
+            },
+            {
+                "cod_conta": "DespesaComPessoalTotal",
+                "conta": "DESPESA TOTAL COM PESSOAL - DTP (VIII) = (IIIa + IIIb)",
+                "coluna": "Valor",
+                "valor": 463985596.8,
+            },
+            {
+                "cod_conta": "DespesaComPessoalTotal",
+                "conta": "DESPESA TOTAL COM PESSOAL - DTP (VIII) = (IIIa + IIIb)",
+                "coluna": "% sobre a RCL Ajustada",
+                "valor": 39.92,
+            },
+        ],
+    }
+    row = normalize_annex01(payload)
+    assert row["rgf_despesa_total_pessoal"] == 463985596.8
+    assert row["rgf_rcl_denominador_legal"] == 1162379660.5
+    assert row["rgf_dtp_percentual_rcl"] == 39.92
+    assert row["qa_issue_count"] == 0

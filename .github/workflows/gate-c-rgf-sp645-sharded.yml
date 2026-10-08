@@ -1,0 +1,52 @@
+name: Gate C RGF SP645 Sharded
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "RGF exercise"
+        required: true
+        default: "2025"
+        type: string
+      min_interval:
+        description: "Minimum interval between requests"
+        required: true
+        default: "1.05"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  acquire-shards:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard:
+          - {name: "000-128", start: 0, count: 129}
+          - {name: "129-257", start: 129, count: 129}
+          - {name: "258-386", start: 258, count: 129}
+          - {name: "387-515", start: 387, count: 129}
+          - {name: "516-644", start: 516, count: 129}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
+      - name: Acquire shard
+        run: |
+          python -m pipeline.acquire.siconfi_rgf_state             --geojson build/sp.geojson             --year "${{ inputs.year }}"             --output "build/raw/rgf/${{ inputs.year }}"             --normalized-csv "build/normalized/rgf_01_05_${{ inputs.year }}_${{ matrix.shard.name }}.csv"             --start-index "${{ matrix.shard.start }}"             --limit-codes "${{ matrix.shard.count }}"             --min-interval "${{ inputs.min_interval }}"
+      - name: Upload shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf-${{ inputs.year }}-${{ matrix.shard.name }}
+          path: |
+            build/raw/rgf/${{ inputs.year }}
+            build/normalized/rgf_01_05_${{ inputs.year }}_${{ matrix.shard.name }}.csv
+          retention-days: 30

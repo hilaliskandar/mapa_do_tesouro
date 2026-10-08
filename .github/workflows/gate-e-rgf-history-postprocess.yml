@@ -1,0 +1,98 @@
+name: Gate E Historical RGF Postprocess
+
+on:
+  workflow_run:
+    workflows: ["Gate E Minimum Historical RGF"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: gate-e-history-postprocess
+  cancel-in-progress: false
+
+jobs:
+  qa:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download combined history artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: gate-e-rgf-history-2023-2024-combined
+          path: build/source
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Render historical QA
+        run: |
+          SUMMARY="$(find build/source -name rgf_history_2023_2024_summary.json -print -quit)"
+          if [ -z "$SUMMARY" ]; then
+            echo "Historical summary not found."
+            exit 1
+          fi
+          export SUMMARY
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          summary = json.loads(Path(os.environ["SUMMARY"]).read_text(encoding="utf-8"))
+          output = Path(
+              "governance/auto/"
+              f"QA_GATE_E_RGF_HISTORY_2023_2024_RUN_{os.environ['SOURCE_RUN_ID']}.md"
+          )
+          lines = [
+              "# QA — Gate E RGF histórico mínimo — 2023–2024",
+              "",
+              f"Run fonte: `{os.environ['SOURCE_RUN_ID']}`.",
+              "",
+              f"- linhas consolidadas: {summary['rows']};",
+              f"- shards: {summary['shard_files']};",
+              f"- SHA-256: `{summary['sha256']}`.",
+              "",
+              "## Cobertura por ano",
+              "",
+              "| Ano | Variável | Observados | Ausentes | Cobertura |",
+              "|---:|---|---:|---:|---:|",
+          ]
+          for year in ("2023", "2024"):
+              for field, count in sorted(summary["coverage"][year].items()):
+                  missing = 645 - int(count)
+                  pct = int(count) / 645 * 100
+                  lines.append(
+                      f"| {year} | `{field}` | {count} | {missing} | {pct:.2f}% |"
+                  )
+          lines.extend(
+              [
+                  "",
+                  "Este QA não libera tipologias automaticamente.",
+                  "A liberação depende de paridade histórica contra o baseline TIC-TIM 30.",
+                  "",
+              ]
+          )
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text("\n".join(lines), encoding="utf-8")
+          PY
+
+      - name: Commit safe QA update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add governance/auto/
+          if git diff --cached --quiet; then
+            echo "No QA changes."
+            exit 0
+          fi
+          git commit -m "gate-e: record historical RGF 2023-2024 QA"
+          git push origin HEAD:main

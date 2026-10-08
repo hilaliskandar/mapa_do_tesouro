@@ -141,6 +141,7 @@ def main() -> None:
     apply_cmd.add_argument("--manifest", type=Path, required=True)
     apply_cmd.add_argument("--qa-output", type=Path, required=True)
     apply_cmd.add_argument("--run-id")
+    apply_cmd.add_argument("--github-output", type=Path)
 
     args = parser.parse_args()
 
@@ -182,6 +183,18 @@ def main() -> None:
         encoding="utf-8",
     )
     write_qa_markdown(manifest, classification, args.qa_output)
+    if args.github_output:
+        with args.github_output.open("a", encoding="utf-8") as out:
+            out.write(f"classification={classification}\n")
+            out.write(f"year={manifest['year']}\n")
+            out.write(
+                f"empty_source_pairs={manifest['empty_source_pair_count']}\n"
+            )
+            out.write(
+                "normalized_sha256="
+                + str(manifest.get("normalized_sha256") or "")
+                + "\n"
+            )
     print(json.dumps({"classification": classification}, ensure_ascii=False))
 
 

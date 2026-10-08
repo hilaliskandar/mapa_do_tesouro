@@ -89,12 +89,17 @@ years:
     codes: []
     status: complete_snapshot
   2022:
-    priority: 1
-    codes: [3517802]
-    missing_by_annex:
+    priority: null
+    codes: []
+    status: resolved_by_local_revenue_supplement
+    original_missing_by_annex:
       i_c: [3517802]
       i_d: []
       i_e: []
+    local_supplement:
+      file_id: 1FX1QFhv3_lUhfqxEW0z5KJ0EWGPoMZGQ
+      worksheet: 2022-finbra
+      codes: [3517802]
   2023:
     priority: null
     codes: []
@@ -103,9 +108,13 @@ years:
     priority: 8
     codes: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
     missing_by_annex:
-      i_c: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
+      i_c: []
       i_d: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
       i_e: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
+    local_revenue_supplement:
+      file_id: 1FX1QFhv3_lUhfqxEW0z5KJ0EWGPoMZGQ
+      worksheet: 2024-finbra
+      codes: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
   2025:
     priority: null
     status: resolved_by_gate_a
@@ -117,3 +126,4 @@ notes:
   - priority 1 indica menor custo de complemento; empates podem ser executados em qualquer ordem.
   - complete_snapshot significa 645 codigos presentes nos tres anexos, nao cobertura de 100% de todas as rubricas.
   - resolved_by_gate_a significa que uma aquisicao estadual independente ja cobre o universo, preservando ausencias declaratorias.
+  - resolved_by_local_revenue_supplement significa que a lacuna do Anexo I-C foi preenchida por fonte local adicional, sem consulta externa.

@@ -12,7 +12,7 @@ class FakeClient:
         return FetchResult(
             items=[
                 {
-                    "cod_conta": "ReceitaCorrenteLiquida",
+                    "cod_conta": "RREO3ReceitaCorrenteLiquida",
                     "conta": "RECEITA CORRENTE LÍQUIDA (III) = (I - II)",
                     "coluna": "TOTAL (ÚLTIMOS 12 MESES)",
                     "valor": 10.0,

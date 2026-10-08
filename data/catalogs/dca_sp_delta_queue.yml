@@ -190,12 +190,10 @@ years:
       - 3531407
       result: items_empty_in_all_three_annexes
   2019:
-    priority: 4
-    codes:
-    - 3532157
-    - 3548302
-    - 3554607
-    missing_by_annex:
+    priority: null
+    codes: []
+    status: source_confirmed_absence
+    original_missing_by_annex:
       i_c:
       - 3532157
       - 3548302
@@ -206,6 +204,16 @@ years:
       i_e:
       - 3548302
       - 3554607
+    source_check:
+      run_id: 37724172581
+      normalized_sha256: dfdf2a0f26c85f89c50857abc06d1e90f213ace4b7be5d99bdd3b2e39aed330c
+      codes:
+      - '3532157'
+      - '3548302'
+      - '3554607'
+      municipality_annex_pairs_requested: 7
+      empty_source_pairs: 7
+      result: source_confirmed_absence
   2020:
     priority: null
     codes: []

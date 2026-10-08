@@ -53,3 +53,23 @@ Cobertura com pelo menos três observações na janela:
 - territorial estrito: 56/645.
 
 O recorte diagnóstico 2023–2025 não deve ser usado como substituto da janela aprovada.
+
+
+## Paridade histórica aprovada
+
+A condição de paridade histórica foi satisfeita após a correção da taxonomia do RGF Anexo 01 de 2023.
+
+Resultado contra as bases TIC-TIM 30:
+
+- 30 municípios;
+- 2023–2024;
+- 60 chaves município-ano;
+- 7 campos legais por chave;
+- 420 comparações;
+- 420 dentro da tolerância;
+- zero divergências;
+- `strict_pass = true`.
+
+O histórico corrigido possui SHA-256 `7faef8188fd56bff6bb8031dfe3a8eeec11fe56e67f986bdc0007a4ee7646eeb`.
+
+Com isso, a série RGF 2023–2024 está autorizada para construir a entrada canônica SP645 das tipologias e pares.

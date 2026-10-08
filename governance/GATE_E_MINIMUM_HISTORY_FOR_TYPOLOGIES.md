@@ -33,3 +33,23 @@ Tipologias e pares SP645 só poderão usar essa série depois de:
 2. paridade histórica dos municípios TIC-TIM 30 aprovada;
 3. pelo menos três anos válidos por dimensão;
 4. manutenção explícita de ausência como ausência.
+
+
+## Entrada DCA canônica da janela
+
+A janela aprovada permanece `2021_2025`.
+
+O recorte DCA canônico foi materializado no Drive:
+
+- arquivo: `SP645_DCA_TYPOLOGY_INPUT_2021_2025.csv`;
+- file ID: `14rp3tR2T2HrzGqg9-fDxse1ODGvrTjwK`;
+- linhas: 3.225;
+- SHA-256: `bd1bfe175886fe84c969778bb9d545c5deb4836e16de4ddd6d7ddc9c4848f93d`.
+
+Cobertura com pelo menos três observações na janela:
+
+- base tributária: 645/645;
+- investimento: 645/645;
+- territorial estrito: 56/645.
+
+O recorte diagnóstico 2023–2025 não deve ser usado como substituto da janela aprovada.

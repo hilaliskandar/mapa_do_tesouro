@@ -1,0 +1,93 @@
+name: Gate C RGF02 Postprocess
+
+on:
+  workflow_run:
+    workflows: ["Gate C RGF02 SP645"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  qa:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    env:
+      RGF_YEAR: "2025"
+      SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Download RGF02 state artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: gate-c-rgf02-sp645-2025
+          path: build/source
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ github.event.workflow_run.id }}
+      - name: Render RGF02 QA
+        run: |
+          python - <<'PY'
+          import csv, json, os
+          from pathlib import Path
+
+          canon=Path("build/source/normalized/rgf02_canonical_2025.csv")
+          manifest=Path("build/source/normalized/rgf02_canonical_2025.json")
+          raw=Path("build/source/raw/rgf02/2025/manifests/rgf-02-2025.json")
+          c=json.loads(manifest.read_text(encoding="utf-8"))
+          r=json.loads(raw.read_text(encoding="utf-8"))
+
+          lines=[
+              "# QA — RGF Anexo 02 SP645 — 2025","",
+              f"- municípios solicitados: {r['municipalities_requested']};",
+              f"- municípios observados: {r['observed_municipalities']};",
+              f"- linhas longas: {r['long_rows']};",
+              f"- códigos de conta distintos: {r['distinct_account_codes']};",
+              f"- falhas: {len(r['failed'])};",
+              f"- linhas canônicas: {c['rows']};",
+              f"- conflitos canônicos: {len(c['conflicts'])};",
+              f"- SHA-256 longo: `{r['long_csv_sha256']}`;",
+              f"- SHA-256 canônico: `{c['output_sha256']}`.","",
+              "## Cobertura canônica","",
+              "| Variável | Observados | Ausentes | Cobertura |",
+              "|---|---:|---:|---:|",
+          ]
+          total=645
+          for field,count in sorted(c["coverage"].items()):
+              miss=total-int(count)
+              pct=100*int(count)/total
+              lines.append(f"| `{field}` | {count} | {miss} | {pct:.2f}% |")
+          lines += ["","Ausência permanece ausência; nenhuma conta é inferida por soma ou proxy.",""]
+
+          out=Path(
+              "governance/auto/"
+              f"QA_GATE_C_RGF02_SP645_2025_RUN_{os.environ['SOURCE_RUN_ID']}.md"
+          )
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_text("\n".join(lines),encoding="utf-8")
+          PY
+      - name: Record source run metadata
+        run: |
+          cat > "governance/auto/RGF02_SP645_2025_RUN_${SOURCE_RUN_ID}.json" <<EOF
+          {
+            "source_run_id": "${SOURCE_RUN_ID}",
+            "year": 2025,
+            "artifact": "gate-c-rgf02-sp645-2025",
+            "source_workflow": "Gate C RGF02 SP645"
+          }
+          EOF
+      - name: Commit safe QA update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add governance/auto/
+          if git diff --cached --quiet; then
+            echo "No QA changes to commit."
+            exit 0
+          fi
+          git commit -m "gate-c: record statewide RGF02 2025 QA"
+          git push origin HEAD:main

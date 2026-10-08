@@ -1,6 +1,6 @@
 # Estado do projeto
 
-Data de referência: 2026-10-07.
+Data de referência: 2026-10-08.
 
 ## Estado operacional
 
@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_b_history_characterized`.
+A expansão estadual está no estado `gate_b_active`, com a fila DCA automatizada e 2024 já promovido como snapshot estadual anual resolvido.
 
 ## Hierarquia de fontes operacionais
 
@@ -106,18 +106,27 @@ Foram comprovados diretamente nos arquivos locais quatro regimes:
 
 As variantes estão explicitadas no mapping canônico. As despesas centrais permanecem no mesmo contrato observado.
 
+### Automação e resoluções recentes
+
+A fila seletiva do Gate B opera automaticamente em lote. Ausências confirmadas são encerradas sem nova consulta; o lote para quando recupera dados que exigem composição fill-only.
+
+Resultados já consolidados:
+
+- 2013, 2015, 2016, 2018 e 2019: `source_confirmed_absence`;
+- 2022: resolvido por suplemento local de receitas;
+- 2024: `resolved_composite_fill_only`, 645 linhas, zero conflitos, SHA-256 `81804ece28290ddaec5360b1ff57059fbb3f53ceb15e466c940f4db467f68c63`;
+- 2024 está armazenado no Drive e no R2 privado em `sp_645/dca/2024/normalized.csv`.
+
 ## Próximo gate operacional
 
-O próximo trabalho é completar a série com **delta incremental**, não repetir aquisições estaduais integrais:
+A única lacuna ainda pendente na fila DCA histórica é 2014. O lote automático deve tratá-la sem repetir exercícios já encerrados:
 
-1. priorizar exercícios com poucas lacunas externas remanescentes: 2016, 2019 e 2013;
-2. em 2024, consultar externamente apenas I-D/I-E dos 15 municípios ausentes, pois I-C já foi recuperado localmente;
-3. tratar o snapshot local de 2025 apenas como histórico, usando o Gate A como referência estadual aprovada;
-4. avaliar 2014 separadamente por ser o snapshot local mais incompleto;
-5. preservar snapshot original e suplemento/delta como artefatos distintos;
-6. promover anos aprovados ao R2 privado;
-7. consolidar snapshot multianual estadual;
-8. somente então iniciar integração estadual de RREO, RGF e CAPAG.
+1. executar o delta seletivo de 2014;
+2. se houver valores recuperados, aplicar composição fill-only e QA de conflitos;
+3. preservar ausências confirmadas sem convertê-las em zero;
+4. promover snapshots anuais resolvidos ao R2 privado;
+5. consolidar o snapshot multianual estadual;
+6. somente então iniciar integração estadual de RREO, RGF e CAPAG.
 
 ## Regras para retomada
 

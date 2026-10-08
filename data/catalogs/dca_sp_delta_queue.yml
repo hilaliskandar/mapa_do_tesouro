@@ -270,7 +270,7 @@ years:
       - 3549607
       - 3550209
       - 3557204
-    status: delta_recovered_pending_merge
+    status: resolved_composite_fill_only
     original_missing_by_annex:
       i_c: []
       i_d:
@@ -328,6 +328,17 @@ years:
       empty_source_pairs: 0
       result: delta_recovered_pending_merge
       recovered_pairs: 30
+    final_snapshot:
+      policy: snapshot_then_local_revenue_then_external_expense_fill_only
+      rows: 645
+      filled_cells: 314
+      conflicts: 0
+      normalized_sha256: 81804ece28290ddaec5360b1ff57059fbb3f53ceb15e466c940f4db467f68c63
+      size_bytes: 166910
+      drive_file_id: 1Qldkg9XBIyMOfnr7PezqIyTmKf4XbISx
+      r2_bucket: financas-municipais-sp-canonico
+      r2_object: sp_645/dca/2024/normalized.csv
+      r2_manifest: sp_645/dca/2024/manifest.json
   2025:
     priority: null
     status: resolved_by_gate_a
@@ -360,3 +371,6 @@ notes:
 - source_confirmed_absence significa que a consulta seletiva atual ao Siconfi retornou
   items=[] nos anexos faltantes; a lacuna permanece como ausência confirmada da fonte
   e não deve ser reconsultada automaticamente.
+- resolved_composite_fill_only significa que snapshot local, suplemento e delta foram
+  compostos apenas em células ausentes, com zero conflitos, e o snapshot final foi
+  promovido a armazenamento canônico privado.

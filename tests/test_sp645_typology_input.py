@@ -80,7 +80,14 @@ def test_build_sp645_typology_input(tmp_path):
     output = tmp_path / "typology.xlsx"
     manifest = tmp_path / "manifest.json"
 
-    result = build_typology_input(dca, history, gate_d, output, manifest)
+    result = build_typology_input(
+        dca,
+        history,
+        gate_d,
+        output,
+        manifest,
+        expected_municipalities=2,
+    )
 
     assert result["rows"] == 10
     assert result["municipalities"] == 2

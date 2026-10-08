@@ -37,7 +37,7 @@ jobs:
 
       - name: Generate statewide QA
         run: |
-          python -m pipeline.qa.rgf_state             --manifest "build/source/build/raw/rgf/2025/manifests/rgf-01-05-2025.json"             --normalized-csv "build/source/build/normalized/rgf_01_05_2025.csv"             --output "governance/auto/QA_GATE_C_RGF_SP645_2025_RUN_${SOURCE_RUN_ID}.md"
+          python -m pipeline.qa.rgf_state             --manifest "build/source/raw/rgf/2025/manifests/rgf-01-05-2025.json"             --normalized-csv "build/source/normalized/rgf_01_05_2025.csv"             --output "governance/auto/QA_GATE_C_RGF_SP645_2025_RUN_${SOURCE_RUN_ID}.md"
 
       - name: Record source run metadata
         run: |

@@ -1,0 +1,67 @@
+name: Gate C RGF02 SP645
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "RGF Annex 02 exercise"
+        required: true
+        default: "2025"
+        type: string
+      min_interval:
+        description: "Minimum interval between requests"
+        required: true
+        default: "1.05"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gate-c-rgf02-sp645-${{ inputs.year }}
+  cancel-in-progress: false
+
+jobs:
+  acquire-state:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
+      - name: Acquire SP645 RGF Annex 02
+        run: |
+          python -m pipeline.acquire.siconfi_rgf02_state             --geojson build/sp.geojson             --year "${{ inputs.year }}"             --output "build/raw/rgf02/${{ inputs.year }}"             --long-csv "build/normalized/rgf02_long_${{ inputs.year }}.csv"             --min-interval "${{ inputs.min_interval }}"
+      - name: Validate state acquisition
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          year = "${{ inputs.year }}"
+          manifest = json.loads(
+              Path(f"build/raw/rgf02/{year}/manifests/rgf-02-{year}.json")
+              .read_text(encoding="utf-8")
+          )
+          if manifest["failed"]:
+              raise SystemExit(f"Unresolved failures: {manifest['failed'][:20]}")
+          if manifest["municipalities_requested"] != 645:
+              raise SystemExit("Expected 645 municipalities")
+          print("observed_municipalities=" + str(manifest["observed_municipalities"]))
+          print("long_rows=" + str(manifest["long_rows"]))
+          print("distinct_account_codes=" + str(manifest["distinct_account_codes"]))
+          print("long_csv_sha256=" + manifest["long_csv_sha256"])
+          PY
+      - name: Upload state artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf02-sp645-${{ inputs.year }}
+          path: |
+            build/raw/rgf02/${{ inputs.year }}
+            build/normalized/rgf02_long_${{ inputs.year }}.csv
+          retention-days: 30

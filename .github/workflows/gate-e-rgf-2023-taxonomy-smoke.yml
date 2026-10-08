@@ -1,0 +1,61 @@
+name: Gate E RGF 2023 Taxonomy Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-e-rgf-2023-taxonomy-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Acquire Americana RGF Anexo 01 2023
+        run: |
+          python -m pipeline.acquire.siconfi_legal_reports \
+            --endpoint rgf \
+            --entity-id 3501608 \
+            --years 2023 \
+            --annexes "RGF-Anexo 01" \
+            --periodicity Q \
+            --period 3 \
+            --report-type RGF \
+            --sphere M \
+            --branch E \
+            --output build/raw/rgf-2023-taxonomy \
+            --min-interval 1.05
+
+      - name: Validate payload
+        run: |
+          python - <<'PY'
+          import gzip
+          import json
+          from pathlib import Path
+
+          paths = sorted(Path("build/raw/rgf-2023-taxonomy").glob("**/*.json.gz"))
+          if len(paths) != 1:
+              raise SystemExit(f"Expected one raw file, got {len(paths)}")
+          with gzip.open(paths[0], "rt", encoding="utf-8") as handle:
+              payload = json.load(handle)
+          items = payload.get("items", [])
+          print("items=" + str(len(items)))
+          if not items:
+              raise SystemExit("Empty 2023 RGF Anexo 01 payload")
+          PY
+
+      - name: Upload raw taxonomy artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-e-rgf-2023-taxonomy-americana
+          path: build/raw/rgf-2023-taxonomy
+          retention-days: 14

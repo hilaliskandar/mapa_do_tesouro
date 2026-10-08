@@ -1,0 +1,50 @@
+version: 1
+name: rgf02_sp645_2025_composite_fill_only
+year: 2025
+base:
+  source: SICONFI_RGF_Anexo_02
+  rows_observed: 530
+  long_rows: 43920
+  distinct_account_codes: 40
+  canonical_sha256: 8e4709727aa8fbf0023056982fe7927f5bd8e323354807604dbdc2a91cf8d75a
+  long_sha256: 37c6ee8e9440f2e5cb4f4a8e1b035020f36c5d0b9631fde1463acdc3fbfc628f
+supplement:
+  source: CAPAG_Ano_Base_2025
+  source_sha256: 1b1379a5a531920223f1d448be155b70f51eb50180d8c819f1b7da3575a8eb11
+  policy:
+    - semantic_equivalence_only
+    - zero_values_in_CAPAG_are_not_treated_as_observed_for_fill
+output:
+  rows: 645
+  sha256: 0b31196dd1a692632b7c2b48a044ed64f5f56493eb8d50f818810cdd583fc139
+fill_only:
+  conflicts: 0
+  filled_by_field:
+    rgf02_divida_consolidada: 100
+    rgf02_rcl_bruta: 114
+  overlap_by_field:
+    rgf02_divida_consolidada: 477
+    rgf02_rcl_bruta: 530
+  zero_skipped:
+    rgf02_divida_consolidada: 68
+    rgf02_rcl_bruta: 1
+coverage_after_fill:
+  rgf02_divida_consolidada: 577
+  rgf02_divida_consolidada_liquida: 530
+  rgf02_dc_percentual_rcl: 476
+  rgf02_dcl_percentual_rcl: 530
+  rgf02_divida_contratual: 454
+  rgf02_parcelamento_dividas: 373
+  rgf02_precatorios_vencidos_nao_pagos: 265
+  rgf02_outras_dividas: 52
+  rgf02_deducoes_divida_consolidada: 530
+  rgf02_disponibilidade_caixa: 530
+  rgf02_demais_haveres_financeiros: 300
+  rgf02_restos_pagar_processados: 510
+  rgf02_rcl_bruta: 644
+  rgf02_rcl_ajustada_endividamento: 530
+rules:
+  - raw_SICONFI_snapshot_is_preserved
+  - composite_is_a_derived_analysis_layer
+  - absence_is_not_zero
+  - no_proxy_for_adjusted_RCL_or_debt_components

@@ -2,26 +2,25 @@ name: Gate B DCA Auto Orchestrator
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
   push:
     branches: [main]
     paths:
-      - "data/catalogs/dca_sp_delta_queue.yml"
       - ".github/workflows/gate-b-auto-orchestrator.yml"
-  schedule:
-    - cron: "17 * * * *"
+      - "pipeline/acquire/dca_delta_batch.py"
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: gate-b-dca-auto-orchestrator
   cancel-in-progress: false
 
 jobs:
-  process-next:
+  process-queue:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     steps:
       - uses: actions/checkout@v4
@@ -36,102 +35,68 @@ jobs:
       - name: Install dependencies
         run: pip install pyyaml
 
-      - name: Resolve next pending delta
-        id: next
+      - name: Download pinned SP municipality geometry
         run: |
           mkdir -p build
-          python -m pipeline.acquire.dca_delta_orchestrator next \
-            --github-output "$GITHUB_OUTPUT" \
-            --plan-output build/delta-plan.json
-
-      - name: Stop when queue is empty
-        if: steps.next.outputs.has_work != 'true'
-        run: |
-          echo "No pending Gate B delta work."
-          echo "### Gate B auto orchestrator" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "No pending selective DCA deltas." >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Download pinned SP municipality geometry
-        if: steps.next.outputs.has_work == 'true' && true
-        run: |
           curl --fail --location --retry 3 \
             "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" \
             --output build/sp.geojson
 
-      - name: Acquire next selective delta
-        if: steps.next.outputs.has_work == 'true' && true
+      - name: Process pending Gate B queue
         run: |
-          YEAR="${{ steps.next.outputs.year }}"
-          python -m pipeline.acquire.siconfi_dca_delta \
+          python -m pipeline.acquire.dca_delta_batch \
+            --queue data/catalogs/dca_sp_delta_queue.yml \
             --geojson build/sp.geojson \
-            --year "$YEAR" \
-            --plan build/delta-plan.json \
-            --output "build/raw/delta/$YEAR" \
-            --normalized-csv "build/normalized/dca_delta_$YEAR.csv" \
+            --output-root build/raw/delta \
+            --normalized-root build/normalized \
+            --qa-root governance/auto \
+            --run-id "$GITHUB_RUN_ID" \
             --min-interval 1.05 \
-            --max-codes 100
+            --max-cycles 10 \
+            --summary build/gate-b-batch-summary.json
 
-      - name: Validate acquisition
-        if: steps.next.outputs.has_work == 'true' && true
-        env:
-          YEAR: ${{ steps.next.outputs.year }}
+      - name: Upload batch artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-b-auto-batch-${{ github.run_id }}
+          path: |
+            build/raw/delta
+            build/normalized
+            build/gate-b-batch-summary.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Commit safe governance updates
+        run: |
+          if git diff --quiet -- data/catalogs/dca_sp_delta_queue.yml governance/auto/; then
+            echo "No queue or QA changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/catalogs/dca_sp_delta_queue.yml governance/auto/
+          git commit -m "gate-b: process automatic DCA delta batch"
+          git push origin HEAD:main
+
+      - name: Publish summary
         run: |
           python - <<'PY'
           import json
           import os
           from pathlib import Path
-          year = os.environ["YEAR"]
-          manifest = json.loads(Path(f"build/raw/delta/{year}/manifests/delta-{year}.json").read_text(encoding="utf-8"))
-          if manifest["failed"]:
-              raise SystemExit(f"Unresolved acquisition failures: {manifest['failed'][:20]}")
-          expected = manifest["municipality_annex_pairs_requested"]
-          completed = sum(item["completed_now"] + item["reused"] for item in manifest["annex_results"].values())
-          if completed != expected:
-              raise SystemExit(f"Artifact mismatch: {completed} != {expected}")
-          if manifest["normalization"]["rows"] != manifest["municipalities_requested"]:
-              raise SystemExit("Normalized row count mismatch")
+
+          path = Path("build/gate-b-batch-summary.json")
+          result = json.loads(path.read_text(encoding="utf-8"))
+          with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as out:
+              out.write("### Gate B auto orchestrator\n\n")
+              out.write(f"- cycles processed: {result['cycles']}\n")
+              out.write(f"- queue empty: {result['queue_empty']}\n")
+              out.write(f"- stopped for review: {result['stopped_for_review']}\n")
+              for item in result["results"]:
+                  out.write(
+                      f"- {item['year']}: {item['classification']}; "
+                      f"pairs={item['pair_count']}; "
+                      f"empty={item['empty_source_pairs']}; "
+                      f"sha256={item['normalized_sha256']}\n"
+                  )
           PY
-
-      - name: Classify result and update governance branch
-        if: steps.next.outputs.has_work == 'true' && true
-        id: classify
-        run: |
-          YEAR="${{ steps.next.outputs.year }}"
-          python -m pipeline.acquire.dca_delta_orchestrator apply \
-            --manifest "build/raw/delta/$YEAR/manifests/delta-$YEAR.json" \
-            --qa-output "governance/auto/QA_DCA_DELTA_${YEAR}_RUN_${GITHUB_RUN_ID}.md" \
-            --run-id "$GITHUB_RUN_ID" \
-            --github-output "$GITHUB_OUTPUT"
-
-      - name: Upload acquisition artifact
-        if: steps.next.outputs.has_work == 'true' && true
-        uses: actions/upload-artifact@v4
-        with:
-          name: gate-b-auto-dca-${{ steps.next.outputs.year }}-${{ github.run_id }}
-          path: |
-            build/raw/delta/${{ steps.next.outputs.year }}
-            build/normalized/dca_delta_${{ steps.next.outputs.year }}.csv
-            build/delta-plan.json
-          if-no-files-found: error
-          retention-days: 30
-
-      - name: Commit safe governance update to main
-        if: steps.next.outputs.has_work == 'true' && true
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/catalogs/dca_sp_delta_queue.yml governance/auto/
-          git commit -m "gate-b: classify selective DCA delta ${{ steps.next.outputs.year }}"
-          git push origin HEAD:main
-
-      - name: Publish run summary
-        if: steps.next.outputs.has_work == 'true' && true
-        run: |
-          echo "### Gate B auto orchestrator" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "- year: ${{ steps.next.outputs.year }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- municipality-annex pairs: ${{ steps.next.outputs.pair_count }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- classification: ${{ steps.classify.outputs.classification }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- empty source pairs: ${{ steps.classify.outputs.empty_source_pairs }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- normalized SHA-256: `${{ steps.classify.outputs.normalized_sha256 }}`" >> "$GITHUB_STEP_SUMMARY"

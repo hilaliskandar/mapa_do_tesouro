@@ -1,0 +1,25 @@
+version: 1
+year: 2025
+municipality:
+  cod_ibge: "3501608"
+  name: Americana
+source:
+  file_id: 1U3l1dUEryYOWInFcN4GO5kKBWD0s5SSLDMhOXqRENfs
+  title: FINBRA_TIC_TIM_30M_RGF_2015_2025_ANEXOS_01_05_v1
+expected:
+  annex_01:
+    rgf_despesa_total_pessoal: 533730391.12
+    rgf_rcl_denominador_legal: 1454899326.74
+    rgf_dtp_percentual_rcl: 36.69
+  annex_05:
+    rgf_caixa_bruta_nao_vinculada: 129054745.41
+    rgf_rp_liquidados_anteriores_nao_vinculados: 1103513.24
+    rgf_rp_liquidados_exercicio_nao_vinculados: 52469314.19
+    rgf_rp_nao_liquidados_anteriores_nao_vinculados: 53094.36
+    rgf_demais_obrigacoes_nao_vinculadas: null
+    rgf_caixa_liquida_antes_rpnp: 75428823.62
+    rgf_rp_nao_liquidados_exercicio_nao_vinculados: 9470385.18
+    rgf_caixa_liquida_apos_rpnp: 65958438.44
+tolerance:
+  absolute_brl: 0.01
+  percentage_points: 0.001

@@ -1,0 +1,83 @@
+name: Gate C RGF SP645
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "RGF exercise"
+        required: true
+        default: "2025"
+        type: string
+      min_interval:
+        description: "Minimum interval between requests"
+        required: true
+        default: "1.05"
+        type: string
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-c-rgf-sp645.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gate-c-rgf-sp645-${{ github.event_name == 'workflow_dispatch' && inputs.year || '2025' }}
+  cancel-in-progress: false
+
+jobs:
+  acquire-state:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      RGF_YEAR: ${{ github.event_name == 'workflow_dispatch' && inputs.year || '2025' }}
+      MIN_INTERVAL: ${{ github.event_name == 'workflow_dispatch' && inputs.min_interval || '1.05' }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
+      - name: Acquire SP645 RGF annexes 01 and 05
+        run: |
+          python -m pipeline.acquire.siconfi_rgf_state             --geojson build/sp.geojson             --year "$RGF_YEAR"             --output "build/raw/rgf/$RGF_YEAR"             --normalized-csv "build/normalized/rgf_01_05_$RGF_YEAR.csv"             --min-interval "$MIN_INTERVAL"
+      - name: Validate state acquisition
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          year = os.environ["RGF_YEAR"]
+          manifest = json.loads(
+              Path(f"build/raw/rgf/{year}/manifests/rgf-01-05-{year}.json")
+              .read_text(encoding="utf-8")
+          )
+          if manifest["failed"]:
+              raise SystemExit(f"Unresolved failures: {manifest['failed'][:20]}")
+          if manifest["municipalities_requested"] != 645:
+              raise SystemExit("Expected 645 municipalities")
+          if manifest["normalization"]["rows"] != 645:
+              raise SystemExit("Expected 645 normalized rows")
+          if manifest["normalization"]["issues"] != 0:
+              raise SystemExit(f"Normalization issues: {manifest['normalization']['issues']}")
+          print("SP645 RGF acquisition: OK")
+          for field, count in sorted(manifest["normalization"]["coverage"].items()):
+              print(f"{field}={count}/645")
+          print("normalized_sha256=" + manifest["normalized_sha256"])
+          print("raw_tree_sha256=" + manifest["raw_tree_sha256"])
+          PY
+      - name: Upload state artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf-sp645-${{ env.RGF_YEAR }}
+          path: |
+            build/raw/rgf/${{ env.RGF_YEAR }}
+            build/normalized/rgf_01_05_${{ env.RGF_YEAR }}.csv
+          retention-days: 30

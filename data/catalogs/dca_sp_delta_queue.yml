@@ -45,29 +45,10 @@ years:
       empty_source_pairs: 15
       result: source_confirmed_absence
   2014:
-    priority: 9
-    codes:
-    - 3500550
-    - 3501152
-    - 3506607
-    - 3508009
-    - 3508504
-    - 3508900
-    - 3510302
-    - 3512605
-    - 3522505
-    - 3526605
-    - 3534005
-    - 3535705
-    - 3537404
-    - 3544202
-    - 3546504
-    - 3551405
-    - 3552809
-    - 3554607
-    - 3556453
-    - 3557303
-    missing_by_annex:
+    priority: null
+    codes: []
+    status: source_confirmed_absence
+    original_missing_by_annex:
       i_c:
       - 3500550
       - 3506607
@@ -130,6 +111,33 @@ years:
       - 3554607
       - 3556453
       - 3557303
+    source_check:
+      run_id: 37724816441
+      normalized_sha256: a209896a918c4967fd3d67daf07ab8168545251000286dc28562dd658c567d5b
+      codes:
+      - '3500550'
+      - '3501152'
+      - '3506607'
+      - '3508009'
+      - '3508504'
+      - '3508900'
+      - '3510302'
+      - '3512605'
+      - '3522505'
+      - '3526605'
+      - '3534005'
+      - '3535705'
+      - '3537404'
+      - '3544202'
+      - '3546504'
+      - '3551405'
+      - '3552809'
+      - '3554607'
+      - '3556453'
+      - '3557303'
+      municipality_annex_pairs_requested: 59
+      empty_source_pairs: 59
+      result: source_confirmed_absence
   2015:
     priority: null
     codes: []

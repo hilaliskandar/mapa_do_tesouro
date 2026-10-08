@@ -1,0 +1,53 @@
+version: 1
+name: rgf_capag_local_supplement_2025
+source:
+  provider: google_drive
+  file_id: 1BlT2WxtBIGVeP1b4-GM3Auv0OdU6p7C9
+  title: capag-municipios-posicao-2026-set.xlsx
+  sha256: 1b1379a5a531920223f1d448be155b70f51eb50180d8c819f1b7da3575a8eb11
+  sheet: Datalake
+  snapshot_position: 2026-09
+  legal_year_base: 2025
+scope:
+  uf: SP
+  expected_municipalities: 645
+  observed_rows: 645
+coverage:
+  rgf02_rcl:
+    header: 2025RGF2ReceitaCorrenteLiquidaÚltimo PeríodoRECEITA CORRENTE LÍQUIDA - RCL (IV)
+    observed: 644
+    missing: 1
+  divida_consolidada:
+    header: 2025DividaConsolidadaÚltimo PeríodoDÍVIDA CONSOLIDADA - DC (I)
+    observed: 577
+    missing: 68
+  caixa_bruta_nao_vinculada:
+    header: 2025DisponibilidadeDeCaixaBrutaDISPONIBILIDADE DE CAIXA BRUTA (a)TOTAL DOS RECURSOS NÃO VINCULADOS (I)
+    observed: 635
+    missing: 10
+  demais_obrigacoes_nao_vinculadas:
+    header: 2025DemaisObrigacoesFinanceirasDemais Obrigações Financeiras (e)TOTAL DOS RECURSOS NÃO VINCULADOS (I)
+    observed: 108
+    missing: 537
+  rp_nao_liquidados_anteriores_nao_vinculados:
+    header: 2025RestosAPagarEmpenhadosENaoLiquidadosDeExerciciosAnterioresRestos a Pagar Empenhados e Não Liquidados de Exercícios Anteriores (d)TOTAL DOS RECURSOS NÃO VINCULADOS (I)
+    observed: 490
+    missing: 155
+  rp_liquidados_anteriores_nao_vinculados:
+    header: 2025RestosAPagarLiquidadosENaoPagosDeExerciciosAnterioresDe Exercícios Anteriores (b)TOTAL DOS RECURSOS NÃO VINCULADOS (I)
+    observed: 478
+    missing: 167
+  rp_liquidados_exercicio_nao_vinculados:
+    header: 2025RestosAPagarLiquidadosENaoPagosDoExercicioDo Exercício (c)TOTAL DOS RECURSOS NÃO VINCULADOS (I)
+    observed: 501
+    missing: 144
+policy:
+  - local_CAPAG_datalake_is_supplement_and_QA_not_a_replacement_for_RGF_annex_01
+  - never_replace_RGF_legal_personnel_denominator_with_RREO_or_CAPAG_RCL
+  - use_variable_by_variable_coverage
+  - absence_is_not_zero
+  - prefer_local_supplement_before_new_external_delta_queries
+limitations:
+  - the_datalake_does_not_expose_all_annex_05_canonical_nonlinked_fields
+  - debt_coverage_is_not_complete
+  - DTP_and_legal_adjusted_RCL_from_RGF_annex_01_are_not_available_as_equivalent_fields_here

@@ -74,3 +74,36 @@ def test_rgf_state_acquisition(tmp_path, monkeypatch):
     assert result["normalization"]["rows"] == 2
     assert result["normalization"]["issues"] == 0
     assert result["normalization"]["coverage"]["rgf_despesa_total_pessoal"] == 2
+
+
+
+def test_rgf_state_supports_indexed_shard(tmp_path, monkeypatch):
+    geo = tmp_path / "sp.json"
+    geo.write_text(
+        json.dumps(
+            {
+                "features": [
+                    {"properties": {"id": "3500105", "name": "A"}},
+                    {"properties": {"id": "3500204", "name": "B"}},
+                    {"properties": {"id": "3500303", "name": "C"}},
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(module, "SiconfiClient", FakeClient)
+
+    result = module.acquire_state_year(
+        geo,
+        2025,
+        tmp_path / "raw",
+        tmp_path / "normalized.csv",
+        min_interval=0,
+        start_index=1,
+        limit_codes=1,
+        expected_municipalities=3,
+    )
+
+    assert result["start_index"] == 1
+    assert result["municipalities_requested"] == 1
+    assert result["expected_raw_files"] == 2

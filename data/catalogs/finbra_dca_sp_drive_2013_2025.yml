@@ -68,7 +68,7 @@ years:
     i_d: {file_id: 1xsoUpcQiWA5lle2JLpO5GZZDzRymtVTb, size_bytes: 3646735, sha256: e049bdd45e0380dcabe7f9eb0cf87ef35d1c06b68d4a1eb2975886ce793ecf08}
     i_e: {file_id: 1ODlch6HSQOKjZgu-NMHv8OEDlQhbL5SJ, size_bytes: 4117381, sha256: 97b39c7e3c0526777e9d8a1ab1d7ea94e6636ccea34b3011753c3ccff3456e19}
   2024:
-    municipalities: {i_c: 630, i_d: 630, i_e: 630, all_three: 630}
+    municipalities: {i_c: 630, i_d: 630, i_e: 630, all_three: 630, resolved_final: 645}
     i_c: {file_id: 1ZJyPzXbwB7jvnrOmQXjv5tS1Fpuq5enu, size_bytes: 2873589, sha256: 3557de4f7f99cb7953051c8a025c3d347339502b3a40eb6827a78402ddd1b1b1}
     i_d: {file_id: 1IS2EUnPguhUiRroX6Pm6Egx58lXZbKah, size_bytes: 3601251, sha256: e5f884aa19c384da8c75f1c39ed28b7824ad02f4c00b489fa743f561dfc08177}
     i_e: {file_id: 1SP1cHfVLvHS3qYvNnYVnwS-EgQpzUCi0, size_bytes: 4057499, sha256: baac61c4e7a25ac77d842530908c269570a261ca4e1c32d256d9a67ad7ed37f6}
@@ -96,6 +96,25 @@ supplemental_sources:
       - year: 2024
         codes: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
         result: resolves_missing_i_c
+
+resolved_snapshots:
+  2024:
+    status: resolved_composite_fill_only
+    rows: 645
+    normalized_sha256: 81804ece28290ddaec5360b1ff57059fbb3f53ceb15e466c940f4db467f68c63
+    size_bytes: 166910
+    drive_file_id: 1Qldkg9XBIyMOfnr7PezqIyTmKf4XbISx
+    r2_bucket: financas-municipais-sp-canonico
+    r2_object: sp_645/dca/2024/normalized.csv
+    r2_manifest: sp_645/dca/2024/manifest.json
+    composition:
+      local_snapshot_rows: 630
+      local_revenue_supplement_rows: 15
+      external_expense_delta_rows: 15
+      filled_cells: 314
+      conflicts: 0
+      supplement_sha256: 6638fece3b2849c5c24295787f32f68ea499df2eee3e418386cdf3638f6391b2
+      delta_sha256: 3fa3b264f0afca6f85115380c2e1253e38333bfdb58979fe4173f65010f0e320
 
 gate_a_2025:
   normalized_sha256: 619367dd8b2c5b3db6f7a6c902b41e2f2685616cf8560e2e852e7583f386eec7

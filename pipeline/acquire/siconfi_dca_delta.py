@@ -13,21 +13,18 @@ from pipeline.normalize.dca import normalize_tree
 
 
 def parse_codes(value: str) -> list[str]:
-    codes = [
-        token.strip()
-        for token in re.split(r"[,;\s]+", value or "")
-        if token.strip()
-    ]
+    text = str(value or "")
+    codes = re.findall(r"(?<!\d)\d{7}(?!\d)", text)
     unique = []
     seen = set()
     for code in codes:
-        if not re.fullmatch(r"\d{7}", code):
-            raise ValueError(f"Invalid IBGE municipality code: {code!r}")
         if code not in seen:
             seen.add(code)
             unique.append(code)
     if not unique:
-        raise ValueError("At least one municipality code is required.")
+        raise ValueError(
+            "At least one 7-digit IBGE municipality code is required."
+        )
     return unique
 
 

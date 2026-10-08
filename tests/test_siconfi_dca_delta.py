@@ -42,6 +42,12 @@ def test_parse_codes_deduplicates_and_preserves_order():
     ]
 
 
+def test_parse_codes_accepts_labeled_workflow_paste():
+    assert parse_codes(
+        "year = 2018 codes = 3502408 3531407 min_interval = 1.05"
+    ) == ["3502408", "3531407"]
+
+
 def test_acquire_can_target_explicit_codes(tmp_path, monkeypatch):
     geo = tmp_path / "mun.json"
     make_geojson(geo)

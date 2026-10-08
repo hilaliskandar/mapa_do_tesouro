@@ -1,0 +1,47 @@
+version: 1
+name: rgf_sp645_2025_composite_fill_only
+scope:
+  universe: SP_645
+  year: 2025
+base:
+  source: SICONFI_RGF
+  annexes: [RGF-Anexo 01, RGF-Anexo 05]
+  normalized_sha256: 9f3ced721fa2c767d24cdec8e464215b30932e820e01601f24bac9b1e76486ba
+  raw_tree_sha256: 1f1bc9a06fdd64e8e5c36912273f8ef955fa76db486e76d50f2a4c54b31ebb23
+  acquisition_run_id: 37732303043
+supplement:
+  source: CAPAG_Datalake
+  file_id: 1BlT2WxtBIGVeP1b4-GM3Auv0OdU6p7C9
+  sha256: 1b1379a5a531920223f1d448be155b70f51eb50180d8c819f1b7da3575a8eb11
+  snapshot_position: 2026-09
+merge:
+  policy: fill_only
+  tolerance_brl: 0.01
+  conflicts: 0
+  cells_filled: 366
+  filled_by_field:
+    rgf_caixa_bruta_nao_vinculada: 109
+    rgf_demais_obrigacoes_nao_vinculadas: 15
+    rgf_rp_nao_liquidados_anteriores_nao_vinculados: 79
+    rgf_rp_liquidados_anteriores_nao_vinculados: 74
+    rgf_rp_liquidados_exercicio_nao_vinculados: 89
+output:
+  sha256: 48b50b2df44eaddc2fc1c4ed096c057c2bea5d61cb850b37dc23e6037962aa24
+  rows: 645
+coverage:
+  rgf_despesa_total_pessoal: 530
+  rgf_rcl_denominador_legal: 530
+  rgf_dtp_percentual_rcl: 530
+  rgf_caixa_bruta_nao_vinculada: 635
+  rgf_rp_liquidados_anteriores_nao_vinculados: 478
+  rgf_rp_liquidados_exercicio_nao_vinculados: 501
+  rgf_rp_nao_liquidados_anteriores_nao_vinculados: 490
+  rgf_demais_obrigacoes_nao_vinculadas: 108
+  rgf_caixa_liquida_antes_rpnp: 528
+  rgf_rp_nao_liquidados_exercicio_nao_vinculados: 410
+  rgf_caixa_liquida_apos_rpnp: 528
+restrictions:
+  - do_not_fill_RGF_annex_01_from_CAPAG
+  - do_not_fill_cash_liquidity_fields_without_semantic_identity
+  - absence_is_not_zero
+  - private_reference_only_until_multisource_gate_is_closed

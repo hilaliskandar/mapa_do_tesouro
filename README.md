@@ -19,7 +19,7 @@ O baseline público vigente é o universo `TIC_TIM_30`:
 - publicação no Cloudflare Pages;
 - preview e produção com QA automatizado.
 
-O universo estadual `SP_645` está em expansão controlada. O Gate B DCA foi concluído para 2013–2025: 645 municípios por exercício, 8.385 município-ano, 26 variáveis e zero issues de normalização. No Gate C, RREO 2025 e CAPAG 2025 já possuem cobertura estadual validada; RGF Anexos 01/05 está em aquisição estadual e o Anexo 02 já possui infraestrutura manual preparada. O baseline público TIC-TIM 30 permanece protegido até a conclusão multifuentes.
+O universo estadual `SP_645` está em expansão controlada. O Gate B DCA foi concluído para 2013–2025: 645 municípios por exercício, 8.385 município-ano, 26 variáveis e zero issues de normalização. No Gate C, RREO 2025 e CAPAG 2025 já possuem cobertura estadual validada; RGF Anexos 01/05 e Anexo 02 já foram adquiridos e validados em escala estadual, com suplementos CAPAG fill-only separados e sem conflitos. O baseline público TIC-TIM 30 permanece protegido até a conclusão multifuentes.
 
 ## Arquitetura atual
 

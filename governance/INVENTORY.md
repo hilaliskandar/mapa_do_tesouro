@@ -148,19 +148,20 @@ Os PRs #18 e #20 foram encerrados sem merge porque suas funções foram substitu
 
 ### RGF
 
-- Anexos 01/05: taxonomia e paridade Americana/2025 aprovadas;
-- carga SP645 2025 em execução;
-- fallback automático em cinco shards caso o monolítico falhe;
+- Anexos 01/05: carga SP645 2025 concluída em 645/645;
+- zero falhas e zero issues;
+- composição CAPAG fill-only validada com 366 células adicionais e zero conflitos;
+- SHA-256 composto `48b50b2df44eaddc2fc1c4ed096c057c2bea5d61cb850b37dc23e6037962aa24`;
+- fallback automático em cinco shards disponível;
 - consolidação e QA automáticos em ambos os caminhos;
 - Anexo 02: coletor longo estadual preparado e manual.
 
 ## Pendências estruturais
 
-1. concluir e auditar RGF Anexos 01/05 2025;
-2. decidir/rodar RGF Anexo 02 somente após o 01/05;
-3. consolidar denominadores anuais complementares;
-4. recalcular indicadores derivados e legais;
-5. recalcular tipologias e pares por `universo_id`;
-6. produzir cartografia estadual canônica;
-7. executar paridade completa contra TIC-TIM 30;
-8. criar release estadual somente após aprovação multifuentes.
+1. decidir/rodar RGF Anexo 02 conforme necessidade analítica residual;
+2. consolidar denominadores anuais complementares;
+3. recalcular indicadores derivados e legais;
+4. recalcular tipologias e pares por `universo_id`;
+5. produzir cartografia estadual canônica;
+6. executar paridade completa contra TIC-TIM 30;
+7. criar release estadual somente após aprovação multifuentes.

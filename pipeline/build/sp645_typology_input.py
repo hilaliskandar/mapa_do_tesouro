@@ -54,6 +54,8 @@ def build_typology_input(
     gate_d_xlsx: Path,
     output_xlsx: Path,
     manifest_path: Path,
+    *,
+    expected_municipalities: int = 645,
 ) -> dict:
     dca_rows = _read_csv(dca_csv)
     history_rows = _read_csv(rgf_history_csv)
@@ -113,8 +115,10 @@ def build_typology_input(
         wb.close()
 
     codes = sorted(names)
-    if len(codes) != 645:
-        raise ValueError(f"Expected 645 municipalities in Gate D, got {len(codes)}")
+    if len(codes) != expected_municipalities:
+        raise ValueError(
+            f"Expected {expected_municipalities} municipalities in Gate D, got {len(codes)}"
+        )
 
     expected_dca_keys = {(code, year) for code in codes for year in YEARS}
     if set(dca) != expected_dca_keys:
@@ -219,6 +223,7 @@ def main() -> None:
     parser.add_argument("--gate-d", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--expected-municipalities", type=int, default=645)
     args = parser.parse_args()
 
     print(
@@ -229,6 +234,7 @@ def main() -> None:
                 args.gate_d,
                 args.output,
                 args.manifest,
+                expected_municipalities=args.expected_municipalities,
             ),
             ensure_ascii=False,
             indent=2,

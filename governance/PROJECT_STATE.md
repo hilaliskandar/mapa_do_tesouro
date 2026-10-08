@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_c_rgf_2025_state_approved`: RREO 2025 e CAPAG 2025 estão validados em escala estadual e a carga RGF Anexos 01/05 2025 foi concluída para 645/645 municípios, sem falhas de aquisição ou issues de normalização.
+A expansão estadual está no estado `gate_c_2025_multisource_core_approved`: RREO 2025, CAPAG 2025 e RGF Anexos 01/05 2025 estão validados em escala estadual; o RGF possui também composição fill-only com suplemento CAPAG local, sem conflitos.
 
 ## Hierarquia de fontes operacionais
 
@@ -167,18 +167,25 @@ O DCA permanece fonte analítica e não substitui declarações legais dessas fo
 - Anexos 01/05: carga estadual concluída para 645/645 municípios;
 - zero falhas de aquisição;
 - zero issues de normalização;
-- DTP, RCL legal e percentual oficial observados em 530/645;
-- caixa bruta não vinculada em 526/645;
-- caixa líquida antes e após RPNP em 528/645;
-- SHA-256 normalizado `9f3ced721fa2c767d24cdec8e464215b30932e820e01601f24bac9b1e76486ba`;
-- fallback shardado permanece como contingência para futuras execuções;
+- base API SHA-256 `9f3ced721fa2c767d24cdec8e464215b30932e820e01601f24bac9b1e76486ba`;
+- composição fill-only com CAPAG local: 366 células adicionais, zero conflitos;
+- composto SHA-256 `48b50b2df44eaddc2fc1c4ed096c057c2bea5d61cb850b37dc23e6037962aa24`;
+- DTP, RCL legal e percentual oficial permanecem 530/645 e não recebem suplemento;
+- caixa bruta não vinculada sobe para 635/645;
+- RP liquidados anteriores: 478/645;
+- RP liquidados do exercício: 501/645;
+- RP não liquidados anteriores: 490/645;
+- demais obrigações: 108/645;
+- caixa líquida antes/depois RPNP permanece 528/645;
+- fallback shardado permanece como contingência;
 - Anexo 02: infraestrutura pronta em workflow manual, ainda não disparada.
 
 ## Próximo gate operacional
 
-1. qualificar as lacunas RGF 01/05 contra o suplemento local CAPAG/RGF, sem imputação automática;
-2. decidir a necessidade efetiva da carga estadual do RGF Anexo 02;
-3. consolidar denominadores complementares;
-4. recalcular indicadores legais e derivados;
-5. executar paridade estadual contra TIC-TIM 30 antes de qualquer promoção pública.
+1. decidir a necessidade efetiva da carga estadual do RGF Anexo 02, considerando que CAPAG já cobre os componentes oficiais centrais de endividamento;
+2. consolidar denominadores complementares;
+3. recalcular indicadores legais e derivados no universo SP645;
+4. recalcular tipologias e pares por `universo_id`;
+5. executar paridade estadual contra TIC-TIM 30;
+6. somente então avaliar release estadual pública.
 

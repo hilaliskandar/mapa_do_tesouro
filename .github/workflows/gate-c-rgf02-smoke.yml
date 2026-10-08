@@ -1,0 +1,54 @@
+name: Gate C RGF02 Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "pipeline/normalize/rgf02.py"
+      - "data/qa/rgf02_sentinel_americana_2025.yml"
+      - ".github/workflows/gate-c-rgf02-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Acquire Americana RGF02 2025
+        run: |
+          python -m pipeline.acquire.siconfi_legal_reports --endpoint rgf --entity-id 3501608 --years 2025 --annexes "RGF-Anexo 02" --periodicity Q --period 3 --report-type RGF --sphere M --branch E --output build/raw/rgf02-smoke --min-interval 1.05
+      - name: Validate parity
+        run: |
+          python - <<'PY'
+          import gzip, json
+          from pathlib import Path
+          import yaml
+          raw=Path("build/raw/rgf02-smoke/rgf/rgf-anexo-02/2025/3501608.json.gz")
+          with gzip.open(raw,"rt",encoding="utf-8") as h:
+              payload=json.load(h)
+          by={i["cod_conta"]:i for i in payload.get("items",[]) if i.get("coluna")=="Até o 3º Quadrimestre"}
+          ref=yaml.safe_load(Path("data/qa/rgf02_sentinel_americana_2025.yml").read_text(encoding="utf-8"))
+          for code,expected in ref["expected"].items():
+              if code not in by:
+                  raise SystemExit(f"Missing RGF02 code: {code}")
+              observed=float(by[code]["valor"])
+              tol=float(ref["tolerance"]["percentage_points"] if code.startswith("Percentual") else ref["tolerance"]["monetary"])
+              if abs(observed-float(expected))>tol:
+                  raise SystemExit(f"Parity failure {code}: {observed} != {expected}")
+          print("RGF02 Americana 2025 parity: OK")
+          PY
+      - name: Upload smoke artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf02-smoke-2025
+          path: build/raw/rgf02-smoke
+          retention-days: 14

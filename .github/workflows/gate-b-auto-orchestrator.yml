@@ -2,6 +2,11 @@ name: Gate B DCA Auto Orchestrator
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "data/catalogs/dca_sp_delta_queue.yml"
+      - ".github/workflows/gate-b-auto-orchestrator.yml"
   schedule:
     - cron: "17 * * * *"
 

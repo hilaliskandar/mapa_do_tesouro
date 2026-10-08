@@ -77,6 +77,26 @@ years:
     i_c: {file_id: 185x_7zgX9aGOy0Z6Drh-iA9vBY83JU1F, size_bytes: 16946392, sha256: 502b0edb79d2fc7c330854877b5f6f2bfbd97fffca8189fb58f53a8b830a3827}
     i_d: {file_id: 12qfplHoUJRqe91GpsjXGqOPvljJXoq1C, size_bytes: 19258567, sha256: ba7c36af142523962cd48c572aa28cae97b18f3e646aa5eff796cb3abca548fe}
     i_e: {file_id: 1emNY64pw4dvo2EChwWyBKlfCD200mTxT, size_bytes: 19196424, sha256: fa519ff00db840b1cb7cd4ce570780025f4ccf819ecbb2406bf97287d9f4956e}
+supplemental_sources:
+  receitas_2022_2025:
+    file_id: 1FX1QFhv3_lUhfqxEW0z5KJ0EWGPoMZGQ
+    name: Receitas 2022-2025.xlsx
+    size_bytes: 30466010
+    sha256: 60c8f9cd356a4294b694263654f385b1b6e6aed20581ce8b5ddb1cd01a36105c
+    worksheets:
+      2022-finbra: {municipalities: 645}
+      2023-finbra: {municipalities: 645}
+      2024-finbra: {municipalities: 645}
+      2025-finbra: {municipalities: 642}
+    policy: fill_only_missing_revenue_rows
+    verified_uses:
+      - year: 2022
+        codes: [3517802]
+        result: resolves_missing_i_c
+      - year: 2024
+        codes: [3500303, 3503000, 3509403, 3509957, 3514304, 3515152, 3522158, 3525409, 3531902, 3536802, 3537800, 3542701, 3549607, 3550209, 3557204]
+        result: resolves_missing_i_c
+
 gate_a_2025:
   normalized_sha256: 619367dd8b2c5b3db6f7a6c902b41e2f2685616cf8560e2e852e7583f386eec7
   municipalities: 645

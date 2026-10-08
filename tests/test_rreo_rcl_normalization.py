@@ -28,7 +28,7 @@ def test_rreo_rcl_normalization_preserves_absence(tmp_path):
         annex / "3501608.json.gz",
         [
             {
-                "cod_conta": "ReceitaCorrenteLiquida",
+                "cod_conta": "RREO3ReceitaCorrenteLiquida",
                 "conta": "RECEITA CORRENTE LÍQUIDA (III) = (I - II)",
                 "coluna": "TOTAL (ÚLTIMOS 12 MESES)",
                 "valor": 123.5,

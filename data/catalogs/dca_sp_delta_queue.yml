@@ -8,16 +8,10 @@ policy:
   preserve_snapshot_and_delta_separately: true
 years:
   2013:
-    priority: 6
-    codes:
-    - 3514106
-    - 3515400
-    - 3527603
-    - 3528700
-    - 3544004
-    - 3554607
-    - 3556602
-    missing_by_annex:
+    priority: null
+    codes: []
+    status: source_confirmed_absence
+    original_missing_by_annex:
       i_c:
       - 3514106
       - 3527603
@@ -36,6 +30,20 @@ years:
       - 3544004
       - 3554607
       - 3556602
+    source_check:
+      run_id: 37724367642
+      normalized_sha256: 5bef46a937a2b90dfa17d45c83f672211fa3d8469c7ed4a2e0ae1aee582077ce
+      codes:
+      - '3514106'
+      - '3515400'
+      - '3527603'
+      - '3528700'
+      - '3544004'
+      - '3554607'
+      - '3556602'
+      municipality_annex_pairs_requested: 15
+      empty_source_pairs: 15
+      result: source_confirmed_absence
   2014:
     priority: 9
     codes:
@@ -241,24 +249,29 @@ years:
     codes: []
     status: complete_snapshot
   2024:
-    priority: 8
-    codes:
-    - 3500303
-    - 3503000
-    - 3509403
-    - 3509957
-    - 3514304
-    - 3515152
-    - 3522158
-    - 3525409
-    - 3531902
-    - 3536802
-    - 3537800
-    - 3542701
-    - 3549607
-    - 3550209
-    - 3557204
-    missing_by_annex:
+    priority: null
+    codes: []
+    local_revenue_supplement:
+      file_id: 1FX1QFhv3_lUhfqxEW0z5KJ0EWGPoMZGQ
+      worksheet: 2024-finbra
+      codes:
+      - 3500303
+      - 3503000
+      - 3509403
+      - 3509957
+      - 3514304
+      - 3515152
+      - 3522158
+      - 3525409
+      - 3531902
+      - 3536802
+      - 3537800
+      - 3542701
+      - 3549607
+      - 3550209
+      - 3557204
+    status: delta_recovered_pending_merge
+    original_missing_by_annex:
       i_c: []
       i_d:
       - 3500303
@@ -292,25 +305,29 @@ years:
       - 3549607
       - 3550209
       - 3557204
-    local_revenue_supplement:
-      file_id: 1FX1QFhv3_lUhfqxEW0z5KJ0EWGPoMZGQ
-      worksheet: 2024-finbra
+    source_check:
+      run_id: 37724367642
+      normalized_sha256: 3fa3b264f0afca6f85115380c2e1253e38333bfdb58979fe4173f65010f0e320
       codes:
-      - 3500303
-      - 3503000
-      - 3509403
-      - 3509957
-      - 3514304
-      - 3515152
-      - 3522158
-      - 3525409
-      - 3531902
-      - 3536802
-      - 3537800
-      - 3542701
-      - 3549607
-      - 3550209
-      - 3557204
+      - '3500303'
+      - '3503000'
+      - '3509403'
+      - '3509957'
+      - '3514304'
+      - '3515152'
+      - '3522158'
+      - '3525409'
+      - '3531902'
+      - '3536802'
+      - '3537800'
+      - '3542701'
+      - '3549607'
+      - '3550209'
+      - '3557204'
+      municipality_annex_pairs_requested: 30
+      empty_source_pairs: 0
+      result: delta_recovered_pending_merge
+      recovered_pairs: 30
   2025:
     priority: null
     status: resolved_by_gate_a

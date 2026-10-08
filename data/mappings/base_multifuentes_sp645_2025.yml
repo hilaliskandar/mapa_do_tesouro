@@ -1,0 +1,347 @@
+universe:
+  id: SP_645
+  name: São Paulo — 645 municípios
+  description: Universo estadual canônico dos 645 municípios de São Paulo para o Gate C 2025.
+  type: analitico
+
+source:
+  source_id: PROJETO_BASE_MULTIFONTES_SP645_2025
+  workbook_name: FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx
+  sheet: Base multifuentes
+  data_version: finbra-sp645-multifuentes-2025-gate-c
+  expected_rows: 645
+  expected_municipalities: 645
+  expected_years:
+    start: 2025
+    end: 2025
+
+keys:
+  codigo_ibge: cod_ibge
+  municipio: municipio
+  ano: ano
+
+variables:
+  dca_receita_corrente_bruta:
+    column: dca_receita_corrente_bruta
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_receita_tributaria_bruta:
+    column: dca_receita_tributaria_bruta
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_iptu_principal:
+    column: dca_iptu_principal
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_itbi_principal:
+    column: dca_itbi_principal
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_iss_principal:
+    column: dca_iss_principal
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_fpm_cota_mensal:
+    column: dca_fpm_cota_mensal
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_icms_cota_parte:
+    column: dca_icms_cota_parte
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_ipva_cota_parte:
+    column: dca_ipva_cota_parte
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_investimentos_liquidada:
+    column: dca_investimentos_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_urbanismo_liquidada:
+    column: dca_func_urbanismo_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_habitacao_liquidada:
+    column: dca_func_habitacao_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_saneamento_liquidada:
+    column: dca_func_saneamento_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_gestao_ambiental_liquidada:
+    column: dca_func_gestao_ambiental_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_transporte_liquidada:
+    column: dca_func_transporte_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  populacao_dca:
+    column: populacao_dca
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rreo_rcl_oficial:
+    column: rreo_rcl_oficial
+    source_id: SICONFI_RREO
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf_despesa_total_pessoal:
+    column: rgf_despesa_total_pessoal
+    source_id: SICONFI_RGF_A01
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dtp_pct_rcl:
+    column: rgf_dtp_percentual_rcl
+    source_id: SICONFI_RGF_A01
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  rgf02_divida_consolidada:
+    column: rgf02_divida_consolidada
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_divida_consolidada_liquida:
+    column: rgf02_divida_consolidada_liquida
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dc_pct_rcl:
+    column: rgf02_dc_percentual_rcl
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  dcl_pct_rcl:
+    column: rgf02_dcl_percentual_rcl
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+    scale: 0.01
+
+  capag:
+    column: capag
+    source_id: TESOURO_CAPAG
+    availability_start: 2025
+    availability_end: 2025
+    value_type: text
+
+  dca_operacoes_credito:
+    column: dca_operacoes_credito
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_alienacao_bens:
+    column: dca_alienacao_bens
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_transferencias_capital:
+    column: dca_transferencias_capital
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_despesa_total_liquidada:
+    column: dca_despesa_total_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_despesa_corrente_liquidada:
+    column: dca_despesa_corrente_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_pessoal_encargos_liquidada:
+    column: dca_pessoal_encargos_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_juros_encargos_liquidada:
+    column: dca_juros_encargos_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_inversoes_financeiras_liquidada:
+    column: dca_inversoes_financeiras_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_amortizacao_divida_liquidada:
+    column: dca_amortizacao_divida_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_saude_liquidada:
+    column: dca_func_saude_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  dca_func_educacao_liquidada:
+    column: dca_func_educacao_liquidada
+    source_id: SICONFI_DCA
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf_caixa_liquida_apos_rpnp:
+    column: rgf_caixa_liquida_apos_rpnp
+    source_id: SICONFI_RGF_A05
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_divida_contratual:
+    column: rgf02_divida_contratual
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_parcelamento_dividas:
+    column: rgf02_parcelamento_dividas
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_precatorios_vencidos_nao_pagos:
+    column: rgf02_precatorios_vencidos_nao_pagos
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_outras_dividas:
+    column: rgf02_outras_dividas
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_deducoes_divida_consolidada:
+    column: rgf02_deducoes_divida_consolidada
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_disponibilidade_caixa:
+    column: rgf02_disponibilidade_caixa
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_demais_haveres_financeiros:
+    column: rgf02_demais_haveres_financeiros
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  rgf02_restos_pagar_processados:
+    column: rgf02_restos_pagar_processados
+    source_id: SICONFI_RGF_A02
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  indicador_1:
+    column: indicador_1
+    source_id: TESOURO_CAPAG
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  indicador_2:
+    column: indicador_2
+    source_id: TESOURO_CAPAG
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric
+
+  indicador_3:
+    column: indicador_3
+    source_id: TESOURO_CAPAG
+    availability_start: 2025
+    availability_end: 2025
+    value_type: numeric

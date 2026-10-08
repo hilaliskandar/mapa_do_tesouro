@@ -76,15 +76,17 @@ Atualizado em 2026-10-08.
 
 ### Aquisição direta disponível
 
-- DCA I-C;
-- DCA I-D;
-- DCA I-E;
+- DCA I-C, I-D e I-E;
+- RREO Anexo 03 / RCL anual;
+- RGF Anexos 01 e 05 com normalização legal;
+- RGF Anexo 02 em formato longo;
 - retries exponenciais;
 - preservação de artefatos brutos;
 - manifestos;
 - hashes;
 - normalização estadual;
-- clientes iniciais para RREO/RGF.
+- execução RGF shardada de contingência;
+- QA estadual automático pós-run.
 
 ## Decisões consolidadas
 
@@ -125,14 +127,40 @@ Os PRs #18 e #20 foram encerrados sem merge porque suas funções foram substitu
 - fila seletiva histórica encerrada;
 - ausências históricas confirmadas preservadas como ausência.
 
+## Gate C — estado atual
+
+### RREO 2025
+
+- 645/645 municípios consultados;
+- 531 RCL observadas;
+- 114 ausências preservadas;
+- zero falhas;
+- zero issues de normalização;
+- cobertura da variável: 82,33%;
+- as 114 ausências têm RCL em outra fonte oficial, mas não são imputadas ao RREO.
+
+### CAPAG 2025
+
+- snapshot oficial posição setembro de 2026;
+- 645/645 municípios paulistas;
+- classificação oficial preservada, inclusive `n.d.`;
+- suplemento local RGF/CAPAG catalogado variável a variável.
+
+### RGF
+
+- Anexos 01/05: taxonomia e paridade Americana/2025 aprovadas;
+- carga SP645 2025 em execução;
+- fallback automático em cinco shards caso o monolítico falhe;
+- consolidação e QA automáticos em ambos os caminhos;
+- Anexo 02: coletor longo estadual preparado e manual.
+
 ## Pendências estruturais
 
-1. integrar RREO estadual com QA;
-2. integrar RGF estadual com QA;
-3. integrar CAPAG;
-4. consolidar denominadores anuais complementares;
-5. recalcular indicadores derivados e legais;
-6. recalcular tipologias e pares por `universo_id`;
-7. produzir cartografia estadual canônica;
-8. executar paridade completa contra TIC-TIM 30;
-9. criar release estadual somente após aprovação multifuentes.
+1. concluir e auditar RGF Anexos 01/05 2025;
+2. decidir/rodar RGF Anexo 02 somente após o 01/05;
+3. consolidar denominadores anuais complementares;
+4. recalcular indicadores derivados e legais;
+5. recalcular tipologias e pares por `universo_id`;
+6. produzir cartografia estadual canônica;
+7. executar paridade completa contra TIC-TIM 30;
+8. criar release estadual somente após aprovação multifuentes.

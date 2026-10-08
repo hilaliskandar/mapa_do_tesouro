@@ -73,3 +73,27 @@ Resultado contra as bases TIC-TIM 30:
 O histórico corrigido possui SHA-256 `7faef8188fd56bff6bb8031dfe3a8eeec11fe56e67f986bdc0007a4ee7646eeb`.
 
 Com isso, a série RGF 2023–2024 está autorizada para construir a entrada canônica SP645 das tipologias e pares.
+
+
+## Entrada canônica e tipologias SP645 materializadas
+
+A entrada canônica foi construída com 3.225 linhas e armazenada no Drive:
+
+- file ID `1QPY6sMSqrl3SFnq7Z5qRYXoHiCVXhdAb`;
+- SHA-256 `72e6302e5331ba05f066eebe55df914a7fc2dd7b6d2114e6df374bfc606977ce`.
+
+Cobertura com pelo menos três anos:
+
+- base tributária: 645;
+- investimento: 645;
+- territorial: 56;
+- DTP: 505;
+- DC: 439;
+- DCL: 505;
+- liquidez: 0.
+
+O cálculo privado produziu 440 municípios com pelo menos quatro marcadores comparáveis e 205 sem par elegível.
+
+O workbook privado canônico está no Drive, file ID `1zA0zNM_pYzkMk88XttNi17on6w_l98__`, SHA-256 `ea2d31b53c2558cebfb02d4342c26561cbcf21497aab0b61af2b54a07ce6e46a`.
+
+A liquidez não recebe tipologia porque só há 2025. A tipologia DCL preserva a regra histórica de CV assinado e não entra na assinatura dos pares.

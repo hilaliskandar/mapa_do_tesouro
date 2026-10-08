@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_b_dca_complete`: a série DCA SP645 2013–2025 foi consolidada, versionada e armazenada no Drive e no R2 privado.
+A expansão estadual está no estado `gate_c_contracts_defined`: o Gate B DCA está concluído e os contratos multifuentes de RREO, RGF e CAPAG foram definidos a partir das bases locais já validadas.
 
 ## Hierarquia de fontes operacionais
 
@@ -133,15 +133,24 @@ A série estadual canônica contém:
 
 A fila seletiva DCA está vazia. As lacunas não recuperáveis em 2013, 2014, 2015, 2016, 2018 e 2019 foram confirmadas por consulta seletiva ao Siconfi e permanecem como ausência.
 
+## Gate C — contratos multifuentes definidos
+
+As fontes legais passam a ser tratadas separadamente:
+
+- RREO Anexo 03, período 6: RCL anual oficial;
+- RGF Anexo 01, 3º quadrimestre: DTP, denominador legal e percentual oficial;
+- RGF Anexo 05: caixa e restos a pagar, com comparabilidade direta a partir de 2019;
+- RGF Anexo 02: taxonomia oficial preservada;
+- CAPAG: classificação oficial por snapshot, com posição e ano-base distintos.
+
+O DCA permanece fonte analítica e não substitui declarações legais dessas fontes.
+
 ## Próximo gate operacional
 
-O próximo bloco estadual deixa de ser DCA e passa à integração das demais fontes oficiais:
-
-1. RREO;
-2. RGF;
-3. CAPAG;
-4. denominadores complementares;
-5. indicadores derivados e legais;
-6. tipologias, pares e cartografia estadual;
-7. paridade final antes de qualquer promoção do SP645 ao painel público.
+1. localizar snapshots estaduais locais de RREO/RGF antes de qualquer coleta externa ampla;
+2. construir carga SP645 de RREO Anexo 03;
+3. expandir RGF Anexo 01 e 05 com paridade contra o TIC-TIM 30;
+4. integrar RGF Anexo 02;
+5. incorporar CAPAG oficial;
+6. somente então recalcular indicadores e avaliar promoção estadual.
 

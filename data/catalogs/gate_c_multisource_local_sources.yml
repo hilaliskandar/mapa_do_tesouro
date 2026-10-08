@@ -1,0 +1,88 @@
+version: 1
+name: gate_c_multisource_local_sources
+scope:
+  baseline: TIC_TIM_30
+  expansion_target: SP_645
+principles:
+  - legal_indicators_use_their_own_official_statement
+  - dca_proxies_never_replace_rreo_rgf_capag_legal_values
+  - absence_is_not_zero
+  - source_vintage_and_legal_vintage_are_explicit
+  - period_and_annex_are_part_of_the_key
+
+sources:
+  rreo_rcl_2015_2025:
+    provider: google_drive
+    file_id: 1aIxOzvqkbEAEAyf2nn05pqFlijaVahSLW4ZwyBfGIJE
+    title: FINBRA_RCL_OFICIAL_2015_2025
+    sheet: RCL_2015_2025
+    observed_municipalities_per_year: 33
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+    period: 6
+    annex: RREO-Anexo 03
+    official_account: ReceitaCorrenteLiquida
+    official_column: TOTAL (ÚLTIMOS 12 MESES)
+    qa_status: validated_local_reference
+
+  rgf_annexes_01_05_2015_2025:
+    provider: google_drive
+    file_id: 1U3l1dUEryYOWInFcN4GO5kKBWD0s5SSLDMhOXqRENfs
+    title: FINBRA_TIC_TIM_30M_RGF_2015_2025_ANEXOS_01_05_v1
+    long_sheet: RGF_LONGA
+    qa_sheet: QA_COBERTURA
+    universe: TIC_TIM_30
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+    period: 3
+    periodicity: Q
+    sphere: M
+    power: E
+    qa:
+      annex_01:
+        2015: {ok: 24, incomplete: 6}
+        2016: {ok: 28, incomplete: 2}
+        2017: {ok: 30, incomplete: 0}
+        2018: {ok: 23, incomplete: 7}
+        2019: {ok: 30, incomplete: 0}
+        2020: {ok: 30, incomplete: 0}
+        2021: {ok: 30, incomplete: 0}
+        2022: {ok: 30, incomplete: 0}
+        2023: {ok: 30, incomplete: 0}
+        2024: {ok: 30, incomplete: 0}
+        2025: {ok: 30, incomplete: 0}
+      annex_05:
+        comparable_from: 2019
+        2019_2025: full_30_of_30
+        historical_note: pre_2019_structure_not_directly_comparable
+
+  rgf_annex_02_2015_2025:
+    provider: google_drive
+    file_id: 1t0HYxI9J4zvpKURDZJebkXNagdrf1f3PaZIMFzGcrDM
+    title: FINBRA_TIC_TIM_30M_RGF_ANEXO02_2015_2025_v1
+    long_sheet: RGF02_LONGA
+    coverage_sheet: COBERTURA
+    dictionary_sheet: DICIONARIO
+    universe: TIC_TIM_30
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+    period_rule: Até o 3º Quadrimestre
+    qa:
+      2015: {observed_keys: 27, expected_keys: 30, status: INCOMPLETO_API}
+      2016: {observed_keys: 30, expected_keys: 30, status: OK}
+      2017: {observed_keys: 30, expected_keys: 30, status: OK}
+      2018: {observed_keys: 30, expected_keys: 30, status: OK}
+      2019: {observed_keys: 30, expected_keys: 30, status: OK}
+      2020: {observed_keys: 30, expected_keys: 30, status: OK}
+      2021: {observed_keys: 30, expected_keys: 30, status: OK}
+      2022: {observed_keys: 30, expected_keys: 30, status: OK}
+      2023: {observed_keys: 30, expected_keys: 30, status: OK_APOS_RETRY}
+      2024: {observed_keys: 30, expected_keys: 30, status: OK}
+      2025: {observed_keys: 30, expected_keys: 30, status: OK}
+
+  capag_official_snapshot:
+    provider: google_drive
+    raw_file_id: 1BlT2WxtBIGVeP1b4-GM3Auv0OdU6p7C9
+    raw_title: capag-municipios-posicao-2026-set.xlsx
+    tic_tim_canonical_file_id: 1477zhSo1f-WeYDa14BwFdGj0r_yR-xjC
+    tic_tim_canonical_title: FINBRA_TIC_TIM_30M_CAPAG_CANONICA_2025_v1.xlsx
+    snapshot_position: 2026-09
+    legal_year_base: 2025
+    policy: official_result_precedes_local_reconstruction

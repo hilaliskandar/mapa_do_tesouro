@@ -4,6 +4,10 @@ on:
   workflow_run:
     workflows: ["Gate E Corrected RGF A01 2023"]
     types: [completed]
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-e-rgf-2023-a01-postprocess.yml"
 
 permissions:
   actions: read
@@ -11,10 +15,10 @@ permissions:
 
 jobs:
   patch:
-    if: github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'push' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     env:
-      SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+      SOURCE_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || '37772346879' }}
       ORIGINAL_HISTORY_RUN_ID: "37746201460"
     steps:
       - uses: actions/checkout@v4
@@ -129,5 +133,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add governance/auto/
+          if git diff --cached --quiet; then
+            echo "No QA changes to commit."
+            exit 0
+          fi
           git commit -m "gate-e: record corrected historical RGF QA"
           git push origin HEAD:main

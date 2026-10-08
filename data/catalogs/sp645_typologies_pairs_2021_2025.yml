@@ -1,0 +1,53 @@
+version: 1
+name: sp645_typologies_pairs_2021_2025
+status: private_qa_approved
+universe_id: SP_645
+window_id: 2021_2025
+input:
+  drive_file_id: 1QPY6sMSqrl3SFnq7Z5qRYXoHiCVXhdAb
+  file_name: SP645_TYPOLOGY_INPUT_2021_2025.xlsx
+  rows: 3225
+  municipalities: 645
+  sha256: 72e6302e5331ba05f066eebe55df914a7fc2dd7b6d2114e6df374bfc606977ce
+output:
+  drive_file_id: 1zA0zNM_pYzkMk88XttNi17on6w_l98__
+  file_name: SP645_TIPOLOGIAS_PARES_2021_2025_CANONICO.xlsx
+  sha256: ea2d31b53c2558cebfb02d4342c26561cbcf21497aab0b61af2b54a07ce6e46a
+coverage_min_3_years:
+  receita_tributaria: 645
+  investimento: 645
+  territorial: 56
+  dtp: 505
+  dc: 439
+  dcl: 505
+  caixa: 0
+markers:
+  base: 645
+  invest: 645
+  territor: 56
+  pessoal: 505
+  divida: 439
+  liquidez: 0
+pairs:
+  minimum_comparable_markers: 4
+  municipalities_eligible: 440
+  municipalities_without_eligible_pair: 205
+  prioritized_rows: 1320
+  directed_pairs_audited: 415380
+  reciprocal_principal_pairs: 40
+hashes:
+  typologies_csv: 6b2f9a22016df2dc70c6783b2b6a8a30a74d345171ea701be7628872fd7fdd34
+  markers_csv: 7ea2d4fe71ccd68d7e7882cb6a8bd65e0d4e0b96b0aa35872d94854503c64c3a
+  priority_pairs_csv: 21a36f0322d500eee8a3c7a7703e989231be0be8265356668dc69aca34a2502c
+  all_pairs_gzip: e169ae0a2dddef7a99346a6f07ca36038795f67ba0bc0a07d53f7110b808378c
+methodology:
+  territorial_rule: strict_complete
+  typology_min_years: 3
+  pair_min_comparable_markers: 4
+  dcl_in_pair_signature: false
+  capag_in_pair_signature: false
+  liquidity_historical_classification_available: false
+cautions:
+  - signed_cv_is_preserved_for_historical_parity
+  - no_liquidity_typology_with_only_2025_available
+  - 205_municipalities_have_fewer_than_4_markers

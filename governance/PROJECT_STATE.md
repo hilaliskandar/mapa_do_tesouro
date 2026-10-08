@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_c_rgf_2025_acquiring`: RREO 2025 foi adquirido para 645/645 municípios, CAPAG 2025 foi validada em 645/645, a taxonomia RGF 2025 passou por paridade de sentinela e a carga estadual dos Anexos 01/05 está em execução.
+A expansão estadual está no estado `gate_c_rgf_2025_state_approved`: RREO 2025 e CAPAG 2025 estão validados em escala estadual e a carga RGF Anexos 01/05 2025 foi concluída para 645/645 municípios, sem falhas de aquisição ou issues de normalização.
 
 ## Hierarquia de fontes operacionais
 
@@ -164,17 +164,21 @@ O DCA permanece fonte analítica e não substitui declarações legais dessas fo
 
 ### RGF 2025
 
-- Anexos 01/05: taxonomia validada contra Americana;
-- run estadual monolítico em execução;
-- sucesso gera QA e commit seguro automaticamente;
-- falha dispara fallback em cinco shards, recomposição de 645 linhas e QA automático;
+- Anexos 01/05: carga estadual concluída para 645/645 municípios;
+- zero falhas de aquisição;
+- zero issues de normalização;
+- DTP, RCL legal e percentual oficial observados em 530/645;
+- caixa bruta não vinculada em 526/645;
+- caixa líquida antes e após RPNP em 528/645;
+- SHA-256 normalizado `9f3ced721fa2c767d24cdec8e464215b30932e820e01601f24bac9b1e76486ba`;
+- fallback shardado permanece como contingência para futuras execuções;
 - Anexo 02: infraestrutura pronta em workflow manual, ainda não disparada.
 
 ## Próximo gate operacional
 
-1. encerrar e auditar RGF Anexos 01/05 2025;
-2. aplicar primeiro o suplemento local CAPAG/RGF a eventuais lacunas semanticamente equivalentes;
-3. decidir a necessidade efetiva da carga estadual do RGF Anexo 02;
-4. consolidar denominadores complementares;
-5. recalcular indicadores e executar paridade estadual antes de qualquer promoção pública.
+1. qualificar as lacunas RGF 01/05 contra o suplemento local CAPAG/RGF, sem imputação automática;
+2. decidir a necessidade efetiva da carga estadual do RGF Anexo 02;
+3. consolidar denominadores complementares;
+4. recalcular indicadores legais e derivados;
+5. executar paridade estadual contra TIC-TIM 30 antes de qualquer promoção pública.
 

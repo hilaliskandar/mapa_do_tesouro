@@ -1,0 +1,11 @@
+universo_id,universo_nome,municipios_universo,municipios_em_tictim30,pct_tictim30,pct_universo
+RM_SAO_PAULO,Região Metropolitana de São Paulo,39,3,0.1,0.076923
+RM_BAIXADA_SANTISTA,Região Metropolitana da Baixada Santista,9,0,0.0,0.0
+RM_CAMPINAS,Região Metropolitana de Campinas,20,20,0.666667,1.0
+RM_VALE_PARAIBA_LITORAL_NORTE,Região Metropolitana do Vale do Paraíba e Litoral Norte,39,0,0.0,0.0
+RM_SOROCABA,Região Metropolitana de Sorocaba,27,0,0.0,0.0
+RM_RIBEIRAO_PRETO,Região Metropolitana de Ribeirão Preto,34,0,0.0,0.0
+RM_SAO_JOSE_RIO_PRETO,Região Metropolitana de São José do Rio Preto,37,0,0.0,0.0
+RM_JUNDIAI,Região Metropolitana de Jundiaí,7,7,0.233333,1.0
+RM_PIRACICABA,Região Metropolitana de Piracicaba,24,0,0.0,0.0
+AU_FRANCA,Aglomeração Urbana de Franca,19,0,0.0,0.0

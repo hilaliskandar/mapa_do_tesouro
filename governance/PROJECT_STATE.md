@@ -352,3 +352,15 @@ Em 2026-10-09, o workflow manual `SP645 Pages Production` foi executado para a r
 - URL de produção: `https://finbra-tic-tim-referencia.pages.dev`.
 
 O universo estadual SP645 passa a ser a produção publicada. A release v0.2.0 permanece como referência congelada desta promoção.
+
+## Universos territoriais metropolitanos
+
+Em 2026-10-09 foi catalogada a composição 2025 de nove regiões metropolitanas paulistas e da Aglomeração Urbana de Franca, totalizando 10 universos e 255 municípios distintos.
+
+O modelo canônico já suporta sobreposição por meio de `universo` e `universo_municipio`; os dados fiscais municipais permanecem únicos.
+
+O cruzamento por código IBGE demonstrou que `TIC_TIM_30` é composto por todos os 20 municípios da RM de Campinas, todos os 7 municípios da RM de Jundiaí e Caieiras, Francisco Morato e Franco da Rocha, os três pertencentes à Sub-região Norte da RMSP.
+
+Artefatos: `data/catalogs/territorial_universes_sp_2025.yml`, `data/catalogs/territorial_overlap_tictim30_2025.csv`, `data/catalogs/tictim30_territorial_decomposition_2025.csv` e `governance/TERRITORIAL_UNIVERSES_SP_2025.md`.
+
+O próximo passo funcional é permitir seleção de universo territorial no frontend e recalcular estatísticas relativas, tipologias, marcadores e pares para o universo selecionado.

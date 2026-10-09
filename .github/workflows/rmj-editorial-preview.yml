@@ -37,6 +37,7 @@ jobs:
           python3 editorial/rmj/check_html.py editorial/rmj/index.html /tmp/rmj-editorial.js
           node --check /tmp/rmj-editorial.js
           node editorial/rmj/smoke_browser.js
+          grep -F 'Como explorar esta edição' editorial/rmj/index.html >/dev/null
           test -n "$CLOUDFLARE_API_TOKEN"
           test -n "$CLOUDFLARE_ACCOUNT_ID"
           test -n "$CLOUDFLARE_PAGES_PROJECT"

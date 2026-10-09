@@ -1,0 +1,58 @@
+name: RMJ Editorial Preview
+on:
+  push:
+    branches:
+      - editorial/rmj-piloto-html
+    paths:
+      - 'editorial/rmj/**'
+      - '.github/workflows/rmj-editorial-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rmj-editorial-preview
+  cancel-in-progress: true
+
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate editorial preview
+        shell: bash
+        run: |
+          test -s editorial/rmj/index.html
+          grep -F 'PILOTO EDITORIAL' editorial/rmj/index.html >/dev/null
+          grep -F 'DCA_SP_645_2013_2025_CANONICO.csv' editorial/rmj/index.html >/dev/null
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_PAGES_PROJECT"
+          mkdir -p build/rmj-editorial
+          cp editorial/rmj/index.html build/rmj-editorial/index.html
+          printf '%s\n' '/*' '  X-Content-Type-Options: nosniff' '  Referrer-Policy: strict-origin-when-cross-origin' "  Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'" > build/rmj-editorial/_headers
+      - name: Deploy isolated RMJ preview branch
+        shell: bash
+        run: |
+          npx --yes wrangler@4.148.0 pages deploy build/rmj-editorial \
+            --project-name="$CLOUDFLARE_PAGES_PROJECT" \
+            --branch=rmj-piloto \
+            --commit-hash="${{ github.sha }}" \
+            --commit-message="RMJ pilot editorial preview" \
+            --commit-dirty=false
+      - name: Check published preview
+        shell: bash
+        run: |
+          URL="https://rmj-piloto.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+          curl --fail --location --retry 5 --retry-delay 3 "$URL" -o /tmp/rmj-preview.html
+          grep -F 'Finanças municipais da Região Metropolitana de Jundiaí' /tmp/rmj-preview.html
+          echo "Boletim RMJ preview: $URL" >> "$GITHUB_STEP_SUMMARY"

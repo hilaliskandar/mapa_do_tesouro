@@ -52,7 +52,7 @@ Critérios de aceite:
 
 ## Prioridade operacional atual
 
-A fila corrente começa em **P1.2 — Recalcular derivados afetados**, condicionada à verificação semântica das ausências. P0.1–P0.3 e P1.1 estão encerradas e não devem voltar à fila salvo regressão reproduzível.
+A fila corrente começa em **P2.2 — Validar checklist de promoção**. P0 e P1 estão encerrados; P2.1 foi concluída com manifesto privado e sem alteração de `VERSION`.
 
 ## Prioridade P1 — consolidação analítica
 
@@ -75,6 +75,8 @@ Executar somente se novos insumos alterarem marcadores observáveis. Preservar r
 ## Prioridade P2 — release estadual candidata
 
 ### P2.1 — Gerar manifesto da candidata
+
+Status: concluído em 2026-10-09. Manifesto privado criado em `data/catalogs/sp645_candidate_2026_10_09.yml`, sem alteração de `VERSION` e sem promoção pública.
 
 Registrar versão de dados, schema, metodologia, aplicação, timestamp e hashes.
 

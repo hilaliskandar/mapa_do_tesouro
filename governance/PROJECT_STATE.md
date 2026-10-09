@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `p2_candidate_manifest_ready`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
+A expansão estadual está no estado `p2_3_preview_route_ready`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
 
 ## Hierarquia de fontes operacionais
 
@@ -321,3 +321,16 @@ A decisão é não promover produção neste estado. Foi criada uma rota manual 
 O workflow só pode ser acionado por `workflow_dispatch`, usa alias separado e não altera `VERSION`, `preview` estável ou produção automaticamente.
 
 A próxima decisão de release depende de executar esse preview manual e aprovar seu QA remoto.
+
+## Estado após P2.3
+
+A rota estadual de preview foi incorporada à `main` pelo PR #124.
+
+- workflow: `SP645 Pages Candidate Preview`;
+- gatilho: somente `workflow_dispatch`;
+- alias padrão: `sp645-candidate`;
+- QA dedicado: `deployment/qa_sp645_pages.py`;
+- produção e alias `preview` estável permanecem intocados;
+- `VERSION` permanece `0.1.1`.
+
+A próxima ação é operacional e manual: executar o workflow estadual, validar o preview remoto e somente então reconsiderar promoção pública.

@@ -88,7 +88,7 @@ Executar integralmente `governance/QA_CHECKLIST.md`, incluindo segurança, rollb
 
 ### P2.3 — Decidir promoção
 
-Status: prioridade atual. P2.2 está concluído; a candidata permanece privada até decisão explícita.
+Status: decisão técnica registrada em 2026-10-09. A candidata SP645 não deve usar o fluxo público atual, pois ele materializa o snapshot TIC_TIM_30 já publicado. A estratégia aprovada é disponibilizar primeiro um preview estadual manual e isolado, sem alterar `VERSION`, o alias `preview` estável ou a produção. A promoção pública só pode ser reconsiderada após QA desse preview.
 
 Somente após P0 e P1 concluídos. A produção TIC_TIM_30 permanece intocada até decisão explícita.
 

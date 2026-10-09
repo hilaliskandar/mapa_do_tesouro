@@ -52,7 +52,7 @@ Critérios de aceite:
 
 ## Prioridade operacional atual
 
-A fila corrente aguarda **execução manual do preview SP645 isolado** pelo workflow `SP645 Pages Candidate Preview`. P0 e P1 estão encerrados; P2.1–P2.3 estão decididos e a promoção pública permanece bloqueada até o QA remoto desse preview.
+A promoção estadual foi concluída em 2026-10-09 com a release `v0.2.0`. O workflow `SP645 Pages Production` terminou verde e o QA remoto da URL principal foi aprovado. Não há gate de publicação pendente.
 
 ## Prioridade P1 — consolidação analítica
 
@@ -90,7 +90,7 @@ Executar integralmente `governance/QA_CHECKLIST.md`, incluindo segurança, rollb
 
 ### P2.3 — Decidir promoção
 
-Status: decisão técnica registrada em 2026-10-09. A candidata SP645 não deve usar o fluxo público atual, pois ele materializa o snapshot TIC_TIM_30 já publicado. A estratégia aprovada é disponibilizar primeiro um preview estadual manual e isolado, sem alterar `VERSION`, o alias `preview` estável ou a produção. A promoção pública só pode ser reconsiderada após QA desse preview.
+Status: concluído em 2026-10-09. O preview estadual isolado foi aprovado, a release `v0.2.0` foi criada e o workflow `SP645 Pages Production` foi executado com sucesso, incluindo QA remoto.
 
 Somente após P0 e P1 concluídos. A produção TIC_TIM_30 permanece intocada até decisão explícita.
 
@@ -118,4 +118,4 @@ Política:
 `P0.1 → P0.2 → P0.3 → P1.1 → P1.2 → P1.3 → P2.1 → P2.2 → P2.3`
 ## Pós-release v0.2.0
 
-A release estadual `v0.2.0` está congelada e o preview remoto foi aprovado. A promoção de produção depende do workflow manual `SP645 Pages Production`, que deve ser executado apenas após sua integração e revisão final. O workflow legado TIC_TIM_30 permanece separado.
+A release estadual `v0.2.0` está congelada e publicada. O workflow manual `SP645 Pages Production` foi executado no run `37892171501` com sucesso. O QA remoto aprovou a URL principal de produção. O workflow legado TIC_TIM_30 permanece separado para fins de histórico e rollback.

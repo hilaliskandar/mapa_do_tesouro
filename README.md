@@ -183,16 +183,11 @@ O deployment é separado do rebuild dos dados. Alterações de interface podem s
 
 ## Próximo gate
 
-O Gate B DCA estadual está concluído. No Gate C:
+Os Gates B e C já possuem os principais artefatos estaduais consolidados. O RGF Anexo 02 de 2025 foi adquirido e pós-processado, os indicadores de 2025 foram calculados, o histórico RGF 2023–2024 foi validado, tipologias/pares estão em QA privado e a cartografia estadual foi validada em 645/645 municípios.
 
-- RREO Anexo 03 / RCL 2025: aquisição estadual concluída, com 531/645 valores observados e 114 ausências preservadas;
-- CAPAG 2025: snapshot oficial validado em 645/645 municípios;
-- RGF Anexos 01/05: carga estadual 2025 concluída; composição fill-only com CAPAG local validada, zero conflitos;
-- RGF Anexo 02: coletor estadual em formato longo preparado e mantido manual até o encerramento do 01/05.
+A próxima etapa é reconstruir o build privado SP645 com o estado multifuentes mais recente, executar regressão completa contra o baseline TIC-TIM 30 e validar os requisitos funcionais F101–F118. A promoção estadual pública continua bloqueada até QA integral, manifesto, hashes e decisão explícita de release.
 
-Depois disso vêm denominadores complementares, recomposição dos indicadores, tipologias, pares e paridade estadual.
-
-O baseline público TIC-TIM 30 permanece como referência de regressão até a aprovação de uma release estadual multifuentes.
+A fila administrativa está limpa em 2026-10-09: zero issues abertas e zero pull requests abertos. As pendências operacionais estão consolidadas em `governance/PENDING_TASKS.md`.
 
 ## Legado
 

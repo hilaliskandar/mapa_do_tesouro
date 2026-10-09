@@ -23,6 +23,11 @@ def test_build_propagates_active_universe(monkeypatch, tmp_path):
     )
     monkeypatch.setattr(
         module,
+        "refresh_coverage",
+        lambda database, universe_id: calls.append(("coverage", universe_id)) or {},
+    )
+    monkeypatch.setattr(
+        module,
         "calculate_window_statistics",
         lambda database, universe_id: calls.append(("window", universe_id)) or {},
     )
@@ -64,5 +69,5 @@ def test_build_propagates_active_universe(monkeypatch, tmp_path):
     )
 
     assert ("ingest", "SP_OVERRIDE") in calls
-    for stage in ("window", "typologies", "markers", "pairs", "static", "site"):
+    for stage in ("coverage", "window", "typologies", "markers", "pairs", "static", "site"):
         assert (stage, "SP_TESTE") in calls

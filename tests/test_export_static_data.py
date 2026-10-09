@@ -49,6 +49,7 @@ def test_static_first_contract(tmp_path):
     assert (out / "municipalities" / "3500001.json").exists()
     assert (out / "manifest.json").exists()
     assert (out / "coverage.json").exists()
+    assert (out / "coverage_sources.json").exists()
     assert (out / "crosswalk.json").exists()
 
     annual = json.loads(

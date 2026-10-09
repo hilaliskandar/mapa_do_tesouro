@@ -8,6 +8,7 @@ from pipeline.build.load_catalog import load_catalog
 from pipeline.build.load_documentation import load_documentation
 from pipeline.ingest.import_multifuentes import import_multifuentes
 from pipeline.transform.calculate_annual import calculate_annual
+from pipeline.transform.refresh_coverage import refresh_coverage
 from pipeline.transform.calculate_window_statistics import calculate_window_statistics
 from pipeline.transform.calculate_typologies import calculate_typologies
 from pipeline.transform.calculate_markers import calculate_markers
@@ -43,6 +44,7 @@ def build_analytical_database(
     active_universe = result["ingest"]["universe_id"]
     load_documentation(database, strict=True)
     result["annual"] = calculate_annual(database)
+    result["coverage"] = refresh_coverage(database, active_universe)
     result["window"] = calculate_window_statistics(
         database, universe_id=active_universe
     )

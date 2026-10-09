@@ -1,0 +1,31 @@
+version: 1
+name: sp645_candidate_2026_10_09
+status: private_candidate_not_released
+date: 2026-10-09
+universe_id: SP_645
+municipalities: 645
+period:
+  start: 2021
+  end: 2025
+reference:
+  data_commit: 303970f6b300f787ee36cf938e87b5c6559ac81c
+  governance_commit: 472a58786241e81b63bc6bf2b3d24a1fe446eac6
+  workflow_run: 37886745605
+  artifact_id: 11596229685
+  artifact_sha256: 8c7fbbbc6506bb7f820a0af934a4a1eee3a02b167eae6578e3fab1cef0af8927
+qa:
+  coverage_rows: 271
+  capag_observed: 645
+  gate_d_cells_compared: 11501
+  eligible_pair_municipalities: 440
+  prioritized_pairs: 1320
+  map_features: 645
+policy:
+  absence_is_not_zero: true
+  public_release: false
+  version_file_unchanged: true
+  tic_tim_30_untouched: true
+next:
+  - qa_checklist
+  - rollback_evidence
+  - explicit_release_decision

@@ -171,6 +171,15 @@ Situação no momento desta auditoria:
 4. manter tags e releases como trilha histórica, especialmente `v0.1.0`, `v0.1.1` e `v0.2.0`;
 5. novas frentes devem nascer de `main` e ter issue/critério de aceite quando forem executáveis.
 
-## Limitação da limpeza automática
+## Limpeza física concluída
 
-O conector GitHub disponível nesta sessão não expõe operação de exclusão de branch/ref. Por isso, a classificação e o saneamento lógico foram concluídos, mas a remoção física das refs deve ser feita por uma interface com permissão de `DELETE /git/refs` ou pela interface do GitHub.
+Em 2026-10-09, a remoção física das refs foi concluída por conexão GitHub autorizada com suporte a exclusão de referências. Foram excluídas todas as 137 branches previamente auditadas, além da branch temporária usada para registrar este saneamento. `main` permaneceu preservada como única branch do repositório.
+
+Verificação final:
+
+- branches existentes: 1;
+- branch existente: `main`;
+- issues abertas: 0;
+- pull requests abertos: 0;
+- merges pendentes: 0;
+- tags e releases preservadas.

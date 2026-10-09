@@ -1,6 +1,6 @@
 # Estado do projeto
 
-Data de referência: 2026-10-08.
+Data de referência: 2026-10-09.
 
 ## Estado operacional
 
@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_e_cartography_private_qa`: tipologias/pares SP645 estão em QA privado e a cartografia web estadual foi validada em 645/645 municípios, sem códigos faltantes ou extras.
+A expansão estadual está no estado `gate_f_private_site_rebuild_after_rgf02`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
 
 ## Hierarquia de fontes operacionais
 
@@ -266,8 +266,20 @@ Ela está aprovada para visualização do painel. Como o GeoJSON não declara CR
 
 ## Próximo gate operacional
 
-1. definir apresentação explícita para municípios sem tipologia/par por cobertura insuficiente;
-2. montar build privado do site SP645;
-3. executar regressão final do site estadual contra TIC-TIM 30;
-4. somente então avaliar release estadual pública.
+1. reconstruir o build privado SP645 incorporando o RGF Anexo 02 pós-processado e o composto fill-only aprovado;
+2. executar regressão de dados e frontend contra o baseline TIC-TIM 30, incluindo os requisitos F101–F118;
+3. atualizar cobertura, tipologias e pares somente onde novos insumos alterarem observabilidade, sem converter ausência em zero;
+4. reconciliar os documentos de governança e inventário com os artefatos efetivamente promovidos;
+5. somente após QA integral avaliar uma release estadual candidata, ainda separada da produção pública TIC-TIM 30.
+
+## Higiene de issues e PRs
+
+Em 2026-10-09, a consulta direta ao GitHub registrou:
+
+- issues abertas: 0;
+- pull requests abertos: 0;
+- PRs recentes #96–#107: encerrados por merge;
+- `main` na referência desta atualização: commit `6ef7df5e40cbe4ba0fb3f905cd79672a6352572a`.
+
+Não há fila pendente a fechar ou revisar. Novas issues devem ser abertas apenas para pendências executáveis e não para registrar estado documental já coberto por esta governança.
 

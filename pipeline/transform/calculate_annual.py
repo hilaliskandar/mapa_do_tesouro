@@ -230,12 +230,15 @@ def strict_ratio(connection, code, year, numerator, denominator, scale=1.0):
     return "observado", scale * float(nv) / float(dv)
 
 
-def calculate_annual(database: Path) -> dict:
+def calculate_annual(database: Path, years: set[int] | None = None) -> dict:
     connection = sqlite3.connect(database)
     connection.execute("PRAGMA foreign_keys = ON")
     keys = connection.execute(
         "SELECT codigo_ibge, ano FROM observacao GROUP BY codigo_ibge, ano ORDER BY codigo_ibge, ano"
     ).fetchall()
+    if years is not None:
+        years = {int(year) for year in years}
+        keys = [(code, year) for code, year in keys if int(year) in years]
     build_row = connection.execute(
         "SELECT build_id FROM build ORDER BY build_timestamp DESC LIMIT 1"
     ).fetchone()
@@ -326,8 +329,12 @@ def calculate_annual(database: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Calcula agregações e indicadores anuais canônicos.")
     parser.add_argument("database", type=Path)
+    parser.add_argument("--year", action="append", type=int, dest="years")
     args = parser.parse_args()
-    result = calculate_annual(args.database)
+    result = calculate_annual(
+        args.database,
+        years=set(args.years) if args.years else None,
+    )
     for key, value in result.items():
         print(f"{key}={value}")
 

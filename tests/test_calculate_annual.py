@@ -366,3 +366,65 @@ def test_annual_calculation_records_component_lineage(tmp_path):
         ]
     finally:
         con.close()
+
+
+
+def test_annual_calculation_can_be_scoped_to_2025_without_overwriting_history(tmp_path):
+    db = tmp_path / "scoped.sqlite"
+    initialize_database(db)
+    load_catalog(db)
+
+    con = sqlite3.connect(db)
+    try:
+        con.execute(
+            "INSERT INTO municipio(codigo_ibge,nome,uf) VALUES ('3500000','Teste','SP')"
+        )
+        con.execute(
+            """
+            INSERT INTO observacao(
+                codigo_ibge,ano,variavel_id,valor_num,status
+            ) VALUES ('3500000',2024,'receita_tributaria_pct_receita_corrente',0.25,'observado')
+            """
+        )
+        for variable_id, value in {
+            "dca_receita_tributaria_bruta": 300.0,
+            "dca_receita_corrente_bruta": 1000.0,
+        }.items():
+            con.execute(
+                """
+                INSERT INTO observacao(
+                    codigo_ibge,ano,variavel_id,valor_num,status
+                ) VALUES ('3500000',2025,?,?,'observado')
+                """,
+                (variable_id, value),
+            )
+        con.commit()
+    finally:
+        con.close()
+
+    calculate_annual(db, years={2025})
+
+    con = sqlite3.connect(db)
+    try:
+        history = con.execute(
+            """
+            SELECT status,valor_num
+            FROM observacao
+            WHERE codigo_ibge='3500000'
+              AND ano=2024
+              AND variavel_id='receita_tributaria_pct_receita_corrente'
+            """
+        ).fetchone()
+        current = con.execute(
+            """
+            SELECT status,valor_num
+            FROM observacao
+            WHERE codigo_ibge='3500000'
+              AND ano=2025
+              AND variavel_id='receita_tributaria_pct_receita_corrente'
+            """
+        ).fetchone()
+        assert history == ("observado", 0.25)
+        assert current == ("observado", 0.3)
+    finally:
+        con.close()

@@ -52,17 +52,19 @@ Critérios de aceite:
 
 ## Prioridade operacional atual
 
-A fila corrente começa em **P1.1 — Atualizar cobertura multifuentes**. P0.1–P0.3 estão encerradas e não devem voltar à fila salvo regressão reproduzível.
+A fila corrente começa em **P1.2 — Recalcular derivados afetados**, condicionada à verificação semântica das ausências. P0.1–P0.3 e P1.1 estão encerradas e não devem voltar à fila salvo regressão reproduzível.
 
 ## Prioridade P1 — consolidação analítica
 
 ### P1.1 — Atualizar cobertura multifuentes
 
-Status: em execução. A issue #113 foi saneada; a issue #115 recompõe a cobertura após transformações e adiciona a dimensão fonte.
+Status: concluído em 2026-10-09. A cobertura canônica agora contempla quatro estados, é recomposta após as transformações e possui visão separada por fonte. Relatório: `governance/P1_1_MULTISOURCE_COVERAGE_SP645.md`.
 
 Consolidar cobertura por variável, fonte, ano e universo. Diferenciar observado, ausente, não aplicável e em revisão.
 
 ### P1.2 — Recalcular derivados afetados
+
+Status: prioridade atual. O recálculo fica condicionado à verificação semântica das ausências, começando pela issue #117 para DCA e pela qualificação das linhas esparsas do RGF02.
 
 Recalcular apenas indicadores cujo conjunto de insumos mudou com as novas cargas. Indicadores legais devem continuar ligados aos demonstrativos próprios.
 

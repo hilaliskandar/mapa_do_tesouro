@@ -136,3 +136,43 @@ def test_static_export_only_includes_priority_pairs(tmp_path):
         "3500004",
     ]
     assert all(item["ordem_prioritaria"] is not None for item in municipal["pairs"])
+
+
+
+def test_static_export_includes_review_coverage(tmp_path):
+    db = tmp_path / "coverage.sqlite"
+    out = tmp_path / "public" / "data"
+    initialize_database(db)
+    load_catalog(db)
+    load_documentation(db, strict=True)
+
+    con = sqlite3.connect(db)
+    try:
+        con.execute(
+            "INSERT INTO universo(universo_id,nome) VALUES ('SP_TESTE','Teste')"
+        )
+        con.execute(
+            """
+            INSERT INTO cobertura(
+                variavel_id,ano,universo_id,esperado,
+                observado,ausente,nao_aplicavel,em_revisao
+            ) VALUES (
+                'dca_receita_corrente_bruta',2025,'SP_TESTE',10,6,2,1,1
+            )
+            """
+        )
+        con.commit()
+    finally:
+        con.close()
+
+    export_static_data(db, out, universe_id="SP_TESTE")
+    coverage = json.loads(
+        (out / "coverage.json").read_text(encoding="utf-8")
+    )
+    assert coverage[0]["em_revisao"] == 1
+    assert (
+        coverage[0]["observado"]
+        + coverage[0]["ausente"]
+        + coverage[0]["nao_aplicavel"]
+        + coverage[0]["em_revisao"]
+    ) == coverage[0]["esperado"]

@@ -204,14 +204,14 @@ def test_importer_records_source_artifact_and_field_provenance(tmp_path):
         assert provenance[3] == mapping["variables"]["dtp_pct_rcl"]["column"]
         assert "row=4" in provenance[4]
 
-        assert result["schema_version"] == "0.2.0"
+        assert result["schema_version"] == "0.3.0"
         assert result["provenance_rows"] == (
             result["observations"]
         )
         assert con.execute(
             "SELECT schema_version FROM build WHERE build_id=?",
             (result["build_id"],),
-        ).fetchone()[0] == "0.2.0"
+        ).fetchone()[0] == "0.3.0"
     finally:
         con.close()
 
@@ -354,5 +354,43 @@ def test_importer_preserves_explicit_numeric_missing_token_as_absent(tmp_path):
         ).fetchone()
         assert status == "ausente"
         assert value is None
+    finally:
+        con.close()
+
+
+
+def test_importer_coverage_has_review_status_column(tmp_path):
+    mapping_path = ROOT / "data" / "mappings" / "base_multifuentes_v0_4.yml"
+    mapping = yaml.safe_load(mapping_path.read_text(encoding="utf-8"))
+    mapping["source"]["expected_rows"] = 13
+    mapping["source"]["expected_municipalities"] = 1
+
+    local_mapping = tmp_path / "mapping.yml"
+    local_mapping.write_text(
+        yaml.safe_dump(mapping, sort_keys=False, allow_unicode=True),
+        encoding="utf-8",
+    )
+    workbook = tmp_path / "fixture.xlsx"
+    create_fixture(workbook, local_mapping)
+
+    database = tmp_path / "coverage.sqlite"
+    import_multifuentes(
+        workbook,
+        database,
+        mapping_path=local_mapping,
+        build_timestamp="2026-10-09T00:00:00-03:00",
+    )
+
+    con = sqlite3.connect(database)
+    try:
+        row = con.execute(
+            """
+            SELECT observado,ausente,nao_aplicavel,em_revisao
+            FROM cobertura
+            WHERE variavel_id='capag' AND ano=2025
+            """
+        ).fetchone()
+        assert row is not None
+        assert row[3] == 0
     finally:
         con.close()

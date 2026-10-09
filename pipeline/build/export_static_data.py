@@ -299,7 +299,7 @@ def export_static_data(
             for row in con.execute(
                 """
                 SELECT variavel_id,ano,universo_id,esperado,observado,
-                       ausente,nao_aplicavel
+                       ausente,nao_aplicavel,em_revisao
                 FROM cobertura
                 WHERE universo_id=?
                 ORDER BY variavel_id,ano

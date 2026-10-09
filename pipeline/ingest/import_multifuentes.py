@@ -223,7 +223,12 @@ def import_multifuentes(
         )
 
         coverage = defaultdict(
-            lambda: {"observado": 0, "ausente": 0, "nao_aplicavel": 0}
+            lambda: {
+                "observado": 0,
+                "ausente": 0,
+                "nao_aplicavel": 0,
+                "em_revisao": 0,
+            }
         )
 
         provenance_written = 0
@@ -318,8 +323,8 @@ def import_multifuentes(
                 """
                 INSERT INTO cobertura(
                     variavel_id,ano,universo_id,esperado,
-                    observado,ausente,nao_aplicavel
-                ) VALUES (?,?,?,?,?,?,?)
+                    observado,ausente,nao_aplicavel,em_revisao
+                ) VALUES (?,?,?,?,?,?,?,?)
                 """,
                 (
                     variable_id,
@@ -329,6 +334,7 @@ def import_multifuentes(
                     counts["observado"],
                     counts["ausente"],
                     counts["nao_aplicavel"],
+                    counts["em_revisao"],
                 ),
             )
 

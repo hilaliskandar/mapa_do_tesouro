@@ -121,12 +121,48 @@ def test_universe_membership_uses_ibge_key():
     ).fetchone()[0] == 1
 
 
-def test_schema_version_is_updated_by_provenance_migration():
+def test_schema_version_is_updated_by_latest_migration():
     con = make_db()
     try:
         assert con.execute(
             "SELECT value FROM schema_metadata WHERE key='schema_version'"
-        ).fetchone()[0] == "0.2.0"
+        ).fetchone()[0] == "0.3.0"
+    finally:
+        con.close()
+
+
+def test_coverage_preserves_review_status():
+    con = make_db()
+    try:
+        columns = {
+            row[1]
+            for row in con.execute("PRAGMA table_info(cobertura)")
+        }
+        assert "em_revisao" in columns
+        con.execute(
+            "INSERT INTO universo(universo_id,nome) VALUES ('SP_TESTE','Teste')"
+        )
+        con.execute(
+            """
+            INSERT INTO variavel(
+                variavel_id,nome,grupo,tipo,unidade,definicao
+            ) VALUES ('x','X','teste','contextual','u','Teste')
+            """
+        )
+        con.execute(
+            """
+            INSERT INTO cobertura(
+                variavel_id,ano,universo_id,esperado,
+                observado,ausente,nao_aplicavel,em_revisao
+            ) VALUES ('x',2025,'SP_TESTE',10,6,2,1,1)
+            """
+        )
+        assert con.execute(
+            """
+            SELECT observado,ausente,nao_aplicavel,em_revisao
+            FROM cobertura
+            """
+        ).fetchone() == (6, 2, 1, 1)
     finally:
         con.close()
 

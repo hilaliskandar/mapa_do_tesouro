@@ -82,3 +82,10 @@ def test_frontend_exports_current_annual_slice_as_csv():
     assert 'entry.status || "ausente"' in js
     assert "new Blob" in js
     assert "URL.createObjectURL" in js
+
+
+
+def test_frontend_exposes_review_status_in_coverage():
+    js = (STATIC / "app.js").read_text(encoding="utf-8")
+    assert "<th>Em revisão</th>" in js
+    assert "item.em_revisao || 0" in js

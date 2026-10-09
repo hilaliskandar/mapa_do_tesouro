@@ -576,7 +576,7 @@ function renderSourcesAndCoverage() {
   $("#coverage-wrap").innerHTML = `
     <p><strong>${doc?.titulo_publico || doc?.nome_tecnico || state.currentVariable}</strong></p>
     <table class="data-table">
-      <thead><tr><th>Ano</th><th>Observado</th><th>Esperado</th><th>Ausente</th><th>Não aplicável</th></tr></thead>
+      <thead><tr><th>Ano</th><th>Observado</th><th>Esperado</th><th>Ausente</th><th>Não aplicável</th><th>Em revisão</th></tr></thead>
       <tbody>
         ${rows.map((item) => `
           <tr>
@@ -585,6 +585,7 @@ function renderSourcesAndCoverage() {
             <td>${item.esperado}</td>
             <td>${item.ausente}</td>
             <td>${item.nao_aplicavel}</td>
+            <td>${item.em_revisao || 0}</td>
           </tr>
         `).join("")}
       </tbody>

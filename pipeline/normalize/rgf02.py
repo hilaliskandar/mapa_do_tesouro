@@ -38,11 +38,28 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def normalize_long(long_csv: Path, output_csv: Path, manifest_path: Path) -> dict:
+def normalize_long(
+    long_csv: Path,
+    output_csv: Path,
+    manifest_path: Path,
+    *,
+    universe_geojson: Path | None = None,
+    year: int | None = None,
+) -> dict:
     codes = {**FIELD_CODES, **AUDIT_CODES}
     reverse = {code: field for field, code in codes.items()}
 
     by_key: dict[tuple[str, str], dict] = {}
+    if universe_geojson is not None:
+        if year is None:
+            raise ValueError("year is required with universe_geojson.")
+        from pipeline.acquire.siconfi_dca import load_codes
+        for code, _name in load_codes(universe_geojson):
+            by_key[(code, str(int(year)))] = {
+                "cod_ibge": code,
+                "ano": str(int(year)),
+            }
+
     conflicts: list[dict] = []
 
     with long_csv.open(encoding="utf-8", newline="") as handle:
@@ -110,9 +127,17 @@ def main() -> None:
     parser.add_argument("--long-csv", type=Path, required=True)
     parser.add_argument("--output-csv", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument("--universe-geojson", type=Path)
+    parser.add_argument("--year", type=int)
     args = parser.parse_args()
 
-    result = normalize_long(args.long_csv, args.output_csv, args.manifest)
+    result = normalize_long(
+        args.long_csv,
+        args.output_csv,
+        args.manifest,
+        universe_geojson=args.universe_geojson,
+        year=args.year,
+    )
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

@@ -311,3 +311,13 @@ O manifesto registra universo SP_645, período 2021–2025, commits de referênc
 `VERSION` permanece `0.1.1`; portanto, nenhum workflow de release foi acionado por esta etapa.
 
 A prioridade atual é P2.2: executar integralmente `governance/QA_CHECKLIST.md`, com evidência de segurança, reprodutibilidade e rollback, antes de qualquer decisão de release.
+
+## P2.3 — decisão de promoção
+
+O fluxo público atual não é apto a promover SP645 porque `pages-preview.yml`, `pages-production.yml`, `deployment/materialize_preview.py` e `deployment/qa_pages.py` estão contratualmente ligados ao baseline TIC_TIM_30.
+
+A decisão é não promover produção neste estado. Foi criada uma rota manual e isolada de preview estadual em `.github/workflows/pages-sp645-candidate.yml`, validada por `deployment/qa_sp645_pages.py` e protegida por teste de contrato.
+
+O workflow só pode ser acionado por `workflow_dispatch`, usa alias separado e não altera `VERSION`, `preview` estável ou produção automaticamente.
+
+A próxima decisão de release depende de executar esse preview manual e aprovar seu QA remoto.

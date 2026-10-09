@@ -1,0 +1,62 @@
+version: 1
+groups:
+  receitas:
+    - dca_receita_corrente_bruta
+    - dca_receita_tributaria_bruta
+    - dca_iptu_principal
+    - dca_itbi_principal
+    - dca_iss_principal
+    - dca_fpm_cota_mensal
+    - dca_icms_cota_parte
+    - dca_ipva_cota_parte
+    - transferencias_selecionadas
+    - receita_tributaria_pct_receita_corrente
+    - fpm_pct_receita_corrente
+    - icms_pct_receita_corrente
+    - ipva_pct_receita_corrente
+    - tributos_imobiliarios_pct_receita_tributaria
+    - transferencias_selecionadas_pct_receita_corrente
+  despesas:
+    - dca_despesa_total_liquidada
+    - dca_despesa_corrente_liquidada
+    - dca_pessoal_encargos_liquidada
+    - dca_investimentos_liquidada
+    - despesas_capital_selecionadas
+    - servico_divida_liquidado
+    - investimento_pct_receita_corrente
+    - investimento_pc
+  territorio:
+    - despesa_territorial
+    - despesa_territorial_pct_despesa
+    - despesa_territorial_pc
+    - dca_func_urbanismo_liquidada
+    - dca_func_habitacao_liquidada
+    - dca_func_saneamento_liquidada
+    - dca_func_gestao_ambiental_liquidada
+    - dca_func_transporte_liquidada
+    - dca_func_saude_liquidada
+    - dca_func_educacao_liquidada
+  divida_liquidez:
+    - rreo_rcl_oficial
+    - rgf_despesa_total_pessoal
+    - dtp_pct_rcl
+    - rgf02_divida_consolidada
+    - rgf02_divida_consolidada_liquida
+    - dc_pct_rcl
+    - dcl_pct_rcl
+    - rgf_caixa_liquida_apos_rpnp
+    - caixa_pos_rpnp_pct_rcl
+    - rgf02_divida_contratual
+    - rgf02_parcelamento_dividas
+    - rgf02_precatorios_vencidos_nao_pagos
+    - rgf02_restos_pagar_processados
+  capag:
+    - capag
+    - indicador_1
+    - indicador_2
+    - indicador_3
+rules:
+  absence_is_not_zero: true
+  comparison_basis: publication_universe
+  ranking_is_not_normative: true
+  aggregate_sum_requires_observed_values: true

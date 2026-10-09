@@ -1,0 +1,27 @@
+version: 0.3.1
+status: frozen_statewide_multiuniverse_candidate
+date: 2026-10-09
+release_universe: SP_645
+supersedes: 0.3.0
+change_type: qa_patch
+universe:
+  default_id: SP_645
+  default_municipalities: 645
+  years:
+    start: 2021
+    end: 2025
+multiuniverse:
+  enabled: true
+  universe_count: 13
+  data_unchanged_from: 0.3.0
+qa:
+  remote_json_propagation_retry: true
+  multiuniverse_contract_preserved: true
+  statewide_contract_preserved: true
+reference:
+  validated_candidate_run: 37908586197
+  validated_candidate_artifact_id: 11605622431
+  validated_candidate_artifact_sha256: 395a733d332bb871b8ccdd8ce3e9e2f76fcaee0b1e5c53cfd965618742e194fb
+deployment:
+  production_promoted: false
+  production_requires_manual_statewide_workflow: true

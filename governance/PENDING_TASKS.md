@@ -58,7 +58,7 @@ A fila corrente começa em **P1.1 — Atualizar cobertura multifuentes**. P0.1�
 
 ### P1.1 — Atualizar cobertura multifuentes
 
-Status: em execução. Primeira lacuna estrutural identificada na issue #113: incorporar `em_revisao` ao contrato canônico de cobertura.
+Status: em execução. A issue #113 foi saneada; a issue #115 recompõe a cobertura após transformações e adiciona a dimensão fonte.
 
 Consolidar cobertura por variável, fonte, ano e universo. Diferenciar observado, ausente, não aplicável e em revisão.
 

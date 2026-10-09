@@ -17,6 +17,9 @@ const path = require('node:path');
       page.on('pageerror', e => errors.push(e.message));
       const response = await page.goto(base, {waitUntil:'networkidle',timeout:45000});
       assert.equal(response.status(),200);
+      await page.locator('#editorial-cidade').selectOption('3525904');
+      await page.locator('#editorial-highlights [data-id="3524006"]').click();
+      await page.locator('#editorial-cidade').selectOption('3525904');
       await page.locator('#sintese-cidade').selectOption('3525904');
       await page.locator('#legal-cidade').selectOption('3525904');
       await page.locator('#funcoes-cidade').selectOption('3525904');
@@ -30,6 +33,8 @@ const path = require('node:path');
         sections:document.querySelectorAll('section').length,
         jsContent:document.querySelector('#sintese-texto')?.textContent?.length || 0,
         historyRows:document.querySelectorAll('#historical-table tbody tr').length,
+        editorialProfiles:document.querySelectorAll('#editorial-highlights [data-id]').length,
+        editorialText:document.querySelector('#editorial-story')?.textContent?.length || 0,
         annualRows:document.querySelectorAll('#real-table tbody tr').length,
         legalRows:document.querySelectorAll('#legal-table tbody tr').length,
         overflow:document.documentElement.scrollWidth>window.innerWidth,
@@ -37,6 +42,8 @@ const path = require('node:path');
         scrollWidth:document.documentElement.scrollWidth
       }));
       assert.equal(observations.historyRows,5);
+      assert.equal(observations.editorialProfiles,7);
+      assert(observations.editorialText>250);
       assert.equal(observations.annualRows,5);
       assert.equal(observations.legalRows,4);
       assert(observations.jsContent>100);

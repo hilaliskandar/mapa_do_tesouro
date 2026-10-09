@@ -33,6 +33,8 @@ Critérios de aceite:
 
 ### P0.3 — Regressão funcional do frontend F101–F118
 
+Status: em saneamento. A lacuna F116 foi identificada e tratada na issue #110; a conclusão depende do CI e merge da correção.
+
 Objetivo: impedir perda silenciosa de funcionalidades aprovadas.
 
 Critérios de aceite:

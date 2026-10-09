@@ -69,3 +69,16 @@ def test_frontend_treats_unclassified_markers_as_missing_coverage():
     assert "marcadores classificáveis por cobertura suficiente" in js
     assert "são necessários pelo menos 4" in js
     assert "observedMarkerCount < 4" in js
+
+
+
+def test_frontend_exports_current_annual_slice_as_csv():
+    html = (STATIC / "index.html").read_text(encoding="utf-8")
+    js = (STATIC / "app.js").read_text(encoding="utf-8")
+
+    assert 'id="export-csv"' in html
+    assert "function exportCurrentSliceCsv()" in js
+    assert '["codigo_ibge", "municipio", "ano", "variavel_id", "valor", "status"]' in js
+    assert 'entry.status || "ausente"' in js
+    assert "new Blob" in js
+    assert "URL.createObjectURL" in js

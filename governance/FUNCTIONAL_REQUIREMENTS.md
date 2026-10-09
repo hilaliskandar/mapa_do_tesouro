@@ -26,7 +26,7 @@
 - F113 — crosswalk temporal.
 - F114 — fontes e cobertura.
 - F115 — metodologia e governança.
-- F116 — exportação de recortes em formato aberto.
+- F116 — exportação de recortes em formato aberto. Implementação canônica: CSV do recorte anual para o indicador selecionado, com código IBGE, município, ano, variável, valor e status.
 
 ## Arquitetura
 

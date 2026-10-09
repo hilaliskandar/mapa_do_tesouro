@@ -6,9 +6,9 @@ Data de referência: 2026-10-09.
 
 A `main` é a fonte de verdade.
 
-O baseline TIC-TIM 30 permanece preservado como referência de regressão e rollback. A produção pública vigente é estadual e multiuniverso na release `v0.3.1`.
+O baseline TIC-TIM 30 permanece preservado como referência de regressão e rollback. A produção pública vigente é estadual e multiuniverso na release `v0.4.0`, com API editorial estática v1 para boletins fiscais.
 
-O estado operacional é `sp645_multiuniverse_production_live_v0_3_1`: a release `v0.3.1` está publicada, o workflow `SP645 Pages Production` foi aprovado no run `37912565493` e o QA remoto da URL principal passou. O painel expõe 13 universos, com `SP_645` como padrão e recálculo de estatísticas relativas, tipologias, marcadores e pares por universo.
+O estado operacional é `sp645_publication_api_live_v0_4_0`: a release `v0.4.0` está publicada, o workflow `SP645 Pages Production` foi aprovado no run `37917365471` e o QA remoto da URL principal passou. O painel expõe 13 universos analíticos; a camada editorial publica 11 universos, com 287 contextos município × universo.
 
 ## Hierarquia de fontes operacionais
 
@@ -387,3 +387,25 @@ Em 2026-10-09, a release `v0.3.1` foi promovida com sucesso à produção.
 - `AU_FRANCA`: 19 municípios.
 
 A `v0.3.1` não altera dados em relação à `v0.3.0`; corrige apenas a robustez do QA remoto durante a propagação do Cloudflare Pages.
+
+
+## API editorial v0.4.0 em produção
+
+Em 2026-10-09, a release `v0.4.0` foi promovida à produção.
+
+- workflow: `SP645 Pages Production`;
+- run: `37917365471`;
+- commit/tag: `27f2b5056cbba56a9075a18b51013acbee597cea` / `v0.4.0`;
+- artifact: `11610521760`;
+- artifact SHA-256: `3052e27b68f34d61df878ee4af43886453784e09e99ec07f5459fdec3c566b7e`;
+- QA local: aprovado;
+- deploy: aprovado;
+- QA remoto: aprovado;
+- produção: `https://finbra-tic-tim-referencia.pages.dev`;
+- base da API: `/data/api/v1`;
+- 11 universos editoriais;
+- 287 contextos município × universo;
+- RMSP editorial: 38 municípios, com São Paulo excluída;
+- Cidades Médias: 33 municípios, mantendo sobreposição deliberada com RM/AU.
+
+As fontes das Skills `boletim-fiscal-municipal` e `boletim-fiscal-universo` estão versionadas em `skills/`.

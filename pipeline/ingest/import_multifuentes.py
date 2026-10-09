@@ -248,6 +248,17 @@ def import_multifuentes(
                     status = "ausente"
                     value_num = None
                     value_text = None
+                elif (
+                    isinstance(raw_value, str)
+                    and raw_value.strip().casefold()
+                    in {
+                        str(token).strip().casefold()
+                        for token in spec.get("missing_tokens", [])
+                    }
+                ):
+                    status = "ausente"
+                    value_num = None
+                    value_text = None
                 else:
                     status = "observado"
                     if spec["value_type"] == "numeric":

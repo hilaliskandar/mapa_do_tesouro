@@ -331,6 +331,7 @@ variables:
     availability_start: 2025
     availability_end: 2025
     value_type: numeric
+    missing_tokens: ["n.d."]
 
   indicador_2:
     column: indicador_2
@@ -338,6 +339,7 @@ variables:
     availability_start: 2025
     availability_end: 2025
     value_type: numeric
+    missing_tokens: ["n.d."]
 
   indicador_3:
     column: indicador_3
@@ -345,3 +347,4 @@ variables:
     availability_start: 2025
     availability_end: 2025
     value_type: numeric
+    missing_tokens: ["n.d."]

@@ -1,6 +1,6 @@
 # Inventário canônico
 
-Atualizado em 2026-10-08.
+Atualizado em 2026-10-09.
 
 ## Núcleo aprovado
 
@@ -154,14 +154,24 @@ Os PRs #18 e #20 foram encerrados sem merge porque suas funções foram substitu
 - SHA-256 composto `48b50b2df44eaddc2fc1c4ed096c057c2bea5d61cb850b37dc23e6037962aa24`;
 - fallback automático em cinco shards disponível;
 - consolidação e QA automáticos em ambos os caminhos;
-- Anexo 02: coletor longo estadual preparado e manual.
+- Anexo 02: carga estadual 2025 concluída; 530 municípios observados, 43.920 linhas longas, 40 códigos de conta, zero falhas e zero conflitos; SHA-256 canônico `8e4709727aa8fbf0023056982fe7927f5bd8e323354807604dbdc2a91cf8d75a`; suplemento CAPAG fill-only adiciona 100 Dívidas Consolidadas e 114 RCL brutas, zero conflitos; composto SHA-256 `0b31196dd1a692632b7c2b48a044ed64f5f56493eb8d50f818810cdd583fc139`.
 
 ## Pendências estruturais
 
-1. decidir/rodar RGF Anexo 02 conforme necessidade analítica residual;
-2. consolidar denominadores anuais complementares;
-3. recalcular indicadores derivados e legais;
-4. recalcular tipologias e pares por `universo_id`;
-5. produzir cartografia estadual canônica;
-6. executar paridade completa contra TIC-TIM 30;
-7. criar release estadual somente após aprovação multifuentes.
+1. reconstruir o build privado SP645 após a correção do pós-processamento do RGF Anexo 02;
+2. executar regressão final de dados e interface contra TIC-TIM 30;
+3. recalcular somente indicadores, tipologias e pares afetados por novos insumos válidos;
+4. fechar a documentação de cobertura multifuentes por variável e exercício;
+5. validar integralmente F101–F118, inclusive mapa, exportação, crosswalk, fontes e metodologia;
+6. registrar manifesto, hashes e versão da candidata estadual;
+7. manter a promoção pública bloqueada até QA integral e decisão explícita de release.
+
+## Higiene do repositório
+
+Situação em 2026-10-09:
+
+- issues abertas: 0;
+- pull requests abertos: 0;
+- PRs #96–#107 incorporados à `main`;
+- nenhuma pendência conhecida depende de fechamento manual de issue ou PR;
+- tarefas futuras devem nascer de `governance/PENDING_TASKS.md` e só virar issue quando houver escopo executável, critério de aceite e dependências definidas.

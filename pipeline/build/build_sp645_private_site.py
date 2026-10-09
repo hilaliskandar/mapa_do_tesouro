@@ -8,6 +8,7 @@ import sqlite3
 from pathlib import Path
 
 from pipeline.build.build_static_site import build_static_site
+from pipeline.build.export_publication_api import export_publication_api
 from pipeline.build.load_documentation import load_documentation
 from pipeline.ingest.import_multifuentes import import_multifuentes
 from pipeline.ingest.import_universe_catalog import import_universe_catalog
@@ -19,6 +20,9 @@ from pipeline.transform.calculate_typologies import calculate_typologies
 from pipeline.transform.calculate_window_statistics import calculate_window_statistics
 
 ROOT = Path(__file__).resolve().parents[2]
+PUBLICATION_UNIVERSES_CATALOG = ROOT / "data" / "catalogs" / "publication_universes_sp.yml"
+PUBLICATION_VARIABLES_CATALOG = ROOT / "data" / "catalogs" / "publication_variables_v1.yml"
+
 UNIVERSE_CATALOGS = (
     ROOT / "data" / "catalogs" / "project_universes_sp.yml",
     ROOT / "data" / "catalogs" / "territorial_universes_sp_2025.yml",
@@ -94,6 +98,12 @@ def build_sp645_private_site(
         universe_id="SP_645",
         universe_ids=universe_ids,
         source_geojson=geojson,
+    )
+    result["publication_api"] = export_publication_api(
+        database,
+        site_output / "data" / "api" / "v1",
+        universes_catalog=PUBLICATION_UNIVERSES_CATALOG,
+        variables_catalog=PUBLICATION_VARIABLES_CATALOG,
     )
     return result
 

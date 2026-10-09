@@ -1,0 +1,51 @@
+version: 1
+publication_scope: initial_reference_edition
+publication_universes:
+  - publication_id: RM_SAO_PAULO
+    name: "Região Metropolitana de São Paulo"
+    source_universe_id: RM_SAO_PAULO
+    type: REGIAO_METROPOLITANA
+    exclude_members:
+      - codigo_ibge: "3550308"
+        municipio: "São Paulo"
+        reason: "Exclusão editorial para evitar distorção de escala fiscal no comparativo intragrupo."
+  - publication_id: RM_BAIXADA_SANTISTA
+    name: "Região Metropolitana da Baixada Santista"
+    source_universe_id: RM_BAIXADA_SANTISTA
+    type: REGIAO_METROPOLITANA
+  - publication_id: RM_CAMPINAS
+    name: "Região Metropolitana de Campinas"
+    source_universe_id: RM_CAMPINAS
+    type: REGIAO_METROPOLITANA
+  - publication_id: RM_VALE_PARAIBA_LITORAL_NORTE
+    name: "Região Metropolitana do Vale do Paraíba e Litoral Norte"
+    source_universe_id: RM_VALE_PARAIBA_LITORAL_NORTE
+    type: REGIAO_METROPOLITANA
+  - publication_id: RM_SOROCABA
+    name: "Região Metropolitana de Sorocaba"
+    source_universe_id: RM_SOROCABA
+    type: REGIAO_METROPOLITANA
+  - publication_id: RM_RIBEIRAO_PRETO
+    name: "Região Metropolitana de Ribeirão Preto"
+    source_universe_id: RM_RIBEIRAO_PRETO
+    type: REGIAO_METROPOLITANA
+  - publication_id: RM_SAO_JOSE_RIO_PRETO
+    name: "Região Metropolitana de São José do Rio Preto"
+    source_universe_id: RM_SAO_JOSE_RIO_PRETO
+    type: REGIAO_METROPOLITANA
+  - publication_id: RM_JUNDIAI
+    name: "Região Metropolitana de Jundiaí"
+    source_universe_id: RM_JUNDIAI
+    type: REGIAO_METROPOLITANA
+  - publication_id: RM_PIRACICABA
+    name: "Região Metropolitana de Piracicaba"
+    source_universe_id: RM_PIRACICABA
+    type: REGIAO_METROPOLITANA
+  - publication_id: AU_FRANCA
+    name: "Aglomeração Urbana de Franca"
+    source_universe_id: AU_FRANCA
+    type: AGLOMERACAO_URBANA
+  - publication_id: CIDADES_MEDIAS
+    name: "Cidades Médias"
+    source_universe_id: CIDADES_MEDIAS
+    type: ANALITICO

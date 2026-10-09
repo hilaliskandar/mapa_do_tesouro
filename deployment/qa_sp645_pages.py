@@ -11,6 +11,20 @@ from urllib.request import Request, urlopen
 EXPECTED_YEARS = [2021, 2022, 2023, 2024, 2025]
 EXPECTED_MUNICIPALITIES = 645
 EXPECTED_CAPAG_OBSERVED = 645
+EXPECTED_PUBLICATION_UNIVERSES = {
+    "RM_SAO_PAULO": 38,
+    "RM_BAIXADA_SANTISTA": 9,
+    "RM_CAMPINAS": 20,
+    "RM_VALE_PARAIBA_LITORAL_NORTE": 39,
+    "RM_SOROCABA": 27,
+    "RM_RIBEIRAO_PRETO": 34,
+    "RM_SAO_JOSE_RIO_PRETO": 37,
+    "RM_JUNDIAI": 7,
+    "RM_PIRACICABA": 24,
+    "AU_FRANCA": 19,
+    "CIDADES_MEDIAS": 33,
+}
+
 EXPECTED_UNIVERSES = {
     "SP_645": 645,
     "TIC_TIM_30": 30,
@@ -92,6 +106,8 @@ def validate_local(site: Path) -> None:
         site / "data" / "coverage.json",
         site / "data" / "coverage_sources.json",
         site / "data" / "universes.json",
+        site / "data" / "api" / "v1" / "publication" / "contract.json",
+        site / "data" / "api" / "v1" / "publication" / "universes.json",
     ]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -106,6 +122,15 @@ def validate_local(site: Path) -> None:
 
     universes = read_json(site / "data" / "universes.json")
     _validate_universe_catalog(universes)
+
+    publication = read_json(
+        site / "data" / "api" / "v1" / "publication" / "universes.json"
+    )
+    publication_counts = {
+        item["publication_id"]: item["member_count"] for item in publication
+    }
+    if publication_counts != EXPECTED_PUBLICATION_UNIVERSES:
+        fail(f"publication_universes={publication_counts}")
     for item in universes:
         base = site / "data"
         if item["data_path"] != ".":
@@ -205,6 +230,15 @@ def validate_remote(base_url: str) -> None:
 
     universes = fetch_json(base_url, "/data/universes.json")
     _validate_universe_catalog(universes)
+
+    publication = fetch_json(
+        base_url, "/data/api/v1/publication/universes.json"
+    )
+    publication_counts = {
+        item["publication_id"]: item["member_count"] for item in publication
+    }
+    if publication_counts != EXPECTED_PUBLICATION_UNIVERSES:
+        fail(f"remote publication_universes={publication_counts}")
     for item in universes:
         base = _universe_path(item)
         metadata = fetch_json(base_url, base + "/metadata.json")

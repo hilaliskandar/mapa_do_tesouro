@@ -1,5 +1,12 @@
 # Historico de versoes
 
+## 0.3.1 - Robustez do QA remoto
+
+- repeticao da leitura JSON durante a janela de propagacao do Cloudflare Pages;
+- eliminacao de falso negativo imediatamente apos deploy;
+- dados, universos, interface e regras analiticas inalterados em relacao a 0.3.0.
+
+
 ## 0.3.0 - Painel estadual multiuniverso
 
 - seletor de recorte analitico no frontend;

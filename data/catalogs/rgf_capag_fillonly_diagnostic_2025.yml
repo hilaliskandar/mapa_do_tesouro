@@ -1,0 +1,60 @@
+version: 1
+name: rgf_capag_fillonly_diagnostic_2025
+source_rgf:
+  run_id: 37732303043
+  normalized_sha256: 9f3ced721fa2c767d24cdec8e464215b30932e820e01601f24bac9b1e76486ba
+source_capag:
+  file_id: 1BlT2WxtBIGVeP1b4-GM3Auv0OdU6p7C9
+  sha256: 1b1379a5a531920223f1d448be155b70f51eb50180d8c819f1b7da3575a8eb11
+  sheet: Datalake
+fields:
+  rgf_caixa_bruta_nao_vinculada:
+    api_observed: 526
+    api_missing: 119
+    local_recoverable: 109
+    still_missing: 10
+    overlap_compared: 526
+    overlap_mismatch_gt_cent: 0
+    potential_coverage: 635
+  rgf_demais_obrigacoes_nao_vinculadas:
+    api_observed: 93
+    api_missing: 552
+    local_recoverable: 15
+    still_missing: 537
+    overlap_compared: 93
+    overlap_mismatch_gt_cent: 0
+    potential_coverage: 108
+  rgf_rp_nao_liquidados_anteriores_nao_vinculados:
+    api_observed: 411
+    api_missing: 234
+    local_recoverable: 79
+    still_missing: 155
+    overlap_compared: 411
+    overlap_mismatch_gt_cent: 0
+    potential_coverage: 490
+  rgf_rp_liquidados_anteriores_nao_vinculados:
+    api_observed: 404
+    api_missing: 241
+    local_recoverable: 74
+    still_missing: 167
+    overlap_compared: 404
+    overlap_mismatch_gt_cent: 0
+    potential_coverage: 478
+  rgf_rp_liquidados_exercicio_nao_vinculados:
+    api_observed: 412
+    api_missing: 233
+    local_recoverable: 89
+    still_missing: 144
+    overlap_compared: 412
+    overlap_mismatch_gt_cent: 0
+    potential_coverage: 501
+totals:
+  fillable_cells: 366
+  overlap_compared_cells: 1846
+  overlap_mismatches_gt_cent: 0
+policy:
+  - fill_only
+  - never_overwrite_observed_api_value
+  - preserve_cell_level_source
+  - no_cross_concept_imputation
+  - absence_is_not_zero

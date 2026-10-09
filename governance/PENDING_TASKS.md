@@ -116,3 +116,6 @@ Política:
 ## Ordem recomendada
 
 `P0.1 → P0.2 → P0.3 → P1.1 → P1.2 → P1.3 → P2.1 → P2.2 → P2.3`
+## Pós-release v0.2.0
+
+A release estadual `v0.2.0` está congelada e o preview remoto foi aprovado. A promoção de produção depende do workflow manual `SP645 Pages Production`, que deve ser executado apenas após sua integração e revisão final. O workflow legado TIC_TIM_30 permanece separado.

@@ -1,5 +1,17 @@
 # Historico de versoes
 
+## 0.4.0 - API editorial estática
+
+- API estática v1 para publicação de boletins fiscais;
+- 11 universos editoriais;
+- RMSP editorial com 38 municípios, excluindo a capital;
+- Cidades Médias com 33 municípios e sobreposição intencional com RM/AU;
+- 287 contextos município × universo por edição;
+- cobertura, mediana, quartis, extremos, percentis e diferença para a mediana;
+- contratos protegidos por QA local e remoto;
+- interface preparada para Skills de boletim municipal e análise transversal.
+
+
 ## 0.3.1 - Robustez do QA remoto
 
 - repeticao da leitura JSON durante a janela de propagacao do Cloudflare Pages;

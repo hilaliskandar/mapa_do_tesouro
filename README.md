@@ -6,20 +6,19 @@ O repositório nasceu do projeto `mapa_do_tesouro`, cuja metodologia e rotinas h
 
 ## Estado canônico
 
-O baseline público vigente é o universo `TIC_TIM_30`:
+A produção pública vigente é a release `v0.4.0`, com:
 
-- 30 municípios;
-- exercícios 2013–2025;
-- SQLite canônico;
-- 75 objetos técnicos/documentais;
-- regra territorial `strict_complete`;
-- proveniência por observação;
-- frontend `static-first`;
-- mapa, séries, comparação, análises temáticas, fontes, cobertura, crosswalk, dicionário e metodologia;
-- publicação no Cloudflare Pages;
-- preview e produção com QA automatizado.
+- universo estadual `SP_645` como padrão;
+- 13 universos analíticos sobrepostos no painel;
+- API editorial estática v1;
+- 11 universos editoriais para boletins fiscais;
+- 287 contextos município × universo;
+- RMSP editorial com 38 municípios, excluindo a capital;
+- Cidades Médias com 33 municípios, inclusive as sobreposições com RM/AU;
+- frontend e API publicados no Cloudflare Pages;
+- QA automatizado local e remoto.
 
-O universo estadual `SP_645` está em expansão controlada. O Gate B DCA foi concluído para 2013–2025: 645 municípios por exercício, 8.385 município-ano, 26 variáveis e zero issues de normalização. No Gate C, RREO 2025 e CAPAG 2025 já possuem cobertura estadual validada; RGF Anexos 01/05 e Anexo 02 já foram adquiridos e validados em escala estadual, com suplementos CAPAG fill-only separados e sem conflitos. O baseline público TIC-TIM 30 permanece protegido até a conclusão multifuentes.
+O baseline `TIC_TIM_30` permanece preservado como referência histórica de regressão e rollback.
 
 ## Arquitetura atual
 
@@ -47,7 +46,7 @@ fontes oficiais / snapshots aprovados
  Cloudflare Pages / CDN
 ```
 
-Consultas dinâmicas e D1 permanecem opcionais; o uso básico do painel não depende de API em runtime.
+Consultas dinâmicas e D1 permanecem opcionais. A API editorial v1 é formada por JSONs estáticos publicados no mesmo build e não introduz servidor de API em runtime.
 
 ## Universos
 
@@ -183,9 +182,7 @@ O deployment é separado do rebuild dos dados. Alterações de interface podem s
 
 ## Próximo gate
 
-P0 e P1 estão concluídos. A candidata estadual SP645 possui manifesto, QA de promoção, rollback documentado e rota de preview própria. O fluxo público TIC-TIM 30 não deve ser reutilizado para promover SP645, porque materializa o snapshot público vigente.
-
-A próxima ação é executar manualmente o workflow `SP645 Pages Candidate Preview`, que reconstrói a candidata a partir dos inputs privados canônicos, publica apenas no alias isolado `sp645-candidate` e executa QA remoto específico para 645 municípios. Nenhuma promoção de produção deve ocorrer antes da aprovação desse preview.
+A infraestrutura estadual, multiuniverso e a API editorial v1 estão em produção. O próximo ciclo é editorial: validar os templates de publicação com um caderno-piloto, congelar regras de narrativa e preparar a primeira Edição de Referência dos 11 universos.
 
 A fila administrativa está limpa em 2026-10-09: zero issues abertas e zero pull requests abertos. As pendências operacionais estão consolidadas em `governance/PENDING_TASKS.md`.
 

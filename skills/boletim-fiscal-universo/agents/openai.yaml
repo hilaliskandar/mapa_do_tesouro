@@ -1,0 +1,3 @@
+interface:
+  display_name: "Boletim Fiscal por Universo"
+  short_description: "Gera análise transversal para RM, AU de Franca e Cidades Médias."

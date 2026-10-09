@@ -175,3 +175,15 @@ Situação em 2026-10-09:
 - PRs #96–#107 incorporados à `main`;
 - nenhuma pendência conhecida depende de fechamento manual de issue ou PR;
 - tarefas futuras devem nascer de `governance/PENDING_TASKS.md` e só virar issue quando houver escopo executável, critério de aceite e dependências definidas.
+
+## Gate F — P0 concluído
+
+- rebuild privado SP645 pós-RGF02 aprovado;
+- paridade TIC_TIM_30 preservada, zero regressões;
+- requisitos F101–F118 auditados;
+- F116 implementado como exportação CSV do recorte anual;
+- Core CI: 132 testes aprovados no PR #111;
+- Pages Preview: build, deploy e validação remota aprovados;
+- novo build estadual privado aprovado no run `37884817757`;
+- artifact ID `11596071795`, SHA-256 `97bfb257191862e176ad779d323187974ecf9434dc3e4c960cc94a2fb395c3f7`;
+- fila corrente: P1.1, cobertura multifuentes.

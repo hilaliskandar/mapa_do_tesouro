@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_f_private_site_rebuild_after_rgf02`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
+A expansão estadual está no estado `gate_f_p0_approved_p1_multisource_coverage`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
 
 ## Hierarquia de fontes operacionais
 
@@ -264,22 +264,25 @@ A geometria web pinada contém 645 Polygons e corresponde exatamente ao universo
 
 Ela está aprovada para visualização do painel. Como o GeoJSON não declara CRS, análises métricas continuam reservadas a camadas com CRS explícito, preferencialmente EPSG:4674.
 
+## Gate F — P0 aprovado
+
+Em 2026-10-09, o ciclo P0 foi encerrado:
+
+- P0.1 rebuild privado SP645 pós-RGF02: aprovado;
+- P0.2 regressão contra TIC_TIM_30: aprovada, zero regressões;
+- P0.3 regressão funcional F101–F118: aprovada após saneamento de F116;
+- issue #110 encerrada pelo PR #111;
+- commit de integração F116: `256ecdaa64ddc38f0ccd7a8d38dbbab7cc588e5f`;
+- Gate F pós-merge: run `37884817757`, aprovado;
+- artifact privado: ID `11596071795`, SHA-256 `97bfb257191862e176ad779d323187974ecf9434dc3e4c960cc94a2fb395c3f7`;
+- 645 municípios, 645 geometrias, 440 municípios elegíveis a pares, 1.320 posições prioritárias e 11.501 células Gate D comparadas.
+
+Detalhes em `governance/QA_GATE_F_P0_2026_10_09.md`.
+
 ## Próximo gate operacional
 
-1. reconstruir o build privado SP645 incorporando o RGF Anexo 02 pós-processado e o composto fill-only aprovado;
-2. executar regressão de dados e frontend contra o baseline TIC-TIM 30, incluindo os requisitos F101–F118;
-3. atualizar cobertura, tipologias e pares somente onde novos insumos alterarem observabilidade, sem converter ausência em zero;
-4. reconciliar os documentos de governança e inventário com os artefatos efetivamente promovidos;
-5. somente após QA integral avaliar uma release estadual candidata, ainda separada da produção pública TIC-TIM 30.
-
-## Higiene de issues e PRs
-
-Em 2026-10-09, a consulta direta ao GitHub registrou:
-
-- issues abertas: 0;
-- pull requests abertos: 0;
-- PRs recentes #96–#107: encerrados por merge;
-- `main` na referência desta atualização: commit `6ef7df5e40cbe4ba0fb3f905cd79672a6352572a`.
-
-Não há fila pendente a fechar ou revisar. Novas issues devem ser abertas apenas para pendências executáveis e não para registrar estado documental já coberto por esta governança.
-
+1. P1.1 — consolidar cobertura multifuentes por variável, fonte, exercício e universo, preservando observado, ausente, não aplicável e em revisão;
+2. P1.2 — recalcular somente indicadores derivados afetados por novos insumos válidos;
+3. P1.3 — recalcular tipologias e pares somente se a observabilidade mudar;
+4. P2 — preparar candidata estadual, manifesto e checklist de promoção;
+5. manter a produção pública TIC_TIM_30 intocada até decisão explícita de release.

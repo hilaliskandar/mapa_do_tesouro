@@ -8,6 +8,8 @@ Este arquivo é a fila canônica de tarefas do projeto. Ele não substitui issue
 
 ### P0.1 — Reconstruir build privado SP645 pós-RGF02
 
+Status: concluído em 2026-10-09. Gate F aprovado; referência detalhada em `governance/QA_GATE_F_P0_2026_10_09.md`.
+
 Objetivo: gerar novo artefato privado estadual usando o estado multifuentes mais recente, incluindo o RGF Anexo 02 pós-processado e os suplementos fill-only aprovados.
 
 Critérios de aceite:
@@ -22,6 +24,8 @@ Dependências: PRs #103–#107 já incorporados.
 
 ### P0.2 — Regressão completa contra TIC_TIM_30
 
+Status: concluído em 2026-10-09. Paridade aprovada; cinco diferenças CAPAG classificadas como revisão oficial de snapshot, sem regressão.
+
 Objetivo: comprovar que a expansão estadual não introduziu regressões no baseline publicado.
 
 Critérios de aceite:
@@ -33,7 +37,7 @@ Critérios de aceite:
 
 ### P0.3 — Regressão funcional do frontend F101–F118
 
-Status: em saneamento. A lacuna F116 foi identificada e tratada na issue #110; a conclusão depende do CI e merge da correção.
+Status: concluído em 2026-10-09. A lacuna F116 foi saneada pela issue #110 e PR #111; Core CI, Pages Preview e rebuild estadual posteriores ficaram verdes.
 
 Objetivo: impedir perda silenciosa de funcionalidades aprovadas.
 
@@ -45,6 +49,10 @@ Critérios de aceite:
 - exportação aberta funcional;
 - documentação canônica de cada variável/indicador acessível;
 - comportamento de NA/zero validado.
+
+## Prioridade operacional atual
+
+A fila corrente começa em **P1.1 — Atualizar cobertura multifuentes**. P0.1–P0.3 estão encerradas e não devem voltar à fila salvo regressão reproduzível.
 
 ## Prioridade P1 — consolidação analítica
 

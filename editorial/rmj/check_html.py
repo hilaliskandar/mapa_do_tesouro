@@ -52,7 +52,7 @@ def main():
             errors.append(f"Secao obrigatoria ausente: {required}")
     if len(p.scripts) != 1:
         errors.append(f"Esperado um bloco JS inline; encontrados {len(p.scripts)}")
-    if not re.search(r"Versão editorial 0\.\d+", html):
+    if not re.search(r"Versão editorial [0-9]+[.][0-9]+", html):
         errors.append("Versao editorial nao encontrada")
     if errors:
         print("\n".join(errors), file=sys.stderr)

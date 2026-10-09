@@ -1,0 +1,77 @@
+name: Gate C RGF02 Live Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-c-rgf02-live-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download pinned SP municipality geometry
+        run: |
+          mkdir -p build
+          curl --fail --location --retry 3 "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json" --output build/sp.geojson
+
+      - name: Acquire three RGF02 sentinels
+        run: |
+          python -m pipeline.acquire.siconfi_rgf02_state             --geojson build/sp.geojson             --year 2025             --output build/raw/rgf02/2025             --long-csv build/normalized/rgf02_long_2025_smoke.csv             --limit-codes 3             --min-interval 1.05
+
+      - name: Normalize RGF02 sentinels
+        run: |
+          python -m pipeline.normalize.rgf02             --long-csv build/normalized/rgf02_long_2025_smoke.csv             --output-csv build/normalized/rgf02_2025_smoke.csv             --manifest build/normalized/rgf02_2025_smoke_manifest.json
+
+      - name: Validate smoke
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          acquire = json.loads(
+              Path("build/raw/rgf02/2025/manifests/rgf-02-2025.json")
+              .read_text(encoding="utf-8")
+          )
+          normalized = json.loads(
+              Path("build/normalized/rgf02_2025_smoke_manifest.json")
+              .read_text(encoding="utf-8")
+          )
+          if acquire["failed"]:
+              raise SystemExit(f"Acquisition failures: {acquire['failed']}")
+          if acquire["municipalities_requested"] != 3:
+              raise SystemExit("Expected three municipalities")
+          if normalized["conflicts"]:
+              raise SystemExit(f"Normalization conflicts: {normalized['conflicts']}")
+          if normalized["rows"] == 0:
+              raise SystemExit("RGF02 smoke produced zero normalized rows")
+          observed = sum(normalized["coverage"].values())
+          if observed == 0:
+              raise SystemExit("RGF02 smoke produced no canonical values")
+          print("RGF02 live smoke: OK")
+          print("rows=" + str(normalized["rows"]))
+          for field, count in sorted(normalized["coverage"].items()):
+              print(f"{field}={count}")
+          print("sha256=" + normalized["output_sha256"])
+          PY
+
+      - name: Upload smoke artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf02-live-smoke-2025
+          path: |
+            build/raw/rgf02/2025
+            build/normalized/rgf02_long_2025_smoke.csv
+            build/normalized/rgf02_2025_smoke.csv
+            build/normalized/rgf02_2025_smoke_manifest.json
+          retention-days: 14

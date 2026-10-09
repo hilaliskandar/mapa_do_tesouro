@@ -113,6 +113,7 @@ def export_static_data(
                 "methodology": "/data/methodology/{secao_id}.json",
                 "crosswalk": "/data/crosswalk.json",
                 "coverage": "/data/coverage.json",
+                "coverage_sources": "/data/coverage_sources.json",
             },
         }
 
@@ -309,6 +310,40 @@ def export_static_data(
         ]
         hashes["coverage.json"] = write_json(
             output / "coverage.json", coverage
+        )
+
+        source_coverage = [
+            dict(row)
+            for row in con.execute(
+                """
+                SELECT
+                    o.variavel_id,
+                    o.ano,
+                    ? AS universo_id,
+                    COALESCE(o.fonte_id,'DERIVADO_PIPELINE') AS fonte_id,
+                    COUNT(*) AS registros,
+                    SUM(CASE WHEN o.status='observado' THEN 1 ELSE 0 END) AS observado,
+                    SUM(CASE WHEN o.status='ausente' THEN 1 ELSE 0 END) AS ausente,
+                    SUM(CASE WHEN o.status='nao_aplicavel' THEN 1 ELSE 0 END) AS nao_aplicavel,
+                    SUM(CASE WHEN o.status='em_revisao' THEN 1 ELSE 0 END) AS em_revisao,
+                    (
+                        SELECT COUNT(*)
+                        FROM universo_municipio ux
+                        WHERE ux.universo_id=?
+                    ) AS universo_esperado
+                FROM observacao o
+                JOIN universo_municipio u USING(codigo_ibge)
+                WHERE u.universo_id=?
+                GROUP BY
+                    o.variavel_id,o.ano,
+                    COALESCE(o.fonte_id,'DERIVADO_PIPELINE')
+                ORDER BY o.variavel_id,o.ano,fonte_id
+                """,
+                (universe_id, universe_id, universe_id),
+            )
+        ]
+        hashes["coverage_sources.json"] = write_json(
+            output / "coverage_sources.json", source_coverage
         )
 
     finally:

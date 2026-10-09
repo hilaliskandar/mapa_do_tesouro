@@ -1,0 +1,33 @@
+version: 1
+name: rgf_sp645_2025_01_05_composite_fillonly
+base:
+  run_id: 37732303043
+  sha256: 9f3ced721fa2c767d24cdec8e464215b30932e820e01601f24bac9b1e76486ba
+supplement:
+  drive_file_id: 1-4B84oosvrq6XTWxgJZfgz0fsEYAywBz
+  sha256: 494924aea17e531bd56a2b68b773585f8b33df586df7ee11b425ccd1571c781d
+output:
+  drive_file_id: 1hSlw6mJYEkPyGXK-sgUWWDlFAQ2PczWy
+  file_name: RGF_SP645_2025_01_05_COMPOSTO_FILLONLY.csv
+  rows: 645
+  filled_cells: 366
+  conflicts: 0
+  sha256: 48b50b2df44eaddc2fc1c4ed096c057c2bea5d61cb850b37dc23e6037962aa24
+coverage_before:
+  rgf_caixa_bruta_nao_vinculada: 526
+  rgf_demais_obrigacoes_nao_vinculadas: 93
+  rgf_rp_nao_liquidados_anteriores_nao_vinculados: 411
+  rgf_rp_liquidados_anteriores_nao_vinculados: 404
+  rgf_rp_liquidados_exercicio_nao_vinculados: 412
+coverage_after:
+  rgf_caixa_bruta_nao_vinculada: 635
+  rgf_demais_obrigacoes_nao_vinculadas: 108
+  rgf_rp_nao_liquidados_anteriores_nao_vinculados: 490
+  rgf_rp_liquidados_anteriores_nao_vinculados: 478
+  rgf_rp_liquidados_exercicio_nao_vinculados: 501
+policy:
+  - composite_is_separate_from_observed_snapshot
+  - fill_only
+  - never_overwrite_observed_api_value
+  - no_cross_concept_imputation
+  - absence_is_not_zero

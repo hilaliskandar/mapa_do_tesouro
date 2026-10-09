@@ -6,9 +6,9 @@ Data de referência: 2026-10-09.
 
 A `main` é a fonte de verdade.
 
-O baseline TIC-TIM 30 permanece preservado como referência de regressão e rollback; a produção pública vigente passou ao universo estadual SP645 na release `v0.2.0`.
+O baseline TIC-TIM 30 permanece preservado como referência de regressão e rollback. A produção pública vigente é estadual e multiuniverso na release `v0.3.1`.
 
-A expansão estadual está no estado `sp645_production_live_v0_2_0`: a release estadual `v0.2.0` está publicada, o workflow `SP645 Pages Production` foi aprovado no run `37892171501` e o QA remoto da URL principal passou. O foco operacional passa a ser atualização de dados, monitoramento de regressões e manutenção do ciclo de releases.
+O estado operacional é `sp645_multiuniverse_production_live_v0_3_1`: a release `v0.3.1` está publicada, o workflow `SP645 Pages Production` foi aprovado no run `37912565493` e o QA remoto da URL principal passou. O painel expõe 13 universos, com `SP_645` como padrão e recálculo de estatísticas relativas, tipologias, marcadores e pares por universo.
 
 ## Hierarquia de fontes operacionais
 
@@ -364,3 +364,26 @@ O cruzamento por código IBGE demonstrou que `TIC_TIM_30` é composto por todos 
 Artefatos: `data/catalogs/territorial_universes_sp_2025.yml`, `data/catalogs/territorial_overlap_tictim30_2025.csv`, `data/catalogs/tictim30_territorial_decomposition_2025.csv` e `governance/TERRITORIAL_UNIVERSES_SP_2025.md`.
 
 O próximo passo funcional é permitir seleção de universo territorial no frontend e recalcular estatísticas relativas, tipologias, marcadores e pares para o universo selecionado.
+
+
+## Produção multiuniverso v0.3.1
+
+Em 2026-10-09, a release `v0.3.1` foi promovida com sucesso à produção.
+
+- workflow: `SP645 Pages Production`;
+- run: `37912565493`;
+- commit/tag: `159499fe5562a375cb1503f57e1675fc5ce01563` / `v0.3.1`;
+- artifact: `11607452418`;
+- artifact SHA-256: `7c15dc53da4fbd1b6c1914ded47816b2c8f3867ba47b185c6dc0d6e6fb1262cd`;
+- QA local: aprovado;
+- deploy: aprovado;
+- QA remoto: aprovado;
+- produção: `https://finbra-tic-tim-referencia.pages.dev`;
+- universos publicados: 13;
+- `SP_645`: 645 municípios;
+- `TIC_TIM_30`: 30 municípios;
+- `CIDADES_MEDIAS`: 33 municípios;
+- 9 regiões metropolitanas;
+- `AU_FRANCA`: 19 municípios.
+
+A `v0.3.1` não altera dados em relação à `v0.3.0`; corrige apenas a robustez do QA remoto durante a propagação do Cloudflare Pages.

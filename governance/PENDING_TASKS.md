@@ -52,7 +52,7 @@ Critérios de aceite:
 
 ## Prioridade operacional atual
 
-A promoção estadual foi concluída em 2026-10-09 com a release `v0.2.0`. O workflow `SP645 Pages Production` terminou verde e o QA remoto da URL principal foi aprovado. Não há gate de publicação pendente.
+A produção multiuniverso foi concluída em 2026-10-09 com a release `v0.3.1`. O workflow `SP645 Pages Production` terminou verde no run `37912565493` e o QA remoto da URL principal foi aprovado. Não há gate de publicação pendente.
 
 ## Prioridade P1 — consolidação analítica
 
@@ -116,6 +116,6 @@ Política:
 ## Ordem recomendada
 
 `P0.1 → P0.2 → P0.3 → P1.1 → P1.2 → P1.3 → P2.1 → P2.2 → P2.3`
-## Pós-release v0.2.0
+## Pós-release v0.3.1
 
-A release estadual `v0.2.0` está congelada e publicada. O workflow manual `SP645 Pages Production` foi executado no run `37892171501` com sucesso. O QA remoto aprovou a URL principal de produção. O workflow legado TIC_TIM_30 permanece separado para fins de histórico e rollback.
+A release estadual multiuniverso `v0.3.1` está congelada e publicada. O workflow manual `SP645 Pages Production` foi executado no run `37912565493` com sucesso. O QA remoto aprovou a URL principal de produção. `SP_645` permanece como universo padrão; TIC_TIM_30, CIDADES_MEDIAS, nove regiões metropolitanas e AU_FRANCA estão disponíveis como recortes analíticos sobrepostos.

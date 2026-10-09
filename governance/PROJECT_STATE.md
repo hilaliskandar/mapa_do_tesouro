@@ -6,9 +6,9 @@ Data de referência: 2026-10-09.
 
 A `main` é a fonte de verdade.
 
-O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
+O baseline TIC-TIM 30 permanece preservado como referência de regressão e rollback; a produção pública vigente passou ao universo estadual SP645 na release `v0.2.0`.
 
-A expansão estadual está no estado `p2_3_preview_route_ready`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
+A expansão estadual está no estado `sp645_production_live_v0_2_0`: a release estadual `v0.2.0` está publicada, o workflow `SP645 Pages Production` foi aprovado no run `37892171501` e o QA remoto da URL principal passou. O foco operacional passa a ser atualização de dados, monitoramento de regressões e manutenção do ciclo de releases.
 
 ## Hierarquia de fontes operacionais
 
@@ -334,3 +334,21 @@ A rota estadual de preview foi incorporada à `main` pelo PR #124.
 - `VERSION` permanece `0.1.1`.
 
 A próxima ação é operacional e manual: executar o workflow estadual, validar o preview remoto e somente então reconsiderar promoção pública.
+
+## SP645 em produção
+
+Em 2026-10-09, o workflow manual `SP645 Pages Production` foi executado para a release `v0.2.0` e concluído com sucesso.
+
+- workflow run: `37892171501`;
+- commit executado: `e8e12b64e311b0243b7e637ee5bcc2244e6499a7`;
+- release: `v0.2.0`;
+- artifact: `11597769314`;
+- artifact SHA-256: `44f6eced73970f99651d055586c027349a98cd78a082f943d1fceffa3e1a0c4c`;
+- 645 municípios;
+- 271 linhas de cobertura;
+- QA local SP645: aprovado;
+- deploy de produção: aprovado;
+- QA remoto SP645: aprovado;
+- URL de produção: `https://finbra-tic-tim-referencia.pages.dev`.
+
+O universo estadual SP645 passa a ser a produção publicada. A release v0.2.0 permanece como referência congelada desta promoção.

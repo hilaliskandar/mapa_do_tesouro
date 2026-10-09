@@ -9,6 +9,8 @@ on:
       - "pipeline/build/sp645_private_input.py"
       - "pipeline/build/build_sp645_private_site.py"
       - "pipeline/transform/calculate_annual.py"
+      - "pipeline/ingest/import_multifuentes.py"
+      - "data/mappings/base_multifuentes_sp645_2025.yml"
       - "app/static/**"
 
 permissions:

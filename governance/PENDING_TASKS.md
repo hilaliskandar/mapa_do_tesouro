@@ -52,7 +52,7 @@ Critérios de aceite:
 
 ## Prioridade operacional atual
 
-A fila corrente começa em **P2.2 — Validar checklist de promoção**. P0 e P1 estão encerrados; P2.1 foi concluída com manifesto privado e sem alteração de `VERSION`.
+A fila corrente começa em **P2.3 — Decidir promoção**. P0 e P1 estão encerrados; P2.1 e P2.2 foram concluídas sem alteração de `VERSION` e sem publicação estadual.
 
 ## Prioridade P1 — consolidação analítica
 
@@ -82,9 +82,13 @@ Registrar versão de dados, schema, metodologia, aplicação, timestamp e hashes
 
 ### P2.2 — Validar checklist de promoção
 
+Status: concluído em 2026-10-09. Evidências consolidadas em `governance/QA_P2_2_SP645_CANDIDATE.md`; rollback documentado em `deployment/ROLLBACK.md`.
+
 Executar integralmente `governance/QA_CHECKLIST.md`, incluindo segurança, rollback e reprodução local.
 
 ### P2.3 — Decidir promoção
+
+Status: prioridade atual. P2.2 está concluído; a candidata permanece privada até decisão explícita.
 
 Somente após P0 e P1 concluídos. A produção TIC_TIM_30 permanece intocada até decisão explícita.
 

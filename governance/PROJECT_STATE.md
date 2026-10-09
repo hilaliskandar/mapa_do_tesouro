@@ -6,9 +6,9 @@ Data de referência: 2026-10-09.
 
 A `main` é a fonte de verdade.
 
-O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
+O baseline TIC-TIM 30 permanece preservado como referência de regressão e rollback; a produção pública vigente passou ao universo estadual SP645 na release `v0.2.0`.
 
-A expansão estadual está no estado `sp645_production_live_v0_2_0`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
+A expansão estadual está no estado `sp645_production_live_v0_2_0`: a release estadual `v0.2.0` está publicada, o workflow `SP645 Pages Production` foi aprovado no run `37892171501` e o QA remoto da URL principal passou. O foco operacional passa a ser atualização de dados, monitoramento de regressões e manutenção do ciclo de releases.
 
 ## Hierarquia de fontes operacionais
 

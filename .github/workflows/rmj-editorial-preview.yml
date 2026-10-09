@@ -34,6 +34,8 @@ jobs:
           test -s editorial/rmj/index.html
           grep -F 'PILOTO EDITORIAL' editorial/rmj/index.html >/dev/null
           grep -F 'DCA_SP_645_2013_2025_CANONICO.csv' editorial/rmj/index.html >/dev/null
+          python3 editorial/rmj/check_html.py editorial/rmj/index.html /tmp/rmj-editorial.js
+          node --check /tmp/rmj-editorial.js
           test -n "$CLOUDFLARE_API_TOKEN"
           test -n "$CLOUDFLARE_ACCOUNT_ID"
           test -n "$CLOUDFLARE_PAGES_PROJECT"

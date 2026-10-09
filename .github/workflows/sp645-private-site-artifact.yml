@@ -137,7 +137,7 @@ jobs:
               marker_expected = {
                   "base": 645,
                   "invest": 645,
-                  "territor": 56,
+                  "territ": 56,
                   "pessoal": 505,
                   "divida": 439,
                   "liquidez": 0,

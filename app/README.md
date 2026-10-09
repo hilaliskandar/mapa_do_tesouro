@@ -28,6 +28,7 @@ O frontend deve priorizar arquivos estáticos:
 /data/annual/{ano}.json
 /data/municipalities/{codigo_ibge}.json
 /data/coverage.json
+/data/coverage_sources.json
 /data/manifest.json
 ```
 
@@ -76,3 +77,5 @@ python -m http.server 8000
 Abrir `http://localhost:8000`.
 
 O site deve funcionar integralmente com os arquivos locais gerados.
+
+`coverage.json` representa a cobertura final por variável, ano e universo. `coverage_sources.json` registra a contribuição observacional por fonte; derivados sem `fonte_id` são identificados como `DERIVADO_PIPELINE` e não são atribuídos a fonte oficial.

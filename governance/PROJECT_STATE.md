@@ -8,7 +8,7 @@ A `main` é a fonte de verdade.
 
 O baseline público TIC-TIM 30 permanece publicado e protegido por CI, QA de paridade e contratos metodológicos.
 
-A expansão estadual está no estado `gate_f_p0_approved_p1_multisource_coverage`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
+A expansão estadual está no estado `p1_coverage_approved_p1_2_semantic_recalculation`: DCA 2013–2025, RREO 2025, CAPAG 2025, RGF 01/05 2025, RGF 02 2025, histórico RGF 2023–2024, tipologias/pares e cartografia SP645 já possuem artefatos e QA documentados. O foco imediato é recompor o build privado estadual com o RGF02 pós-processado e executar regressão funcional completa antes de qualquer promoção pública.
 
 ## Hierarquia de fontes operacionais
 
@@ -286,3 +286,18 @@ Detalhes em `governance/QA_GATE_F_P0_2026_10_09.md`.
 3. P1.3 — recalcular tipologias e pares somente se a observabilidade mudar;
 4. P2 — preparar candidata estadual, manifesto e checklist de promoção;
 5. manter a produção pública TIC_TIM_30 intocada até decisão explícita de release.
+
+## P1.1 — cobertura multifuentes concluída
+
+Em 2026-10-09, a cobertura estadual foi consolidada após as transformações:
+
+- 645 municípios;
+- 271 combinações variável × ano;
+- quatro estados canônicos de cobertura;
+- zero linhas implícitas classificadas como ausência no rebuild de referência;
+- `coverage.json` para cobertura final;
+- `coverage_sources.json` para contribuição por fonte;
+- histórico 2021–2024 classificado como histórico mínimo, não base estadual completa;
+- relatório detalhado em `governance/P1_1_MULTISOURCE_COVERAGE_SP645.md`.
+
+A prioridade passa a P1.2: verificar a semântica das lacunas em contas esparsas e recalcular somente os derivados cuja ampliação de cobertura seja metodologicamente demonstrável.

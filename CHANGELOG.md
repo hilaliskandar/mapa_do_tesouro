@@ -1,5 +1,20 @@
 # Historico de versoes
 
+## 0.3.0 - Painel estadual multiuniverso
+
+- seletor de recorte analitico no frontend;
+- SP_645 preservado como universo padrao;
+- TIC_TIM_30 incorporado ao build estadual;
+- universo CIDADES_MEDIAS com 33 municipios;
+- nove regioes metropolitanas e AU de Franca;
+- 13 universos publicados no total;
+- cobertura, estatisticas de janela, tipologias, marcadores e pares recalculados por universo;
+- mapas e listas municipais especificos por recorte;
+- exportacao CSV identifica o universo selecionado;
+- QA local e remoto endurecido para validar contagens e mapas dos 13 universos;
+- contrato legado da raiz /data/ preservado para SP_645.
+
+
 ## 0.2.0 - Candidata estadual SP645
 
 - primeira release congelada para o universo estadual de 645 municipios;

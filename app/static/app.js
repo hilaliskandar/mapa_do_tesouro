@@ -688,6 +688,42 @@ function renderMethodology() {
   `).join("");
 }
 
+function csvEscape(value) {
+  if (value === null || value === undefined) return "";
+  const text = String(value);
+  if (/[",\n\r]/.test(text)) return '"' + text.replaceAll('"', '""') + '"';
+  return text;
+}
+
+function exportCurrentSliceCsv() {
+  const rows = state.annual?.municipalities || [];
+  const variable = state.currentVariable;
+  const lines = [
+    ["codigo_ibge", "municipio", "ano", "variavel_id", "valor", "status"],
+    ...rows.map((m) => {
+      const entry = m.values?.[variable] || { status: "ausente", value: null };
+      return [
+        m.codigo_ibge,
+        m.municipio,
+        state.currentYear,
+        variable,
+        entry.value,
+        entry.status || "ausente",
+      ];
+    }),
+  ];
+  const csv = lines.map((row) => row.map(csvEscape).join(",")).join("\r\n");
+  const blob = new Blob(["\ufeff", csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `financas_municipais_sp_${state.currentYear}_${variable}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
 async function loadAnnual() {
   state.annual = await getJSON(`./data/annual/${state.currentYear}.json`);
 }
@@ -806,6 +842,8 @@ async function init() {
       renderSourcesAndCoverage();
       renderCrosswalk();
     });
+
+    $("#export-csv").addEventListener("click", exportCurrentSliceCsv);
 
     $("#open-help").addEventListener("click", () =>
       showHelp(state.currentVariable)

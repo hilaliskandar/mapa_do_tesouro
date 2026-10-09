@@ -33,7 +33,8 @@ O artifact só é aceito se:
 - 440 municípios elegíveis a pares;
 - 1.320 posições prioritárias;
 - CAPAG observada em 645/645;
-- todos os valores disponíveis dos 25 indicadores 2025 forem iguais ao Gate D, respeitando escala percentual.
+- todos os valores disponíveis dos 25 indicadores 2025 forem iguais ao Gate D, respeitando escala percentual;
+- `n.d.` em indicador numérico CAPAG for tratado como ausência esperada, sem conversão para zero; `capag=n.d.` permanece categoria textual oficial.
 
 ## Publicação
 

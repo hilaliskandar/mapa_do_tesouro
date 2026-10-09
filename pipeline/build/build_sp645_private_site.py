@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+# Gate F rebuild trigger: rerun private SP645 QA after RGF02 post-processing.
+
 import argparse
 import json
 from pathlib import Path

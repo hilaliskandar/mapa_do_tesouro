@@ -183,9 +183,9 @@ O deployment é separado do rebuild dos dados. Alterações de interface podem s
 
 ## Próximo gate
 
-Os Gates B e C já possuem os principais artefatos estaduais consolidados. O RGF Anexo 02 de 2025 foi adquirido e pós-processado, os indicadores de 2025 foram calculados, o histórico RGF 2023–2024 foi validado, tipologias/pares estão em QA privado e a cartografia estadual foi validada em 645/645 municípios.
+P0 e P1 estão concluídos. A candidata estadual SP645 possui manifesto, QA de promoção, rollback documentado e rota de preview própria. O fluxo público TIC-TIM 30 não deve ser reutilizado para promover SP645, porque materializa o snapshot público vigente.
 
-A próxima etapa é reconstruir o build privado SP645 com o estado multifuentes mais recente, executar regressão completa contra o baseline TIC-TIM 30 e validar os requisitos funcionais F101–F118. A promoção estadual pública continua bloqueada até QA integral, manifesto, hashes e decisão explícita de release.
+A próxima ação é executar manualmente o workflow `SP645 Pages Candidate Preview`, que reconstrói a candidata a partir dos inputs privados canônicos, publica apenas no alias isolado `sp645-candidate` e executa QA remoto específico para 645 municípios. Nenhuma promoção de produção deve ocorrer antes da aprovação desse preview.
 
 A fila administrativa está limpa em 2026-10-09: zero issues abertas e zero pull requests abertos. As pendências operacionais estão consolidadas em `governance/PENDING_TASKS.md`.
 

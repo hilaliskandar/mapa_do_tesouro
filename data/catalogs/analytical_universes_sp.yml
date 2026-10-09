@@ -1,0 +1,47 @@
+version: 1
+state: SP
+reference_date: 2026-10-09
+source:
+  title: Corpus canônico Cidades Médias
+  type: user_supplied_canonical_corpus
+  note: Relação de 33 municípios e códigos IBGE fornecida pelo usuário; a denominação Cidades Médias é rótulo do corpus analítico e não classificação demográfica automática.
+universes:
+  - id: CIDADES_MEDIAS
+    name: "Cidades Médias"
+    type: ANALITICO
+    municipality_count: 33
+    description: "Corpus analítico canônico de 33 municípios paulistas."
+    members:
+      - {codigo_ibge: "3501608", municipio: "Americana"}
+      - {codigo_ibge: "3502804", municipio: "Araçatuba"}
+      - {codigo_ibge: "3503208", municipio: "Araraquara"}
+      - {codigo_ibge: "3505708", municipio: "Barueri"}
+      - {codigo_ibge: "3506003", municipio: "Bauru"}
+      - {codigo_ibge: "3510609", municipio: "Carapicuíba"}
+      - {codigo_ibge: "3513009", municipio: "Cotia"}
+      - {codigo_ibge: "3513801", municipio: "Diadema"}
+      - {codigo_ibge: "3515004", municipio: "Embu das Artes"}
+      - {codigo_ibge: "3516200", municipio: "Franca"}
+      - {codigo_ibge: "3518701", municipio: "Guarujá"}
+      - {codigo_ibge: "3519071", municipio: "Hortolândia"}
+      - {codigo_ibge: "3520509", municipio: "Indaiatuba"}
+      - {codigo_ibge: "3522505", municipio: "Itapevi"}
+      - {codigo_ibge: "3523107", municipio: "Itaquaquecetuba"}
+      - {codigo_ibge: "3524402", municipio: "Jacareí"}
+      - {codigo_ibge: "3525904", municipio: "Jundiaí"}
+      - {codigo_ibge: "3526902", municipio: "Limeira"}
+      - {codigo_ibge: "3529005", municipio: "Marília"}
+      - {codigo_ibge: "3529401", municipio: "Mauá"}
+      - {codigo_ibge: "3530607", municipio: "Mogi das Cruzes"}
+      - {codigo_ibge: "3538709", municipio: "Piracicaba"}
+      - {codigo_ibge: "3541000", municipio: "Praia Grande"}
+      - {codigo_ibge: "3541406", municipio: "Presidente Prudente"}
+      - {codigo_ibge: "3543907", municipio: "Rio Claro"}
+      - {codigo_ibge: "3548500", municipio: "Santos"}
+      - {codigo_ibge: "3548906", municipio: "São Carlos"}
+      - {codigo_ibge: "3549805", municipio: "São José do Rio Preto"}
+      - {codigo_ibge: "3551009", municipio: "São Vicente"}
+      - {codigo_ibge: "3552403", municipio: "Sumaré"}
+      - {codigo_ibge: "3552502", municipio: "Suzano"}
+      - {codigo_ibge: "3552809", municipio: "Taboão da Serra"}
+      - {codigo_ibge: "3554102", municipio: "Taubaté"}

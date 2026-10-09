@@ -1,0 +1,39 @@
+version: 0.4.0
+status: frozen_publication_api_candidate
+date: 2026-10-09
+release_universe: SP_645
+feature: publication_api_v1
+publication_api:
+  base_path: /data/api/v1
+  publication_universe_count: 11
+  municipality_context_count: 287
+  universes:
+    RM_SAO_PAULO: 38
+    RM_BAIXADA_SANTISTA: 9
+    RM_CAMPINAS: 20
+    RM_VALE_PARAIBA_LITORAL_NORTE: 39
+    RM_SOROCABA: 27
+    RM_RIBEIRAO_PRETO: 34
+    RM_SAO_JOSE_RIO_PRETO: 37
+    RM_JUNDIAI: 7
+    RM_PIRACICABA: 24
+    AU_FRANCA: 19
+    CIDADES_MEDIAS: 33
+  rules:
+    absence_is_not_zero: true
+    comparison_basis: publication_universe
+    rmsp_excludes_sao_paulo: true
+    cidades_medias_overlap_intentional: true
+reference:
+  source_commit: 9c381a86b41bce6eb3fad07aa8d0cf7a0ab56a4a
+  candidate_workflow_run: 37916874141
+  candidate_artifact_id: 11609749928
+  candidate_artifact_sha256: 2ff59a258578c84863c4cf9733224d816e006680d1acef582e0c18d20a587d3d
+preview:
+  alias: sp645-candidate
+  url: https://sp645-candidate.finbra-tic-tim-referencia.pages.dev
+  local_qa: passed
+  remote_qa: passed
+deployment:
+  production_promoted: false
+  production_requires_manual_statewide_workflow: true

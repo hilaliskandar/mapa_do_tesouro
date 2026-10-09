@@ -1,0 +1,52 @@
+version: 0.3.0
+status: frozen_statewide_multiuniverse_candidate
+date: 2026-10-09
+release_universe: SP_645
+universe:
+  default_id: SP_645
+  default_municipalities: 645
+  years:
+    start: 2021
+    end: 2025
+multiuniverse:
+  enabled: true
+  universe_count: 13
+  universes:
+    SP_645: 645
+    TIC_TIM_30: 30
+    CIDADES_MEDIAS: 33
+    AU_FRANCA: 19
+    RM_BAIXADA_SANTISTA: 9
+    RM_CAMPINAS: 20
+    RM_JUNDIAI: 7
+    RM_PIRACICABA: 24
+    RM_RIBEIRAO_PRETO: 34
+    RM_SOROCABA: 27
+    RM_SAO_JOSE_RIO_PRETO: 37
+    RM_SAO_PAULO: 39
+    RM_VALE_PARAIBA_LITORAL_NORTE: 39
+reference:
+  source_commit: 1c5f0166c396a5ef1f2adabdd309c25e87f1a75f
+  candidate_workflow_run: 37908586197
+  candidate_artifact_id: 11605622431
+  candidate_artifact_sha256: 395a733d332bb871b8ccdd8ce3e9e2f76fcaee0b1e5c53cfd965618742e194fb
+preview:
+  alias: sp645-candidate
+  url: https://sp645-candidate.finbra-tic-tim-referencia.pages.dev
+  local_qa: passed
+  remote_qa: passed
+qa:
+  statewide_contract_preserved: true
+  multiuniverse_contract_passed: true
+  universe_selector_present: true
+  maps_validated_per_universe: true
+  municipality_counts_validated_per_universe: true
+methodology:
+  absence_rule: absence_is_not_zero
+  relative_statistics_recomputed_per_universe: true
+  typologies_recomputed_per_universe: true
+  markers_recomputed_per_universe: true
+  pairs_recomputed_per_universe: true
+deployment:
+  production_promoted: false
+  production_requires_manual_statewide_workflow: true

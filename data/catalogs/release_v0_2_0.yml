@@ -1,0 +1,41 @@
+version: 0.2.0
+status: frozen_statewide_candidate
+date: 2026-10-09
+release_universe: SP_645
+universe:
+  id: SP_645
+  municipalities: 645
+  years:
+    start: 2021
+    end: 2025
+  historical_scope: minimum_2021_2024
+  full_multisource_year: 2025
+reference:
+  source_commit: 66e6c1c9d4b9b9fb7ef4e12eb9d5568546e3e801
+  preview_guard_commit: 2c33964a20b3126c0906b2c9486dd15b335489d7
+  candidate_workflow_run: 37889265727
+  candidate_artifact_id: 11598005846
+  candidate_artifact_sha256: 45950e38e559a9d668d75725d9a7c8f30f1942b6d11f03c050f4790ebb521570
+preview:
+  alias: sp645-candidate
+  url: https://sp645-candidate.finbra-tic-tim-referencia.pages.dev
+  local_qa: passed
+  remote_qa: passed
+qa:
+  municipalities: 645
+  map_features: 645
+  coverage_rows: 271
+  capag_observed: 645
+  gate_d_cells_compared: 11501
+  eligible_pair_municipalities: 440
+  prioritized_pairs: 1320
+  tictim30_regressions: 0
+methodology:
+  absence_rule: absence_is_not_zero
+  territorial_rule: strict_complete
+  legal_indicators_use_official_statements: true
+  rgf02_fill_only_semantic_equivalence_only: true
+deployment:
+  production_promoted: false
+  production_requires_manual_statewide_workflow: true
+  stable_tictim30_production_untouched: true

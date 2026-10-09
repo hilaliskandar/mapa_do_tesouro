@@ -1,0 +1,99 @@
+version: 2
+reference_date: 2025
+state: SP
+source:
+  title: Composicao_RM_2025.xlsx
+  sha256: 8034d21968556bc2c8a0ae600ead000aad501bde3ae1eed4ef84b78e726e07d2
+  note: Arquivo fornecido pelo usuario; composicao usada como fonte canonica desta versao.
+universes:
+  - id: RM_SAO_PAULO
+    name: "Região Metropolitana de São Paulo"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "04901"
+    source_label: "RM de São Paulo (SP)"
+    municipality_count: 39
+    subregions:
+      - "Sub-região Leste"
+      - "Sub-região Norte"
+      - "Sub-região Oeste"
+      - "Sub-região Sudeste"
+      - "Sub-região Sudoeste"
+    members: ["3503901", "3505708", "3506607", "3509007", "3509205", "3510609", "3513009", "3513801", "3515004", "3515103", "3515707", "3516309", "3516408", "3518305", "3518800", "3522208", "3522505", "3523107", "3525003", "3526209", "3528502", "3529401", "3530607", "3534401", "3539103", "3539806", "3543303", "3544103", "3545001", "3546801", "3547304", "3547809", "3548708", "3548807", "3549953", "3550308", "3552502", "3552809", "3556453"]
+  - id: RM_BAIXADA_SANTISTA
+    name: "Região Metropolitana da Baixada Santista"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "05001"
+    source_label: "RM da Baixada Santista (SP)"
+    municipality_count: 9
+    members: ["3506359", "3513504", "3518701", "3522109", "3531100", "3537602", "3541000", "3548500", "3551009"]
+  - id: RM_CAMPINAS
+    name: "Região Metropolitana de Campinas"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "05101"
+    source_label: "RM de Campinas (SP)"
+    municipality_count: 20
+    members: ["3501608", "3503802", "3509502", "3512803", "3515152", "3519055", "3519071", "3520509", "3523404", "3524709", "3531803", "3532009", "3533403", "3536505", "3537107", "3545803", "3548005", "3552403", "3556206", "3556701"]
+  - id: RM_VALE_PARAIBA_LITORAL_NORTE
+    name: "Região Metropolitana do Vale do Paraíba e Litoral Norte"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "05201"
+    source_label: "RM do Vale do Paraíba e Litoral Norte (SP)"
+    municipality_count: 39
+    subregions:
+      - "Sub-região 1"
+      - "Sub-região 2"
+      - "Sub-região 3"
+      - "Sub-região 4"
+      - "Sub-região 5"
+    members: ["3502507", "3503158", "3503505", "3504909", "3508504", "3508603", "3509700", "3509957", "3510500", "3513405", "3513603", "3518404", "3520202", "3520400", "3524402", "3524907", "3526308", "3526605", "3527207", "3531704", "3532306", "3535606", "3538006", "3538501", "3540754", "3541901", "3542305", "3544301", "3546009", "3548203", "3548609", "3549607", "3549904", "3550001", "3550704", "3552007", "3554102", "3554805", "3555406"]
+  - id: RM_SOROCABA
+    name: "Região Metropolitana de Sorocaba"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "05301"
+    source_label: "RM de Sorocaba (SP)"
+    municipality_count: 27
+    subregions:
+      - "Sub-região 1"
+      - "Sub-região 2"
+      - "Sub-região 3"
+    members: ["3500758", "3501152", "3502754", "3502903", "3507001", "3510302", "3511508", "3511607", "3519709", "3521002", "3522307", "3523909", "3525854", "3528403", "3537800", "3537909", "3540606", "3545209", "3545308", "3550209", "3550605", "3551108", "3552205", "3553500", "3554003", "3554508", "3557006"]
+  - id: RM_RIBEIRAO_PRETO
+    name: "Região Metropolitana de Ribeirão Preto"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "05401"
+    source_label: "RM de Ribeirão Preto (SP)"
+    municipality_count: 34
+    subregions:
+      - "Sub-região 1"
+      - "Sub-região 2"
+      - "Sub-região 3"
+      - "Sub-região 4"
+    members: ["3501004", "3505609", "3505906", "3507803", "3509403", "3510906", "3513108", "3514601", "3518602", "3518859", "3524303", "3525102", "3527603", "3530508", "3531308", "3531902", "3533601", "3534302", "3539509", "3540200", "3540903", "3543402", "3544905", "3546256", "3547502", "3547601", "3547908", "3550902", "3551405", "3551504", "3551702", "3553203", "3553302", "3553658"]
+  - id: RM_SAO_JOSE_RIO_PRETO
+    name: "Região Metropolitana de São José do Rio Preto"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "08002"
+    source_label: "RM de São José do Rio Preto (SP)"
+    municipality_count: 37
+    members: ["3500204", "3504602", "3504800", "3511300", "3517505", "3519402", "3519808", "3521150", "3521507", "3524501", "3525706", "3528106", "3529500", "3530300", "3530409", "3531407", "3532504", "3532702", "3532801", "3533007", "3533908", "3534005", "3534203", "3535002", "3536604", "3539608", "3539905", "3540804", "3544806", "3549805", "3551900", "3553401", "3555356", "3555604", "3555703", "3556008", "3557154"]
+  - id: RM_JUNDIAI
+    name: "Região Metropolitana de Jundiaí"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "08101"
+    source_label: "RM de Jundiaí (SP)"
+    municipality_count: 7
+    members: ["3508405", "3509601", "3524006", "3525201", "3525904", "3527306", "3556503"]
+  - id: RM_PIRACICABA
+    name: "Região Metropolitana de Piracicaba"
+    type: REGIAO_METROPOLITANA
+    source_category_code: "08201"
+    source_label: "RM de Piracicaba (SP)"
+    municipality_count: 24
+    members: ["3500600", "3502002", "3503307", "3510401", "3511706", "3512209", "3512407", "3512704", "3514908", "3521101", "3521408", "3526704", "3526902", "3530904", "3538709", "3539301", "3542107", "3543907", "3544004", "3545159", "3546207", "3546702", "3547007", "3550407"]
+  - id: AU_FRANCA
+    name: "Aglomeração Urbana de Franca"
+    type: AGLOMERACAO_URBANA
+    source_category_code: "00301"
+    source_label: "AU de Franca (SP)"
+    municipality_count: 19
+    members: ["3503000", "3508207", "3513207", "3516200", "3517406", "3517703", "3520103", "3521309", "3523701", "3524105", "3525409", "3529708", "3536307", "3537008", "3542701", "3543105", "3543600", "3549409", "3549508"]

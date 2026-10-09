@@ -1,0 +1,3 @@
+interface:
+  display_name: "Boletim Fiscal Municipal"
+  short_description: "Gera ficha fiscal municipal com comparação intragrupo e cautelas metodológicas."

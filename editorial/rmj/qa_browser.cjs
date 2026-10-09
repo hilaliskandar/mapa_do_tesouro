@@ -17,6 +17,8 @@ const path = require('node:path');
       page.on('pageerror', e => errors.push(e.message));
       const response = await page.goto(base, {waitUntil:'networkidle',timeout:45000});
       assert.equal(response.status(),200);
+      await page.locator('#cr-cidade').selectOption('3525904');
+      await page.locator('#cr-cidade').selectOption('3527306');
       await page.locator('#tr-cidade').selectOption('3525904');
       await page.locator('#tr-cidade').selectOption('REGIAO');
       await page.locator('#editorial-cidade').selectOption('3525904');
@@ -36,6 +38,8 @@ const path = require('node:path');
         jsContent:document.querySelector('#sintese-texto')?.textContent?.length || 0,
         historyRows:document.querySelectorAll('#historical-table tbody tr').length,
         editorialProfiles:document.querySelectorAll('#editorial-highlights [data-id]').length,
+        crossRows:document.querySelectorAll('#cr-table tbody tr').length,
+        crossText:document.querySelector('#cr-texto')?.textContent?.length || 0,
         trendRows:document.querySelectorAll('#tr-table tbody tr').length,
         trendText:document.querySelector('#tr-analysis')?.textContent?.length || 0,
         editorialText:document.querySelector('#editorial-story')?.textContent?.length || 0,
@@ -47,6 +51,8 @@ const path = require('node:path');
       }));
       assert.equal(observations.historyRows,5);
       assert.equal(observations.editorialProfiles,7);
+      assert.equal(observations.crossRows,8);
+      assert(observations.crossText>150);
       assert.equal(observations.trendRows,5);
       assert(observations.trendText>150);
       assert(observations.editorialText>250);

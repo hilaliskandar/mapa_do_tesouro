@@ -1,0 +1,77 @@
+name: Gate C RGF Semester Smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/gate-c-rgf-semester-smoke.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Query three missing DTP municipalities as semester reporters
+        run: |
+          set -e
+          for CODE in 3500105 3500204 3500600; do
+            python -m pipeline.acquire.siconfi_legal_reports \
+              --endpoint rgf \
+              --entity-id "$CODE" \
+              --years 2025 \
+              --annexes "RGF-Anexo 01" \
+              --periodicity S \
+              --period 2 \
+              --report-type RGF \
+              --sphere M \
+              --branch E \
+              --output build/raw/rgf-semester-smoke \
+              --min-interval 1.05
+          done
+
+      - name: Validate legal fields
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pipeline.acquire.siconfi_legal_reports import read_raw
+          from pipeline.normalize.rgf_legal import normalize_annex01
+
+          root = Path("build/raw/rgf-semester-smoke/rgf/rgf-anexo-01/2025")
+          codes = ["3500105", "3500204", "3500600"]
+          observed = 0
+          for code in codes:
+              payload = read_raw(root / f"{code}.json.gz")
+              row = normalize_annex01(payload)
+              print(
+                  code,
+                  "items=", len(payload.get("items", [])),
+                  "DTP=", row["rgf_despesa_total_pessoal"],
+                  "RCL=", row["rgf_rcl_denominador_legal"],
+                  "pct=", row["rgf_dtp_percentual_rcl"],
+              )
+              if (
+                  row["rgf_despesa_total_pessoal"] is not None
+                  and row["rgf_rcl_denominador_legal"] is not None
+                  and row["rgf_dtp_percentual_rcl"] is not None
+              ):
+                  observed += 1
+          if observed == 0:
+              raise SystemExit("No semester sentinel recovered the three legal fields.")
+          print(f"semester_recovered={observed}/3")
+          PY
+
+      - name: Upload smoke artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-c-rgf-semester-smoke-2025
+          path: build/raw/rgf-semester-smoke
+          retention-days: 14

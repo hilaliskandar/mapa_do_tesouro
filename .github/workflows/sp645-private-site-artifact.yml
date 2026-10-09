@@ -272,7 +272,14 @@ jobs:
                   for variable in indicator_ids:
                       target = source.get(variable)
                       status, value = db_rows.get((code, variable), ("ausente", None))
-                      if target in (None, ""):
+                      target_is_missing = (
+                          target in (None, "")
+                          or (
+                              isinstance(target, str)
+                              and target.strip().casefold() == "n.d."
+                          )
+                      )
+                      if target_is_missing:
                           if status == "observado" and value is not None:
                               raise SystemExit(f"Unexpected observed {code}/{variable}: {value}")
                           continue

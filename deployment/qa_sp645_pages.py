@@ -162,11 +162,21 @@ def fetch(url: str, *, attempts: int = 8, delay: float = 4.0):
     fail(f"Unable to fetch {url}: {last_error}")
 
 
-def fetch_json(base_url: str, path: str):
-    status, _, body = fetch(base_url.rstrip("/") + path)
-    if status != 200:
-        fail(f"{path}: HTTP {status}")
-    return json.loads(body.decode("utf-8"))
+def fetch_json(base_url: str, path: str, *, attempts: int = 8, delay: float = 4.0):
+    url = base_url.rstrip("/") + path
+    last_error = None
+    for attempt in range(attempts):
+        status, _, body = fetch(url, attempts=1)
+        if status != 200:
+            last_error = f"HTTP {status}"
+        else:
+            try:
+                return json.loads(body.decode("utf-8"))
+            except (json.JSONDecodeError, UnicodeDecodeError) as exc:
+                last_error = exc
+        if attempt + 1 < attempts:
+            time.sleep(delay)
+    fail(f"Unable to decode JSON from {path}: {last_error}")
 
 
 def validate_remote(base_url: str) -> None:

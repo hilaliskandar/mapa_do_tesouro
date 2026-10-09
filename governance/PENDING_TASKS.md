@@ -52,7 +52,7 @@ Critérios de aceite:
 
 ## Prioridade operacional atual
 
-A fila corrente começa em **P2.3 — Decidir promoção**. P0 e P1 estão encerrados; P2.1 e P2.2 foram concluídas sem alteração de `VERSION` e sem publicação estadual.
+A fila corrente aguarda **execução manual do preview SP645 isolado** pelo workflow `SP645 Pages Candidate Preview`. P0 e P1 estão encerrados; P2.1–P2.3 estão decididos e a promoção pública permanece bloqueada até o QA remoto desse preview.
 
 ## Prioridade P1 — consolidação analítica
 
@@ -64,11 +64,13 @@ Consolidar cobertura por variável, fonte, ano e universo. Diferenciar observado
 
 ### P1.2 — Recalcular derivados afetados
 
-Status: prioridade atual. O recálculo fica condicionado à verificação semântica das ausências, começando pela issue #117 para DCA e pela qualificação das linhas esparsas do RGF02.
+Status: concluído em 2026-10-09. As issues #117 e #118 foram encerradas após confirmação da regra `absence_is_not_zero`; nenhuma imputação adicional foi autorizada e não houve novos derivados a recalcular.
 
 Recalcular apenas indicadores cujo conjunto de insumos mudou com as novas cargas. Indicadores legais devem continuar ligados aos demonstrativos próprios.
 
 ### P1.3 — Recalcular tipologias e pares quando aplicável
+
+Status: concluído em 2026-10-09. Como P1.2 não alterou a observabilidade, não houve necessidade de novo recálculo; permanecem válidos 440 municípios elegíveis a pares e 1.320 posições prioritárias.
 
 Executar somente se novos insumos alterarem marcadores observáveis. Preservar regra mínima de cobertura e não criar pares artificiais para municípios sem informação suficiente.
 
@@ -98,7 +100,8 @@ Situação observada em 2026-10-09:
 
 - issues abertas: 0;
 - pull requests abertos: 0;
-- PRs #96–#107: merged;
+- PRs até #124 incorporados;
+- issues #110, #113, #115, #117, #118, #121 e #123 encerradas;
 - não há PR encalhado ou issue aberta a sanear.
 
 Política:

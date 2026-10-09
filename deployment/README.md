@@ -133,3 +133,7 @@ python deployment/qa_pages.py --url https://<preview-ou-producao>
 ```
 
 O QA não substitui revisão metodológica dos dados; ele protege o contrato de publicação e detecta regressões estruturais.
+
+## Rollback
+
+O procedimento canônico de reversão de publicação está em `deployment/ROLLBACK.md`. O rollback deve restaurar uma release estável já validada, sem reconstrução ad hoc de dados.

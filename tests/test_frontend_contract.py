@@ -23,15 +23,25 @@ def test_frontend_has_required_views_and_no_remote_runtime_dependency():
 
     for resource in (
         "./data/metadata.json",
-        "./data/municipalities.json",
         "./data/catalog/variables.json",
         "./data/methodology/index.json",
-        "./data/maps/municipalities.geojson",
         "./data/references.json",
-        "./data/coverage.json",
         "./data/crosswalk.json",
+        "./data/universes.json",
     ):
         assert resource in js
+
+    # Recursos dependentes do universo usam a base dinâmica selecionada.
+    for resource in (
+        "/metadata.json",
+        "/municipalities.json",
+        "/maps/municipalities.geojson",
+        "/coverage.json",
+        "/annual/",
+        "/municipalities/",
+    ):
+        assert resource in js
+    assert "state.dataBase" in js
 
     assert "https://raw.githubusercontent.com" not in js
     assert "api.github.com" not in js

@@ -1,5 +1,8 @@
 const state = {
   metadata: null,
+  universes: [],
+  currentUniverse: null,
+  dataBase: "./data",
   municipalities: [],
   catalog: [],
   methodology: [],
@@ -718,21 +721,110 @@ function exportCurrentSliceCsv() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `financas_municipais_sp_${state.currentYear}_${variable}.csv`;
+  link.download = `financas_municipais_sp_${state.currentUniverse}_${state.currentYear}_${variable}.csv`;
   document.body.appendChild(link);
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
 }
 
+function selectedUniverse() {
+  return state.universes.find(
+    (item) => item.universo_id === state.currentUniverse
+  ) || null;
+}
+
+function universeDataBase(universeId) {
+  const item = state.universes.find((row) => row.universo_id === universeId);
+  if (!item || item.data_path === ".") return "./data";
+  return `./data/${item.data_path}`;
+}
+
+function updateBuildMeta() {
+  const universe = selectedUniverse();
+  $("#build-meta").textContent = [
+    universe?.nome || state.metadata?.universe?.nome,
+    state.metadata?.build?.data_version,
+    state.metadata?.build?.qa_status,
+  ].filter(Boolean).join(" · ");
+}
+
+function populateUniverseSelect() {
+  const select = $("#universe-select");
+  select.innerHTML = state.universes.map((item) =>
+    `<option value="${item.universo_id}">${item.nome} (${item.municipality_count})</option>`
+  ).join("");
+  select.value = state.currentUniverse;
+}
+
+function populateMunicipalitySelect() {
+  $("#municipality-select").innerHTML = state.municipalities.map((m) =>
+    `<option value="${m.codigo_ibge}">${m.nome}</option>`
+  ).join("");
+  $("#municipality-select").value = state.currentMunicipality;
+}
+
+function populateYearSelect() {
+  const years = state.metadata?.years || [];
+  $("#year-select").innerHTML = years.map((year) =>
+    `<option value="${year}">${year}</option>`
+  ).join("");
+  $("#year-select").value = state.currentYear;
+}
+
 async function loadAnnual() {
-  state.annual = await getJSON(`./data/annual/${state.currentYear}.json`);
+  state.annual = await getJSON(
+    `${state.dataBase}/annual/${state.currentYear}.json`
+  );
 }
 
 async function loadMunicipal() {
   state.municipal = await getJSON(
-    `./data/municipalities/${state.currentMunicipality}.json`
+    `${state.dataBase}/municipalities/${state.currentMunicipality}.json`
   );
+}
+
+async function loadUniverse(universeId, { initial = false } = {}) {
+  const previousMunicipality = state.currentMunicipality;
+  const previousYear = state.currentYear;
+
+  state.currentUniverse = universeId;
+  state.dataBase = universeDataBase(universeId);
+
+  [
+    state.metadata,
+    state.municipalities,
+    state.coverage,
+  ] = await Promise.all([
+    getJSON(`${state.dataBase}/metadata.json`),
+    getJSON(`${state.dataBase}/municipalities.json`),
+    getJSON(`${state.dataBase}/coverage.json`),
+  ]);
+
+  state.mapGeoJSON = await getOptionalJSON(
+    `${state.dataBase}/maps/municipalities.geojson`
+  );
+
+  const years = state.metadata.years || [];
+  state.currentYear = years.includes(previousYear)
+    ? previousYear
+    : years[years.length - 1];
+
+  const availableCodes = new Set(
+    state.municipalities.map((item) => item.codigo_ibge)
+  );
+  state.currentMunicipality = availableCodes.has(previousMunicipality)
+    ? previousMunicipality
+    : state.municipalities[0]?.codigo_ibge || null;
+
+  populateUniverseSelect();
+  populateMunicipalitySelect();
+  populateYearSelect();
+  updateBuildMeta();
+
+  if (!initial) {
+    await refresh();
+  }
 }
 
 async function refresh() {
@@ -769,42 +861,33 @@ function bindDelegatedHelp() {
 
 async function init() {
   try {
+    const universeCatalog = await getOptionalJSON("./data/universes.json");
+
     [
-      state.metadata,
-      state.municipalities,
       state.catalog,
       state.methodology,
       state.references,
-      state.coverage,
       state.crosswalk,
     ] = await Promise.all([
-      getJSON("./data/metadata.json"),
-      getJSON("./data/municipalities.json"),
       getJSON("./data/catalog/variables.json"),
       getJSON("./data/methodology/index.json"),
       getJSON("./data/references.json"),
-      getJSON("./data/coverage.json"),
       getJSON("./data/crosswalk.json"),
     ]);
 
-    const years = state.metadata.years || [];
-    state.currentYear = years[years.length - 1];
-    state.currentMunicipality = state.municipalities[0]?.codigo_ibge || null;
-
-    $("#build-meta").textContent = [
-      state.metadata.universe?.nome,
-      state.metadata.build?.data_version,
-      state.metadata.build?.qa_status,
-    ].filter(Boolean).join(" · ");
-
-    $("#municipality-select").innerHTML = state.municipalities.map((m) =>
-      `<option value="${m.codigo_ibge}">${m.nome}</option>`
-    ).join("");
-
-    $("#year-select").innerHTML = years.map((year) =>
-      `<option value="${year}">${year}</option>`
-    ).join("");
-    $("#year-select").value = state.currentYear;
+    const rootMetadata = await getJSON("./data/metadata.json");
+    state.universes = universeCatalog?.length
+      ? universeCatalog
+      : [{
+          ...rootMetadata.universe,
+          municipality_count: rootMetadata.municipality_count,
+          default: true,
+          data_path: ".",
+        }];
+    state.currentUniverse =
+      state.universes.find((item) => item.default)?.universo_id
+      || rootMetadata.universe?.universo_id
+      || state.universes[0]?.universo_id;
 
     $("#variable-select").innerHTML = state.catalog
       .filter((item) => item.titulo_publico)
@@ -816,12 +899,19 @@ async function init() {
     }
     $("#variable-select").value = state.currentVariable;
 
+    await loadUniverse(state.currentUniverse, { initial: true });
+
+    $("#universe-select").addEventListener("change", async (event) => {
+      await loadUniverse(event.target.value);
+    });
+
     $("#municipality-select").addEventListener("change", async (event) => {
       state.currentMunicipality = event.target.value;
       await loadMunicipal();
       renderOverview();
       renderSeries();
       renderMap();
+      renderThemes();
     });
 
     $("#year-select").addEventListener("change", async (event) => {
@@ -856,8 +946,6 @@ async function init() {
     $("#dictionary-search").addEventListener("input", (event) =>
       renderDictionary(event.target.value)
     );
-
-    state.mapGeoJSON = await getOptionalJSON("./data/maps/municipalities.geojson");
 
     bindTabs();
     bindDelegatedHelp();

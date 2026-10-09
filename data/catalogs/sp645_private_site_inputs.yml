@@ -1,0 +1,25 @@
+version: 1
+name: sp645_private_site_inputs
+status: private_mirror_ready
+bucket: financas-municipais-sp-canonico
+policy:
+  - google_drive_remains_project_archive
+  - r2_is_private_ci_mirror
+  - every_download_must_verify_sha256
+  - no_public_drive_permission_required
+objects:
+  typology_input:
+    drive_file_id: 1QPY6sMSqrl3SFnq7Z5qRYXoHiCVXhdAb
+    r2_object: sp_645/site_inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx
+    size_bytes: 198963
+    sha256: 72e6302e5331ba05f066eebe55df914a7fc2dd7b6d2114e6df374bfc606977ce
+  multisource_2025:
+    drive_file_id: 12XfaN7ati-wGgw_a5puwechp7ipFdWRG
+    r2_object: sp_645/site_inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx
+    size_bytes: 335517
+    sha256: ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566
+  gate_d_indicators_2025:
+    drive_file_id: 1wYnFB8Dg000qrBM1do8pe083FlqWzHDk
+    r2_object: sp_645/site_inputs/FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx
+    size_bytes: 188416
+    sha256: adb9b5b6abbd3f439f3b39cc356522d21430de74117de4bf9ca1589c40e9c161

@@ -22,6 +22,10 @@ jobs:
   build-private:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
     steps:
       - uses: actions/checkout@v4
 
@@ -33,33 +37,23 @@ jobs:
       - name: Install build dependencies
         run: |
           pip install -e . --no-deps
-          pip install openpyxl pyyaml pytest gdown
+          pip install openpyxl pyyaml pytest
 
-      - name: Download canonical SP645 inputs
+      - name: Download and verify canonical SP645 inputs from private R2
         run: |
           mkdir -p inputs build
-          gdown 1QPY6sMSqrl3SFnq7Z5qRYXoHiCVXhdAb -O inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx
-          gdown 12XfaN7ati-wGgw_a5puwechp7ipFdWRG -O inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx
-          gdown 1wYnFB8Dg000qrBM1do8pe083FlqWzHDk -O inputs/FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx
-
-      - name: Verify canonical input hashes
-        run: |
-          python - <<'PY'
-          import hashlib
-          from pathlib import Path
-
-          expected = {
-              "inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx": "72e6302e5331ba05f066eebe55df914a7fc2dd7b6d2114e6df374bfc606977ce",
-              "inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx": "ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566",
-              "inputs/FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx": "adb9b5b6abbd3f439f3b39cc356522d21430de74117de4bf9ca1589c40e9c161",
-          }
-          for name, target in expected.items():
-              data = Path(name).read_bytes()
-              observed = hashlib.sha256(data).hexdigest()
-              if observed != target:
-                  raise SystemExit(f"Hash mismatch for {name}: {observed} != {target}")
-              print(name, observed)
-          PY
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/site_inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx" \
+            --output inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx \
+            --expected-sha256 72e6302e5331ba05f066eebe55df914a7fc2dd7b6d2114e6df374bfc606977ce
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/site_inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx" \
+            --output inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --expected-sha256 ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/site_inputs/FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx" \
+            --output inputs/FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx \
+            --expected-sha256 adb9b5b6abbd3f439f3b39cc356522d21430de74117de4bf9ca1589c40e9c161
 
       - name: Download pinned SP cartography
         run: |

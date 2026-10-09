@@ -1,5 +1,21 @@
 # Historico de versoes
 
+## 0.2.0 - Candidata estadual SP645
+
+- primeira release congelada para o universo estadual de 645 municipios;
+- periodo operacional 2021–2025, com historico minimo em 2021–2024 e escopo multifuentes completo em 2025;
+- cobertura final recomposta apos transformacoes e contribuicao por fonte exportada separadamente;
+- quatro estados canonicos de cobertura, incluindo `em_revisao`;
+- RGF02 com complemento fill-only apenas para conceitos semanticamente equivalentes;
+- 645 geometrias municipais;
+- CAPAG 645/645;
+- 440 municipios elegiveis a pares e 1.320 posicoes prioritarias;
+- 11.501 celulas em paridade com o Gate D;
+- regressao TIC-TIM 30 sem divergencias nao explicadas;
+- exportacao CSV F116 incorporada;
+- preview estadual isolado aprovado local e remotamente;
+- release nao promove automaticamente a producao estadual.
+
 ## 0.1.0 - Financas Municipais SP — baseline TIC-TIM 30
 
 - congelamento do primeiro baseline auditável do novo núcleo;

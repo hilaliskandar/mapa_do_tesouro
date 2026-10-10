@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Test TCESP extraction quality gate without network
+        run: python3 editorial/rmj/test_qa_tcesp_2023_2024.py
       - name: Inspect TCESP download link (nonblocking research)
         run: python3 editorial/rmj/probe_tcesp.py || true
       - name: Analyze TCESP Jundiai 2025 pilot (research)

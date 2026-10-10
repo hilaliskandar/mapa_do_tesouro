@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p dados
           : > dados/manifest.tsv
-          for city in americana artur-nogueira caieiras campinas cosmopolis engenheiro-coelho francisco-morato franco-da-rocha holambra hortolandia indaiatuba itatiba jaguariuna monte-mor morungaba nova-odessa paulinia pedreira santa-barbara-doeste santo-antonio-de-posse sumare valinhos vinhedo; do
+          for city in americana artur-nogueira caieiras campinas cosmopolis engenheiro-coelho francisco-morato franco-da-rocha holambra hortolandia indaiatuba itatiba jaguariuna monte-mor morungaba nova-odessa paulinia pedreira santa-barbara-d-oeste santo-antonio-de-posse sumare valinhos vinhedo; do
             echo "PROCESSANDO ${city} ${{ matrix.ano }}"
             if python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "${{ matrix.ano }}" > "dados/${city}_${{ matrix.ano }}.json" 2> "dados/${city}_${{ matrix.ano }}.stderr"; then
               printf '%s\t%s\tOK\n' "$city" "${{ matrix.ano }}" >> dados/manifest.tsv

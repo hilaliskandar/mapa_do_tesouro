@@ -41,6 +41,8 @@ jobs:
       - name: Extract RMJ 2023-2024 TCESP data with traceability
         id: rmj_extract
         continue-on-error: true
+        env:
+          TCESP_TIMEOUT_SECONDS: '25'
         shell: bash
         run: |
           mkdir -p build/rmj-tcesp-2023-2024

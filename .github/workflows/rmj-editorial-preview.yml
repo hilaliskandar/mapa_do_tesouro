@@ -38,6 +38,14 @@ jobs:
             echo "BEGIN_MUNICIPALITY $city"
             python3 editorial/rmj/analyze_tcesp_pilot.py "$city" || echo "FAILED_MUNICIPALITY $city"
           done
+      - name: Reconcile RMJ investment 2023-2024 (research)
+        run: |
+          for year in 2023 2024; do
+            for city in cabreuva campo-limpo-paulista itupeva jarinu jundiai louveira varzea-paulista; do
+              echo "START_RECONCILE $city $year"
+              python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "$year" || echo "FAILED_RECONCILE $city $year"
+            done
+          done
       - name: Validate editorial preview
         shell: bash
         run: |

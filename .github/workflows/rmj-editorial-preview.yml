@@ -74,9 +74,20 @@ jobs:
           fi
       - name: Produce TCESP extraction QA table
         if: always()
+        id: rmj_extract_qa
+        continue-on-error: true
         shell: bash
         run: |
           python3 editorial/rmj/qa_tcesp_2023_2024.py build/rmj-tcesp-2023-2024
+      - name: Report independent TCESP evidence gate
+        if: always()
+        shell: bash
+        run: |
+          echo "### Evidências TCESP 2023-2024" >> "$GITHUB_STEP_SUMMARY"
+          echo "Resultado do controle de extração: ${{ steps.rmj_extract_qa.outcome }}." >> "$GITHUB_STEP_SUMMARY"
+          echo "Conciliação TCESP × DCA: **não avaliada neste fluxo**; exige confronto separado com base canônica." >> "$GITHUB_STEP_SUMMARY"
+          echo "O artefato CSV registra os erros por município/ano. Falhas não são zeros contábeis." >> "$GITHUB_STEP_SUMMARY"
+
       - name: Archive RMJ 2023-2024 TCESP extracts
         if: always()
         uses: actions/upload-artifact@v4

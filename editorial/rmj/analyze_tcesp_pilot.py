@@ -3,13 +3,14 @@
 from urllib.request import Request,urlopen
 from io import BytesIO,TextIOWrapper
 from collections import Counter,defaultdict
-import csv,json,re,zipfile
+import csv,json,re,zipfile,os
 import sys
 slug=sys.argv[1] if len(sys.argv)>1 else "jundiai"
 year=int(sys.argv[2]) if len(sys.argv)>2 else 2025
 url=f"https://transparencia.tce.sp.gov.br/sites/default/files/csv/despesas-{slug}-{year}.zip"
 req=Request(url,headers={"User-Agent":"Mozilla/5.0"})
-with urlopen(req,timeout=120) as response: data=response.read()
+timeout=int(os.environ.get('TCESP_TIMEOUT_SECONDS', '120'))
+with urlopen(req,timeout=timeout) as response: data=response.read()
 assert zipfile.is_zipfile(BytesIO(data))
 with zipfile.ZipFile(BytesIO(data)) as z:
     file=z.namelist()[0]

@@ -1,0 +1,44 @@
+name: TIC TIM TCESP Complemento 23 Municipios
+on:
+  push:
+    branches: [editorial/rmj-piloto-html]
+    paths:
+      - '.github/workflows/tictim-tcesp-complemento-23.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  extrair:
+    name: TCESP ano ${{ matrix.ano }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        ano: [2023, 2024, 2025]
+    env:
+      TCESP_TIMEOUT_SECONDS: '35'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extrair 23 municipios
+        shell: bash
+        run: |
+          mkdir -p dados
+          : > dados/manifest.tsv
+          for city in americana artur-nogueira caieiras campinas cosmopolis engenheiro-coelho francisco-morato franco-da-rocha holambra hortolandia indaiatuba itatiba jaguariuna monte-mor morungaba nova-odessa paulinia pedreira santa-barbara-doeste santo-antonio-de-posse sumare valinhos vinhedo; do
+            echo "PROCESSANDO ${city} ${{ matrix.ano }}"
+            if python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "${{ matrix.ano }}" > "dados/${city}_${{ matrix.ano }}.json" 2> "dados/${city}_${{ matrix.ano }}.stderr"; then
+              printf '%s\t%s\tOK\n' "$city" "${{ matrix.ano }}" >> dados/manifest.tsv
+            else
+              printf '%s\t%s\tERRO\n' "$city" "${{ matrix.ano }}" >> dados/manifest.tsv
+            fi
+          done
+          cat dados/manifest.tsv >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar evidencias de extracao
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tictim-tcesp-complemento-${{ matrix.ano }}-${{ github.sha }}
+          path: dados/
+          retention-days: 30
+          if-no-files-found: warn

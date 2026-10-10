@@ -90,6 +90,10 @@ jobs:
       - name: Run tests
         run: pytest -q tests
 
+      - name: Test RMJ TCESP extraction QA logic offline
+        if: github.event_name == 'pull_request'
+        run: python3 editorial/rmj/test_qa_tcesp_2023_2024.py
+
       - name: Resolve application version
         id: version
         shell: bash

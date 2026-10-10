@@ -38,6 +38,8 @@ jobs:
           TCESP_TIMEOUT_SECONDS: '25'
         run: python3 editorial/rmj/analyze_tcesp_pilot.py
       - name: Analyze other RMJ municipalities 2025 (nonblocking research)
+        env:
+          TCESP_TIMEOUT_SECONDS: '25'
         run: |
           for city in cabreuva campo-limpo-paulista itupeva jarinu louveira varzea-paulista; do
             echo "BEGIN_MUNICIPALITY $city"

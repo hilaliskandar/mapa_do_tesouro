@@ -30,6 +30,8 @@ jobs:
           node-version: '22'
       - name: Inspect TCESP download link (nonblocking research)
         run: python3 editorial/rmj/probe_tcesp.py || true
+      - name: Analyze TCESP Jundiai 2025 pilot (research)
+        run: python3 editorial/rmj/analyze_tcesp_pilot.py
       - name: Validate editorial preview
         shell: bash
         run: |

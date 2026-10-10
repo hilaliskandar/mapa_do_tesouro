@@ -18,7 +18,7 @@ def main(folder):
                           fonte_tcesp=f"https://transparencia.tce.sp.gov.br/sites/default/files/csv/despesas-{city}-{year}.zip",
                           linhas_tcesp="", investimento_liquidado_tcesp_rs="",
                           investimento_liquidado_dca_rs="", diferenca_rs="",
-                          situacao_conciliacao="PENDENTE_DCA", arquivo_extrato=path.name)
+                          situacao_conciliacao="PENDENTE_DCA", arquivo_extrato=path.name, diagnostico_extracao="")
             try:
                 data = json.loads(path.read_text(encoding="utf-8"))
                 assert data["slug"] == city and data["year"] == year, "municipio/ano divergente"
@@ -30,7 +30,13 @@ def main(folder):
                 record.update(situacao_extracao="OK", linhas_tcesp=data["rows"],
                               investimento_liquidado_tcesp_rs=f"{matches[0]:.2f}")
             except (OSError, ValueError, KeyError, AssertionError, TypeError) as exc:
-                errors.append(f"{city} {year}: {exc}")
+                stderr_path = folder / f"{city}_{year}.stderr"
+                stderr = stderr_path.read_text(encoding="utf-8", errors="replace") if stderr_path.exists() else ""
+                diagnostic = str(exc)
+                if stderr.strip():
+                    diagnostic += " | " + stderr.strip()[-1200:]
+                record["diagnostico_extracao"] = diagnostic
+                errors.append(f"{city} {year}: {diagnostic}")
             records.append(record)
     with (folder / "controle_conciliacao.csv").open("w", newline="", encoding="utf-8-sig") as fp:
         writer = csv.DictWriter(fp, fieldnames=records[0].keys(), delimiter=";")

@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: rmj-editorial-preview
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   validate-and-deploy:
@@ -38,14 +38,37 @@ jobs:
             echo "BEGIN_MUNICIPALITY $city"
             python3 editorial/rmj/analyze_tcesp_pilot.py "$city" || echo "FAILED_MUNICIPALITY $city"
           done
-      - name: Reconcile RMJ investment 2023-2024 (research)
+      - name: Extract RMJ 2023-2024 TCESP data with traceability
+        id: rmj_extract
+        shell: bash
         run: |
+          mkdir -p build/rmj-tcesp-2023-2024
+          : > build/rmj-tcesp-2023-2024/manifest.tsv
+          errors=0
           for year in 2023 2024; do
             for city in cabreuva campo-limpo-paulista itupeva jarinu jundiai louveira varzea-paulista; do
               echo "START_RECONCILE $city $year"
-              python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "$year" || echo "FAILED_RECONCILE $city $year"
+              if python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "$year" > "build/rmj-tcesp-2023-2024/${city}_${year}.json" 2> "build/rmj-tcesp-2023-2024/${city}_${year}.stderr"; then
+                printf '%s\t%s\tOK\n' "$city" "$year" >> build/rmj-tcesp-2023-2024/manifest.tsv
+              else
+                printf '%s\t%s\tERROR\n' "$city" "$year" >> build/rmj-tcesp-2023-2024/manifest.tsv
+                errors=$((errors+1))
+              fi
             done
           done
+          echo "extraction_errors=$errors" >> "$GITHUB_OUTPUT"
+          if [ "$errors" -ne 0 ]; then
+            echo "::error::$errors TCESP extracts failed. Do not consider 2023-2024 reconciled."
+            exit 1
+          fi
+      - name: Archive RMJ 2023-2024 TCESP extracts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmj-tcesp-2023-2024-${{ github.sha }}
+          path: build/rmj-tcesp-2023-2024/
+          if-no-files-found: warn
+          retention-days: 30
       - name: Validate editorial preview
         shell: bash
         run: |

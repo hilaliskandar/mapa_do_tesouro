@@ -3,7 +3,7 @@
 from urllib.request import Request,urlopen
 from io import BytesIO,TextIOWrapper
 from collections import Counter,defaultdict
-import csv,json,re,zipfile,os
+import csv,json,re,zipfile,os,hashlib
 import sys
 slug=sys.argv[1] if len(sys.argv)>1 else "jundiai"
 year=int(sys.argv[2]) if len(sys.argv)>2 else 2025
@@ -36,4 +36,24 @@ with zipfile.ZipFile(BytesIO(data)) as z:
             if code.startswith("44") and tp.strip().lower()=="valor liquidado":
                 by_program[(row.get("cd_programa"),row.get("ds_programa"))]+=cents
                 by_action[(row.get("cd_programa"),row.get("cd_acao"),row.get("ds_acao"))]+=cents
-print(json.dumps({"slug":slug,"year":year,"url":url,"file":file,"rows":n,"columns":fields,"types":types,"organs":organs.most_common(12),"element_groups":elements,"months":months,"bad_values":bad,"totals_44_by_type":{k[0]:round(v/100,2) for k,v in totals.items() if k[1]=="44"},"top_program_44_liquidado":[list(k)+[round(v/100,2)] for k,v in sorted(by_program.items(),key=lambda x:-x[1])[:12]],"top_action_44_liquidado":[list(k)+[round(v/100,2)] for k,v in sorted(by_action.items(),key=lambda x:-x[1])[:12]]},ensure_ascii=False,indent=2))
+def ranked(mapping):
+    return [list(k) + [round(cents/100, 2), cents]
+            for k, cents in sorted(mapping.items(), key=lambda item: -item[1])]
+
+all_program = ranked(by_program)
+all_action = ranked(by_action)
+total_cents = sum(by_program.values())
+assert total_cents == sum(by_action.values()), "Totais de programas e acoes nao coincidem"
+print(json.dumps({
+    "slug":slug,"year":year,"url":url,"file":file,
+    "sha256_zip":hashlib.sha256(data).hexdigest(),
+    "rows":n,"columns":fields,"types":types,
+    "organs":organs.most_common(12),"element_groups":elements,
+    "months":months,"bad_values":bad,
+    "totals_44_by_type":{k[0]:round(v/100,2) for k,v in totals.items() if k[1]=="44"},
+    "investimento_44_liquidado_centavos":total_cents,
+    "programas_44_liquidado_completos":all_program,
+    "acoes_44_liquidado_completas":all_action,
+    "top_program_44_liquidado":[item[:-1] for item in all_program[:12]],
+    "top_action_44_liquidado":[item[:-1] for item in all_action[:12]]
+},ensure_ascii=False,indent=2))

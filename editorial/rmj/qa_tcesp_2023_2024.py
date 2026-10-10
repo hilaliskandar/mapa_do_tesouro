@@ -27,6 +27,13 @@ def main(folder):
                 matches = [v for k, v in totals.items() if str(k).strip().casefold() == "valor liquidado"]
                 assert len(matches) == 1, "total liquidado do grupo 44 ausente ou duplicado"
                 assert isinstance(matches[0], (int,float)), "valor nao numerico"
+                if "investimento_44_liquidado_centavos" in data:
+                    cents = data["investimento_44_liquidado_centavos"]
+                    assert isinstance(cents, int), "total em centavos deve ser inteiro"
+                    assert abs(matches[0] * 100 - cents) < 0.5, "total em centavos e total em reais divergentes"
+                    assert sum(item[-1] for item in data["programas_44_liquidado_completos"]) == cents, "programas nao fecham o total"
+                    assert sum(item[-1] for item in data["acoes_44_liquidado_completas"]) == cents, "acoes nao fecham o total"
+                    assert len(data.get("sha256_zip","")) == 64, "hash do ZIP ausente ou invalido"
                 record.update(situacao_extracao="OK", linhas_tcesp=data["rows"],
                               investimento_liquidado_tcesp_rs=f"{matches[0]:.2f}")
             except (OSError, ValueError, KeyError, AssertionError, TypeError) as exc:

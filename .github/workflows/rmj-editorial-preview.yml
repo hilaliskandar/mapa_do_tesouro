@@ -32,6 +32,12 @@ jobs:
         run: python3 editorial/rmj/probe_tcesp.py || true
       - name: Analyze TCESP Jundiai 2025 pilot (research)
         run: python3 editorial/rmj/analyze_tcesp_pilot.py
+      - name: Analyze other RMJ municipalities 2025 (nonblocking research)
+        run: |
+          for city in cabreuva campo-limpo-paulista itupeva jarinu louveira varzea-paulista; do
+            echo "BEGIN_MUNICIPALITY $city"
+            python3 editorial/rmj/analyze_tcesp_pilot.py "$city" || echo "FAILED_MUNICIPALITY $city"
+          done
       - name: Validate editorial preview
         shell: bash
         run: |

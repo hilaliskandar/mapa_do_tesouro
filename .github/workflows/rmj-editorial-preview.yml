@@ -1,0 +1,146 @@
+name: RMJ Editorial Preview
+on:
+  push:
+    branches:
+      - editorial/rmj-piloto-html
+    paths:
+      - 'editorial/rmj/**'
+      - '.github/workflows/rmj-editorial-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rmj-editorial-preview
+  cancel-in-progress: false
+
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test TCESP extraction quality gate without network
+        run: python3 editorial/rmj/test_qa_tcesp_2023_2024.py
+      - name: Inspect TCESP download link (nonblocking research)
+        run: python3 editorial/rmj/probe_tcesp.py || true
+      - name: Analyze TCESP Jundiai 2025 pilot (nonblocking research)
+        continue-on-error: true
+        env:
+          TCESP_TIMEOUT_SECONDS: '25'
+        run: python3 editorial/rmj/analyze_tcesp_pilot.py
+      - name: Analyze other RMJ municipalities 2025 (nonblocking research)
+        env:
+          TCESP_TIMEOUT_SECONDS: '25'
+        run: |
+          for city in cabreuva campo-limpo-paulista itupeva jarinu louveira varzea-paulista; do
+            echo "BEGIN_MUNICIPALITY $city"
+            python3 editorial/rmj/analyze_tcesp_pilot.py "$city" || echo "FAILED_MUNICIPALITY $city"
+          done
+      - name: Extract RMJ 2023-2024 TCESP data with traceability
+        id: rmj_extract
+        continue-on-error: true
+        env:
+          TCESP_TIMEOUT_SECONDS: '25'
+        shell: bash
+        run: |
+          mkdir -p build/rmj-tcesp-2023-2024
+          : > build/rmj-tcesp-2023-2024/manifest.tsv
+          errors=0
+          for year in 2023 2024; do
+            for city in cabreuva campo-limpo-paulista itupeva jarinu jundiai louveira varzea-paulista; do
+              echo "START_RECONCILE $city $year"
+              if python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "$year" > "build/rmj-tcesp-2023-2024/${city}_${year}.json" 2> "build/rmj-tcesp-2023-2024/${city}_${year}.stderr"; then
+                printf '%s\t%s\tOK\n' "$city" "$year" >> build/rmj-tcesp-2023-2024/manifest.tsv
+              else
+                printf '%s\t%s\tERROR\n' "$city" "$year" >> build/rmj-tcesp-2023-2024/manifest.tsv
+                errors=$((errors+1))
+              fi
+            done
+          done
+          echo "extraction_errors=$errors" >> "$GITHUB_OUTPUT"
+          echo "RMJ TCESP 2023-2024: $((14-errors))/14 extratos sem erro de execucao; conciliacao com DCA ainda pendente." >> "$GITHUB_STEP_SUMMARY"
+          if [ "$errors" -ne 0 ]; then
+            echo "::error::$errors TCESP extracts failed. Do not consider 2023-2024 reconciled."
+            exit 1
+          fi
+      - name: Produce TCESP extraction QA table
+        if: always()
+        id: rmj_extract_qa
+        continue-on-error: true
+        shell: bash
+        run: |
+          python3 editorial/rmj/qa_tcesp_2023_2024.py build/rmj-tcesp-2023-2024
+      - name: Report independent TCESP evidence gate
+        if: always()
+        shell: bash
+        run: |
+          echo "### Evidências TCESP 2023-2024" >> "$GITHUB_STEP_SUMMARY"
+          echo "Resultado do controle de extração: ${{ steps.rmj_extract_qa.outcome }}." >> "$GITHUB_STEP_SUMMARY"
+          echo "Conciliação TCESP × DCA: **não avaliada neste fluxo**; exige confronto separado com base canônica." >> "$GITHUB_STEP_SUMMARY"
+          echo "O artefato CSV registra os erros por município/ano. Falhas não são zeros contábeis." >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Archive RMJ 2023-2024 TCESP extracts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmj-tcesp-2023-2024-${{ github.sha }}
+          path: build/rmj-tcesp-2023-2024/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Validate editorial preview
+        shell: bash
+        run: |
+          test -s editorial/rmj/index.html
+          grep -F 'PILOTO EDITORIAL' editorial/rmj/index.html >/dev/null
+          grep -F 'DCA_SP_645_2013_2025_CANONICO.csv' editorial/rmj/index.html >/dev/null
+          python3 editorial/rmj/check_html.py editorial/rmj/index.html /tmp/rmj-editorial.js
+          node --check /tmp/rmj-editorial.js
+          node editorial/rmj/smoke_browser.js
+          grep -F 'Como explorar esta edição' editorial/rmj/index.html >/dev/null
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_PAGES_PROJECT"
+          mkdir -p build/rmj-editorial
+          cp editorial/rmj/index.html build/rmj-editorial/index.html
+          printf '%s\n' '/*' '  X-Content-Type-Options: nosniff' '  Referrer-Policy: strict-origin-when-cross-origin' "  Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'" > build/rmj-editorial/_headers
+      - name: Deploy isolated RMJ preview branch
+        shell: bash
+        run: |
+          npx --yes wrangler@4.148.0 pages deploy build/rmj-editorial \
+            --project-name="$CLOUDFLARE_PAGES_PROJECT" \
+            --branch=rmj-piloto \
+            --commit-hash="${{ github.sha }}" \
+            --commit-message="RMJ pilot editorial preview" \
+            --commit-dirty=false
+      - name: Install browser QA dependencies
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install chromium --with-deps
+      - name: Run real browser QA
+        env:
+          RMJ_QA_URL: https://rmj-piloto.${{ vars.CLOUDFLARE_PAGES_PROJECT }}.pages.dev
+        run: node editorial/rmj/qa_browser.cjs
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmj-browser-evidence-${{ github.sha }}
+          path: build/rmj-qa/
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Check published preview
+        shell: bash
+        run: |
+          URL="https://rmj-piloto.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+          curl --fail --location --retry 5 --retry-delay 3 "$URL" -o /tmp/rmj-preview.html
+          grep -F 'Finanças municipais da Região Metropolitana de Jundiaí' /tmp/rmj-preview.html
+          echo "Boletim RMJ preview: $URL" >> "$GITHUB_STEP_SUMMARY"

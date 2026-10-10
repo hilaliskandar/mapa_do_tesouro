@@ -90,6 +90,10 @@ jobs:
       - name: Run tests
         run: pytest -q tests
 
+      - name: Test RMJ TCESP extraction QA logic offline
+        if: github.event_name == 'pull_request'
+        run: python3 editorial/rmj/test_qa_tcesp_2023_2024.py
+
       - name: Resolve application version
         id: version
         shell: bash
@@ -149,3 +153,84 @@ jobs:
         run: |
           echo "### Cloudflare Pages preview" >> "$GITHUB_STEP_SUMMARY"
           echo "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" >> "$GITHUB_STEP_SUMMARY"
+
+  rmj-tcesp-historical-evidence:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 143
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download TCESP RMJ historical extracts (independent audit)
+        shell: bash
+        env:
+          TCESP_TIMEOUT_SECONDS: '25'
+        run: |
+          mkdir -p build/rmj-tcesp-2023-2024
+          : > build/rmj-tcesp-2023-2024/manifest.tsv
+          for year in 2023 2024; do
+            for city in cabreuva campo-limpo-paulista itupeva jarinu jundiai louveira varzea-paulista; do
+              path="build/rmj-tcesp-2023-2024/${city}_${year}"
+              if python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "$year" > "${path}.json" 2> "${path}.stderr"; then
+                printf '%s\t%s\tOK\n' "$city" "$year" >> build/rmj-tcesp-2023-2024/manifest.tsv
+              else
+                printf '%s\t%s\tERROR\n' "$city" "$year" >> build/rmj-tcesp-2023-2024/manifest.tsv
+              fi
+            done
+          done
+      - name: Consolidate extraction evidence
+        if: always()
+        shell: bash
+        run: |
+          python3 editorial/rmj/qa_tcesp_2023_2024.py build/rmj-tcesp-2023-2024 || true
+          if test -f build/rmj-tcesp-2023-2024/qa_summary.json; then
+            cat build/rmj-tcesp-2023-2024/qa_summary.json >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "Esta execucao nao reconcilia TCESP com DCA; nenhum resultado e aprovado automaticamente." >> "$GITHUB_STEP_SUMMARY"
+      - name: Archive complete historical evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmj-tcesp-pr143-${{ github.sha }}
+          path: build/rmj-tcesp-2023-2024/
+          if-no-files-found: warn
+          retention-days: 30
+
+  tictim-tcesp-complemento-23:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 143
+    name: TIC TIM TCESP ${{ matrix.ano }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        ano: [2023, 2024, 2025]
+    permissions:
+      contents: read
+    env:
+      TCESP_TIMEOUT_SECONDS: '35'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extrair TCESP municipios adicionais
+        shell: bash
+        run: |
+          mkdir -p dados
+          : > dados/manifest.tsv
+          for city in americana artur-nogueira caieiras campinas cosmopolis engenheiro-coelho francisco-morato franco-da-rocha holambra hortolandia indaiatuba itatiba jaguariuna monte-mor morungaba nova-odessa paulinia pedreira santa-barbara-d-oeste santo-antonio-de-posse sumare valinhos vinhedo; do
+            echo "PROCESSANDO ${city} ${{ matrix.ano }}"
+            if python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "${{ matrix.ano }}" > "dados/${city}_${{ matrix.ano }}.json" 2> "dados/${city}_${{ matrix.ano }}.stderr"; then
+              printf '%s\\t%s\\tOK\\n' "$city" "${{ matrix.ano }}" >> dados/manifest.tsv
+            else
+              printf '%s\\t%s\\tERRO\\n' "$city" "${{ matrix.ano }}" >> dados/manifest.tsv
+            fi
+          done
+          cat dados/manifest.tsv >> "$GITHUB_STEP_SUMMARY"
+      - name: Arquivar os 23 extratos e erros
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tictim-tcesp-23-${{ matrix.ano }}-${{ github.sha }}
+          path: dados/
+          if-no-files-found: warn
+          retention-days: 30

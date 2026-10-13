@@ -9,6 +9,9 @@ from pathlib import Path
 
 from pipeline.build.build_static_site import build_static_site
 from pipeline.build.export_publication_api import export_publication_api
+from pipeline.build.export_state_api_v2 import export_state_api
+from pipeline.build.export_regional_api_v2 import export_regional_api
+from pipeline.qa.audit_api_readiness_v2 import audit_readiness
 from pipeline.build.load_documentation import load_documentation
 from pipeline.ingest.import_multifuentes import import_multifuentes
 from pipeline.ingest.import_universe_catalog import import_universe_catalog
@@ -105,6 +108,14 @@ def build_sp645_private_site(
         universes_catalog=PUBLICATION_UNIVERSES_CATALOG,
         variables_catalog=PUBLICATION_VARIABLES_CATALOG,
     )
+    v2_dir = site_output / "data" / "api" / "v2"
+    result["api_v2_state"] = export_state_api(
+        database, v2_dir, universe_id="SP_645"
+    )
+    result["api_v2_regional"] = export_regional_api(database, v2_dir)
+    result["api_v2_readiness"] = audit_readiness(
+        database, v2_dir / "qa" / "readiness.json", "SP_645"
+    )["summary"]
     return result
 
 

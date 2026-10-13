@@ -309,6 +309,9 @@ jobs:
           })
           PY
 
+      - name: Validate complete API v2 from canonical private build
+        run: python deployment/qa_api_v2.py --site build/site-sp645
+
       - name: Upload private SP645 site artifact
         uses: actions/upload-artifact@v4
         with:

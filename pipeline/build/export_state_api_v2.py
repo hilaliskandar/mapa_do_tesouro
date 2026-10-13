@@ -48,7 +48,32 @@ def export_state_api(database: Path, output: Path, *, universe_id: str = "SP_645
                       periodicidade,publicavel,ativo
                FROM variavel ORDER BY variavel_id""",
         )
-        variables_by_id = {v["variavel_id"]: v for v in variables}
+        editorial = {
+            row["variavel_id"]: dict(row) for row in con.execute(
+                """SELECT variavel_id,titulo_publico,formula_publica,como_ler,
+                          limitacoes,fonte_publica,url_fonte,documentation_version
+                   FROM variavel_documentacao"""
+            )
+        }
+
+        def effective_metadata(variable):
+            doc = editorial.get(variable["variavel_id"], {})
+            merged = dict(variable)
+            for technical, public in (
+                ("formula", "formula_publica"),
+                ("como_ler", "como_ler"),
+                ("cautelas", "limitacoes"),
+            ):
+                if not merged.get(technical) and doc.get(public):
+                    merged[technical] = doc[public]
+            merged["documentacao_editorial"] = {
+                "titulo_publico": doc.get("titulo_publico"),
+                "fonte_publica": doc.get("fonte_publica"),
+                "url_fonte": doc.get("url_fonte"),
+                "documentation_version": doc.get("documentation_version"),
+            }
+            return merged
+
         years = [r[0] for r in con.execute(
             """SELECT DISTINCT o.ano FROM observacao o
                JOIN universo_municipio um ON um.codigo_ibge=o.codigo_ibge
@@ -85,7 +110,7 @@ def export_state_api(database: Path, output: Path, *, universe_id: str = "SP_645
         write_json(root / "catalog" / "variables.json", {
             "catalog_count": len(variables),
             "variables": [{
-                **v,
+                **effective_metadata(v),
                 "api_available": v["variavel_id"] in allowed,
                 "crosswalk": crosswalk_by_variable.get(v["variavel_id"], []),
                 "storage_scale": "nao_documentada",

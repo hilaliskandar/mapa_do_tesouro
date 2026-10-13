@@ -9,6 +9,9 @@ from pathlib import Path
 
 from pipeline.build.build_static_site import build_static_site
 from pipeline.build.export_publication_api import export_publication_api
+from pipeline.build.export_state_api_v2 import export_state_api
+from pipeline.build.export_regional_api_v2 import export_regional_api
+from pipeline.qa.audit_api_readiness_v2 import audit_readiness
 from pipeline.build.load_documentation import load_documentation
 from pipeline.ingest.import_multifuentes import import_multifuentes
 from pipeline.ingest.import_universe_catalog import import_universe_catalog
@@ -50,6 +53,27 @@ def _load_additional_universes(database: Path) -> list[str]:
             """
         ).fetchall()
     return [row[0] for row in rows]
+
+
+
+def export_v2_site_artifacts(database: Path, site_output: Path) -> dict:
+    """Build the exact v2 tree that production packaging will publish."""
+    v2_dir = site_output / "data" / "api" / "v2"
+    state = export_state_api(database, v2_dir, universe_id="SP_645")
+    regional = export_regional_api(database, v2_dir)
+    readiness = audit_readiness(
+        database, v2_dir / "qa" / "readiness.json", "SP_645"
+    )["summary"]
+    if state["municipalities"] != 645:
+        raise ValueError(
+            "SP645 API v2 incomplete: "
+            + str(state["municipalities"]) + "/645 municipalities"
+        )
+    return {
+        "api_v2_state": state,
+        "api_v2_regional": regional,
+        "api_v2_readiness": readiness,
+    }
 
 
 def build_sp645_private_site(
@@ -105,6 +129,7 @@ def build_sp645_private_site(
         universes_catalog=PUBLICATION_UNIVERSES_CATALOG,
         variables_catalog=PUBLICATION_VARIABLES_CATALOG,
     )
+    result.update(export_v2_site_artifacts(database, site_output))
     return result
 
 

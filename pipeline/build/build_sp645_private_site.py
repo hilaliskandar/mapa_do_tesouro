@@ -55,6 +55,27 @@ def _load_additional_universes(database: Path) -> list[str]:
     return [row[0] for row in rows]
 
 
+
+def export_v2_site_artifacts(database: Path, site_output: Path) -> dict:
+    """Build the exact v2 tree that production packaging will publish."""
+    v2_dir = site_output / "data" / "api" / "v2"
+    state = export_state_api(database, v2_dir, universe_id="SP_645")
+    regional = export_regional_api(database, v2_dir)
+    readiness = audit_readiness(
+        database, v2_dir / "qa" / "readiness.json", "SP_645"
+    )["summary"]
+    if state["municipalities"] != 645:
+        raise ValueError(
+            "SP645 API v2 incomplete: "
+            + str(state["municipalities"]) + "/645 municipalities"
+        )
+    return {
+        "api_v2_state": state,
+        "api_v2_regional": regional,
+        "api_v2_readiness": readiness,
+    }
+
+
 def build_sp645_private_site(
     workbook: Path,
     mapping: Path,
@@ -108,14 +129,7 @@ def build_sp645_private_site(
         universes_catalog=PUBLICATION_UNIVERSES_CATALOG,
         variables_catalog=PUBLICATION_VARIABLES_CATALOG,
     )
-    v2_dir = site_output / "data" / "api" / "v2"
-    result["api_v2_state"] = export_state_api(
-        database, v2_dir, universe_id="SP_645"
-    )
-    result["api_v2_regional"] = export_regional_api(database, v2_dir)
-    result["api_v2_readiness"] = audit_readiness(
-        database, v2_dir / "qa" / "readiness.json", "SP_645"
-    )["summary"]
+    result.update(export_v2_site_artifacts(database, site_output))
     return result
 
 

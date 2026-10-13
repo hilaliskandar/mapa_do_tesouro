@@ -37,6 +37,25 @@ def validate_v2(site):
         raise ValueError("Readiness municipality count != 645")
     if manifest["variable_catalog_count"] != len(catalog["variables"]):
         raise ValueError("Variable catalog count mismatch")
+    by_id = {v["variavel_id"]: v for v in catalog["variables"]}
+    audited = {v["variable_id"]: v for v in readiness["variables"]}
+    if len(by_id) != len(catalog["variables"]) or set(by_id) != set(audited):
+        raise ValueError("Readiness/catalog variable identifiers differ or duplicate")
+    for identifier, result in audited.items():
+        entry = by_id[identifier]
+        for field in ("formula", "como_ler", "cautelas"):
+            if field not in result["missing_methodology_fields"] and (
+                field != "formula" or entry.get("tipo") == "indicador_derivado"
+            ):
+                if not str(entry.get(field) or "").strip():
+                    raise ValueError(f"Readiness/catalog metadata mismatch: {identifier}/{field}")
+        if result.get("editorial_documentation_version") != (
+            entry.get("documentacao_editorial") or {}
+        ).get("documentation_version"):
+            raise ValueError(f"Readiness/catalog documentation version mismatch: {identifier}")
+        if entry.get("unidade") == "percentual" and not result["scale_verified"]:
+            if entry.get("display_multiplier") is not None:
+                raise ValueError(f"Unverified percentage scale has multiplier: {identifier}")
     for code in codes:
         ficha = load(root / "municipalities" / f"{code}.json")
         if ficha["municipality"]["codigo_ibge"] != code:

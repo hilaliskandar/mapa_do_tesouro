@@ -16,9 +16,9 @@ def test_editorial_documentation_fills_only_supported_fields(tmp_path):
     con.execute("""INSERT INTO variavel(variavel_id,nome,grupo,tipo,unidade,definicao)
                    VALUES('a','Indicador','indicadores','indicador_derivado','percentual','Definicao')""")
     con.execute("""INSERT INTO variavel_documentacao(variavel_id,titulo_publico,
-                   formula_publica,como_ler,limitacoes,documentation_version)
+                   formula_publica,como_ler,limitacoes,origem_documental,documentation_version)
                    VALUES('a','Indicador','a / b','Leitura verificada',
-                          'Somente comparavel sob mesma fonte','teste')""")
+                          'Somente comparavel sob mesma fonte','teste_catalogo','teste')""")
     con.execute("""INSERT INTO observacao(codigo_ibge,ano,variavel_id,status,valor_num)
                    VALUES('3500001',2025,'a','observado',0)""")
     con.commit()

@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sqlite3
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -63,6 +64,7 @@ def export_regional_api(database: Path, output: Path) -> dict:
                 for vid in var_ids:
                     counter = Counter()
                     nums = []
+                    categories = Counter()
                     sources = Counter()
                     for code in codes:
                         row = observed_lookup.get((code, year, vid))
@@ -70,8 +72,13 @@ def export_regional_api(database: Path, output: Path) -> dict:
                         if status not in STATUSES:
                             raise ValueError(f"Estado invalido: {status}")
                         counter[status] += 1
-                        if row and status == "observado" and row["valor_num"] is not None:
-                            nums.append(row["valor_num"])
+                        if row and status == "observado":
+                            if row["valor_num"] is not None:
+                                if not math.isfinite(row["valor_num"]):
+                                    raise ValueError(f"Numero nao finito: {uid}/{vid}/{year}/{code}")
+                                nums.append(row["valor_num"])
+                            elif row["valor_texto"] is not None:
+                                categories[row["valor_texto"]] += 1
                         if row and row["fonte_id"]:
                             sources[row["fonte_id"]] += 1
                     entry = {
@@ -86,15 +93,19 @@ def export_regional_api(database: Path, output: Path) -> dict:
                     if nums:
                         entry["observed_numeric"] = {
                             "count": len(nums),
-                            "sum": sum(nums),
                             "mean": sum(nums) / len(nums),
                             "min": min(nums),
                             "max": max(nums),
-                            "aggregation_warning": (
-                                "Soma e descritiva dos valores observados; "
-                                "nao somar indicadores de razao como valores monetarios."
-                            ),
                         }
+                        unit = next(v["unidade"] for v in variables if v["variavel_id"] == vid)
+                        kind = next(v["tipo"] for v in variables if v["variavel_id"] == vid)
+                        if unit == "BRL" and kind in ("conta_oficial", "agregado_analitico"):
+                            entry["observed_numeric"]["sum"] = sum(nums)
+                        else:
+                            entry["observed_numeric"]["sum"] = None
+                            entry["observed_numeric"]["sum_policy"] = "not_additive"
+                    if categories:
+                        entry["observed_categories"] = dict(sorted(categories.items()))
                     coverage.append(entry)
 
             base = output / "universes" / uid

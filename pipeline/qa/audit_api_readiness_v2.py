@@ -29,6 +29,18 @@ def audit_readiness(database: Path, output: Path, universe_id: str = "SP_645") -
         )]
         if not variables:
             raise ValueError("Catalogo de variaveis vazio")
+        has_editorial = con.execute(
+            "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='variavel_documentacao'"
+        ).fetchone()[0] > 0
+        editorial = {}
+        if has_editorial:
+            editorial = {
+                r["variavel_id"]: dict(r) for r in con.execute(
+                    """SELECT variavel_id,formula_publica,como_ler,limitacoes,
+                              fonte_publica,documentation_version
+                       FROM variavel_documentacao"""
+                )
+            }
         years = [r[0] for r in con.execute(
             """SELECT DISTINCT o.ano FROM observacao o
                JOIN universo_municipio um USING(codigo_ibge)
@@ -48,9 +60,16 @@ def audit_readiness(database: Path, output: Path, universe_id: str = "SP_645") -
         }
         entries = []
         for v in variables:
-            missing = [field for field in REQUIRED_FIELDS
-                       if v.get(field) is None or str(v[field]).strip() == ""]
-            if v["tipo"] == "indicador_derivado" and not v.get("formula"):
+            doc = editorial.get(v["variavel_id"], {})
+            def documented(field):
+                if v.get(field) is not None and str(v[field]).strip():
+                    return True
+                mapping = {"formula": "formula_publica", "como_ler": "como_ler",
+                           "cautelas": "limitacoes"}
+                key = mapping.get(field)
+                return bool(key and doc.get(key) is not None and str(doc[key]).strip())
+            missing = [field for field in REQUIRED_FIELDS if not documented(field)]
+            if v["tipo"] == "indicador_derivado" and not documented("formula"):
                 missing.append("formula")
             series = []
             for year in years:
@@ -68,6 +87,8 @@ def audit_readiness(database: Path, output: Path, universe_id: str = "SP_645") -
                 "type": v["tipo"],
                 "publishable": bool(v["publicavel"] and v["ativo"]),
                 "missing_methodology_fields": missing,
+                "editorial_documentation_version": doc.get("documentation_version"),
+                "methodology_checked_in": "variavel + variavel_documentacao",
                 "scale_verified": False if v["unidade"] == "percentual" else None,
                 "years": series,
             })

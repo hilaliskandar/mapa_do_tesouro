@@ -108,6 +108,9 @@ jobs:
       - name: Validate SP645 candidate locally
         run: python deployment/qa_sp645_pages.py --site build/site-sp645
 
+      - name: Validate complete API v2 artifacts
+        run: python deployment/qa_api_v2.py --site build/site-sp645
+
       - name: Upload SP645 candidate artifact
         uses: actions/upload-artifact@v4
         with:

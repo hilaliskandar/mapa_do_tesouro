@@ -17,23 +17,26 @@ def audit(database: Path, output: Path) -> dict:
         wanted = tuple(sorted(identifiers | dependencies))
         marks = ",".join("?" for _ in wanted)
         rows = con.execute(
-            f"""SELECT codigo_ibge,ano,variavel_id,status,valor_num
+            f"""SELECT codigo_ibge,ano,variavel_id,status,valor_num,referencia_origem
                 FROM observacao WHERE variavel_id IN ({marks})""", wanted
         ).fetchall()
     finally:
         con.close()
     by_key = {}
     keys = set()
-    for code, year, variable, status, value in rows:
-        by_key[(str(code), int(year), variable)] = (status, value)
+    for code, year, variable, status, value, origin in rows:
+        by_key[(str(code), int(year), variable)] = (status, value, origin)
         keys.add((str(code), int(year)))
     counts = {identifier: Counter() for identifier in RATIOS}
     failures = []
     for code, year in sorted(keys):
         for identifier, (numerator, denominator) in RATIOS.items():
-            ns, nv = by_key.get((code, year, numerator), ("ausente", None))
-            ds, dv = by_key.get((code, year, denominator), ("ausente", None))
-            actual_status, actual = by_key.get((code, year, identifier), ("sem_registro", None))
+            ns, nv, _ = by_key.get((code, year, numerator), ("ausente", None, None))
+            ds, dv, _ = by_key.get((code, year, denominator), ("ausente", None, None))
+            actual_status, actual, origin = by_key.get((code, year, identifier), ("sem_registro", None, None))
+            if origin != "pipeline:ratio":
+                counts[identifier]["excluded_other_provenance_or_no_record"] += 1
+                continue
             if ns == ds == "nao_aplicavel":
                 expected_status, expected = "nao_aplicavel", None
             elif ns != "observado" or ds != "observado" or nv is None or dv is None or float(dv) == 0:
@@ -41,9 +44,6 @@ def audit(database: Path, output: Path) -> dict:
             else:
                 expected_status, expected = "observado", float(nv) / float(dv)
             if actual_status != expected_status:
-                if actual_status == "sem_registro" and expected_status == "ausente":
-                    counts[identifier]["sem_registro_missing"] += 1
-                    continue
                 failures.append([code, year, identifier, "status", actual_status, expected_status])
                 continue
             if expected_status != "observado":
@@ -57,7 +57,7 @@ def audit(database: Path, output: Path) -> dict:
                 counts[identifier][f"year_{year}"] += 1
     report = {
         "basis": "SQLite observation values; ratio=numerator/denominator; no multiplication by 100",
-        "scope": "all ratio variables in pipeline.transform.calculate_annual.RATIOS",
+        "scope": "only observations marked pipeline:ratio; imported historical values excluded and audited separately",
         "by_variable": {key: dict(value) for key, value in counts.items()},
         "failure_count": len(failures),
         "failure_examples": failures[:30],

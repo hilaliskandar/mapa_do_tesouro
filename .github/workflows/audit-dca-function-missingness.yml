@@ -53,7 +53,7 @@ jobs:
           mkdir -p build/dca-audit/raw
           tar -xzf build/dca-audit/raw.tar.gz -C build/dca-audit/raw
           test "$(find build/dca-audit/raw -name '*.json.gz' | wc -l)" -eq 1935
-          test "$(find build/dca-audit/raw -path '*/dca-anexo-i-e/2025/*.json.gz' | wc -l)" -eq 645
+          test "$(find build/dca-audit/raw -path '*/i-e/2025/*.json.gz' | wc -l)" -eq 645
       - name: Audit DCA functions from original municipality files
         run: |
           python -m pipeline.qa.audit_dca_function_missingness \

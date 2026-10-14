@@ -13,6 +13,7 @@ on:
       - "pipeline/qa/audit_api_readiness_v2.py"
       - "pipeline/qa/audit_percentage_import_scale.py"
       - "pipeline/qa/audit_derived_ratio_parity.py"
+      - "pipeline/qa/audit_percentage_provenance.py"
       - "deployment/qa_api_v2.py"
       - "data/catalogs/indicators_documentation_v7.yml"
       - "data/catalogs/accounts_documentation_v7_*.yml"
@@ -334,6 +335,12 @@ jobs:
             --database build/sp645_private.sqlite \
             --output build/qa_derived_ratio_parity.json
 
+      - name: Inventory percent provenance by exercise
+        run: |
+          python -m pipeline.qa.audit_percentage_provenance \
+            --database build/sp645_private.sqlite \
+            --output build/qa_percentage_provenance.json
+
       - name: Upload private SP645 site artifact
         uses: actions/upload-artifact@v4
         with:
@@ -346,5 +353,6 @@ jobs:
             build/SP645_PRIVATE_SITE_INPUT_MANIFEST.json
             build/qa_percentage_scale_parity.json
             build/qa_derived_ratio_parity.json
+            build/qa_percentage_provenance.json
           if-no-files-found: error
           retention-days: 14

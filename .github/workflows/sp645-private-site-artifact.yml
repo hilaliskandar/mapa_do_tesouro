@@ -11,6 +11,7 @@ on:
       - "pipeline/build/export_state_api_v2.py"
       - "pipeline/build/export_regional_api_v2.py"
       - "pipeline/qa/audit_api_readiness_v2.py"
+      - "pipeline/qa/audit_percentage_import_scale.py"
       - "deployment/qa_api_v2.py"
       - "data/catalogs/indicators_documentation_v7.yml"
       - "data/catalogs/accounts_documentation_v7_*.yml"
@@ -318,6 +319,14 @@ jobs:
       - name: Validate complete API v2 from canonical private build
         run: python deployment/qa_api_v2.py --site build/site-sp645
 
+      - name: Audit six percentage scales against canonical imported values
+        run: |
+          python -m pipeline.qa.audit_percentage_import_scale \
+            --database build/sp645_private.sqlite \
+            --workbook build/SP645_PRIVATE_SITE_INPUT_2021_2025.xlsx \
+            --mapping build/SP645_PRIVATE_SITE_MAPPING.yml \
+            --output build/qa_percentage_scale_parity.json
+
       - name: Upload private SP645 site artifact
         uses: actions/upload-artifact@v4
         with:
@@ -328,5 +337,6 @@ jobs:
             build/SP645_PRIVATE_SITE_INPUT_2021_2025.xlsx
             build/SP645_PRIVATE_SITE_MAPPING.yml
             build/SP645_PRIVATE_SITE_INPUT_MANIFEST.json
+            build/qa_percentage_scale_parity.json
           if-no-files-found: error
           retention-days: 14

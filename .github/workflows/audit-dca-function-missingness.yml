@@ -1,0 +1,73 @@
+name: Audit DCA 2025 function missingness from private R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "pipeline/qa/audit_dca_function_missingness.py"
+      - "data/mappings/dca_canonical_v1.yml"
+      - ".github/workflows/audit-dca-function-missingness.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install pyyaml
+      - name: Download private source manifest and SHA-pinned raw archive
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          from deployment.download_r2_source import download_r2_object
+          directory=Path("build/dca-audit")
+          directory.mkdir(parents=True,exist_ok=True)
+          download_r2_object(account_id=os.environ["CLOUDFLARE_ACCOUNT_ID"],
+              api_token=os.environ["CLOUDFLARE_API_TOKEN"],
+              bucket=os.environ["CLOUDFLARE_R2_BUCKET"],
+              object_key="sp_645/dca/2025/manifest.json",output=directory/"manifest.json")
+          manifest=json.loads((directory/"manifest.json").read_text(encoding="utf-8"))
+          assert manifest["year"]==2025 and manifest["municipalities"]==645
+          assert manifest["raw"]["object"]=="sp_645/dca/2025/raw.tar.gz"
+          (directory/"raw_sha256.txt").write_text(manifest["raw"]["sha256"])
+          PY
+          python deployment/download_r2_source.py \
+            --object-key sp_645/dca/2025/raw.tar.gz \
+            --output build/dca-audit/raw.tar.gz \
+            --expected-sha256 "$(cat build/dca-audit/raw_sha256.txt)"
+      - name: Extract and verify raw DCA archives
+        run: |
+          mkdir -p build/dca-audit/raw
+          tar -xzf build/dca-audit/raw.tar.gz -C build/dca-audit/raw
+          test "$(find build/dca-audit/raw -name '*.json.gz' | wc -l)" -eq 1935
+          test "$(find build/dca-audit/raw -path '*/dca-anexo-i-e/2025/*.json.gz' | wc -l)" -eq 645
+      - name: Audit DCA functions from original municipality files
+        run: |
+          python -m pipeline.qa.audit_dca_function_missingness \
+            --raw-root build/dca-audit/raw \
+            --year 2025 \
+            --output build/dca-audit/qa_dca_function_missingness_2025.json
+      - name: Upload private QA report (no raw fiscal sources)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sp645-dca-function-missingness-2025
+          path: |
+            build/dca-audit/qa_dca_function_missingness_2025.json
+            build/dca-audit/qa_dca_function_missingness_2025.csv
+            build/dca-audit/manifest.json
+          if-no-files-found: warn
+          retention-days: 30

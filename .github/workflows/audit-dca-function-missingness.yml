@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   audit:
@@ -27,33 +28,28 @@ jobs:
           python-version: "3.12"
       - name: Install dependencies
         run: pip install pyyaml
-      - name: Download private source manifest and SHA-pinned raw archive
-        run: |
-          python - <<'PY'
-          import json,os
-          from pathlib import Path
-          from deployment.download_r2_source import download_r2_object
-          directory=Path("build/dca-audit")
-          directory.mkdir(parents=True,exist_ok=True)
-          download_r2_object(account_id=os.environ["CLOUDFLARE_ACCOUNT_ID"],
-              api_token=os.environ["CLOUDFLARE_API_TOKEN"],
-              bucket=os.environ["CLOUDFLARE_R2_BUCKET"],
-              object_key="sp_645/dca/2025/manifest.json",output=directory/"manifest.json")
-          manifest=json.loads((directory/"manifest.json").read_text(encoding="utf-8"))
-          assert manifest["year"]==2025 and manifest["municipalities"]==645
-          assert manifest["raw"]["object"]=="sp_645/dca/2025/raw.tar.gz"
-          (directory/"raw_sha256.txt").write_text(manifest["raw"]["sha256"])
-          PY
-          python deployment/download_r2_source.py \
-            --object-key sp_645/dca/2025/raw.tar.gz \
-            --output build/dca-audit/raw.tar.gz \
-            --expected-sha256 "$(cat build/dca-audit/raw_sha256.txt)"
-      - name: Extract and verify raw DCA archives
+      - name: Recover approved Gate A 2025 raw artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p build/dca-audit/raw
-          tar -xzf build/dca-audit/raw.tar.gz -C build/dca-audit/raw
+          gh run download 37693005628 \
+            --repo "$GITHUB_REPOSITORY" \
+            --name sp645-full-dca-2025-raw \
+            --dir build/dca-audit/raw
           test "$(find build/dca-audit/raw -name '*.json.gz' | wc -l)" -eq 1935
-          test "$(find build/dca-audit/raw -path '*/i-e/2025/*.json.gz' | wc -l)" -eq 645
+          test "$(find build/dca-audit/raw/i-e/2025 -name '*.json.gz' | wc -l)" -eq 645
+      - name: Verify raw file tree against approved Gate A
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pipeline.acquire.siconfi_dca_state import raw_tree_sha256
+          actual = raw_tree_sha256(Path("build/dca-audit/raw"))
+          expected = "c95adaf62b87580125adda685f23363391f30fed8e8dca261529f37c1cef34f3"
+          if actual != expected:
+              raise SystemExit(f"Gate A raw-tree SHA mismatch: {actual}")
+          print("Verified Gate A raw tree:", actual)
+          PY
       - name: Audit DCA functions from original municipality files
         run: |
           python -m pipeline.qa.audit_dca_function_missingness \
@@ -68,6 +64,5 @@ jobs:
           path: |
             build/dca-audit/qa_dca_function_missingness_2025.json
             build/dca-audit/qa_dca_function_missingness_2025.csv
-            build/dca-audit/manifest.json
           if-no-files-found: warn
           retention-days: 30

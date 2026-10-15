@@ -33,7 +33,7 @@ const path = require('node:path');
       await page.locator('#constantes').click();
       await page.locator('#nominais').click();
       const observations = await page.evaluate(() => ({
-        version: document.body.innerText.match(/Versão editorial 0\.\d+/)?.[0] || '',
+        period: document.body.innerText.includes('séries históricas selecionadas: 2021–2025'),
         sections:document.querySelectorAll('section').length,
         jsContent:document.querySelector('#sintese-texto')?.textContent?.length || 0,
         historyRows:document.querySelectorAll('#historical-table tbody tr').length,

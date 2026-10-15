@@ -1,0 +1,49 @@
+name: RMJ Decomposicao Integral 2023-2025
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recuperar arquivos TCESP oficiais
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/raw
+          for year in 2023 2024 2025; do
+            pids=""
+            for city in cabreuva campo-limpo-paulista itupeva jarinu jundiai louveira varzea-paulista; do
+              (TCESP_TIMEOUT_SECONDS=240 python3 editorial/rmj/analyze_tcesp_pilot.py "$city" "$year" >"build/raw/${city}_${year}.json" 2>"build/raw/${city}_${year}.stderr") &
+              pids="$pids $!"
+            done
+            for p in $pids; do wait "$p"; done
+          done
+      - name: Gerar matriz e conferir totais
+        run: |
+          python3 editorial/rmj/build_decomposicao_integral.py build/raw editorial/rmj/dados
+      - name: Versionar matriz auditada
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add editorial/rmj/dados/rmj_decomposicao_programas_acoes_2023_2025.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "data(rmj): versionar matriz TCESP 2023-2025 conciliada"
+            git push origin HEAD:main
+          fi
+      - name: Preservar diagnóstico
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmj-decomposicao-2023-2025-diagnostico
+          path: |
+            build/raw/*.stderr
+            editorial/rmj/dados/*.csv
+          if-no-files-found: warn
+          retention-days: 30

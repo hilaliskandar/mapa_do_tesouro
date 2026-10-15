@@ -76,3 +76,7 @@ Não tratar aprovação de CI ou de prévia como prova de produção. Confirmar 
 - Atribuição causal, contratos e resultados físicos exigem documentação adicional específica. Não os inferir do detalhamento TCESP.
 - O histórico de 2023–2025 é nominal; comparações em preços constantes devem observar a metodologia de inflação do painel.
 - Quando se requer reextração, manter registro de origem, datas, *hashes* e diferenças para detectar alterações retroativas das fontes.
+
+## Homologação da revisão editorial #196 — 15/10/2026
+
+Consulta direta à API Cloudflare Pages confirmou implantação de produção `39b2c8f7-416e-437f-8432-b537000e090f`, status `success`, commit `7b78a9babc59f7109f67e903e3fadcc97c0acee2`, correspondente ao squash merge do PR #196. URL imutável da implantação: https://39b2c8f7.financas-rmj.pages.dev. O fluxo de produção publica HTML e CSV e confere paridade de CSV ao término; a consulta API aqui confirma especificamente a associação commit/deploy, não uma nova inspeção visual independente nem reprodução local da paridade. O endereço principal permanece https://financas-rmj.pages.dev/. A pendência anterior de confirmar implantação #196 está encerrada com essa evidência.

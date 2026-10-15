@@ -1,0 +1,57 @@
+name: Publicar boletim RMJ
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'editorial/rmj/index.html'
+      - 'editorial/rmj/check_html.py'
+      - '.github/workflows/publish-rmj.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-rmj-production
+  cancel-in-progress: false
+
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validar HTML e JavaScript do boletim
+        run: |
+          python3 editorial/rmj/check_html.py editorial/rmj/index.html /tmp/rmj.js
+          node --check /tmp/rmj.js
+          node editorial/rmj/smoke_browser.js
+      - name: Preparar somente conteudo publico
+        run: |
+          mkdir -p build/rmj-public
+          cp editorial/rmj/index.html build/rmj-public/index.html
+          printf '%s\n' '/*' '  X-Content-Type-Options: nosniff' '  Referrer-Policy: strict-origin-when-cross-origin' "  Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'" > build/rmj-public/_headers
+      - name: Publicar em projeto Cloudflare independente
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          npx --yes wrangler@4.148.0 pages deploy build/rmj-public \
+            --project-name=financas-rmj \
+            --branch=main \
+            --commit-hash="${{ github.sha }}" \
+            --commit-message="Boletim RMJ validado" \
+            --commit-dirty=false
+      - name: Verificar endereco definitivo
+        run: |
+          curl --fail --location --retry 5 --retry-delay 3 \
+            https://financas-rmj.pages.dev/ -o /tmp/boletim-rmj-publicado.html
+          grep -F 'Finanças municipais da Região Metropolitana de Jundiaí' /tmp/boletim-rmj-publicado.html
+          echo 'Boletim RMJ publicado: https://financas-rmj.pages.dev/' >> "$GITHUB_STEP_SUMMARY"

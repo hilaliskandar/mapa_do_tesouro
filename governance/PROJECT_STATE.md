@@ -417,3 +417,7 @@ A leitura da `main` confirmou a release pública registrada `v0.4.0`, com 13 uni
 ## Recuperação do artefato editorial — 2026-10-14
 
 O ZIP do artifact GitHub Actions `11610521760`, release `v0.4.0`, run `37917365471`, foi recuperado e teve SHA-256 conferido: `3052e27b68f34d61df878ee4af43886453784e09e99ec07f5459fdec3c566b7e`. O índice interno contém 11 universos editoriais e soma 287 contextos; a contagem de JSONs municipais no ZIP é exatamente 287. O piloto `RM_JUNDIAI` contém 7 municípios e 50 variáveis no contexto, com série de 2025 e dados auditáveis. O endpoint público segue não verificado ao vivo. O campo `qa_status` do payload permanece `candidate` e exige conciliação editorial, embora o workflow de publicação esteja registrado como aprovado. Uma minuta quantitativa foi gerada em ambiente de análise; não foi publicada.
+
+## Atualizacao editorial 2026-10-14
+
+Artefato v0.4.0 recuperado do GitHub Actions (ID 11610521760), com integridade verificada. Para RM_JUNDIAI foram conferidos os sete contextos municipais e as 50 variaveis no contexto regional. Foi elaborada minuta analitica 0.2 com series 2021-2025 e CSV de auditoria. Nota metodologica: series historicas derivadas podem existir mesmo quando as contas DCA primarias nao aparecem na API editorial do mesmo ano. Despesa territorial strict_complete possui cobertura de 1/7 em 2025. Publicacao externa nao realizada. Revisar historicidade, proveniencia e QA antes de aprovar a edicao.

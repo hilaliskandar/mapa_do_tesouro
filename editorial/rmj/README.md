@@ -59,7 +59,7 @@ Não tratar aprovação de CI ou de prévia como prova de produção. Confirmar 
 - **#192:** revisão de rótulos e verificação automatizada dos 1.169 registros.
 - **#193–#194:** correção da publicação do CSV e do teste simulado, com confirmação em produção.
 - **#195:** integração das principais contribuições dos programas às histórias dos sete municípios.
-- **#196:** revisão da hierarquia e da redação editorial (consultar estado final do PR e o run de produção para confirmar sua publicação).
+- **#196:** revisão da hierarquia e da redação editorial (PR integrado; consultar o run de produção para confirmar sua publicação).
 
 ## Critérios de continuidade e prevenção de regressões
 

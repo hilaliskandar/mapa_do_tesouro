@@ -1,0 +1,1170 @@
+﻿nivel;municipio;ano_inicial;ano_final;codigo_programa;codigo_acao;descricao_ano_inicial;descricao_ano_final;situacao;liquidado_inicial_centavos;liquidado_final_centavos;variacao_centavos
+programa;Cabreúva;2023;2024;1001;;APS - ATENCAO PRIMARIA A SAUDE;APS - ATENCAO PRIMARIA A SAUDE;mesmo_codigo_mesmo_nome;64448088;90727359;26279271
+programa;Cabreúva;2023;2024;1003;;MAC - ASSISTENCIA AMBULATORIAL, EMERGENCIAL E HOSPITALAR - MEDIA E ALTA COMPLEXIDADE;MAC - ASSISTENCIA AMBULATORIAL, EMERGENCIAL E HOSPITALAR - MEDIA E ALTA COMPLEXIDADE;mesmo_codigo_mesmo_nome;1608491300;1015864383;-592626917
+programa;Cabreúva;2023;2024;1004;;VIGILANCIA EM SAÚDE;;somente_ano_inicial;53360943;0;-53360943
+programa;Cabreúva;2023;2024;1006;;ASSISTENCIA FARMACEUTICA;;somente_ano_inicial;593854;0;-593854
+programa;Cabreúva;2023;2024;1007;;GESTÃO DO SISTEMA DE SAÚDE;GESTÃO DO SISTEMA DE SAÚDE;mesmo_codigo_mesmo_nome;5585600;12643192;7057592
+programa;Cabreúva;2023;2024;2001;;ENSINO FUNDAMENTAL COM QUALIDADE;ENSINO FUNDAMENTAL COM QUALIDADE;mesmo_codigo_mesmo_nome;1078889229;657864559;-421024670
+programa;Cabreúva;2023;2024;2002;;ENSINO INFANTIL COM QUALIDADE;ENSINO INFANTIL COM QUALIDADE;mesmo_codigo_mesmo_nome;434284242;222269928;-212014314
+programa;Cabreúva;2023;2024;2007;;UNIVERSIDADE VIRTUAL - UNIVESP;;somente_ano_inicial;258686;0;-258686
+programa;Cabreúva;2023;2024;3001;;PATRIMONIO CULTURAL DO MUNICIPIO;;somente_ano_inicial;33669465;0;-33669465
+programa;Cabreúva;2023;2024;3002;;DIFUSAO CULTURAL;DIFUSAO CULTURAL;mesmo_codigo_mesmo_nome;19436350;1366730;-18069620
+programa;Cabreúva;2023;2024;3007;;ESPORTE, LAZER E QUALIDADE DE VIDA;ESPORTE, LAZER E QUALIDADE DE VIDA;mesmo_codigo_mesmo_nome;156680640;524410587;367729947
+programa;Cabreúva;2023;2024;4001;;POLITICAS DE ASSISTENCIA SOCIAL;POLITICAS DE ASSISTENCIA SOCIAL;mesmo_codigo_mesmo_nome;12242680;2519864;-9722816
+programa;Cabreúva;2023;2024;4002;;APOIO A FAMILIAS;APOIO A FAMILIAS;mesmo_codigo_mesmo_nome;70351099;35606978;-34744121
+programa;Cabreúva;2023;2024;5002;;CIDADE BONITA;CIDADE BONITA;mesmo_codigo_mesmo_nome;171092819;168567124;-2525695
+programa;Cabreúva;2023;2024;5003;;DESENVOLVIMENTO DA INFRAESTRUTURA DE GOVERNO;DESENVOLVIMENTO DA INFRAESTRUTURA DE GOVERNO;mesmo_codigo_mesmo_nome;1827077796;1045255357;-781822439
+programa;Cabreúva;2023;2024;5004;;COMBATE A ENCHENTES;;somente_ano_inicial;23002504;0;-23002504
+programa;Cabreúva;2023;2024;5005;;SERVIÇOS FUNERARIOS E CEMITERIOS;;somente_ano_inicial;139000;0;-139000
+programa;Cabreúva;2023;2024;5010;;GESTAO DA POLITICA DE INFRAESTRUTURA;GESTAO DA POLITICA DE INFRAESTRUTURA;mesmo_codigo_mesmo_nome;4502082;894545;-3607537
+programa;Cabreúva;2023;2024;6001;;DESENVOLVIMENTO ECONOMICO;DESENVOLVIMENTO ECONOMICO;mesmo_codigo_mesmo_nome;19850445;8639788;-11210657
+programa;Cabreúva;2023;2024;6004;;DESENVOLVIMENTO DO TURISMO;DESENVOLVIMENTO DO TURISMO;mesmo_codigo_mesmo_nome;47210141;3038047;-44172094
+programa;Cabreúva;2023;2024;6006;;RECURSOS NATURAIS E MEIO AMBIENTE;RECURSOS NATURAIS E MEIO AMBIENTE;mesmo_codigo_mesmo_nome;544739727;415048822;-129690905
+programa;Cabreúva;2023;2024;7003;;ADVOCACIA MUNICIPAL;;somente_ano_inicial;122700;0;-122700
+programa;Cabreúva;2023;2024;7005;;ATIVIDADES LEGISLATIVAS;;somente_ano_inicial;38528614;0;-38528614
+programa;Cabreúva;2023;2024;7006;;PLANEJAMENTO E FINANCAS;PLANEJAMENTO E FINANCAS;mesmo_codigo_mesmo_nome;2163850;54800;-2109050
+programa;Cabreúva;2023;2024;7007;;ADMINISTRACAO;ADMINISTRACAO;mesmo_codigo_mesmo_nome;274623455;785811413;511187958
+programa;Cabreúva;2023;2024;7009;;ADMINISTRAÇÃO SUPERIOR;ADMINISTRAÇÃO SUPERIOR;mesmo_codigo_mesmo_nome;6933938;234900;-6699038
+programa;Cabreúva;2023;2024;7010;;FUNDO SOCIAL DE SOLIDARIEDADE;;somente_ano_inicial;230187;0;-230187
+programa;Cabreúva;2023;2024;8001;;MOBILIDADE URBANA SUSTENTÁVEL;MOBILIDADE URBANA SUSTENTÁVEL;mesmo_codigo_mesmo_nome;413153915;655372687;242218772
+programa;Cabreúva;2023;2024;8002;;SEGURANCA PATRIMONIAL;SEGURANCA PATRIMONIAL;mesmo_codigo_mesmo_nome;48049987;10066737;-37983250
+programa;Cabreúva;2023;2024;8003;;DEFESA CIVIL;DEFESA CIVIL;mesmo_codigo_mesmo_nome;64577891;70774631;6196740
+acao;Cabreúva;2023;2024;1001;1001;CONSTRUCAO, AMPLIACAO, E ADEQUACAO DA INFRAESTRUTURA;CONSTRUCAO, AMPLIACAO, E ADEQUACAO DA INFRAESTRUTURA;mesmo_codigo_mesmo_nome;62859458;48469406;-14390052
+acao;Cabreúva;2023;2024;1001;2001;ATENDIMENTO DE MELHOR QUALIDADE NA ATENCAO PRIMARIA;ATENDIMENTO DE MELHOR QUALIDADE NA ATENCAO PRIMARIA;mesmo_codigo_mesmo_nome;1588630;42257953;40669323
+acao;Cabreúva;2023;2024;1003;1001;CONSTRUCAO, AMPLIACAO, E ADEQUACAO DA INFRAESTRUTURA;CONSTRUCAO, AMPLIACAO, E ADEQUACAO DA INFRAESTRUTURA;mesmo_codigo_mesmo_nome;1383964300;929420080;-454544220
+acao;Cabreúva;2023;2024;1003;2015;ATENDIMENTO DE MEDIA E ALTA COMPLEXIDADE;ATENDIMENTO DE MEDIA E ALTA COMPLEXIDADE;mesmo_codigo_mesmo_nome;224527000;86444303;-138082697
+acao;Cabreúva;2023;2024;1004;2021;VIGILANCIA SANITARIA;;somente_ano_inicial;23085000;0;-23085000
+acao;Cabreúva;2023;2024;1004;2027;VIGILANCIA EPIDEMIOLOGICA E AMBIENTAL;;somente_ano_inicial;30275943;0;-30275943
+acao;Cabreúva;2023;2024;1006;2028;PROMOCAO DO ACESSO AOS MEDICAMENTOS, MATERIAIS DE PROCEDIMENTOS BASICOS E INSUMOS;;somente_ano_inicial;593854;0;-593854
+acao;Cabreúva;2023;2024;1007;2040;PLANEJAMENTO E GESTAO EM SAUDE;PLANEJAMENTO E GESTAO EM SAUDE;mesmo_codigo_mesmo_nome;5585600;12643192;7057592
+acao;Cabreúva;2023;2024;2001;1005;INFRAESTRUTURA DO ENSINO FUNDAMENTAL;INFRAESTRUTURA DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;940732886;545338240;-395394646
+acao;Cabreúva;2023;2024;2001;1101;CONSTRUCAO DE ESCOLA;;somente_ano_inicial;0;0;0
+acao;Cabreúva;2023;2024;2001;2041;FUNCIONAMENTO DO ENSINO FUNDAMENTAL;FUNCIONAMENTO DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;138156343;112526319;-25630024
+acao;Cabreúva;2023;2024;2002;1006;INFRAESTRUTURA DO ENSINO INFANTIL;INFRAESTRUTURA DO ENSINO INFANTIL;mesmo_codigo_mesmo_nome;427415180;167593313;-259821867
+acao;Cabreúva;2023;2024;2002;2060;FUNCIONAMENTO DA PRE ESCOLA;FUNCIONAMENTO DA PRE ESCOLA;mesmo_codigo_mesmo_nome;2420035;46438119;44018084
+acao;Cabreúva;2023;2024;2002;2061;FUNCIONAMENTO DAS CRECHES;FUNCIONAMENTO DAS CRECHES;mesmo_codigo_mesmo_nome;4449027;8238496;3789469
+acao;Cabreúva;2023;2024;2007;2050;MANUTENCAO DAS ATIVIDADES DA UNIVERSIDADE;;somente_ano_inicial;258686;0;-258686
+acao;Cabreúva;2023;2024;3001;1016;IMPLANTACAO E MODERNIZACAO DE ESPACOS CULTURAIS;;somente_ano_inicial;32228670;0;-32228670
+acao;Cabreúva;2023;2024;3001;2103;GESTAO DE MECANISMO DE FOMENTO E INCENTIVO A CULTURA;;somente_ano_inicial;1440795;0;-1440795
+acao;Cabreúva;2023;2024;3002;2101;PROJETOS CULTURAIS;PROJETOS CULTURAIS;mesmo_codigo_mesmo_nome;19436350;1366730;-18069620
+acao;Cabreúva;2023;2024;3007;1029;IMPLANTACAO E REESTRUTURACAO DE ESPACOS ESPORTIVOS;IMPLANTACAO E REESTRUTURACAO DE ESPACOS ESPORTIVOS;mesmo_codigo_mesmo_nome;83232528;488186005;404953477
+acao;Cabreúva;2023;2024;3007;2113;GESTAO DA POLITICA DE ESPORTES;GESTAO DA POLITICA DE ESPORTES;mesmo_codigo_mesmo_nome;73448112;36224582;-37223530
+acao;Cabreúva;2023;2024;4001;2152;GESTAO DA POLITICA DE ASSISTENCIA SOCIAL;GESTAO DA POLITICA DE ASSISTENCIA SOCIAL;mesmo_codigo_mesmo_nome;12242680;1361270;-10881410
+acao;Cabreúva;2023;2024;4001;2330;;IGDBF/IGD SUAS;somente_ano_final;0;1158594;1158594
+acao;Cabreúva;2023;2024;4002;1033;INFRAESTRUTURA DO CENTRO CONVIVENCIA DO IDOSO;INFRAESTRUTURA DO CENTRO CONVIVENCIA DO IDOSO;mesmo_codigo_mesmo_nome;46812631;30930199;-15882432
+acao;Cabreúva;2023;2024;4002;2129;APOIO A FAMILIAS;APOIO A FAMILIAS;mesmo_codigo_mesmo_nome;23538468;4676779;-18861689
+acao;Cabreúva;2023;2024;5002;1036;IMPLANTACAO E MELHORIA EM PRACAS, PARQUES E JARDINS;IMPLANTACAO E MELHORIA EM PRACAS, PARQUES E JARDINS;mesmo_codigo_mesmo_nome;171092819;116818252;-54274567
+acao;Cabreúva;2023;2024;5002;1102;;CANALIZACAO RIBEIRAO CABREUVA E URBANIZACAO LOCAL;somente_ano_final;0;51748872;51748872
+acao;Cabreúva;2023;2024;5003;1038;INFRAESTRUTURA VIARIA;INFRAESTRUTURA VIARIA;mesmo_codigo_mesmo_nome;1825516263;1044092792;-781423471
+acao;Cabreúva;2023;2024;5003;2173;CONSERVACAO DE VIAS PUBLICAS;CONSERVACAO DE VIAS PUBLICAS;mesmo_codigo_mesmo_nome;1561533;1162565;-398968
+acao;Cabreúva;2023;2024;5004;1046;CANALIZACAO DE CORREGOS E CANAIS;;somente_ano_inicial;23002504;0;-23002504
+acao;Cabreúva;2023;2024;5005;2182;ADMINISTRACAO DE CEMITERIO;;somente_ano_inicial;139000;0;-139000
+acao;Cabreúva;2023;2024;5010;2185;PLANEJAMENTO, GESTAO DO PROGRAMA;PLANEJAMENTO, GESTAO DO PROGRAMA;mesmo_codigo_mesmo_nome;4502082;894545;-3607537
+acao;Cabreúva;2023;2024;6001;2331;GESTAO DA POLITICA DO DESENVOLVIMENTO ECONOMICO;GESTAO DA POLITICA DO DESENVOLVIMENTO ECONOMICO;mesmo_codigo_mesmo_nome;19850445;8639788;-11210657
+acao;Cabreúva;2023;2024;6004;1062;IMPLANTACAO E MODERNIZACAO DE INFRA ESTRUTURA TURISTICA;IMPLANTACAO E MODERNIZACAO DE INFRA ESTRUTURA TURISTICA;mesmo_codigo_mesmo_nome;47210141;3038047;-44172094
+acao;Cabreúva;2023;2024;6006;1091;INVESTIMENTOS PPP 2;INVESTIMENTOS PPP 2;mesmo_codigo_mesmo_nome;512000000;412608728;-99391272
+acao;Cabreúva;2023;2024;6006;2221;;BEM ESTAR ANIMAL;somente_ano_final;0;148600;148600
+acao;Cabreúva;2023;2024;6006;2224;GESTAO DAS POLITICAS DO MEIO AMBIENTE;GESTAO DAS POLITICAS DO MEIO AMBIENTE;mesmo_codigo_mesmo_nome;211367;2114325;1902958
+acao;Cabreúva;2023;2024;6006;2230;PRESERVACAO AMBIENTAL;PRESERVACAO AMBIENTAL;mesmo_codigo_mesmo_nome;32528360;177169;-32351191
+acao;Cabreúva;2023;2024;7003;2289;ATIVIDADES DA PROCURADORIA JURIDICA;;somente_ano_inicial;122700;0;-122700
+acao;Cabreúva;2023;2024;7005;1071;AMPLIACAO E MELHORIA NAS INSTALACOES DO PREDIO DO LEGISLATIVO;;somente_ano_inicial;38052784;0;-38052784
+acao;Cabreúva;2023;2024;7005;2039;GESTAO ADMINISTRATIVA OPERACIONAL DA CAMARA MUNICIPAL DE CABREUVA;;somente_ano_inicial;475830;0;-475830
+acao;Cabreúva;2023;2024;7006;2291;GESTAO DA SECRETARIA DA FAZENDA;GESTAO DA SECRETARIA DA FAZENDA;mesmo_codigo_mesmo_nome;2163850;54800;-2109050
+acao;Cabreúva;2023;2024;7007;1100;INFRAESTRUTURA DO CENTRO ADMINISTRATIVO MUNICIPAL;INFRAESTRUTURA DO CENTRO ADMINISTRATIVO MUNICIPAL;mesmo_codigo_mesmo_nome;246827351;779747666;532920315
+acao;Cabreúva;2023;2024;7007;2293;ATIVIDADES ADMINISTRATIVAS;ATIVIDADES ADMINISTRATIVAS;mesmo_codigo_mesmo_nome;27796104;6063747;-21732357
+acao;Cabreúva;2023;2024;7009;2290;ATIVIDADES DA ADMINISTRACAO SUPERIOR;ATIVIDADES DA ADMINISTRACAO SUPERIOR;mesmo_codigo_mesmo_nome;6933938;234900;-6699038
+acao;Cabreúva;2023;2024;7010;2130;ATIVIDADES DO FUNDO SOCIAL DE SOLIDARIEDADE;;somente_ano_inicial;230187;0;-230187
+acao;Cabreúva;2023;2024;8001;1041;IMPLANTACAO DE TERMINAL RODOVIARIO;IMPLANTACAO DE TERMINAL RODOVIARIO;mesmo_codigo_mesmo_nome;339385215;631284805;291899590
+acao;Cabreúva;2023;2024;8001;2265;FISCALIZACAO E ENGENHARIA DE TRANSITO;FISCALIZACAO E ENGENHARIA DE TRANSITO;mesmo_codigo_mesmo_nome;73508800;20066772;-53442028
+acao;Cabreúva;2023;2024;8001;2336;GESTAO DA POLITICA DA MOBILIDADE URBANA;GESTAO DA POLITICA DA MOBILIDADE URBANA;mesmo_codigo_mesmo_nome;259900;4021110;3761210
+acao;Cabreúva;2023;2024;8002;2267;GESTAO DAS ATIVIDADES DE SEGURANCA;GESTAO DAS ATIVIDADES DE SEGURANCA;mesmo_codigo_mesmo_nome;48049987;10066737;-37983250
+acao;Cabreúva;2023;2024;8003;1080;IMPLANTACAO DA BASE OPERACIONAL DA DEFESA CIVIL;IMPLANTACAO DA BASE OPERACIONAL DA DEFESA CIVIL;mesmo_codigo_mesmo_nome;63178991;69983221;6804230
+acao;Cabreúva;2023;2024;8003;2268;APOIO A SEGURANCA DO CIDADAO;APOIO A SEGURANCA DO CIDADAO;mesmo_codigo_mesmo_nome;1398900;791410;-607490
+programa;Cabreúva;2024;2025;1001;;APS - ATENCAO PRIMARIA A SAUDE;APS - ATENCAO PRIMARIA A SAUDE;mesmo_codigo_mesmo_nome;90727359;55819286;-34908073
+programa;Cabreúva;2024;2025;1003;;MAC - ASSISTENCIA AMBULATORIAL, EMERGENCIAL E HOSPITALAR - MEDIA E ALTA COMPLEXIDADE;MAC - ASSISTENCIA AMBULATORIAL, EMERGENCIAL E HOSPITALAR - MEDIA E ALTA COMPLEXIDADE;mesmo_codigo_mesmo_nome;1015864383;444287691;-571576692
+programa;Cabreúva;2024;2025;1004;;;VIGILANCIA EM SAÚDE;somente_ano_final;0;1508600;1508600
+programa;Cabreúva;2024;2025;1006;;;ASSISTENCIA FARMACEUTICA;somente_ano_final;0;54800;54800
+programa;Cabreúva;2024;2025;1007;;GESTÃO DO SISTEMA DE SAÚDE;GESTÃO DO SISTEMA DE SAÚDE;mesmo_codigo_mesmo_nome;12643192;54800;-12588392
+programa;Cabreúva;2024;2025;2001;;ENSINO FUNDAMENTAL COM QUALIDADE;ENSINO FUNDAMENTAL COM QUALIDADE;mesmo_codigo_mesmo_nome;657864559;163320217;-494544342
+programa;Cabreúva;2024;2025;2002;;ENSINO INFANTIL COM QUALIDADE;ENSINO INFANTIL COM QUALIDADE;mesmo_codigo_mesmo_nome;222269928;46154715;-176115213
+programa;Cabreúva;2024;2025;2007;;;UNIVERSIDADE VIRTUAL - UNIVESP;somente_ano_final;0;87500;87500
+programa;Cabreúva;2024;2025;3001;;;PATRIMONIO CULTURAL DO MUNICIPIO;somente_ano_final;0;23258;23258
+programa;Cabreúva;2024;2025;3002;;DIFUSAO CULTURAL;DIFUSAO CULTURAL;mesmo_codigo_mesmo_nome;1366730;304900;-1061830
+programa;Cabreúva;2024;2025;3007;;ESPORTE, LAZER E QUALIDADE DE VIDA;ESPORTE, LAZER E QUALIDADE DE VIDA;mesmo_codigo_mesmo_nome;524410587;139294332;-385116255
+programa;Cabreúva;2024;2025;4001;;POLITICAS DE ASSISTENCIA SOCIAL;POLITICAS DE ASSISTENCIA SOCIAL;mesmo_codigo_mesmo_nome;2519864;850444;-1669420
+programa;Cabreúva;2024;2025;4002;;APOIO A FAMILIAS;APOIO A FAMILIAS;mesmo_codigo_mesmo_nome;35606978;11584541;-24022437
+programa;Cabreúva;2024;2025;5002;;CIDADE BONITA;CIDADE BONITA;mesmo_codigo_mesmo_nome;168567124;1758409;-166808715
+programa;Cabreúva;2024;2025;5003;;DESENVOLVIMENTO DA INFRAESTRUTURA DE GOVERNO;DESENVOLVIMENTO DA INFRAESTRUTURA DE GOVERNO;mesmo_codigo_mesmo_nome;1045255357;220751513;-824503844
+programa;Cabreúva;2024;2025;5004;;;COMBATE A ENCHENTES;somente_ano_final;0;82662756;82662756
+programa;Cabreúva;2024;2025;5005;;;SERVIÇOS FUNERARIOS E CEMITERIOS;somente_ano_final;0;146374;146374
+programa;Cabreúva;2024;2025;5010;;GESTAO DA POLITICA DE INFRAESTRUTURA;;somente_ano_inicial;894545;0;-894545
+programa;Cabreúva;2024;2025;6001;;DESENVOLVIMENTO ECONOMICO;DESENVOLVIMENTO ECONOMICO;mesmo_codigo_mesmo_nome;8639788;1998890;-6640898
+programa;Cabreúva;2024;2025;6004;;DESENVOLVIMENTO DO TURISMO;DESENVOLVIMENTO DO TURISMO;mesmo_codigo_mesmo_nome;3038047;754509;-2283538
+programa;Cabreúva;2024;2025;6006;;RECURSOS NATURAIS E MEIO AMBIENTE;RECURSOS NATURAIS E MEIO AMBIENTE;mesmo_codigo_mesmo_nome;415048822;485701106;70652284
+programa;Cabreúva;2024;2025;7005;;;ATIVIDADES LEGISLATIVAS;somente_ano_final;0;930500;930500
+programa;Cabreúva;2024;2025;7006;;PLANEJAMENTO E FINANCAS;;somente_ano_inicial;54800;0;-54800
+programa;Cabreúva;2024;2025;7007;;ADMINISTRACAO;ADMINISTRACAO;mesmo_codigo_mesmo_nome;785811413;231861624;-553949789
+programa;Cabreúva;2024;2025;7009;;ADMINISTRAÇÃO SUPERIOR;ADMINISTRAÇÃO SUPERIOR;mesmo_codigo_mesmo_nome;234900;573154;338254
+programa;Cabreúva;2024;2025;8001;;MOBILIDADE URBANA SUSTENTÁVEL;MOBILIDADE URBANA SUSTENTÁVEL;mesmo_codigo_mesmo_nome;655372687;9268089;-646104598
+programa;Cabreúva;2024;2025;8002;;SEGURANCA PATRIMONIAL;SEGURANCA PATRIMONIAL;mesmo_codigo_mesmo_nome;10066737;4486672;-5580065
+programa;Cabreúva;2024;2025;8003;;DEFESA CIVIL;DEFESA CIVIL;mesmo_codigo_mesmo_nome;70774631;1021578;-69753053
+acao;Cabreúva;2024;2025;1001;1001;CONSTRUCAO, AMPLIACAO, E ADEQUACAO DA INFRAESTRUTURA;CONSTRUCAO, AMPLIACAO, E ADEQUACAO DA INFRAESTRUTURA;mesmo_codigo_mesmo_nome;48469406;47572686;-896720
+acao;Cabreúva;2024;2025;1001;2001;ATENDIMENTO DE MELHOR QUALIDADE NA ATENCAO PRIMARIA;ATENDIMENTO DE MELHOR QUALIDADE NA ATENCAO PRIMARIA;mesmo_codigo_mesmo_nome;42257953;5391800;-36866153
+acao;Cabreúva;2024;2025;1001;2010;;SAUDE BUCAL;somente_ano_final;0;2854800;2854800
+acao;Cabreúva;2024;2025;1003;1001;CONSTRUCAO, AMPLIACAO, E ADEQUACAO DA INFRAESTRUTURA;CONSTRUCAO, AMPLIACAO, E ADEQUACAO DA INFRAESTRUTURA;mesmo_codigo_mesmo_nome;929420080;415833145;-513586935
+acao;Cabreúva;2024;2025;1003;2015;ATENDIMENTO DE MEDIA E ALTA COMPLEXIDADE;ATENDIMENTO DE MEDIA E ALTA COMPLEXIDADE;mesmo_codigo_mesmo_nome;86444303;28454546;-57989757
+acao;Cabreúva;2024;2025;1004;2021;;VIGILANCIA SANITARIA;somente_ano_final;0;1453800;1453800
+acao;Cabreúva;2024;2025;1004;2027;;VIGILANCIA EPIDEMIOLOGICA E AMBIENTAL;somente_ano_final;0;54800;54800
+acao;Cabreúva;2024;2025;1006;2028;;PROMOCAO DO ACESSO AOS MEDICAMENTOS, MATERIAIS DE PROCEDIMENTOS BASICOS E INSUMOS;somente_ano_final;0;54800;54800
+acao;Cabreúva;2024;2025;1007;2040;PLANEJAMENTO E GESTAO EM SAUDE;PLANEJAMENTO E GESTAO EM SAUDE;mesmo_codigo_mesmo_nome;12643192;54800;-12588392
+acao;Cabreúva;2024;2025;2001;1005;INFRAESTRUTURA DO ENSINO FUNDAMENTAL;INFRAESTRUTURA DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;545338240;149084603;-396253637
+acao;Cabreúva;2024;2025;2001;2041;FUNCIONAMENTO DO ENSINO FUNDAMENTAL;FUNCIONAMENTO DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;112526319;14235614;-98290705
+acao;Cabreúva;2024;2025;2002;1006;INFRAESTRUTURA DO ENSINO INFANTIL;INFRAESTRUTURA DO ENSINO INFANTIL;mesmo_codigo_mesmo_nome;167593313;32501493;-135091820
+acao;Cabreúva;2024;2025;2002;2060;FUNCIONAMENTO DA PRE ESCOLA;FUNCIONAMENTO DA PRE ESCOLA;mesmo_codigo_mesmo_nome;46438119;220000;-46218119
+acao;Cabreúva;2024;2025;2002;2061;FUNCIONAMENTO DAS CRECHES;FUNCIONAMENTO DAS CRECHES;mesmo_codigo_mesmo_nome;8238496;13433222;5194726
+acao;Cabreúva;2024;2025;2007;2050;;MANUTENCAO DAS ATIVIDADES DA UNIVERSIDADE;somente_ano_final;0;87500;87500
+acao;Cabreúva;2024;2025;3001;2103;;GESTAO DE MECANISMO DE FOMENTO E INCENTIVO A CULTURA;somente_ano_final;0;23258;23258
+acao;Cabreúva;2024;2025;3002;2098;;BIBLIOTECAS;somente_ano_final;0;59300;59300
+acao;Cabreúva;2024;2025;3002;2101;PROJETOS CULTURAIS;PROJETOS CULTURAIS;mesmo_codigo_mesmo_nome;1366730;245600;-1121130
+acao;Cabreúva;2024;2025;3007;1029;IMPLANTACAO E REESTRUTURACAO DE ESPACOS ESPORTIVOS;IMPLANTACAO E REESTRUTURACAO DE ESPACOS ESPORTIVOS;mesmo_codigo_mesmo_nome;488186005;117290219;-370895786
+acao;Cabreúva;2024;2025;3007;2113;GESTAO DA POLITICA DE ESPORTES;GESTAO DA POLITICA DE ESPORTES;mesmo_codigo_mesmo_nome;36224582;22004113;-14220469
+acao;Cabreúva;2024;2025;4001;2152;GESTAO DA POLITICA DE ASSISTENCIA SOCIAL;GESTAO DA POLITICA DE ASSISTENCIA SOCIAL;mesmo_codigo_mesmo_nome;1361270;850444;-510826
+acao;Cabreúva;2024;2025;4001;2330;IGDBF/IGD SUAS;;somente_ano_inicial;1158594;0;-1158594
+acao;Cabreúva;2024;2025;4002;1033;INFRAESTRUTURA DO CENTRO CONVIVENCIA DO IDOSO;INFRAESTRUTURA DO CENTRO CONVIVENCIA DO IDOSO;mesmo_codigo_mesmo_nome;30930199;1443694;-29486505
+acao;Cabreúva;2024;2025;4002;2129;APOIO A FAMILIAS;APOIO A FAMILIAS;mesmo_codigo_mesmo_nome;4676779;10140847;5464068
+acao;Cabreúva;2024;2025;5002;1036;IMPLANTACAO E MELHORIA EM PRACAS, PARQUES E JARDINS;;somente_ano_inicial;116818252;0;-116818252
+acao;Cabreúva;2024;2025;5002;1102;CANALIZACAO RIBEIRAO CABREUVA E URBANIZACAO LOCAL;;somente_ano_inicial;51748872;0;-51748872
+acao;Cabreúva;2024;2025;5002;2171;;CONSERVACAO DE PRACAS, PARQUES E JARDINS;somente_ano_final;0;1758409;1758409
+acao;Cabreúva;2024;2025;5003;1038;INFRAESTRUTURA VIARIA;INFRAESTRUTURA VIARIA;mesmo_codigo_mesmo_nome;1044092792;220605139;-823487653
+acao;Cabreúva;2024;2025;5003;2173;CONSERVACAO DE VIAS PUBLICAS;CONSERVACAO DE VIAS PUBLICAS;mesmo_codigo_mesmo_nome;1162565;146374;-1016191
+acao;Cabreúva;2024;2025;5004;1046;;CANALIZACAO DE CORREGOS E CANAIS;somente_ano_final;0;82662756;82662756
+acao;Cabreúva;2024;2025;5005;2182;;ADMINISTRACAO DE CEMITERIO;somente_ano_final;0;146374;146374
+acao;Cabreúva;2024;2025;5010;2185;PLANEJAMENTO, GESTAO DO PROGRAMA;;somente_ano_inicial;894545;0;-894545
+acao;Cabreúva;2024;2025;6001;2331;GESTAO DA POLITICA DO DESENVOLVIMENTO ECONOMICO;GESTAO DA POLITICA DO DESENVOLVIMENTO ECONOMICO;mesmo_codigo_mesmo_nome;8639788;1998890;-6640898
+acao;Cabreúva;2024;2025;6004;1062;IMPLANTACAO E MODERNIZACAO DE INFRA ESTRUTURA TURISTICA;IMPLANTACAO E MODERNIZACAO DE INFRA ESTRUTURA TURISTICA;mesmo_codigo_mesmo_nome;3038047;754509;-2283538
+acao;Cabreúva;2024;2025;6006;1091;INVESTIMENTOS PPP 2;INVESTIMENTOS PPP 2;mesmo_codigo_mesmo_nome;412608728;480679982;68071254
+acao;Cabreúva;2024;2025;6006;2221;BEM ESTAR ANIMAL;BEM ESTAR ANIMAL;mesmo_codigo_mesmo_nome;148600;5021124;4872524
+acao;Cabreúva;2024;2025;6006;2224;GESTAO DAS POLITICAS DO MEIO AMBIENTE;;somente_ano_inicial;2114325;0;-2114325
+acao;Cabreúva;2024;2025;6006;2230;PRESERVACAO AMBIENTAL;;somente_ano_inicial;177169;0;-177169
+acao;Cabreúva;2024;2025;7005;2039;;GESTAO ADMINISTRATIVA OPERACIONAL DA CAMARA MUNICIPAL DE CABREUVA;somente_ano_final;0;930500;930500
+acao;Cabreúva;2024;2025;7006;2291;GESTAO DA SECRETARIA DA FAZENDA;;somente_ano_inicial;54800;0;-54800
+acao;Cabreúva;2024;2025;7007;1100;INFRAESTRUTURA DO CENTRO ADMINISTRATIVO MUNICIPAL;INFRAESTRUTURA DO CENTRO ADMINISTRATIVO MUNICIPAL;mesmo_codigo_mesmo_nome;779747666;229168307;-550579359
+acao;Cabreúva;2024;2025;7007;2293;ATIVIDADES ADMINISTRATIVAS;ATIVIDADES ADMINISTRATIVAS;mesmo_codigo_mesmo_nome;6063747;2693317;-3370430
+acao;Cabreúva;2024;2025;7009;2290;ATIVIDADES DA ADMINISTRACAO SUPERIOR;ATIVIDADES DA ADMINISTRACAO SUPERIOR;mesmo_codigo_mesmo_nome;234900;573154;338254
+acao;Cabreúva;2024;2025;8001;1041;IMPLANTACAO DE TERMINAL RODOVIARIO;;somente_ano_inicial;631284805;0;-631284805
+acao;Cabreúva;2024;2025;8001;2265;FISCALIZACAO E ENGENHARIA DE TRANSITO;FISCALIZACAO E ENGENHARIA DE TRANSITO;mesmo_codigo_mesmo_nome;20066772;8398611;-11668161
+acao;Cabreúva;2024;2025;8001;2336;GESTAO DA POLITICA DA MOBILIDADE URBANA;GESTAO DA POLITICA DA MOBILIDADE URBANA;mesmo_codigo_mesmo_nome;4021110;869478;-3151632
+acao;Cabreúva;2024;2025;8002;2267;GESTAO DAS ATIVIDADES DE SEGURANCA;GESTAO DAS ATIVIDADES DE SEGURANCA;mesmo_codigo_mesmo_nome;10066737;4486672;-5580065
+acao;Cabreúva;2024;2025;8003;1080;IMPLANTACAO DA BASE OPERACIONAL DA DEFESA CIVIL;;somente_ano_inicial;69983221;0;-69983221
+acao;Cabreúva;2024;2025;8003;2268;APOIO A SEGURANCA DO CIDADAO;APOIO A SEGURANCA DO CIDADAO;mesmo_codigo_mesmo_nome;791410;1021578;230168
+programa;Campo Limpo Paulista;2023;2024;1;;Processo Legislativo;Processo Legislativo;mesmo_codigo_mesmo_nome;241604199;20345280;-221258919
+programa;Campo Limpo Paulista;2023;2024;10;;Mobilidade e segurança para todos;Mobilidade e segurança para todos;mesmo_codigo_mesmo_nome;24706869;267429975;242723106
+programa;Campo Limpo Paulista;2023;2024;2;;Cidade Conectada com a Gestão Publica;Cidade Conectada com a Gestão Publica;mesmo_codigo_mesmo_nome;22547528;247299036;224751508
+programa;Campo Limpo Paulista;2023;2024;3;;Promoção do Esporte, Qualidade de Vida e Lazer;Promoção do Esporte, Qualidade de Vida e Lazer;mesmo_codigo_mesmo_nome;6643800;3070600;-3573200
+programa;Campo Limpo Paulista;2023;2024;4;;Cultura e Turismo Vive;Cultura e Turismo Vive;mesmo_codigo_mesmo_nome;63410297;448835815;385425518
+programa;Campo Limpo Paulista;2023;2024;5;;Humaniza Saúde;Humaniza Saúde;mesmo_codigo_mesmo_nome;364436141;580778201;216342060
+programa;Campo Limpo Paulista;2023;2024;6;;Empodera Cidadão;Empodera Cidadão;mesmo_codigo_mesmo_nome;30029020;4966674;-25062346
+programa;Campo Limpo Paulista;2023;2024;7;;Educação - Compromisso e Oportunidade;Educação - Compromisso e Oportunidade;mesmo_codigo_mesmo_nome;365924764;163593079;-202331685
+programa;Campo Limpo Paulista;2023;2024;8;;Habitação para todos;;somente_ano_inicial;72218470;0;-72218470
+programa;Campo Limpo Paulista;2023;2024;9;;Campo Limpo Paulista Sustentável;Campo Limpo Paulista Sustentável;mesmo_codigo_mesmo_nome;2600736927;6567808992;3967072065
+acao;Campo Limpo Paulista;2023;2024;1;1002;Construção e aparelhamento da nova sede da câmara municipal;;somente_ano_inicial;239500000;0;-239500000
+acao;Campo Limpo Paulista;2023;2024;1;2001;Gestão das atividades legislativas;Gestão das atividades legislativas;mesmo_codigo_mesmo_nome;2104199;20345280;18241081
+acao;Campo Limpo Paulista;2023;2024;10;1024;;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;somente_ano_final;0;66254810;66254810
+acao;Campo Limpo Paulista;2023;2024;10;1052;;Construir infraestrutura, pavimentação e recapeamento de vias públicas.;somente_ano_final;0;152757055;152757055
+acao;Campo Limpo Paulista;2023;2024;10;2061;Promover ações de proteção e defesa civil;Promover ações de proteção e defesa civil;mesmo_codigo_mesmo_nome;3511820;607600;-2904220
+acao;Campo Limpo Paulista;2023;2024;10;2063;Garantir a operação do departamento de comando da guarda municipal;Garantir a operação do departamento de comando da guarda municipal;mesmo_codigo_mesmo_nome;4754369;31400510;26646141
+acao;Campo Limpo Paulista;2023;2024;10;2064;Promover a segurança municipal e auxílio na ação social;;somente_ano_inicial;14514830;0;-14514830
+acao;Campo Limpo Paulista;2023;2024;10;2067;Gerenciar ações de melhoria no trânsito e transporte;Gerenciar ações de melhoria no trânsito e transporte;mesmo_codigo_mesmo_nome;1925850;16410000;14484150
+acao;Campo Limpo Paulista;2023;2024;2;2004;Modernização da gestão municipal jurídica, institucional, controladoria;Modernização da gestão municipal jurídica, institucional, controladoria;mesmo_codigo_mesmo_nome;8744872;398400;-8346472
+acao;Campo Limpo Paulista;2023;2024;2;2006;Aperfeiçoamento, ampliação da controladoria e ouvidoria;;somente_ano_inicial;1951586;0;-1951586
+acao;Campo Limpo Paulista;2023;2024;2;2009;Articular ações estratégicas para o desenvolvimento econômico;Articular ações estratégicas para o desenvolvimento econômico;mesmo_codigo_mesmo_nome;2455368;1931846;-523522
+acao;Campo Limpo Paulista;2023;2024;2;2013;Garantir a gestão das ações de administração geral;Garantir a gestão das ações de administração geral;mesmo_codigo_mesmo_nome;1499300;237131190;235631890
+acao;Campo Limpo Paulista;2023;2024;2;2014;Garantir a gestão das ações de administração financeira;Garantir a gestão das ações de administração financeira;mesmo_codigo_mesmo_nome;7896402;7837600;-58802
+acao;Campo Limpo Paulista;2023;2024;3;2017;Promover ações de desenvolvimento do esporte e lazer;Promover ações de desenvolvimento do esporte e lazer;mesmo_codigo_mesmo_nome;6643800;3070600;-3573200
+acao;Campo Limpo Paulista;2023;2024;4;1020;;Reforma e revitalização dos espaços turísticos e culturais da cidade.;somente_ano_final;0;4191300;4191300
+acao;Campo Limpo Paulista;2023;2024;4;1024;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;mesmo_codigo_mesmo_nome;63410297;443191849;379781552
+acao;Campo Limpo Paulista;2023;2024;4;2019;;Promover atividades, eventos e programas turísticos e culturais;somente_ano_final;0;1452666;1452666
+acao;Campo Limpo Paulista;2023;2024;5;1023;Construção do centro de especialidades;;somente_ano_inicial;90000000;0;-90000000
+acao;Campo Limpo Paulista;2023;2024;5;1024;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;mesmo_codigo_mesmo_nome;171718812;489176356;317457544
+acao;Campo Limpo Paulista;2023;2024;5;2024;Promover as ações de atenção básica;Promover as ações de atenção básica;mesmo_codigo_mesmo_nome;83249484;89769925;6520441
+acao;Campo Limpo Paulista;2023;2024;5;2027;Promover as ações de assistência hospitalar;;somente_ano_inicial;18428845;0;-18428845
+acao;Campo Limpo Paulista;2023;2024;5;2028;Promover as ações de assistência ambulatorial;Promover as ações de assistência ambulatorial;mesmo_codigo_mesmo_nome;955000;1831920;876920
+acao;Campo Limpo Paulista;2023;2024;5;2029;Promover as ações na assistência farmacêutica;;somente_ano_inicial;84000;0;-84000
+acao;Campo Limpo Paulista;2023;2024;6;2034;Garantir projetos e ações de assistência à criança e ao adolescente.;;somente_ano_inicial;699600;0;-699600
+acao;Campo Limpo Paulista;2023;2024;6;2036;Promover as ações de assistência comunitária;Promover as ações de assistência comunitária;mesmo_codigo_mesmo_nome;29329420;4966674;-24362746
+acao;Campo Limpo Paulista;2023;2024;7;1047;Construção, ampliação  e reforma de unidades escolares e aquisição de veículos.;Construção, ampliação  e reforma de unidades escolares e aquisição de veículos.;mesmo_codigo_mesmo_nome;101950511;134957615;33007104
+acao;Campo Limpo Paulista;2023;2024;7;2039;Promover o ensino infantil;Promover o ensino infantil;mesmo_codigo_mesmo_nome;40538962;13328964;-27209998
+acao;Campo Limpo Paulista;2023;2024;7;2040;Promover o ensino fundamental e EJAI;Promover o ensino fundamental e EJAI;mesmo_codigo_mesmo_nome;223435291;15306500;-208128791
+acao;Campo Limpo Paulista;2023;2024;8;1058;Adequar infraestrutura para regularização fundiária;;somente_ano_inicial;24406255;0;-24406255
+acao;Campo Limpo Paulista;2023;2024;8;1059;Promover implantação de habitação de Interesse Social;;somente_ano_inicial;47812215;0;-47812215
+acao;Campo Limpo Paulista;2023;2024;9;1024;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;mesmo_codigo_mesmo_nome;1340530737;5673609322;4333078585
+acao;Campo Limpo Paulista;2023;2024;9;1052;Construir infraestrutura, pavimentação e recapeamento de vias públicas.;Construir infraestrutura, pavimentação e recapeamento de vias públicas.;mesmo_codigo_mesmo_nome;1058095844;183296547;-874799297
+acao;Campo Limpo Paulista;2023;2024;9;1053;Revitalizar áreas degradadas e praças públicas;;somente_ano_inicial;143594372;0;-143594372
+acao;Campo Limpo Paulista;2023;2024;9;1056;;Implementar projeto de eficiência energética;somente_ano_final;0;577591212;577591212
+acao;Campo Limpo Paulista;2023;2024;9;2048;Promover ações de saneamento e meio ambiente;;somente_ano_inicial;1157700;0;-1157700
+acao;Campo Limpo Paulista;2023;2024;9;2050;Promover ações de gerenciamento de projetos.;Promover ações de gerenciamento de projetos.;mesmo_codigo_mesmo_nome;9094992;4758778;-4336214
+acao;Campo Limpo Paulista;2023;2024;9;2054;Promover ações de urbanização no município;Promover ações de urbanização no município;mesmo_codigo_mesmo_nome;48263282;2248792;-46014490
+acao;Campo Limpo Paulista;2023;2024;9;2055;;Promover ações de iluminação no município;somente_ano_final;0;126304341;126304341
+programa;Campo Limpo Paulista;2024;2025;1;;Processo Legislativo;Processo Legislativo;mesmo_codigo_mesmo_nome;20345280;51131461;30786181
+programa;Campo Limpo Paulista;2024;2025;10;;Mobilidade e segurança para todos;Mobilidade e segurança para todos;mesmo_codigo_mesmo_nome;267429975;12419847;-255010128
+programa;Campo Limpo Paulista;2024;2025;2;;Cidade Conectada com a Gestão Publica;Cidade Conectada com a Gestão Publica;mesmo_codigo_mesmo_nome;247299036;3112803;-244186233
+programa;Campo Limpo Paulista;2024;2025;3;;Promoção do Esporte, Qualidade de Vida e Lazer;Promoção do Esporte, Qualidade de Vida e Lazer;mesmo_codigo_mesmo_nome;3070600;4999947;1929347
+programa;Campo Limpo Paulista;2024;2025;4;;Cultura e Turismo Vive;Cultura e Turismo Vive;mesmo_codigo_mesmo_nome;448835815;2938600;-445897215
+programa;Campo Limpo Paulista;2024;2025;5;;Humaniza Saúde;Humaniza Saúde;mesmo_codigo_mesmo_nome;580778201;50184014;-530594187
+programa;Campo Limpo Paulista;2024;2025;6;;Empodera Cidadão;Empodera Cidadão;mesmo_codigo_mesmo_nome;4966674;6454798;1488124
+programa;Campo Limpo Paulista;2024;2025;7;;Educação - Compromisso e Oportunidade;Educação - Compromisso e Oportunidade;mesmo_codigo_mesmo_nome;163593079;62396689;-101196390
+programa;Campo Limpo Paulista;2024;2025;8;;;Habitação para todos;somente_ano_final;0;499985;499985
+programa;Campo Limpo Paulista;2024;2025;9;;Campo Limpo Paulista Sustentável;Campo Limpo Paulista Sustentável;mesmo_codigo_mesmo_nome;6567808992;800547215;-5767261777
+acao;Campo Limpo Paulista;2024;2025;1;1002;;Construção e aparelhamento da nova sede da câmara municipal;somente_ano_final;0;44665882;44665882
+acao;Campo Limpo Paulista;2024;2025;1;2001;Gestão das atividades legislativas;Gestão das atividades legislativas;mesmo_codigo_mesmo_nome;20345280;6465579;-13879701
+acao;Campo Limpo Paulista;2024;2025;10;1024;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;;somente_ano_inicial;66254810;0;-66254810
+acao;Campo Limpo Paulista;2024;2025;10;1052;Construir infraestrutura, pavimentação e recapeamento de vias públicas.;Construir infraestrutura, pavimentação e recapeamento de vias públicas.;mesmo_codigo_mesmo_nome;152757055;10969912;-141787143
+acao;Campo Limpo Paulista;2024;2025;10;2061;Promover ações de proteção e defesa civil;Promover ações de proteção e defesa civil;mesmo_codigo_mesmo_nome;607600;449950;-157650
+acao;Campo Limpo Paulista;2024;2025;10;2063;Garantir a operação do departamento de comando da guarda municipal;;somente_ano_inicial;31400510;0;-31400510
+acao;Campo Limpo Paulista;2024;2025;10;2067;Gerenciar ações de melhoria no trânsito e transporte;Gerenciar ações de melhoria no trânsito e transporte;mesmo_codigo_mesmo_nome;16410000;999985;-15410015
+acao;Campo Limpo Paulista;2024;2025;2;2004;Modernização da gestão municipal jurídica, institucional, controladoria;;somente_ano_inicial;398400;0;-398400
+acao;Campo Limpo Paulista;2024;2025;2;2009;Articular ações estratégicas para o desenvolvimento econômico;Articular ações estratégicas para o desenvolvimento econômico;mesmo_codigo_mesmo_nome;1931846;3000000;1068154
+acao;Campo Limpo Paulista;2024;2025;2;2013;Garantir a gestão das ações de administração geral;;somente_ano_inicial;237131190;0;-237131190
+acao;Campo Limpo Paulista;2024;2025;2;2014;Garantir a gestão das ações de administração financeira;Garantir a gestão das ações de administração financeira;mesmo_codigo_mesmo_nome;7837600;112803;-7724797
+acao;Campo Limpo Paulista;2024;2025;3;2017;Promover ações de desenvolvimento do esporte e lazer;Promover ações de desenvolvimento do esporte e lazer;mesmo_codigo_mesmo_nome;3070600;4999947;1929347
+acao;Campo Limpo Paulista;2024;2025;4;1020;Reforma e revitalização dos espaços turísticos e culturais da cidade.;Reforma e revitalização dos espaços turísticos e culturais da cidade.;mesmo_codigo_mesmo_nome;4191300;191900;-3999400
+acao;Campo Limpo Paulista;2024;2025;4;1024;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;;somente_ano_inicial;443191849;0;-443191849
+acao;Campo Limpo Paulista;2024;2025;4;2019;Promover atividades, eventos e programas turísticos e culturais;Promover atividades, eventos e programas turísticos e culturais;mesmo_codigo_mesmo_nome;1452666;2746700;1294034
+acao;Campo Limpo Paulista;2024;2025;5;1021;;Construção e reforma de UBS;somente_ano_final;0;40184049;40184049
+acao;Campo Limpo Paulista;2024;2025;5;1024;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;;somente_ano_inicial;489176356;0;-489176356
+acao;Campo Limpo Paulista;2024;2025;5;2024;Promover as ações de atenção básica;Promover as ações de atenção básica;mesmo_codigo_mesmo_nome;89769925;4999995;-84769930
+acao;Campo Limpo Paulista;2024;2025;5;2028;Promover as ações de assistência ambulatorial;Promover as ações de assistência ambulatorial;mesmo_codigo_mesmo_nome;1831920;4999970;3168050
+acao;Campo Limpo Paulista;2024;2025;6;2036;Promover as ações de assistência comunitária;Promover as ações de assistência comunitária;mesmo_codigo_mesmo_nome;4966674;6454798;1488124
+acao;Campo Limpo Paulista;2024;2025;7;1047;Construção, ampliação  e reforma de unidades escolares e aquisição de veículos.;Construção, ampliação  e reforma de unidades escolares e aquisição de veículos.;mesmo_codigo_mesmo_nome;134957615;62396689;-72560926
+acao;Campo Limpo Paulista;2024;2025;7;2039;Promover o ensino infantil;;somente_ano_inicial;13328964;0;-13328964
+acao;Campo Limpo Paulista;2024;2025;7;2040;Promover o ensino fundamental e EJAI;;somente_ano_inicial;15306500;0;-15306500
+acao;Campo Limpo Paulista;2024;2025;8;2060;;Promover ações para regularização e implantação de habitação de interesse social;somente_ano_final;0;499985;499985
+acao;Campo Limpo Paulista;2024;2025;9;1024;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;Contratação de Operações de Crédito - Desenvolve-SP e Caixa Ecomonica Federal.;mesmo_codigo_mesmo_nome;5673609322;424098455;-5249510867
+acao;Campo Limpo Paulista;2024;2025;9;1052;Construir infraestrutura, pavimentação e recapeamento de vias públicas.;Construir infraestrutura, pavimentação e recapeamento de vias públicas.;mesmo_codigo_mesmo_nome;183296547;280731047;97434500
+acao;Campo Limpo Paulista;2024;2025;9;1056;Implementar projeto de eficiência energética;Implementar projeto de eficiência energética;mesmo_codigo_mesmo_nome;577591212;41297533;-536293679
+acao;Campo Limpo Paulista;2024;2025;9;2048;;Promover ações de saneamento e meio ambiente;somente_ano_final;0;1828725;1828725
+acao;Campo Limpo Paulista;2024;2025;9;2050;Promover ações de gerenciamento de projetos.;Promover ações de gerenciamento de projetos.;mesmo_codigo_mesmo_nome;4758778;4999965;241187
+acao;Campo Limpo Paulista;2024;2025;9;2054;Promover ações de urbanização no município;Promover ações de urbanização no município;mesmo_codigo_mesmo_nome;2248792;47591490;45342698
+acao;Campo Limpo Paulista;2024;2025;9;2055;Promover ações de iluminação no município;;somente_ano_inicial;126304341;0;-126304341
+programa;Itupeva;2023;2024;1;;Processo Legislativo;Processo Legislativo;mesmo_codigo_mesmo_nome;24711660;36777787;12066127
+programa;Itupeva;2023;2024;10;;Fomento a Agricultura;Fomento a Agricultura;mesmo_codigo_mesmo_nome;84000;52900;-31100
+programa;Itupeva;2023;2024;11;;Difusão Cultural;Difusão Cultural;mesmo_codigo_mesmo_nome;20841273;2789994;-18051279
+programa;Itupeva;2023;2024;16;;ESPORTE, LAZER E QUALIDADE DE VIDA;ESPORTE, LAZER E QUALIDADE DE VIDA;mesmo_codigo_mesmo_nome;11324093;1683000;-9641093
+programa;Itupeva;2023;2024;18;;FOMENTO AO DESENVOLVIMENTO TURISTICO;;somente_ano_inicial;49136071;0;-49136071
+programa;Itupeva;2023;2024;19;;ENSINO FUNDAMENTAL COM QUALIDADE;ENSINO FUNDAMENTAL COM QUALIDADE;mesmo_codigo_mesmo_nome;1202983153;263443055;-939540098
+programa;Itupeva;2023;2024;2;;Coordenação administrativa;;somente_ano_inicial;3506000;0;-3506000
+programa;Itupeva;2023;2024;20;;CRECHES E PRÉ-ESCOLAS COM QUALIDADE;CRECHES E PRÉ-ESCOLAS COM QUALIDADE;mesmo_codigo_mesmo_nome;281045140;141803125;-139242015
+programa;Itupeva;2023;2024;25;;BEM ESTAR ANIMAL;BEM ESTAR ANIMAL;mesmo_codigo_mesmo_nome;9390400;188809;-9201591
+programa;Itupeva;2023;2024;26;;MANUTENÇÃO E OPERAÇÕES - DEMOP;;somente_ano_inicial;1458400;0;-1458400
+programa;Itupeva;2023;2024;27;;PROTEÇÃO SOCIAL BÁSICA;;somente_ano_inicial;13081852;0;-13081852
+programa;Itupeva;2023;2024;29;;MANUT. DA SECRETARIA DE DESENVOLVIMENTO SOCIAL;MANUT. DA SECRETARIA DE DESENVOLVIMENTO SOCIAL;mesmo_codigo_mesmo_nome;50535513;1441500;-49094013
+programa;Itupeva;2023;2024;3;;Serviços e Assistência Jurídica;Serviços e Assistência Jurídica;mesmo_codigo_mesmo_nome;163490;945645;782155
+programa;Itupeva;2023;2024;30;;GUARDA MUNICIPAL;;somente_ano_inicial;8093318;0;-8093318
+programa;Itupeva;2023;2024;4;;Desenvolvimento e Ordenamento Urbano;Desenvolvimento e Ordenamento Urbano;mesmo_codigo_mesmo_nome;2803344814;1334424814;-1468920000
+programa;Itupeva;2023;2024;4008;;PREVIDÊNCIA MUNICIPAL;;somente_ano_inicial;343800;0;-343800
+programa;Itupeva;2023;2024;5;;DESENVOLVIMENTO DA INDUSTRIA E COMÉRCIO;;somente_ano_inicial;480000;0;-480000
+programa;Itupeva;2023;2024;6;;Desenvolvimento da Gestão Publica;;somente_ano_inicial;27849437;0;-27849437
+programa;Itupeva;2023;2024;7;;;GESTÃO DO SISTEMA DE ENSINO;somente_ano_final;0;20697753;20697753
+programa;Itupeva;2023;2024;8;;Humanização, qualidade e ampliação do acesso à saúde;Humanização, qualidade e ampliação do acesso à saúde;mesmo_codigo_mesmo_nome;298949377;70847426;-228101951
+programa;Itupeva;2023;2024;9;;SOS MULHER;SOS MULHER;mesmo_codigo_mesmo_nome;9201288;4458585;-4742703
+acao;Itupeva;2023;2024;1;1143;CONSTRUCAO DO PREDIO DO LEGISLATIVO;CONSTRUCAO DO PREDIO DO LEGISLATIVO;mesmo_codigo_mesmo_nome;1095500;55000;-1040500
+acao;Itupeva;2023;2024;1;2027;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;mesmo_codigo_mesmo_nome;22598080;3954400;-18643680
+acao;Itupeva;2023;2024;1;2042;AMPLIACAO E REFORMA DO PREDIO DO LEGISLATIVO;AMPLIACAO E REFORMA DO PREDIO DO LEGISLATIVO;mesmo_codigo_mesmo_nome;1018080;32768387;31750307
+acao;Itupeva;2023;2024;10;2056;MANUTENCAO DAS ATIVIDADES ADMINISTRATIVAS;MANUTENCAO DAS ATIVIDADES ADMINISTRATIVAS;mesmo_codigo_mesmo_nome;84000;52900;-31100
+acao;Itupeva;2023;2024;11;1054;CONSTRUCAO DE ESPACOS CULTURAIS;;somente_ano_inicial;20841273;0;-20841273
+acao;Itupeva;2023;2024;11;2025;;GESTAO E MANUTENCAO DO SETOR DE CULTURA;somente_ano_final;0;2789994;2789994
+acao;Itupeva;2023;2024;16;1064;INFRAESTRUTURA ESPORTIVA;;somente_ano_inicial;10850000;0;-10850000
+acao;Itupeva;2023;2024;16;1065;INFRAESTRUTURA DE LAZER;;somente_ano_inicial;31904;0;-31904
+acao;Itupeva;2023;2024;16;2003;FUNCIONAMENTO DOS EQUIPAMENTOS ESPORTIVOS;;somente_ano_inicial;442189;0;-442189
+acao;Itupeva;2023;2024;16;2013;;MANUTENCAO DAS MODALIDADES ESPORTIVAS;somente_ano_final;0;1683000;1683000
+acao;Itupeva;2023;2024;18;1023;CONSTRUCAO DO PARQUE DA MINA;;somente_ano_inicial;47169471;0;-47169471
+acao;Itupeva;2023;2024;18;2027;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;;somente_ano_inicial;1966600;0;-1966600
+acao;Itupeva;2023;2024;19;1038;CONSTRUCAO DE UNIDADES DE ENSINO FUNDAMENTAL;CONSTRUCAO DE UNIDADES DE ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;1109165657;2038742;-1107126915
+acao;Itupeva;2023;2024;19;1053;;AMPLIACAO E REFORMA DE UNIDADES DO ENSINO FUNDAMENTAL;somente_ano_final;0;5700000;5700000
+acao;Itupeva;2023;2024;19;1072;CONSTRUCAO CENTRO DE APOIO EDUCACIONAL ESPECIALIZADO;CONSTRUCAO CENTRO DE APOIO EDUCACIONAL ESPECIALIZADO;mesmo_codigo_mesmo_nome;15750561;142638230;126887669
+acao;Itupeva;2023;2024;19;2069;FUNCIONAMENTO DO ENSINO FUNDAMENTAL;FUNCIONAMENTO DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;78066935;113066083;34999148
+acao;Itupeva;2023;2024;2;2033;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;;somente_ano_inicial;3506000;0;-3506000
+acao;Itupeva;2023;2024;20;1050;CONSTRUCAO DE UNIDADES DE EDUCACAO INFANTIL;CONSTRUCAO DE UNIDADES DE EDUCACAO INFANTIL;mesmo_codigo_mesmo_nome;264493940;87729643;-176764297
+acao;Itupeva;2023;2024;20;1052;;AMPLIACAO E REFORMA DAS UNIDADES DE EDUCACAO INFANTIL;somente_ano_final;0;5700000;5700000
+acao;Itupeva;2023;2024;20;2084;FUNCIONAMENTO DA PRE ESCOLA;FUNCIONAMENTO DA PRE ESCOLA;mesmo_codigo_mesmo_nome;16551200;46369482;29818282
+acao;Itupeva;2023;2024;20;2086;;FUNCIONAMENTO DAS CRECHES;somente_ano_final;0;2004000;2004000
+acao;Itupeva;2023;2024;25;2056;;MANUTENCAO DAS ATIVIDADES ADMINISTRATIVAS;somente_ano_final;0;188809;188809
+acao;Itupeva;2023;2024;25;2098;EDUCACAO AMBIENTAL/FISCALIZACAO;;somente_ano_inicial;9390400;0;-9390400
+acao;Itupeva;2023;2024;26;2105;MANUT E CONSERVACAO DA ARBORIZACAO URBANA;;somente_ano_inicial;65000;0;-65000
+acao;Itupeva;2023;2024;26;2108;MANUTENCAO DAS ATIVIDADES DEMOP;;somente_ano_inicial;1393400;0;-1393400
+acao;Itupeva;2023;2024;27;2001;PROTECAO SOCIAL BASICA A INFANCIA E AO ADOLESCENTE;;somente_ano_inicial;13081852;0;-13081852
+acao;Itupeva;2023;2024;29;1042;CONSTRUCAO DO NAM NUCLEO DE ATEND A MULHER E AO ADOLESCENTE;;somente_ano_inicial;23618485;0;-23618485
+acao;Itupeva;2023;2024;29;2120;MANUT DA SECRETARIA DE ASSISTENCIA SOCIAL;MANUT DA SECRETARIA DE ASSISTENCIA SOCIAL;mesmo_codigo_mesmo_nome;25513288;1441500;-24071788
+acao;Itupeva;2023;2024;29;2125;PROTECAO SOCIAL BASICA A FAMILIA;;somente_ano_inicial;1403740;0;-1403740
+acao;Itupeva;2023;2024;3;2006;Manutencao de Assuntos Juridicos;Manutencao de Assuntos Juridicos;mesmo_codigo_mesmo_nome;163490;945645;782155
+acao;Itupeva;2023;2024;30;2020;MANUTENCAO DA GUARDA MUNICIPAL;;somente_ano_inicial;8093318;0;-8093318
+acao;Itupeva;2023;2024;4;1008;CONSTRUCAO NOVOS VIARIOS;CONSTRUCAO NOVOS VIARIOS;mesmo_codigo_mesmo_nome;403277926;15741861;-387536065
+acao;Itupeva;2023;2024;4;1009;RECAPEAMENTO DE LOGRADOUROS;RECAPEAMENTO DE LOGRADOUROS;mesmo_codigo_mesmo_nome;190518639;70000000;-120518639
+acao;Itupeva;2023;2024;4;1013;PAVIMENTACAO DE LOGRADOUROS;;somente_ano_inicial;13848000;0;-13848000
+acao;Itupeva;2023;2024;4;1015;OBRAS DE DRENAGEM;OBRAS DE DRENAGEM;mesmo_codigo_mesmo_nome;1435838289;993335276;-442503013
+acao;Itupeva;2023;2024;4;1030;REFORMA DE PREDIOS PUBLICOS;;somente_ano_inicial;57037507;0;-57037507
+acao;Itupeva;2023;2024;4;1031;EXTENSAO DE REDE ELETRICA E ILUMINACAO PUBLICA;EXTENSAO DE REDE ELETRICA E ILUMINACAO PUBLICA;mesmo_codigo_mesmo_nome;2516400;1150000;-1366400
+acao;Itupeva;2023;2024;4;1056;PAVIMENTACAO E RECAPEAMENTO DE VIAS;PAVIMENTACAO E RECAPEAMENTO DE VIAS;mesmo_codigo_mesmo_nome;558586970;249761056;-308825914
+acao;Itupeva;2023;2024;4;1063;CONST PONTE SOBRE O RIO JUNDIAI AV NELSON GULA;CONST PONTE SOBRE O RIO JUNDIAI AV NELSON GULA;mesmo_codigo_mesmo_nome;133338139;3834845;-129503294
+acao;Itupeva;2023;2024;4;2033;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;mesmo_codigo_mesmo_nome;456994;601776;144782
+acao;Itupeva;2023;2024;4;2110;MANUTENCAO DAS ATIVIDADES;;somente_ano_inicial;7925950;0;-7925950
+acao;Itupeva;2023;2024;4008;2135;CUSTEIO ADMINISTRATIVO;;somente_ano_inicial;343800;0;-343800
+acao;Itupeva;2023;2024;5;2145;MANUTENCAO DO COMERCIO;;somente_ano_inicial;480000;0;-480000
+acao;Itupeva;2023;2024;6;2040;MANUT E CONSERVACAO DE BENS IMOVEIS;;somente_ano_inicial;10281201;0;-10281201
+acao;Itupeva;2023;2024;6;2137;MANUT DA SECRETARIA DE GESTAO PUBLICA;;somente_ano_inicial;17568236;0;-17568236
+acao;Itupeva;2023;2024;7;2085;;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;somente_ano_final;0;20697753;20697753
+acao;Itupeva;2023;2024;8;1002;;REFORMA E AMPLIACAO DAS UNIDADES BASICAS DE SAUDE;somente_ano_final;0;13687215;13687215
+acao;Itupeva;2023;2024;8;1004;CONSTRUCAO DE UNIDADES DE SAUDE;CONSTRUCAO DE UNIDADES DE SAUDE;mesmo_codigo_mesmo_nome;27099972;18295562;-8804410
+acao;Itupeva;2023;2024;8;1068;REFORMA E AMPLIACAO DO HOSPITAL MUNICIPAL;;somente_ano_inicial;4560000;0;-4560000
+acao;Itupeva;2023;2024;8;2033;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;;somente_ano_inicial;372000;0;-372000
+acao;Itupeva;2023;2024;8;2049;MANUTENCAO SERVICOS DE MEDIA E ALTA COMPLEXIDADE;MANUTENCAO SERVICOS DE MEDIA E ALTA COMPLEXIDADE;mesmo_codigo_mesmo_nome;193988032;17829800;-176158232
+acao;Itupeva;2023;2024;8;2057;MANUTENCAO DOS SERVICOS DA ATENCAO BASICA;MANUTENCAO DOS SERVICOS DA ATENCAO BASICA;mesmo_codigo_mesmo_nome;46489909;2292000;-44197909
+acao;Itupeva;2023;2024;8;2058;MANUTENCAO DOS SERVICOS DA SAUDE BUCAL;;somente_ano_inicial;2386000;0;-2386000
+acao;Itupeva;2023;2024;8;2062;MANUTENCAO DOS SERVICOS DE VIGILANCIA EM SAUDE;MANUTENCAO DOS SERVICOS DE VIGILANCIA EM SAUDE;mesmo_codigo_mesmo_nome;2863474;664000;-2199474
+acao;Itupeva;2023;2024;8;2064;MANUTENCAO DA ASSISTENCIA FARMACEUTICA;MANUTENCAO DA ASSISTENCIA FARMACEUTICA;mesmo_codigo_mesmo_nome;1666044;17278849;15612805
+acao;Itupeva;2023;2024;8;2067;MANUTENCAO DO HOSPITAL NOSSA SENHORA DE APARECIDA;MANUTENCAO DO HOSPITAL NOSSA SENHORA DE APARECIDA;mesmo_codigo_mesmo_nome;19523946;800000;-18723946
+acao;Itupeva;2023;2024;9;2127;ABRIGOS PARA MULHERES EM SITUACAO DE RISCO;ABRIGOS PARA MULHERES EM SITUACAO DE RISCO;mesmo_codigo_mesmo_nome;9201288;4458585;-4742703
+programa;Itupeva;2024;2025;1;;Processo Legislativo;Processo Legislativo;mesmo_codigo_mesmo_nome;36777787;47481865;10704078
+programa;Itupeva;2024;2025;10;;Fomento a Agricultura;;somente_ano_inicial;52900;0;-52900
+programa;Itupeva;2024;2025;11;;Difusão Cultural;Difusão Cultural;mesmo_codigo_mesmo_nome;2789994;280900;-2509094
+programa;Itupeva;2024;2025;15;;;TRÂNSITO E TRANSPORTE - DEMUTRAN;somente_ano_final;0;3559900;3559900
+programa;Itupeva;2024;2025;16;;ESPORTE, LAZER E QUALIDADE DE VIDA;ESPORTE, LAZER E QUALIDADE DE VIDA;mesmo_codigo_mesmo_nome;1683000;90542376;88859376
+programa;Itupeva;2024;2025;19;;ENSINO FUNDAMENTAL COM QUALIDADE;ENSINO FUNDAMENTAL COM QUALIDADE;mesmo_codigo_mesmo_nome;263443055;539151829;275708774
+programa;Itupeva;2024;2025;20;;CRECHES E PRÉ-ESCOLAS COM QUALIDADE;CRECHES E PRÉ-ESCOLAS COM QUALIDADE;mesmo_codigo_mesmo_nome;141803125;431110666;289307541
+programa;Itupeva;2024;2025;25;;BEM ESTAR ANIMAL;;somente_ano_inicial;188809;0;-188809
+programa;Itupeva;2024;2025;27;;;PROTEÇÃO SOCIAL BÁSICA;somente_ano_final;0;10965681;10965681
+programa;Itupeva;2024;2025;29;;MANUT. DA SECRETARIA DE DESENVOLVIMENTO SOCIAL;MANUT. DA SECRETARIA DE DESENVOLVIMENTO SOCIAL;mesmo_codigo_mesmo_nome;1441500;0;-1441500
+programa;Itupeva;2024;2025;3;;Serviços e Assistência Jurídica;;somente_ano_inicial;945645;0;-945645
+programa;Itupeva;2024;2025;30;;;GUARDA MUNICIPAL;somente_ano_final;0;1446464;1446464
+programa;Itupeva;2024;2025;31;;;PROTEÇÃO E CONSERVAÇÃO DO MEIO AMBIENTE E CIDADE SUSTENTÁVEL;somente_ano_final;0;2285800;2285800
+programa;Itupeva;2024;2025;4;;Desenvolvimento e Ordenamento Urbano;Desenvolvimento e Ordenamento Urbano;mesmo_codigo_mesmo_nome;1334424814;625891789;-708533025
+programa;Itupeva;2024;2025;4008;;;PREVIDÊNCIA MUNICIPAL;somente_ano_final;0;2743100;2743100
+programa;Itupeva;2024;2025;6;;;Desenvolvimento da Gestão Publica;somente_ano_final;0;14071680;14071680
+programa;Itupeva;2024;2025;7;;GESTÃO DO SISTEMA DE ENSINO;;somente_ano_inicial;20697753;0;-20697753
+programa;Itupeva;2024;2025;8;;Humanização, qualidade e ampliação do acesso à saúde;Humanização, qualidade e ampliação do acesso à saúde;mesmo_codigo_mesmo_nome;70847426;225812728;154965302
+programa;Itupeva;2024;2025;9;;SOS MULHER;;somente_ano_inicial;4458585;0;-4458585
+acao;Itupeva;2024;2025;1;1143;CONSTRUCAO DO PREDIO DO LEGISLATIVO;CONSTRUCAO DO PREDIO DO LEGISLATIVO;mesmo_codigo_mesmo_nome;55000;1360000;1305000
+acao;Itupeva;2024;2025;1;2027;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;mesmo_codigo_mesmo_nome;3954400;42052690;38098290
+acao;Itupeva;2024;2025;1;2042;AMPLIACAO E REFORMA DO PREDIO DO LEGISLATIVO;AMPLIACAO E REFORMA DO PREDIO DO LEGISLATIVO;mesmo_codigo_mesmo_nome;32768387;4069175;-28699212
+acao;Itupeva;2024;2025;10;2056;MANUTENCAO DAS ATIVIDADES ADMINISTRATIVAS;;somente_ano_inicial;52900;0;-52900
+acao;Itupeva;2024;2025;11;2025;GESTAO E MANUTENCAO DO SETOR DE CULTURA;;somente_ano_inicial;2789994;0;-2789994
+acao;Itupeva;2024;2025;11;2208;;GESTAO E MANUTENCAO DO SETOR DE CULTURA;somente_ano_final;0;280900;280900
+acao;Itupeva;2024;2025;15;2093;;GESTAO E PROCESSAMENTO DE MULTAS;somente_ano_final;0;3029900;3029900
+acao;Itupeva;2024;2025;15;2206;;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;somente_ano_final;0;530000;530000
+acao;Itupeva;2024;2025;16;1085;;MODERNIZACAO DE INFRAESTRUTURA ESPORTIVA E DE LAZER;somente_ano_final;0;90533578;90533578
+acao;Itupeva;2024;2025;16;2013;MANUTENCAO DAS MODALIDADES ESPORTIVAS;;somente_ano_inicial;1683000;0;-1683000
+acao;Itupeva;2024;2025;16;2206;;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;somente_ano_final;0;8798;8798
+acao;Itupeva;2024;2025;19;1038;CONSTRUCAO DE UNIDADES DE ENSINO FUNDAMENTAL;;somente_ano_inicial;2038742;0;-2038742
+acao;Itupeva;2024;2025;19;1053;AMPLIACAO E REFORMA DE UNIDADES DO ENSINO FUNDAMENTAL;;somente_ano_inicial;5700000;0;-5700000
+acao;Itupeva;2024;2025;19;1072;CONSTRUCAO CENTRO DE APOIO EDUCACIONAL ESPECIALIZADO;;somente_ano_inicial;142638230;0;-142638230
+acao;Itupeva;2024;2025;19;1079;;CONSTRUCAO DE UNIDADES DE ENSINO FUNDAMENTAL;somente_ano_final;0;172374996;172374996
+acao;Itupeva;2024;2025;19;1080;;AMPLIACAO E REFORMA DE UNIDADES DO ENSINO FUNDAMENTAL;somente_ano_final;0;94952671;94952671
+acao;Itupeva;2024;2025;19;2069;FUNCIONAMENTO DO ENSINO FUNDAMENTAL;FUNCIONAMENTO DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;113066083;271824162;158758079
+acao;Itupeva;2024;2025;20;1050;CONSTRUCAO DE UNIDADES DE EDUCACAO INFANTIL;;somente_ano_inicial;87729643;0;-87729643
+acao;Itupeva;2024;2025;20;1052;AMPLIACAO E REFORMA DAS UNIDADES DE EDUCACAO INFANTIL;;somente_ano_inicial;5700000;0;-5700000
+acao;Itupeva;2024;2025;20;1081;;CONSTRUCAO DE UNIDADES DE EDUCACAO INFANTIL;somente_ano_final;0;193865457;193865457
+acao;Itupeva;2024;2025;20;2084;FUNCIONAMENTO DA PRE ESCOLA;FUNCIONAMENTO DA PRE ESCOLA;mesmo_codigo_mesmo_nome;46369482;108968480;62598998
+acao;Itupeva;2024;2025;20;2086;FUNCIONAMENTO DAS CRECHES;FUNCIONAMENTO DAS CRECHES;mesmo_codigo_mesmo_nome;2004000;128276729;126272729
+acao;Itupeva;2024;2025;25;2056;MANUTENCAO DAS ATIVIDADES ADMINISTRATIVAS;;somente_ano_inicial;188809;0;-188809
+acao;Itupeva;2024;2025;27;1060;;CONSTRUCAO/REFORMA/AMPLIACAO;somente_ano_final;0;9829781;9829781
+acao;Itupeva;2024;2025;27;2125;;PROTECAO SOCIAL BASICA A FAMILIA;somente_ano_final;0;821840;821840
+acao;Itupeva;2024;2025;27;2219;;BLOCO DE GESTAO DO PROGRAMA BOLSA FAMILIA E CADASTRO UNICO,;somente_ano_final;0;314060;314060
+acao;Itupeva;2024;2025;29;2120;MANUT DA SECRETARIA DE ASSISTENCIA SOCIAL;;somente_ano_inicial;1441500;0;-1441500
+acao;Itupeva;2024;2025;29;2202;;MANUT DA SECRETARIA DE ASSISTENCIA SOCIAL;somente_ano_final;0;0;0
+acao;Itupeva;2024;2025;3;2006;Manutencao de Assuntos Juridicos;;somente_ano_inicial;945645;0;-945645
+acao;Itupeva;2024;2025;30;2215;;MANUT DA GUARDA MUNICIPAL;somente_ano_final;0;1446464;1446464
+acao;Itupeva;2024;2025;31;2024;;FISCALIZACAO DA POLUICAO E CONTROLE AMBIENTAL;somente_ano_final;0;1065800;1065800
+acao;Itupeva;2024;2025;31;2206;;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;somente_ano_final;0;1220000;1220000
+acao;Itupeva;2024;2025;4;1008;CONSTRUCAO NOVOS VIARIOS;;somente_ano_inicial;15741861;0;-15741861
+acao;Itupeva;2024;2025;4;1009;RECAPEAMENTO DE LOGRADOUROS;;somente_ano_inicial;70000000;0;-70000000
+acao;Itupeva;2024;2025;4;1015;OBRAS DE DRENAGEM;;somente_ano_inicial;993335276;0;-993335276
+acao;Itupeva;2024;2025;4;1031;EXTENSAO DE REDE ELETRICA E ILUMINACAO PUBLICA;;somente_ano_inicial;1150000;0;-1150000
+acao;Itupeva;2024;2025;4;1056;PAVIMENTACAO E RECAPEAMENTO DE VIAS;;somente_ano_inicial;249761056;0;-249761056
+acao;Itupeva;2024;2025;4;1063;CONST PONTE SOBRE O RIO JUNDIAI AV NELSON GULA;;somente_ano_inicial;3834845;0;-3834845
+acao;Itupeva;2024;2025;4;1089;;DESAPROPRIACAO DE AREAS DE INTERESSE PUBLICO;somente_ano_final;0;14500000;14500000
+acao;Itupeva;2024;2025;4;1094;;PAVIMENTACAO, DRENAGEM E RECAPEAMENTO DE VIAS;somente_ano_final;0;432246733;432246733
+acao;Itupeva;2024;2025;4;1098;;OBRAS DE DRENAGEM;somente_ano_final;0;179145056;179145056
+acao;Itupeva;2024;2025;4;2033;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;;somente_ano_inicial;601776;0;-601776
+acao;Itupeva;2024;2025;4008;2135;;CUSTEIO ADMINISTRATIVO;somente_ano_final;0;2743100;2743100
+acao;Itupeva;2024;2025;6;2206;;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;somente_ano_final;0;125000;125000
+acao;Itupeva;2024;2025;6;2212;;MANUTENCAO DA ADMINISTRACAO DE ITUPEVA;somente_ano_final;0;13946680;13946680
+acao;Itupeva;2024;2025;7;2085;MANUTENCAO DOS SERVICOS ADMINISTRATIVOS;;somente_ano_inicial;20697753;0;-20697753
+acao;Itupeva;2024;2025;8;1002;REFORMA E AMPLIACAO DAS UNIDADES BASICAS DE SAUDE;;somente_ano_inicial;13687215;0;-13687215
+acao;Itupeva;2024;2025;8;1004;CONSTRUCAO DE UNIDADES DE SAUDE;;somente_ano_inicial;18295562;0;-18295562
+acao;Itupeva;2024;2025;8;1095;;CONSTRUCAO DE UNIDADES DE SAUDE;somente_ano_final;0;51275726;51275726
+acao;Itupeva;2024;2025;8;1096;;REFORMA E AMPLIACAO DE UNIDADES BASICAS DE SAUDE;somente_ano_final;0;78857395;78857395
+acao;Itupeva;2024;2025;8;2049;MANUTENCAO SERVICOS DE MEDIA E ALTA COMPLEXIDADE;MANUTENCAO SERVICOS DE MEDIA E ALTA COMPLEXIDADE;mesmo_codigo_mesmo_nome;17829800;9628810;-8200990
+acao;Itupeva;2024;2025;8;2057;MANUTENCAO DOS SERVICOS DA ATENCAO BASICA;MANUTENCAO DOS SERVICOS DA ATENCAO BASICA;mesmo_codigo_mesmo_nome;2292000;22116610;19824610
+acao;Itupeva;2024;2025;8;2058;;MANUTENCAO DOS SERVICOS DA SAUDE BUCAL;somente_ano_final;0;42241000;42241000
+acao;Itupeva;2024;2025;8;2062;MANUTENCAO DOS SERVICOS DE VIGILANCIA EM SAUDE;MANUTENCAO DOS SERVICOS DE VIGILANCIA EM SAUDE;mesmo_codigo_mesmo_nome;664000;5484564;4820564
+acao;Itupeva;2024;2025;8;2064;MANUTENCAO DA ASSISTENCIA FARMACEUTICA;;somente_ano_inicial;17278849;0;-17278849
+acao;Itupeva;2024;2025;8;2067;MANUTENCAO DO HOSPITAL NOSSA SENHORA DE APARECIDA;MANUTENCAO DO HOSPITAL NOSSA SENHORA DE APARECIDA;mesmo_codigo_mesmo_nome;800000;16208623;15408623
+acao;Itupeva;2024;2025;9;2127;ABRIGOS PARA MULHERES EM SITUACAO DE RISCO;;somente_ano_inicial;4458585;0;-4458585
+programa;Jarinu;2023;2024;1;;Gestão Legislativa;Gestão Legislativa;mesmo_codigo_mesmo_nome;4048150;4600156;552006
+programa;Jarinu;2023;2024;10;;Gestão Estratégica e Tecnológica;Gestão Estratégica e Tecnológica;mesmo_codigo_mesmo_nome;517500;342774;-174726
+programa;Jarinu;2023;2024;12;;Gestão Administrativa;;somente_ano_inicial;250600;0;-250600
+programa;Jarinu;2023;2024;13;;Gestão Saudável;Gestão Saudável;mesmo_codigo_mesmo_nome;26759394;29497491;2738097
+programa;Jarinu;2023;2024;15;;Gestão de Segurança Publica;Gestão de Segurança Publica;mesmo_codigo_mesmo_nome;15665432;2138000;-13527432
+programa;Jarinu;2023;2024;17;;Gestão Ambiental;Gestão Ambiental;mesmo_codigo_mesmo_nome;451500;579000;127500
+programa;Jarinu;2023;2024;18;;Gestão de Serviços Publicos;Gestão de Serviços Publicos;mesmo_codigo_mesmo_nome;6786769;9389900;2603131
+programa;Jarinu;2023;2024;19;;Gestão de Mobilidade e Planejamento Viário;;somente_ano_inicial;359700;0;-359700
+programa;Jarinu;2023;2024;2;;Gestão Governamental;;somente_ano_inicial;52000;0;-52000
+programa;Jarinu;2023;2024;20;;Gestão de Desenvolvimento Econõmico;Gestão de Desenvolvimento Econõmico;mesmo_codigo_mesmo_nome;924500;302000;-622500
+programa;Jarinu;2023;2024;3;;Gestão Educacional;Gestão Educacional;mesmo_codigo_mesmo_nome;3352333;78377860;75025527
+programa;Jarinu;2023;2024;4;;Gestão Turistica, Cultural e Lazer;Gestão Turistica, Cultural e Lazer;mesmo_codigo_mesmo_nome;69206770;363252;-68843518
+programa;Jarinu;2023;2024;5;;Gestão Social;Gestão Social;mesmo_codigo_mesmo_nome;924500;21160845;20236345
+programa;Jarinu;2023;2024;8;;Gestão de Obras e Urbanismo;Gestão de Obras e Urbanismo;mesmo_codigo_mesmo_nome;290139150;1346691144;1056551994
+acao;Jarinu;2023;2024;1;2001;MANUTENÇÃO DAS ATIVIDADES LEGISLATIVAS;MANUTENÇÃO DAS ATIVIDADES LEGISLATIVAS;mesmo_codigo_mesmo_nome;4048150;4600156;552006
+acao;Jarinu;2023;2024;10;2076;Manutenção da Divisão de Tecnologia da Informação;Manutenção da Divisão de Tecnologia da Informação;mesmo_codigo_mesmo_nome;517500;342774;-174726
+acao;Jarinu;2023;2024;12;1009;AQUISIÇÃO DE EQUIPAMENTOS;;somente_ano_inicial;250600;0;-250600
+acao;Jarinu;2023;2024;13;1002;AQUISIÇÃO DE EQUIPAMENTOS PARA SAÚDE;AQUISIÇÃO DE EQUIPAMENTOS PARA SAÚDE;mesmo_codigo_mesmo_nome;6330900;1747491;-4583409
+acao;Jarinu;2023;2024;13;1003;AQUISIÇÃO DE VEÍCULOS PARA SAÚDE;;somente_ano_inicial;19600000;0;-19600000
+acao;Jarinu;2023;2024;13;2007;;MANUTENÇÃO ATENÇÃO BÁSICA;somente_ano_final;0;5430192;5430192
+acao;Jarinu;2023;2024;13;2016;MANUTENÇÃO VIGILÂNCIA EM SAÚDE;MANUTENÇÃO VIGILÂNCIA EM SAÚDE;mesmo_codigo_mesmo_nome;828494;22319808;21491314
+acao;Jarinu;2023;2024;15;1007;AQUISIÇÃO DE VEÍCULOS;;somente_ano_inicial;3000000;0;-3000000
+acao;Jarinu;2023;2024;15;1009;AQUISIÇÃO DE EQUIPAMENTOS;AQUISIÇÃO DE EQUIPAMENTOS;mesmo_codigo_mesmo_nome;345000;2138000;1793000
+acao;Jarinu;2023;2024;15;2037;MANUTENÇÃO DA SEGURANÇA PÚBLICA;;somente_ano_inicial;10000000;0;-10000000
+acao;Jarinu;2023;2024;15;2090;Manutenção do Corpo de Bombeiros;;somente_ano_inicial;2320432;0;-2320432
+acao;Jarinu;2023;2024;17;1009;AQUISIÇÃO DE EQUIPAMENTOS;;somente_ano_inicial;451500;0;-451500
+acao;Jarinu;2023;2024;17;2079;;Manutenção do Fundo Municipal de Meio Ambiente;somente_ano_final;0;579000;579000
+acao;Jarinu;2023;2024;18;1009;AQUISIÇÃO DE EQUIPAMENTOS;;somente_ano_inicial;172500;0;-172500
+acao;Jarinu;2023;2024;18;2026;MANUTENÇÃO DOS SERVIÇOS PÚBLICOS;MANUTENÇÃO DOS SERVIÇOS PÚBLICOS;mesmo_codigo_mesmo_nome;6614269;9389900;2775631
+acao;Jarinu;2023;2024;19;2083;Mobilidade e Planejamento Viário;;somente_ano_inicial;359700;0;-359700
+acao;Jarinu;2023;2024;2;2074;Manutenção do Gabinete da Prefeita;;somente_ano_inicial;52000;0;-52000
+acao;Jarinu;2023;2024;20;1009;AQUISIÇÃO DE EQUIPAMENTOS;AQUISIÇÃO DE EQUIPAMENTOS;mesmo_codigo_mesmo_nome;924500;302000;-622500
+acao;Jarinu;2023;2024;3;1005;CONSTRUÇÃO DE UNIDADES EDUCACIONAIS;CONSTRUÇÃO DE UNIDADES EDUCACIONAIS;mesmo_codigo_mesmo_nome;1951333;3216000;1264667
+acao;Jarinu;2023;2024;3;1006;AQUISIÇÃO DE EQUIPAMENTOS PARA A EDUCAÇÃO;AQUISIÇÃO DE EQUIPAMENTOS PARA A EDUCAÇÃO;mesmo_codigo_mesmo_nome;1401000;75161860;73760860
+acao;Jarinu;2023;2024;4;1013;CONSTRUÇÃO DO PARQUE TURÍSTICO;CONSTRUÇÃO DO PARQUE TURÍSTICO;mesmo_codigo_mesmo_nome;13504040;73252;-13430788
+acao;Jarinu;2023;2024;4;2030;MANUTENÇÃO DO ESPORTE;;somente_ano_inicial;25000000;0;-25000000
+acao;Jarinu;2023;2024;4;2049;MANUTENÇÃO DAS FESTIVIDADES CULTURAIS;;somente_ano_inicial;30119730;0;-30119730
+acao;Jarinu;2023;2024;4;2091;Manutenção da Secretaria de Cultura, Turismo, Esporte e Lazer;Manutenção da Secretaria de Cultura, Turismo, Esporte e Lazer;mesmo_codigo_mesmo_nome;583000;290000;-293000
+acao;Jarinu;2023;2024;5;1009;AQUISIÇÃO DE EQUIPAMENTOS;AQUISIÇÃO DE EQUIPAMENTOS;mesmo_codigo_mesmo_nome;345000;5341545;4996545
+acao;Jarinu;2023;2024;5;2032;MANUTENÇÃO DO CRAS;MANUTENÇÃO DO CRAS;mesmo_codigo_mesmo_nome;15784;15235500;15219716
+acao;Jarinu;2023;2024;5;2033;;MANUTENÇÃO DO IGD;somente_ano_final;0;583800;583800
+acao;Jarinu;2023;2024;5;2060;Manutenção do Fundo Municipal Direitos da Criança e do Adolescente;;somente_ano_inicial;376516;0;-376516
+acao;Jarinu;2023;2024;5;2087;Manutenção da Divisão do CREAS;;somente_ano_inicial;187200;0;-187200
+acao;Jarinu;2023;2024;8;1008;CONSTRUÇÃO DE OBRAS E INFRA-ESTRUTURA;CONSTRUÇÃO DE OBRAS E INFRA-ESTRUTURA;mesmo_codigo_mesmo_nome;227587853;1345595241;1118007388
+acao;Jarinu;2023;2024;8;1011;CONTRUÇÃO, REFORMA E AMPLIAÇÃO DE CEMITÉRIO;;somente_ano_inicial;32101710;0;-32101710
+acao;Jarinu;2023;2024;8;2024;MANUTENÇÃO DA SECRETARIA DE OBRAS;MANUTENÇÃO DA SECRETARIA DE OBRAS;mesmo_codigo_mesmo_nome;30449587;1095903;-29353684
+programa;Jarinu;2024;2025;1;;Gestão Legislativa;Gestão Legislativa;mesmo_codigo_mesmo_nome;4600156;16660457;12060301
+programa;Jarinu;2024;2025;10;;Gestão Estratégica e Tecnológica;;somente_ano_inicial;342774;0;-342774
+programa;Jarinu;2024;2025;11;;;Gestão Jurídica;somente_ano_final;0;1331708;1331708
+programa;Jarinu;2024;2025;12;;;Gestão Administrativa;somente_ano_final;0;7228150;7228150
+programa;Jarinu;2024;2025;13;;Gestão Saudável;Gestão Saudável;mesmo_codigo_mesmo_nome;29497491;64736012;35238521
+programa;Jarinu;2024;2025;15;;Gestão de Segurança Publica;Gestão de Segurança Publica;mesmo_codigo_mesmo_nome;2138000;1528068;-609932
+programa;Jarinu;2024;2025;17;;Gestão Ambiental;Gestão Ambiental;mesmo_codigo_mesmo_nome;579000;21374900;20795900
+programa;Jarinu;2024;2025;18;;Gestão de Serviços Publicos;Gestão de Serviços Publicos;mesmo_codigo_mesmo_nome;9389900;14923482;5533582
+programa;Jarinu;2024;2025;19;;;Gestão de Mobilidade e Planejamento Viário;somente_ano_final;0;19500000;19500000
+programa;Jarinu;2024;2025;2;;;Gestão Governamental;somente_ano_final;0;400000;400000
+programa;Jarinu;2024;2025;20;;Gestão de Desenvolvimento Econõmico;;somente_ano_inicial;302000;0;-302000
+programa;Jarinu;2024;2025;3;;Gestão Educacional;Gestão Educacional;mesmo_codigo_mesmo_nome;78377860;119876147;41498287
+programa;Jarinu;2024;2025;4;;Gestão Turistica, Cultural e Lazer;Gestão Turistica, Cultural e Lazer;mesmo_codigo_mesmo_nome;363252;34658976;34295724
+programa;Jarinu;2024;2025;5;;Gestão Social;Gestão Social;mesmo_codigo_mesmo_nome;21160845;3144790;-18016055
+programa;Jarinu;2024;2025;6;;;Gestão Financeira;somente_ano_final;0;4800000;4800000
+programa;Jarinu;2024;2025;8;;Gestão de Obras e Urbanismo;Gestão de Obras e Urbanismo;mesmo_codigo_mesmo_nome;1346691144;800211675;-546479469
+programa;Jarinu;2024;2025;9;;;Gestão Agrícola;somente_ano_final;0;29206547;29206547
+acao;Jarinu;2024;2025;1;2001;MANUTENÇÃO DAS ATIVIDADES LEGISLATIVAS;MANUTENÇÃO DAS ATIVIDADES LEGISLATIVAS;mesmo_codigo_mesmo_nome;4600156;16660457;12060301
+acao;Jarinu;2024;2025;10;2076;Manutenção da Divisão de Tecnologia da Informação;;somente_ano_inicial;342774;0;-342774
+acao;Jarinu;2024;2025;11;1009;;AQUISIÇÃO DE EQUIPAMENTOS;somente_ano_final;0;1331708;1331708
+acao;Jarinu;2024;2025;12;1009;;AQUISIÇÃO DE EQUIPAMENTOS;somente_ano_final;0;7228150;7228150
+acao;Jarinu;2024;2025;13;1002;AQUISIÇÃO DE EQUIPAMENTOS PARA SAÚDE;AQUISIÇÃO DE EQUIPAMENTOS PARA SAÚDE;mesmo_codigo_mesmo_nome;1747491;44644660;42897169
+acao;Jarinu;2024;2025;13;2007;MANUTENÇÃO ATENÇÃO BÁSICA;MANUTENÇÃO ATENÇÃO BÁSICA;mesmo_codigo_mesmo_nome;5430192;17721372;12291180
+acao;Jarinu;2024;2025;13;2016;MANUTENÇÃO VIGILÂNCIA EM SAÚDE;;somente_ano_inicial;22319808;0;-22319808
+acao;Jarinu;2024;2025;13;2018;;MANUTENÇÃO FMS;somente_ano_final;0;2369980;2369980
+acao;Jarinu;2024;2025;15;1009;AQUISIÇÃO DE EQUIPAMENTOS;AQUISIÇÃO DE EQUIPAMENTOS;mesmo_codigo_mesmo_nome;2138000;1528068;-609932
+acao;Jarinu;2024;2025;17;2079;Manutenção do Fundo Municipal de Meio Ambiente;Manutenção do Fundo Municipal de Meio Ambiente;mesmo_codigo_mesmo_nome;579000;21374900;20795900
+acao;Jarinu;2024;2025;18;1009;;AQUISIÇÃO DE EQUIPAMENTOS;somente_ano_final;0;13543007;13543007
+acao;Jarinu;2024;2025;18;2026;MANUTENÇÃO DOS SERVIÇOS PÚBLICOS;MANUTENÇÃO DOS SERVIÇOS PÚBLICOS;mesmo_codigo_mesmo_nome;9389900;1380475;-8009425
+acao;Jarinu;2024;2025;19;1009;;AQUISIÇÃO DE EQUIPAMENTOS;somente_ano_final;0;19500000;19500000
+acao;Jarinu;2024;2025;2;2074;;Manutenção do Gabinete da Prefeita;somente_ano_final;0;400000;400000
+acao;Jarinu;2024;2025;20;1009;AQUISIÇÃO DE EQUIPAMENTOS;;somente_ano_inicial;302000;0;-302000
+acao;Jarinu;2024;2025;3;1005;CONSTRUÇÃO DE UNIDADES EDUCACIONAIS;CONSTRUÇÃO DE UNIDADES EDUCACIONAIS;mesmo_codigo_mesmo_nome;3216000;8589623;5373623
+acao;Jarinu;2024;2025;3;1006;AQUISIÇÃO DE EQUIPAMENTOS PARA A EDUCAÇÃO;AQUISIÇÃO DE EQUIPAMENTOS PARA A EDUCAÇÃO;mesmo_codigo_mesmo_nome;75161860;96561904;21400044
+acao;Jarinu;2024;2025;3;2063;;Manutenção salario Educação QSE;somente_ano_final;0;14724620;14724620
+acao;Jarinu;2024;2025;4;1008;;CONSTRUÇÃO DE OBRAS E INFRA-ESTRUTURA;somente_ano_final;0;21001888;21001888
+acao;Jarinu;2024;2025;4;1009;;AQUISIÇÃO DE EQUIPAMENTOS;somente_ano_final;0;11150000;11150000
+acao;Jarinu;2024;2025;4;1013;CONSTRUÇÃO DO PARQUE TURÍSTICO;CONSTRUÇÃO DO PARQUE TURÍSTICO;mesmo_codigo_mesmo_nome;73252;2261488;2188236
+acao;Jarinu;2024;2025;4;2091;Manutenção da Secretaria de Cultura, Turismo, Esporte e Lazer;Manutenção da Secretaria de Cultura, Turismo, Esporte e Lazer;mesmo_codigo_mesmo_nome;290000;245600;-44400
+acao;Jarinu;2024;2025;5;1009;AQUISIÇÃO DE EQUIPAMENTOS;;somente_ano_inicial;5341545;0;-5341545
+acao;Jarinu;2024;2025;5;2032;MANUTENÇÃO DO CRAS;MANUTENÇÃO DO CRAS;mesmo_codigo_mesmo_nome;15235500;319900;-14915600
+acao;Jarinu;2024;2025;5;2033;MANUTENÇÃO DO IGD;MANUTENÇÃO DO IGD;mesmo_codigo_mesmo_nome;583800;2824890;2241090
+acao;Jarinu;2024;2025;6;1009;;AQUISIÇÃO DE EQUIPAMENTOS;somente_ano_final;0;4800000;4800000
+acao;Jarinu;2024;2025;8;1008;CONSTRUÇÃO DE OBRAS E INFRA-ESTRUTURA;CONSTRUÇÃO DE OBRAS E INFRA-ESTRUTURA;mesmo_codigo_mesmo_nome;1345595241;800211675;-545383566
+acao;Jarinu;2024;2025;8;2024;MANUTENÇÃO DA SECRETARIA DE OBRAS;;somente_ano_inicial;1095903;0;-1095903
+acao;Jarinu;2024;2025;9;1009;;AQUISIÇÃO DE EQUIPAMENTOS;somente_ano_final;0;15005190;15005190
+acao;Jarinu;2024;2025;9;2027;;MANUTENÇÃO DA SECRETARIA DE AGRICULTURA E MEIO AMBIENTE;somente_ano_final;0;14201357;14201357
+programa;Jundiaí;2023;2024;0;;ENCARGOS GERAIS;ENCARGOS GERAIS;mesmo_codigo_mesmo_nome;2403251767;134389880;-2268861887
+programa;Jundiaí;2023;2024;1;;PROCESSO LEGISLATIVO;PROCESSO LEGISLATIVO;mesmo_codigo_mesmo_nome;80563185;42457353;-38105832
+programa;Jundiaí;2023;2024;185;;MUNICÍPIO SUSTENTÁVEL;MUNICÍPIO SUSTENTÁVEL;mesmo_codigo_mesmo_nome;3241097;159976;-3081121
+programa;Jundiaí;2023;2024;186;;CIDADE LIMPA E BEM CUIDADA;CIDADE LIMPA E BEM CUIDADA;mesmo_codigo_mesmo_nome;1686506777;3651947584;1965440807
+programa;Jundiaí;2023;2024;187;;MOBILIDADE TOTAL;MOBILIDADE TOTAL;mesmo_codigo_mesmo_nome;6736586794;12878580022;6141993228
+programa;Jundiaí;2023;2024;188;;JUNDIAÍ EMPREENDEDORA;JUNDIAÍ EMPREENDEDORA;mesmo_codigo_mesmo_nome;7212756;156370398;149157642
+programa;Jundiaí;2023;2024;189;;CIDADE INTELIGENTE;CIDADE INTELIGENTE;mesmo_codigo_mesmo_nome;119531582;264789062;145257480
+programa;Jundiaí;2023;2024;190;;GOVERNANÇA EFICIENTE E RESPONSÁVEL;GOVERNANÇA EFICIENTE E RESPONSÁVEL;mesmo_codigo_mesmo_nome;153741979;723262101;569520122
+programa;Jundiaí;2023;2024;191;;PACTO PELA SAÚDE;PACTO PELA SAÚDE;mesmo_codigo_mesmo_nome;1440606849;2737446931;1296840082
+programa;Jundiaí;2023;2024;192;;ESPORTE JUNDIAÍ;ESPORTE JUNDIAÍ;mesmo_codigo_mesmo_nome;84005781;627288874;543283093
+programa;Jundiaí;2023;2024;193;;MUNICÍPIO SEGURO;MUNICÍPIO SEGURO;mesmo_codigo_mesmo_nome;605775388;2642007530;2036232142
+programa;Jundiaí;2023;2024;194;;DIVERSIDADE CULTURAL;DIVERSIDADE CULTURAL;mesmo_codigo_mesmo_nome;509450219;189045046;-320405173
+programa;Jundiaí;2023;2024;195;;ESCOLA INOVADORA NA EDUCAÇÃO INFANTIL;ESCOLA INOVADORA NA EDUCAÇÃO INFANTIL;mesmo_codigo_mesmo_nome;188351119;252600703;64249584
+programa;Jundiaí;2023;2024;196;;ESCOLA INOVADORA NO ENSINO FUNDAMENTAL;ESCOLA INOVADORA NO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;780312344;84312153;-696000191
+programa;Jundiaí;2023;2024;197;;ENSINO SUPERIOR;ENSINO SUPERIOR;mesmo_codigo_mesmo_nome;145064148;47931744;-97132404
+programa;Jundiaí;2023;2024;198;;EDUCAÇÃO COMPLEMENTAR;EDUCAÇÃO COMPLEMENTAR;mesmo_codigo_mesmo_nome;1870350;240997;-1629353
+programa;Jundiaí;2023;2024;199;;CIDADE INCLUSIVA;CIDADE INCLUSIVA;mesmo_codigo_mesmo_nome;143069522;112494997;-30574525
+programa;Jundiaí;2023;2024;200;;MORADIA DIGNA;MORADIA DIGNA;mesmo_codigo_mesmo_nome;321229488;131158109;-190071379
+programa;Jundiaí;2023;2024;201;;CIDADE DAS CRIANÇAS;;somente_ano_inicial;7147000;0;-7147000
+programa;Jundiaí;2023;2024;202;;PREVIDÊNCIA SOCIAL;PREVIDÊNCIA SOCIAL;mesmo_codigo_mesmo_nome;904398;561900;-342498
+acao;Jundiaí;2023;2024;0;250;GESTÃO DOS PAGAMENTOS REQUISITÓRIOS;GESTÃO DOS PAGAMENTOS REQUISITÓRIOS;mesmo_codigo_mesmo_nome;2253602267;134389880;-2119212387
+acao;Jundiaí;2023;2024;0;251;GESTÃO DOS PAGAMENTOS INDENIZATÓRIOS POR ACORDO;;somente_ano_inicial;149649500;0;-149649500
+acao;Jundiaí;2023;2024;1;1001;EXPANSÃO, ADEQUAÇÃO E MODERNIZAÇÃO DAS INSTALAÇÕES DA CÂMARA MUNICIPAL DE JUNDIAÍ;EXPANSÃO, ADEQUAÇÃO E MODERNIZAÇÃO DAS INSTALAÇÕES DA CÂMARA MUNICIPAL DE JUNDIAÍ;mesmo_codigo_mesmo_nome;3113870;37558793;34444923
+acao;Jundiaí;2023;2024;1;2001;DESPESAS DE MANUTENÇÃO DAS ATIVIDADES LEGISLATIVAS;DESPESAS DE MANUTENÇÃO DAS ATIVIDADES LEGISLATIVAS;mesmo_codigo_mesmo_nome;1371636;1119764;-251872
+acao;Jundiaí;2023;2024;1;2002;PUBLICIDADE INSTITUCIONAL E FOMENTO À PARTICIPAÇÃO LEGISLATIVA;PUBLICIDADE INSTITUCIONAL E FOMENTO À PARTICIPAÇÃO LEGISLATIVA;mesmo_codigo_mesmo_nome;905109;2346998;1441889
+acao;Jundiaí;2023;2024;1;2301;MANUTENÇÃO E MODERNIZAÇÃO DE RECURSOS DE TECNOLOGIA DA INFORMAÇÃO;MANUTENÇÃO E MODERNIZAÇÃO DE RECURSOS DE TECNOLOGIA DA INFORMAÇÃO;mesmo_codigo_mesmo_nome;75172570;1431798;-73740772
+acao;Jundiaí;2023;2024;185;2031;GESTÃO DE ATIVIDADES DO DEPARTAMENTO DE BEM ESTAR ANIMAL;GESTÃO DE ATIVIDADES DO DEPARTAMENTO DE BEM ESTAR ANIMAL;mesmo_codigo_mesmo_nome;1927400;159976;-1767424
+acao;Jundiaí;2023;2024;185;8565;MANUTENÇÃO DA FUNDAÇÃO SERRA DO JAPI;;somente_ano_inicial;1313697;0;-1313697
+acao;Jundiaí;2023;2024;186;1132;REQUALIFICAÇÃO DO VALE DO RIO JUNDIAÍ;REQUALIFICAÇÃO DO VALE DO RIO JUNDIAÍ;mesmo_codigo_mesmo_nome;12167456;77903252;65735796
+acao;Jundiaí;2023;2024;186;1499;ESTABILIZAÇÃO DE ENCOSTAS E TALUDES;ESTABILIZAÇÃO DE ENCOSTAS E TALUDES;mesmo_codigo_mesmo_nome;28632284;10992106;-17640178
+acao;Jundiaí;2023;2024;186;1500;IMPLANTAÇÃO DE SISTEMAS DE MACRO E MICRODRENAGEM;IMPLANTAÇÃO DE SISTEMAS DE MACRO E MICRODRENAGEM;mesmo_codigo_mesmo_nome;249115079;324984581;75869502
+acao;Jundiaí;2023;2024;186;1501;CANALIZAÇÃO E RETIFICAÇÃO DE RIOS, CÓRREGOS E CANAIS;CANALIZAÇÃO E RETIFICAÇÃO DE RIOS, CÓRREGOS E CANAIS;mesmo_codigo_mesmo_nome;426932054;443310330;16378276
+acao;Jundiaí;2023;2024;186;1512;IMPLANTAÇÃO/REVITALIZAÇÃO DE PRAÇAS E ÁREAS AJARDINADAS COM CONCEITO URBAN 95;IMPLANTAÇÃO/REVITALIZAÇÃO DE PRAÇAS E ÁREAS AJARDINADAS COM CONCEITO URBAN 95;mesmo_codigo_mesmo_nome;18259158;1063202592;1044943434
+acao;Jundiaí;2023;2024;186;1515;EXPANSÃO DA REDE E PONTOS DE ILUMINAÇÃO PÚBLICA;EXPANSÃO DA REDE E PONTOS DE ILUMINAÇÃO PÚBLICA;mesmo_codigo_mesmo_nome;827262669;1475823229;648560560
+acao;Jundiaí;2023;2024;186;2160;MANUTENÇÃO E CONSERVAÇÃO DE PRAÇAS, PARQUES E JARDINS;MANUTENÇÃO E CONSERVAÇÃO DE PRAÇAS, PARQUES E JARDINS;mesmo_codigo_mesmo_nome;123052971;174364000;51311029
+acao;Jundiaí;2023;2024;186;2161;;DESENVOLVIMENTO DE PROJETOS URBANOS;somente_ano_final;0;81367494;81367494
+acao;Jundiaí;2023;2024;186;2702;GESTÃO DAS AÇÕES DE LIMPEZA PÚBLICA;;somente_ano_inicial;269106;0;-269106
+acao;Jundiaí;2023;2024;186;2703;OPERAÇÕES DE MANEJO DE RESÍDUOS SÓLIDOS;;somente_ano_inicial;816000;0;-816000
+acao;Jundiaí;2023;2024;187;1104;IMPLANTAÇÃO DE ABRIGOS DE PONTO DE PARADA DE ÔNIBUS;;somente_ano_inicial;17520000;0;-17520000
+acao;Jundiaí;2023;2024;187;1495;PAVIMENTAÇÃO E IMPLANTAÇÃO DE VIAS PÚBLICAS;PAVIMENTAÇÃO E IMPLANTAÇÃO DE VIAS PÚBLICAS;mesmo_codigo_mesmo_nome;5159520981;10202644344;5043123363
+acao;Jundiaí;2023;2024;187;1496;CONSTRUÇÃO E REFORMA DE PONTES E VIADUTOS;CONSTRUÇÃO E REFORMA DE PONTES E VIADUTOS;mesmo_codigo_mesmo_nome;821732744;2668468978;1846736234
+acao;Jundiaí;2023;2024;187;1498;ACESSIBILIDADE URBANA E IMPLANTAÇÃO DE CICLOVIAS E CICLOFAIXAS;;somente_ano_inicial;318538658;0;-318538658
+acao;Jundiaí;2023;2024;187;2742;FISCALIZAÇÃO DE TRÂNSITO;FISCALIZAÇÃO DE TRÂNSITO;mesmo_codigo_mesmo_nome;311249994;1264020;-309985974
+acao;Jundiaí;2023;2024;187;2744;OPERAR E FISCALIZAR O TRANSPORTE COLETIVO;OPERAR E FISCALIZAR O TRANSPORTE COLETIVO;mesmo_codigo_mesmo_nome;59504458;842680;-58661778
+acao;Jundiaí;2023;2024;187;2746;TERMINAIS DE ÔNIBUS URBANO;;somente_ano_inicial;164999;0;-164999
+acao;Jundiaí;2023;2024;187;2747;SINALIZAÇÃO E SEGURANÇA NO TRÂNSITO;SINALIZAÇÃO E SEGURANÇA NO TRÂNSITO;mesmo_codigo_mesmo_nome;48354960;5360000;-42994960
+acao;Jundiaí;2023;2024;188;1073;;MODERNIZAÇÃO E AMPLIAÇÃO DA INFRAESTRUTURA RURAL PRODUTIVA;somente_ano_final;0;90800000;90800000
+acao;Jundiaí;2023;2024;188;1074;JUNDIAÍ MUNICÍPIO DE INTERESSE TURÍSTICO;JUNDIAÍ MUNICÍPIO DE INTERESSE TURÍSTICO;mesmo_codigo_mesmo_nome;1099669;58099574;56999905
+acao;Jundiaí;2023;2024;188;2053;FOMENTO AO AGRONEGÓCIO SUSTENTÁVEL;FOMENTO AO AGRONEGÓCIO SUSTENTÁVEL;mesmo_codigo_mesmo_nome;528897;50130;-478767
+acao;Jundiaí;2023;2024;188;2057;FOMENTO AO TURISMO;FOMENTO AO TURISMO;mesmo_codigo_mesmo_nome;5584190;7420694;1836504
+acao;Jundiaí;2023;2024;189;1003;MODERNIZAÇÃO DO PAÇO MUNICIPAL;MODERNIZAÇÃO DO PAÇO MUNICIPAL;mesmo_codigo_mesmo_nome;775708;12606824;11831116
+acao;Jundiaí;2023;2024;189;1082;MODERNIZAÇÃO DA INFRAESTRUTURA DA CASA CIVIL;;somente_ano_inicial;1407900;0;-1407900
+acao;Jundiaí;2023;2024;189;1100;;MODERNIZAÇÃO DA INFRAESTRUTURA DE INOVAÇÃO E RELAÇÃO COM O CIDADÃO;somente_ano_final;0;909009;909009
+acao;Jundiaí;2023;2024;189;1101;DESENVOLVIMENTO DE AÇÕES DE MODERNIZAÇÃO TECNOLÓGICA;DESENVOLVIMENTO DE AÇÕES DE MODERNIZAÇÃO TECNOLÓGICA;mesmo_codigo_mesmo_nome;61733;65537727;65475994
+acao;Jundiaí;2023;2024;189;1116;MODERNIZAÇÃO DA INFRAESTRUTURA DE PLANEJAMENTO URBANO E MEIO AMBIENTE;;somente_ano_inicial;58186286;0;-58186286
+acao;Jundiaí;2023;2024;189;1540;MODERNIZAÇÃO DA INFRAESTRUTURA DE EDUCAÇÃO;MODERNIZAÇÃO DA INFRAESTRUTURA DE EDUCAÇÃO;mesmo_codigo_mesmo_nome;12759137;173289184;160530047
+acao;Jundiaí;2023;2024;189;7022;MODERNIZAÇÃO DAS INSTALAÇÕES E EQUIPAMENTOS DA TVTEC;MODERNIZAÇÃO DAS INSTALAÇÕES E EQUIPAMENTOS DA TVTEC;mesmo_codigo_mesmo_nome;24068925;211705;-23857220
+acao;Jundiaí;2023;2024;189;7124;CRIAÇÃO DE ESPAÇO DE PRODUÇÃO DE CONTEÚDOS PARA FORMAÇÃO E CAPACITAÇÃO NA ÁREA PÚBLICA;;somente_ano_inicial;1651800;0;-1651800
+acao;Jundiaí;2023;2024;189;8551;GESTÃO OPERACIONAL DA FTVTEC;GESTÃO OPERACIONAL DA FTVTEC;mesmo_codigo_mesmo_nome;20620093;12234613;-8385480
+acao;Jundiaí;2023;2024;190;1123;;PIP: PROGRAMA DE INVESTIMENTOS E PARCERIAS;somente_ano_final;0;611905184;611905184
+acao;Jundiaí;2023;2024;190;1486;GESTÃO DAS AÇÕES DE MODERNIZAÇÃO DA ADMINISTRAÇÃO TRIBUTÁRIA - PMAT;GESTÃO DAS AÇÕES DE MODERNIZAÇÃO DA ADMINISTRAÇÃO TRIBUTÁRIA - PMAT;mesmo_codigo_mesmo_nome;96690000;183669;-96506331
+acao;Jundiaí;2023;2024;190;2003;GERENCIAMENTO OPERACIONAL DA UNIDADE DE GESTÃO;GERENCIAMENTO OPERACIONAL DA UNIDADE DE GESTÃO;mesmo_codigo_mesmo_nome;46881841;101153098;54271257
+acao;Jundiaí;2023;2024;190;2701;GESTÃO OPERACIONAL DOS CENTROS DE SERVIÇOS E UNIDADES DE MANUTENÇÃO;;somente_ano_inicial;3319995;0;-3319995
+acao;Jundiaí;2023;2024;190;8507;;GESTÃO DE AÇÕES PEDAGÓGICAS;somente_ano_final;0;1809693;1809693
+acao;Jundiaí;2023;2024;190;8531;GESTÃO E MANUTENÇÃO DA FUNDAÇÃO;GESTÃO E MANUTENÇÃO DA FUNDAÇÃO;mesmo_codigo_mesmo_nome;566913;1845143;1278230
+acao;Jundiaí;2023;2024;190;8542;GESTÃO OPERACIONAL DO SERVIÇO FUNERÁRIO MUNICIPAL;GESTÃO OPERACIONAL DO SERVIÇO FUNERÁRIO MUNICIPAL;mesmo_codigo_mesmo_nome;5939876;748000;-5191876
+acao;Jundiaí;2023;2024;190;8561;GERENCIAMENTO OPERACIONAL DA ATIVIDADE ADMINISTRATIVA;GERENCIAMENTO OPERACIONAL DA ATIVIDADE ADMINISTRATIVA;mesmo_codigo_mesmo_nome;343354;5617314;5273960
+acao;Jundiaí;2023;2024;191;1066;AMPLIAÇÃO DA REDE DE URGÊNCIA E EMERGÊNCIA;AMPLIAÇÃO DA REDE DE URGÊNCIA E EMERGÊNCIA;mesmo_codigo_mesmo_nome;546953412;337406363;-209547049
+acao;Jundiaí;2023;2024;191;1067;CONSTRUÇÃO DO CENTRO DE ESPECIALIDADES;CONSTRUÇÃO DO CENTRO DE ESPECIALIDADES;mesmo_codigo_mesmo_nome;482080486;641674678;159594192
+acao;Jundiaí;2023;2024;191;1201;CONSTRUÇÕES, ADEQUAÇÕES E AMPLIAÇÕES DAS UNIDADES DA ATENÇÃO PRIMÁRIA;CONSTRUÇÕES, ADEQUAÇÕES E AMPLIAÇÕES DAS UNIDADES DA ATENÇÃO PRIMÁRIA;mesmo_codigo_mesmo_nome;32182269;72955329;40773060
+acao;Jundiaí;2023;2024;191;2183;GERENCIAMENTO OPERACIONAL DO NÍVEL CENTRAL;GERENCIAMENTO OPERACIONAL DO NÍVEL CENTRAL;mesmo_codigo_mesmo_nome;4673000;128798;-4544202
+acao;Jundiaí;2023;2024;191;2186;PROMOÇÃO DE AÇÕES DAS UNIDADES DE ATENÇÃO ESPECIALIZADAS;PROMOÇÃO DE AÇÕES DAS UNIDADES DE ATENÇÃO ESPECIALIZADAS;mesmo_codigo_mesmo_nome;42393161;7606331;-34786830
+acao;Jundiaí;2023;2024;191;2187;PROMOÇÃO DE AÇÕES DA REDE DE URGÊNCIA E EMERGÊNCIA PRÉ HOSPITALAR;PROMOÇÃO DE AÇÕES DA REDE DE URGÊNCIA E EMERGÊNCIA PRÉ HOSPITALAR;mesmo_codigo_mesmo_nome;21444417;11594900;-9849517
+acao;Jundiaí;2023;2024;191;2188;PROMOÇÃO DAS AÇÕES DAS UNIDADE DE ATENÇÃO BÁSICA;PROMOÇÃO DAS AÇÕES DAS UNIDADE DE ATENÇÃO BÁSICA;mesmo_codigo_mesmo_nome;204027126;32300575;-171726551
+acao;Jundiaí;2023;2024;191;2189;AMPLIAÇÃO DE ESTRATÉGIA DE SAÚDE DA FAMÍLIA;AMPLIAÇÃO DE ESTRATÉGIA DE SAÚDE DA FAMÍLIA;mesmo_codigo_mesmo_nome;38786432;25227444;-13558988
+acao;Jundiaí;2023;2024;191;2191;PROMOÇÃO DAS AÇÕES DE VIGILÂNCIA SANITÁRIA;;somente_ano_inicial;11246777;0;-11246777
+acao;Jundiaí;2023;2024;191;2192;PROMOÇÃO DAS AÇÕES DE VIGILÂNCIA EM SAÚDE;PROMOÇÃO DAS AÇÕES DE VIGILÂNCIA EM SAÚDE;mesmo_codigo_mesmo_nome;1565056;2190000;624944
+acao;Jundiaí;2023;2024;191;2772;NUTRIÇÃO ESCOLAR;NUTRIÇÃO ESCOLAR;mesmo_codigo_mesmo_nome;15408500;22326400;6917900
+acao;Jundiaí;2023;2024;191;2819;ASSISTÊNCIA FARMACÊUTICA;;somente_ano_inicial;647200;0;-647200
+acao;Jundiaí;2023;2024;191;7004;;NOVO AMBULATÓRIO DE ESPECIALIDADES DA FMJ;somente_ano_final;0;16800000;16800000
+acao;Jundiaí;2023;2024;191;8516;MANUTENÇÃO E MODERNIZAÇÃO DO HOSPITAL UNIVERSITÁRIO;MANUTENÇÃO E MODERNIZAÇÃO DO HOSPITAL UNIVERSITÁRIO;mesmo_codigo_mesmo_nome;39199013;1567236113;1528037100
+acao;Jundiaí;2023;2024;192;1080;;CONSTRUÇÃO DO CENTRO DE EXCELÊNCIA DO BASQUETE;somente_ano_final;0;245134613;245134613
+acao;Jundiaí;2023;2024;192;1114;;CONSTRUÇÃO DE PISTA DE SKATE;somente_ano_final;0;15804215;15804215
+acao;Jundiaí;2023;2024;192;1115;;CONSTRUÇÃO DE QUADRA COBERTA NO CECE LÉO PEREIRA LEMOS NOGUEIRA;somente_ano_final;0;193695822;193695822
+acao;Jundiaí;2023;2024;192;1545;REVITALIZAÇÃO DOS COMPLEXOS EDUCACIONAIS CULTURAIS E ESPORTIVOS;REVITALIZAÇÃO DOS COMPLEXOS EDUCACIONAIS CULTURAIS E ESPORTIVOS;mesmo_codigo_mesmo_nome;57951299;138798504;80847205
+acao;Jundiaí;2023;2024;192;2771;MANUTENÇÃO E CONSERVAÇÃOS DOS COMPLEXOS EDUCACIONAIS, CULTURAIS E ESPORTIVOS;MANUTENÇÃO E CONSERVAÇÃOS DOS COMPLEXOS EDUCACIONAIS, CULTURAIS E ESPORTIVOS;mesmo_codigo_mesmo_nome;26054482;33855720;7801238
+acao;Jundiaí;2023;2024;193;1026;PROJETO MUNICÍPIO SEGURO;PROJETO MUNICÍPIO SEGURO;mesmo_codigo_mesmo_nome;553867949;2417893149;1864025200
+acao;Jundiaí;2023;2024;193;1028;CONSTRUÇÃO DO CANIL DA GUARDA MUNICIPAL;CONSTRUÇÃO DO CANIL DA GUARDA MUNICIPAL;mesmo_codigo_mesmo_nome;7798078;217717386;209919308
+acao;Jundiaí;2023;2024;193;2029;GERENCIAMENTO DE FROTA DE VEÍCULOS;;somente_ano_inicial;30865061;0;-30865061
+acao;Jundiaí;2023;2024;193;2107;;GESTÃO OPERACIONAL DA JUNTA DE SERVIÇO MILITAR;somente_ano_final;0;91800;91800
+acao;Jundiaí;2023;2024;193;2209;APARELHAMENTO DOS PROFISSIONAIS DA GUARDA MUNICIPAL;APARELHAMENTO DOS PROFISSIONAIS DA GUARDA MUNICIPAL;mesmo_codigo_mesmo_nome;13244300;3772385;-9471915
+acao;Jundiaí;2023;2024;193;2211;;MANUTENÇÃO DAS OPERAÇÕES E INSTALAÇÕES DA UNIDADE DE SEGURANÇA MUNICIPAL;somente_ano_final;0;2532810;2532810
+acao;Jundiaí;2023;2024;194;1110;CENTRO DAS ARTES - SALA GLÓRIA ROCHA;CENTRO DAS ARTES - SALA GLÓRIA ROCHA;mesmo_codigo_mesmo_nome;384984407;140001056;-244983351
+acao;Jundiaí;2023;2024;194;1111;REVITALIZAÇÃO DO COMPLEXO FEPASA;;somente_ano_inicial;1790347;0;-1790347
+acao;Jundiaí;2023;2024;194;2008;GESTÃO E MANUTENÇÃO DA UNIDADE DE GESTÃO DE CULTURA;GESTÃO E MANUTENÇÃO DA UNIDADE DE GESTÃO DE CULTURA;mesmo_codigo_mesmo_nome;115938381;48750000;-67188381
+acao;Jundiaí;2023;2024;194;2415;FOMENTO À LITERATURA;;somente_ano_inicial;560000;0;-560000
+acao;Jundiaí;2023;2024;194;8527;MANUTENÇÃO TEATRO POLYTHEAMA;MANUTENÇÃO TEATRO POLYTHEAMA;mesmo_codigo_mesmo_nome;638839;13990;-624849
+acao;Jundiaí;2023;2024;194;8528;MANUTENÇÃO DO CENTRO DAS ARTES;;somente_ano_inicial;5098255;0;-5098255
+acao;Jundiaí;2023;2024;194;8549;MANUTENÇÃO DAS ATIVIDADES E DOS ESPAÇOS MUSEOLÓGICOS;MANUTENÇÃO DAS ATIVIDADES E DOS ESPAÇOS MUSEOLÓGICOS;mesmo_codigo_mesmo_nome;439990;280000;-159990
+acao;Jundiaí;2023;2024;195;1547;;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DA EDUCAÇÃO INFANTIL II;somente_ano_final;0;117898715;117898715
+acao;Jundiaí;2023;2024;195;1548;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DA EDUCAÇÃO INFANTIL I;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DA EDUCAÇÃO INFANTIL I;mesmo_codigo_mesmo_nome;147167337;70163514;-77003823
+acao;Jundiaí;2023;2024;195;2404;CIEMPI-CENTRO INTERNACIONAL DE ESTUDOS, MEMÓRIAS E PESQUISAS DA INFÂNCIA: ESCOLA INOVADORA;;somente_ano_inicial;4816990;0;-4816990
+acao;Jundiaí;2023;2024;195;2786;EDUCAÇÃO INFANTIL I: ESCOLA INOVADORA;EDUCAÇÃO INFANTIL I: ESCOLA INOVADORA;mesmo_codigo_mesmo_nome;20180936;35098629;14917693
+acao;Jundiaí;2023;2024;195;2789;EDUCAÇÃO INFANTIL II: ESCOLA INOVADORA;EDUCAÇÃO INFANTIL II: ESCOLA INOVADORA;mesmo_codigo_mesmo_nome;16185856;29439845;13253989
+acao;Jundiaí;2023;2024;196;1546;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DO ENSINO FUNDAMENTAL;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;75059351;75729548;670197
+acao;Jundiaí;2023;2024;196;2775;GERENCIAMENTO DA UNIDADE DE GESTÃO DA EDUCAÇÃO E DO DISTRITO DO CONHECIMENTO;GERENCIAMENTO DA UNIDADE DE GESTÃO DA EDUCAÇÃO E DO DISTRITO DO CONHECIMENTO;mesmo_codigo_mesmo_nome;44533797;2399000;-42134797
+acao;Jundiaí;2023;2024;196;2776;ENSINO FUNDAMENTAL: ESCOLA INOVADORA;ENSINO FUNDAMENTAL: ESCOLA INOVADORA;mesmo_codigo_mesmo_nome;660719196;6099005;-654620191
+acao;Jundiaí;2023;2024;196;2785;;EDUCAÇÃO DE JOVENS E ADULTOS DO ENSINO FUNDAMENTAL E ENSINO MÉDIO: ESCOLA INOVADORA;somente_ano_final;0;84600;84600
+acao;Jundiaí;2023;2024;197;7511;MODERNIZAÇÃO, AMPLIAÇÃO E REFORMAS DAS UNIDADES DA FMJ;MODERNIZAÇÃO, AMPLIAÇÃO E REFORMAS DAS UNIDADES DA FMJ;mesmo_codigo_mesmo_nome;82139615;14724600;-67415015
+acao;Jundiaí;2023;2024;197;8008;GESTÃO OPERACIONAL DAS ATIVIDADES ADMINISTRATIVAS DA ESEF;GESTÃO OPERACIONAL DAS ATIVIDADES ADMINISTRATIVAS DA ESEF;mesmo_codigo_mesmo_nome;699600;982646;283046
+acao;Jundiaí;2023;2024;197;8511;GESTÃO OPERACIONAL DAS ATIVIDADES ADMINISTRATIVAS DA FMJ;GESTÃO OPERACIONAL DAS ATIVIDADES ADMINISTRATIVAS DA FMJ;mesmo_codigo_mesmo_nome;23048154;5397136;-17651018
+acao;Jundiaí;2023;2024;197;8512;GESTAO OPERACIONAL DAS ATIVIDADES PEDAGOGICAS DA FMJ;GESTAO OPERACIONAL DAS ATIVIDADES PEDAGOGICAS DA FMJ;mesmo_codigo_mesmo_nome;36225779;24011765;-12214014
+acao;Jundiaí;2023;2024;197;8513;MANUTENÇÃO DAS ATIVIDADES DO AMBULATÓRIO DE ESPECIALIDADES DA FMJ;MANUTENÇÃO DAS ATIVIDADES DO AMBULATÓRIO DE ESPECIALIDADES DA FMJ;mesmo_codigo_mesmo_nome;2951000;970000;-1981000
+acao;Jundiaí;2023;2024;197;8522;;GESTÃO OPERACIONAL DAS ATIVIDADES DE ENSINO SUPERIOR - GRADUAÇÃO;somente_ano_final;0;1845597;1845597
+acao;Jundiaí;2023;2024;198;2181;GERENCIAMENTO DA EDUCAÇÃO COMPLEMENTAR E TECNOLÓGICA;GERENCIAMENTO DA EDUCAÇÃO COMPLEMENTAR E TECNOLÓGICA;mesmo_codigo_mesmo_nome;1870350;240997;-1629353
+acao;Jundiaí;2023;2024;199;1301;MODERNIZAÇÃO E QUALIFICAÇÃO DOS EQUIPAMENTOS DA ASSISTÊNCIA E DESENVOLVIMENTO SOCIAL;MODERNIZAÇÃO E QUALIFICAÇÃO DOS EQUIPAMENTOS DA ASSISTÊNCIA E DESENVOLVIMENTO SOCIAL;mesmo_codigo_mesmo_nome;82837968;96896333;14058365
+acao;Jundiaí;2023;2024;199;2080;GESTÃO DA ADMINISTRAÇÃO DO SUAS;GESTÃO DA ADMINISTRAÇÃO DO SUAS;mesmo_codigo_mesmo_nome;10697991;1252980;-9445011
+acao;Jundiaí;2023;2024;199;2106;GESTÃO DOS SERVIÇOS DA PSE MÉDIA COMPLEXIDADE;GESTÃO DOS SERVIÇOS DA PSE MÉDIA COMPLEXIDADE;mesmo_codigo_mesmo_nome;20991655;1519997;-19471658
+acao;Jundiaí;2023;2024;199;2110;GESTÃO DOS SERVIÇOS DE PSE MÉDIA PARA POP DE RUA;GESTÃO DOS SERVIÇOS DE PSE MÉDIA PARA POP DE RUA;mesmo_codigo_mesmo_nome;1491180;3005776;1514596
+acao;Jundiaí;2023;2024;199;2155;GESTÃO OPERACIONAL DOS CONSELHOS TUTELARES;;somente_ano_inicial;1803850;0;-1803850
+acao;Jundiaí;2023;2024;199;2200;GESTÃO DOS SERVIÇOS DE ACOLHIMENTO PARA IDOSOS, DEFICIENTES E MULHERES;GESTÃO DOS SERVIÇOS DE ACOLHIMENTO PARA IDOSOS, DEFICIENTES E MULHERES;mesmo_codigo_mesmo_nome;10345999;6143796;-4202203
+acao;Jundiaí;2023;2024;199;2213;GESTÃO DOS SERVIÇOS PSE ALTA - ACOLHIMENTO PESSOA EM SITUAÇÃO DE RUA;GESTÃO DOS SERVIÇOS PSE ALTA - ACOLHIMENTO PESSOA EM SITUAÇÃO DE RUA;mesmo_codigo_mesmo_nome;12533980;2524795;-10009185
+acao;Jundiaí;2023;2024;199;2622;;GESTÃO OPERACIONAL DO FUNSS - FUNDO SOCIAL DE SOLIDARIEDADE;somente_ano_final;0;90000;90000
+acao;Jundiaí;2023;2024;199;8543;DISTRIBUIÇÃO DE SUPLEMENTAÇÃO ALIMENTAR;DISTRIBUIÇÃO DE SUPLEMENTAÇÃO ALIMENTAR;mesmo_codigo_mesmo_nome;2366899;1061320;-1305579
+acao;Jundiaí;2023;2024;200;7103;PRODUÇÃO HABITACIONAL DE INTERESSE SOCIAL E OBRAS DE INFRAESTRUTURA;PRODUÇÃO HABITACIONAL DE INTERESSE SOCIAL E OBRAS DE INFRAESTRUTURA;mesmo_codigo_mesmo_nome;315301154;101911894;-213389260
+acao;Jundiaí;2023;2024;200;8039;;REGULARIZAÇÃO FUNDIÁRIA DE INTERESSE SOCIAL;somente_ano_final;0;27726660;27726660
+acao;Jundiaí;2023;2024;200;8550;GESTÃO OPERACIONAL DA ATIVIDADE ADMINISTRATIVA;GESTÃO OPERACIONAL DA ATIVIDADE ADMINISTRATIVA;mesmo_codigo_mesmo_nome;5928334;1519555;-4408779
+acao;Jundiaí;2023;2024;201;2743;EDUCAÇÃO DE MOBILIDADE;;somente_ano_inicial;7147000;0;-7147000
+acao;Jundiaí;2023;2024;202;8006;GESTÃO OPERACIONAL DO IPREJUN;GESTÃO OPERACIONAL DO IPREJUN;mesmo_codigo_mesmo_nome;904398;561900;-342498
+programa;Jundiaí;2024;2025;0;;ENCARGOS GERAIS;ENCARGOS GERAIS;mesmo_codigo_mesmo_nome;134389880;1155375939;1020986059
+programa;Jundiaí;2024;2025;1;;PROCESSO LEGISLATIVO;PROCESSO LEGISLATIVO;mesmo_codigo_mesmo_nome;42457353;11681080;-30776273
+programa;Jundiaí;2024;2025;185;;MUNICÍPIO SUSTENTÁVEL;MUNICÍPIO SUSTENTÁVEL;mesmo_codigo_mesmo_nome;159976;4027669;3867693
+programa;Jundiaí;2024;2025;186;;CIDADE LIMPA E BEM CUIDADA;CIDADE LIMPA E BEM CUIDADA;mesmo_codigo_mesmo_nome;3651947584;2306223072;-1345724512
+programa;Jundiaí;2024;2025;187;;MOBILIDADE TOTAL;MOBILIDADE TOTAL;mesmo_codigo_mesmo_nome;12878580022;6965036396;-5913543626
+programa;Jundiaí;2024;2025;188;;JUNDIAÍ EMPREENDEDORA;JUNDIAÍ EMPREENDEDORA;mesmo_codigo_mesmo_nome;156370398;8111900;-148258498
+programa;Jundiaí;2024;2025;189;;CIDADE INTELIGENTE;CIDADE INTELIGENTE;mesmo_codigo_mesmo_nome;264789062;91379378;-173409684
+programa;Jundiaí;2024;2025;190;;GOVERNANÇA EFICIENTE E RESPONSÁVEL;GOVERNANÇA EFICIENTE E RESPONSÁVEL;mesmo_codigo_mesmo_nome;723262101;273213248;-450048853
+programa;Jundiaí;2024;2025;191;;PACTO PELA SAÚDE;PACTO PELA SAÚDE;mesmo_codigo_mesmo_nome;2737446931;1324383107;-1413063824
+programa;Jundiaí;2024;2025;192;;ESPORTE JUNDIAÍ;ESPORTE JUNDIAÍ;mesmo_codigo_mesmo_nome;627288874;385907792;-241381082
+programa;Jundiaí;2024;2025;193;;MUNICÍPIO SEGURO;MUNICÍPIO SEGURO;mesmo_codigo_mesmo_nome;2642007530;292981179;-2349026351
+programa;Jundiaí;2024;2025;194;;DIVERSIDADE CULTURAL;DIVERSIDADE CULTURAL;mesmo_codigo_mesmo_nome;189045046;14071292;-174973754
+programa;Jundiaí;2024;2025;195;;ESCOLA INOVADORA NA EDUCAÇÃO INFANTIL;ESCOLA INOVADORA NA EDUCAÇÃO INFANTIL;mesmo_codigo_mesmo_nome;252600703;315369909;62769206
+programa;Jundiaí;2024;2025;196;;ESCOLA INOVADORA NO ENSINO FUNDAMENTAL;ESCOLA INOVADORA NO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;84312153;15289512;-69022641
+programa;Jundiaí;2024;2025;197;;ENSINO SUPERIOR;ENSINO SUPERIOR;mesmo_codigo_mesmo_nome;47931744;225428711;177496967
+programa;Jundiaí;2024;2025;198;;EDUCAÇÃO COMPLEMENTAR;;somente_ano_inicial;240997;0;-240997
+programa;Jundiaí;2024;2025;199;;CIDADE INCLUSIVA;CIDADE INCLUSIVA;mesmo_codigo_mesmo_nome;112494997;12226518;-100268479
+programa;Jundiaí;2024;2025;200;;MORADIA DIGNA;MORADIA DIGNA;mesmo_codigo_mesmo_nome;131158109;325602629;194444520
+programa;Jundiaí;2024;2025;201;;;CIDADE DAS CRIANÇAS;somente_ano_final;0;743256;743256
+programa;Jundiaí;2024;2025;202;;PREVIDÊNCIA SOCIAL;PREVIDÊNCIA SOCIAL;mesmo_codigo_mesmo_nome;561900;6334397;5772497
+acao;Jundiaí;2024;2025;0;250;GESTÃO DOS PAGAMENTOS REQUISITÓRIOS;GESTÃO DOS PAGAMENTOS REQUISITÓRIOS;mesmo_codigo_mesmo_nome;134389880;1155375939;1020986059
+acao;Jundiaí;2024;2025;1;1001;EXPANSÃO, ADEQUAÇÃO E MODERNIZAÇÃO DAS INSTALAÇÕES DA CÂMARA MUNICIPAL DE JUNDIAÍ;;somente_ano_inicial;37558793;0;-37558793
+acao;Jundiaí;2024;2025;1;2001;DESPESAS DE MANUTENÇÃO DAS ATIVIDADES LEGISLATIVAS;DESPESAS DE MANUTENÇÃO DAS ATIVIDADES LEGISLATIVAS;mesmo_codigo_mesmo_nome;1119764;7872689;6752925
+acao;Jundiaí;2024;2025;1;2002;PUBLICIDADE INSTITUCIONAL E FOMENTO À PARTICIPAÇÃO LEGISLATIVA;PUBLICIDADE INSTITUCIONAL E FOMENTO À PARTICIPAÇÃO LEGISLATIVA;mesmo_codigo_mesmo_nome;2346998;2370800;23802
+acao;Jundiaí;2024;2025;1;2301;MANUTENÇÃO E MODERNIZAÇÃO DE RECURSOS DE TECNOLOGIA DA INFORMAÇÃO;MANUTENÇÃO E MODERNIZAÇÃO DE RECURSOS DE TECNOLOGIA DA INFORMAÇÃO;mesmo_codigo_mesmo_nome;1431798;1437591;5793
+acao;Jundiaí;2024;2025;185;2031;GESTÃO DE ATIVIDADES DO DEPARTAMENTO DE BEM ESTAR ANIMAL;;somente_ano_inicial;159976;0;-159976
+acao;Jundiaí;2024;2025;185;8565;;MANUTENÇÃO DA FUNDAÇÃO SERRA DO JAPI;somente_ano_final;0;4027669;4027669
+acao;Jundiaí;2024;2025;186;1132;REQUALIFICAÇÃO DO VALE DO RIO JUNDIAÍ;;somente_ano_inicial;77903252;0;-77903252
+acao;Jundiaí;2024;2025;186;1499;ESTABILIZAÇÃO DE ENCOSTAS E TALUDES;;somente_ano_inicial;10992106;0;-10992106
+acao;Jundiaí;2024;2025;186;1500;IMPLANTAÇÃO DE SISTEMAS DE MACRO E MICRODRENAGEM;IMPLANTAÇÃO DE SISTEMAS DE MACRO E MICRODRENAGEM;mesmo_codigo_mesmo_nome;324984581;262983124;-62001457
+acao;Jundiaí;2024;2025;186;1501;CANALIZAÇÃO E RETIFICAÇÃO DE RIOS, CÓRREGOS E CANAIS;CANALIZAÇÃO E RETIFICAÇÃO DE RIOS, CÓRREGOS E CANAIS;mesmo_codigo_mesmo_nome;443310330;1140634803;697324473
+acao;Jundiaí;2024;2025;186;1511;;MODERNIZAÇÃO DA FROTA DE VEÍCULOS, MÁQUINAS E EQUIPAMENTOS;somente_ano_final;0;209700000;209700000
+acao;Jundiaí;2024;2025;186;1512;IMPLANTAÇÃO/REVITALIZAÇÃO DE PRAÇAS E ÁREAS AJARDINADAS COM CONCEITO URBAN 95;IMPLANTAÇÃO/REVITALIZAÇÃO DE PRAÇAS E ÁREAS AJARDINADAS COM CONCEITO URBAN 95;mesmo_codigo_mesmo_nome;1063202592;3901000;-1059301592
+acao;Jundiaí;2024;2025;186;1515;EXPANSÃO DA REDE E PONTOS DE ILUMINAÇÃO PÚBLICA;EXPANSÃO DA REDE E PONTOS DE ILUMINAÇÃO PÚBLICA;mesmo_codigo_mesmo_nome;1475823229;682336319;-793486910
+acao;Jundiaí;2024;2025;186;2160;MANUTENÇÃO E CONSERVAÇÃO DE PRAÇAS, PARQUES E JARDINS;MANUTENÇÃO E CONSERVAÇÃO DE PRAÇAS, PARQUES E JARDINS;mesmo_codigo_mesmo_nome;174364000;525826;-173838174
+acao;Jundiaí;2024;2025;186;2161;DESENVOLVIMENTO DE PROJETOS URBANOS;DESENVOLVIMENTO DE PROJETOS URBANOS;mesmo_codigo_mesmo_nome;81367494;6142000;-75225494
+acao;Jundiaí;2024;2025;187;1127;;RESTAURAÇÃO E ADEQUAÇÃO DAS INSTALAÇÕES DA UNIDADE NO COMPLEXO FEPASA;somente_ano_final;0;881088;881088
+acao;Jundiaí;2024;2025;187;1495;PAVIMENTAÇÃO E IMPLANTAÇÃO DE VIAS PÚBLICAS;PAVIMENTAÇÃO E IMPLANTAÇÃO DE VIAS PÚBLICAS;mesmo_codigo_mesmo_nome;10202644344;2234170840;-7968473504
+acao;Jundiaí;2024;2025;187;1496;CONSTRUÇÃO E REFORMA DE PONTES E VIADUTOS;CONSTRUÇÃO E REFORMA DE PONTES E VIADUTOS;mesmo_codigo_mesmo_nome;2668468978;4724637431;2056168453
+acao;Jundiaí;2024;2025;187;2742;FISCALIZAÇÃO DE TRÂNSITO;FISCALIZAÇÃO DE TRÂNSITO;mesmo_codigo_mesmo_nome;1264020;673507;-590513
+acao;Jundiaí;2024;2025;187;2744;OPERAR E FISCALIZAR O TRANSPORTE COLETIVO;;somente_ano_inicial;842680;0;-842680
+acao;Jundiaí;2024;2025;187;2746;;TERMINAIS DE ÔNIBUS URBANO;somente_ano_final;0;3574378;3574378
+acao;Jundiaí;2024;2025;187;2747;SINALIZAÇÃO E SEGURANÇA NO TRÂNSITO;SINALIZAÇÃO E SEGURANÇA NO TRÂNSITO;mesmo_codigo_mesmo_nome;5360000;1099152;-4260848
+acao;Jundiaí;2024;2025;188;1073;MODERNIZAÇÃO E AMPLIAÇÃO DA INFRAESTRUTURA RURAL PRODUTIVA;MODERNIZAÇÃO E AMPLIAÇÃO DA INFRAESTRUTURA RURAL PRODUTIVA;mesmo_codigo_mesmo_nome;90800000;3250000;-87550000
+acao;Jundiaí;2024;2025;188;1074;JUNDIAÍ MUNICÍPIO DE INTERESSE TURÍSTICO;;somente_ano_inicial;58099574;0;-58099574
+acao;Jundiaí;2024;2025;188;2053;FOMENTO AO AGRONEGÓCIO SUSTENTÁVEL;;somente_ano_inicial;50130;0;-50130
+acao;Jundiaí;2024;2025;188;2057;FOMENTO AO TURISMO;FOMENTO AO TURISMO;mesmo_codigo_mesmo_nome;7420694;4738000;-2682694
+acao;Jundiaí;2024;2025;188;2208;;MANUTENÇÃO E CONSERVAÇÃO DO PARQUE COMENDADOR ANTÔNIO CARBONARI - PARQUE DA UVA E DO CIT;somente_ano_final;0;123900;123900
+acao;Jundiaí;2024;2025;189;1003;MODERNIZAÇÃO DO PAÇO MUNICIPAL;;somente_ano_inicial;12606824;0;-12606824
+acao;Jundiaí;2024;2025;189;1082;;MODERNIZAÇÃO DA INFRAESTRUTURA DA CASA CIVIL;somente_ano_final;0;1076965;1076965
+acao;Jundiaí;2024;2025;189;1100;MODERNIZAÇÃO DA INFRAESTRUTURA DE INOVAÇÃO E RELAÇÃO COM O CIDADÃO;MODERNIZAÇÃO DA INFRAESTRUTURA DE INOVAÇÃO E RELAÇÃO COM O CIDADÃO;mesmo_codigo_mesmo_nome;909009;53996;-855013
+acao;Jundiaí;2024;2025;189;1101;DESENVOLVIMENTO DE AÇÕES DE MODERNIZAÇÃO TECNOLÓGICA;;somente_ano_inicial;65537727;0;-65537727
+acao;Jundiaí;2024;2025;189;1540;MODERNIZAÇÃO DA INFRAESTRUTURA DE EDUCAÇÃO;MODERNIZAÇÃO DA INFRAESTRUTURA DE EDUCAÇÃO;mesmo_codigo_mesmo_nome;173289184;87517715;-85771469
+acao;Jundiaí;2024;2025;189;2076;;INOVAR OS SERVIÇOS DIGITAIS E GARANTIR A MANUTEÇÃO DA ESTRUTURA DE ATENDIMENTOS DO PROCON;somente_ano_final;0;1159182;1159182
+acao;Jundiaí;2024;2025;189;7022;MODERNIZAÇÃO DAS INSTALAÇÕES E EQUIPAMENTOS DA TVTEC;;somente_ano_inicial;211705;0;-211705
+acao;Jundiaí;2024;2025;189;7123;;MODERNIZAÇÃO DA INFRAESTRUTURA DA ESEF;somente_ano_final;0;1500000;1500000
+acao;Jundiaí;2024;2025;189;8551;GESTÃO OPERACIONAL DA FTVTEC;GESTÃO OPERACIONAL DA FTVTEC;mesmo_codigo_mesmo_nome;12234613;71520;-12163093
+acao;Jundiaí;2024;2025;190;1123;PIP: PROGRAMA DE INVESTIMENTOS E PARCERIAS;PIP: PROGRAMA DE INVESTIMENTOS E PARCERIAS;mesmo_codigo_mesmo_nome;611905184;252360432;-359544752
+acao;Jundiaí;2024;2025;190;1486;GESTÃO DAS AÇÕES DE MODERNIZAÇÃO DA ADMINISTRAÇÃO TRIBUTÁRIA - PMAT;;somente_ano_inicial;183669;0;-183669
+acao;Jundiaí;2024;2025;190;2003;GERENCIAMENTO OPERACIONAL DA UNIDADE DE GESTÃO;GERENCIAMENTO OPERACIONAL DA UNIDADE DE GESTÃO;mesmo_codigo_mesmo_nome;101153098;12218832;-88934266
+acao;Jundiaí;2024;2025;190;2701;;GESTÃO OPERACIONAL DOS CENTROS DE SERVIÇOS E UNIDADES DE MANUTENÇÃO;somente_ano_final;0;3761000;3761000
+acao;Jundiaí;2024;2025;190;8507;GESTÃO DE AÇÕES PEDAGÓGICAS;GESTÃO DE AÇÕES PEDAGÓGICAS;mesmo_codigo_mesmo_nome;1809693;4300997;2491304
+acao;Jundiaí;2024;2025;190;8531;GESTÃO E MANUTENÇÃO DA FUNDAÇÃO;;somente_ano_inicial;1845143;0;-1845143
+acao;Jundiaí;2024;2025;190;8542;GESTÃO OPERACIONAL DO SERVIÇO FUNERÁRIO MUNICIPAL;GESTÃO OPERACIONAL DO SERVIÇO FUNERÁRIO MUNICIPAL;mesmo_codigo_mesmo_nome;748000;571987;-176013
+acao;Jundiaí;2024;2025;190;8561;GERENCIAMENTO OPERACIONAL DA ATIVIDADE ADMINISTRATIVA;;somente_ano_inicial;5617314;0;-5617314
+acao;Jundiaí;2024;2025;191;1066;AMPLIAÇÃO DA REDE DE URGÊNCIA E EMERGÊNCIA;AMPLIAÇÃO DA REDE DE URGÊNCIA E EMERGÊNCIA;mesmo_codigo_mesmo_nome;337406363;151418656;-185987707
+acao;Jundiaí;2024;2025;191;1067;CONSTRUÇÃO DO CENTRO DE ESPECIALIDADES;;somente_ano_inicial;641674678;0;-641674678
+acao;Jundiaí;2024;2025;191;1201;CONSTRUÇÕES, ADEQUAÇÕES E AMPLIAÇÕES DAS UNIDADES DA ATENÇÃO PRIMÁRIA;CONSTRUÇÕES, ADEQUAÇÕES E AMPLIAÇÕES DAS UNIDADES DA ATENÇÃO PRIMÁRIA;mesmo_codigo_mesmo_nome;72955329;392923161;319967832
+acao;Jundiaí;2024;2025;191;2183;GERENCIAMENTO OPERACIONAL DO NÍVEL CENTRAL;GERENCIAMENTO OPERACIONAL DO NÍVEL CENTRAL;mesmo_codigo_mesmo_nome;128798;64399;-64399
+acao;Jundiaí;2024;2025;191;2186;PROMOÇÃO DE AÇÕES DAS UNIDADES DE ATENÇÃO ESPECIALIZADAS;PROMOÇÃO DE AÇÕES DAS UNIDADES DE ATENÇÃO ESPECIALIZADAS;mesmo_codigo_mesmo_nome;7606331;548870;-7057461
+acao;Jundiaí;2024;2025;191;2187;PROMOÇÃO DE AÇÕES DA REDE DE URGÊNCIA E EMERGÊNCIA PRÉ HOSPITALAR;;somente_ano_inicial;11594900;0;-11594900
+acao;Jundiaí;2024;2025;191;2188;PROMOÇÃO DAS AÇÕES DAS UNIDADE DE ATENÇÃO BÁSICA;PROMOÇÃO DAS AÇÕES DAS UNIDADE DE ATENÇÃO BÁSICA;mesmo_codigo_mesmo_nome;32300575;24727343;-7573232
+acao;Jundiaí;2024;2025;191;2189;AMPLIAÇÃO DE ESTRATÉGIA DE SAÚDE DA FAMÍLIA;AMPLIAÇÃO DE ESTRATÉGIA DE SAÚDE DA FAMÍLIA;mesmo_codigo_mesmo_nome;25227444;704099;-24523345
+acao;Jundiaí;2024;2025;191;2192;PROMOÇÃO DAS AÇÕES DE VIGILÂNCIA EM SAÚDE;PROMOÇÃO DAS AÇÕES DE VIGILÂNCIA EM SAÚDE;mesmo_codigo_mesmo_nome;2190000;9177391;6987391
+acao;Jundiaí;2024;2025;191;2772;NUTRIÇÃO ESCOLAR;NUTRIÇÃO ESCOLAR;mesmo_codigo_mesmo_nome;22326400;7705940;-14620460
+acao;Jundiaí;2024;2025;191;7004;NOVO AMBULATÓRIO DE ESPECIALIDADES DA FMJ;;somente_ano_inicial;16800000;0;-16800000
+acao;Jundiaí;2024;2025;191;8516;MANUTENÇÃO E MODERNIZAÇÃO DO HOSPITAL UNIVERSITÁRIO;MANUTENÇÃO E MODERNIZAÇÃO DO HOSPITAL UNIVERSITÁRIO;mesmo_codigo_mesmo_nome;1567236113;737113248;-830122865
+acao;Jundiaí;2024;2025;192;1080;CONSTRUÇÃO DO CENTRO DE EXCELÊNCIA DO BASQUETE;CONSTRUÇÃO DO CENTRO DE EXCELÊNCIA DO BASQUETE;mesmo_codigo_mesmo_nome;245134613;207245115;-37889498
+acao;Jundiaí;2024;2025;192;1113;;CONSTRUÇÃO DE PISCINA ADAPTADA;somente_ano_final;0;53891603;53891603
+acao;Jundiaí;2024;2025;192;1114;CONSTRUÇÃO DE PISTA DE SKATE;;somente_ano_inicial;15804215;0;-15804215
+acao;Jundiaí;2024;2025;192;1115;CONSTRUÇÃO DE QUADRA COBERTA NO CECE LÉO PEREIRA LEMOS NOGUEIRA;;somente_ano_inicial;193695822;0;-193695822
+acao;Jundiaí;2024;2025;192;1545;REVITALIZAÇÃO DOS COMPLEXOS EDUCACIONAIS CULTURAIS E ESPORTIVOS;REVITALIZAÇÃO DOS COMPLEXOS EDUCACIONAIS CULTURAIS E ESPORTIVOS;mesmo_codigo_mesmo_nome;138798504;109301944;-29496560
+acao;Jundiaí;2024;2025;192;2761;;ESPORTE DE FORMAÇÃO E RENDIMENTO;somente_ano_final;0;6800000;6800000
+acao;Jundiaí;2024;2025;192;2771;MANUTENÇÃO E CONSERVAÇÃOS DOS COMPLEXOS EDUCACIONAIS, CULTURAIS E ESPORTIVOS;MANUTENÇÃO E CONSERVAÇÃOS DOS COMPLEXOS EDUCACIONAIS, CULTURAIS E ESPORTIVOS;mesmo_codigo_mesmo_nome;33855720;8669130;-25186590
+acao;Jundiaí;2024;2025;193;1026;PROJETO MUNICÍPIO SEGURO;PROJETO MUNICÍPIO SEGURO;mesmo_codigo_mesmo_nome;2417893149;286045403;-2131847746
+acao;Jundiaí;2024;2025;193;1028;CONSTRUÇÃO DO CANIL DA GUARDA MUNICIPAL;;somente_ano_inicial;217717386;0;-217717386
+acao;Jundiaí;2024;2025;193;2029;;GERENCIAMENTO DE FROTA DE VEÍCULOS;somente_ano_final;0;1825466;1825466
+acao;Jundiaí;2024;2025;193;2107;GESTÃO OPERACIONAL DA JUNTA DE SERVIÇO MILITAR;;somente_ano_inicial;91800;0;-91800
+acao;Jundiaí;2024;2025;193;2209;APARELHAMENTO DOS PROFISSIONAIS DA GUARDA MUNICIPAL;APARELHAMENTO DOS PROFISSIONAIS DA GUARDA MUNICIPAL;mesmo_codigo_mesmo_nome;3772385;4590000;817615
+acao;Jundiaí;2024;2025;193;2211;MANUTENÇÃO DAS OPERAÇÕES E INSTALAÇÕES DA UNIDADE DE SEGURANÇA MUNICIPAL;;somente_ano_inicial;2532810;0;-2532810
+acao;Jundiaí;2024;2025;193;2617;;GESTÃO OPERACIONAL DA DEFESA CIVIL;somente_ano_final;0;520310;520310
+acao;Jundiaí;2024;2025;194;1110;CENTRO DAS ARTES - SALA GLÓRIA ROCHA;;somente_ano_inicial;140001056;0;-140001056
+acao;Jundiaí;2024;2025;194;2008;GESTÃO E MANUTENÇÃO DA UNIDADE DE GESTÃO DE CULTURA;GESTÃO E MANUTENÇÃO DA UNIDADE DE GESTÃO DE CULTURA;mesmo_codigo_mesmo_nome;48750000;4071339;-44678661
+acao;Jundiaí;2024;2025;194;8527;MANUTENÇÃO TEATRO POLYTHEAMA;MANUTENÇÃO TEATRO POLYTHEAMA;mesmo_codigo_mesmo_nome;13990;9999953;9985963
+acao;Jundiaí;2024;2025;194;8549;MANUTENÇÃO DAS ATIVIDADES E DOS ESPAÇOS MUSEOLÓGICOS;;somente_ano_inicial;280000;0;-280000
+acao;Jundiaí;2024;2025;195;1547;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DA EDUCAÇÃO INFANTIL II;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DA EDUCAÇÃO INFANTIL II;mesmo_codigo_mesmo_nome;117898715;209285767;91387052
+acao;Jundiaí;2024;2025;195;1548;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DA EDUCAÇÃO INFANTIL I;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DA EDUCAÇÃO INFANTIL I;mesmo_codigo_mesmo_nome;70163514;97207783;27044269
+acao;Jundiaí;2024;2025;195;2786;EDUCAÇÃO INFANTIL I: ESCOLA INOVADORA;EDUCAÇÃO INFANTIL I: ESCOLA INOVADORA;mesmo_codigo_mesmo_nome;35098629;4130000;-30968629
+acao;Jundiaí;2024;2025;195;2789;EDUCAÇÃO INFANTIL II: ESCOLA INOVADORA;EDUCAÇÃO INFANTIL II: ESCOLA INOVADORA;mesmo_codigo_mesmo_nome;29439845;4746359;-24693486
+acao;Jundiaí;2024;2025;196;1546;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DO ENSINO FUNDAMENTAL;CONSTRUÇÃO E AMPLIAÇÃO DOS PRÉDIOS ESCOLARES DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;75729548;10296926;-65432622
+acao;Jundiaí;2024;2025;196;2775;GERENCIAMENTO DA UNIDADE DE GESTÃO DA EDUCAÇÃO E DO DISTRITO DO CONHECIMENTO;;somente_ano_inicial;2399000;0;-2399000
+acao;Jundiaí;2024;2025;196;2776;ENSINO FUNDAMENTAL: ESCOLA INOVADORA;ENSINO FUNDAMENTAL: ESCOLA INOVADORA;mesmo_codigo_mesmo_nome;6099005;4992586;-1106419
+acao;Jundiaí;2024;2025;196;2785;EDUCAÇÃO DE JOVENS E ADULTOS DO ENSINO FUNDAMENTAL E ENSINO MÉDIO: ESCOLA INOVADORA;;somente_ano_inicial;84600;0;-84600
+acao;Jundiaí;2024;2025;197;7511;MODERNIZAÇÃO, AMPLIAÇÃO E REFORMAS DAS UNIDADES DA FMJ;MODERNIZAÇÃO, AMPLIAÇÃO E REFORMAS DAS UNIDADES DA FMJ;mesmo_codigo_mesmo_nome;14724600;133522955;118798355
+acao;Jundiaí;2024;2025;197;8008;GESTÃO OPERACIONAL DAS ATIVIDADES ADMINISTRATIVAS DA ESEF;GESTÃO OPERACIONAL DAS ATIVIDADES ADMINISTRATIVAS DA ESEF;mesmo_codigo_mesmo_nome;982646;837689;-144957
+acao;Jundiaí;2024;2025;197;8511;GESTÃO OPERACIONAL DAS ATIVIDADES ADMINISTRATIVAS DA FMJ;GESTÃO OPERACIONAL DAS ATIVIDADES ADMINISTRATIVAS DA FMJ;mesmo_codigo_mesmo_nome;5397136;28750302;23353166
+acao;Jundiaí;2024;2025;197;8512;GESTAO OPERACIONAL DAS ATIVIDADES PEDAGOGICAS DA FMJ;GESTAO OPERACIONAL DAS ATIVIDADES PEDAGOGICAS DA FMJ;mesmo_codigo_mesmo_nome;24011765;61031467;37019702
+acao;Jundiaí;2024;2025;197;8513;MANUTENÇÃO DAS ATIVIDADES DO AMBULATÓRIO DE ESPECIALIDADES DA FMJ;MANUTENÇÃO DAS ATIVIDADES DO AMBULATÓRIO DE ESPECIALIDADES DA FMJ;mesmo_codigo_mesmo_nome;970000;1180000;210000
+acao;Jundiaí;2024;2025;197;8522;GESTÃO OPERACIONAL DAS ATIVIDADES DE ENSINO SUPERIOR - GRADUAÇÃO;GESTÃO OPERACIONAL DAS ATIVIDADES DE ENSINO SUPERIOR - GRADUAÇÃO;mesmo_codigo_mesmo_nome;1845597;106298;-1739299
+acao;Jundiaí;2024;2025;198;2181;GERENCIAMENTO DA EDUCAÇÃO COMPLEMENTAR E TECNOLÓGICA;;somente_ano_inicial;240997;0;-240997
+acao;Jundiaí;2024;2025;199;1301;MODERNIZAÇÃO E QUALIFICAÇÃO DOS EQUIPAMENTOS DA ASSISTÊNCIA E DESENVOLVIMENTO SOCIAL;MODERNIZAÇÃO E QUALIFICAÇÃO DOS EQUIPAMENTOS DA ASSISTÊNCIA E DESENVOLVIMENTO SOCIAL;mesmo_codigo_mesmo_nome;96896333;11703126;-85193207
+acao;Jundiaí;2024;2025;199;2080;GESTÃO DA ADMINISTRAÇÃO DO SUAS;;somente_ano_inicial;1252980;0;-1252980
+acao;Jundiaí;2024;2025;199;2101;;GESTÃO DAS AÇÕES DO FUMDIPI - FUNDO DOS DIREITOS DA PESSOA IDOSA;somente_ano_final;0;136998;136998
+acao;Jundiaí;2024;2025;199;2106;GESTÃO DOS SERVIÇOS DA PSE MÉDIA COMPLEXIDADE;;somente_ano_inicial;1519997;0;-1519997
+acao;Jundiaí;2024;2025;199;2110;GESTÃO DOS SERVIÇOS DE PSE MÉDIA PARA POP DE RUA;;somente_ano_inicial;3005776;0;-3005776
+acao;Jundiaí;2024;2025;199;2155;;GESTÃO OPERACIONAL DOS CONSELHOS TUTELARES;somente_ano_final;0;386394;386394
+acao;Jundiaí;2024;2025;199;2200;GESTÃO DOS SERVIÇOS DE ACOLHIMENTO PARA IDOSOS, DEFICIENTES E MULHERES;;somente_ano_inicial;6143796;0;-6143796
+acao;Jundiaí;2024;2025;199;2213;GESTÃO DOS SERVIÇOS PSE ALTA - ACOLHIMENTO PESSOA EM SITUAÇÃO DE RUA;;somente_ano_inicial;2524795;0;-2524795
+acao;Jundiaí;2024;2025;199;2622;GESTÃO OPERACIONAL DO FUNSS - FUNDO SOCIAL DE SOLIDARIEDADE;;somente_ano_inicial;90000;0;-90000
+acao;Jundiaí;2024;2025;199;8543;DISTRIBUIÇÃO DE SUPLEMENTAÇÃO ALIMENTAR;;somente_ano_inicial;1061320;0;-1061320
+acao;Jundiaí;2024;2025;200;7103;PRODUÇÃO HABITACIONAL DE INTERESSE SOCIAL E OBRAS DE INFRAESTRUTURA;PRODUÇÃO HABITACIONAL DE INTERESSE SOCIAL E OBRAS DE INFRAESTRUTURA;mesmo_codigo_mesmo_nome;101911894;322718730;220806836
+acao;Jundiaí;2024;2025;200;8039;REGULARIZAÇÃO FUNDIÁRIA DE INTERESSE SOCIAL;;somente_ano_inicial;27726660;0;-27726660
+acao;Jundiaí;2024;2025;200;8550;GESTÃO OPERACIONAL DA ATIVIDADE ADMINISTRATIVA;GESTÃO OPERACIONAL DA ATIVIDADE ADMINISTRATIVA;mesmo_codigo_mesmo_nome;1519555;2883899;1364344
+acao;Jundiaí;2024;2025;201;2743;;EDUCAÇÃO DE MOBILIDADE;somente_ano_final;0;743256;743256
+acao;Jundiaí;2024;2025;202;8006;GESTÃO OPERACIONAL DO IPREJUN;GESTÃO OPERACIONAL DO IPREJUN;mesmo_codigo_mesmo_nome;561900;6334397;5772497
+programa;Louveira;2023;2024;10;;SERVIÇOS FUNERARIOS;SERVIÇOS FUNERARIOS;mesmo_codigo_mesmo_nome;656550105;315332334;-341217771
+programa;Louveira;2023;2024;12;;PROGRAMA DE ILUMINAÇAO DE PREDIOS PUBLICOS E/OU LOGRADOUROS;PROGRAMA DE ILUMINAÇAO DE PREDIOS PUBLICOS E/OU LOGRADOUROS;mesmo_codigo_mesmo_nome;62867480;243573468;180705988
+programa;Louveira;2023;2024;13;;PLANEJAMENTO URBANO;PLANEJAMENTO URBANO;mesmo_codigo_mesmo_nome;2925833778;2150633520;-775200258
+programa;Louveira;2023;2024;14;;SEGURANÇA DO MUNICIPIO;SEGURANÇA DO MUNICIPIO;mesmo_codigo_mesmo_nome;26879784;5919708;-20960076
+programa;Louveira;2023;2024;17;;PROGRAMA DE MANUTENÇAO DAS ATIVIDADES DE DEFESA CIVIL;;somente_ano_inicial;333000;0;-333000
+programa;Louveira;2023;2024;19;;PROGRAMAS ESPORTIVOS;PROGRAMAS ESPORTIVOS;mesmo_codigo_mesmo_nome;202875538;218349182;15473644
+programa;Louveira;2023;2024;2;;SUPERVISAO E COORDENAÇAO SUPERIOR;;somente_ano_inicial;1468556;0;-1468556
+programa;Louveira;2023;2024;20;;SERVIÇOS ADMINISTRATIVOS;SERVIÇOS ADMINISTRATIVOS;mesmo_codigo_mesmo_nome;20267655;2244169;-18023486
+programa;Louveira;2023;2024;21;;ASSISTENCIA JUDICIARIA;;somente_ano_inicial;3217600;0;-3217600
+programa;Louveira;2023;2024;22;;PROGRAMA DE ADMINISTRAÇAO FINANCEIRA;PROGRAMA DE ADMINISTRAÇAO FINANCEIRA;mesmo_codigo_mesmo_nome;1316458;999800;-316658
+programa;Louveira;2023;2024;27;;PROGRAMA DO CONSELHO TUTELAR;;somente_ano_inicial;910692;0;-910692
+programa;Louveira;2023;2024;28;;PROGRAMAS E PROJETOS SOCIAIS DO FUNSSOL;;somente_ano_inicial;3951686;0;-3951686
+programa;Louveira;2023;2024;29;;ATENCAO BASICA EM SAUDE;ATENCAO BASICA EM SAUDE;mesmo_codigo_mesmo_nome;41939168;6468990;-35470178
+programa;Louveira;2023;2024;3;;PROGRAMA DE GESTÃO AMBIENTAL;PROGRAMA DE GESTÃO AMBIENTAL;mesmo_codigo_mesmo_nome;22496384;309455;-22186929
+programa;Louveira;2023;2024;30;;GESTAO DO SUS;GESTAO DO SUS;mesmo_codigo_mesmo_nome;3070000;4820461;1750461
+programa;Louveira;2023;2024;31;;PROGRAMA DE MEDIA E ALTA COMPLEXIDADE AMBULATORIAL E HOSPITALAR;PROGRAMA DE MEDIA E ALTA COMPLEXIDADE AMBULATORIAL E HOSPITALAR;mesmo_codigo_mesmo_nome;92785588;886835634;794050046
+programa;Louveira;2023;2024;33;;VIGILANCIA EM SAUDE;;somente_ano_inicial;4076445;0;-4076445
+programa;Louveira;2023;2024;35;;MELHORIA DA ADMINISTRACAO TRIBUTARIA;;somente_ano_inicial;1672800;0;-1672800
+programa;Louveira;2023;2024;37;;IMPLEMENTAÇAO DA POLITICA DE EDUCAÇAO ESPECIAL NA PERSPECTIVA DA EDUCAÇAO INCLUSIVA;IMPLEMENTAÇAO DA POLITICA DE EDUCAÇAO ESPECIAL NA PERSPECTIVA DA EDUCAÇAO INCLUSIVA;mesmo_codigo_mesmo_nome;840000;11048472;10208472
+programa;Louveira;2023;2024;39;;MANUTENÇAO E REVITALIZAÇAO DA EDUCAÇAO INFANTIL;MANUTENÇAO E REVITALIZAÇAO DA EDUCAÇAO INFANTIL;mesmo_codigo_mesmo_nome;235846741;76592917;-159253824
+programa;Louveira;2023;2024;40;;MANUTENÇAO E REVITALIZAÇAO DO ENSINO FUNDAMENTAL;MANUTENÇAO E REVITALIZAÇAO DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;276736992;308642751;31905759
+programa;Louveira;2023;2024;45;;TRANSPORTE ESCOLAR;;somente_ano_inicial;788000;0;-788000
+programa;Louveira;2023;2024;48;;MERENDA ESCOLAR;MERENDA ESCOLAR;mesmo_codigo_mesmo_nome;271600;72000;-199600
+programa;Louveira;2023;2024;51;;PROTEÇÃO SOCIAL BÁSICA;PROTEÇÃO SOCIAL BÁSICA;mesmo_codigo_mesmo_nome;5102390;2807700;-2294690
+programa;Louveira;2023;2024;52;;SEGURANÇA ALIMENTAR;;somente_ano_inicial;3290943;0;-3290943
+programa;Louveira;2023;2024;53;;TRANSFERENCIA DE RENDA;;somente_ano_inicial;67580;0;-67580
+programa;Louveira;2023;2024;58;;PROTEÇAO SOCIAL ESPECIAL - MEDIA COMPLEXIDADE;;somente_ano_inicial;727900;0;-727900
+programa;Louveira;2023;2024;60;;SERVIÇOS, PROGRAMAS E PROJETOS;SERVIÇOS, PROGRAMAS E PROJETOS;mesmo_codigo_mesmo_nome;10830000;89500;-10740500
+programa;Louveira;2023;2024;61;;PROGRAMAS CULTURAIS;PROGRAMAS CULTURAIS;mesmo_codigo_mesmo_nome;1720300;1279200;-441100
+programa;Louveira;2023;2024;63;;PROGRAMA DE DESENVOLVIMENTO TURISTICO;;somente_ano_inicial;523000;0;-523000
+programa;Louveira;2023;2024;65;;AGRICULTURA NO MUNICIPIO;AGRICULTURA NO MUNICIPIO;mesmo_codigo_mesmo_nome;208784906;92526539;-116258367
+programa;Louveira;2023;2024;68;;ADMINISTRACAO LEGISLATIVA;ADMINISTRACAO LEGISLATIVA;mesmo_codigo_mesmo_nome;6824875;1876680;-4948195
+programa;Louveira;2023;2024;69;;PROGRAMAS HABITACIONAIS;PROGRAMAS HABITACIONAIS;mesmo_codigo_mesmo_nome;2791575498;2327308857;-464266641
+programa;Louveira;2023;2024;7;;SISTEMA DE ABASTECIMENTO DE AGUA;SISTEMA DE ABASTECIMENTO DE AGUA;mesmo_codigo_mesmo_nome;897461463;265159763;-632301700
+programa;Louveira;2023;2024;73;;ASSISTÊNCIA A CRIANÇA E ADOLESCENTE;;somente_ano_inicial;74900;0;-74900
+programa;Louveira;2023;2024;76;;MANUTENÇÃO DO SISTEMA OPERACIONAL DE ÁGUA E ESGOTO;;somente_ano_inicial;14620635;0;-14620635
+programa;Louveira;2023;2024;78;;GESTAO DO SUAS;;somente_ano_inicial;3851110;0;-3851110
+programa;Louveira;2023;2024;79;;GESTAO DO PROGRAMA BOLSA FAMILIA E CADASTRO UNICO;GESTAO DO PROGRAMA BOLSA FAMILIA E CADASTRO UNICO;mesmo_codigo_mesmo_nome;713036;1947200;1234164
+programa;Louveira;2023;2024;8;;SISTEMA DE ESGOTO;SISTEMA DE ESGOTO;mesmo_codigo_mesmo_nome;851384987;77893357;-773491630
+programa;Louveira;2023;2024;80;;GESTÃO TÉCNICA E ADMINISTRATIVA DE ÁGUA E ESGOTO;;somente_ano_inicial;413600;0;-413600
+programa;Louveira;2023;2024;83;;PROGRAMA DE EDUCAÇÃO AMBIENTAL;PROGRAMA DE EDUCAÇÃO AMBIENTAL;mesmo_codigo_mesmo_nome;37150;876000;838850
+programa;Louveira;2023;2024;84;;;PROGRAMA DE BEM ESTAR ANIMAL;somente_ano_final;0;3869200;3869200
+programa;Louveira;2023;2024;9;;SERVIÇOS PUBLICOS;SERVIÇOS PUBLICOS;mesmo_codigo_mesmo_nome;52086365;7808000;-44278365
+acao;Louveira;2023;2024;10;1028;REFORMA E AMPLIAÇAO DO CEMITÉRIO E VELÓRIO MUNICIPAL;REFORMA E AMPLIAÇAO DO CEMITÉRIO E VELÓRIO MUNICIPAL;mesmo_codigo_mesmo_nome;656550105;315332334;-341217771
+acao;Louveira;2023;2024;12;1105;MELHORIAS NA ILUMINACAO PUBLICA;MELHORIAS NA ILUMINACAO PUBLICA;mesmo_codigo_mesmo_nome;62867480;243573468;180705988
+acao;Louveira;2023;2024;13;1031;REFORMA E AMPLIAÇAO DE PROPRIOS;REFORMA E AMPLIAÇAO DE PROPRIOS;mesmo_codigo_mesmo_nome;268050522;300163122;32112600
+acao;Louveira;2023;2024;13;1038;ESTUDOS E PROJETOS;ESTUDOS E PROJETOS;mesmo_codigo_mesmo_nome;302252248;192287714;-109964534
+acao;Louveira;2023;2024;13;1045;RECAPEAMENTO DE DIVERSAS RUAS DO MUNICIPIO;;somente_ano_inicial;148286839;0;-148286839
+acao;Louveira;2023;2024;13;1047;OBRAS COMPLEMENTARES DE URBANIZAÇAO (CALÇADAS, MUROS, GUIAS, ALAMBRADOS OU GRADES, VIELAS, ETC);OBRAS COMPLEMENTARES DE URBANIZAÇAO (CALÇADAS, MUROS, GUIAS, ALAMBRADOS OU GRADES, VIELAS, ETC);mesmo_codigo_mesmo_nome;928133815;322012219;-606121596
+acao;Louveira;2023;2024;13;1048;REVITALIZAÇAO E REURBANIZAÇAO DA CIDADE - IMP.DE PARQUES E JARDINS E INF. URBANA;REVITALIZAÇAO E REURBANIZAÇAO DA CIDADE - IMP.DE PARQUES E JARDINS E INF. URBANA;mesmo_codigo_mesmo_nome;212154818;83048696;-129106122
+acao;Louveira;2023;2024;13;1054;DESAPROPRIACAO DE AREA DE TERRAS PARA OBRAS DE INTERESSE MUNICIPAL;DESAPROPRIACAO DE AREA DE TERRAS PARA OBRAS DE INTERESSE MUNICIPAL;mesmo_codigo_mesmo_nome;199674900;168188843;-31486057
+acao;Louveira;2023;2024;13;1055;PAVIMENTAÇAO DE DIVERSAS RUAS DO MUNICIPIO;PAVIMENTAÇAO DE DIVERSAS RUAS DO MUNICIPIO;mesmo_codigo_mesmo_nome;446970861;156589547;-290381314
+acao;Louveira;2023;2024;13;1108;IMPLANTACAO DO PARQUE MUNICIPAL DE LOUVEIRA NO BAIRRO CAPIVARI;IMPLANTACAO DO PARQUE MUNICIPAL DE LOUVEIRA NO BAIRRO CAPIVARI;mesmo_codigo_mesmo_nome;419708575;657773841;238065266
+acao;Louveira;2023;2024;13;1265;;REVITALIZAÇÃO DA PRAÇA DA BICA;somente_ano_final;0;270412038;270412038
+acao;Louveira;2023;2024;13;2020;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE DESENVOLVIMENTO URBANO;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE DESENVOLVIMENTO URBANO;mesmo_codigo_mesmo_nome;601200;157500;-443700
+acao;Louveira;2023;2024;14;2027;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE SEGURANCA;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE SEGURANCA;mesmo_codigo_mesmo_nome;26096785;5919708;-20177077
+acao;Louveira;2023;2024;14;2396;MANUTENÇÃO DO FUNDO ESPECIAL DO BOMBEIRO - FEBOM;;somente_ano_inicial;782999;0;-782999
+acao;Louveira;2023;2024;17;2096;MANUTENÇAO DAS ATIVIDADES DA DEFESA CIVIL;;somente_ano_inicial;333000;0;-333000
+acao;Louveira;2023;2024;19;1247;CONSTRUÇÃO E REFORMA DE ESPAÇOS ESPORTIVOS;CONSTRUÇÃO E REFORMA DE ESPAÇOS ESPORTIVOS;mesmo_codigo_mesmo_nome;199977786;208985770;9007984
+acao;Louveira;2023;2024;19;2021;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE ESPORTES LAZER E JUVENTUDE;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE ESPORTES LAZER E JUVENTUDE;mesmo_codigo_mesmo_nome;1322140;7239752;5917612
+acao;Louveira;2023;2024;19;2364;MANUTENÇÃO DAS MODALIDADES ESPORTIVAS;MANUTENÇÃO DAS MODALIDADES ESPORTIVAS;mesmo_codigo_mesmo_nome;1575612;1888500;312888
+acao;Louveira;2023;2024;19;2365;;MANUTENÇÃO DOS EVENTOS RECREATIVOS E DE LAZER;somente_ano_final;0;235160;235160
+acao;Louveira;2023;2024;2;2016;MANUTENCAO DAS DIVISOES E ATIVIDADES  DA SECRETARIA MUNICIPAL DE GOVERNO E COMUNICACAO SOCIAL;;somente_ano_inicial;1468556;0;-1468556
+acao;Louveira;2023;2024;20;2025;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE ADMINISTRACAO;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE ADMINISTRACAO;mesmo_codigo_mesmo_nome;9729119;1968280;-7760839
+acao;Louveira;2023;2024;20;2276;MANUTENCAO DAS ATIVIDADES DO ALMOXARIFADO;;somente_ano_inicial;7758600;0;-7758600
+acao;Louveira;2023;2024;20;2378;MANUTENÇÃO DAS ATIVIDADES ADMINISTRATIVAS DA SECRETARIA DE EDUCAÇÃO;MANUTENÇÃO DAS ATIVIDADES ADMINISTRATIVAS DA SECRETARIA DE EDUCAÇÃO;mesmo_codigo_mesmo_nome;2779936;275889;-2504047
+acao;Louveira;2023;2024;21;2019;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE NEGOCIOS JURIDICOS;;somente_ano_inicial;2421400;0;-2421400
+acao;Louveira;2023;2024;21;2118;MANUTENÇAO DO PROCON;;somente_ano_inicial;796200;0;-796200
+acao;Louveira;2023;2024;22;2375;MANUTENÇÃO DAS DIVISÕES DE ADMINISTRAÇÃO FINANCEIRA;MANUTENÇÃO DAS DIVISÕES DE ADMINISTRAÇÃO FINANCEIRA;mesmo_codigo_mesmo_nome;1316458;999800;-316658
+acao;Louveira;2023;2024;27;2171;MANUTENÇAO DO CONSELHO TUTELAR;;somente_ano_inicial;910692;0;-910692
+acao;Louveira;2023;2024;28;2173;MANUTENÇAO DO FUNDO SOCIAL DE SOLIDARIEDADE;;somente_ano_inicial;3951686;0;-3951686
+acao;Louveira;2023;2024;29;1007;REFORMA, MANUTENCAO E AMPLIACAO DE UNIDADES BASICAS;;somente_ano_inicial;26306848;0;-26306848
+acao;Louveira;2023;2024;29;2041;MANUTENCAO DOS SERVICOS DE SAUDE;MANUTENCAO DOS SERVICOS DE SAUDE;mesmo_codigo_mesmo_nome;15632320;6468990;-9163330
+acao;Louveira;2023;2024;3;2030;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE GESTAO AMBIENTAL;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE GESTAO AMBIENTAL;mesmo_codigo_mesmo_nome;22496384;309455;-22186929
+acao;Louveira;2023;2024;30;2032;INFORMATICA E SUPORTE ADMINISTRATIVO;;somente_ano_inicial;3070000;0;-3070000
+acao;Louveira;2023;2024;30;2416;;ADMINISTRAÇÃO DA SAÚDE;somente_ano_final;0;4820461;4820461
+acao;Louveira;2023;2024;31;1217;REFORMA, MANUTENCAO E AMPLIACAO DE UNIDADES HOSPITALARES  E AMBULATORIAIS;;somente_ano_inicial;3168460;0;-3168460
+acao;Louveira;2023;2024;31;1236;CONSTRUÇÃO DE HOSPITAL NO BAIRRO SANTO ANTÔNIO;CONSTRUÇÃO DE HOSPITAL NO BAIRRO SANTO ANTÔNIO;mesmo_codigo_mesmo_nome;76085809;843511794;767425985
+acao;Louveira;2023;2024;31;2044;;MANUTENCAO DOS SERVICOS DE MEDIA E ALTA COMPLEXIDADE AMBULATORIAL E HOSPIT;somente_ano_final;0;43323840;43323840
+acao;Louveira;2023;2024;31;2045;MANUTENCAO DO CENTRO DE REABILITACAO MUNICIPAL;;somente_ano_inicial;5847800;0;-5847800
+acao;Louveira;2023;2024;31;2046;MANUTENCAO DO AMBULATORIO DE SAUDE MENTAL ADULTO E INFANTO JUVENIL;;somente_ano_inicial;2197260;0;-2197260
+acao;Louveira;2023;2024;31;2061;MANUTENCAO DAS ACOES ODONTOLOGICAS;;somente_ano_inicial;5486259;0;-5486259
+acao;Louveira;2023;2024;33;2059;MANUTENCAO  DA VIGILANCIA EPIDEMIOLOGICA E ZOONOSES;;somente_ano_inicial;4076445;0;-4076445
+acao;Louveira;2023;2024;35;2376;MANUTENÇÃO DAS DIVISÕES DE ADMINISTRAÇÃO DE RECEITAS;;somente_ano_inicial;1672800;0;-1672800
+acao;Louveira;2023;2024;37;2076;ATENDIMENTO AOS PORTADORES DE NECESSIDADES ESPECIAIS;ATENDIMENTO AOS PORTADORES DE NECESSIDADES ESPECIAIS;mesmo_codigo_mesmo_nome;840000;11048472;10208472
+acao;Louveira;2023;2024;39;1233;REFORMA E AMPLIAÇÃO DE UNIDADES ESCOLARES;REFORMA E AMPLIAÇÃO DE UNIDADES ESCOLARES;mesmo_codigo_mesmo_nome;222557694;76171972;-146385722
+acao;Louveira;2023;2024;39;2063;REALIZAÇÃO DE ATIVIDADES MEIO NECESSARIAS AO FUNCIONAMENTO DOS SISTEMAS DE ENSINO;REALIZAÇÃO DE ATIVIDADES MEIO NECESSARIAS AO FUNCIONAMENTO DOS SISTEMAS DE ENSINO;mesmo_codigo_mesmo_nome;7087395;420945;-6666450
+acao;Louveira;2023;2024;39;2082;MANUTENCAO DOS CENTROS DE CONVIVENCIA INFANTIL;;somente_ano_inicial;4411652;0;-4411652
+acao;Louveira;2023;2024;39;2342;PROJETO ESCOLA DIGITAL;;somente_ano_inicial;1790000;0;-1790000
+acao;Louveira;2023;2024;40;1233;REFORMA E AMPLIAÇÃO DE UNIDADES ESCOLARES;REFORMA E AMPLIAÇÃO DE UNIDADES ESCOLARES;mesmo_codigo_mesmo_nome;257762255;292471591;34709336
+acao;Louveira;2023;2024;40;2063;REALIZAÇÃO DE ATIVIDADES MEIO NECESSARIAS AO FUNCIONAMENTO DOS SISTEMAS DE ENSINO;REALIZAÇÃO DE ATIVIDADES MEIO NECESSARIAS AO FUNCIONAMENTO DOS SISTEMAS DE ENSINO;mesmo_codigo_mesmo_nome;4134737;16171160;12036423
+acao;Louveira;2023;2024;40;2342;PROJETO ESCOLA DIGITAL;;somente_ano_inicial;14840000;0;-14840000
+acao;Louveira;2023;2024;45;2075;MANUTENCAO DO TRANSPORTE ESCOLAR;;somente_ano_inicial;788000;0;-788000
+acao;Louveira;2023;2024;48;2083;MANUTENCAO DAS ATIVIDADES DO PROGRAMA DE ALIMENTACAO ESCOLAR;MANUTENCAO DAS ATIVIDADES DO PROGRAMA DE ALIMENTACAO ESCOLAR;mesmo_codigo_mesmo_nome;271600;72000;-199600
+acao;Louveira;2023;2024;51;2250;MANUTENCAO DO PAIF - SERVICO DE PROTECAO E ATENDIMENTO INTEGRAL AS FAMILIAS;MANUTENCAO DO PAIF - SERVICO DE PROTECAO E ATENDIMENTO INTEGRAL AS FAMILIAS;mesmo_codigo_mesmo_nome;4252790;2807700;-1445090
+acao;Louveira;2023;2024;51;2373;SERVIÇO DE CONVIVÊNCIA E FORTALECIMENTO DE VÍNCULOS PARA IDOSOS;;somente_ano_inicial;849600;0;-849600
+acao;Louveira;2023;2024;52;2336;SEGURANÇA ALIMENTAR E NUTRICIONAL;;somente_ano_inicial;3290943;0;-3290943
+acao;Louveira;2023;2024;53;2337;PROGRAMA DE TRANSFERÊNCIA DE RENDA MUNICIPAL;;somente_ano_inicial;67580;0;-67580
+acao;Louveira;2023;2024;58;2154;MANUTENÇAO DO SERVIÇO DE PROTEÇAO E ATENDIMENTO ESPECIALIZADO A FAMILIAS E INDIV;;somente_ano_inicial;727900;0;-727900
+acao;Louveira;2023;2024;60;2247;MANUTENÇAO DA DIVISAO DE TRANSPORTES;MANUTENÇAO DA DIVISAO DE TRANSPORTES;mesmo_codigo_mesmo_nome;10830000;89500;-10740500
+acao;Louveira;2023;2024;61;2028;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE CULTURA E EVENTOS;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE CULTURA E EVENTOS;mesmo_codigo_mesmo_nome;1417740;286000;-1131740
+acao;Louveira;2023;2024;61;2180;MANUTENÇAO DOS EVENTOS CULTURAIS  E FESTIVIDADES;MANUTENÇAO DOS EVENTOS CULTURAIS  E FESTIVIDADES;mesmo_codigo_mesmo_nome;302560;993200;690640
+acao;Louveira;2023;2024;63;2280;PROGRAMA DE DESENVOLVIMENTO TURISTICO;;somente_ano_inicial;209000;0;-209000
+acao;Louveira;2023;2024;63;2333;PROGRAMA DE CAPACITAÇÃO E SENSIBILIZAÇÃO DO TURISMO;;somente_ano_inicial;314000;0;-314000
+acao;Louveira;2023;2024;65;1224;OBRAS E INSTALAÇÕES NO CENTRO DE APOIO AO AGRICULTOR;OBRAS E INSTALAÇÕES NO CENTRO DE APOIO AO AGRICULTOR;mesmo_codigo_mesmo_nome;208784906;92526539;-116258367
+acao;Louveira;2023;2024;68;2239;MANUTENCAO DAS ATIVIDADES DE  ADMINISTRACAO DO LEGISLATIVO;MANUTENCAO DAS ATIVIDADES DE  ADMINISTRACAO DO LEGISLATIVO;mesmo_codigo_mesmo_nome;6824875;1876680;-4948195
+acao;Louveira;2023;2024;69;1141;INFRA ESTRUTURA E CONSTRUÇÃO DE MORADIAS;INFRA ESTRUTURA E CONSTRUÇÃO DE MORADIAS;mesmo_codigo_mesmo_nome;2781808385;2327308857;-454499528
+acao;Louveira;2023;2024;69;2242;MANUTENCAO DOS PROGRAMAS HABITACIONAIS;;somente_ano_inicial;9767113;0;-9767113
+acao;Louveira;2023;2024;7;1153;AMPLIAÇAO E ADEQUAÇÃO DOS SISTEMAS DE DISTRIBUIÇÃO E  ABASTECIMENTO DE AGUA;;somente_ano_inicial;688783468;0;-688783468
+acao;Louveira;2023;2024;7;1213;CONSTRUÇÃO DE REPRESA DE CAPTAÇÃO DO CÓRREGO FETÁ;;somente_ano_inicial;112118861;0;-112118861
+acao;Louveira;2023;2024;7;1260;OBRAS DE COMBATE À PERDAS DAS REDES DE DISTRIBUIÇÃO DE ÁGUA;;somente_ano_inicial;77373890;0;-77373890
+acao;Louveira;2023;2024;7;1263;;AMPLIAÇÃO E MELHORIAS PARA O SISTEMA DE ABASTECIMENTO  DE ÁGUA;somente_ano_final;0;262912963;262912963
+acao;Louveira;2023;2024;7;2310;MANUTENÇÃO DO SISTEMA DE ABASTECIMENTO DE ÁGUA;MANUTENÇÃO DO SISTEMA DE ABASTECIMENTO DE ÁGUA;mesmo_codigo_mesmo_nome;19185244;2246800;-16938444
+acao;Louveira;2023;2024;73;2256;MANUTENCAO DO FUNDO MUNICIPAL DOS DIREITOS DA CRIANÇA E ADOLESCENTE;;somente_ano_inicial;74900;0;-74900
+acao;Louveira;2023;2024;76;2307;MANUTENÇÃO DO SISTEMA OPERACIONAL DE ÁGUA E ESGOTO;;somente_ano_inicial;14620635;0;-14620635
+acao;Louveira;2023;2024;78;2294;APOIO A ORGANIZAÇAO E GESTAO DO SUAS - IGD SUAS;;somente_ano_inicial;3851110;0;-3851110
+acao;Louveira;2023;2024;79;2295;APOIO A ORGANIZAÇAO E GESTÃO DO PROGRAMA BOLSA FAMILIA E CADASTRO ÚNICO;APOIO A ORGANIZAÇAO E GESTÃO DO PROGRAMA BOLSA FAMILIA E CADASTRO ÚNICO;mesmo_codigo_mesmo_nome;713036;1947200;1234164
+acao;Louveira;2023;2024;8;1150;CONSTRUÇÃO DE REDES COLETORAS (INCLUINDO ADEQUAÇÕES E EXTENSÕES);;somente_ano_inicial;847844087;0;-847844087
+acao;Louveira;2023;2024;8;1264;;AMPLIAÇÃO E MELHORIAS PARA O SISTEMA DE ESGOTAMENTO SANITÁRIO;somente_ano_final;0;74372857;74372857
+acao;Louveira;2023;2024;8;2312;MANUTENÇÃO DO SISTEMA DE ESGOTO;MANUTENÇÃO DO SISTEMA DE ESGOTO;mesmo_codigo_mesmo_nome;3540900;3520500;-20400
+acao;Louveira;2023;2024;80;2306;MANUTENÇÃO DA DIVISÃO DE GESTÃO TÉCNICA E ADMINISTRATIVA DE ÁGUA E ESGOTO;;somente_ano_inicial;413600;0;-413600
+acao;Louveira;2023;2024;83;2352;EDUCAÇÃO AMBIENTAL FORMAL E NÃO FORMAL;EDUCAÇÃO AMBIENTAL FORMAL E NÃO FORMAL;mesmo_codigo_mesmo_nome;37150;876000;838850
+acao;Louveira;2023;2024;84;2355;;BEM ESTAR DE ANIMAIS DOMÉSTICOS;somente_ano_final;0;3869200;3869200
+acao;Louveira;2023;2024;9;2026;MANUTENCAO DAS DIVISOES  E ATIVIDADES DA SECRETARIA MUNICIPAL DE SERVIÇOS PUBLICOS;MANUTENCAO DAS DIVISOES  E ATIVIDADES DA SECRETARIA MUNICIPAL DE SERVIÇOS PUBLICOS;mesmo_codigo_mesmo_nome;52086365;7808000;-44278365
+programa;Louveira;2024;2025;10;;SERVIÇOS FUNERARIOS;;somente_ano_inicial;315332334;0;-315332334
+programa;Louveira;2024;2025;12;;PROGRAMA DE ILUMINAÇAO DE PREDIOS PUBLICOS E/OU LOGRADOUROS;;somente_ano_inicial;243573468;0;-243573468
+programa;Louveira;2024;2025;13;;PLANEJAMENTO URBANO;PLANEJAMENTO URBANO;mesmo_codigo_mesmo_nome;2150633520;499076295;-1651557225
+programa;Louveira;2024;2025;14;;SEGURANÇA DO MUNICIPIO;SEGURANÇA DO MUNICIPIO;mesmo_codigo_mesmo_nome;5919708;21820900;15901192
+programa;Louveira;2024;2025;19;;PROGRAMAS ESPORTIVOS;PROGRAMAS ESPORTIVOS;mesmo_codigo_mesmo_nome;218349182;2864237;-215484945
+programa;Louveira;2024;2025;2;;;SUPERVISAO E COORDENAÇAO SUPERIOR;somente_ano_final;0;14012890;14012890
+programa;Louveira;2024;2025;20;;SERVIÇOS ADMINISTRATIVOS;SERVIÇOS ADMINISTRATIVOS;mesmo_codigo_mesmo_nome;2244169;27462299;25218130
+programa;Louveira;2024;2025;22;;PROGRAMA DE ADMINISTRAÇAO FINANCEIRA;PROGRAMA DE ADMINISTRAÇAO FINANCEIRA;mesmo_codigo_mesmo_nome;999800;15431430;14431630
+programa;Louveira;2024;2025;29;;ATENCAO BASICA EM SAUDE;ATENCAO BASICA EM SAUDE;mesmo_codigo_mesmo_nome;6468990;53613622;47144632
+programa;Louveira;2024;2025;3;;PROGRAMA DE GESTÃO AMBIENTAL;;somente_ano_inicial;309455;0;-309455
+programa;Louveira;2024;2025;30;;GESTAO DO SUS;GESTAO DO SUS;mesmo_codigo_mesmo_nome;4820461;13762578;8942117
+programa;Louveira;2024;2025;31;;PROGRAMA DE MEDIA E ALTA COMPLEXIDADE AMBULATORIAL E HOSPITALAR;PROGRAMA DE MEDIA E ALTA COMPLEXIDADE AMBULATORIAL E HOSPITALAR;mesmo_codigo_mesmo_nome;886835634;5166794;-881668840
+programa;Louveira;2024;2025;33;;;VIGILANCIA EM SAUDE;somente_ano_final;0;677549;677549
+programa;Louveira;2024;2025;37;;IMPLEMENTAÇAO DA POLITICA DE EDUCAÇAO ESPECIAL NA PERSPECTIVA DA EDUCAÇAO INCLUSIVA;;somente_ano_inicial;11048472;0;-11048472
+programa;Louveira;2024;2025;39;;MANUTENÇAO E REVITALIZAÇAO DA EDUCAÇAO INFANTIL;MANUTENÇAO E REVITALIZAÇAO DA EDUCAÇAO INFANTIL;mesmo_codigo_mesmo_nome;76592917;59632810;-16960107
+programa;Louveira;2024;2025;40;;MANUTENÇAO E REVITALIZAÇAO DO ENSINO FUNDAMENTAL;MANUTENÇAO E REVITALIZAÇAO DO ENSINO FUNDAMENTAL;mesmo_codigo_mesmo_nome;308642751;81894410;-226748341
+programa;Louveira;2024;2025;48;;MERENDA ESCOLAR;MERENDA ESCOLAR;mesmo_codigo_mesmo_nome;72000;3974426;3902426
+programa;Louveira;2024;2025;51;;PROTEÇÃO SOCIAL BÁSICA;PROTEÇÃO SOCIAL BÁSICA;mesmo_codigo_mesmo_nome;2807700;3282540;474840
+programa;Louveira;2024;2025;52;;;SEGURANÇA ALIMENTAR;somente_ano_final;0;96900;96900
+programa;Louveira;2024;2025;58;;;PROTEÇAO SOCIAL ESPECIAL - MEDIA COMPLEXIDADE;somente_ano_final;0;839480;839480
+programa;Louveira;2024;2025;60;;SERVIÇOS, PROGRAMAS E PROJETOS;;somente_ano_inicial;89500;0;-89500
+programa;Louveira;2024;2025;61;;PROGRAMAS CULTURAIS;PROGRAMAS CULTURAIS;mesmo_codigo_mesmo_nome;1279200;326670;-952530
+programa;Louveira;2024;2025;65;;AGRICULTURA NO MUNICIPIO;AGRICULTURA NO MUNICIPIO;mesmo_codigo_mesmo_nome;92526539;28769148;-63757391
+programa;Louveira;2024;2025;68;;ADMINISTRACAO LEGISLATIVA;ADMINISTRACAO LEGISLATIVA;mesmo_codigo_mesmo_nome;1876680;113791693;111915013
+programa;Louveira;2024;2025;69;;PROGRAMAS HABITACIONAIS;PROGRAMAS HABITACIONAIS;mesmo_codigo_mesmo_nome;2327308857;524033601;-1803275256
+programa;Louveira;2024;2025;7;;SISTEMA DE ABASTECIMENTO DE AGUA;SISTEMA DE ABASTECIMENTO DE AGUA;mesmo_codigo_mesmo_nome;265159763;129481895;-135677868
+programa;Louveira;2024;2025;77;;;MANUTENÇÃO DA SECRETARIA DE DESENVOLVIMENTO ECONOMICO;somente_ano_final;0;9300530;9300530
+programa;Louveira;2024;2025;78;;;GESTAO DO SUAS;somente_ano_final;0;2223870;2223870
+programa;Louveira;2024;2025;79;;GESTAO DO PROGRAMA BOLSA FAMILIA E CADASTRO UNICO;GESTAO DO PROGRAMA BOLSA FAMILIA E CADASTRO UNICO;mesmo_codigo_mesmo_nome;1947200;606000;-1341200
+programa;Louveira;2024;2025;8;;SISTEMA DE ESGOTO;SISTEMA DE ESGOTO;mesmo_codigo_mesmo_nome;77893357;13727090;-64166267
+programa;Louveira;2024;2025;81;;;PROGRAMA DE GERENCIAMENTO DE RESÍDUOS;somente_ano_final;0;3340800;3340800
+programa;Louveira;2024;2025;83;;PROGRAMA DE EDUCAÇÃO AMBIENTAL;;somente_ano_inicial;876000;0;-876000
+programa;Louveira;2024;2025;84;;PROGRAMA DE BEM ESTAR ANIMAL;PROGRAMA DE BEM ESTAR ANIMAL;mesmo_codigo_mesmo_nome;3869200;475000;-3394200
+programa;Louveira;2024;2025;9;;SERVIÇOS PUBLICOS;;somente_ano_inicial;7808000;0;-7808000
+acao;Louveira;2024;2025;10;1028;REFORMA E AMPLIAÇAO DO CEMITÉRIO E VELÓRIO MUNICIPAL;;somente_ano_inicial;315332334;0;-315332334
+acao;Louveira;2024;2025;12;1105;MELHORIAS NA ILUMINACAO PUBLICA;;somente_ano_inicial;243573468;0;-243573468
+acao;Louveira;2024;2025;13;1031;REFORMA E AMPLIAÇAO DE PROPRIOS;REFORMA E AMPLIAÇAO DE PROPRIOS;mesmo_codigo_mesmo_nome;300163122;5839855;-294323267
+acao;Louveira;2024;2025;13;1038;ESTUDOS E PROJETOS;ESTUDOS E PROJETOS;mesmo_codigo_mesmo_nome;192287714;111726460;-80561254
+acao;Louveira;2024;2025;13;1047;OBRAS COMPLEMENTARES DE URBANIZAÇAO (CALÇADAS, MUROS, GUIAS, ALAMBRADOS OU GRADES, VIELAS, ETC);;somente_ano_inicial;322012219;0;-322012219
+acao;Louveira;2024;2025;13;1048;REVITALIZAÇAO E REURBANIZAÇAO DA CIDADE - IMP.DE PARQUES E JARDINS E INF. URBANA;;somente_ano_inicial;83048696;0;-83048696
+acao;Louveira;2024;2025;13;1054;DESAPROPRIACAO DE AREA DE TERRAS PARA OBRAS DE INTERESSE MUNICIPAL;DESAPROPRIACAO DE AREA DE TERRAS PARA OBRAS DE INTERESSE MUNICIPAL;mesmo_codigo_mesmo_nome;168188843;21873981;-146314862
+acao;Louveira;2024;2025;13;1055;PAVIMENTAÇAO DE DIVERSAS RUAS DO MUNICIPIO;PAVIMENTAÇAO DE DIVERSAS RUAS DO MUNICIPIO;mesmo_codigo_mesmo_nome;156589547;342244129;185654582
+acao;Louveira;2024;2025;13;1108;IMPLANTACAO DO PARQUE MUNICIPAL DE LOUVEIRA NO BAIRRO CAPIVARI;;somente_ano_inicial;657773841;0;-657773841
+acao;Louveira;2024;2025;13;1265;REVITALIZAÇÃO DA PRAÇA DA BICA;;somente_ano_inicial;270412038;0;-270412038
+acao;Louveira;2024;2025;13;2020;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE DESENVOLVIMENTO URBANO;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE DESENVOLVIMENTO URBANO;mesmo_codigo_mesmo_nome;157500;17391870;17234370
+acao;Louveira;2024;2025;14;2027;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE SEGURANCA;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE SEGURANCA;mesmo_codigo_mesmo_nome;5919708;21820900;15901192
+acao;Louveira;2024;2025;19;1247;CONSTRUÇÃO E REFORMA DE ESPAÇOS ESPORTIVOS;;somente_ano_inicial;208985770;0;-208985770
+acao;Louveira;2024;2025;19;2021;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE ESPORTES LAZER E JUVENTUDE;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE ESPORTES LAZER E JUVENTUDE;mesmo_codigo_mesmo_nome;7239752;2864237;-4375515
+acao;Louveira;2024;2025;19;2364;MANUTENÇÃO DAS MODALIDADES ESPORTIVAS;;somente_ano_inicial;1888500;0;-1888500
+acao;Louveira;2024;2025;19;2365;MANUTENÇÃO DOS EVENTOS RECREATIVOS E DE LAZER;;somente_ano_inicial;235160;0;-235160
+acao;Louveira;2024;2025;2;2016;;MANUTENCAO DAS DIVISOES E ATIVIDADES  DA SECRETARIA MUNICIPAL DE GOVERNO E COMUNICACAO SOCIAL;somente_ano_final;0;14012890;14012890
+acao;Louveira;2024;2025;20;2025;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE ADMINISTRACAO;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE ADMINISTRACAO;mesmo_codigo_mesmo_nome;1968280;20727119;18758839
+acao;Louveira;2024;2025;20;2276;;MANUTENCAO DAS ATIVIDADES DO ALMOXARIFADO;somente_ano_final;0;170100;170100
+acao;Louveira;2024;2025;20;2378;MANUTENÇÃO DAS ATIVIDADES ADMINISTRATIVAS DA SECRETARIA DE EDUCAÇÃO;MANUTENÇÃO DAS ATIVIDADES ADMINISTRATIVAS DA SECRETARIA DE EDUCAÇÃO;mesmo_codigo_mesmo_nome;275889;6565080;6289191
+acao;Louveira;2024;2025;22;2375;MANUTENÇÃO DAS DIVISÕES DE ADMINISTRAÇÃO FINANCEIRA;MANUTENÇÃO DAS DIVISÕES DE ADMINISTRAÇÃO FINANCEIRA;mesmo_codigo_mesmo_nome;999800;15431430;14431630
+acao;Louveira;2024;2025;29;1251;;CONSTRUÇÃO DE UNIDADES BÁSICAS DE SAÚDE;somente_ano_final;0;21301070;21301070
+acao;Louveira;2024;2025;29;2041;MANUTENCAO DOS SERVICOS DE SAUDE;MANUTENCAO DOS SERVICOS DE SAUDE;mesmo_codigo_mesmo_nome;6468990;32312552;25843562
+acao;Louveira;2024;2025;3;2030;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE GESTAO AMBIENTAL;;somente_ano_inicial;309455;0;-309455
+acao;Louveira;2024;2025;30;2416;ADMINISTRAÇÃO DA SAÚDE;ADMINISTRAÇÃO DA SAÚDE;mesmo_codigo_mesmo_nome;4820461;13762578;8942117
+acao;Louveira;2024;2025;31;1236;CONSTRUÇÃO DE HOSPITAL NO BAIRRO SANTO ANTÔNIO;;somente_ano_inicial;843511794;0;-843511794
+acao;Louveira;2024;2025;31;2044;MANUTENCAO DOS SERVICOS DE MEDIA E ALTA COMPLEXIDADE AMBULATORIAL E HOSPIT;MANUTENCAO DOS SERVICOS DE MEDIA E ALTA COMPLEXIDADE AMBULATORIAL E HOSPIT;mesmo_codigo_mesmo_nome;43323840;5166794;-38157046
+acao;Louveira;2024;2025;33;2058;;MANUTENCAO DA VIGILANCIA SANITARIA;somente_ano_final;0;33790;33790
+acao;Louveira;2024;2025;33;2059;;MANUTENCAO  DA VIGILANCIA EPIDEMIOLOGICA E ZOONOSES;somente_ano_final;0;643759;643759
+acao;Louveira;2024;2025;37;2076;ATENDIMENTO AOS PORTADORES DE NECESSIDADES ESPECIAIS;;somente_ano_inicial;11048472;0;-11048472
+acao;Louveira;2024;2025;39;1233;REFORMA E AMPLIAÇÃO DE UNIDADES ESCOLARES;;somente_ano_inicial;76171972;0;-76171972
+acao;Louveira;2024;2025;39;2063;REALIZAÇÃO DE ATIVIDADES MEIO NECESSARIAS AO FUNCIONAMENTO DOS SISTEMAS DE ENSINO;REALIZAÇÃO DE ATIVIDADES MEIO NECESSARIAS AO FUNCIONAMENTO DOS SISTEMAS DE ENSINO;mesmo_codigo_mesmo_nome;420945;37749210;37328265
+acao;Louveira;2024;2025;39;2082;;MANUTENCAO DOS CENTROS DE CONVIVENCIA INFANTIL;somente_ano_final;0;21883600;21883600
+acao;Louveira;2024;2025;40;1233;REFORMA E AMPLIAÇÃO DE UNIDADES ESCOLARES;;somente_ano_inicial;292471591;0;-292471591
+acao;Louveira;2024;2025;40;2063;REALIZAÇÃO DE ATIVIDADES MEIO NECESSARIAS AO FUNCIONAMENTO DOS SISTEMAS DE ENSINO;REALIZAÇÃO DE ATIVIDADES MEIO NECESSARIAS AO FUNCIONAMENTO DOS SISTEMAS DE ENSINO;mesmo_codigo_mesmo_nome;16171160;81894410;65723250
+acao;Louveira;2024;2025;48;2083;MANUTENCAO DAS ATIVIDADES DO PROGRAMA DE ALIMENTACAO ESCOLAR;MANUTENCAO DAS ATIVIDADES DO PROGRAMA DE ALIMENTACAO ESCOLAR;mesmo_codigo_mesmo_nome;72000;3974426;3902426
+acao;Louveira;2024;2025;51;2250;MANUTENCAO DO PAIF - SERVICO DE PROTECAO E ATENDIMENTO INTEGRAL AS FAMILIAS;MANUTENCAO DO PAIF - SERVICO DE PROTECAO E ATENDIMENTO INTEGRAL AS FAMILIAS;mesmo_codigo_mesmo_nome;2807700;3282540;474840
+acao;Louveira;2024;2025;52;2336;;SEGURANÇA ALIMENTAR E NUTRICIONAL;somente_ano_final;0;96900;96900
+acao;Louveira;2024;2025;58;2154;;MANUTENÇAO DO SERVIÇO DE PROTEÇAO E ATENDIMENTO ESPECIALIZADO A FAMILIAS E INDIV;somente_ano_final;0;839480;839480
+acao;Louveira;2024;2025;60;2247;MANUTENÇAO DA DIVISAO DE TRANSPORTES;;somente_ano_inicial;89500;0;-89500
+acao;Louveira;2024;2025;61;2028;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE CULTURA E EVENTOS;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE CULTURA E EVENTOS;mesmo_codigo_mesmo_nome;286000;191970;-94030
+acao;Louveira;2024;2025;61;2180;MANUTENÇAO DOS EVENTOS CULTURAIS  E FESTIVIDADES;MANUTENÇAO DOS EVENTOS CULTURAIS  E FESTIVIDADES;mesmo_codigo_mesmo_nome;993200;134700;-858500
+acao;Louveira;2024;2025;65;1224;OBRAS E INSTALAÇÕES NO CENTRO DE APOIO AO AGRICULTOR;OBRAS E INSTALAÇÕES NO CENTRO DE APOIO AO AGRICULTOR;mesmo_codigo_mesmo_nome;92526539;4229150;-88297389
+acao;Louveira;2024;2025;65;2215;;PROGRAMA DE DESENVOLVIMENTO DA AGRICULTURA NO MUNICÍPIO;somente_ano_final;0;24539998;24539998
+acao;Louveira;2024;2025;68;2239;MANUTENCAO DAS ATIVIDADES DE  ADMINISTRACAO DO LEGISLATIVO;MANUTENCAO DAS ATIVIDADES DE  ADMINISTRACAO DO LEGISLATIVO;mesmo_codigo_mesmo_nome;1876680;113791693;111915013
+acao;Louveira;2024;2025;69;1141;INFRA ESTRUTURA E CONSTRUÇÃO DE MORADIAS;INFRA ESTRUTURA E CONSTRUÇÃO DE MORADIAS;mesmo_codigo_mesmo_nome;2327308857;524033601;-1803275256
+acao;Louveira;2024;2025;7;1263;AMPLIAÇÃO E MELHORIAS PARA O SISTEMA DE ABASTECIMENTO  DE ÁGUA;AMPLIAÇÃO E MELHORIAS PARA O SISTEMA DE ABASTECIMENTO  DE ÁGUA;mesmo_codigo_mesmo_nome;262912963;128934805;-133978158
+acao;Louveira;2024;2025;7;2310;MANUTENÇÃO DO SISTEMA DE ABASTECIMENTO DE ÁGUA;MANUTENÇÃO DO SISTEMA DE ABASTECIMENTO DE ÁGUA;mesmo_codigo_mesmo_nome;2246800;547090;-1699710
+acao;Louveira;2024;2025;77;2017;;MANUTENCAO DAS DIVISOES E ATIVIDADES DA SECRETARIA MUNICIPAL DE DESENVOLVIMENTO ECONOMICO;somente_ano_final;0;9300530;9300530
+acao;Louveira;2024;2025;78;2294;;APOIO A ORGANIZAÇAO E GESTAO DO SUAS - IGD SUAS;somente_ano_final;0;2223870;2223870
+acao;Louveira;2024;2025;79;2295;APOIO A ORGANIZAÇAO E GESTÃO DO PROGRAMA BOLSA FAMILIA E CADASTRO ÚNICO;APOIO A ORGANIZAÇAO E GESTÃO DO PROGRAMA BOLSA FAMILIA E CADASTRO ÚNICO;mesmo_codigo_mesmo_nome;1947200;606000;-1341200
+acao;Louveira;2024;2025;8;1264;AMPLIAÇÃO E MELHORIAS PARA O SISTEMA DE ESGOTAMENTO SANITÁRIO;AMPLIAÇÃO E MELHORIAS PARA O SISTEMA DE ESGOTAMENTO SANITÁRIO;mesmo_codigo_mesmo_nome;74372857;12520000;-61852857
+acao;Louveira;2024;2025;8;2312;MANUTENÇÃO DO SISTEMA DE ESGOTO;MANUTENÇÃO DO SISTEMA DE ESGOTO;mesmo_codigo_mesmo_nome;3520500;1207090;-2313410
+acao;Louveira;2024;2025;81;2346;;SERVIÇO DE COLETA E TRIAGEM DE MATERIAIS RECICLÁVEIS;somente_ano_final;0;3340800;3340800
+acao;Louveira;2024;2025;83;2352;EDUCAÇÃO AMBIENTAL FORMAL E NÃO FORMAL;;somente_ano_inicial;876000;0;-876000
+acao;Louveira;2024;2025;84;2355;BEM ESTAR DE ANIMAIS DOMÉSTICOS;BEM ESTAR DE ANIMAIS DOMÉSTICOS;mesmo_codigo_mesmo_nome;3869200;475000;-3394200
+acao;Louveira;2024;2025;9;2026;MANUTENCAO DAS DIVISOES  E ATIVIDADES DA SECRETARIA MUNICIPAL DE SERVIÇOS PUBLICOS;;somente_ano_inicial;7808000;0;-7808000
+programa;Várzea Paulista;2023;2024;1;;GESTAO DO LEGISLATIVO;GESTAO DO LEGISLATIVO;mesmo_codigo_mesmo_nome;4164800;2635956;-1528844
+programa;Várzea Paulista;2023;2024;10;;GESTAO DA FINANCAS;;somente_ano_inicial;1950136;0;-1950136
+programa;Várzea Paulista;2023;2024;12;;GESTAO DA GESTAO PUBLICA;GESTAO DA GESTAO PUBLICA;mesmo_codigo_mesmo_nome;17913724;6565274;-11348450
+programa;Várzea Paulista;2023;2024;13;;;GESTAO DA ESCOLA DE GOVERNO;somente_ano_final;0;513400;513400
+programa;Várzea Paulista;2023;2024;14;;GESTAO DA INFRAESTRUTURA URBANA;GESTAO DA INFRAESTRUTURA URBANA;mesmo_codigo_mesmo_nome;25066896;716000;-24350896
+programa;Várzea Paulista;2023;2024;15;;GESTAO DO AVANCA VARZEA PAULISTA;GESTAO DO AVANCA VARZEA PAULISTA;mesmo_codigo_mesmo_nome;636135570;1213378081;577242511
+programa;Várzea Paulista;2023;2024;16;;GESTAO DO MEIO AMBIENTE;GESTAO DO MEIO AMBIENTE;mesmo_codigo_mesmo_nome;10831110;18958799;8127689
+programa;Várzea Paulista;2023;2024;17;;GESTAO DE OBRAS E URBANISMO;GESTAO DE OBRAS E URBANISMO;mesmo_codigo_mesmo_nome;19088438;845019;-18243419
+programa;Várzea Paulista;2023;2024;18;;GESTAO DO DESENV ECONOMICO TRABALHO E FAZENDA;GESTAO DO DESENV ECONOMICO TRABALHO E FAZENDA;mesmo_codigo_mesmo_nome;22672908;31183435;8510527
+programa;Várzea Paulista;2023;2024;19;;GESTAO DO TRANSPORTE PUBLICO E TRANSITO;GESTAO DO TRANSPORTE PUBLICO E TRANSITO;mesmo_codigo_mesmo_nome;6516900;121443;-6395457
+programa;Várzea Paulista;2023;2024;2;;;GESTAO DO GABINETE DO PREFEITO MUNICIPAL;somente_ano_final;0;546000;546000
+programa;Várzea Paulista;2023;2024;20;;GESTAO DAS ACOES DO TRANSITO;GESTAO DAS ACOES DO TRANSITO;mesmo_codigo_mesmo_nome;44999000;2714000;-42285000
+programa;Várzea Paulista;2023;2024;21;;GESTAO DO DESENVOLVIMENTO SOCIAL;GESTAO DO DESENVOLVIMENTO SOCIAL;mesmo_codigo_mesmo_nome;4572290;396500;-4175790
+programa;Várzea Paulista;2023;2024;22;;GESTAO DA PROTECAO SOCIAL BASICA;GESTAO DA PROTECAO SOCIAL BASICA;mesmo_codigo_mesmo_nome;13813844;28826800;15012956
+programa;Várzea Paulista;2023;2024;23;;GESTAO DA PROTECAO ESPECIAL DE MEDIA E ALTA COMPLEXIDADE;;somente_ano_inicial;2452580;0;-2452580
+programa;Várzea Paulista;2023;2024;25;;GESTAO DA EDUCACAO;;somente_ano_inicial;31243634;0;-31243634
+programa;Várzea Paulista;2023;2024;27;;GESTAO DA EDUCACAO BASICA;;somente_ano_inicial;141208367;0;-141208367
+programa;Várzea Paulista;2023;2024;28;;GESTAO DO ENSINO FUNDAMENTAL;;somente_ano_inicial;60583686;0;-60583686
+programa;Várzea Paulista;2023;2024;29;;GESTAO DO ENSINO INFANTIL CRECHE;;somente_ano_inicial;206842308;0;-206842308
+programa;Várzea Paulista;2023;2024;3;;GESTAO DO FUNDO SOCIAL DE SOLIDARIEDADE;GESTAO DO FUNDO SOCIAL DE SOLIDARIEDADE;mesmo_codigo_mesmo_nome;869629;1281603;411974
+programa;Várzea Paulista;2023;2024;30;;GESTAO DO ENSINO INFANTIL PREESCOLA;;somente_ano_inicial;174988132;0;-174988132
+programa;Várzea Paulista;2023;2024;31;;GESTAO DO FUNDEB ENSINO FUNDAMENTAL;;somente_ano_inicial;206365495;0;-206365495
+programa;Várzea Paulista;2023;2024;32;;GESTAO DO FUNDEB ENSINO INFANTIL CRECHE;;somente_ano_inicial;343824537;0;-343824537
+programa;Várzea Paulista;2023;2024;33;;GESTAO DO FUNDEB ENSINO INFANTIL PREESCOLA;;somente_ano_inicial;33105964;0;-33105964
+programa;Várzea Paulista;2023;2024;36;;GESTAO DO ESPORTE E LAZER;GESTAO DO ESPORTE E LAZER;mesmo_codigo_mesmo_nome;8160390;14318319;6157929
+programa;Várzea Paulista;2023;2024;37;;GESTAO DA CULTURA E TURISMO;GESTAO DA CULTURA E TURISMO;mesmo_codigo_mesmo_nome;263000;2505720;2242720
+programa;Várzea Paulista;2023;2024;38;;GESTAO DA SAUDE;;somente_ano_inicial;14787005;0;-14787005
+programa;Várzea Paulista;2023;2024;39;;GESTAO DE ATENCAO BASICA;;somente_ano_inicial;68833236;0;-68833236
+programa;Várzea Paulista;2023;2024;4;;GESTAO DA CASA CIVIL;GESTAO DA CASA CIVIL;mesmo_codigo_mesmo_nome;2705698;1052100;-1653598
+programa;Várzea Paulista;2023;2024;40;;GESTAO DA MEDIA E ALTA COMPLEXIDADE;;somente_ano_inicial;3542603910;0;-3542603910
+programa;Várzea Paulista;2023;2024;42;;GESTAO DA VIGILANCIA EM SAUDE;;somente_ano_inicial;89383497;0;-89383497
+programa;Várzea Paulista;2023;2024;43;;GESTAO DA SEGURANCA PUBLICA;GESTAO DA SEGURANCA PUBLICA;mesmo_codigo_mesmo_nome;1444587;619593;-824994
+programa;Várzea Paulista;2023;2024;44;;GESTAO DA GUARDA CIVIL MUNICIPAL;GESTAO DA GUARDA CIVIL MUNICIPAL;mesmo_codigo_mesmo_nome;16062221;4450125;-11612096
+programa;Várzea Paulista;2023;2024;45;;GESTAO DA GUARDA AMBIENTAL;GESTAO DA GUARDA AMBIENTAL;mesmo_codigo_mesmo_nome;39250;428000;388750
+programa;Várzea Paulista;2023;2024;51;;GESTAO DO BOMBEIRO MILITAR;;somente_ano_inicial;619092;0;-619092
+programa;Várzea Paulista;2023;2024;6;;GESTAO DE ASSUNTOS JURIDICOS E CIDADANIA;GESTAO DE ASSUNTOS JURIDICOS E CIDADANIA;mesmo_codigo_mesmo_nome;21625427;7029890;-14595537
+programa;Várzea Paulista;2023;2024;67;;GESTÃO AMBIENTAL;;somente_ano_inicial;22721712;0;-22721712
+programa;Várzea Paulista;2023;2024;68;;GESTÃO DOS SERVIÇOS URBANOS;;somente_ano_inicial;13042189;0;-13042189
+programa;Várzea Paulista;2023;2024;7;;GESTAO DO PLANEJAMENTO E INOVACAO;GESTAO DO PLANEJAMENTO E INOVACAO;mesmo_codigo_mesmo_nome;2376937;1999972;-376965
+programa;Várzea Paulista;2023;2024;70;;;SAUDE E QUALIDADE DE VIDA;somente_ano_final;0;3506213688;3506213688
+programa;Várzea Paulista;2023;2024;72;;;ESCOLA DO FUTURO;somente_ano_final;0;1464238125;1464238125
+programa;Várzea Paulista;2023;2024;8;;GESTAO DA TECNOLOGIA DA INFORMACAO;GESTAO DA TECNOLOGIA DA INFORMACAO;mesmo_codigo_mesmo_nome;5887527;16501;-5871026
+programa;Várzea Paulista;2023;2024;9;;GESTAO DA COMUNICACAO INSTITUCIONAL;GESTAO DA COMUNICACAO INSTITUCIONAL;mesmo_codigo_mesmo_nome;691000;297500;-393500
+acao;Várzea Paulista;2023;2024;1;1100;*** NÃO CONSTA NO CADASTRO ***;*** NÃO CONSTA NO CADASTRO ***;mesmo_codigo_mesmo_nome;4164800;2635956;-1528844
+acao;Várzea Paulista;2023;2024;10;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;1950136;0;-1950136
+acao;Várzea Paulista;2023;2024;12;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;17913724;5800174;-12113550
+acao;Várzea Paulista;2023;2024;12;1002;;RENOVACAO DA FROTA;somente_ano_final;0;765100;765100
+acao;Várzea Paulista;2023;2024;13;1014;;Emendas Ipositivas;somente_ano_final;0;513400;513400
+acao;Várzea Paulista;2023;2024;14;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;12034696;716000;-11318696
+acao;Várzea Paulista;2023;2024;14;1002;RENOVACAO DA FROTA;;somente_ano_inicial;13032200;0;-13032200
+acao;Várzea Paulista;2023;2024;15;1004;MANUTENCAO DE VIAS;MANUTENCAO DE VIAS;mesmo_codigo_mesmo_nome;328580163;923592359;595012196
+acao;Várzea Paulista;2023;2024;15;1005;REVITALIZACAO DE AREAS PUBLICAS;;somente_ano_inicial;307555407;0;-307555407
+acao;Várzea Paulista;2023;2024;15;1021;;Vivo Varzea;somente_ano_final;0;289785722;289785722
+acao;Várzea Paulista;2023;2024;16;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;10831110;3179859;-7651251
+acao;Várzea Paulista;2023;2024;16;1002;;RENOVACAO DA FROTA;somente_ano_final;0;4973900;4973900
+acao;Várzea Paulista;2023;2024;16;1014;;Emendas Ipositivas;somente_ano_final;0;10805040;10805040
+acao;Várzea Paulista;2023;2024;17;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;11388438;845019;-10543419
+acao;Várzea Paulista;2023;2024;17;1002;RENOVACAO DA FROTA;;somente_ano_inicial;7700000;0;-7700000
+acao;Várzea Paulista;2023;2024;18;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;21883908;11017286;-10866622
+acao;Várzea Paulista;2023;2024;18;1014;;Emendas Ipositivas;somente_ano_final;0;1499669;1499669
+acao;Várzea Paulista;2023;2024;18;2023;DESENVOLVE VARZEA PAULISTA;DESENVOLVE VARZEA PAULISTA;mesmo_codigo_mesmo_nome;789000;18666480;17877480
+acao;Várzea Paulista;2023;2024;19;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;6516900;121443;-6395457
+acao;Várzea Paulista;2023;2024;2;1001;;DESENVOLVIMENTO E MODERNIZACAO;somente_ano_final;0;546000;546000
+acao;Várzea Paulista;2023;2024;20;1002;RENOVACAO DA FROTA;RENOVACAO DA FROTA;mesmo_codigo_mesmo_nome;44999000;2714000;-42285000
+acao;Várzea Paulista;2023;2024;21;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;475498;357600;-117898
+acao;Várzea Paulista;2023;2024;21;1002;RENOVACAO DA FROTA;;somente_ano_inicial;2168465;0;-2168465
+acao;Várzea Paulista;2023;2024;21;1014;Emendas Ipositivas;;somente_ano_inicial;376000;0;-376000
+acao;Várzea Paulista;2023;2024;21;2029;APOIO A ORGANIZACAO E GESTAO IGDPBF;;somente_ano_inicial;1552327;0;-1552327
+acao;Várzea Paulista;2023;2024;21;2031;;ADMINISTRACAO DOS RECURSOS DO FMPI;somente_ano_final;0;38900;38900
+acao;Várzea Paulista;2023;2024;22;1014;;Emendas Ipositivas;somente_ano_final;0;400000;400000
+acao;Várzea Paulista;2023;2024;22;2032;PROTECAO SOCIAL BASICA FNAS;PROTECAO SOCIAL BASICA FNAS;mesmo_codigo_mesmo_nome;3443494;1026800;-2416694
+acao;Várzea Paulista;2023;2024;22;2033;PROTECAO SOCIAL BASICA FEAS;;somente_ano_inicial;8698850;0;-8698850
+acao;Várzea Paulista;2023;2024;22;2065;CENTRO DE LONGEVIDADE ATIVA;;somente_ano_inicial;1671500;0;-1671500
+acao;Várzea Paulista;2023;2024;22;2080;;Centro de Convivencia da Pessoa Idosa;somente_ano_final;0;27400000;27400000
+acao;Várzea Paulista;2023;2024;23;2035;PROTECAO ESPECIAL DE MEDIA COMPLEXIDADE FNAS;;somente_ano_inicial;2452580;0;-2452580
+acao;Várzea Paulista;2023;2024;25;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;31243634;0;-31243634
+acao;Várzea Paulista;2023;2024;27;1014;Emendas Ipositivas;;somente_ano_inicial;160534;0;-160534
+acao;Várzea Paulista;2023;2024;27;2038;ADMINISTRACAO DO QSE;;somente_ano_inicial;141047833;0;-141047833
+acao;Várzea Paulista;2023;2024;28;1008;ESCOLA DO FUTURO;;somente_ano_inicial;60583686;0;-60583686
+acao;Várzea Paulista;2023;2024;29;1008;ESCOLA DO FUTURO;;somente_ano_inicial;206842308;0;-206842308
+acao;Várzea Paulista;2023;2024;3;1014;Emendas Ipositivas;Emendas Ipositivas;mesmo_codigo_mesmo_nome;869629;1281603;411974
+acao;Várzea Paulista;2023;2024;30;1008;ESCOLA DO FUTURO;;somente_ano_inicial;174988132;0;-174988132
+acao;Várzea Paulista;2023;2024;31;1008;ESCOLA DO FUTURO;;somente_ano_inicial;206365495;0;-206365495
+acao;Várzea Paulista;2023;2024;32;1008;ESCOLA DO FUTURO;;somente_ano_inicial;343824537;0;-343824537
+acao;Várzea Paulista;2023;2024;33;1008;ESCOLA DO FUTURO;;somente_ano_inicial;33105964;0;-33105964
+acao;Várzea Paulista;2023;2024;36;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;6407590;0;-6407590
+acao;Várzea Paulista;2023;2024;36;1002;;RENOVACAO DA FROTA;somente_ano_final;0;4770784;4770784
+acao;Várzea Paulista;2023;2024;36;1014;Emendas Ipositivas;Emendas Ipositivas;mesmo_codigo_mesmo_nome;1752800;9547535;7794735
+acao;Várzea Paulista;2023;2024;37;1001;;DESENVOLVIMENTO E MODERNIZACAO;somente_ano_final;0;716000;716000
+acao;Várzea Paulista;2023;2024;37;1014;;Emendas Ipositivas;somente_ano_final;0;1073720;1073720
+acao;Várzea Paulista;2023;2024;37;2045;COMPLEXO CASA EDUCAR;COMPLEXO CASA EDUCAR;mesmo_codigo_mesmo_nome;263000;716000;453000
+acao;Várzea Paulista;2023;2024;38;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;10977005;0;-10977005
+acao;Várzea Paulista;2023;2024;38;1002;RENOVACAO DA FROTA;;somente_ano_inicial;3810000;0;-3810000
+acao;Várzea Paulista;2023;2024;39;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;52991754;0;-52991754
+acao;Várzea Paulista;2023;2024;39;1014;Emendas Ipositivas;;somente_ano_inicial;15841482;0;-15841482
+acao;Várzea Paulista;2023;2024;4;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;2233000;1052100;-1180900
+acao;Várzea Paulista;2023;2024;4;1014;Emendas Ipositivas;;somente_ano_inicial;472698;0;-472698
+acao;Várzea Paulista;2023;2024;40;1009;CONTRUCAO NOVO HOSPITAL;;somente_ano_inicial;3541926340;0;-3541926340
+acao;Várzea Paulista;2023;2024;40;1014;Emendas Ipositivas;;somente_ano_inicial;677570;0;-677570
+acao;Várzea Paulista;2023;2024;42;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;19364250;0;-19364250
+acao;Várzea Paulista;2023;2024;42;2003;CUSTEIO OPERACIONAL;;somente_ano_inicial;70019247;0;-70019247
+acao;Várzea Paulista;2023;2024;43;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;14587;0;-14587
+acao;Várzea Paulista;2023;2024;43;1014;Emendas Ipositivas;Emendas Ipositivas;mesmo_codigo_mesmo_nome;1430000;619593;-810407
+acao;Várzea Paulista;2023;2024;44;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;14102363;0;-14102363
+acao;Várzea Paulista;2023;2024;44;1014;Emendas Ipositivas;Emendas Ipositivas;mesmo_codigo_mesmo_nome;1959858;4450125;2490267
+acao;Várzea Paulista;2023;2024;45;1014;;Emendas Ipositivas;somente_ano_final;0;168000;168000
+acao;Várzea Paulista;2023;2024;45;2003;CUSTEIO OPERACIONAL;CUSTEIO OPERACIONAL;mesmo_codigo_mesmo_nome;39250;260000;220750
+acao;Várzea Paulista;2023;2024;51;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;619092;0;-619092
+acao;Várzea Paulista;2023;2024;6;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;21625427;7029890;-14595537
+acao;Várzea Paulista;2023;2024;67;2021;RESIDUOS UNIFICADOS;;somente_ano_inicial;19300000;0;-19300000
+acao;Várzea Paulista;2023;2024;67;2022;BEM ESTAR ANIMAL;;somente_ano_inicial;3421712;0;-3421712
+acao;Várzea Paulista;2023;2024;68;2019;CEMITERIO MUNICIPAL;;somente_ano_inicial;13042189;0;-13042189
+acao;Várzea Paulista;2023;2024;7;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;2376937;0;-2376937
+acao;Várzea Paulista;2023;2024;7;1014;;Emendas Ipositivas;somente_ano_final;0;1999972;1999972
+acao;Várzea Paulista;2023;2024;70;1002;;RENOVACAO DA FROTA;somente_ano_final;0;27535784;27535784
+acao;Várzea Paulista;2023;2024;70;1009;;CONTRUCAO NOVO HOSPITAL;somente_ano_final;0;3428645841;3428645841
+acao;Várzea Paulista;2023;2024;70;1014;;Emendas Ipositivas;somente_ano_final;0;22950455;22950455
+acao;Várzea Paulista;2023;2024;70;1016;;Adequacoes e Reformas das Unidades de Saude;somente_ano_final;0;26799935;26799935
+acao;Várzea Paulista;2023;2024;70;1017;;Ampliacao e Construcoes das Unidade de Saude;somente_ano_final;0;281673;281673
+acao;Várzea Paulista;2023;2024;72;1014;;Emendas Ipositivas;somente_ano_final;0;5286149;5286149
+acao;Várzea Paulista;2023;2024;72;1019;;Adequacoes e Reformas das Unidades Escolares;somente_ano_final;0;338358309;338358309
+acao;Várzea Paulista;2023;2024;72;1020;;Ampliacao e Construcoes das Unidades Escolares;somente_ano_final;0;1120593667;1120593667
+acao;Várzea Paulista;2023;2024;8;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;5887527;16501;-5871026
+acao;Várzea Paulista;2023;2024;9;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;691000;0;-691000
+acao;Várzea Paulista;2023;2024;9;1014;;Emendas Ipositivas;somente_ano_final;0;297500;297500
+programa;Várzea Paulista;2024;2025;1;;GESTAO DO LEGISLATIVO;GESTAO DO LEGISLATIVO;mesmo_codigo_mesmo_nome;2635956;3106690;470734
+programa;Várzea Paulista;2024;2025;12;;GESTAO DA GESTAO PUBLICA;GESTAO DA GESTAO PUBLICA;mesmo_codigo_mesmo_nome;6565274;1333320;-5231954
+programa;Várzea Paulista;2024;2025;13;;GESTAO DA ESCOLA DE GOVERNO;;somente_ano_inicial;513400;0;-513400
+programa;Várzea Paulista;2024;2025;14;;GESTAO DA INFRAESTRUTURA URBANA;GESTAO DA INFRAESTRUTURA URBANA;mesmo_codigo_mesmo_nome;716000;5066640;4350640
+programa;Várzea Paulista;2024;2025;15;;GESTAO DO AVANCA VARZEA PAULISTA;GESTAO DO AVANCA VARZEA PAULISTA;mesmo_codigo_mesmo_nome;1213378081;547587404;-665790677
+programa;Várzea Paulista;2024;2025;16;;GESTAO DO MEIO AMBIENTE;;somente_ano_inicial;18958799;0;-18958799
+programa;Várzea Paulista;2024;2025;17;;GESTAO DE OBRAS E URBANISMO;GESTAO DE OBRAS E URBANISMO;mesmo_codigo_mesmo_nome;845019;5216000;4370981
+programa;Várzea Paulista;2024;2025;18;;GESTAO DO DESENV ECONOMICO TRABALHO E FAZENDA;GESTAO DO DESENV ECONOMICO TRABALHO E FAZENDA;mesmo_codigo_mesmo_nome;31183435;1861320;-29322115
+programa;Várzea Paulista;2024;2025;19;;GESTAO DO TRANSPORTE PUBLICO E TRANSITO;GESTAO DO TRANSPORTE PUBLICO E TRANSITO;mesmo_codigo_mesmo_nome;121443;851270;729827
+programa;Várzea Paulista;2024;2025;2;;GESTAO DO GABINETE DO PREFEITO MUNICIPAL;GESTAO DO GABINETE DO PREFEITO MUNICIPAL;mesmo_codigo_mesmo_nome;546000;1669320;1123320
+programa;Várzea Paulista;2024;2025;20;;GESTAO DAS ACOES DO TRANSITO;;somente_ano_inicial;2714000;0;-2714000
+programa;Várzea Paulista;2024;2025;21;;GESTAO DO DESENVOLVIMENTO SOCIAL;;somente_ano_inicial;396500;0;-396500
+programa;Várzea Paulista;2024;2025;22;;GESTAO DA PROTECAO SOCIAL BASICA;GESTAO DA PROTECAO SOCIAL BASICA;mesmo_codigo_mesmo_nome;28826800;4213300;-24613500
+programa;Várzea Paulista;2024;2025;23;;;GESTAO DA PROTECAO ESPECIAL DE MEDIA E ALTA COMPLEXIDADE;somente_ano_final;0;1509320;1509320
+programa;Várzea Paulista;2024;2025;3;;GESTAO DO FUNDO SOCIAL DE SOLIDARIEDADE;;somente_ano_inicial;1281603;0;-1281603
+programa;Várzea Paulista;2024;2025;36;;GESTAO DO ESPORTE E LAZER;GESTAO DO ESPORTE E LAZER;mesmo_codigo_mesmo_nome;14318319;3333300;-10985019
+programa;Várzea Paulista;2024;2025;37;;GESTAO DA CULTURA E TURISMO;GESTAO DA CULTURA E TURISMO;mesmo_codigo_mesmo_nome;2505720;6171466;3665746
+programa;Várzea Paulista;2024;2025;4;;GESTAO DA CASA CIVIL;;somente_ano_inicial;1052100;0;-1052100
+programa;Várzea Paulista;2024;2025;43;;GESTAO DA SEGURANCA PUBLICA;;somente_ano_inicial;619593;0;-619593
+programa;Várzea Paulista;2024;2025;44;;GESTAO DA GUARDA CIVIL MUNICIPAL;GESTAO DA GUARDA CIVIL MUNICIPAL;mesmo_codigo_mesmo_nome;4450125;7652210;3202085
+programa;Várzea Paulista;2024;2025;45;;GESTAO DA GUARDA AMBIENTAL;;somente_ano_inicial;428000;0;-428000
+programa;Várzea Paulista;2024;2025;6;;GESTAO DE ASSUNTOS JURIDICOS E CIDADANIA;GESTAO DE ASSUNTOS JURIDICOS E CIDADANIA;mesmo_codigo_mesmo_nome;7029890;6211080;-818810
+programa;Várzea Paulista;2024;2025;7;;GESTAO DO PLANEJAMENTO E INOVACAO;;somente_ano_inicial;1999972;0;-1999972
+programa;Várzea Paulista;2024;2025;70;;SAUDE E QUALIDADE DE VIDA;SAUDE E QUALIDADE DE VIDA;mesmo_codigo_mesmo_nome;3506213688;4376082497;869868809
+programa;Várzea Paulista;2024;2025;72;;ESCOLA DO FUTURO;ESCOLA DO FUTURO;mesmo_codigo_mesmo_nome;1464238125;170992730;-1293245395
+programa;Várzea Paulista;2024;2025;8;;GESTAO DA TECNOLOGIA DA INFORMACAO;GESTAO DA TECNOLOGIA DA INFORMACAO;mesmo_codigo_mesmo_nome;16501;1754292;1737791
+programa;Várzea Paulista;2024;2025;9;;GESTAO DA COMUNICACAO INSTITUCIONAL;;somente_ano_inicial;297500;0;-297500
+acao;Várzea Paulista;2024;2025;1;1028;;Desenvolvimento e Modernizacao da Camara Municipal;somente_ano_final;0;3106690;3106690
+acao;Várzea Paulista;2024;2025;1;1100;*** NÃO CONSTA NO CADASTRO ***;;somente_ano_inicial;2635956;0;-2635956
+acao;Várzea Paulista;2024;2025;12;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;5800174;1333320;-4466854
+acao;Várzea Paulista;2024;2025;12;1002;RENOVACAO DA FROTA;;somente_ano_inicial;765100;0;-765100
+acao;Várzea Paulista;2024;2025;13;1014;Emendas Ipositivas;;somente_ano_inicial;513400;0;-513400
+acao;Várzea Paulista;2024;2025;14;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;716000;5066640;4350640
+acao;Várzea Paulista;2024;2025;15;1004;MANUTENCAO DE VIAS;MANUTENCAO DE VIAS;mesmo_codigo_mesmo_nome;923592359;76294992;-847297367
+acao;Várzea Paulista;2024;2025;15;1021;Vivo Varzea;Vivo Varzea;mesmo_codigo_mesmo_nome;289785722;471292412;181506690
+acao;Várzea Paulista;2024;2025;16;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;3179859;0;-3179859
+acao;Várzea Paulista;2024;2025;16;1002;RENOVACAO DA FROTA;;somente_ano_inicial;4973900;0;-4973900
+acao;Várzea Paulista;2024;2025;16;1014;Emendas Ipositivas;;somente_ano_inicial;10805040;0;-10805040
+acao;Várzea Paulista;2024;2025;17;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;845019;5216000;4370981
+acao;Várzea Paulista;2024;2025;18;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;11017286;1861320;-9155966
+acao;Várzea Paulista;2024;2025;18;1014;Emendas Ipositivas;;somente_ano_inicial;1499669;0;-1499669
+acao;Várzea Paulista;2024;2025;18;2023;DESENVOLVE VARZEA PAULISTA;;somente_ano_inicial;18666480;0;-18666480
+acao;Várzea Paulista;2024;2025;19;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;121443;851270;729827
+acao;Várzea Paulista;2024;2025;2;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;546000;1669320;1123320
+acao;Várzea Paulista;2024;2025;20;1002;RENOVACAO DA FROTA;;somente_ano_inicial;2714000;0;-2714000
+acao;Várzea Paulista;2024;2025;21;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;357600;0;-357600
+acao;Várzea Paulista;2024;2025;21;2031;ADMINISTRACAO DOS RECURSOS DO FMPI;;somente_ano_inicial;38900;0;-38900
+acao;Várzea Paulista;2024;2025;22;1014;Emendas Ipositivas;;somente_ano_inicial;400000;0;-400000
+acao;Várzea Paulista;2024;2025;22;1029;;Fortalecimento do Cadastro Único - FNAS;somente_ano_final;0;176000;176000
+acao;Várzea Paulista;2024;2025;22;1030;;Vigilância Socioassistencial;somente_ano_final;0;1999980;1999980
+acao;Várzea Paulista;2024;2025;22;2032;PROTECAO SOCIAL BASICA FNAS;;somente_ano_inicial;1026800;0;-1026800
+acao;Várzea Paulista;2024;2025;22;2033;;PROTECAO SOCIAL BASICA FEAS;somente_ano_final;0;2037320;2037320
+acao;Várzea Paulista;2024;2025;22;2080;Centro de Convivencia da Pessoa Idosa;;somente_ano_inicial;27400000;0;-27400000
+acao;Várzea Paulista;2024;2025;23;1014;;Emendas Ipositivas;somente_ano_final;0;8000;8000
+acao;Várzea Paulista;2024;2025;23;2035;;PROTECAO ESPECIAL DE MEDIA COMPLEXIDADE FNAS;somente_ano_final;0;1501320;1501320
+acao;Várzea Paulista;2024;2025;3;1014;Emendas Ipositivas;;somente_ano_inicial;1281603;0;-1281603
+acao;Várzea Paulista;2024;2025;36;1001;;DESENVOLVIMENTO E MODERNIZACAO;somente_ano_final;0;3333300;3333300
+acao;Várzea Paulista;2024;2025;36;1002;RENOVACAO DA FROTA;;somente_ano_inicial;4770784;0;-4770784
+acao;Várzea Paulista;2024;2025;36;1014;Emendas Ipositivas;;somente_ano_inicial;9547535;0;-9547535
+acao;Várzea Paulista;2024;2025;37;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;716000;666660;-49340
+acao;Várzea Paulista;2024;2025;37;1014;Emendas Ipositivas;;somente_ano_inicial;1073720;0;-1073720
+acao;Várzea Paulista;2024;2025;37;2045;COMPLEXO CASA EDUCAR;;somente_ano_inicial;716000;0;-716000
+acao;Várzea Paulista;2024;2025;37;2046;;ESCOLA DE MUSICA E ARTE;somente_ano_final;0;5504806;5504806
+acao;Várzea Paulista;2024;2025;4;1001;DESENVOLVIMENTO E MODERNIZACAO;;somente_ano_inicial;1052100;0;-1052100
+acao;Várzea Paulista;2024;2025;43;1014;Emendas Ipositivas;;somente_ano_inicial;619593;0;-619593
+acao;Várzea Paulista;2024;2025;44;1014;Emendas Ipositivas;Emendas Ipositivas;mesmo_codigo_mesmo_nome;4450125;7652210;3202085
+acao;Várzea Paulista;2024;2025;45;1014;Emendas Ipositivas;;somente_ano_inicial;168000;0;-168000
+acao;Várzea Paulista;2024;2025;45;2003;CUSTEIO OPERACIONAL;;somente_ano_inicial;260000;0;-260000
+acao;Várzea Paulista;2024;2025;6;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;7029890;5333280;-1696610
+acao;Várzea Paulista;2024;2025;6;1014;;Emendas Ipositivas;somente_ano_final;0;877800;877800
+acao;Várzea Paulista;2024;2025;7;1014;Emendas Ipositivas;;somente_ano_inicial;1999972;0;-1999972
+acao;Várzea Paulista;2024;2025;70;1002;RENOVACAO DA FROTA;;somente_ano_inicial;27535784;0;-27535784
+acao;Várzea Paulista;2024;2025;70;1009;CONTRUCAO NOVO HOSPITAL;CONTRUCAO NOVO HOSPITAL;mesmo_codigo_mesmo_nome;3428645841;4243631086;814985245
+acao;Várzea Paulista;2024;2025;70;1014;Emendas Ipositivas;Emendas Ipositivas;mesmo_codigo_mesmo_nome;22950455;31778809;8828354
+acao;Várzea Paulista;2024;2025;70;1016;Adequacoes e Reformas das Unidades de Saude;Adequacoes e Reformas das Unidades de Saude;mesmo_codigo_mesmo_nome;26799935;48141505;21341570
+acao;Várzea Paulista;2024;2025;70;1017;Ampliacao e Construcoes das Unidade de Saude;Ampliacao e Construcoes das Unidade de Saude;mesmo_codigo_mesmo_nome;281673;52531097;52249424
+acao;Várzea Paulista;2024;2025;72;1014;Emendas Ipositivas;Emendas Ipositivas;mesmo_codigo_mesmo_nome;5286149;754414;-4531735
+acao;Várzea Paulista;2024;2025;72;1019;Adequacoes e Reformas das Unidades Escolares;Adequacoes e Reformas das Unidades Escolares;mesmo_codigo_mesmo_nome;338358309;170238316;-168119993
+acao;Várzea Paulista;2024;2025;72;1020;Ampliacao e Construcoes das Unidades Escolares;;somente_ano_inicial;1120593667;0;-1120593667
+acao;Várzea Paulista;2024;2025;8;1001;DESENVOLVIMENTO E MODERNIZACAO;DESENVOLVIMENTO E MODERNIZACAO;mesmo_codigo_mesmo_nome;16501;1754292;1737791
+acao;Várzea Paulista;2024;2025;9;1014;Emendas Ipositivas;;somente_ano_inicial;297500;0;-297500

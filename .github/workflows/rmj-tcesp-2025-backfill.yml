@@ -21,11 +21,10 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p build/tcesp-2025
-          fail=0
           for city in cabreuva campo-limpo-paulista itupeva jarinu jundiai louveira varzea-paulista; do
             (TCESP_TIMEOUT_SECONDS=240 python3 editorial/rmj/analyze_tcesp_pilot.py "$city" 2025 > "build/tcesp-2025/${city}_2025.json" 2>"build/tcesp-2025/${city}_2025.stderr") &
           done
-          wait || fail=1
+          wait || true
           python3 - <<'PY'
           import json,pathlib
           p=pathlib.Path("build/tcesp-2025")
@@ -43,7 +42,9 @@ jobs:
               except Exception as exc:
                   errors.append((city,str(exc)))
           (p/"recovery_status.json").write_text(json.dumps({"errors":errors,"cities":len(cities)},ensure_ascii=False))
-          if errors: print("INCOMPLETE", errors)
+          if errors:
+              print("INCOMPLETE", errors)
+              raise SystemExit(1)
           PY
       - name: Archive recovered files and diagnostic evidence
         if: always()

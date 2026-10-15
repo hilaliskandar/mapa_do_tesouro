@@ -58,3 +58,9 @@ O endpoint `https://rmj-piloto.finbra-tic-tim-referencia.pages.dev/` foi novamen
 O arquivo `editorial/rmj/check_html.py` foi reforçado no commit `549c5bca214c0414102be7263bc372c3dbe14d2a`, adicionando controles de presença de links de fontes, delimitação temporal e advertência de montantes nominais. Novos workflows Core CI e Pages Preview foram acionados (runs `38680328880` e `38680328881`, ainda em fila na observação inicial), sem inferir sucesso antes de resultado. O workflow especifico RMJ Editorial Preview e a comprovacao de responsividade/console continuam gates pendentes.
 
 Decisao: reter o PR em rascunho, com G0/G1 aprovados (14/14 conciliacoes TCESP x DCA) e gate de HTML/QA em revisao. Nenhum merge nem alteracao deliberada da producao estadual nesta etapa.
+
+## Diretriz editorial adicional — separacao publico/interno
+
+Decisao do usuario em 2026-10-15: o boletim destina-se ao publico externo geral, nao devendo exibir termos internos de controle de versao, QA, pipelines, manifestos, dificuldades de extracao, inventarios de arquivo ou situacao de PR. Esses registros permanecem exclusivamente neste caderno de governanca e nos artefatos de auditoria. Preservam-se no boletim explicacoes de conceitos, fontes oficiais acessiveis, periodos, cobertura, numeros comparaveis, formulas legiveis e limitacoes substantivas indispensaveis a interpretacao.
+
+Aplicacao inicial: HTML limpo de selo 'piloto editorial em revisao', versao interna, rodape de governanca e secao de inventario operacional; substituidos por explicacao ao leitor das despesas, investimentos e das fontes. Validador estrutural e testes foram alinhados para nao exigirem metadados internos no HTML. Commits no ramo: `290f458f`, `107c2ea0`, `ee1b2b61`, `80512ce6`, `96cfcbcf`. Publicacao de producao nao autorizada; PR permanece em rascunho ate novos testes e revisao.

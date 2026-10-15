@@ -421,3 +421,7 @@ O ZIP do artifact GitHub Actions `11610521760`, release `v0.4.0`, run `379173654
 ## Atualizacao editorial 2026-10-14
 
 Artefato v0.4.0 recuperado do GitHub Actions (ID 11610521760), com integridade verificada. Para RM_JUNDIAI foram conferidos os sete contextos municipais e as 50 variaveis no contexto regional. Foi elaborada minuta analitica 0.2 com series 2021-2025 e CSV de auditoria. Nota metodologica: series historicas derivadas podem existir mesmo quando as contas DCA primarias nao aparecem na API editorial do mesmo ano. Despesa territorial strict_complete possui cobertura de 1/7 em 2025. Publicacao externa nao realizada. Revisar historicidade, proveniencia e QA antes de aprovar a edicao.
+
+## Auditoria editorial quantitativa — RM Jundiai, 2026-10-14
+
+Foram auditadas 42 comparacoes de seis indicadores relativos para os sete municipios em 2025: 35 paridades aritmeticas, zero divergencias calculaveis e sete nao testaveis por ausencia do agregado intermediario `tributos_imobiliarios` na API editorial. Evidencia: `governance/QA_EDITORIAL_RM_JUNDIAI_2026_10_14.md`. Foi elaborada minuta analitica 0.3 com fichas municipais, sem publicacao. Auditoria de serie historica 2021-2024 continua pendente por falta dos componentes primarios no JSON editorial.

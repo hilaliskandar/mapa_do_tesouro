@@ -50,3 +50,11 @@ Inspeção direta do `editorial/rmj/index.html`: título e aviso **PILOTO EDITOR
 ## Disponibilidade da prévia — verificação adicional
 
 A URL `https://rmj-piloto.finbra-tic-tim-referencia.pages.dev/` foi recuperada com sucesso por Crawl2AI em 2026-10-15. O conteúdo retornado confirma o título, navegação e aviso de piloto editorial, mas **ainda exibe o cabeçalho anterior** ('Exercícios 2024 e 2025'). Isso demonstra que o novo commit de correção do cabeçalho ainda não foi verificado na prévia remota. A consulta de conteúdo não equivale ao teste automatizado Playwright de interação, responsividade e console; o gate visual permanece pendente.
+
+## Atualizacao operacional de 15/10/2026 — preview e QA preventivo
+
+O endpoint `https://rmj-piloto.finbra-tic-tim-referencia.pages.dev/` foi novamente recuperado via Crawl2AI, agora com o cabeçalho **'Referência principal: 2024 e 2025; séries históricas selecionadas: 2021–2025'**, confirmando a atualização da prévia pública. Foram identificadas referências externas ao arquivo DCA do Drive, ao contexto editorial da API, ao IBGE/SIDRA, à documentação e ao repositório. Esta verificação é de conteúdo HTTP e links publicados, não um teste real de navegador/JS.
+
+O arquivo `editorial/rmj/check_html.py` foi reforçado no commit `549c5bca214c0414102be7263bc372c3dbe14d2a`, adicionando controles de presença de links de fontes, delimitação temporal e advertência de montantes nominais. Novos workflows Core CI e Pages Preview foram acionados (runs `38680328880` e `38680328881`, ainda em fila na observação inicial), sem inferir sucesso antes de resultado. O workflow especifico RMJ Editorial Preview e a comprovacao de responsividade/console continuam gates pendentes.
+
+Decisao: reter o PR em rascunho, com G0/G1 aprovados (14/14 conciliacoes TCESP x DCA) e gate de HTML/QA em revisao. Nenhum merge nem alteracao deliberada da producao estadual nesta etapa.

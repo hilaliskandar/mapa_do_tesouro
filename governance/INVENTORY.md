@@ -1,5 +1,9 @@
 # Inventário canônico
 
+## Atualização específica da RMJ — 15/10/2026
+
+A frente editorial dos sete municípios da Região Metropolitana de Jundiaí possui documentação consolidada em [editorial/rmj/README.md](../editorial/rmj/README.md), abrangendo fontes DCA/FINBRA e TCESP, 21 extratos de 2023–2025, matriz integral de 1.169 registros, 28 decomposições em centavos, controles de integridade, análise de concentração, explorador, PRs #173–#196 e publicação separada em https://financas-rmj.pages.dev/. A versão HTML e o CSV são publicados conjuntamente; testes e publicação devem ser verificados por run. Esta atualização não altera a referência estadual SP_645 ou TIC_TIM_30.
+
 Atualizado em 2026-10-09.
 
 ## Núcleo aprovado

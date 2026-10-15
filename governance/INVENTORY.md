@@ -217,3 +217,7 @@ Próximas tarefas: validar numeradores e denominadores históricos contra dados 
 ### QA editorial adicional (2026-10-14)
 
 Novo registro `governance/QA_EDITORIAL_RM_JUNDIAI_2026_10_14.md`: artefato de origem 11610521760, 42 comparacoes de formulas de 2025, 35 conferidas, sete nao testaveis, zero divergencias calculaveis. Minuta analitica v0.3 com sete fichas municipais gerada em ambiente de trabalho. A minuta nao constitui publicacao oficial. Regra de exibicao percentual e lacunas das contas historicas constam do registro.
+
+## Saneamento dos PRs em 2026-10-15
+
+PR #166 incorporado por squash, commit `38b9ff67148335949bb0bde47fa9eb3238632b7e` (fonte bruta Gate A para auditoria). PR #167 incorporado por squash, commit `aed6572a365dcc698d147ad6de29f8a55c1a84cc` (evidencia bruta de ausencias DCA I-E 2025). Ambos tiveram Core CI e Pages Preview aprovados nos respectivos commits antes da incorporacao. Consulta posterior: nenhuma issue aberta e somente PR #143 aberto, em rascunho. O PR #143 requer QA editorial e de publicacao antes de merge; a producao v0.4.0 nao foi deliberadamente alterada por deploy nesta etapa. Nao inferir zero das linhas funcionais ausentes. Data da atualizacao: 2026-10-15.

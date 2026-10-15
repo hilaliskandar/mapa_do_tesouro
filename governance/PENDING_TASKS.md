@@ -142,3 +142,11 @@ Contrato, metodologia e aceite: `governance/EDITORIAL_PILOT_PLAN_2026_10_14.md`.
 - [ ] E1.3b Completar caderno narrativo e fichas com trajetórias e fontes por indicador.
 - [ ] E1.4 Rodar validação automatizada de todas as fichas, consistência de escalas, cobertura e QA editorial.
 - [ ] E1.5 Conciliar `qa_status=candidate` nos JSONs com aprovação externa da release antes de promover a edição.
+
+## Continuação do caderno-piloto — 2026-10-14
+
+A release `v0.4.0` foi recuperada diretamente do artifact GitHub Actions ID `11610521760` (run `37917365471`), SHA-256 `3052e27b68f34d61df878ee4af43886453784e09e99ec07f5459fdec3c566b7e`. Foram efetivamente inspecionados o índice editorial, `RM_JUNDIAI/context.json` e os sete JSONs municipais. O índice registra 11 universos e soma 287 posições município × universo; o contexto `RM_JUNDIAI` contém 50 variáveis e 7 municípios.
+
+Uma segunda minuta analítica foi produzida, com quadros de 2025, séries 2021–2025 de indicadores selecionados, CSV de auditoria e advertência sobre a disponibilidade dos indicadores derivados em contraste com as contas DCA primárias (ausentes dos payloads editoriais anteriores a 2025). O agregado territorial `strict_complete` tem cobertura de apenas 1/7 em 2025. A minuta permanece sem publicação externa.
+
+Próximas tarefas: validar numeradores e denominadores históricos contra dados primários; revisar o status interno `qa_status=candidate` à luz do QA da release pública; conferir rastreabilidade do texto editorial; aprofundar as fichas municipais antes de promover o caderno. Não presumir que o ZIP local persista em novos ambientes, mas recuperá-lo pelo workflow/artifact ID acima.

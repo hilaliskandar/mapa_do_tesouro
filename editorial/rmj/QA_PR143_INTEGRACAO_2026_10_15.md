@@ -68,3 +68,19 @@ Aplicacao inicial: HTML limpo de selo 'piloto editorial em revisao', versao inte
 ## Revisao editorial em 2026-10-15 — coerencia dos valores reais
 
 Depois da limpeza de metainformacoes destinada ao publico externo, os fluxos Core CI `38681461483` e Pages Preview `38681461480` terminaram com sucesso no commit `98b012cfc6f92327a3ab5f72a8ba8a51d865e318`. A revisao posterior encontrou contradicao: o capitulo narrativo dizia que todos os montantes estavam nominais, mas o painel `#reais` possui tabela, seletor e metodologia de deflacao pela media anual do IPCA (IBGE/SIDRA, tabela 1737, variavel 2266). A narrativa foi corrigida nos commits `087a6d20` e `ade6f82e`: explicar que o bloco introdutorio usa valores nominais e o capitulo de inflacao exibe a serie corrigida a precos de 2025; o teste estrutural agora exige esta distincao. Nao declarar os novos testes aprovados antes da execucao. Manter fora do HTML metadados de pipeline, commits, QA e controles de publicacao, mas preservar fonte, periodo e metodologia de interesse publico.
+
+## Auditoria independente do IPCA — 15/10/2026
+
+Foram obtidos 60 registros mensais do IPCA diretamente da API SIDRA/IBGE: tabela 1737, variavel 2266, Brasil, 202101-202512, URL `https://apisidra.ibge.gov.br/values/t/1737/n1/1/v/2266/p/202101-202512?formato=json`. Calculou-se a media aritmetica de cada conjunto de 12 numeros-indice e conferiu-se com `const ipcaMedio` em `editorial/rmj/index.html`.
+
+| Exercicio | Media dos 12 registros SIDRA | Media embutida no HTML | Diferenca material |
+|---|---:|---:|---|
+| 2021 | 5827.780000000002 | 5827.78 | Nao |
+| 2022 | 6368.604166666667 | 6368.604166666667 | Nao |
+| 2023 | 6661.150000000001 | 6661.15 | Nao |
+| 2024 | 6952.073333333334 | 6952.073333333334 | Nao |
+| 2025 | 7300.841666666666 | 7300.841666666666 | Nao |
+
+As diferencas inferiores a 2e-12 decorrem de representacao binaria. A formula implementada `fator = IPCA medio 2025 / IPCA medio ano` e adequada para a convencao de fluxo anual apresentada; nao se deve confundir IPCA geral de consumo com indice especifico de custos de obras.
+
+Os workflows Core CI (run `38683206418`) e Pages Preview (run `38683206404`) do commit `d9d235a56db42f4c5ff6e27fa698b2a9d139d725` terminaram aprovados. Esta auditoria valida o deflator, mas nao substitui controle de ponta a ponta dos valores de investimentos e do navegador. A separacao entre informacao publica e controle tecnico permanece obrigatoria.

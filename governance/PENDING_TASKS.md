@@ -182,3 +182,19 @@ O PR #143 foi promovido de rascunho para revisao e **integrado a `main`** via sq
 ## Publicacao independente RMJ confirmada — 15/10/2026
 
 Projeto Cloudflare Pages `financas-rmj` criado na conta existente, com `production_branch=main`, sem substituicao do projeto estadual `finbra-tic-tim-referencia`. Workflow GitHub `.github/workflows/publish-rmj.yml` criado na main pelo commit `a68569beb65741a0174ce112eb554bf9bc5e228d`; publica apenas `editorial/rmj/index.html` e `_headers` depois das verificacoes estruturais. API Cloudflare confirmou deploy no projeto `financas-rmj` com estado `success` e URL de deploy `https://fcf06794.financas-rmj.pages.dev`. URL definitiva `https://financas-rmj.pages.dev/` consultada via Crawl2AI em 2026-10-15: titulo e conteudo RMJ recuperados, texto público sem aviso de piloto/versao interna, fontes DCA presentes. Publicacao definitiva confirmada; revalidar a cada nova alteracao de `editorial/rmj/index.html` pelos controles previstos. Manter dominios e ciclos de publicacao estadual e RMJ separados.
+
+## Fila editorial RMJ vigente — 15/10/2026
+
+A documentação canônica foi consolidada em `editorial/rmj/README.md` e vinculada ao README principal e ao inventário. As tarefas documentadas antes desta seção são históricas quando contradisserem os marcos posteriores.
+
+- [x] Publicação independente da RMJ em `financas-rmj.pages.dev`, preservando o painel estadual.
+- [x] Reconstrução/versionamento da matriz de 1.169 registros, com 28 fechamentos em centavos.
+- [x] Integração do explorador integral, filtros e exportação CSV.
+- [x] Correção da publicação conjunta de HTML e CSV e conferência de paridade byte a byte na implantação comprovada.
+- [x] Revisão das histórias municipais a partir da matriz integral (#195), com publicação comprovada pelo run 38770880666.
+- [x] Consolidação da documentação operacional e metodológica (#197), evidenciada pelos arquivos presentes na main.
+- [ ] Verificar em GitHub Actions o run de produção posterior à revisão editorial #196 e conferir no HTML público a versão efetivamente publicada. Não confundir merge ou prévia aprovada com implantação.
+- [ ] Completar auditoria editorial apenas das redundâncias e inconsistências comprovadas, mantendo 26 seções e funcionalidades aprovadas como referência de regressão.
+- [ ] Antes de expandir para outros universos, assegurar reuso dos testes de dados, navegação desktop/celular e integridade de publicação; elaborar inventário de diferenças de cobertura.
+
+Critério geral: priorizar exploração analítica dos dados contábeis disponíveis; pesquisa de PPA/LOA/LDO apenas seletivamente para ambiguidades que modifiquem conclusões relevantes. Não inferir execução física de liquidação orçamentária.

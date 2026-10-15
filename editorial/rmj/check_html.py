@@ -13,6 +13,7 @@ class Audit(HTMLParser):
         self.sections = []
         self.scripts = []
         self.script = False
+        self.external_urls = []
 
     def handle_starttag(self, tag, attrs):
         d = dict(attrs)
@@ -22,6 +23,8 @@ class Audit(HTMLParser):
             self.sections.append(d["id"])
         if tag == "a" and d.get("href", "").startswith("#"):
             self.refs.append(d["href"][1:])
+        if tag == "a" and d.get("href", "").startswith(("https://", "http://")):
+            self.external_urls.append(d["href"])
         if tag == "script":
             self.script = True
 
@@ -54,6 +57,14 @@ def main():
         errors.append(f"Esperado um bloco JS inline; encontrados {len(p.scripts)}")
     if not re.search(r"Versão editorial [0-9]+[.][0-9]+", html):
         errors.append("Versao editorial nao encontrada")
+    required_domains = ("drive.google.com", "finbra-tic-tim-referencia.pages.dev", "github.com")
+    for domain in required_domains:
+        if not any(domain in url for url in p.external_urls):
+            errors.append(f"Link de fonte externa obrigatorio ausente: {domain}")
+    if "Referência principal: 2024 e 2025; séries históricas selecionadas: 2021–2025" not in html:
+        errors.append("Escopo temporal do boletim nao foi explicitado")
+    if "todos os montantes permanecem" not in html:
+        errors.append("Ressalva sobre valores nominais nao encontrada")
     if errors:
         print("\n".join(errors), file=sys.stderr)
         raise SystemExit(1)

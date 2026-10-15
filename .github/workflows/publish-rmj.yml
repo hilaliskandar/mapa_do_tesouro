@@ -6,6 +6,7 @@ on:
     paths:
       - 'editorial/rmj/index.html'
       - 'editorial/rmj/check_html.py'
+      - 'editorial/rmj/smoke_browser.js'
       - 'editorial/rmj/check_explorador_integral.py'
       - 'editorial/rmj/dados/rmj_decomposicao_programas_acoes_2023_2025.csv'
       - '.github/workflows/publish-rmj.yml'

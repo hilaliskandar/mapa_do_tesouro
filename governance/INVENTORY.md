@@ -187,3 +187,13 @@ Situação em 2026-10-09:
 - novo build estadual privado aprovado no run `37884817757`;
 - artifact ID `11596071795`, SHA-256 `97bfb257191862e176ad779d323187974ecf9434dc3e4c960cc94a2fb395c3f7`;
 - fila corrente: P1.1, cobertura multifuentes.
+
+## Atualização do inventário — 2026-10-14
+
+- Estado de referência: `main` do repositório; versão pública informada `v0.4.0` (2026-10-09).
+- Plataforma publicada segundo manifesto: 13 universos analíticos; camada editorial estática v1 para 11 universos; 287 contextos município × universo.
+- Fontes documentais para a continuidade: `README.md`, `CHANGELOG.md`, `governance/PROJECT_STATE.md`, `governance/PENDING_TASKS.md`, `skills/boletim-fiscal-municipal/SKILL.md`, `skills/boletim-fiscal-universo/SKILL.md`, respectivos `references/api.md` e `references/editorial.md`.
+- Novo artefato de governança: `governance/EDITORIAL_PILOT_PLAN_2026_10_14.md`.
+- Baseline `TIC_TIM_30` preservado; nenhuma nova transformação de dados ou reconstrução dos snapshots foi executada nesta retomada.
+- Pendência editorial: aferir integridade do índice e dos contextos da API, produzir e validar caderno-piloto, congelar modelo editorial antes da expansão a 11 universos.
+- As seções antigas denominadas 'Pendências estruturais' registram o histórico de trabalho, não constituem fila ativa após as releases v0.2.0–v0.4.0.

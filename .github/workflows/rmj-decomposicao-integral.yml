@@ -1,6 +1,11 @@
 name: RMJ Decomposicao Integral 2023-2025
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rmj-decomposicao-integral.yml'
+      - 'editorial/rmj/build_decomposicao_integral.py'
 permissions:
   contents: write
 jobs:

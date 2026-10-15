@@ -92,3 +92,11 @@ No commit `f61f11f6cb05134f9da24ce1df5bbd6ddb665026`, Core CI `38684861074` e Pa
 Tentou-se inspecao via Crawl2AI execute_js (erro interno) e Browserless Function (HTTP 401 por limite de unidades do plano gratuito). Assim, **o gate de browser interativo permanece pendente**, sem inferencia de sucesso a partir de paginas HTTP acessiveis ou workflows de escopo diferente. O Browserless gratuito nao deve ser adotado como dependencia obrigatoria; preferir Playwright em GitHub Actions ou avaliacao equivalente que preserve as evidencias.
 
 A verificacao independente das 60 observacoes SIDRA/IBGE das medias IPCA 2021-2025 ja consta neste registro. Nao realizar merge ate fechar o teste de interacao e a revisao final das fontes. A linguagem do boletim publico permanece distinta destas notas de operacao.
+
+## Execucao do gate de navegador — 2026-10-15
+
+O fluxo `.github/workflows/rmj-editorial-preview.yml` já contém o passo obrigatório `Run real browser QA` com Playwright Chromium, cobrindo desktop 1366×900 e celular 390×844, mudanças de seletores, tabelas, textos, overflow horizontal, erros JavaScript e capturas PNG. A mera aprovação do workflow geral `Pages Preview` **não** demonstra a execução desse passo específico.
+
+Foi alterado `editorial/rmj/qa_browser.cjs` no commit `90f7337277b5aca94ea31d66f3894cec6932c32c`: o teste passou a exigir período público correto e ausência de marcadores internos `PILOTO EDITORIAL` e `Versão editorial`. O push no ramo é abrangido pelos gatilhos `editorial/rmj/**` do workflow específico. No instante da primeira consulta, ainda não havia resultado de run associado ao novo commit. Não homologar gate visual antes de obter o job e seus artifacts (`rmj-browser-evidence-*`) com screenshots e `results.json`.
+
+As notas de QA permanecem neste arquivo de governança, sem inserção no boletim público. O PR #143 permanece rascunho e a produção principal não foi modificada.

@@ -150,3 +150,15 @@ A release `v0.4.0` foi recuperada diretamente do artifact GitHub Actions ID `116
 Uma segunda minuta analítica foi produzida, com quadros de 2025, séries 2021–2025 de indicadores selecionados, CSV de auditoria e advertência sobre a disponibilidade dos indicadores derivados em contraste com as contas DCA primárias (ausentes dos payloads editoriais anteriores a 2025). O agregado territorial `strict_complete` tem cobertura de apenas 1/7 em 2025. A minuta permanece sem publicação externa.
 
 Próximas tarefas: validar numeradores e denominadores históricos contra dados primários; revisar o status interno `qa_status=candidate` à luz do QA da release pública; conferir rastreabilidade do texto editorial; aprofundar as fichas municipais antes de promover o caderno. Não presumir que o ZIP local persista em novos ambientes, mas recuperá-lo pelo workflow/artifact ID acima.
+
+### Etapa E1 — progresso de 2026-10-14
+
+- [x] Recuperar artefato original da release v0.4.0 por GitHub Actions e confirmar SHA-256.
+- [x] Identificar RM_JUNDIAI, sete municipios e 50 variaveis no contexto editorial.
+- [x] Auditar razoes de 2025: 35/35 testaveis reconciliadas; sete sem agregado intermediario acessivel.
+- [x] Elaborar minuta comparativa 0.3 e sete fichas descritivas, ainda nao publicadas.
+- [ ] Recompor proveniencia das razoes historicas 2021-2024 nas fontes primarias.
+- [ ] Expor/reconciliar agregado tributos_imobiliarios para o QA dos sete casos restantes.
+- [ ] Revisar diferenca entre escala armazenada e formula do catalogo.
+- [ ] Validar o significado de qa_status=candidate e o snapshot CAPAG.
+- [ ] Aprovar caderno somente apos reconciliacao e revisao editorial.

@@ -31,6 +31,8 @@ const path = require('node:path');
       await page.locator('#serie').selectOption('3525904');
       await page.locator('#sintese-cidade').selectOption('3508405');
       await page.locator('#constantes').click();
+      await page.locator('#comparativo-ano').selectOption('2024');
+      await page.locator('#comparativo-ano').selectOption('2025');
       await page.locator('#nominais').click();
       const observations = await page.evaluate(() => ({
         period: document.body.innerText.includes('séries históricas selecionadas: 2021–2025'),
@@ -39,6 +41,7 @@ const path = require('node:path');
         historyRows:document.querySelectorAll('#historical-table tbody tr').length,
         editorialProfiles:document.querySelectorAll('#editorial-highlights [data-id]').length,
         crossRows:document.querySelectorAll('#cr-table tbody tr').length,
+        comparisonRows:document.querySelectorAll('#comparativo-table tbody tr').length,
         crossText:document.querySelector('#cr-texto')?.textContent?.length || 0,
         trendRows:document.querySelectorAll('#tr-table tbody tr').length,
         trendText:document.querySelector('#tr-analysis')?.textContent?.length || 0,
@@ -53,6 +56,7 @@ const path = require('node:path');
       assert.equal(observations.historyRows,5);
       assert.equal(observations.editorialProfiles,7);
       assert.equal(observations.crossRows,8);
+      assert.equal(observations.comparisonRows,8);
       assert(observations.crossText>150);
       assert.equal(observations.trendRows,5);
       assert(observations.trendText>150);

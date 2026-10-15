@@ -6,6 +6,8 @@ on:
     paths:
       - 'editorial/rmj/index.html'
       - 'editorial/rmj/check_html.py'
+      - 'editorial/rmj/check_explorador_integral.py'
+      - 'editorial/rmj/dados/rmj_decomposicao_programas_acoes_2023_2025.csv'
       - '.github/workflows/publish-rmj.yml'
   workflow_dispatch:
 
@@ -31,10 +33,14 @@ jobs:
           python3 editorial/rmj/check_html.py editorial/rmj/index.html /tmp/rmj.js
           node --check /tmp/rmj.js
           node editorial/rmj/smoke_browser.js
+          python3 editorial/rmj/check_explorador_integral.py
       - name: Preparar somente conteudo publico
         run: |
           mkdir -p build/rmj-public
           cp editorial/rmj/index.html build/rmj-public/index.html
+          mkdir -p build/rmj-public/dados
+          cp editorial/rmj/dados/rmj_decomposicao_programas_acoes_2023_2025.csv build/rmj-public/dados/
+          test -s build/rmj-public/dados/rmj_decomposicao_programas_acoes_2023_2025.csv
           printf '%s\n' '/*' '  X-Content-Type-Options: nosniff' '  Referrer-Policy: strict-origin-when-cross-origin' "  Content-Security-Policy: default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'" > build/rmj-public/_headers
       - name: Publicar em projeto Cloudflare independente
         env:
@@ -54,4 +60,8 @@ jobs:
           curl --fail --location --retry 5 --retry-delay 3 \
             https://financas-rmj.pages.dev/ -o /tmp/boletim-rmj-publicado.html
           grep -F 'Finanças municipais da Região Metropolitana de Jundiaí' /tmp/boletim-rmj-publicado.html
+          grep -F 'dados/rmj_decomposicao_programas_acoes_2023_2025.csv' /tmp/boletim-rmj-publicado.html
+          curl --fail --location --retry 5 --retry-delay 3 \
+            https://financas-rmj.pages.dev/dados/rmj_decomposicao_programas_acoes_2023_2025.csv -o /tmp/rmj-decomposicao-publicada.csv
+          cmp editorial/rmj/dados/rmj_decomposicao_programas_acoes_2023_2025.csv /tmp/rmj-decomposicao-publicada.csv
           echo 'Boletim RMJ publicado: https://financas-rmj.pages.dev/' >> "$GITHUB_STEP_SUMMARY"

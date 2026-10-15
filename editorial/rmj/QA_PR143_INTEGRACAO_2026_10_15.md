@@ -84,3 +84,11 @@ Foram obtidos 60 registros mensais do IPCA diretamente da API SIDRA/IBGE: tabela
 As diferencas inferiores a 2e-12 decorrem de representacao binaria. A formula implementada `fator = IPCA medio 2025 / IPCA medio ano` e adequada para a convencao de fluxo anual apresentada; nao se deve confundir IPCA geral de consumo com indice especifico de custos de obras.
 
 Os workflows Core CI (run `38683206418`) e Pages Preview (run `38683206404`) do commit `d9d235a56db42f4c5ff6e27fa698b2a9d139d725` terminaram aprovados. Esta auditoria valida o deflator, mas nao substitui controle de ponta a ponta dos valores de investimentos e do navegador. A separacao entre informacao publica e controle tecnico permanece obrigatoria.
+
+## Verificacao funcional — 2026-10-15
+
+No commit `f61f11f6cb05134f9da24ce1df5bbd6ddb665026`, Core CI `38684861074` e Pages Preview `38684861139` concluidos com sucesso. O job `build-deploy-qa` passou em todas as etapas consultadas, incluindo validacao local e remota da candidata, mas esse job nao demonstra aprovacao do workflow especifico `RMJ Editorial Preview` nem do teste interativo desktop/mobile do HTML editorial.
+
+Tentou-se inspecao via Crawl2AI execute_js (erro interno) e Browserless Function (HTTP 401 por limite de unidades do plano gratuito). Assim, **o gate de browser interativo permanece pendente**, sem inferencia de sucesso a partir de paginas HTTP acessiveis ou workflows de escopo diferente. O Browserless gratuito nao deve ser adotado como dependencia obrigatoria; preferir Playwright em GitHub Actions ou avaliacao equivalente que preserve as evidencias.
+
+A verificacao independente das 60 observacoes SIDRA/IBGE das medias IPCA 2021-2025 ja consta neste registro. Nao realizar merge ate fechar o teste de interacao e a revisao final das fontes. A linguagem do boletim publico permanece distinta destas notas de operacao.

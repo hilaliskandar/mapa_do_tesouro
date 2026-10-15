@@ -425,3 +425,7 @@ Artefato v0.4.0 recuperado do GitHub Actions (ID 11610521760), com integridade v
 ## Auditoria editorial quantitativa — RM Jundiai, 2026-10-14
 
 Foram auditadas 42 comparacoes de seis indicadores relativos para os sete municipios em 2025: 35 paridades aritmeticas, zero divergencias calculaveis e sete nao testaveis por ausencia do agregado intermediario `tributos_imobiliarios` na API editorial. Evidencia: `governance/QA_EDITORIAL_RM_JUNDIAI_2026_10_14.md`. Foi elaborada minuta analitica 0.3 com fichas municipais, sem publicacao. Auditoria de serie historica 2021-2024 continua pendente por falta dos componentes primarios no JSON editorial.
+
+## Saneamento dos PRs em 2026-10-15
+
+PR #166 incorporado por squash, commit `38b9ff67148335949bb0bde47fa9eb3238632b7e` (fonte bruta Gate A para auditoria). PR #167 incorporado por squash, commit `aed6572a365dcc698d147ad6de29f8a55c1a84cc` (evidencia bruta de ausencias DCA I-E 2025). Ambos tiveram Core CI e Pages Preview aprovados nos respectivos commits antes da incorporacao. Consulta posterior: nenhuma issue aberta e somente PR #143 aberto, em rascunho. O PR #143 requer QA editorial e de publicacao antes de merge; a producao v0.4.0 nao foi deliberadamente alterada por deploy nesta etapa. Nao inferir zero das linhas funcionais ausentes. Data da atualizacao: 2026-10-15.

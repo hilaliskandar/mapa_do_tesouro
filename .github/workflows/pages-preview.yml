@@ -155,7 +155,7 @@ jobs:
           echo "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" >> "$GITHUB_STEP_SUMMARY"
 
   rmj-browser-qa:
-    if: github.event_name == 'pull_request' && github.event.pull_request.number == 143
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 18
     permissions:

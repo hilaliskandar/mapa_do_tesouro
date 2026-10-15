@@ -197,3 +197,11 @@ Situação em 2026-10-09:
 - Baseline `TIC_TIM_30` preservado; nenhuma nova transformação de dados ou reconstrução dos snapshots foi executada nesta retomada.
 - Pendência editorial: aferir integridade do índice e dos contextos da API, produzir e validar caderno-piloto, congelar modelo editorial antes da expansão a 11 universos.
 - As seções antigas denominadas 'Pendências estruturais' registram o histórico de trabalho, não constituem fila ativa após as releases v0.2.0–v0.4.0.
+
+## Evidência quantitativa recuperada — 2026-10-14
+
+- Artifact oficial v0.4.0: ID `11610521760`; ZIP de 9,5 MiB aproximadamente, 2.566 entradas; SHA-256 `3052e27b68f34d61df878ee4af43886453784e09e99ec07f5459fdec3c566b7e`.
+- Índice `data/api/v1/publication/universes.json`: 11 universos editoriais; soma das cardinalidades 287; arquivos municipais encontrados 287.
+- Contexto `data/api/v1/publication/universes/RM_JUNDIAI/context.json`: sete municípios (Cabreúva, Campo Limpo Paulista, Itupeva, Jarinu, Jundiaí, Louveira e Várzea Paulista); 50 variáveis.
+- Build `multifuentes-v0.4-cef702e5edbd`, versão de dados `sp645-private-site-2021-2025-v1`; metadado interno `qa_status=candidate` requer esclarecimento antes de qualquer selo editorial definitivo.
+- Documento de trabalho não publicado: `caderno_piloto_fiscal_rm_jundiai_2026.md` gerado a partir do artefato, com síntese 2025, cobertura e fichas municipais resumidas.

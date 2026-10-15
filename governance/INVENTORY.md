@@ -213,3 +213,7 @@ A release `v0.4.0` foi recuperada diretamente do artifact GitHub Actions ID `116
 Uma segunda minuta analítica foi produzida, com quadros de 2025, séries 2021–2025 de indicadores selecionados, CSV de auditoria e advertência sobre a disponibilidade dos indicadores derivados em contraste com as contas DCA primárias (ausentes dos payloads editoriais anteriores a 2025). O agregado territorial `strict_complete` tem cobertura de apenas 1/7 em 2025. A minuta permanece sem publicação externa.
 
 Próximas tarefas: validar numeradores e denominadores históricos contra dados primários; revisar o status interno `qa_status=candidate` à luz do QA da release pública; conferir rastreabilidade do texto editorial; aprofundar as fichas municipais antes de promover o caderno. Não presumir que o ZIP local persista em novos ambientes, mas recuperá-lo pelo workflow/artifact ID acima.
+
+### QA editorial adicional (2026-10-14)
+
+Novo registro `governance/QA_EDITORIAL_RM_JUNDIAI_2026_10_14.md`: artefato de origem 11610521760, 42 comparacoes de formulas de 2025, 35 conferidas, sete nao testaveis, zero divergencias calculaveis. Minuta analitica v0.3 com sete fichas municipais gerada em ambiente de trabalho. A minuta nao constitui publicacao oficial. Regra de exibicao percentual e lacunas das contas historicas constam do registro.

@@ -499,3 +499,7 @@ O [PR #197](https://github.com/hilaliskandar/mapa_do_tesouro/pull/197) consolido
 Fonte de verdade da publicação editorial: `https://financas-rmj.pages.dev/`. Fonte de verdade do portal estadual: `https://finbra-tic-tim-referencia.pages.dev/`. São publicações separadas. Para todo novo release, validar conjuntamente HTML e CSV público; CI de prévia isoladamente não comprova atualização da produção.
 
 A próxima verificação é confirmar o run da implantação do #196 e sua correspondência com o HTML publicado. Não iniciar novas coletas normativas sistemáticas sem lacuna contábil material demonstrada. A decomposição e as análises existentes devem ser exploradas antes de acrescentar novas seções.
+
+## Confirmação independente Cloudflare — 15/10/2026
+
+Projeto Pages `financas-rmj`: deployment de produção `39b2c8f7-416e-437f-8432-b537000e090f` concluído com status `success`, associado ao commit `7b78a9babc59f7109f67e903e3fadcc97c0acee2` do PR editorial #196. URL identificável da implantação: https://39b2c8f7.financas-rmj.pages.dev/. O painel estadual permanece independente. A evidência confirma implantação do commit; não deve ser confundida com inspeção visual completa ou novo cotejo de bytes do CSV.

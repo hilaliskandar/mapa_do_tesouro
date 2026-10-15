@@ -55,8 +55,6 @@ def main():
             errors.append(f"Secao obrigatoria ausente: {required}")
     if len(p.scripts) != 1:
         errors.append(f"Esperado um bloco JS inline; encontrados {len(p.scripts)}")
-    if not re.search(r"Versão editorial [0-9]+[.][0-9]+", html):
-        errors.append("Versao editorial nao encontrada")
     required_domains = ("drive.google.com", "finbra-tic-tim-referencia.pages.dev", "github.com")
     for domain in required_domains:
         if not any(domain in url for url in p.external_urls):

@@ -5,7 +5,7 @@ const path = require('node:path');
 
 (async () => {
   const base = process.env.RMJ_QA_URL;
-  assert(base && /^https:\/\//.test(base), 'RMJ_QA_URL precisa ser HTTPS');
+  assert(base && (/^https:\/\//.test(base) || /^http:\/\/127\.0\.0\.1:\d+\//.test(base)), 'RMJ_QA_URL deve ser HTTPS ou localhost de testes');
   const out = 'build/rmj-qa';
   fs.mkdirSync(out, { recursive: true });
   const browser = await chromium.launch({ headless: true });

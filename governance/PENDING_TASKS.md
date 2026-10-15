@@ -198,3 +198,10 @@ A documentação canônica foi consolidada em `editorial/rmj/README.md` e vincul
 - [ ] Antes de expandir para outros universos, assegurar reuso dos testes de dados, navegação desktop/celular e integridade de publicação; elaborar inventário de diferenças de cobertura.
 
 Critério geral: priorizar exploração analítica dos dados contábeis disponíveis; pesquisa de PPA/LOA/LDO apenas seletivamente para ambiguidades que modifiquem conclusões relevantes. Não inferir execução física de liquidação orçamentária.
+
+## Verificação adicional do deploy RMJ — 15/10/2026
+
+- [x] Confirmar implantação da revisão #196: Cloudflare Pages projeto `financas-rmj`, deployment `39b2c8f7-416e-437f-8432-b537000e090f`, status `success`, commit implantado `7b78a9babc59f7109f67e903e3fadcc97c0acee2`, idêntico ao merge do #196.
+- [ ] Realizar, quando necessário, inspeção independente de navegador e paridade byte a byte do CSV atual; a confirmação de deployment pela API não equivale a essas duas verificações.
+
+O item anterior sobre verificar a implantação do #196 deve ser considerado encerrado por esta evidência mais recente.

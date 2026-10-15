@@ -413,3 +413,7 @@ As fontes das Skills `boletim-fiscal-municipal` e `boletim-fiscal-universo` est�
 ## Retomada 2026-10-14 — gate editorial
 
 A leitura da `main` confirmou a release pública registrada `v0.4.0`, com 13 universos analíticos, 11 editoriais e 287 contextos município × universo. A documentação do ciclo fiscal está consolidada em `governance/EDITORIAL_PILOT_PLAN_2026_10_14.md`. A próxima etapa é conferir o índice `/data/api/v1/publication/universes.json`, validar `context.json` e produzir um caderno-piloto para um universo editorial, proposto inicialmente como RM de Jundiaí. Não declarar dados públicos validados, edição finalizada ou publicada sem verificação dos payloads. O estado mais recente deste registro prevalece sobre instruções históricas de P0/P1/P2 anteriores à v0.4.0.
+
+## Recuperação do artefato editorial — 2026-10-14
+
+O ZIP do artifact GitHub Actions `11610521760`, release `v0.4.0`, run `37917365471`, foi recuperado e teve SHA-256 conferido: `3052e27b68f34d61df878ee4af43886453784e09e99ec07f5459fdec3c566b7e`. O índice interno contém 11 universos editoriais e soma 287 contextos; a contagem de JSONs municipais no ZIP é exatamente 287. O piloto `RM_JUNDIAI` contém 7 municípios e 50 variáveis no contexto, com série de 2025 e dados auditáveis. O endpoint público segue não verificado ao vivo. O campo `qa_status` do payload permanece `candidate` e exige conciliação editorial, embora o workflow de publicação esteja registrado como aprovado. Uma minuta quantitativa foi gerada em ambiente de análise; não foi publicada.

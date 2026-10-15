@@ -132,3 +132,13 @@ As seções anteriores sobre v0.3.1 e os gates P0/P1/P2 são históricas: confor
 - [ ] E2 Congelar o modelo aprovado e expandir aos outros dez universos.
 
 Contrato, metodologia e aceite: `governance/EDITORIAL_PILOT_PLAN_2026_10_14.md`. Nenhuma publicação editorial foi autorizada automaticamente por esta atualização.
+
+## Andamento E1 — 2026-10-14
+
+- [x] E1.1a Integridade do pacote de publicação: SHA-256 confere, 11 universos e 287 arquivos municipais confirmados.
+- [ ] E1.1b Disponibilidade HTTP pública e validação remota: não comprovadas no ambiente.
+- [x] E1.2a Identificado `RM_JUNDIAI`, conferidos sete membros e 50 variáveis no contexto.
+- [x] E1.3a Produzida minuta quantitativa interna para 2025; não publicada.
+- [ ] E1.3b Completar caderno narrativo e fichas com trajetórias e fontes por indicador.
+- [ ] E1.4 Rodar validação automatizada de todas as fichas, consistência de escalas, cobertura e QA editorial.
+- [ ] E1.5 Conciliar `qa_status=candidate` nos JSONs com aprovação externa da release antes de promover a edição.

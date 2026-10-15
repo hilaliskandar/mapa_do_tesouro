@@ -205,3 +205,11 @@ Situação em 2026-10-09:
 - Contexto `data/api/v1/publication/universes/RM_JUNDIAI/context.json`: sete municípios (Cabreúva, Campo Limpo Paulista, Itupeva, Jarinu, Jundiaí, Louveira e Várzea Paulista); 50 variáveis.
 - Build `multifuentes-v0.4-cef702e5edbd`, versão de dados `sp645-private-site-2021-2025-v1`; metadado interno `qa_status=candidate` requer esclarecimento antes de qualquer selo editorial definitivo.
 - Documento de trabalho não publicado: `caderno_piloto_fiscal_rm_jundiai_2026.md` gerado a partir do artefato, com síntese 2025, cobertura e fichas municipais resumidas.
+
+## Continuação do caderno-piloto — 2026-10-14
+
+A release `v0.4.0` foi recuperada diretamente do artifact GitHub Actions ID `11610521760` (run `37917365471`), SHA-256 `3052e27b68f34d61df878ee4af43886453784e09e99ec07f5459fdec3c566b7e`. Foram efetivamente inspecionados o índice editorial, `RM_JUNDIAI/context.json` e os sete JSONs municipais. O índice registra 11 universos e soma 287 posições município × universo; o contexto `RM_JUNDIAI` contém 50 variáveis e 7 municípios.
+
+Uma segunda minuta analítica foi produzida, com quadros de 2025, séries 2021–2025 de indicadores selecionados, CSV de auditoria e advertência sobre a disponibilidade dos indicadores derivados em contraste com as contas DCA primárias (ausentes dos payloads editoriais anteriores a 2025). O agregado territorial `strict_complete` tem cobertura de apenas 1/7 em 2025. A minuta permanece sem publicação externa.
+
+Próximas tarefas: validar numeradores e denominadores históricos contra dados primários; revisar o status interno `qa_status=candidate` à luz do QA da release pública; conferir rastreabilidade do texto editorial; aprofundar as fichas municipais antes de promover o caderno. Não presumir que o ZIP local persista em novos ambientes, mas recuperá-lo pelo workflow/artifact ID acima.

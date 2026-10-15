@@ -489,3 +489,13 @@ PR #176 integrado no commit `4565334a35181a001c826b88ad4383c853ae9919` após Cor
 ## RMJ — listas integrais de programas e acoes TCESP 2023-2024 (15/10/2026)
 
 Artefato GitHub Actions `11680818755` recuperado e reprocessado com os 14 JSONs originais. Extraidos **301 registros de programas**, **678 registros de acoes**, com conciliacao exata em centavos por municipio/ano: **14/14 conferencias dos programas e 14/14 das acoes aprovadas, zero divergencias** contra investimento liquidado de natureza 44. Tres CSVs gerados e disponibilizados na conversa: `rmj_programas_investimentos_2023_2024.csv`, `rmj_acoes_investimentos_2023_2024.csv`, `rmj_controle_conciliacao_programas_acoes_2023_2024.csv`. Documento de metodo/evidencia incorporado ao repo em `editorial/rmj/EXTRACAO_PROGRAMAS_ACOES_INTEGRAL_2023_2024.md`; PR #177 integrado por squash `ab93a7da7b26d36ec920097a4c75e27a8645e267`, Core CI / Pages Preview / Playwright success. O arquivo publico HTML nao foi modificado. Falta ainda obter a abertura completa por programa e acao TCESP 2025 para comparacao trienal integral; nao inferir equivalencia automatica de programas a partir de codigo ou nome.
+
+## Marco de retomada editorial RMJ — 15/10/2026
+
+A documentação operacional da RMJ está consolidada em [editorial/rmj/README.md](../editorial/rmj/README.md) e referenciada no README principal. O guia reúne sete municípios, dados DCA/FINBRA e TCESP, 21 extratos de 2023–2025, 1.169 registros da decomposição por programas e ações, 28 fechamentos contábeis, rotinas de reprodução, fontes, metodologia, QA, fluxo específico de publicação e incidentes resolvidos.
+
+O [PR #197](https://github.com/hilaliskandar/mapa_do_tesouro/pull/197) consolidou a documentação; seu conteúdo já está presente na branch principal. O PR #196 corresponde à revisão editorial das análises municipais; o guia registra sua integração, mas a implantação desse conteúdo no endereço público requer evidência do workflow de produção posterior ao merge.
+
+Fonte de verdade da publicação editorial: `https://financas-rmj.pages.dev/`. Fonte de verdade do portal estadual: `https://finbra-tic-tim-referencia.pages.dev/`. São publicações separadas. Para todo novo release, validar conjuntamente HTML e CSV público; CI de prévia isoladamente não comprova atualização da produção.
+
+A próxima verificação é confirmar o run da implantação do #196 e sua correspondência com o HTML publicado. Não iniciar novas coletas normativas sistemáticas sem lacuna contábil material demonstrada. A decomposição e as análises existentes devem ser exploradas antes de acrescentar novas seções.

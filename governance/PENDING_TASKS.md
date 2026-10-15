@@ -162,3 +162,7 @@ Próximas tarefas: validar numeradores e denominadores históricos contra dados 
 - [ ] Revisar diferenca entre escala armazenada e formula do catalogo.
 - [ ] Validar o significado de qa_status=candidate e o snapshot CAPAG.
 - [ ] Aprovar caderno somente apos reconciliacao e revisao editorial.
+
+## Saneamento dos PRs em 2026-10-15
+
+PR #166 incorporado por squash, commit `38b9ff67148335949bb0bde47fa9eb3238632b7e` (fonte bruta Gate A para auditoria). PR #167 incorporado por squash, commit `aed6572a365dcc698d147ad6de29f8a55c1a84cc` (evidencia bruta de ausencias DCA I-E 2025). Ambos tiveram Core CI e Pages Preview aprovados nos respectivos commits antes da incorporacao. Consulta posterior: nenhuma issue aberta e somente PR #143 aberto, em rascunho. O PR #143 requer QA editorial e de publicacao antes de merge; a producao v0.4.0 nao foi deliberadamente alterada por deploy nesta etapa. Nao inferir zero das linhas funcionais ausentes. Data da atualizacao: 2026-10-15.

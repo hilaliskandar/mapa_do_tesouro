@@ -90,6 +90,10 @@ jobs:
       - name: Run tests
         run: pytest -q tests
 
+      - name: Test RMJ TCESP extraction QA logic offline
+        if: github.event_name == 'pull_request'
+        run: python3 editorial/rmj/test_qa_tcesp_2023_2024.py
+
       - name: Resolve application version
         id: version
         shell: bash
@@ -149,3 +153,47 @@ jobs:
         run: |
           echo "### Cloudflare Pages preview" >> "$GITHUB_STEP_SUMMARY"
           echo "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" >> "$GITHUB_STEP_SUMMARY"
+
+  rmj-browser-qa:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 143
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate local HTML and JavaScript
+        run: |
+          python3 editorial/rmj/check_html.py editorial/rmj/index.html /tmp/rmj-editorial.js
+          node --check /tmp/rmj-editorial.js
+      - name: Install Chromium for QA
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install chromium --with-deps
+      - name: Start local editorial server
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory editorial/rmj > /tmp/rmj-server.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/rmj-server.log
+          exit 1
+      - name: Browser interactions at desktop and mobile sizes
+        env:
+          RMJ_QA_URL: http://127.0.0.1:8765/
+        run: node editorial/rmj/qa_browser.cjs
+      - name: Archive QA browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmj-playwright-pr143-${{ github.sha }}
+          path: build/rmj-qa/
+          if-no-files-found: warn
+          retention-days: 14

@@ -409,3 +409,7 @@ Em 2026-10-09, a release `v0.4.0` foi promovida à produção.
 - Cidades Médias: 33 municípios, mantendo sobreposição deliberada com RM/AU.
 
 As fontes das Skills `boletim-fiscal-municipal` e `boletim-fiscal-universo` estão versionadas em `skills/`.
+
+## Retomada 2026-10-14 — gate editorial
+
+A leitura da `main` confirmou a release pública registrada `v0.4.0`, com 13 universos analíticos, 11 editoriais e 287 contextos município × universo. A documentação do ciclo fiscal está consolidada em `governance/EDITORIAL_PILOT_PLAN_2026_10_14.md`. A próxima etapa é conferir o índice `/data/api/v1/publication/universes.json`, validar `context.json` e produzir um caderno-piloto para um universo editorial, proposto inicialmente como RM de Jundiaí. Não declarar dados públicos validados, edição finalizada ou publicada sem verificação dos payloads. O estado mais recente deste registro prevalece sobre instruções históricas de P0/P1/P2 anteriores à v0.4.0.

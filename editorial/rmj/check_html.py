@@ -61,8 +61,8 @@ def main():
             errors.append(f"Link de fonte externa obrigatorio ausente: {domain}")
     if "Referência principal: 2024 e 2025; séries históricas selecionadas: 2021–2025" not in html:
         errors.append("Escopo temporal do boletim nao foi explicitado")
-    if "todos os montantes permanecem" not in html:
-        errors.append("Ressalva sobre valores nominais nao encontrada")
+    if "As comparações desta seção utilizam valores nominais" not in html or "série de investimentos corrigida pelo IPCA" not in html:
+        errors.append("Distincao entre valores nominais e corrigidos pelo IPCA ausente")
     if errors:
         print("\n".join(errors), file=sys.stderr)
         raise SystemExit(1)

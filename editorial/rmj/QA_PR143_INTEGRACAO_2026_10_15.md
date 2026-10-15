@@ -46,3 +46,7 @@ Após atualização do ramo para `6cdbeace25f2b856ea9eb0755b94302a5609120f`, Cor
 Inspeção direta do `editorial/rmj/index.html`: título e aviso **PILOTO EDITORIAL — EM REVISÃO**, capítulos de receitas, despesas, território e reconciliação; o HTML declara expressamente que os montantes permanecem **nominais**, à espera de série anual de IPCA aprovada. A existência de referência textual a TCESP não substitui hyperlinks explícitos para os documentos de fonte; revisar fontes clicáveis no produto final. O cabeçalho limita a edição a 'Exercícios 2024 e 2025' enquanto existe análise de tendências 2021–2025; editar o escopo de maneira inequívoca na revisão editorial.
 
 **Decisão:** manter PR #143 como rascunho; gates pendentes: QA visual remoto comprovado, rastreabilidade dos links e recorte temporal de abertura, compatibilidade editorial 11/12 universos, autorização de publicação. G0/G1 para os 14 extratos TCESP de 2023–2024 permanecem aprovados.
+
+## Disponibilidade da prévia — verificação adicional
+
+A URL `https://rmj-piloto.finbra-tic-tim-referencia.pages.dev/` foi recuperada com sucesso por Crawl2AI em 2026-10-15. O conteúdo retornado confirma o título, navegação e aviso de piloto editorial, mas **ainda exibe o cabeçalho anterior** ('Exercícios 2024 e 2025'). Isso demonstra que o novo commit de correção do cabeçalho ainda não foi verificado na prévia remota. A consulta de conteúdo não equivale ao teste automatizado Playwright de interação, responsividade e console; o gate visual permanece pendente.

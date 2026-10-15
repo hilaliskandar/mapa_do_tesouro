@@ -1,0 +1,56 @@
+name: RMJ TCESP 2025 Full Backfill
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/rmj-tcesp-2025-backfill.yml'
+      - 'editorial/rmj/analyze_tcesp_pilot.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recover-2025:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover original municipal TCESP extracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/tcesp-2025
+          for city in cabreuva campo-limpo-paulista itupeva jarinu jundiai louveira varzea-paulista; do
+            (TCESP_TIMEOUT_SECONDS=240 python3 editorial/rmj/analyze_tcesp_pilot.py "$city" 2025 > "build/tcesp-2025/${city}_2025.json" 2>"build/tcesp-2025/${city}_2025.stderr") &
+          done
+          wait || true
+          python3 - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("build/tcesp-2025")
+          cities="cabreuva campo-limpo-paulista itupeva jarinu jundiai louveira varzea-paulista".split()
+          errors=[]
+          for city in cities:
+              path=p/f"{city}_2025.json"
+              try:
+                  d=json.loads(path.read_text())
+                  assert d["slug"] == city and d["year"] == 2025
+                  assert not d["bad_values"]
+                  assert sum(int(x[3]) for x in d["programas_44_liquidado_completos"])==int(d["investimento_44_liquidado_centavos"])
+                  assert sum(int(x[4]) for x in d["acoes_44_liquidado_completas"])==int(d["investimento_44_liquidado_centavos"])
+                  print(city,len(d["programas_44_liquidado_completos"]),len(d["acoes_44_liquidado_completas"]),d["investimento_44_liquidado_centavos"])
+              except Exception as exc:
+                  errors.append((city,str(exc)))
+          (p/"recovery_status.json").write_text(json.dumps({"errors":errors,"cities":len(cities)},ensure_ascii=False))
+          if errors:
+              print("INCOMPLETE", errors)
+              raise SystemExit(1)
+          PY
+      - name: Archive recovered files and diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmj-tcesp-2025-full-raw
+          path: build/tcesp-2025/
+          if-no-files-found: warn
+          retention-days: 30

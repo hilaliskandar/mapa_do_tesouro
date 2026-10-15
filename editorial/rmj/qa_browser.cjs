@@ -49,6 +49,7 @@ const path = require('node:path');
         width:window.innerWidth,
         scrollWidth:document.documentElement.scrollWidth
       }));
+      assert(observations.period, 'escopo temporal publico ausente');
       assert.equal(observations.historyRows,5);
       assert.equal(observations.editorialProfiles,7);
       assert.equal(observations.crossRows,8);
@@ -60,6 +61,7 @@ const path = require('node:path');
       assert.equal(observations.legalRows,4);
       assert(observations.jsContent>100);
       assert(!observations.overflow, 'overflow horizontal na largura '+viewport.width);
+      assert(!await page.locator('body').innerText().then(t=>t.includes('PILOTO EDITORIAL')||t.includes('Versão editorial')), 'metainformacao interna no boletim publico');
       assert.deepEqual(errors,[]);
       await page.screenshot({path:path.join(out,'rmj-'+viewport.name+'.png'),fullPage:true});
       results.push({...viewport,...observations,errors});

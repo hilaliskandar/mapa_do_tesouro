@@ -119,3 +119,16 @@ Política:
 ## Pós-release v0.3.1
 
 A release estadual multiuniverso `v0.3.1` está congelada e publicada. O workflow manual `SP645 Pages Production` foi executado no run `37912565493` com sucesso. O QA remoto aprovou a URL principal de produção. `SP_645` permanece como universo padrão; TIC_TIM_30, CIDADES_MEDIAS, nove regiões metropolitanas e AU_FRANCA estão disponíveis como recortes analíticos sobrepostos.
+
+## Prioridade atual após release v0.4.0 — 2026-10-14
+
+As seções anteriores sobre v0.3.1 e os gates P0/P1/P2 são históricas: conforme `PROJECT_STATE.md`, a versão v0.4.0 e a API editorial v1 já foram promovidas em 2026-10-09. A fila ativa é:
+
+- [ ] E1.1 Validar `publication/universes.json`: 11 universos editoriais, publicação e contagem de contextos (287), metadados de build e disponibilidade pública.
+- [ ] E1.2 Identificar `publication_id` da RM de Jundiaí e validar o contexto de universo e os arquivos municipais com os scripts já versionados.
+- [ ] E1.3 Produzir o caderno-piloto com síntese regional, receitas, despesas, território, dívida, liquidez, CAPAG e fichas municipais, somente onde houver valores observados.
+- [ ] E1.4 Conferir cada afirmação quantitativa contra os JSONs e documentar cobertura, período, fontes, versões e lacunas.
+- [ ] E1.5 Revisar metodologia e redação; arquivar manifesto e SHA-256; decidir sobre aprovação editorial.
+- [ ] E2 Congelar o modelo aprovado e expandir aos outros dez universos.
+
+Contrato, metodologia e aceite: `governance/EDITORIAL_PILOT_PLAN_2026_10_14.md`. Nenhuma publicação editorial foi autorizada automaticamente por esta atualização.

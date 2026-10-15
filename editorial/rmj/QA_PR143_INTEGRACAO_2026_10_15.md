@@ -26,3 +26,11 @@ Não realizar coleta maciça ou inferência de dados sem necessidade documentada
 
 ## Situação em 2026-10-15
 PR mantido em rascunho, pendências acima abertas. A incorporação dos PRs #166 e #167 não altera por si a prova de conciliação editorial.
+
+## Evidência adicional recuperada e examinada
+
+O artifact GitHub Actions `11680818755`, gerado no run `38083298057`, foi recuperado e auditado. O ZIP tem SHA-256 `3c7d59fdc6fe570d93af0f26ae4bbf0176dc24858f13fd8da5305f8bc0fd48c7`. Contém 14 JSONs municipais de 2023–2024, logs, manifesto e `qa_summary.json` com 14 extrações bem-sucedidas e zero erros. O controle original declara `pendentes_conciliacao_dca=14`.
+
+A auditoria independente dos JSONs confirmou 14/14 equivalências exatas, em centavos, com **a coluna TCESP** de `editorial/rmj/conciliacao_tcesp_dca_2023_2024.csv`, além do fechamento dos totais de programa e ação do grupo 44 liquidado e presença de hashes ZIP nos 14 extratos. **Não foi feita leitura independente do arquivo canônico DCA para validar a coluna DCA da tabela.** Logo, a expressão `CONCILIADO` da tabela ainda requer comprovação dessa segunda fonte. Este achado substitui a suspeita inicial de ausência dos extratos, mas não aprova a conciliação interfontes.
+
+Não é necessária nova extração TCESP para esses 14 casos: os dados primários da extração já estão preservados no artifact. Nova coleta só se justifica após demonstrar lacuna/retificação ou discrepância em fonte primária.

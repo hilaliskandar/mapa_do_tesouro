@@ -31,6 +31,8 @@ const path = require('node:path');
       await page.locator('#serie').selectOption('3525904');
       await page.locator('#sintese-cidade').selectOption('3508405');
       await page.locator('#constantes').click();
+      await page.locator('#narrativa-cidade').selectOption('3525904');
+      await page.locator('#narrativa-cidade').selectOption('3527306');
       await page.locator('#evolucao-cidade').selectOption('3525904');
       await page.locator('#evolucao-cidade').selectOption('REGIAO');
       await page.locator('#comparativo-ano').selectOption('2024');
@@ -45,6 +47,7 @@ const path = require('node:path');
         crossRows:document.querySelectorAll('#cr-table tbody tr').length,
         comparisonRows:document.querySelectorAll('#comparativo-table tbody tr').length,
         evolutionRows:document.querySelectorAll('#evolucao-table tbody tr').length,
+        narrativeLength:document.querySelector('#narrativa-fiscal')?.textContent?.length || 0,
         crossText:document.querySelector('#cr-texto')?.textContent?.length || 0,
         trendRows:document.querySelectorAll('#tr-table tbody tr').length,
         trendText:document.querySelector('#tr-analysis')?.textContent?.length || 0,
@@ -61,6 +64,7 @@ const path = require('node:path');
       assert.equal(observations.crossRows,8);
       assert.equal(observations.comparisonRows,8);
       assert.equal(observations.evolutionRows,4);
+      assert(observations.narrativeLength>350);
       assert(observations.crossText>150);
       assert.equal(observations.trendRows,5);
       assert(observations.trendText>150);

@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Testar regras editoriais sem rede
+        run: python editorial/multiuniverso/test_regras_editoriais.py
       - name: Recuperar contextos e construir dez boletins
         run: |
           python editorial/multiuniverso/build_boletins.py --out build/editorial-universes

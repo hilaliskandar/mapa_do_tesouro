@@ -1,0 +1,38 @@
+name: Gerar boletins dos universos editoriais
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'editorial/multiuniverso/**'
+      - '.github/workflows/build-editorial-universes.yml'
+permissions:
+  contents: read
+jobs:
+  gerar-boletins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recuperar contextos e construir dez boletins
+        run: |
+          python editorial/multiuniverso/build_boletins.py --out build/editorial-universes
+      - name: Conferir resultados
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("build/editorial-universes")
+          m=json.loads((p/"manifest.json").read_text())
+          assert len(m["editions"]) == 10
+          assert len({x["publication_id"] for x in m["editions"]})==10
+          for item in m["editions"]:
+              assert (p/item["publication_id"]/"index.html").stat().st_size>300
+          print("10 boletins produzidos; publicacao nao executada")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boletins-dez-universos
+          path: build/editorial-universes/
+          retention-days: 30

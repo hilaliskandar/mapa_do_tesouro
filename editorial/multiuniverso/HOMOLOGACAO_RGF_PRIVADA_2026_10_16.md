@@ -1,6 +1,6 @@
 # Homologação RGF Gate E versus API editorial privada — 16/10/2026
 
-O confronto agora usa somente a API reconstruída privada proveniente da execução `38905063653`, cujo relatório de integração registra `changed=3068` e `reclassified_absent=802`. A fonte histórica é o CSV Gate E validado, SHA-256 `7faef8188fd56bff6bb8031dfe3a8eeec11fe56e67f986bdc0007aee7646eeb` (a verificação de SHA efetiva é feita pelo workflow; conferir valor completo no código do workflow).
+O confronto agora usa somente a API reconstruída privada proveniente da execução `38905063653`, cujo relatório de integração registra `changed=3068` e `reclassified_absent=802`. A fonte histórica é o CSV Gate E validado, SHA-256 `7faef8188fd56bff6bb8031dfe3a8eeec11fe56e67f986bdc0007a4ee7646eeb` (a verificação de SHA efetiva é feita pelo workflow; conferir valor completo no código do workflow).
 
 A auditoria `38906383979` terminou com conclusão **success**. Artefato `qa-rgf-gate-e-api-e2`, ID `12047529149`. O relatório `qa_rgf_api_e2.json` apresenta:
 - 2.742 comparações entre dois valores numéricos na mesma escala;

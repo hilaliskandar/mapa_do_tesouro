@@ -5,6 +5,7 @@ on:
       - '.github/workflows/e2-isolated-preview.yml'
       - 'editorial/multiuniverso/build_private_preview_bundle.py'
       - 'editorial/multiuniverso/qa_http_preview.py'
+      - 'editorial/multiuniverso/qa_http_all_editorial.py'
 permissions:
   contents: read
   actions: read
@@ -55,6 +56,18 @@ jobs:
         with:
           name: qa-http-preview-e2
           path: build/e2-preview-http/resultado.json
+          if-no-files-found: warn
+      - name: Conferir HTTP e SHA dos dez boletins e 280 fichas
+        run: |
+          python editorial/multiuniverso/qa_http_all_editorial.py \
+            --bundle build/e2-preview \
+            --out build/e2-preview-http/all-editorial.json
+      - name: Preservar auditoria integral de acesso externo
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-http-all-editorial-e2
+          path: build/e2-preview-http/all-editorial.json
           if-no-files-found: warn
       - name: Registrar links de revisao
         run: |

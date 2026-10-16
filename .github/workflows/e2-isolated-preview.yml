@@ -48,8 +48,8 @@ jobs:
         run: |
           BASE="https://financas-e2-homologacao.pages.dev"
           python - <<'PY'
-          import json,urllib.request,time
-          root="https://revision-e2-20261016.financas-e2-homologacao.pages.dev"
+          import json,urllib.request,urllib.error,time
+          root="https://financas-e2-homologacao.pages.dev"
           paths=[
            "/data/api/v1/publication/universes.json",
            "/publicacoes/RM_SAO_PAULO/index.html",
@@ -64,7 +64,10 @@ jobs:
               elif b"<html" not in raw.lower():raise ValueError("HTML invalido")
               print(path,response.status,len(raw))
               break
-            except Exception:
+            except Exception as exc:
+             if isinstance(exc,urllib.error.HTTPError):
+              print("HTTP failure",root+path,exc.code,dict(exc.headers),exc.read(400).decode("utf-8","replace"),flush=True)
+             else:print("Request failure",root+path,repr(exc),flush=True)
              if attempt==5:raise
              time.sleep(10)
           PY

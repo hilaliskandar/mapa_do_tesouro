@@ -44,6 +44,30 @@ jobs:
             --project-name financas-e2-homologacao \
             --branch revision-e2-20261016 \
             --commit-hash "$GITHUB_SHA"
+      - name: Verificar resposta HTTP da API e de paginas publicadas
+        run: |
+          BASE="https://revision-e2-20261016.financas-e2-homologacao.pages.dev"
+          python - <<'PY'
+          import json,urllib.request,time
+          root="https://revision-e2-20261016.financas-e2-homologacao.pages.dev"
+          paths=[
+           "/data/api/v1/publication/universes.json",
+           "/publicacoes/RM_SAO_PAULO/index.html",
+          ]
+          for path in paths:
+           for attempt in range(6):
+            try:
+             with urllib.request.urlopen(root+path,timeout=30) as response:
+              raw=response.read()
+              if response.status!=200 or not raw:raise ValueError("Resposta vazia ou invalida")
+              if path.endswith(".json"):json.loads(raw)
+              elif b"<html" not in raw.lower():raise ValueError("HTML invalido")
+              print(path,response.status,len(raw))
+              break
+            except Exception:
+             if attempt==5:raise
+             time.sleep(10)
+          PY
       - name: Registrar links de revisao
         run: |
           echo "Projeto exclusivo: https://financas-e2-homologacao.pages.dev/" >> "$GITHUB_STEP_SUMMARY"

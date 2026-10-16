@@ -115,12 +115,15 @@ def generate(payload, source_url):
         unit=md.get("unidade") or md.get("unit") or ""
         label=md.get("nome") or md.get("label") or md.get("name") or key
         row=f"<tr><th scope='row'>{esc(label)}</th><td>{esc(shown(median,unit))}</td><td>{esc(shown(q1,unit))}</td><td>{esc(shown(q3,unit))}</td><td>{esc(observed)}/{esc(expected)}</td><td>{esc(unit)}</td></tr>"
-        items[group_for(key,md)].append(row)
+        editorial_group=(variables.get(key,{}) if isinstance(variables,dict) else {}).get("editorial_group")
+        thematic=group_for(key,md)
+        items[thematic].append(row)
         checks.append((key,observed,expected,median,q1,q3))
         if isinstance(median,(int,float)) and isinstance(q1,(int,float)) and isinstance(q3,(int,float)) and observed is not None and expected is not None:
             nobs,nexp=int(observed),int(expected)
             if nexp==count and nobs==count and nobs>=4 and q1<=median<=q3:
-                narratives.append((group_for(key,md),str(label),shown(median,unit),shown(q1,unit),shown(q3,unit),nobs,nexp))
+                if thematic!="Outros indicadores" and unit in ("percentual","BRL","R$","reais","moeda","numero","habitantes"):
+                    narratives.append((thematic,str(label),shown(median,unit),shown(q1,unit),shown(q3,unit),nobs,nexp))
         obj=variables.get(key,{}) if isinstance(variables,dict) else {}
         yearly=obj.get("yearly") or []
         if isinstance(yearly,dict):
@@ -145,10 +148,10 @@ def generate(payload, source_url):
         for group in GROUPS:
             candidates=[x for x in narratives if x[0]==group]
             if not candidates:continue
-            examples=candidates[:3]
+            examples=sorted(candidates,key=lambda x:x[1].casefold())[:3]
             details=" ".join("Para "+esc(x[1])+", a mediana foi "+esc(x[2])+"; a metade central dos municípios ficou entre "+esc(x[3])+" e "+esc(x[4])+"." for x in examples)
             paragraphs.append("<p><strong>"+esc(group)+":</strong> "+details+"</p>")
-        interpret="<section><h2>Síntese comparativa das contas com cobertura integral</h2><p>As estatísticas a seguir descrevem a distribuição entre os municípios; não autorizam avaliações de desempenho nem explicações causais. Variáveis com observação incompleta foram deliberadamente excluídas desta síntese, mas permanecem nas tabelas com suas coberturas.</p>"+"".join(paragraphs)+"</section>"
+        interpret="<section><h2>Síntese comparativa das contas com cobertura integral</h2><p>A seleção de até três contas por tema é ilustrativa e segue a ordem alfabética dos rótulos, não uma hierarquia de relevância. As estatísticas descrevem a distribuição entre os municípios; não autorizam avaliações de desempenho nem explicações causais. Variáveis com observação incompleta foram deliberadamente excluídas desta síntese, mas permanecem nas tabelas com suas coberturas.</p>"+"".join(paragraphs)+"</section>"
     else:
         interpret="<section><h2>Síntese comparativa</h2><p>Não há variáveis numéricas com cobertura integral e quartis suficientes para produzir síntese automática defensável. Consultar a cobertura variável a variável nas tabelas.</p></section>"
     historic=""

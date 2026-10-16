@@ -45,12 +45,6 @@ def fmt(v):
         return f"{v:,.2f}".replace(",","X").replace(".",",").replace("X",".")
     return str(v)
 
-def group_for(k, metadata):
-    st=(" ".join((str(k),str(metadata.get("nome","")),str(metadata.get("label","")),str(metadata.get("name",""))))).lower()
-    for pattern,name in LABELS.items():
-        if pattern in st:return name
-    return "Outros indicadores"
-
 def shown(v,unit):
     if v is None:return "Não disponível"
     if unit=="percentual" and isinstance(v,(int,float)):

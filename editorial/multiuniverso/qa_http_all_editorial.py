@@ -10,7 +10,7 @@ def main():
  p.add_argument("--out",type=Path,required=True)
  a=p.parse_args()
  m=json.loads((a.bundle/"publicacoes/manifest.json").read_text(encoding="utf-8"))
- routes=["/data/api/v1/publication/universes.json"]
+ routes=["/index.html","/data/api/v1/publication/universes.json"]
  for e in m["editions"]:
   routes.append(f'/publicacoes/{e["publication_id"]}/index.html')
  for entry in m["municipal_profiles"]:

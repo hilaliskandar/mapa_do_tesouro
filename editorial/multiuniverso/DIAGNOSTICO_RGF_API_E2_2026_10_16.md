@@ -12,3 +12,15 @@ As regras de exibição dos boletins e fichas foram corrigidas no ramo: indicado
 Não declarar homologação externa RGF. Exigir a resolução das ausências históricas município–ano–campo, verificando se correspondem a lacuna na exportação da API, escopo de indicadores ou material de origem. CAPAG permanece condicionado à comparação com a planilha oficial da posição de setembro/2026, preservando `n/d` como categoria oficial. RREO permanece pendente de arquivo-fonte do anexo e período correspondentes.
 
 A checagem DCA independente já aprovada permanece válida apenas para os 68 cotejos efetuados; não valida, por consequência, RGF, RREO ou CAPAG. O PR #198 segue bloqueado para publicação.
+
+## Reexecução tipificada após correção de escala
+
+Execução [38898420526](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/38898420526), commit `63f4396cf3c8a05a31a82497870774c6d77a9352`. Relatório diagnóstico artefato `12045301229` (`qa_rgf_api_e2.json`).
+
+- 1.371 comparações entre dois valores numéricos: **zero divergências após normalizar a escala**.
+- 1.371 conflitos de disponibilidade: todos identificados como `status_nao_aplicavel` na API editorial, apesar de haver número no candidato RGF validado.
+- Distribuição das ocorrências de estado: despesa total com pessoal 465; dívida consolidada líquida 465; dívida consolidada 441.
+- Não houve nenhum caso nas categorias `year_absent`, `null_value` e `variable_not_exported` entre os conflitos assinalados.
+- Os totais contam ocorrências por universo × município × ano × variável; municípios sobrepostos são repetidos entre universos. Não interpretar como número de municípios únicos.
+
+**Decisão:** manter `strict_pass=false` e o bloqueio de publicação. A existência dos valores na referência aprovada não autoriza sobrescrever automaticamente os registros `nao_aplicavel` da API. Deve-se investigar na camada de ingestão, harmonização e exportação o motivo e a proveniência dessa atribuição de status. Depois, refazer a integração a partir do banco canônico e executar novamente a paridade, respeitando os arquivos oficiais e o controle de versões.

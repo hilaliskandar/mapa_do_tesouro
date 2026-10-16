@@ -66,7 +66,10 @@ jobs:
               break
             except Exception as exc:
              if isinstance(exc,urllib.error.HTTPError):
-              print("HTTP failure",root+path,exc.code,dict(exc.headers),exc.read(400).decode("utf-8","replace"),flush=True)
+              body=exc.read(400).decode("utf-8","replace")
+              print("HTTP failure",root+path,exc.code,dict(exc.headers),body,flush=True)
+              if exc.code==403 and "error code: 1010" in body.lower():
+               raise SystemExit("Cloudflare 1010: cliente CI bloqueado; nao inferir falha dos artefatos nem acesso humano") from exc
              else:print("Request failure",root+path,repr(exc),flush=True)
              if attempt==5:raise
              time.sleep(10)

@@ -18,7 +18,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Testar regras editoriais sem rede
-        run: python editorial/multiuniverso/test_regras_editoriais.py
+        run: |
+          python editorial/multiuniverso/test_regras_editoriais.py
+          python editorial/multiuniverso/test_graficos_municipais.py
       - name: Recuperar API corrigida do build privado aprovado
         env:
           GH_TOKEN: ${{ github.token }}

@@ -97,6 +97,7 @@ def generate(payload, source_url):
     if count!=len(members):raise ValueError(f"{uid}: membros {len(members)} != member_count {count}")
     items={g:[] for g in GROUPS}
     history=[]
+    narratives=[]
     variables=payload.get("variables") or {}
     for key,md,latest in year_values(payload):
         coverage=latest.get("coverage") if isinstance(latest.get("coverage"),dict) else {}
@@ -114,6 +115,10 @@ def generate(payload, source_url):
         label=md.get("nome") or md.get("label") or md.get("name") or key
         row=f"<tr><th scope='row'>{esc(label)}</th><td>{esc(shown(median,unit))}</td><td>{esc(shown(q1,unit))}</td><td>{esc(shown(q3,unit))}</td><td>{esc(observed)}/{esc(expected)}</td><td>{esc(unit)}</td></tr>"
         items[group_for(key,md)].append(row)
+        if isinstance(median,(int,float)) and isinstance(q1,(int,float)) and isinstance(q3,(int,float)) and observed is not None and expected is not None:
+            nobs,nexp=int(observed),int(expected)
+            if nexp>0 and nobs==nexp and nobs>=4:
+                narratives.append((group_for(key,md),str(label),shown(median,unit),shown(q1,unit),shown(q3,unit),nobs,nexp))
         obj=variables.get(key,{}) if isinstance(variables,dict) else {}
         yearly=obj.get("yearly") or []
         if isinstance(yearly,dict):
@@ -130,6 +135,18 @@ def generate(payload, source_url):
     for g in GROUPS:
         if items[g]:
             sections.append(f"<section><h2>{esc(g)}</h2><div class='scroll'><table><thead><tr><th>Conta ou indicador</th><th>Mediana</th><th>Q1</th><th>Q3</th><th>Cobertura</th><th>Unidade</th></tr></thead><tbody>{''.join(items[g])}</tbody></table></div></section>")
+    interpret=""
+    if narratives:
+        paragraphs=[]
+        for group in GROUPS:
+            candidates=[x for x in narratives if x[0]==group]
+            if not candidates:continue
+            examples=candidates[:3]
+            details=" ".join("Para "+esc(x[1])+", a mediana foi "+esc(x[2])+"; a metade central dos municípios ficou entre "+esc(x[3])+" e "+esc(x[4])+"." for x in examples)
+            paragraphs.append("<p><strong>"+esc(group)+":</strong> "+details+"</p>")
+        interpret="<section><h2>Síntese comparativa das contas com cobertura integral</h2><p>As estatísticas a seguir descrevem a distribuição entre os municípios; não autorizam avaliações de desempenho nem explicações causais. Variáveis com observação incompleta foram deliberadamente excluídas desta síntese, mas permanecem nas tabelas com suas coberturas.</p>"+"".join(paragraphs)+"</section>"
+    else:
+        interpret="<section><h2>Síntese comparativa</h2><p>Não há variáveis numéricas com cobertura integral e quartis suficientes para produzir síntese automática defensável. Consultar a cobertura variável a variável nas tabelas.</p></section>"
     historic=""
     if history:
         rows="".join("<tr><td>"+esc(y)+"</td><th scope='row'>"+esc(label)+"</th><td>"+esc(v)+"</td><td>"+esc(obs)+"/"+esc(exp)+"</td><td>"+esc(unit)+"</td></tr>" for y,label,v,obs,exp,unit in sorted(history,key=lambda z:(z[1],z[0])))
@@ -137,12 +154,13 @@ def generate(payload, source_url):
     municipal=", ".join(esc(m.get("nome") or m.get("name") or m.get("municipio") or m.get("codigo_ibge") or m) if isinstance(m,dict) else esc(m) for m in members)
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finanças municipais — {esc(title)}</title>
 <style>body{{font:16px/1.55 system-ui,Arial,sans-serif;max-width:1120px;margin:auto;padding:30px;color:#1a2934;background:#f8fafc}}header,section{{background:white;padding:24px;margin:18px 0;border:1px solid #e0e6ea;border-radius:12px}}h1{{line-height:1.2}}h2{{font-size:1.25rem}}table{{border-collapse:collapse;width:100%;font-size:.9rem}}td,th{{padding:10px;border-bottom:1px solid #e3e8ed;text-align:left}}td{{white-space:nowrap}}.scroll{{overflow-x:auto}}a{{color:#145d8a}}small{{color:#52606d}}</style></head>
-<body><header><p>Finanças municipais • Edição de referência</p><h1>{esc(title)}</h1><p>Panorama e diferenças fiscais entre {count} municípios. Valores e distribuições conforme disponibilidade das declarações oficiais.</p><p><small>Exercício mais recente do contexto: {esc(payload.get('latest_year','não informado'))}</small></p></header>
+<body><nav aria-label="Navegação do boletim"><a href="#fichas">Fichas municipais</a> · <a href="#metodo">Metodologia</a></nav><header><p>Finanças municipais • Edição de referência</p><h1>{esc(title)}</h1><p>Panorama e diferenças fiscais entre {count} municípios. Valores e distribuições conforme disponibilidade das declarações oficiais.</p><p><small>Exercício mais recente do contexto: {esc(payload.get('latest_year','não informado'))}</small></p></header>
 <section><h2>Como interpretar</h2><p>Mediana é o valor central dos municípios com observação. Indicadores percentuais, armazenados como razões decimais, são exibidos multiplicados por 100. Q1 e Q3 delimitam a metade central da distribuição. A cobertura indica quantos municípios possuem dados válidos para cada conta ou indicador. Ausência não significa zero. Diferenças contábeis não demonstram, por si, qualidade de gestão, causalidade ou resultados físicos.</p></section>
+{interpret}
 {''.join(sections)}
 {historic}
-<section><h2>Municípios integrantes</h2><p>{municipal}</p></section>
-<section><h2>Fontes e metodologia</h2><p>Base estadual FINBRA/Siconfi e demonstrativos complementares identificados no catálogo oficial do projeto. Indicadores legais seguem a fonte própria. Os valores não devem ser somados quando a cobertura for incompleta. A presente edição apresenta estatísticas municipais do contexto; não substitui os demonstrativos fiscais oficiais.</p><p><a href="{esc(source_url)}">Consultar contexto fiscal e metadados de origem</a></p></section></body></html>"""
+<section id="fichas"><h2>Municípios integrantes</h2><p>{municipal}</p></section>
+<section id="metodo"><h2>Fontes e metodologia</h2><p>Base estadual FINBRA/Siconfi e demonstrativos complementares identificados no catálogo oficial do projeto. Indicadores legais seguem a fonte própria. Os valores não devem ser somados quando a cobertura for incompleta. A presente edição apresenta estatísticas municipais do contexto; não substitui os demonstrativos fiscais oficiais.</p><p><a href="{esc(source_url)}">Consultar contexto fiscal e metadados de origem</a></p></section></body></html>"""
 
 def main():
     p=argparse.ArgumentParser()

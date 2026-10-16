@@ -49,6 +49,11 @@ jobs:
             --project-name financas-e2-homologacao \
             --branch agregados-e2 \
             --commit-hash "$GITHUB_SHA"
+      - name: Inventariar cobertura efetiva das decomposicoes
+        run: |
+          python editorial/multiuniverso/qa_cobertura_agregados.py \
+            --root build/e2-charts \
+            --out build/e2-charts-qa/cobertura-agregados.json
       - name: Auditar resposta HTTP e SHA no endereco de graficos
         run: |
           python editorial/multiuniverso/qa_http_all_editorial.py \

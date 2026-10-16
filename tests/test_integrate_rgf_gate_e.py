@@ -35,8 +35,25 @@ class GateERGFIntegrationTest(unittest.TestCase):
             result=integrate(self.database,self.reference,self.report)
         self.assertEqual(result["reference_rows"],1290)
         self.assertEqual(result["changed"],3870)
+        self.assertEqual(result["reclassified_absent"],0)
         with sqlite3.connect(self.database) as con:
             self.assertEqual(con.execute("SELECT COUNT(*) FROM observacao WHERE status='observado'").fetchone()[0],3870)
+
+    def test_empty_reference_becomes_absent_without_imputation(self):
+        # A referencia sem valor representa ausencia de observacao, nao
+        # evidencia de inaplicabilidade da conta RGF no exercicio.
+        rows=list(csv.DictReader(self.reference.open(encoding="utf-8",newline="")))
+        rows[0]["rgf_despesa_total_pessoal"]=""
+        with self.reference.open("w",encoding="utf-8",newline="") as h:
+            w=csv.DictWriter(h,fieldnames=["cod_ibge","ano",*FIELDS])
+            w.writeheader();w.writerows(rows)
+        pin=hashlib.sha256(self.reference.read_bytes()).hexdigest()
+        with patch("pipeline.build.integrate_rgf_gate_e.PIN",pin):
+            result=integrate(self.database,self.reference,self.report)
+        self.assertEqual(result["changed"],3869)
+        self.assertEqual(result["reclassified_absent"],1)
+        with sqlite3.connect(self.database) as db:
+            self.assertEqual(db.execute("SELECT status,valor_num FROM observacao WHERE codigo_ibge='3500000' AND ano=2023 AND variavel_id='rgf_despesa_total_pessoal'").fetchone(),("ausente",None))
 
     def test_reject_hash_mismatch_without_writes(self):
         with self.assertRaisesRegex(ValueError,"SHA Gate E"):

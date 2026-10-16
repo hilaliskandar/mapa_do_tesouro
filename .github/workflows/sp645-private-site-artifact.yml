@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - "pipeline/build/integrate_rgf_gate_e.py"
+      - "pipeline/qa/audit_capag_official_distribution.py"
       - "pipeline/build/build_sp645_private_site.py"
       - "tests/test_integrate_rgf_gate_e.py"
       - ".github/workflows/sp645-private-site-artifact.yml"
@@ -356,6 +357,12 @@ jobs:
             --database build/sp645_private.sqlite \
             --output build/qa_percentage_provenance.json
 
+      - name: Conferir distribuicao CAPAG oficial setembro 2026
+        run: |
+          python -m pipeline.qa.audit_capag_official_distribution \
+            --database build/sp645_private.sqlite \
+            --output build/qa_capag_official_distribution.json
+
       - name: Upload private SP645 site artifact
         uses: actions/upload-artifact@v4
         with:
@@ -369,6 +376,7 @@ jobs:
             build/qa_percentage_scale_parity.json
             build/qa_derived_ratio_parity.json
             build/qa_percentage_provenance.json
+            build/qa_capag_official_distribution.json
             build/qa_rgf_gate_e_integration.json
           if-no-files-found: error
           retention-days: 14

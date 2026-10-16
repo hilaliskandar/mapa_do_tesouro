@@ -31,3 +31,11 @@ As aprovações referem-se a resultados da etapa candidata, não a uma liberaç�
 O workflow `.github/workflows/audit-capag-official-components-private.yml` foi criado no branch do PR. Recebe uma **chave R2 privada explicitamente informada** no disparo manual, baixa a planilha CAPAG com o SHA-256 oficial obrigatório, recupera o SQLite do build privado `38905063653`, compara os três indicadores para os 645 códigos IBGE e retém somente o relatório de auditoria. Não armazena o XLSX no artefato de saída; não publica qualquer página. O caminho R2 não foi inventado: deve ser preenchido apenas após cópia segura e verificação da existência do objeto no armazenamento privado.
 
 **Gate não executado:** não há evidência de que o XLSX já exista no R2 privado, nem de uma execução desse novo workflow. A paridade real CAPAG foi aprovada por execução direta anterior; o workflow encontra-se preparado para reexecução autenticada, não homologado como automatização completa.
+
+## Ponte CAPAG Google Drive para R2 — 16/10/2026
+- Consultado o inventário real do bucket privado `financas-municipais-sp-canonico`, prefixo `sp_645/official_snapshots/capag/2026-09/`: **sem objeto**.
+- Criada a rotina de carga local idempotente `deployment/upload_official_capag_snapshot.py`, que valida primeiro o SHA do arquivo original (`1b1379a5a531920223f1d448be155b70f51eb50180d8c819f1b7da3575a8eb11`), consulta existência, proíbe sobrescrita divergente, transmite em canal autenticado e valida novamente a leitura do R2.
+- Caminho definido: `sp_645/official_snapshots/capag/2026-09/capag-municipios-posicao-2026-set.xlsx`, preenchido como padrão na auditoria manual `.github/workflows/audit-capag-official-components-private.yml`.
+- Adicionado teste para rejeitar entrada adulterada **antes de qualquer solicitação de rede**; Core CI `38929681875` aprovado.
+- **Pendente real:** o XLSX oficial foi acessado via Drive, mas não foi transmitido ao R2. O conector autenticado Cloudflare disponível não recebe automaticamente bytes do conector Drive, e a API de upload exige o conteúdo binário. Não considerar a transferência realizada. Execução da auditoria recorrente segue bloqueada até que o arquivo seja transmitido por um processo com acesso autenticado aos dois lados.
+- Produção, URLs públicas, portal estadual e RMJ permanecem intactos.

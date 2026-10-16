@@ -83,7 +83,7 @@ def main():
             all_profiles.append({"publication_id":uid,"codigo_ibge":code,"source_sha256":sha,"html_sha256":hashlib.sha256(page.encode("utf-8")).hexdigest()})
         index_file=folder/"index.html"
         index_html=index_file.read_text(encoding="utf-8")
-        marker="<section><h2>Municípios integrantes</h2>"
+        marker='<section id="fichas"><h2>Municípios integrantes</h2>'
         if marker not in index_html:raise ValueError(f"{uid}: estrutura do boletim alterada")
         added=f"<section><h2>Fichas municipais</h2><p>As fichas apresentam valores individuais, medianas do respectivo grupo, situação da informação e séries disponíveis.</p><ul>{''.join(links)}</ul></section>"
         new_html=index_html.replace(marker,added+marker,1)

@@ -185,6 +185,20 @@ def main():
         ctx,ch=fetch(url)
         if ctx.get("publication_id") != uid:raise ValueError(f"{uid}: context nao corresponde ao indice")
         folder=out/uid;folder.mkdir(exist_ok=True)
+        dictionary=[]
+        for variable_id,detail in (ctx.get("variables") or {}).items():
+            meta=detail.get("metadata") or {}
+            dictionary.append({
+                "variavel_id":variable_id,
+                "nome":meta.get("nome"),
+                "unidade":meta.get("unidade"),
+                "editorial_group":detail.get("editorial_group"),
+                "fonte_id":meta.get("fonte_id"),
+                "descricao":meta.get("descricao"),
+                "formula":meta.get("formula"),
+                "metadados_originais":meta,
+            })
+        (folder/"dicionario.json").write_text(json.dumps(dictionary,ensure_ascii=False,indent=2),encoding="utf-8")
         page=generate(ctx,url)
         (folder/"index.html").write_text(page,encoding="utf-8")
         records.append({"publication_id":uid,"name":ctx.get("name"),"member_count":ctx["member_count"],"context_sha256":ch,"html_sha256":hashlib.sha256(page.encode()).hexdigest(),"source":url})

@@ -10,26 +10,22 @@ import urllib.request
 
 BASE = "https://finbra-tic-tim-referencia.pages.dev/data/api/v1"
 EXCLUDE = {"RM_JUNDIAI"}
-LABELS = {
-    "receit": "Receitas e autonomia",
-    "tribut": "Receitas e autonomia",
-    "iptu": "Receitas e autonomia",
-    "itbi": "Receitas e autonomia",
-    "iss": "Receitas e autonomia",
-    "transfer": "Receitas e autonomia",
-    "despes": "Despesas e investimentos",
-    "invest": "Despesas e investimentos",
-    "urban": "Territorio",
-    "habit": "Territorio",
-    "sane": "Territorio",
-    "ambient": "Territorio",
-    "transport": "Territorio",
-    "divid": "Divida, liquidez e CAPAG",
-    "liquid": "Divida, liquidez e CAPAG",
-    "caixa": "Divida, liquidez e CAPAG",
-    "capag": "Divida, liquidez e CAPAG",
+GROUP_NAMES = {
+    "receitas": "Receitas e autonomia",
+    "despesas": "Despesas e investimentos",
+    "territorio": "Território",
+    "divida_liquidez": "Dívida, liquidez e CAPAG",
+    "capag": "Dívida, liquidez e CAPAG",
 }
-GROUPS = ["Receitas e autonomia","Despesas e investimentos","Territorio","Divida, liquidez e CAPAG","Outros indicadores"]
+GROUPS = list(dict.fromkeys(GROUP_NAMES.values())) + ["Outros indicadores"]
+
+def group_for(key, metadata, context=None):
+    # Somente os grupos explícitos da API. Sem heurística por texto.
+    context=context or {}
+    group=context.get("editorial_group")
+    if group is None:
+        return "Outros indicadores"
+    return GROUP_NAMES.get(str(group).lower(), str(group).replace("_"," ").capitalize())
 
 def fetch(url):
     req=urllib.request.Request(url,headers={"User-Agent":"financas-municipais-editorial-e2/1.0"})
@@ -115,9 +111,8 @@ def generate(payload, source_url):
         unit=md.get("unidade") or md.get("unit") or ""
         label=md.get("nome") or md.get("label") or md.get("name") or key
         row=f"<tr><th scope='row'>{esc(label)}</th><td>{esc(shown(median,unit))}</td><td>{esc(shown(q1,unit))}</td><td>{esc(shown(q3,unit))}</td><td>{esc(observed)}/{esc(expected)}</td><td>{esc(unit)}</td></tr>"
-        editorial_group=(variables.get(key,{}) if isinstance(variables,dict) else {}).get("editorial_group")
-        thematic=group_for(key,md)
-        items[thematic].append(row)
+        thematic=group_for(key,md,variables.get(key,{}) if isinstance(variables,dict) else {})
+        items.setdefault(thematic,[]).append(row)
         checks.append((key,observed,expected,median,q1,q3))
         if isinstance(median,(int,float)) and isinstance(q1,(int,float)) and isinstance(q3,(int,float)) and observed is not None and expected is not None:
             nobs,nexp=int(observed),int(expected)
@@ -139,13 +134,13 @@ def generate(payload, source_url):
     if not any(items.values()):raise ValueError(f"{uid}: contexto sem variaveis aproveitaveis")
     if not any("Não disponível" not in row for group in items.values() for row in group):raise ValueError(f"{uid}: nenhuma estatistica quantitativa extraida")
     sections=[]
-    for g in GROUPS:
+    for g in list(items):
         if items[g]:
             sections.append(f"<section><h2>{esc(g)}</h2><div class='scroll'><table><thead><tr><th>Conta ou indicador</th><th>Mediana</th><th>Q1</th><th>Q3</th><th>Cobertura</th><th>Unidade</th></tr></thead><tbody>{''.join(items[g])}</tbody></table></div></section>")
     interpret=""
     if narratives:
         paragraphs=[]
-        for group in GROUPS:
+        for group in list(items):
             candidates=[x for x in narratives if x[0]==group]
             if not candidates:continue
             examples=sorted(candidates,key=lambda x:x[1].casefold())[:3]

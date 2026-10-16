@@ -1,0 +1,52 @@
+name: CAPAG componentes oficiais - auditoria privada
+on:
+  workflow_dispatch:
+    inputs:
+      source_object_key:
+        description: Chave do XLSX oficial ja carregado no R2 privado
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar dependencias
+        run: pip install openpyxl
+      - name: Recuperar SQLite privado do build aprovado
+        run: |
+          mkdir -p build/capag/private
+          gh run download 38905063653 --repo "$GITHUB_REPOSITORY" --name sp645-private-site-38905063653 --dir build/capag/private
+          test -f build/capag/private/sp645_private.sqlite
+      - name: Recuperar XLSX oficial CAPAG com SHA fixado
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key "${{ inputs.source_object_key }}" \
+            --output build/capag/capag-oficial-2026-09.xlsx \
+            --expected-sha256 1b1379a5a531920223f1d448be155b70f51eb50180d8c819f1b7da3575a8eb11
+      - name: Comparar 1935 componentes por IBGE e status
+        run: |
+          python -m pipeline.qa.audit_capag_official_components \
+            --xlsx build/capag/capag-oficial-2026-09.xlsx \
+            --database build/capag/private/sp645_private.sqlite \
+            --out build/capag/qa_capag_components_official.json
+      - name: Preservar relatorio metodologico
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capag-componentes-auditoria-privada
+          path: build/capag/qa_capag_components_official.json
+          if-no-files-found: warn
+          retention-days: 30

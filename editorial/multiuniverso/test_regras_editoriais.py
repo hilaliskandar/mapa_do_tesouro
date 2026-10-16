@@ -23,9 +23,14 @@ def main():
     assert "Síntese comparativa das contas com cobertura integral" in full
     assert "12,00%" in full and "9,00%" in full and "16,00%" in full
     assert "Evolução das medianas municipais" in full
+    assert "id=\"graficos\"" in full
+    assert "data-indicator=\"investimento_pct\"" in full
+    assert "Cobertura: 4/4" in full
     partial=generate(make_context(observed=3),"https://example.org/context.json")
     assert "Não há variáveis numéricas com cobertura integral" in partial
     assert "Síntese comparativa das contas com cobertura integral" not in partial
+    assert "Cobertura: 3/4" not in partial
+    assert "data-indicator=\"investimento_pct\"" not in partial
     invalid=make_context(expected=5)
     try:
         generate(invalid,"https://example.org/context.json")

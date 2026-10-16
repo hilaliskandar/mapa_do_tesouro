@@ -14,7 +14,9 @@ def make_context(observed=4,expected=4):
     }
 
 def main():
-    assert shown(12.0,"percentual")=="12,00%"
+    assert shown(12.0,"percentual","investimento_pct_receita_corrente")=="12,00%"
+    assert shown(.4099,"percentual","dtp_pct_rcl")=="40,99%"
+    assert shown(.0221,"percentual","dc_pct_rcl")=="2,21%"
     assert shown(0,"percentual")=="0,00%"
     assert shown(None,"percentual")=="Não disponível"
     full=generate(make_context(),"https://example.org/context.json")

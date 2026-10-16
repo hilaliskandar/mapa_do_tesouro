@@ -85,7 +85,11 @@ def main():
         marker="<section><h2>Municípios integrantes</h2>"
         if marker not in index_html:raise ValueError(f"{uid}: estrutura do boletim alterada")
         added=f"<section><h2>Fichas municipais</h2><p>As fichas apresentam valores individuais, medianas do respectivo grupo, situação da informação e séries disponíveis.</p><ul>{''.join(links)}</ul></section>"
-        index_file.write_text(index_html.replace(marker,added+marker,1),encoding="utf-8")
+        new_html=index_html.replace(marker,added+marker,1)
+        index_file.write_text(new_html,encoding="utf-8")
+        for edition in manifest["editions"]:
+            if edition["publication_id"]==uid:
+                edition["html_sha256"]=hashlib.sha256(new_html.encode("utf-8")).hexdigest()
     if len(all_profiles)!=280:raise ValueError(f"Esperadas 280 fichas; produzidas {len(all_profiles)}")
     manifest["municipal_profiles"]=all_profiles
     manifest_path.write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")

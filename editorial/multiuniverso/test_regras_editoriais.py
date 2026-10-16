@@ -8,7 +8,7 @@ def make_context(observed=4,expected=4):
         "publication_id":"TEST_GROUP","name":"Universo de teste","member_count":4,
         "members":[{"nome":f"Município {i}","codigo_ibge":str(3500000+i)} for i in range(4)],
         "latest_year":2025,
-        "variables":{"investimento_pct":{"metadata":{"nome":"Investimento / Receita","unidade":"percentual"},
+        "variables":{"investimento_pct":{"editorial_group":"despesas","metadata":{"nome":"Investimento / Receita","unidade":"percentual"},
             "latest":{"observed":observed,"expected":expected,"numeric":{"median":0.12,"q1":0.09,"q3":0.16}},
             "yearly":[{"year":2025,"observed":observed,"expected":expected,"numeric":{"median":0.12}}]}}
     }

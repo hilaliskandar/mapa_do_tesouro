@@ -60,6 +60,23 @@ jobs:
         run: python editorial/multiuniverso/qa_rastreabilidade.py build/editorial-universes
       - name: Conferir paridade dos valores municipais com o contexto da API
         run: python editorial/multiuniverso/qa_paridade_municipal.py --base "file://$PWD/build/private-source/site-sp645/data/api/v1" --out build/editorial-universes
+      - name: Montar pacote privado autocontido da pré-publicação
+        run: |
+          python editorial/multiuniverso/build_private_preview_bundle.py \
+            --api build/private-source/site-sp645/data/api/v1 \
+            --editorial build/editorial-universes \
+            --output build/prepublicacao-e2
+          python editorial/multiuniverso/qa_artefato.py --out build/prepublicacao-e2/publicacoes
+          python - <<'PY'
+          import json,pathlib
+          r=pathlib.Path("build/prepublicacao-e2")
+          m=json.loads((r/"PREVIEW_MANIFEST.json").read_text())
+          assert m["public_deploy"] is False
+          assert m["bulletins"]==10 and m["municipal_profiles"]==280
+          for f in r.glob("publicacoes/*/municipios/*.html"):
+              assert "href=\"file://" not in f.read_text()
+          print("Pacote privado íntegro, sem deploy")
+          PY
       - name: Instalar navegador de homologação
         run: |
           npm install --no-save playwright@1.56.1
@@ -74,4 +91,9 @@ jobs:
         with:
           name: boletins-dez-universos
           path: build/editorial-universes/
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prepublicacao-e2-api-e-html
+          path: build/prepublicacao-e2/
           retention-days: 30

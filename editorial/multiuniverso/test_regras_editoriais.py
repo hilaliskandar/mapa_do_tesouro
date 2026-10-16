@@ -26,6 +26,13 @@ def main():
     assert "id=\"graficos\"" in full
     assert "data-indicator=\"investimento_pct\"" in full
     assert "Cobertura: 4/4" in full
+    from graficos_regionais import candidates
+    mixed=make_context()
+    mixed["variables"]["investimento_pct"]["yearly"].append({"year":2024,"observed":3,"expected":4,"numeric":{"median":11.0}})
+    assert candidates(mixed)[0]["comparable"] is False
+    complete=make_context()
+    complete["variables"]["investimento_pct"]["yearly"].append({"year":2024,"observed":4,"expected":4,"numeric":{"median":11.0}})
+    assert candidates(complete)[0]["comparable"] is True
     partial=generate(make_context(observed=3),"https://example.org/context.json")
     assert "Não há variáveis numéricas com cobertura integral" in partial
     assert "Síntese comparativa das contas com cobertura integral" not in partial

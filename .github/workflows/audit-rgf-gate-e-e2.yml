@@ -41,7 +41,7 @@ jobs:
       - name: Comparar registros da API privada com candidato aprovado
         run: |
           python editorial/multiuniverso/qa_rgf_gate_e_api.py --candidate build/rgf-e2/ref/rgf_history_2023_2024_corrected.csv --base "file://$PWD/build/rgf-e2/privada/site-sp645/data/api/v1" --out build/rgf-e2/qa_rgf_api_e2.json
-       - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: qa-rgf-gate-e-api-e2

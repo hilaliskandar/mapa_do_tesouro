@@ -98,14 +98,16 @@ def generate(payload, source_url):
         if expected is None:expected=value_for(coverage,"expected","expected_count")
         if observed is not None and expected is not None and int(observed)>int(expected):
             raise ValueError(f"{uid}: cobertura invalida {key}")
-        median=value_for(latest,"median","p50")
-        q1=value_for(latest,"q1","Q1","p25")
-        q3=value_for(latest,"q3","Q3","p75")
-        unit=md.get("unit") or md.get("unidade") or ""
-        label=md.get("label") or md.get("name") or key
+        numeric=latest.get("numeric") or {}
+        median=value_for(numeric,"median","p50")
+        q1=value_for(numeric,"q1","Q1","p25")
+        q3=value_for(numeric,"q3","Q3","p75")
+        unit=md.get("unidade") or md.get("unit") or ""
+        label=md.get("nome") or md.get("label") or md.get("name") or key
         row=f"<tr><th scope='row'>{esc(label)}</th><td>{esc(fmt(median))}</td><td>{esc(fmt(q1))}</td><td>{esc(fmt(q3))}</td><td>{esc(observed)}/{esc(expected)}</td><td>{esc(unit)}</td></tr>"
         items[group_for(key,md)].append(row)
     if not any(items.values()):raise ValueError(f"{uid}: contexto sem variaveis aproveitaveis")
+    if not any("Não disponível" not in row for group in items.values() for row in group):raise ValueError(f"{uid}: nenhuma estatistica quantitativa extraida")
     sections=[]
     for g in GROUPS:
         if items[g]:

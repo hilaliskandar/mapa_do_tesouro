@@ -7,6 +7,7 @@ on:
       - '.github/workflows/build-editorial-universes.yml'
 permissions:
   contents: read
+  actions: read
 jobs:
   gerar-boletins:
     runs-on: ubuntu-latest
@@ -18,10 +19,25 @@ jobs:
           python-version: '3.12'
       - name: Testar regras editoriais sem rede
         run: python editorial/multiuniverso/test_regras_editoriais.py
+      - name: Recuperar API corrigida do build privado aprovado
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/private-source
+          gh run download 38905063653 --repo "$GITHUB_REPOSITORY" --name sp645-private-site-38905063653 --dir build/private-source
+          test -f build/private-source/site-sp645/data/api/v1/publication/universes.json
+          test -f build/private-source/qa_rgf_gate_e_integration.json
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("build/private-source/qa_rgf_gate_e_integration.json")
+          data=json.loads(p.read_text())
+          assert data["changed"]==3068 and data["reclassified_absent"]==802,data
+          print("Base privada verificada:",data["changed"],data["reclassified_absent"])
+          PY
       - name: Recuperar contextos e construir dez boletins
         run: |
-          python editorial/multiuniverso/build_boletins.py --out build/editorial-universes
-          python editorial/multiuniverso/build_fichas.py --out build/editorial-universes
+          python editorial/multiuniverso/build_boletins.py --base "file://$PWD/build/private-source/site-sp645/data/api/v1" --out build/editorial-universes
+          python editorial/multiuniverso/build_fichas.py --base "file://$PWD/build/private-source/site-sp645/data/api/v1" --out build/editorial-universes
       - name: Conferir resultados
         run: |
           python - <<'PY'
@@ -43,7 +59,7 @@ jobs:
       - name: Auditar dependencias e fontes de indicadores derivados
         run: python editorial/multiuniverso/qa_rastreabilidade.py build/editorial-universes
       - name: Conferir paridade dos valores municipais com o contexto da API
-        run: python editorial/multiuniverso/qa_paridade_municipal.py --out build/editorial-universes
+        run: python editorial/multiuniverso/qa_paridade_municipal.py --base "file://$PWD/build/private-source/site-sp645/data/api/v1" --out build/editorial-universes
       - name: Instalar navegador de homologação
         run: |
           npm install --no-save playwright@1.56.1

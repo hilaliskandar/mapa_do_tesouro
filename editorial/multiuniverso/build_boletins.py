@@ -98,6 +98,7 @@ def generate(payload, source_url):
     items={g:[] for g in GROUPS}
     history=[]
     narratives=[]
+    checks=[]
     variables=payload.get("variables") or {}
     for key,md,latest in year_values(payload):
         coverage=latest.get("coverage") if isinstance(latest.get("coverage"),dict) else {}
@@ -105,7 +106,7 @@ def generate(payload, source_url):
         expected=value_for(latest,"expected","expected_count")
         if observed is None:observed=value_for(coverage,"observed","observed_count")
         if expected is None:expected=value_for(coverage,"expected","expected_count")
-        if observed is not None and expected is not None and int(observed)>int(expected):
+        if observed is not None and expected is not None and (int(observed)>int(expected) or int(observed)<0 or int(expected)<0):
             raise ValueError(f"{uid}: cobertura invalida {key}")
         numeric=latest.get("numeric") or {}
         median=value_for(numeric,"median","p50")
@@ -115,9 +116,10 @@ def generate(payload, source_url):
         label=md.get("nome") or md.get("label") or md.get("name") or key
         row=f"<tr><th scope='row'>{esc(label)}</th><td>{esc(shown(median,unit))}</td><td>{esc(shown(q1,unit))}</td><td>{esc(shown(q3,unit))}</td><td>{esc(observed)}/{esc(expected)}</td><td>{esc(unit)}</td></tr>"
         items[group_for(key,md)].append(row)
+        checks.append((key,observed,expected,median,q1,q3))
         if isinstance(median,(int,float)) and isinstance(q1,(int,float)) and isinstance(q3,(int,float)) and observed is not None and expected is not None:
             nobs,nexp=int(observed),int(expected)
-            if nexp>0 and nobs==nexp and nobs>=4:
+            if nexp==count and nobs==count and nobs>=4 and q1<=median<=q3:
                 narratives.append((group_for(key,md),str(label),shown(median,unit),shown(q1,unit),shown(q3,unit),nobs,nexp))
         obj=variables.get(key,{}) if isinstance(variables,dict) else {}
         yearly=obj.get("yearly") or []
@@ -129,6 +131,8 @@ def generate(payload, source_url):
             med=value_for(n,"median","p50")
             if med is None:continue
             history.append((str(y["year"]),str(label),shown(med,unit),str(y.get("observed")),str(y.get("expected")),unit))
+    if any((a is not None and b is not None and (int(a)>int(b) or int(b)!=count)) for _,a,b,_,_,_ in checks):
+        raise ValueError(f"{uid}: denominador de cobertura diferente do universo")
     if not any(items.values()):raise ValueError(f"{uid}: contexto sem variaveis aproveitaveis")
     if not any("Não disponível" not in row for group in items.values() for row in group):raise ValueError(f"{uid}: nenhuma estatistica quantitativa extraida")
     sections=[]
@@ -153,7 +157,7 @@ def generate(payload, source_url):
         historic="<section><h2>Evolução das medianas municipais</h2><p>Os valores centrais consideram somente os municípios observados em cada ano; diferenças de cobertura podem afetar comparações.</p><div class='scroll'><table><thead><tr><th>Ano</th><th>Conta ou indicador</th><th>Mediana</th><th>Cobertura</th><th>Unidade</th></tr></thead><tbody>"+rows+"</tbody></table></div></section>"
     municipal=", ".join(esc(m.get("nome") or m.get("name") or m.get("municipio") or m.get("codigo_ibge") or m) if isinstance(m,dict) else esc(m) for m in members)
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finanças municipais — {esc(title)}</title>
-<style>body{{font:16px/1.55 system-ui,Arial,sans-serif;max-width:1120px;margin:auto;padding:30px;color:#1a2934;background:#f8fafc}}header,section{{background:white;padding:24px;margin:18px 0;border:1px solid #e0e6ea;border-radius:12px}}h1{{line-height:1.2}}h2{{font-size:1.25rem}}table{{border-collapse:collapse;width:100%;font-size:.9rem}}td,th{{padding:10px;border-bottom:1px solid #e3e8ed;text-align:left}}td{{white-space:nowrap}}.scroll{{overflow-x:auto}}a{{color:#145d8a}}small{{color:#52606d}}</style></head>
+<style>body{{font:16px/1.55 system-ui,Arial,sans-serif;max-width:1120px;margin:auto;padding:30px;color:#1a2934;background:#f8fafc}}header,section{{background:white;padding:24px;margin:18px 0;border:1px solid #e0e6ea;border-radius:12px}}h1{{line-height:1.2}}h2{{font-size:1.25rem}}table{{border-collapse:collapse;width:100%;font-size:.9rem}}td,th{{padding:10px;border-bottom:1px solid #e3e8ed;text-align:left}}td{{white-space:nowrap}}.scroll{{overflow-x:auto}}a{{color:#145d8a}}small{{color:#52606d}}nav{{display:flex;gap:18px;flex-wrap:wrap}}a:focus-visible,summary:focus-visible{{outline:3px solid #e68a22;outline-offset:3px}}@media(max-width:650px){{body{{padding:12px}}header,section{{padding:15px}}table{{font-size:.82rem}}td,th{{padding:8px}}}}</style></head>
 <body><nav aria-label="Navegação do boletim"><a href="#fichas">Fichas municipais</a> · <a href="#metodo">Metodologia</a></nav><header><p>Finanças municipais • Edição de referência</p><h1>{esc(title)}</h1><p>Panorama e diferenças fiscais entre {count} municípios. Valores e distribuições conforme disponibilidade das declarações oficiais.</p><p><small>Exercício mais recente do contexto: {esc(payload.get('latest_year','não informado'))}</small></p></header>
 <section><h2>Como interpretar</h2><p>Mediana é o valor central dos municípios com observação. Indicadores percentuais, armazenados como razões decimais, são exibidos multiplicados por 100. Q1 e Q3 delimitam a metade central da distribuição. A cobertura indica quantos municípios possuem dados válidos para cada conta ou indicador. Ausência não significa zero. Diferenças contábeis não demonstram, por si, qualidade de gestão, causalidade ou resultados físicos.</p></section>
 {interpret}

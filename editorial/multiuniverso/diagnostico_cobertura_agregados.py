@@ -19,7 +19,8 @@ def classify(variables,total_id,components):
     return "aprovado",[]
 
 def audit(root):
-    docs=sorted((root/"data/api/v1/publication/universes").glob("*/municipalities/*.json"))
+    manifest=json.loads((root/"publicacoes/manifest.json").read_text(encoding="utf-8"))
+    docs=[root/"data/api/v1/publication/universes"/entry["publication_id"]/"municipalities"/(str(entry["codigo_ibge"])+".json") for entry in manifest["municipal_profiles"]]
     if len(docs)!=280:raise ValueError(f"Quantidade inesperada de JSONs: {len(docs)}")
     counts={ident:collections.Counter() for ident,_,_ in GROUPS}
     missing={ident:collections.Counter() for ident,_,_ in GROUPS}

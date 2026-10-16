@@ -34,7 +34,9 @@ def main():
    obj,_=fetch(base+"/municipalities/"+code+".json")
    for field,target in FIELDS.items():
     detail=(obj.get("variables") or {}).get(target)
-    if detail is None:continue
+    if detail is None:
+     missing.append({"universe":uid,"code":code,"year":None,"field":field,"type":"variable_not_exported"})
+     continue
     series={int(y["year"]):y for y in detail.get("series",[]) if y.get("year") is not None}
     for year in (2023,2024):
      reference=rows.get((code,year))
@@ -45,13 +47,16 @@ def main():
      val=(observation or {}).get("value") if (observation or {}).get("status")=="observado" else None
      if ref in ("",None) and val is None:continue
      if ref in ("",None) or val is None:
-      missing.append({"universe":uid,"code":code,"year":year,"field":field,"ref":ref,"api":val})
+      reason=("year_absent" if observation is None else ("status_"+str(observation.get("status")) if observation.get("status")!="observado" else "null_value"))
+      missing.append({"universe":uid,"code":code,"year":year,"field":field,"ref":ref,"api":val,"type":reason})
       continue
      normalized=float(val)*100 if target in ("dtp_pct_rcl","dc_pct_rcl","dcl_pct_rcl") else float(val)
      delta=abs(float(ref)-normalized)
      tolerance=0.01
      report.append({"universe":uid,"code":code,"year":year,"variable":target,"reference":float(ref),"api_raw":float(val),"api_same_unit":normalized,"difference":delta,"pass":delta<=tolerance})
- out={"comparison_scope":"Gate E approved reference vs E2 API, not direct official RGF","compared":len(report),"mismatches":[r for r in report if not r["pass"]],"availability_mismatches":missing,"values":report}
+ from collections import Counter
+ missing_reasons=dict(Counter(x.get("type","unknown") for x in missing))
+ out={"missing_reasons":missing_reasons,"comparison_scope":"Gate E approved reference vs E2 API, not direct official RGF","compared":len(report),"mismatches":[r for r in report if not r["pass"]],"availability_mismatches":missing,"values":report}
  pathlib.Path(a.out).parent.mkdir(parents=True,exist_ok=True)
  pathlib.Path(a.out).write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
  if len(report)<30 or out["mismatches"] or missing:raise ValueError(f"RGF nao homologado: {len(report)} comparacoes, {len(out['mismatches'])} divergencias de valor, {len(missing)} de disponibilidade")

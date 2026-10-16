@@ -33,6 +33,11 @@ def fetch(url):
         raw=stream.read()
     return json.loads(raw),hashlib.sha256(raw).hexdigest()
 
+def source_reference(url):
+    if str(url).startswith("file://"):
+        return "Fonte: API privada de homologação, com proveniência registrada no manifesto do artefato. Sem endereço público."
+    return f'<a href="{esc(url)}">Consultar contexto fiscal e metadados de origem</a>'
+
 def esc(v):
     return html.escape(str(v if v is not None else ""),quote=True)
 
@@ -158,7 +163,7 @@ def generate(payload, source_url):
 {''.join(sections)}
 {historic}
 <section id="fichas"><h2>Municípios integrantes</h2><p>{municipal}</p></section>
-<section id="metodo"><h2>Fontes e metodologia</h2><p>Base estadual FINBRA/Siconfi e demonstrativos complementares identificados no catálogo oficial do projeto. Indicadores legais seguem a fonte própria. Os valores não devem ser somados quando a cobertura for incompleta. A presente edição apresenta estatísticas municipais do contexto; não substitui os demonstrativos fiscais oficiais.</p><p><a href="{esc(source_url)}">Consultar contexto fiscal e metadados de origem</a></p></section></body></html>"""
+<section id="metodo"><h2>Fontes e metodologia</h2><p>Base estadual FINBRA/Siconfi e demonstrativos complementares identificados no catálogo oficial do projeto. Indicadores legais seguem a fonte própria. Os valores não devem ser somados quando a cobertura for incompleta. A presente edição apresenta estatísticas municipais do contexto; não substitui os demonstrativos fiscais oficiais.</p><p>{source_reference(source_url)}</p></section></body></html>"""
 
 def main():
     p=argparse.ArgumentParser()

@@ -32,11 +32,13 @@ def candidates(context):
             if valid(value) and str(y).isdigit():
                 yearly.append((int(y),value,row.get("observed",row.get("observed_count")),row.get("expected",row.get("expected_count"))))
         yearly=sorted(set(yearly),key=lambda z:z[0])
-        out.append(dict(key=str(key),label=str(md.get("nome") or md.get("label") or key),unit=unit,q1=q1,median=med,q3=q3,observed=obs,expected=exp,yearly=yearly,group=obj.get("editorial_group")))
+        comparable=(len(yearly)>=2 and all(isinstance(y[2],int) and isinstance(y[3],int) and y[2]==exp and y[3]==exp for y in yearly))
+        out.append(dict(key=str(key),label=str(md.get("nome") or md.get("label") or key),unit=unit,q1=q1,median=med,q3=q3,observed=obs,expected=exp,yearly=yearly,comparable=comparable,group=obj.get("editorial_group")))
     return out
 
 def build(context,shown,limit=6):
     values=candidates(context)
+    values.sort(key=lambda v:(-(v["observed"]/v["expected"]),-int(v["comparable"]),v["key"]))
     groups=("receitas","despesas","territorio","divida_liquidez","capag")
     selected=[]
     for group in groups:
@@ -63,7 +65,7 @@ def build(context,shown,limit=6):
             bar+=f'<text x="{x}" y="121" text-anchor="middle" font-size="13">{esc(shown(v,obj["unit"],obj["key"]))}</text>'
         svg=f'<svg role="img" aria-label="Intervalo interquartil e mediana de {label}" viewBox="0 0 650 140" preserveAspectRatio="xMidYMid meet"><title>{label}</title><text x="75" y="30" font-size="15">Q1: {esc(shown(q1,obj["unit"],obj["key"]))} · Mediana: {esc(shown(med,obj["unit"],obj["key"]))} · Q3: {esc(shown(q3,obj["unit"],obj["key"]))}</text>{bar}</svg>'
         trend=""
-        if len(obj["yearly"])>=2:
+        if obj["comparable"]:
             rows="".join(f'<tr><th scope="row">{yr}</th><td>{esc(shown(v,obj["unit"],obj["key"]))}</td><td>{esc(obs)}/{esc(exp)}</td></tr>' for yr,v,obs,exp in obj["yearly"])
             trend=f'<details><summary>Evolução anual observada</summary><table><thead><tr><th>Ano</th><th>Mediana</th><th>Cobertura</th></tr></thead><tbody>{rows}</tbody></table></details>'
         charts.append(f'<article class="chart-card" data-indicator="{key}"><h3>{label}</h3>{svg}<p>Unidade: {unit}. Cobertura: {obj["observed"]}/{obj["expected"]} municípios. Barra azul: Q1 a Q3; ponto laranja: mediana. Escala individual deste gráfico.</p>{trend}</article>')

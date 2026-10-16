@@ -2,6 +2,12 @@ name: SP645 Private Site Artifact
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "pipeline/build/integrate_rgf_gate_e.py"
+      - "pipeline/build/build_sp645_private_site.py"
+      - "tests/test_integrate_rgf_gate_e.py"
+      - ".github/workflows/sp645-private-site-artifact.yml"
   push:
     branches: [main]
     paths:
@@ -363,5 +369,6 @@ jobs:
             build/qa_percentage_scale_parity.json
             build/qa_derived_ratio_parity.json
             build/qa_percentage_provenance.json
+            build/qa_rgf_gate_e_integration.json
           if-no-files-found: error
           retention-days: 14

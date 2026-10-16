@@ -47,9 +47,10 @@ def main():
      if ref in ("",None) or val is None:
       missing.append({"universe":uid,"code":code,"year":year,"field":field,"ref":ref,"api":val})
       continue
-     delta=abs(float(ref)-float(val))
+     normalized=float(val)*100 if target in ("dtp_pct_rcl","dc_pct_rcl","dcl_pct_rcl") else float(val)
+     delta=abs(float(ref)-normalized)
      tolerance=0.01
-     report.append({"universe":uid,"code":code,"year":year,"variable":target,"reference":float(ref),"api":float(val),"difference":delta,"pass":delta<=tolerance})
+     report.append({"universe":uid,"code":code,"year":year,"variable":target,"reference":float(ref),"api_raw":float(val),"api_same_unit":normalized,"difference":delta,"pass":delta<=tolerance})
  out={"comparison_scope":"Gate E approved reference vs E2 API, not direct official RGF","compared":len(report),"mismatches":[r for r in report if not r["pass"]],"availability_mismatches":missing,"values":report}
  pathlib.Path(a.out).parent.mkdir(parents=True,exist_ok=True)
  pathlib.Path(a.out).write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")

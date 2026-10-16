@@ -28,9 +28,16 @@ jobs:
       - name: Comparar registros da API com candidato aprovado
         run: |
           python editorial/multiuniverso/qa_rgf_gate_e_api.py --candidate build/rgf-e2/ref/rgf_history_2023_2024_corrected.csv --out build/rgf-e2/qa_rgf_api_e2.json
+      - name: Verificar lacuna na rota historica do RGF
+        if: always()
+        run: |
+          pip install pyyaml
+          python editorial/multiuniverso/qa_rgf_mapping_gap.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: qa-rgf-gate-e-api-e2
-          path: build/rgf-e2/qa_rgf_api_e2.json
+          path: |
+            build/rgf-e2/qa_rgf_api_e2.json
+            build/rgf-e2/qa_rgf_mapping_gap.json
           if-no-files-found: warn

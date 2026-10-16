@@ -26,8 +26,9 @@ jobs:
       - name: Baixar pacote homologado e manter o escopo isolado
         run: |
           mkdir -p build/e2-preview
-          gh run download 38921504732 --repo "$GITHUB_REPOSITORY" --name prepublicacao-e2-api-e-html --dir build/e2-preview
+          gh run download 38944712710 --repo "$GITHUB_REPOSITORY" --name prepublicacao-e2-api-e-html --dir build/e2-preview
           test -f build/e2-preview/PREVIEW_MANIFEST.json
+          test -s build/e2-preview/index.html
           python - <<'PY'
           import json,hashlib,pathlib
           p=pathlib.Path("build/e2-preview")
@@ -38,6 +39,8 @@ jobs:
               obj=p/name
               assert obj.is_file() and hashlib.sha256(obj.read_bytes()).hexdigest()==digest,name
           assert (p/"data/api/v1/publication/universes.json").is_file()
+          home=(p/"index.html").read_text(encoding="utf-8")
+          assert home.count('<li><a href="publicacoes/')==10, "A pagina inicial deve listar os dez boletins"
           print("PREVIEW_MANIFEST verified",len(m["files"]))
           PY
       - name: Publicar apenas no projeto separado de homologacao

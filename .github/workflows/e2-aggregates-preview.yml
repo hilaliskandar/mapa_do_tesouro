@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/e2-aggregates-preview.yml'
+      - 'editorial/multiuniverso/diagnostico_cobertura_agregados.py'
 permissions:
   contents: read
   actions: read
@@ -54,6 +55,11 @@ jobs:
           python editorial/multiuniverso/qa_cobertura_agregados.py \
             --root build/e2-charts \
             --out build/e2-charts-qa/cobertura-agregados.json
+      - name: Diagnosticar causas de lacunas por conta e municipio
+        run: |
+          python editorial/multiuniverso/diagnostico_cobertura_agregados.py \
+            --root build/e2-charts \
+            --out build/e2-charts-qa/diagnostico-cobertura.json
       - name: Auditar resposta HTTP e SHA no endereco de graficos
         run: |
           python editorial/multiuniverso/qa_http_all_editorial.py \

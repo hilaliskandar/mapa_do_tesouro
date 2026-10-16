@@ -33,7 +33,7 @@ def audit(folder):
         uid=x["publication_id"]
         page=folder/uid/"index.html"
         raw=page.read_bytes()
-        # HTML original tem hash no manifesto antes da insercao dos links das fichas.
+        assert hashlib.sha256(raw).hexdigest()==x["html_sha256"],(uid,"hash HTML divergente")
         assert b"<html" in raw.lower() and b"</html>" in raw.lower()
         assert b"Fichas municipais" in raw
         assert b"Evolu" in raw

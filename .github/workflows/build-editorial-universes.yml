@@ -34,6 +34,8 @@ jobs:
           assert sum(1 for _ in (p/item["publication_id"]/"municipios").glob("*.html")) == item["member_count"]
           print("10 boletins produzidos; publicacao nao executada")
           PY
+      - name: Auditar artefato editorial
+        run: python editorial/multiuniverso/qa_artefato.py --out build/editorial-universes
       - uses: actions/upload-artifact@v4
         with:
           name: boletins-dez-universos

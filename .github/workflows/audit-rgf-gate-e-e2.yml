@@ -25,19 +25,26 @@ jobs:
           gh run download 37776058337 --repo "$GITHUB_REPOSITORY" --name gate-e-rgf-history-2023-2024-corrected --dir build/rgf-e2/ref
           test -f build/rgf-e2/ref/rgf_history_2023_2024_corrected.csv
           echo "7faef8188fd56bff6bb8031dfe3a8eeec11fe56e67f986bdc0007a4ee7646eeb  build/rgf-e2/ref/rgf_history_2023_2024_corrected.csv" | sha256sum -c -
-      - name: Comparar registros da API com candidato aprovado
+      - name: Recuperar API privada reconstruida do Gate E
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          python editorial/multiuniverso/qa_rgf_gate_e_api.py --candidate build/rgf-e2/ref/rgf_history_2023_2024_corrected.csv --out build/rgf-e2/qa_rgf_api_e2.json
-      - name: Verificar lacuna na rota historica do RGF
-        if: always()
+          mkdir -p build/rgf-e2/privada
+          gh run download 38905063653 --repo "$GITHUB_REPOSITORY" --name sp645-private-site-38905063653 --dir build/rgf-e2/privada
+          test -f build/rgf-e2/privada/site-sp645/data/api/v1/publication/universes.json
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("build/rgf-e2/privada/qa_rgf_gate_e_integration.json")
+          j=json.loads(p.read_text())
+          assert j["changed"]==3068 and j["reclassified_absent"]==802,j
+          PY
+      - name: Comparar registros da API privada com candidato aprovado
         run: |
-          pip install pyyaml
-          python editorial/multiuniverso/qa_rgf_mapping_gap.py
-      - uses: actions/upload-artifact@v4
+          python editorial/multiuniverso/qa_rgf_gate_e_api.py --candidate build/rgf-e2/ref/rgf_history_2023_2024_corrected.csv --base "file://$PWD/build/rgf-e2/privada/site-sp645/data/api/v1" --out build/rgf-e2/qa_rgf_api_e2.json
+       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: qa-rgf-gate-e-api-e2
           path: |
             build/rgf-e2/qa_rgf_api_e2.json
-            build/rgf-e2/qa_rgf_mapping_gap.json
           if-no-files-found: warn

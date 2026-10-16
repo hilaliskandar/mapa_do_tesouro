@@ -3,6 +3,7 @@
 import argparse,hashlib,html,json,pathlib,urllib.request
 from build_boletins import source_reference, BASE, EXCLUDE, fetch, normalize_universes, esc, shown
 from graficos_municipais import charts as municipal_charts
+from graficos_composicao import build as composition_charts
 
 def build_profile(obj, base, uid, publication_name):
     municipality=obj["municipality"]
@@ -45,12 +46,14 @@ def build_profile(obj, base, uid, publication_name):
         historical="".join("<details><summary>"+esc(x[3].get("nome") or x[1])+"</summary><p>"+esc(x[2] or "Não há série adicional disponível.")+"</p></details>" for x in entries)
         sections.append(f"<section><h2>{esc(group.replace('_',' ').capitalize())}</h2><div class='scroll'><table><thead><tr><th>Conta ou indicador</th><th>Município</th><th>Mediana do grupo</th><th>Cobertura</th><th>Situação</th><th>Posição</th></tr></thead><tbody>{tab}</tbody></table></div><h3>Evolução registrada</h3>{historical}</section>")
     figure=municipal_charts(obj,shown)
+    composition=composition_charts(obj)
     url=f"{base}/publication/universes/{uid}/municipalities/{code}.json"
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finanças municipais — {esc(name)}</title>
 <style>body{{font:16px/1.5 system-ui,sans-serif;max-width:1080px;margin:auto;padding:24px;color:#22303a;background:#f7fafc}}section,header{{background:white;padding:20px;border:1px solid #e3e7ea;border-radius:12px;margin:15px 0}}table{{width:100%;border-collapse:collapse;font-size:.9rem}}td,th{{text-align:left;padding:9px;border-bottom:1px solid #ddd}}.scroll{{overflow:auto}}a{{color:#13618c}}a:focus-visible,summary:focus-visible{{outline:3px solid #d77b00;outline-offset:3px}}@media(max-width:650px){{body{{padding:10px}}section,header{{padding:14px}}td,th{{padding:7px}}}}.chart-grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:12px}}.chart-card{{padding:12px;border:1px solid #dce5ec;border-radius:10px}}.chart-card svg{{width:100%;height:auto}}details{{border-bottom:1px solid #eee;padding:6px 0}}summary{{cursor:pointer}}</style></head><body>
 <header><p><a href="../index.html">Voltar ao boletim do universo</a></p><h1>{esc(name)}</h1><p>{esc(publication_name)} · Código IBGE {esc(code)}</p><p>Exercício de referência: {esc(obj.get("latest_year"))} · Indicadores e contas com observação no último ano: {observed}/{len(obj.get("variables",{}))}</p></header>
 <section><h2>Como ler a ficha</h2><p>Os valores são os declarados ou calculados na base fiscal, segundo a fonte de cada conta. A mediana e a posição são relativas ao universo indicado. As posições não representam nota de gestão. A ausência de informação não corresponde a zero, e as séries podem ter coberturas diferentes.</p></section>
 {figure}
+{composition}
 {''.join(sections)}
 <section><h2>Notas específicas sobre RREO, RGF e CAPAG</h2><p><strong>RREO:</strong> a RCL do Anexo 03, sexto bimestre, corresponde ao total dos últimos 12 meses e não deve ser substituída por valor de outra fonte quando ausente.</p><p><strong>RGF:</strong> valores monetários de pessoal e dívida e percentuais legais possuem escalas diferentes; indicadores percentuais são exibidos em pontos percentuais, sem alterar os valores canônicos. Os registros históricos ausentes não são zeros nem casos automaticamente inaplicáveis.</p><p><strong>CAPAG:</strong> a categoria oficial corresponde à posição de setembro de 2026, ano-base 2025. A classificação n.d. é uma categoria oficial, diferente da situação de dado ausente. Comparações de notas entre posições distintas exigem verificar a revisão do Tesouro.</p></section>
 <section><h2>Fontes e notas de interpretação</h2><p>Dados FINBRA/Siconfi e demonstrativos complementares previstos na base editorial. Não se deve confundir movimentação contábil, execução física ou resultado de política pública. Indicadores oficiais e derivados seguem suas metodologias específicas.</p>{source_reference(url)}</section></body></html>"""

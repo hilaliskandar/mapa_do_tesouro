@@ -22,3 +22,11 @@ Os dez HTMLs são **primeiras edições tabulares de referência**, ainda não e
 6. Atualizar inventário, versões e manifesto de implantação após cada edição homologada.
 
 Não declarar a publicação dos dez novos boletins: os arquivos estão no artefato CI e no pacote disponibilizado ao usuário, não em Cloudflare Pages.
+
+## Segunda revisão do gerador — 16/10/2026
+
+Commit `8c8a7fa1ca0b275a55d972b037b4668437f31872`; execução https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/38884429450, conclusão `success`. Artefato ID `12039211447`, SHA-256 do ZIP `5b8ae75f08011d585443983fa3720108df204329ec226473eb81e2033b38bb4f`.
+
+Mudanças implementadas: (a) correção dos nomes municipais no campo `nome`; (b) classificação editorial passa a ler `metadata.nome`; (c) apresentação dos percentuais multiplicados por 100, uma vez que a API armazena razões decimais, mesmo quando o catálogo registra unidade percentual; (d) leitura de `yearly` como lista e inclusão de tabela de evolução das medianas por exercício. Conferência do ZIP confirmou os dez identificadores e cardinalidades: RM São Paulo 38; Baixada Santista 9; Campinas 20; Vale do Paraíba e Litoral Norte 39; Sorocaba 27; Ribeirão Preto 34; São José do Rio Preto 37; Piracicaba 24; AU Franca 19; Cidades Médias 33.
+
+Limite verificado: os arquivos apresentam entre 122 e 123 linhas de tabelas cada, incluindo histórico disponível; NÃO devem ser considerados séries longas 2013–2025 completas nem fichas individuais. O histórico exposto depende da oferta real de cada variável na API. Antes de publicação de caráter definitivo, conferir manualmente os indicadores percentuais e a hierarquia das contas, ampliar fichas municipais e submeter à revisão editorial e funcional.

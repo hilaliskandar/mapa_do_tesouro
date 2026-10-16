@@ -19,6 +19,7 @@ jobs:
       - name: Recuperar contextos e construir dez boletins
         run: |
           python editorial/multiuniverso/build_boletins.py --out build/editorial-universes
+          python editorial/multiuniverso/build_fichas.py --out build/editorial-universes
       - name: Conferir resultados
         run: |
           python - <<'PY'
@@ -26,9 +27,11 @@ jobs:
           p=pathlib.Path("build/editorial-universes")
           m=json.loads((p/"manifest.json").read_text())
           assert len(m["editions"]) == 10
+          assert len(m["municipal_profiles"]) == 280
           assert len({x["publication_id"] for x in m["editions"]})==10
           for item in m["editions"]:
               assert (p/item["publication_id"]/"index.html").stat().st_size>300
+          assert sum(1 for _ in (p/item["publication_id"]/"municipios").glob("*.html")) == item["member_count"]
           print("10 boletins produzidos; publicacao nao executada")
           PY
       - uses: actions/upload-artifact@v4

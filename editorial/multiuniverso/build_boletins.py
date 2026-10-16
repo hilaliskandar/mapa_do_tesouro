@@ -48,7 +48,7 @@ def fmt(v):
 def shown(v,unit):
     if v is None:return "Não disponível"
     if unit=="percentual" and isinstance(v,(int,float)):
-        return fmt(v*100)+"%"
+        return fmt(v)+"%"
     return fmt(v)
 
 def value_for(row,*names):
@@ -151,7 +151,7 @@ def generate(payload, source_url):
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finanças municipais — {esc(title)}</title>
 <style>body{{font:16px/1.55 system-ui,Arial,sans-serif;max-width:1120px;margin:auto;padding:30px;color:#1a2934;background:#f8fafc}}header,section{{background:white;padding:24px;margin:18px 0;border:1px solid #e0e6ea;border-radius:12px}}h1{{line-height:1.2}}h2{{font-size:1.25rem}}table{{border-collapse:collapse;width:100%;font-size:.9rem}}td,th{{padding:10px;border-bottom:1px solid #e3e8ed;text-align:left}}td{{white-space:nowrap}}.scroll{{overflow-x:auto}}a{{color:#145d8a}}small{{color:#52606d}}nav{{display:flex;gap:18px;flex-wrap:wrap}}a:focus-visible,summary:focus-visible{{outline:3px solid #e68a22;outline-offset:3px}}@media(max-width:650px){{body{{padding:12px}}header,section{{padding:15px}}table{{font-size:.82rem}}td,th{{padding:8px}}}}</style></head>
 <body><nav aria-label="Navegação do boletim"><a href="#fichas">Fichas municipais</a> · <a href="#metodo">Metodologia</a></nav><header><p>Finanças municipais • Edição de referência</p><h1>{esc(title)}</h1><p>Panorama e diferenças fiscais entre {count} municípios. Valores e distribuições conforme disponibilidade das declarações oficiais.</p><p><small>Exercício mais recente do contexto: {esc(payload.get('latest_year','não informado'))}</small></p></header>
-<section><h2>Como interpretar</h2><p>Mediana é o valor central dos municípios com observação. Indicadores percentuais, armazenados como razões decimais, são exibidos multiplicados por 100. Q1 e Q3 delimitam a metade central da distribuição. A cobertura indica quantos municípios possuem dados válidos para cada conta ou indicador. Ausência não significa zero. Diferenças contábeis não demonstram, por si, qualidade de gestão, causalidade ou resultados físicos.</p></section>
+<section><h2>Como interpretar</h2><p>Mediana é o valor central dos municípios com observação. Indicadores identificados como percentuais são exibidos na escala percentual em que constam da fonte; não se aplica multiplicação adicional. Q1 e Q3 delimitam a metade central da distribuição. A cobertura indica quantos municípios possuem dados válidos para cada conta ou indicador. Ausência não significa zero. Diferenças contábeis não demonstram, por si, qualidade de gestão, causalidade ou resultados físicos.</p></section>
 {interpret}
 {''.join(sections)}
 {historic}
@@ -187,8 +187,12 @@ def main():
                 "nome":meta.get("nome"),
                 "unidade":meta.get("unidade"),
                 "editorial_group":detail.get("editorial_group"),
-                "fonte_id":meta.get("fonte_id"),
-                "descricao":meta.get("descricao"),
+                "fonte_id":meta.get("fonte_preferencial_id") or meta.get("fonte_id"),
+                "descricao":meta.get("definicao") or meta.get("descricao"),
+                "tipo":meta.get("tipo"),
+                "periodicidade":meta.get("periodicidade"),
+                "cautelas":meta.get("cautelas"),
+                "como_ler":meta.get("como_ler"),
                 "formula":meta.get("formula"),
                 "metadados_originais":meta,
             })

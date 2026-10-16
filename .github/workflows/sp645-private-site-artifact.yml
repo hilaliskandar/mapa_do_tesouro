@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/sp645-private-site-artifact.yml"
       - "pipeline/build/sp645_private_input.py"
+      - "pipeline/build/integrate_rgf_gate_e.py"
       - "pipeline/build/build_sp645_private_site.py"
       - "pipeline/build/export_state_api_v2.py"
       - "pipeline/build/export_regional_api_v2.py"
@@ -86,9 +87,17 @@ jobs:
         run: |
           python -m pipeline.build.sp645_private_input             --typology-input inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx             --multisource-2025 inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx             --base-mapping data/mappings/base_multifuentes_sp645_2025.yml             --output-workbook build/SP645_PRIVATE_SITE_INPUT_2021_2025.xlsx             --output-mapping build/SP645_PRIVATE_SITE_MAPPING.yml             --manifest build/SP645_PRIVATE_SITE_INPUT_MANIFEST.json
 
+      - name: Recover approved Gate E RGF historical monetary observations
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/rgf-gate-e
+          gh run download 37776058337 --repo "$GITHUB_REPOSITORY" --name gate-e-rgf-history-2023-2024-corrected --dir build/rgf-gate-e
+          test -f build/rgf-gate-e/rgf_history_2023_2024_corrected.csv
+          echo "7faef8188fd56bff6bb8031dfe3a8eeec11fe56e67f986bdc0007a4ee7646eeb  build/rgf-gate-e/rgf_history_2023_2024_corrected.csv" | sha256sum -c -
       - name: Build SP645 private site
         run: |
-          python -m pipeline.build.build_sp645_private_site             --workbook build/SP645_PRIVATE_SITE_INPUT_2021_2025.xlsx             --mapping build/SP645_PRIVATE_SITE_MAPPING.yml             --database build/sp645_private.sqlite             --site-output build/site-sp645             --geojson inputs/geojs-35-mun.json
+          python -m pipeline.build.build_sp645_private_site             --workbook build/SP645_PRIVATE_SITE_INPUT_2021_2025.xlsx             --mapping build/SP645_PRIVATE_SITE_MAPPING.yml             --database build/sp645_private.sqlite             --site-output build/site-sp645             --geojson inputs/geojs-35-mun.json --rgf-gate-e build/rgf-gate-e/rgf_history_2023_2024_corrected.csv
 
       - name: Validate SP645 private build
         run: |

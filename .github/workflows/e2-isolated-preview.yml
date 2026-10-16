@@ -42,11 +42,11 @@ jobs:
         run: |
           npx --yes wrangler@4 pages deploy build/e2-preview \
             --project-name financas-e2-homologacao \
-            --branch revision-e2-20261016 \
+            --branch release-review \
             --commit-hash "$GITHUB_SHA"
       - name: Verificar resposta HTTP da API e de paginas publicadas
         run: |
-          BASE="https://revision-e2-20261016.financas-e2-homologacao.pages.dev"
+          BASE="https://financas-e2-homologacao.pages.dev"
           python - <<'PY'
           import json,urllib.request,time
           root="https://revision-e2-20261016.financas-e2-homologacao.pages.dev"

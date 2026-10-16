@@ -45,10 +45,12 @@ def fmt(v):
         return f"{v:,.2f}".replace(",","X").replace(".",",").replace("X",".")
     return str(v)
 
-def shown(v,unit):
+LEGAL_RATIO_IDS = {"dtp_pct_rcl", "dc_pct_rcl", "dcl_pct_rcl", "rgf_dtp_percentual_rcl", "rgf02_dc_percentual_rcl", "rgf02_dcl_percentual_rcl"}
+
+def shown(v,unit,key=None):
     if v is None:return "Não disponível"
     if unit=="percentual" and isinstance(v,(int,float)):
-        return fmt(v)+"%"
+        return fmt(v*(100 if key in LEGAL_RATIO_IDS else 1))+"%"
     return fmt(v)
 
 def value_for(row,*names):
@@ -104,7 +106,7 @@ def generate(payload, source_url):
         q3=value_for(numeric,"q3","Q3","p75")
         unit=md.get("unidade") or md.get("unit") or ""
         label=md.get("nome") or md.get("label") or md.get("name") or key
-        row=f"<tr><th scope='row'>{esc(label)}</th><td>{esc(shown(median,unit))}</td><td>{esc(shown(q1,unit))}</td><td>{esc(shown(q3,unit))}</td><td>{esc(observed)}/{esc(expected)}</td><td>{esc(unit)}</td></tr>"
+        row=f"<tr><th scope='row'>{esc(label)}</th><td>{esc(shown(median,unit,key))}</td><td>{esc(shown(q1,unit,key))}</td><td>{esc(shown(q3,unit,key))}</td><td>{esc(observed)}/{esc(expected)}</td><td>{esc(unit)}</td></tr>"
         thematic=group_for(key,md,variables.get(key,{}) if isinstance(variables,dict) else {})
         items.setdefault(thematic,[]).append(row)
         checks.append((key,observed,expected,median,q1,q3))
@@ -122,7 +124,7 @@ def generate(payload, source_url):
             n=y.get("numeric") or {}
             med=value_for(n,"median","p50")
             if med is None:continue
-            history.append((str(y["year"]),str(label),shown(med,unit),str(y.get("observed")),str(y.get("expected")),unit))
+            history.append((str(y["year"]),str(label),shown(med,unit,key),str(y.get("observed")),str(y.get("expected")),unit))
     if any((a is not None and b is not None and (int(a)>int(b) or int(b)!=count)) for _,a,b,_,_,_ in checks):
         raise ValueError(f"{uid}: denominador de cobertura diferente do universo")
     if not any(items.values()):raise ValueError(f"{uid}: contexto sem variaveis aproveitaveis")
@@ -151,7 +153,7 @@ def generate(payload, source_url):
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finanças municipais — {esc(title)}</title>
 <style>body{{font:16px/1.55 system-ui,Arial,sans-serif;max-width:1120px;margin:auto;padding:30px;color:#1a2934;background:#f8fafc}}header,section{{background:white;padding:24px;margin:18px 0;border:1px solid #e0e6ea;border-radius:12px}}h1{{line-height:1.2}}h2{{font-size:1.25rem}}table{{border-collapse:collapse;width:100%;font-size:.9rem}}td,th{{padding:10px;border-bottom:1px solid #e3e8ed;text-align:left}}td{{white-space:nowrap}}.scroll{{overflow-x:auto}}a{{color:#145d8a}}small{{color:#52606d}}nav{{display:flex;gap:18px;flex-wrap:wrap}}a:focus-visible,summary:focus-visible{{outline:3px solid #e68a22;outline-offset:3px}}@media(max-width:650px){{body{{padding:12px}}header,section{{padding:15px}}table{{font-size:.82rem}}td,th{{padding:8px}}}}</style></head>
 <body><nav aria-label="Navegação do boletim"><a href="#fichas">Fichas municipais</a> · <a href="#metodo">Metodologia</a></nav><header><p>Finanças municipais • Edição de referência</p><h1>{esc(title)}</h1><p>Panorama e diferenças fiscais entre {count} municípios. Valores e distribuições conforme disponibilidade das declarações oficiais.</p><p><small>Exercício mais recente do contexto: {esc(payload.get('latest_year','não informado'))}</small></p></header>
-<section><h2>Como interpretar</h2><p>Mediana é o valor central dos municípios com observação. Indicadores identificados como percentuais são exibidos na escala percentual em que constam da fonte; não se aplica multiplicação adicional. Q1 e Q3 delimitam a metade central da distribuição. A cobertura indica quantos municípios possuem dados válidos para cada conta ou indicador. Ausência não significa zero. Diferenças contábeis não demonstram, por si, qualidade de gestão, causalidade ou resultados físicos.</p></section>
+<section><h2>Como interpretar</h2><p>Mediana é o valor central dos municípios com observação. A escala percentual respeita o contrato de cada indicador: razões legais RGF/RCL em fração decimal são multiplicadas por 100 apenas na exibição; indicadores derivados cuja fórmula já inclui 100 mantêm sua escala. Q1 e Q3 delimitam a metade central da distribuição. A cobertura indica quantos municípios possuem dados válidos para cada conta ou indicador. Ausência não significa zero. Diferenças contábeis não demonstram, por si, qualidade de gestão, causalidade ou resultados físicos.</p></section>
 {interpret}
 {''.join(sections)}
 {historic}

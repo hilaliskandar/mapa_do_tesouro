@@ -21,3 +21,8 @@
 4. Não ampliar a afirmação de aderência externa além dos campos efetivamente testados.
 
 As aprovações referem-se a resultados da etapa candidata, não a uma liberação de produção.
+
+## Nova reexecução — 16/10/2026
+- O arquivo CAPAG oficial foi novamente lido com SHA-256 conferido e confrontado contra SQLite reconstruído do run `38905063653`: 1.935 comparações, 1.909 valores observados concordantes, 26 ausências coincidentes, zero divergência. Relatório: `auditoria_capag_componentes_reexecucao_20261016.json`.
+- Teste sintético de paridade e detecção de adulteração acrescentado em `tests/test_audit_capag_official_components.py`, commit `a9fb8b1f`. A Core CI `38918549800` passou.
+- **Limitação de automação:** o workflow GitHub Actions não dispõe de aquisição autenticada documentada do XLSX oficial no Drive. A auditoria real foi executada diretamente sobre o arquivo autenticado e o SQLite, enquanto o CI testa o contrato por dados sintéticos. Não caracterizar a paridade externa recorrente como automatizada até incorporar de forma segura e versionada o snapshot oficial por SHA.

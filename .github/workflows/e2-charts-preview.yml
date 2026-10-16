@@ -23,7 +23,7 @@ jobs:
       - name: Obter pacote editorial validado com graficos
         run: |
           mkdir -p build/e2-charts
-          gh run download 38949378867 --repo "$GITHUB_REPOSITORY" --name prepublicacao-e2-api-e-html --dir build/e2-charts
+          gh run download 38951838562 --repo "$GITHUB_REPOSITORY" --name prepublicacao-e2-api-e-html --dir build/e2-charts
           python - <<'PY'
           import pathlib,json,hashlib
           p=pathlib.Path("build/e2-charts")

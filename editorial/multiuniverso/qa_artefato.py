@@ -49,7 +49,10 @@ def audit(folder):
             assert "Mediana do grupo" in content,(uid,code,"sem mediana")
             assert "../index.html" in content,(uid,code,"sem retorno")
             assert f"municipios/{code}.html" in raw.decode("utf-8"),(uid,code,"ficha nao vinculada ao boletim")
-            assert ("Consultar os registros" in content or "API privada de homologação" in content),(uid,code,"sem fonte")
+            assert ("Consultar os registros" in content or "API privada de homologação" in content or "Dados fiscais e metadados da versão candidata" in content),(uid,code,"sem fonte")
+            if "Dados fiscais e metadados da versão candidata" in content:
+                source=folder.parent/"data/api/v1/publication/universes"/uid/"municipalities"/f"{code}.json"
+                assert source.is_file(),(uid,code,"fonte JSON relativa inexistente")
             assert "href=\"file://" not in content,(uid,code,"link local inacessivel")
             assert "http://" not in content,(uid,code,"referencia insegura")
             totals+=1

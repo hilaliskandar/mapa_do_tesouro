@@ -42,6 +42,8 @@ jobs:
         run: python editorial/multiuniverso/qa_dicionarios.py build/editorial-universes
       - name: Auditar dependencias e fontes de indicadores derivados
         run: python editorial/multiuniverso/qa_rastreabilidade.py build/editorial-universes
+      - name: Conferir paridade dos valores municipais com o contexto da API
+        run: python editorial/multiuniverso/qa_paridade_municipal.py --out build/editorial-universes
       - name: Instalar navegador de homologação
         run: |
           npm install --no-save playwright@1.56.1

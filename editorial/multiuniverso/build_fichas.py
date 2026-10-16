@@ -31,10 +31,10 @@ def build_profile(obj, base, uid, publication_name):
         for record in detail.get("series") or []:
             if not isinstance(record,dict) or record.get("year") is None:continue
             value_year=record.get("value") if record.get("status")=="observado" else None
-            entries.append(f"{esc(record['year'])}: {esc(shown(value_year,unit))}")
+            entries.append(f"{esc(record['year'])}: {esc(shown(value_year,unit,key))}")
         series=" · ".join(entries)
-        row=(f"<tr><th scope='row'>{esc(label)}</th><td>{esc(shown(value,unit))}</td>"
-             f"<td>{esc(shown(median,unit))}</td><td>{esc(covobs)}/{esc(covexp)}</td>"
+        row=(f"<tr><th scope='row'>{esc(label)}</th><td>{esc(shown(value,unit,key))}</td>"
+             f"<td>{esc(shown(median,unit,key))}</td><td>{esc(covobs)}/{esc(covexp)}</td>"
              f"<td>{esc(state)}</td><td>{esc(position) if position is not None else '—'}</td></tr>")
         group=detail.get("editorial_group") or metadata.get("grupo") or "Demais contas"
         groups.setdefault(group,[]).append((row,key,series,metadata))

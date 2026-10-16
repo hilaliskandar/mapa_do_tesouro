@@ -30,3 +30,13 @@ Commit `8c8a7fa1ca0b275a55d972b037b4668437f31872`; execução https://github.com
 Mudanças implementadas: (a) correção dos nomes municipais no campo `nome`; (b) classificação editorial passa a ler `metadata.nome`; (c) apresentação dos percentuais multiplicados por 100, uma vez que a API armazena razões decimais, mesmo quando o catálogo registra unidade percentual; (d) leitura de `yearly` como lista e inclusão de tabela de evolução das medianas por exercício. Conferência do ZIP confirmou os dez identificadores e cardinalidades: RM São Paulo 38; Baixada Santista 9; Campinas 20; Vale do Paraíba e Litoral Norte 39; Sorocaba 27; Ribeirão Preto 34; São José do Rio Preto 37; Piracicaba 24; AU Franca 19; Cidades Médias 33.
 
 Limite verificado: os arquivos apresentam entre 122 e 123 linhas de tabelas cada, incluindo histórico disponível; NÃO devem ser considerados séries longas 2013–2025 completas nem fichas individuais. O histórico exposto depende da oferta real de cada variável na API. Antes de publicação de caráter definitivo, conferir manualmente os indicadores percentuais e a hierarquia das contas, ampliar fichas municipais e submeter à revisão editorial e funcional.
+
+## Fichas municipais — lote concluído em 16/10/2026
+
+- Código `editorial/multiuniverso/build_fichas.py`, commit `09ea1fc0`.
+- Workflow `.github/workflows/build-editorial-universes.yml` atualizado no commit `51c2cf55`.
+- Execução https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/38885167876 aprovada; artefato `12038634197`, SHA-256 `4ae8a9ef9fbef3ed5295e7ba11daec983697e583fe90cfe2b7c40ce7f1d02056`.
+- ZIP inspecionado: dez boletins, **280 fichas municipais**, respectivos identificadores e cardinalidades em conformidade; cada ficha aponta para o JSON individual de origem.
+- As fichas contêm valores individuais, medianas intragrupo, cobertura, status, posição relativa e séries disponíveis. Exemplo conferido: Aramina (AU de Franca) com 37 das 50 variáveis observadas em 2025.
+- **Não houve publicação no Cloudflare nem merge do PR #198**. Os resultados permanecem como artefato de homologação.
+- Não há ainda exame editorial completo da interpretação dos indicadores, acessibilidade em navegador, revisão das séries oficiais por amostra e tipologia de métricas. Não apresentar as fichas como relatório definitivo.

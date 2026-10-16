@@ -5,6 +5,7 @@ on:
       source_object_key:
         description: Chave do XLSX oficial ja carregado no R2 privado
         required: true
+        default: sp_645/official_snapshots/capag/2026-09/capag-municipios-posicao-2026-set.xlsx
         type: string
 permissions:
   contents: read

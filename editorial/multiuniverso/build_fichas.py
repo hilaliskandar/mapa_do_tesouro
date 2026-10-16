@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Acrescenta fichas municipais independentes para cada universo publicado."""
 import argparse,hashlib,html,json,pathlib,urllib.request
-from build_boletins import BASE, EXCLUDE, fetch, normalize_universes, esc, shown
+from build_boletins import source_reference, BASE, EXCLUDE, fetch, normalize_universes, esc, shown
 
 def build_profile(obj, base, uid, publication_name):
     municipality=obj["municipality"]
@@ -49,7 +49,7 @@ def build_profile(obj, base, uid, publication_name):
 <header><p><a href="../index.html">Voltar ao boletim do universo</a></p><h1>{esc(name)}</h1><p>{esc(publication_name)} · Código IBGE {esc(code)}</p><p>Exercício de referência: {esc(obj.get("latest_year"))} · Indicadores e contas com observação no último ano: {observed}/{len(obj.get("variables",{}))}</p></header>
 <section><h2>Como ler a ficha</h2><p>Os valores são os declarados ou calculados na base fiscal, segundo a fonte de cada conta. A mediana e a posição são relativas ao universo indicado. As posições não representam nota de gestão. A ausência de informação não corresponde a zero, e as séries podem ter coberturas diferentes.</p></section>
 {''.join(sections)}
-<section><h2>Fontes e notas de interpretação</h2><p>Dados FINBRA/Siconfi e demonstrativos complementares previstos na base editorial. Não se deve confundir movimentação contábil, execução física ou resultado de política pública. Indicadores oficiais e derivados seguem suas metodologias específicas.</p><a href="{esc(url)}">Consultar os registros e a documentação metodológica da ficha</a></section></body></html>"""
+<section><h2>Fontes e notas de interpretação</h2><p>Dados FINBRA/Siconfi e demonstrativos complementares previstos na base editorial. Não se deve confundir movimentação contábil, execução física ou resultado de política pública. Indicadores oficiais e derivados seguem suas metodologias específicas.</p>{source_reference(url)}</section></body></html>"""
 
 def main():
     parser=argparse.ArgumentParser()

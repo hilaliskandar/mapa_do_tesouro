@@ -21,6 +21,7 @@ jobs:
         run: |
           python editorial/multiuniverso/test_regras_editoriais.py
           python editorial/multiuniverso/test_graficos_municipais.py
+          python editorial/multiuniverso/test_graficos_composicao.py
       - name: Recuperar API corrigida do build privado aprovado
         env:
           GH_TOKEN: ${{ github.token }}

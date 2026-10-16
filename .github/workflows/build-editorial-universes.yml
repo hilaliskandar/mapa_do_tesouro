@@ -38,6 +38,8 @@ jobs:
           PY
       - name: Auditar artefato editorial
         run: python editorial/multiuniverso/qa_artefato.py --out build/editorial-universes
+      - name: Auditar dicionarios editoriais
+        run: python editorial/multiuniverso/qa_dicionarios.py build/editorial-universes
       - name: Instalar navegador de homologação
         run: |
           npm install --no-save playwright@1.56.1

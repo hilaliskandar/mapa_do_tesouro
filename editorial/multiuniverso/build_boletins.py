@@ -119,7 +119,7 @@ def generate(payload, source_url):
             nobs,nexp=int(observed),int(expected)
             if nexp==count and nobs==count and nobs>=4 and q1<=median<=q3:
                 if thematic!="Outros indicadores" and unit in ("percentual","BRL","R$","reais","moeda","numero","habitantes"):
-                    narratives.append((thematic,str(label),shown(median,unit),shown(q1,unit),shown(q3,unit),nobs,nexp))
+                    narratives.append((thematic,str(label),shown(median,unit,key),shown(q1,unit,key),shown(q3,unit,key),nobs,nexp))
         obj=variables.get(key,{}) if isinstance(variables,dict) else {}
         yearly=obj.get("yearly") or []
         if isinstance(yearly,dict):
@@ -132,6 +132,22 @@ def generate(payload, source_url):
             history.append((str(y["year"]),str(label),shown(med,unit,key),str(y.get("observed")),str(y.get("expected")),unit))
     if any((a is not None and b is not None and (int(a)>int(b) or int(b)!=count)) for _,a,b,_,_,_ in checks):
         raise ValueError(f"{uid}: denominador de cobertura diferente do universo")
+    notes = (
+        "<section><h2>Critérios de leitura de RREO, RGF e CAPAG</h2>"
+        "<p><strong>RREO:</strong> Receita Corrente Líquida declarada no Anexo 03, sexto bimestre, "
+        "total dos últimos 12 meses. A cobertura é específica dessa fonte: dado ausente não "
+        "deve ser substituído pela RCL do RGF, pela DCA nem pela CAPAG.</p>"
+        "<p><strong>RGF:</strong> despesa total com pessoal e dívida consolidada ou líquida "
+        "seguem os respectivos demonstrativos oficiais. Percentuais legais são exibidos em "
+        "pontos percentuais; os montantes e percentuais não são intercambiáveis. "
+        "A ausência de valor não implica não aplicabilidade.</p>"
+        "<p><strong>CAPAG:</strong> classificação oficial do Tesouro Nacional na posição de "
+        "setembro de 2026, com ano-base 2025. A categoria n.d. integra a classificação "
+        "oficial e não deve ser confundida com campo ausente. A classificação é categórica: "
+        "não se deve atribuir interpretação estatística a médias ou medianas numéricas da nota.</p>"
+        "<p>Comparações entre exercícios exigem examinar a cobertura e a versão da fonte. "
+        "Valores monetários, classificações legais e índices têm critérios próprios.</p></section>"
+    )
     if not any(items.values()):raise ValueError(f"{uid}: contexto sem variaveis aproveitaveis")
     if not any("Não disponível" not in row for group in items.values() for row in group):raise ValueError(f"{uid}: nenhuma estatistica quantitativa extraida")
     sections=[]
@@ -160,6 +176,7 @@ def generate(payload, source_url):
 <body><nav aria-label="Navegação do boletim"><a href="#fichas">Fichas municipais</a> · <a href="#metodo">Metodologia</a></nav><header><p>Finanças municipais • Edição de referência</p><h1>{esc(title)}</h1><p>Panorama e diferenças fiscais entre {count} municípios. Valores e distribuições conforme disponibilidade das declarações oficiais.</p><p><small>Exercício mais recente do contexto: {esc(payload.get('latest_year','não informado'))}</small></p></header>
 <section><h2>Como interpretar</h2><p>Mediana é o valor central dos municípios com observação. A escala percentual respeita o contrato de cada indicador: razões legais RGF/RCL em fração decimal são multiplicadas por 100 apenas na exibição; indicadores derivados cuja fórmula já inclui 100 mantêm sua escala. Q1 e Q3 delimitam a metade central da distribuição. A cobertura indica quantos municípios possuem dados válidos para cada conta ou indicador. Ausência não significa zero. Diferenças contábeis não demonstram, por si, qualidade de gestão, causalidade ou resultados físicos.</p></section>
 {interpret}
+{notes}
 {''.join(sections)}
 {historic}
 <section id="fichas"><h2>Municípios integrantes</h2><p>{municipal}</p></section>

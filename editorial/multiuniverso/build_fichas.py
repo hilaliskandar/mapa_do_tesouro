@@ -23,7 +23,8 @@ def build_profile(obj, base, uid, publication_name):
         group_latest=detail.get("group_latest") or {}
         numeric=group_latest.get("numeric") or {}
         median=numeric.get("median")
-        position=relative.get("rank_desc") or relative.get("rank")
+        position=relative.get("rank_desc")
+        if position is None:position=relative.get("rank")
         covobs=group_latest.get("observed")
         covexp=group_latest.get("expected")
         entries=[]
@@ -79,7 +80,7 @@ def main():
             page=build_profile(municipal,base,uid,title)
             (folder/"municipios"/f"{code}.html").write_text(page,encoding="utf-8")
             links.append(f'<li><a href="municipios/{esc(code)}.html">{esc(member["nome"])}</a></li>')
-            all_profiles.append({"publication_id":uid,"codigo_ibge":code,"source_sha256":sha})
+            all_profiles.append({"publication_id":uid,"codigo_ibge":code,"source_sha256":sha,"html_sha256":hashlib.sha256(page.encode("utf-8")).hexdigest()})
         index_file=folder/"index.html"
         index_html=index_file.read_text(encoding="utf-8")
         marker="<section><h2>Municípios integrantes</h2>"

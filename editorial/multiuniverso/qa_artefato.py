@@ -42,10 +42,13 @@ def audit(folder):
         for p in matches:
             code=str(p["codigo_ibge"])
             fiche=folder/uid/"municipios"/f"{code}.html"
-            content=fiche.read_text(encoding="utf-8")
+            raw_profile=fiche.read_bytes()
+            assert hashlib.sha256(raw_profile).hexdigest()==p["html_sha256"],(uid,code,"hash ficha divergente")
+            content=raw_profile.decode("utf-8")
             assert code in content,(uid,code,"codigo ausente")
             assert "Mediana do grupo" in content,(uid,code,"sem mediana")
             assert "../index.html" in content,(uid,code,"sem retorno")
+            assert f"municipios/{code}.html" in raw.decode("utf-8"),(uid,code,"ficha nao vinculada ao boletim")
             assert "Consultar os registros" in content,(uid,code,"sem fonte")
             assert "http://" not in content,(uid,code,"referencia insegura")
             totals+=1

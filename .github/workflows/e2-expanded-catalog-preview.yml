@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/e2-expanded-catalog-preview.yml'
       - 'editorial/multiuniverso/qa_status_ausencias.py'
+      - 'editorial/multiuniverso/qa_dca_source_triage.py'
       - 'editorial/multiuniverso/diagnostico_cobertura_agregados.py'
 permissions:
   contents: read
@@ -66,6 +67,12 @@ jobs:
           python editorial/multiuniverso/qa_status_ausencias.py \
             --root build/e2-charts \
             --out build/e2-charts-qa/status-ausencias.json
+      - name: Auditar mapeamento DCA das lacunas
+        run: |
+          python -m pip install pyyaml
+          python editorial/multiuniverso/qa_dca_source_triage.py \
+            --root build/e2-charts \
+            --out build/e2-charts-qa/triagem-dca.json
       - name: Auditar resposta HTTP e SHA no endereco de graficos
         run: |
           python editorial/multiuniverso/qa_http_all_editorial.py \

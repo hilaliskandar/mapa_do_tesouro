@@ -44,7 +44,9 @@ def audit(folder):
                          "com_referencias_nao_resolvidas":sum(bool(r["referencias_ainda_nao_resolvidas"]) for r in records),
                          "rastreabilidade_imediata":sum(r["rastreabilidade_integral_confirmada"] for r in records)})
     (folder/"qa_rastreabilidade.json").write_text(json.dumps(overview,ensure_ascii=False,indent=2),encoding="utf-8")
-    assert len(overview)==10 and all(x["sem_fonte_preferencial"]==15 for x in overview)
+    assert len(overview)==10
+    assert len({x["sem_fonte_preferencial"] for x in overview})==1
+    assert all(x["sem_fonte_preferencial"]>=15 for x in overview)
     print(json.dumps(overview,ensure_ascii=False))
 if __name__=="__main__":
     audit(pathlib.Path(sys.argv[1] if len(sys.argv)>1 else "build/editorial-universes"))

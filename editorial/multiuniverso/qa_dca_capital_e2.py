@@ -24,7 +24,13 @@ def audit(csv_path: Path, municipality_json_dir: Path, output: Path) -> dict:
         obj = json.loads(path.read_text(encoding="utf-8"))
         for account in ACCOUNTS:
             source = official[code].get(account, "")
-            latest = ((obj.get("variables") or {}).get(account) or {}).get("latest") or {}
+            variables = obj.get("variables") or {}
+            if account not in variables:
+                reports.append({"codigo_ibge": code, "variable": account,
+                                "category": "variable_not_exposed", "source": source,
+                                "api_status": None, "api_value": None})
+                continue
+            latest = (variables.get(account) or {}).get("latest") or {}
             status, value = latest.get("status"), latest.get("value")
             if source == "":
                 ok = status != "observado" and value is None
@@ -39,8 +45,8 @@ def audit(csv_path: Path, municipality_json_dir: Path, output: Path) -> dict:
         raise ValueError("No overlap between E2 municipality JSON files and official CSV.")
     summary = {"accounts": ACCOUNTS, "comparison_count": len(reports),
                "by_category": {key: sum(r["category"] == key for r in reports)
-                               for key in ("observed_equal", "observed_mismatch", "missing_preserved", "missing_promoted")},
-               "mismatches": [r for r in reports if r["category"] in ("observed_mismatch", "missing_promoted")],
+                               for key in ("observed_equal", "observed_mismatch", "missing_preserved", "missing_promoted", "variable_not_exposed")},
+               "mismatches": [r for r in reports if r["category"] in ("observed_mismatch", "missing_promoted", "variable_not_exposed")],
                "limitations": "Checks only available municipality JSON files. Requires complete E2 coverage independently."}
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps({"summary": summary, "records": reports}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

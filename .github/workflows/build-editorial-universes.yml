@@ -41,6 +41,7 @@ jobs:
           PY
       - name: Regenerar apenas API editorial com catalogo ampliado
         run: |
+          python -m pip install pyyaml
           test -s build/private-source/sp645_private.sqlite
           mkdir -p build/expanded-api
           cp -a build/private-source/site-sp645/data/api/v1/. build/expanded-api/

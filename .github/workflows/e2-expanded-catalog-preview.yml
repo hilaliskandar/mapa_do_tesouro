@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/e2-expanded-catalog-preview.yml'
+      - 'editorial/multiuniverso/qa_status_ausencias.py'
       - 'editorial/multiuniverso/diagnostico_cobertura_agregados.py'
 permissions:
   contents: read
@@ -60,6 +61,11 @@ jobs:
           python editorial/multiuniverso/diagnostico_cobertura_agregados.py \
             --root build/e2-charts \
             --out build/e2-charts-qa/diagnostico-cobertura.json
+      - name: Distinguir zero, nao aplicavel e ausente por conta
+        run: |
+          python editorial/multiuniverso/qa_status_ausencias.py \
+            --root build/e2-charts \
+            --out build/e2-charts-qa/status-ausencias.json
       - name: Auditar resposta HTTP e SHA no endereco de graficos
         run: |
           python editorial/multiuniverso/qa_http_all_editorial.py \

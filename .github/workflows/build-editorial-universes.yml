@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'editorial/multiuniverso/**'
+      - 'data/catalogs/publication_variables_v1.yml'
       - '.github/workflows/build-editorial-universes.yml'
 permissions:
   contents: read
@@ -38,10 +39,31 @@ jobs:
           assert data["changed"]==3068 and data["reclassified_absent"]==802,data
           print("Base privada verificada:",data["changed"],data["reclassified_absent"])
           PY
+      - name: Regenerar apenas API editorial com catalogo ampliado
+        run: |
+          test -s build/private-source/sp645_private.sqlite
+          mkdir -p build/expanded-api
+          cp -a build/private-source/site-sp645/data/api/v1/. build/expanded-api/
+          python -m pipeline.build.export_publication_api \
+            build/private-source/sp645_private.sqlite build/expanded-api \
+            --universes-catalog data/catalogs/publication_universes_sp.yml \
+            --variables-catalog data/catalogs/publication_variables_v1.yml
+          python - <<'PY'
+          import json,pathlib
+          a=pathlib.Path("build/expanded-api")
+          idx=json.loads((a/"publication/universes.json").read_text())
+          assert len(idx)==11
+          ids=("tributos_imobiliarios","receitas_capital_selecionadas",
+               "dca_inversoes_financeiras_liquidada","dca_amortizacao_divida_liquidada")
+          for entry in idx:
+              data=json.loads((a/"publication/universes"/entry["publication_id"]/"context.json").read_text())
+              assert all(k in data["variables"] for k in ids)
+          print("Catalogo ampliado: universos 11; campos verificados.")
+          PY
       - name: Recuperar contextos e construir dez boletins
         run: |
-          python editorial/multiuniverso/build_boletins.py --base "file://$PWD/build/private-source/site-sp645/data/api/v1" --out build/editorial-universes
-          python editorial/multiuniverso/build_fichas.py --base "file://$PWD/build/private-source/site-sp645/data/api/v1" --out build/editorial-universes
+          python editorial/multiuniverso/build_boletins.py --base "file://$PWD/build/expanded-api" --out build/editorial-universes
+          python editorial/multiuniverso/build_fichas.py --base "file://$PWD/build/expanded-api" --out build/editorial-universes
       - name: Conferir resultados
         run: |
           python - <<'PY'
@@ -67,7 +89,7 @@ jobs:
       - name: Montar pacote privado autocontido da pré-publicação
         run: |
           python editorial/multiuniverso/build_private_preview_bundle.py \
-            --api build/private-source/site-sp645/data/api/v1 \
+            --api build/expanded-api \
             --editorial build/editorial-universes \
             --output build/prepublicacao-e2
           python editorial/multiuniverso/qa_artefato.py --out build/prepublicacao-e2/publicacoes

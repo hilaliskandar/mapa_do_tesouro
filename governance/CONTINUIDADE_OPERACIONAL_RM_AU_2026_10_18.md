@@ -54,3 +54,7 @@ Este registro é uma salvaguarda documental. Não confirma que a API v2 ou o cat
 ## Confronto direto da main — 18/10/2026
 
 O arquivo `data/catalogs/publication_variables_v1.yml` lido diretamente da `main` possui **50 entradas de variáveis**; SHA do blob `10aa9162fcbbdfeba3978a93de76e3acd105da88`. As três chaves adicionais de capital não constam desse catálogo. O exportador `pipeline/build/export_publication_api.py` foi inspecionado (blob `e9f84bee332c77f8fc01a154b183f3ff65f6cdae`) e utiliza o catálogo para construir contextos. Assim, **o catálogo ampliado de 57 variáveis registrado no histórico do PR #198 não está integrado ao arquivo canônico da `main` nesta leitura**. Isso NÃO prova que a API pública atual apresente 50: acesso independente ao endpoint não foi possível neste ambiente. Próximo passo: identificar o commit/branch do PR #198, confrontar o artefato E2 e a implantação pública com hashes, sem executar deploy.
+
+## Revisão diretamente inspecionada do PR #198
+
+O GitHub aceitou a referência `refs/pull/198/head` e retornou `data/catalogs/publication_variables_v1.yml`, blob SHA `47947286ee607bcc2bf2728c7b4b0417320f7ade`, com **57 variáveis**. A `main` tem 50, blob SHA `10aa9162fcbbdfeba3978a93de76e3acd105da88`. Diferença reproduzível diretamente entre fontes, sem estimativas. A leitura de `refs/pull/143/head` e `refs/pull/144/head` para o mesmo arquivo retornou o catálogo de 50. A existência do ref do PR NÃO demonstra merge, aprovação ou implantação. É proibido substituir a versão pública com base apenas nessa diferença.

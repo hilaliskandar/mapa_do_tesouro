@@ -205,3 +205,13 @@ Critério geral: priorizar exploração analítica dos dados contábeis disponí
 - [ ] Realizar, quando necessário, inspeção independente de navegador e paridade byte a byte do CSV atual; a confirmação de deployment pela API não equivale a essas duas verificações.
 
 O item anterior sobre verificar a implantação do #196 deve ser considerado encerrado por esta evidência mais recente.
+
+## Fila de integração e prevenção de retrabalho — 18/10/2026
+
+- [ ] Recuperar estado verificável dos PRs #143, #144 e #198 e registrar commits de origem, merge, homologação e deploy separadamente.
+- [ ] Comparar manifesto E2 do run `38944712710` à última API implantada; conferir 50 vs 57 variáveis, valores e estados de disponibilidade, sem promover mudanças.
+- [ ] Inspecionar contrato, build, hashes e cobertura dos endpoints do portal e do contexto RMJ; resolver escala de percentuais e indicadores legais.
+- [ ] Relacionar os 50 itens/25 indicadores/30 questões dos cadernos a variáveis e evidências efetivas da API, evitando recomputação e consultas externas editoriais.
+- [ ] Incorporar o protocolo de retomada a qualquer futura automação de geração; exigir atualização de estado, inventário e handoff ao fim de cada lote.
+
+Referência obrigatória: [continuidade operacional](CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md). Não alterar produção sem autorização.

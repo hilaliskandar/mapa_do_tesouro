@@ -44,7 +44,7 @@ def audit(site: Path) -> dict:
     for item in variables:
         if not isinstance(item, dict):
             continue
-        key = item.get("variable_id") or item.get("id") or item.get("codigo")
+        key = item.get("variavel_id") or item.get("variable_id") or item.get("id") or item.get("codigo")
         if not key:
             continue
         indicators.append(str(key))

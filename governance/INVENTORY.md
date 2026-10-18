@@ -284,3 +284,8 @@ A fonte `governance/API_V2_READINESS_REBUILD_2026_10_13.md`, lida na `main`, reg
 ## Gate documental API v2 e cadernos — 18/10/2026
 
 Ver [GATE_API_V2_EDICAO_REFERENCIA_2026_10_18.md](GATE_API_V2_EDICAO_REFERENCIA_2026_10_18.md): provas verificadas dos runs 38355047393, 38360896979, 38562576850, 38589671843 e 38593209824; critérios de consumo de API sem novas consultas externas editoriais; pendências não encerradas de QA e publicação. Evitar novos cálculos/geradores fora do pipeline existente.
+
+
+## Avaliação LiteLLM — 18/10/2026
+
+Ver [LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md](LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md). LiteLLM é opção de mediação de modelos para redação e revisão com evidências congeladas da API, não motor fiscal. Implantação pendente de testes do gateway já existente (inclusive compatibilidade JSON), segurança, custo e avaliação contra perguntas da RMJ. Não criar uma segunda base, nem alterar o cálculo ou produção pública.

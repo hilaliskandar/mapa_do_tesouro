@@ -50,3 +50,7 @@ Para cada mudança, registrar: data/hora; objetivo; repositório/branch/commit; 
 ## Limites
 
 Este registro é uma salvaguarda documental. Não confirma que a API v2 ou o catálogo de 57 variáveis esteja em produção; não aprova homologação substantiva do PDF nem autoriza deploy. Fontes originais permanecem nos históricos, no inventário e no projeto; fontes oficiais externas são responsabilidade do pipeline da plataforma, não do gerador editorial.
+
+## Confronto direto da main — 18/10/2026
+
+O arquivo `data/catalogs/publication_variables_v1.yml` lido diretamente da `main` possui **50 entradas de variáveis**; SHA do blob `10aa9162fcbbdfeba3978a93de76e3acd105da88`. As três chaves adicionais de capital não constam desse catálogo. O exportador `pipeline/build/export_publication_api.py` foi inspecionado (blob `e9f84bee332c77f8fc01a154b183f3ff65f6cdae`) e utiliza o catálogo para construir contextos. Assim, **o catálogo ampliado de 57 variáveis registrado no histórico do PR #198 não está integrado ao arquivo canônico da `main` nesta leitura**. Isso NÃO prova que a API pública atual apresente 50: acesso independente ao endpoint não foi possível neste ambiente. Próximo passo: identificar o commit/branch do PR #198, confrontar o artefato E2 e a implantação pública com hashes, sem executar deploy.

@@ -2,7 +2,10 @@ from pathlib import Path
 import json
 import tempfile
 import unittest
-from editorial.audit_v2_editorial_ready import audit
+import runpy
+
+ROOT = Path(__file__).resolve().parents[1]
+audit = runpy.run_path(str(ROOT / "editorial" / "audit_v2_editorial_ready.py"))["audit"]
 
 
 class ReadinessTests(unittest.TestCase):

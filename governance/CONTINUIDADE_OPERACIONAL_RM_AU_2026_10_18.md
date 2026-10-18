@@ -62,3 +62,13 @@ O GitHub aceitou a referência `refs/pull/198/head` e retornou `data/catalogs/pu
 ## Camada adicional recuperada — API v2 com 75 variáveis
 
 A fonte `governance/API_V2_READINESS_REBUILD_2026_10_13.md`, lida na `main`, registra o workflow run `38360896979` (artefato privado ID `11795250292`, SHA-256 ZIP `22f9431f4d069c89fa2c43607b1bfdda4f3c3d8bd3c338d3f3c94a889993bc40`) após o PR #150: **75 variáveis publicáveis**; 48 com lacuna editorial no campo `cautelas`; 17 percentuais com escala armazenamento/exibição ainda não certificada. Aprovação estrutural não é homologação nem prova de publicação da API v2. Não tratar a evolução 50→57 do catálogo editorial v1 como limite do contrato v2. Próxima ação: confirmar endpoints e manifesto reais da API v2, certificar escalas e documentação, e mapear o gerador RM/AU ao contrato mais completo validado.
+
+## Auditoria de certificação API v2 — 18/10/2026
+
+Foram recuperados diretamente os registros `governance/API_V2_REAL_DATA_AUDIT_2026_10_13.md`, `API_V2_READINESS_REBUILD_2026_10_13.md`, `API_V2_PERCENT_SCALE_EVIDENCE_2026_10_13.md` e `API_V2_PERCENT_PROVENANCE_2026_10_14.md` na main.
+
+- API v2 construída a partir de dados canônicos no run `38355047393`: 645 fichas, 13 universos, 75 variáveis, 174.795 observações, 2021–2025. O relatório afirma explicitamente **não ter realizado deploy público da API v2** naquele gate.
+- Reconstrução run `38360896979`: 75 variáveis; 48 com lacuna em cautelas; 17 com escala percentual não certificada.
+- Análises de 14/10: 11.374 percentuais importados conciliados e 5.420 razões de 2025 conciliadas aritmeticamente, sem demonstrar comparabilidade temporal. Run `38593209824`, PR #160: diferenças de proveniência entre séries importadas e cálculos de 2025.
+- Decisão: **não preencher metadados em massa nem adotar multiplicador 100 sem prova por variável e exercício**; a geração editorial deve bloquear narrativa comparativa de séries com linhagens heterogêneas sem reconciliação.
+- Bloqueios atuais: certificação da escala percentual, documentação de cautelas e evidência de implantação pública posterior. Não abrir novas coletas externas editoriais por esta lacuna.

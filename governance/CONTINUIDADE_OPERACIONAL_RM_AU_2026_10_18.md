@@ -72,3 +72,8 @@ Foram recuperados diretamente os registros `governance/API_V2_REAL_DATA_AUDIT_20
 - Análises de 14/10: 11.374 percentuais importados conciliados e 5.420 razões de 2025 conciliadas aritmeticamente, sem demonstrar comparabilidade temporal. Run `38593209824`, PR #160: diferenças de proveniência entre séries importadas e cálculos de 2025.
 - Decisão: **não preencher metadados em massa nem adotar multiplicador 100 sem prova por variável e exercício**; a geração editorial deve bloquear narrativa comparativa de séries com linhagens heterogêneas sem reconciliação.
 - Bloqueios atuais: certificação da escala percentual, documentação de cautelas e evidência de implantação pública posterior. Não abrir novas coletas externas editoriais por esta lacuna.
+
+
+## Avaliação LiteLLM — 18/10/2026
+
+Ver [LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md](LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md). LiteLLM é opção de mediação de modelos para redação e revisão com evidências congeladas da API, não motor fiscal. Implantação pendente de testes do gateway já existente (inclusive compatibilidade JSON), segurança, custo e avaliação contra perguntas da RMJ. Não criar uma segunda base, nem alterar o cálculo ou produção pública.

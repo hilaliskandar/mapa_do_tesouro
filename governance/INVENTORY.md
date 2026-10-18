@@ -261,3 +261,13 @@ PR #173 integrado por squash merge `284b115ec43f5d6f68e5caadb7c750e6ca4a6b6d`, a
 ## Auditoria independente dos indicadores derivados — 15/10/2026
 
 O PR #174 foi integrado por squash merge `ba60f1bf661423164b73a63c1b41d7816bc95a47` depois de Core CI e Pages Preview com sucesso, incluindo verificacao Playwright. Foi criado `editorial/rmj/audit_derived.py`, executado obrigatoriamente no job `rmj-browser-qa` para PRs futuros. O script valida as 35 combinacoes municipio/ano das bases embarcadas, correspondencia de investimentos entre `historical` e `extra`, participacoes calculadas de receitas e despesas, variacoes nominais/reais 2021-2025 e total regional de investimentos de 2025 (R$ 265.425.559,07). A auditoria aritmetica passou no CI e nao substitui verificacao de fontes primarias, consistencia da classificacao de receitas, nem conclusoes causais. Nenhum numero ou texto publico do boletim foi modificado nesta etapa. Preservar esta verificacao como requisito antes de ampliar os territorios cobertos.
+
+## Inventário suplementar de rastreabilidade — 18/10/2026
+
+- Guia de retomada: [CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md](CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md).
+- Fonte histórica: exportação de conversa `ChatGPT-Retomar auditoria fiscal-20261017-2311.md` no projeto; a fonte não é substituto do GitHub.
+- Pacote E2 anteriormente auditado: workflow `38944712710`; 10 boletins; 280 fichas HTML; 626 arquivos com SHA-256 coerentes no manifesto (segundo auditoria registrada na conversa).
+- Divergência contratual: E2 com 50 variáveis/JSON municipal; catálogo posterior (PR #198) com 57. Três itens conferidos como ausentes no pacote E2: inversões financeiras, operações de crédito e alienação de bens. Estado de implantação das 57 variáveis ainda não verificado.
+- Documentação de geração de cadernos RM/AU v1.0/v1.1 e protótipo v1.2 foram produzidos fora do pipeline; não têm autoridade para recalcular ou substituir a API.
+- Portal estadual `finbra-tic-tim-referencia.pages.dev` e publicação `financas-rmj.pages.dev` têm releases e evidências independentes.
+- Pendência: confronto de commits, releases, contratos, payloads e cobertura antes de implementar novos endpoints.

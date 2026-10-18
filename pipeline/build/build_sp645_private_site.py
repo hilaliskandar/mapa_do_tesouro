@@ -14,6 +14,7 @@ from pipeline.build.export_regional_api_v2 import export_regional_api
 from pipeline.qa.audit_api_readiness_v2 import audit_readiness
 from pipeline.build.load_documentation import load_documentation
 from pipeline.ingest.import_multifuentes import import_multifuentes
+from pipeline.build.integrate_rgf_gate_e import integrate
 from pipeline.ingest.import_universe_catalog import import_universe_catalog
 from pipeline.transform.calculate_annual import calculate_annual
 from pipeline.transform.refresh_coverage import refresh_coverage
@@ -82,6 +83,7 @@ def build_sp645_private_site(
     database: Path,
     site_output: Path,
     geojson: Path,
+    rgf_gate_e: Path | None = None,
 ) -> dict:
     result = {}
     result["ingest"] = import_multifuentes(
@@ -94,6 +96,8 @@ def build_sp645_private_site(
         universe_description="Build privado estadual SP645 para QA.",
         universe_type="estadual",
     )
+    if rgf_gate_e is not None:
+        result["rgf_gate_e"] = integrate(database,rgf_gate_e,site_output.parent/"qa_rgf_gate_e_integration.json")
     load_documentation(database, strict=True)
     universe_ids = _load_additional_universes(database)
     result["universe_ids"] = universe_ids
@@ -140,9 +144,10 @@ def main() -> None:
     parser.add_argument("--database", type=Path, required=True)
     parser.add_argument("--site-output", type=Path, required=True)
     parser.add_argument("--geojson", type=Path, required=True)
+    parser.add_argument("--rgf-gate-e",type=Path)
     args = parser.parse_args()
     result = build_sp645_private_site(
-        args.workbook, args.mapping, args.database, args.site_output, args.geojson
+        args.workbook, args.mapping, args.database, args.site_output, args.geojson, args.rgf_gate_e
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

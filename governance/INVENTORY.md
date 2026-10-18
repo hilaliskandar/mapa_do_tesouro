@@ -261,3 +261,21 @@ PR #173 integrado por squash merge `284b115ec43f5d6f68e5caadb7c750e6ca4a6b6d`, a
 ## Auditoria independente dos indicadores derivados — 15/10/2026
 
 O PR #174 foi integrado por squash merge `ba60f1bf661423164b73a63c1b41d7816bc95a47` depois de Core CI e Pages Preview com sucesso, incluindo verificacao Playwright. Foi criado `editorial/rmj/audit_derived.py`, executado obrigatoriamente no job `rmj-browser-qa` para PRs futuros. O script valida as 35 combinacoes municipio/ano das bases embarcadas, correspondencia de investimentos entre `historical` e `extra`, participacoes calculadas de receitas e despesas, variacoes nominais/reais 2021-2025 e total regional de investimentos de 2025 (R$ 265.425.559,07). A auditoria aritmetica passou no CI e nao substitui verificacao de fontes primarias, consistencia da classificacao de receitas, nem conclusoes causais. Nenhum numero ou texto publico do boletim foi modificado nesta etapa. Preservar esta verificacao como requisito antes de ampliar os territorios cobertos.
+
+## Inventário suplementar de rastreabilidade — 18/10/2026
+
+- Guia de retomada: [CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md](CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md).
+- Fonte histórica: exportação de conversa `ChatGPT-Retomar auditoria fiscal-20261017-2311.md` no projeto; a fonte não é substituto do GitHub.
+- Pacote E2 anteriormente auditado: workflow `38944712710`; 10 boletins; 280 fichas HTML; 626 arquivos com SHA-256 coerentes no manifesto (segundo auditoria registrada na conversa).
+- Divergência contratual: E2 com 50 variáveis/JSON municipal; catálogo posterior (PR #198) com 57. Três itens conferidos como ausentes no pacote E2: inversões financeiras, operações de crédito e alienação de bens. Estado de implantação das 57 variáveis ainda não verificado.
+- Documentação de geração de cadernos RM/AU v1.0/v1.1 e protótipo v1.2 foram produzidos fora do pipeline; não têm autoridade para recalcular ou substituir a API.
+- Portal estadual `finbra-tic-tim-referencia.pages.dev` e publicação `financas-rmj.pages.dev` têm releases e evidências independentes.
+- Pendência: confronto de commits, releases, contratos, payloads e cobertura antes de implementar novos endpoints.
+
+## Confronto de catálogos GitHub diretamente verificável — 18/10/2026
+
+`main`: `data/catalogs/publication_variables_v1.yml`, blob `10aa9162fcbbdfeba3978a93de76e3acd105da88`, 50 variáveis. `refs/pull/198/head`: mesmo arquivo, blob `47947286ee607bcc2bf2728c7b4b0417320f7ade`, 57 variáveis. PRs #143 e #144 retornaram 50 nesse arquivo. Os refs foram efetivamente lidos via conector GitHub; situação de merge/deploy ainda não verificada. Ver guia de continuidade.
+
+## Camada adicional recuperada — API v2 com 75 variáveis
+
+A fonte `governance/API_V2_READINESS_REBUILD_2026_10_13.md`, lida na `main`, registra o workflow run `38360896979` (artefato privado ID `11795250292`, SHA-256 ZIP `22f9431f4d069c89fa2c43607b1bfdda4f3c3d8bd3c338d3f3c94a889993bc40`) após o PR #150: **75 variáveis publicáveis**; 48 com lacuna editorial no campo `cautelas`; 17 percentuais com escala armazenamento/exibição ainda não certificada. Aprovação estrutural não é homologação nem prova de publicação da API v2. Não tratar a evolução 50→57 do catálogo editorial v1 como limite do contrato v2. Próxima ação: confirmar endpoints e manifesto reais da API v2, certificar escalas e documentação, e mapear o gerador RM/AU ao contrato mais completo validado.

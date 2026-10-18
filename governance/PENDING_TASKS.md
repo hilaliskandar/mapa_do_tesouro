@@ -205,3 +205,17 @@ Critério geral: priorizar exploração analítica dos dados contábeis disponí
 - [ ] Realizar, quando necessário, inspeção independente de navegador e paridade byte a byte do CSV atual; a confirmação de deployment pela API não equivale a essas duas verificações.
 
 O item anterior sobre verificar a implantação do #196 deve ser considerado encerrado por esta evidência mais recente.
+
+## Fila de integração e prevenção de retrabalho — 18/10/2026
+
+- [ ] Recuperar estado verificável dos PRs #143, #144 e #198 e registrar commits de origem, merge, homologação e deploy separadamente.
+- [ ] Comparar manifesto E2 do run `38944712710` à última API implantada; conferir 50 vs 57 variáveis, valores e estados de disponibilidade, sem promover mudanças.
+- [ ] Inspecionar contrato, build, hashes e cobertura dos endpoints do portal e do contexto RMJ; resolver escala de percentuais e indicadores legais.
+- [ ] Relacionar os 50 itens/25 indicadores/30 questões dos cadernos a variáveis e evidências efetivas da API, evitando recomputação e consultas externas editoriais.
+- [ ] Incorporar o protocolo de retomada a qualquer futura automação de geração; exigir atualização de estado, inventário e handoff ao fim de cada lote.
+
+Referência obrigatória: [continuidade operacional](CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md). Não alterar produção sem autorização.
+
+## Camada adicional recuperada — API v2 com 75 variáveis
+
+A fonte `governance/API_V2_READINESS_REBUILD_2026_10_13.md`, lida na `main`, registra o workflow run `38360896979` (artefato privado ID `11795250292`, SHA-256 ZIP `22f9431f4d069c89fa2c43607b1bfdda4f3c3d8bd3c338d3f3c94a889993bc40`) após o PR #150: **75 variáveis publicáveis**; 48 com lacuna editorial no campo `cautelas`; 17 percentuais com escala armazenamento/exibição ainda não certificada. Aprovação estrutural não é homologação nem prova de publicação da API v2. Não tratar a evolução 50→57 do catálogo editorial v1 como limite do contrato v2. Próxima ação: confirmar endpoints e manifesto reais da API v2, certificar escalas e documentação, e mapear o gerador RM/AU ao contrato mais completo validado.

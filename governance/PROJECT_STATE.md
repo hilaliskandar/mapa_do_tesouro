@@ -503,3 +503,7 @@ A próxima verificação é confirmar o run da implantação do #196 e sua corre
 ## Confirmação independente Cloudflare — 15/10/2026
 
 Projeto Pages `financas-rmj`: deployment de produção `39b2c8f7-416e-437f-8432-b537000e090f` concluído com status `success`, associado ao commit `7b78a9babc59f7109f67e903e3fadcc97c0acee2` do PR editorial #196. URL identificável da implantação: https://39b2c8f7.financas-rmj.pages.dev/. O painel estadual permanece independente. A evidência confirma implantação do commit; não deve ser confundida com inspeção visual completa ou novo cotejo de bytes do CSV.
+
+## Handoff de continuidade — 18/10/2026
+
+A documentação de estado é cumulativa; a linha editorial RMJ continuou depois da release estadual v0.4.0. Para não repetir desenvolvimento, consultar [CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md](CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md) antes de abrir novos gates. Reconstrução histórica indica PRs #143/#144/#198 e pacote E2 run 38944712710; seus estados atuais requerem confirmação direta. A evidência histórica identificou descompasso entre 50 variáveis no pacote E2 e 57 no catálogo ampliado; nenhuma promoção foi feita nesta atualização. Preservar distinções entre desenvolvido, integrado, homologado, implantado e acessível.

@@ -20,9 +20,9 @@ class ReadinessTests(unittest.TestCase):
             inputs = {
                 "manifest.json": {"municipality_count": 645},
                 "catalog/variables.json": {"variables": [
-                    {"variable_id": "test_ratio", "unidade": "percentual",
+                    {"variavel_id": "test_ratio", "unidade": "percentual",
                      "scale_verified": False, "cautelas": ""},
-                    {"variable_id": "test_money", "unidade": "BRL",
+                    {"variavel_id": "test_money", "unidade": "BRL",
                      "cautelas": "Careful comparison"},
                 ]},
                 "catalog/universes.json": [],

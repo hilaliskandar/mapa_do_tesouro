@@ -289,3 +289,8 @@ Ver [GATE_API_V2_EDICAO_REFERENCIA_2026_10_18.md](GATE_API_V2_EDICAO_REFERENCIA_
 ## Avaliação LiteLLM — 18/10/2026
 
 Ver [LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md](LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md). LiteLLM é opção de mediação de modelos para redação e revisão com evidências congeladas da API, não motor fiscal. Implantação pendente de testes do gateway já existente (inclusive compatibilidade JSON), segurança, custo e avaliação contra perguntas da RMJ. Não criar uma segunda base, nem alterar o cálculo ou produção pública.
+
+
+## Verificação direta do artefato API v2 — 18/10/2026
+
+PR #200 integrado ao main após Core CI run 39166328916 e Pages Preview run 39166329082, commit `a5817ab20ab3551a45753836db9c2ce68259e113`. Artefato privado `sp645-private-site-38593209824` recuperado, hash ZIP certificado `9ca1688182eb90a02517c9664dabd4870d88a9abdaad28e6cafd82bd3be81b21`. Confirmados por inspeção de JSON real: 645 municípios, 13 universos, 75 variáveis, 174.795 observações, 48 cautelas não preenchidas, 17 escalas percentuais sem certificação. Manifesto `publication_qa=not_evaluated` e `source_snapshot_qa=candidate`; sem autorização de publicação. Ver [relatório de artefato](API_V2_ARTEFATO_VERIFICADO_2026_10_18.md).

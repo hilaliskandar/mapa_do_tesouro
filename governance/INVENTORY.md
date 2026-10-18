@@ -279,3 +279,8 @@ O PR #174 foi integrado por squash merge `ba60f1bf661423164b73a63c1b41d7816bc95a
 ## Camada adicional recuperada — API v2 com 75 variáveis
 
 A fonte `governance/API_V2_READINESS_REBUILD_2026_10_13.md`, lida na `main`, registra o workflow run `38360896979` (artefato privado ID `11795250292`, SHA-256 ZIP `22f9431f4d069c89fa2c43607b1bfdda4f3c3d8bd3c338d3f3c94a889993bc40`) após o PR #150: **75 variáveis publicáveis**; 48 com lacuna editorial no campo `cautelas`; 17 percentuais com escala armazenamento/exibição ainda não certificada. Aprovação estrutural não é homologação nem prova de publicação da API v2. Não tratar a evolução 50→57 do catálogo editorial v1 como limite do contrato v2. Próxima ação: confirmar endpoints e manifesto reais da API v2, certificar escalas e documentação, e mapear o gerador RM/AU ao contrato mais completo validado.
+
+
+## Gate documental API v2 e cadernos — 18/10/2026
+
+Ver [GATE_API_V2_EDICAO_REFERENCIA_2026_10_18.md](GATE_API_V2_EDICAO_REFERENCIA_2026_10_18.md): provas verificadas dos runs 38355047393, 38360896979, 38562576850, 38589671843 e 38593209824; critérios de consumo de API sem novas consultas externas editoriais; pendências não encerradas de QA e publicação. Evitar novos cálculos/geradores fora do pipeline existente.

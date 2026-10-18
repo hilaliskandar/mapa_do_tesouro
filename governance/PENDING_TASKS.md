@@ -215,3 +215,7 @@ O item anterior sobre verificar a implantação do #196 deve ser considerado enc
 - [ ] Incorporar o protocolo de retomada a qualquer futura automação de geração; exigir atualização de estado, inventário e handoff ao fim de cada lote.
 
 Referência obrigatória: [continuidade operacional](CONTINUIDADE_OPERACIONAL_RM_AU_2026_10_18.md). Não alterar produção sem autorização.
+
+## Camada adicional recuperada — API v2 com 75 variáveis
+
+A fonte `governance/API_V2_READINESS_REBUILD_2026_10_13.md`, lida na `main`, registra o workflow run `38360896979` (artefato privado ID `11795250292`, SHA-256 ZIP `22f9431f4d069c89fa2c43607b1bfdda4f3c3d8bd3c338d3f3c94a889993bc40`) após o PR #150: **75 variáveis publicáveis**; 48 com lacuna editorial no campo `cautelas`; 17 percentuais com escala armazenamento/exibição ainda não certificada. Aprovação estrutural não é homologação nem prova de publicação da API v2. Não tratar a evolução 50→57 do catálogo editorial v1 como limite do contrato v2. Próxima ação: confirmar endpoints e manifesto reais da API v2, certificar escalas e documentação, e mapear o gerador RM/AU ao contrato mais completo validado.

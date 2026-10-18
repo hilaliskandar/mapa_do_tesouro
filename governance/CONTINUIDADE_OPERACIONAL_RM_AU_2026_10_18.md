@@ -58,3 +58,7 @@ O arquivo `data/catalogs/publication_variables_v1.yml` lido diretamente da `main
 ## Revisão diretamente inspecionada do PR #198
 
 O GitHub aceitou a referência `refs/pull/198/head` e retornou `data/catalogs/publication_variables_v1.yml`, blob SHA `47947286ee607bcc2bf2728c7b4b0417320f7ade`, com **57 variáveis**. A `main` tem 50, blob SHA `10aa9162fcbbdfeba3978a93de76e3acd105da88`. Diferença reproduzível diretamente entre fontes, sem estimativas. A leitura de `refs/pull/143/head` e `refs/pull/144/head` para o mesmo arquivo retornou o catálogo de 50. A existência do ref do PR NÃO demonstra merge, aprovação ou implantação. É proibido substituir a versão pública com base apenas nessa diferença.
+
+## Camada adicional recuperada — API v2 com 75 variáveis
+
+A fonte `governance/API_V2_READINESS_REBUILD_2026_10_13.md`, lida na `main`, registra o workflow run `38360896979` (artefato privado ID `11795250292`, SHA-256 ZIP `22f9431f4d069c89fa2c43607b1bfdda4f3c3d8bd3c338d3f3c94a889993bc40`) após o PR #150: **75 variáveis publicáveis**; 48 com lacuna editorial no campo `cautelas`; 17 percentuais com escala armazenamento/exibição ainda não certificada. Aprovação estrutural não é homologação nem prova de publicação da API v2. Não tratar a evolução 50→57 do catálogo editorial v1 como limite do contrato v2. Próxima ação: confirmar endpoints e manifesto reais da API v2, certificar escalas e documentação, e mapear o gerador RM/AU ao contrato mais completo validado.

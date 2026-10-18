@@ -271,3 +271,7 @@ O PR #174 foi integrado por squash merge `ba60f1bf661423164b73a63c1b41d7816bc95a
 - Documentação de geração de cadernos RM/AU v1.0/v1.1 e protótipo v1.2 foram produzidos fora do pipeline; não têm autoridade para recalcular ou substituir a API.
 - Portal estadual `finbra-tic-tim-referencia.pages.dev` e publicação `financas-rmj.pages.dev` têm releases e evidências independentes.
 - Pendência: confronto de commits, releases, contratos, payloads e cobertura antes de implementar novos endpoints.
+
+## Confronto de catálogos GitHub diretamente verificável — 18/10/2026
+
+`main`: `data/catalogs/publication_variables_v1.yml`, blob `10aa9162fcbbdfeba3978a93de76e3acd105da88`, 50 variáveis. `refs/pull/198/head`: mesmo arquivo, blob `47947286ee607bcc2bf2728c7b4b0417320f7ade`, 57 variáveis. PRs #143 e #144 retornaram 50 nesse arquivo. Os refs foram efetivamente lidos via conector GitHub; situação de merge/deploy ainda não verificada. Ver guia de continuidade.

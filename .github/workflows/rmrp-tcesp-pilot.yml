@@ -1,0 +1,39 @@
+name: RMRP TCESP pilot (private artifact only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Acquire one official test extract
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/rmrp-tcesp-pilot
+          TCESP_TIMEOUT_SECONDS=180 python3 editorial/rmj/analyze_tcesp_pilot.py ribeirao-preto 2025 > build/rmrp-tcesp-pilot/ribeirao-preto_2025.json
+          python3 - <<'PY'
+          import json, pathlib
+          path=pathlib.Path("build/rmrp-tcesp-pilot/ribeirao-preto_2025.json")
+          data=json.loads(path.read_text(encoding="utf-8"))
+          assert data["slug"]=="ribeirao-preto" and data["year"]==2025
+          assert data["bad_values"]==0
+          p=sum(int(row[-1]) for row in data["programas_44_liquidado_completos"])
+          a=sum(int(row[-1]) for row in data["acoes_44_liquidado_completas"])
+          assert p==a==data["investimento_44_liquidado_centavos"]
+          print(json.dumps({"source_url":data["url"],"zip_sha256":data["sha256_zip"],"records":data["rows"],"investment_cents":p},ensure_ascii=False))
+          PY
+      - name: Preserve pilot evidence, without publishing
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmrp-tcesp-pilot-ribeirao-preto-2025
+          path: build/rmrp-tcesp-pilot/*.json
+          if-no-files-found: warn
+          retention-days: 30

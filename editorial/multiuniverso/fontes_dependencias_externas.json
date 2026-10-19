@@ -1,0 +1,39 @@
+{
+  "populacao_dca": {
+    "tipo": "contextual",
+    "fonte_id": "SICONFI_DCA",
+    "origem": "data/catalogs/variables_core.yml",
+    "nota": "População registrada na DCA; não substituir por série IBGE."
+  },
+  "dca_juros_encargos_liquidada": {
+    "tipo": "conta_oficial",
+    "fonte_id": "SICONFI_DCA",
+    "origem": "data/mappings/dca_canonical_v1.yml",
+    "anexo": "DCA-Anexo I-D",
+    "coluna": "Despesas Liquidadas",
+    "cod_conta": "DO3.2.00.00.00.00"
+  },
+  "dca_inversoes_financeiras_liquidada": {
+    "tipo": "conta_oficial",
+    "fonte_id": "SICONFI_DCA",
+    "origem": "data/mappings/dca_canonical_v1.yml",
+    "anexo": "DCA-Anexo I-D",
+    "coluna": "Despesas Liquidadas",
+    "cod_conta": "DO4.5.00.00.00.00"
+  },
+  "dca_amortizacao_divida_liquidada": {
+    "tipo": "conta_oficial",
+    "fonte_id": "SICONFI_DCA",
+    "origem": "data/mappings/dca_canonical_v1.yml",
+    "anexo": "DCA-Anexo I-D",
+    "coluna": "Despesas Liquidadas",
+    "cod_conta": "DO4.6.00.00.00.00"
+  },
+  "tributos_imobiliarios": {
+    "tipo": "agregado_analitico",
+    "fonte_id": null,
+    "origem": "data/catalogs/variables_core.yml",
+    "formula": "dca_iptu_principal + dca_itbi_principal",
+    "nota": "Agregado derivado; fontes devem ser obtidas recursivamente das parcelas."
+  }
+}

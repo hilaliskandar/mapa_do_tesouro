@@ -9,6 +9,7 @@ on:
       - "pipeline/acquire/**"
       - "pipeline/normalize/**"
       - "data/mappings/dca_canonical_v1.yml"
+      - "editorial/multiuniverso/qa_dca_oficial.py"
       - ".github/workflows/siconfi-baseline-crosscheck.yml"
   workflow_dispatch:
 
@@ -83,6 +84,17 @@ jobs:
             --expected-municipalities 5 \
             --min-interval 1.05
 
+      - name: Conferir municipios E2 diretamente com a DCA recapturada
+        run: |
+          python editorial/multiuniverso/qa_dca_oficial.py \
+            --csv build/normalized/dca_sentinels_2025.csv \
+            --out build/qa-dca-e2.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: auditoria-dca-oficial-e2
+          path: build/qa-dca-e2.json
+          if-no-files-found: warn
       - name: Download published baseline
         run: |
           curl --fail --location --retry 3 \

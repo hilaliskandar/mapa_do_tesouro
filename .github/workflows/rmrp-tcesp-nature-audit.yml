@@ -1,0 +1,41 @@
+name: RMRP TCESP - audit original expense nature
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rmrp-tcesp-nature-audit.yml'
+permissions:
+  contents: read
+concurrency:
+  group: rmrp-tcesp-nature-audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: [self-hosted, Linux, X64, financas-tcesp-wsl2]
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify raw TCESP expense elements for priority records
+        run: |
+          set -euo pipefail
+          python3 editorial/rmrp/auditar_natureza_tcesp_raw.py build/rmrp-tcesp-nature
+          python3 - <<'PY'
+          import json,pathlib
+          root=pathlib.Path("build/rmrp-tcesp-nature")
+          s=json.loads((root/"SUMMARY.json").read_text())
+          assert len(s)==4
+          assert all(x["rows_matched"]>0 for x in s)
+          g=next(x for x in s if x["slug"]=="guatapara")
+          assert g["cents"]==211894079, ("Guatapara 2023 changed from audited TCESP extract",g)
+          PY
+      - name: Retain aggregate evidence (no individual transactions)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmrp-tcesp-nature-audit
+          path: build/rmrp-tcesp-nature/*.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -29,3 +29,8 @@ Fonte: GitHub Actions [run 39208371015](https://github.com/hilaliskandar/mapa_do
 - Verificar obras/equipamentos das duas ações de manutenção/operacionalização, evitando classificá-las como dívida.
 - Resolver a divergência de Guatapará 2023 por diferença de universo, elemento, estágio e extração, sem substituir valores auditados.
 - Cruzar essas cinco ações com a matriz dos 2.955 registros, evitando duplicidade e preservando versões do relatório regional; publicar alterações apenas após QA específico.
+
+
+## Deliberação de escopo — classificação simplificada
+
+Por orientação expressa do projeto, encerra-se a diligência para determinar a obrigação originária de cada precatório. Nas análises gerenciais, basta destacar os registros identificados como precatórios por denominação da ação, mantendo separadas eventuais sentenças judiciais sem essa indicação. Os valores oficiais de investimentos não são alterados. Pode-se apresentar, como medida **analítica** e somente quando a cobertura for suficiente, 'investimentos liquidados excluídos os precatórios identificados'. Não investigar processos individuais ou empenhos para essa finalidade. Não converter o total de todo elemento 44909100 automaticamente em precatórios quando a descrição da ação for insuficiente. As ações selecionadas apenas por 'operação'/'operacionalizar' não são precatórios e não demandam investigação judicial. A pendência de Guatapará sobre divergência de totais permanece separada desta triagem.

@@ -1,68 +1,97 @@
 #!/usr/bin/env python3
-"""Audit TCESP original expense element by selected action, no individual-level exports."""
-import collections,csv,hashlib,io,json,os,sys,urllib.request,zipfile
-from decimal import Decimal,InvalidOperation,ROUND_HALF_UP
+"""Reconcile TCESP raw nature against dynamic program/action descriptions. Aggregate only."""
+import collections
+import csv
+import hashlib
+import io
+import json
+import os
+import re
+import sys
+import unicodedata
+import urllib.request
+import zipfile
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from pathlib import Path
 
-TARGETS=[
- ("ribeirao-preto",2024,"0","30003"),
- ("ribeirao-preto",2025,"0","30003"),
- ("sertaozinho",2025,"0","1"),
- ("guatapara",2023,None,None),
-]
-def centavos(raw):
-    return int((Decimal(str(raw or "0").replace(".","").replace(",","."))*100).quantize(Decimal("1"),rounding=ROUND_HALF_UP))
-def run(slug,year,program,action,out):
-    url=f"https://transparencia.tce.sp.gov.br/sites/default/files/csv/despesas-{slug}-{year}.zip"
-    req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0"})
-    with urllib.request.urlopen(req,timeout=200) as response: data=response.read()
-    sha=hashlib.sha256(data).hexdigest()
-    group=collections.defaultdict(lambda:{"rows":0,"cents":0})
-    elements=collections.defaultdict(lambda:{"rows":0,"cents":0})
-    types=collections.defaultdict(int)
-    original_44=0
-    n=0;matched=0;bad=0;sample_cols=[]
+TARGETS = [("ribeirao-preto", 2024), ("ribeirao-preto", 2025),
+           ("sertaozinho", 2025), ("guatapara", 2023)]
+KEYWORDS = ("precator", "amortiz", "divida", "operac", "judicia")
+def clean(s):
+    return "".join(c for c in unicodedata.normalize("NFKD", str(s).lower())
+                   if not unicodedata.combining(c))
+def cents(s):
+    return int((Decimal(str(s or "0").replace(".", "").replace(",", ".")) * 100)
+               .quantize(Decimal("1"), rounding=ROUND_HALF_UP))
+def run(slug, year, out):
+    url = f"https://transparencia.tce.sp.gov.br/sites/default/files/csv/despesas-{slug}-{year}.zip"
+    with urllib.request.urlopen(urllib.request.Request(
+         url, headers={"User-Agent":"Mozilla/5.0"}), timeout=200) as response:
+        data = response.read()
+    source_hash = hashlib.sha256(data).hexdigest()
+    nature = collections.defaultdict(lambda: {"rows":0, "cents":0})
+    candidates = collections.defaultdict(lambda: {"rows":0, "cents":0, "elements":{}})
+    program_keys = set()
+    full = 0
+    matched = 0
+    invalid = 0
+    total_rows = 0
     with zipfile.ZipFile(io.BytesIO(data)) as z:
-        files=[v for v in z.namelist() if not v.endswith("/")]
-        if len(files)!=1:raise ValueError("Unexpected ZIP members")
-        with z.open(files[0]) as stream:
-            reader=csv.DictReader(io.TextIOWrapper(stream,encoding="latin-1",newline=""),delimiter=";")
-            sample_cols=reader.fieldnames
+        files = [n for n in z.namelist() if not n.endswith("/")]
+        if len(files) != 1: raise ValueError("Expected one TCESP CSV")
+        with z.open(files[0]) as f:
+            reader = csv.DictReader(io.TextIOWrapper(f, encoding="latin-1", newline=""), delimiter=";")
             for row in reader:
-                n+=1
-                tp=(row.get("tp_despesa") or "").strip()
-                el=(row.get("ds_elemento") or "").strip()
-                code=el.split(" - ",1)[0].strip()
-                if tp.lower()!="valor liquidado" or not code.startswith("44"):continue
-                try:val=centavos(row.get("vl_despesa"))
-                except (InvalidOperation,ValueError):bad+=1;continue
-                original_44+=val
-                if program is not None:
-                    if (row.get("cd_programa") or "").strip().lstrip("0")!=(program.lstrip("0") or "0"):continue
-                    if (row.get("cd_acao") or "").strip().lstrip("0")!=(action.lstrip("0") or "0"):continue
-                matched+=1
-                group[code[:4]]["rows"]+=1;group[code[:4]]["cents"]+=val
-                elements[el]["rows"]+=1;elements[el]["cents"]+=val
-                types[tp]+=1
-    result={"slug":slug,"year":year,"filter":{"program":program,"action":action},
-       "url":url,"zip_sha256":sha,"rows_source":n,"rows_matched":matched,
-       "invalid_values_44":bad,"total_source_44_cents":original_44,
-       "matched_cents":sum(v["cents"] for v in elements.values()),
-       "nature_groups":dict(sorted(group.items())),
-       "nature_elements":dict(sorted(elements.items())),
-       "available_columns":sample_cols,
-       "note":"Aggregate only; no vendor, taxpayer, employee or individual transaction data published."}
-    assert result["matched_cents"]==sum(v["cents"] for v in group.values())
-    assert bad==0
-    dest=out/f"{slug}_{year}_nature_audit.json"
-    dest.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    return {"slug":slug,"year":year,"rows_matched":matched,"cents":result["matched_cents"],"file":str(dest)}
+                total_rows += 1
+                tp = (row.get("tp_despesa") or "").strip().lower()
+                element = (row.get("ds_elemento") or "").strip()
+                code = element.split(" - ", 1)[0].strip()
+                if tp != "valor liquidado" or not code.startswith("44"):
+                    continue
+                try: value = cents(row.get("vl_despesa"))
+                except (InvalidOperation, ValueError):
+                    invalid += 1
+                    continue
+                full += value
+                name = row.get("ds_acao") or ""
+                prog = row.get("ds_programa") or ""
+                key = (str(row.get("cd_programa") or "").strip(),
+                       str(row.get("cd_acao") or "").strip(),
+                       prog.strip(), name.strip())
+                program_keys.add(key)
+                desc = clean(name + " " + prog)
+                if not any(k in desc for k in KEYWORDS):
+                    continue
+                matched += 1
+                nature[element]["rows"] += 1
+                nature[element]["cents"] += value
+                c = candidates[key]
+                c["rows"] += 1
+                c["cents"] += value
+                c["elements"][element] = c["elements"].get(element, 0) + value
+    if invalid: raise ValueError(f"{invalid} malformed 44-liquidado values")
+    rows = [{"program_code":k[0], "action_code":k[1],
+             "program_name":k[2], "action_name":k[3],
+             "rows":v["rows"], "cents":v["cents"], "nature_elements":v["elements"]}
+            for k,v in candidates.items()]
+    rows.sort(key=lambda x:(-abs(x["cents"]),x["program_code"],x["action_code"]))
+    summary = {"slug":slug, "year":year, "url":url, "zip_sha256":source_hash,
+               "source_rows":total_rows, "investment_44_liquidado_cents":full,
+               "distinct_program_actions":len(program_keys),
+               "keyword_matched_rows":matched,
+               "keyword_matched_cents":sum(v["cents"] for v in candidates.values()),
+               "keyword_matched_actions":len(candidates),
+               "nature_by_element":dict(sorted(nature.items())),
+               "candidate_actions":rows,
+               "keywords":KEYWORDS, "note":"Keyword search is investigative, not classification; sums are aggregate, no individual expenses."}
+    assert summary["keyword_matched_cents"] == sum(v["cents"] for v in nature.values())
+    dest = out / f"{slug}_{year}_nature_audit.json"
+    dest.write_text(json.dumps(summary, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    return {k:summary[k] for k in ("slug","year","zip_sha256","investment_44_liquidado_cents","keyword_matched_rows","keyword_matched_actions","keyword_matched_cents")}
 def main():
-    out=Path(sys.argv[1] if len(sys.argv)>1 else "build/rmrp-tcesp-nature")
-    out.mkdir(parents=True,exist_ok=True)
-    results=[]
-    for slug,year,prog,act in TARGETS:
-        results.append(run(slug,year,prog,act,out))
-    (out/"SUMMARY.json").write_text(json.dumps(results,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps(results,ensure_ascii=False))
-if __name__=="__main__":main()
+    out = Path(sys.argv[1] if len(sys.argv)>1 else "build/rmrp-tcesp-nature")
+    out.mkdir(parents=True, exist_ok=True)
+    records = [run(slug,year,out) for slug,year in TARGETS]
+    (out/"SUMMARY.json").write_text(json.dumps(records,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    print(json.dumps(records,ensure_ascii=False))
+if __name__ == "__main__": main()

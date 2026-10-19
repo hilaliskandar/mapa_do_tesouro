@@ -1,0 +1,5 @@
+# Execucao literal de stage DCA historica
+
+Em 18/10/2026, a funcao stage() do modulo pipeline/build/stage_dca_history_v2.py foi executada em ambiente isolado, usando transcricao do codigo obtido via conector GitHub na main e o pacote real DCA 2013-2025. A transcricao nao teve verificacao criptografica contra o blob do repositorio, pois git pelo terminal estava indisponivel. Resultado: 645 fichas municipais validadas, 218010 celulas examinadas, 647 arquivos JSON copiados com hashes identicos (645 fichas, manifesto e relatorio QA). O arquivo data/api/v2/manifest.json manteve SHA256 `4e4b2da61c9c0932190e5cbb249c6e0ec3b115e66306afdfa468e0b07687a0e0` antes e depois. Segunda tentativa de stage sobre o mesmo destino foi rejeitada. Catalogo de descoberta gerado com publication_authorized=false. Nao houve deploy e nem alteracao da producao publica.
+
+Limite: nao houve verificacao contra a arvore privada real da API v2; o manifesto principal usado foi de ambiente isolado. Antes da publicacao, confrontar o historico com artefato API v2 completo e executar controles de consistencia editorial por exercicio e fonte.

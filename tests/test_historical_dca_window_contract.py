@@ -21,7 +21,7 @@ def test_2025_multisource_mapping_not_mislabelled_as_2013_history():
         if spec["source_id"] == "SICONFI_DCA"
     }
     assert dca_specs
-    assert all(spec["availability_start"] == 2025 for spec in dca_specs)
+    assert all(spec["availability_start"] == 2025 for spec in dca_specs.values())
     assert all(spec["availability_end"] == 2025 for spec in dca_specs)
 
 

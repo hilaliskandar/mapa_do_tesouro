@@ -229,3 +229,16 @@ Ver [GATE_API_V2_EDICAO_REFERENCIA_2026_10_18.md](GATE_API_V2_EDICAO_REFERENCIA_
 ## Avaliação LiteLLM — 18/10/2026
 
 Ver [LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md](LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md). LiteLLM é opção de mediação de modelos para redação e revisão com evidências congeladas da API, não motor fiscal. Implantação pendente de testes do gateway já existente (inclusive compatibilidade JSON), segurança, custo e avaliação contra perguntas da RMJ. Não criar uma segunda base, nem alterar o cálculo ou produção pública.
+
+
+## Auditoria TCESP RMRP — gate de natureza contábil, 19/10/2026
+
+- [x] Corrigida a hipótese indevida de códigos fixos de ações na auditoria bruta (PR #211, commit e7dfaf8f0c361b32baec21dd3f572312919858d1).
+- [x] Workflow `RMRP TCESP - audit original expense nature`, run `39208371015`, job `117916057843`, concluiu `success` em 19/10/2026; artifact `12166413578` (`rmrp-tcesp-nature-audit`), SHA-256 do ZIP `c41370e35b0c88eead1ff5695b5c03673c5d04a7441a781c07c7b753a31aa57e`.
+- [x] Conferência da massa liquidada do grupo 44 nos quatro recortes: Ribeirão Preto 2024 R$ 218.916.157,18; Ribeirão Preto 2025 R$ 111.684.129,98; Sertãozinho 2025 R$ 23.294.029,79; Guatapará 2023 R$ 2.118.940,79. A confirmação decorre do log do workflow, não de auditoria independente da classificação substantiva.
+- [x] Pré-seleção textual de ações, **sem classificação fiscal conclusiva**: Ribeirão Preto 2024, 9 linhas/2 ações/R$ 17.739.976,39; Ribeirão Preto 2025, 2 linhas/1 ação/R$ 14.487.299,55; Sertãozinho 2025, 19 linhas/2 ações/R$ 15.363.387,48; Guatapará 2023, zero correspondências. Uma ausência de palavra-chave não equivale a inexistência do fato contábil.
+- [ ] Examinar as cinco ações candidatas e os elementos de despesa nos JSONs do artifact; separar obrigação judicial, serviço da dívida e aplicação direta elegível ao grupo 44. Palavras-chave em programa/ação são **sinal investigativo**, não critério de reclassificação.
+- [ ] Resolver por confronto entre documentos a diferença histórica de R$ 10.176,00 em Guatapará 2023; não a dar como resolvida apenas pelo gate de natureza.
+- [ ] Incorporar achados confirmados à matriz RMRP e ao texto regional, distinguindo registro contábil, finalidade inferida e hipótese pendente; executar QA de paridade e versão antes de publicação.
+
+Fonte de execução: https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/39208371015 . Não modificar dados-fonte ou publicações por efeito deste registro.

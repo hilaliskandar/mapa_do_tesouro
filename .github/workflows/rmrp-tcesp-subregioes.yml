@@ -1,0 +1,42 @@
+name: RMRP TCESP - four subregions WSL2
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rmrp-tcesp-subregioes.yml'
+permissions:
+  contents: read
+concurrency:
+  group: rmrp-tcesp-subregioes-wsl2
+  cancel-in-progress: false
+jobs:
+  collect:
+    strategy:
+      fail-fast: false
+      matrix:
+        subregiao: [1, 2, 3, 4]
+    runs-on: [self-hosted, Linux, X64, financas-tcesp-wsl2]
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Collect, reuse and validate official TCESP extracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 editorial/rmrp/coletar_tcesp_subregiao.py \
+            --subregiao ${{ matrix.subregiao }} \
+            --workers 3 \
+            --output build/rmrp-tcesp-regional
+      - name: Preserve every valid extract and audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmrp-tcesp-subregiao-${{ matrix.subregiao }}
+          path: |
+            build/rmrp-tcesp-regional/subregiao_${{ matrix.subregiao }}/*.json
+            build/rmrp-tcesp-regional/qa_subregiao_${{ matrix.subregiao }}.json
+          if-no-files-found: warn
+          retention-days: 30

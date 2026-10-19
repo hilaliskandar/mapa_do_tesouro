@@ -22,7 +22,7 @@ def test_2025_multisource_mapping_not_mislabelled_as_2013_history():
     }
     assert dca_specs
     assert all(spec["availability_start"] == 2025 for spec in dca_specs.values())
-    assert all(spec["availability_end"] == 2025 for spec in dca_specs)
+    assert all(spec["availability_end"] == 2025 for spec in dca_specs.values())
 
 
 def test_private_typology_input_must_not_claim_full_dca_history():

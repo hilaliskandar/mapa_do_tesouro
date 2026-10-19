@@ -1,0 +1,51 @@
+name: RMRP TCESP pilot - dedicated WSL2
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rmrp-tcesp-wsl2-pilot
+  cancel-in-progress: false
+jobs:
+  pilot:
+    runs-on: [self-hosted, Linux, X64, financas-tcesp-wsl2]
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check prerequisites and dedicated environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 --version
+          python3 - <<'PY'
+          import platform, sys
+          assert sys.version_info >= (3,10)
+          assert platform.system() == "Linux"
+          PY
+      - name: Acquire and validate one official TCESP source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/rmrp-tcesp-wsl2
+          TCESP_TIMEOUT_SECONDS=180 python3 editorial/rmj/analyze_tcesp_pilot.py ribeirao-preto 2025 > build/rmrp-tcesp-wsl2/ribeirao-preto_2025.json
+          python3 - <<'PY'
+          import json, pathlib
+          path=pathlib.Path("build/rmrp-tcesp-wsl2/ribeirao-preto_2025.json")
+          obj=json.loads(path.read_text(encoding="utf-8"))
+          assert obj["slug"]=="ribeirao-preto" and obj["year"]==2025
+          assert obj["bad_values"]==0 and len(obj["sha256_zip"])==64
+          p=sum(row[-1] for row in obj["programas_44_liquidado_completos"])
+          a=sum(row[-1] for row in obj["acoes_44_liquidado_completas"])
+          assert p==a==obj["investimento_44_liquidado_centavos"]
+          print(json.dumps({"source":obj["url"],"source_sha256":obj["sha256_zip"],"rows":obj["rows"],"cents":p}))
+          PY
+      - name: Upload audit artifact (private workflow, no publication)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmrp-tcesp-wsl2-pilot-2025
+          path: build/rmrp-tcesp-wsl2/*.json
+          if-no-files-found: warn
+          retention-days: 30

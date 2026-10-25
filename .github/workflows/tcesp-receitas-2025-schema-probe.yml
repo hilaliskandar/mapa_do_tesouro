@@ -1,0 +1,27 @@
+name: TCESP receitas 2025 - probe de esquema (sem ingestao)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tcesp-receitas-2025-schema-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect official 2025 statewide revenues ZIP read-only
+        run: python3 governance/probe_tcesp_receitas_2025.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-receitas-2025-schema-probe
+          path: build/tcesp-receitas-probe/report.json
+          if-no-files-found: warn
+          retention-days: 30

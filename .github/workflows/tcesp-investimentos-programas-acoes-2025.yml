@@ -1,0 +1,33 @@
+name: TCESP investimentos 2025 - programas e acoes RMJ
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-investimentos-programas-acoes-2025.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reuse original RMJ 2025 artifact
+        run: |
+          mkdir -p build/referencia-rmj
+          gh run download 38719698652 --repo "$GITHUB_REPOSITORY" --name rmj-tcesp-2025-full-raw --dir build/referencia-rmj
+      - name: Reconcile program and action decomposition on two municipalities
+        run: python3 governance/auditar_investimentos_programas_acoes_2025.py build/referencia-rmj
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-investimentos-programas-acoes-2025-qa
+          path: build/tcesp-investimentos-programas-acoes/qa.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -21,6 +21,9 @@ if not name_key:
  official=list(csv.DictReader(content.splitlines()))
  by_code={r["codigo_ibge"]:r["nome"] for r in official if r["codigo_uf"]=="35"}
  if len(by_code)!=645:raise RuntimeError("Fallback SP roster size unexpected: "+str(len(by_code)))
+ # Official IBGE current municipality registry: Florínea, code 3516101 (mirror has outdated Florínia).
+ assert by_code["3516101"] in ("Florínia","Florínea")
+ by_code["3516101"]="Florínea"
  missing_codes={r["cod_ibge"] for r in rows}-set(by_code)
  if missing_codes:raise RuntimeError("DCA code absent in fallback roster: "+repr(sorted(missing_codes)))
  name_key="IBGE_MIRROR:nome"

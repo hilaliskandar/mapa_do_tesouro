@@ -37,3 +37,21 @@ Antes de qualquer GET TCESP: consultar manifesto permanente no R2; verificar exi
 - Verificar contrato de tabela e JSON/API de investimento para nao quebrar consumidores atuais.
 - Teste inicial: importar acervo existente de dois municipios, provar reutilizacao sem GET ao TCESP e confirmar ausencia de alteracoes em producao.
 - Somente depois autorizar lotes complementares e eventual ampliacao 2026 para os 645 municipios.
+
+## Requisito obrigatório — investimentos por programa e ação
+
+A integração estadual TCESP deve preservar a **decomposição dos investimentos por programa e ação orçamentária** como dado de primeira classe, não apenas o agregado do grupo 44. Este requisito se aplica a todos os municípios e exercícios disponíveis (2023–2026, sendo 2026 parcial e identificado por meses presentes).
+
+Granularidade recomendada: `codigo_ibge, exercicio, mes_referencia, orgao, unidade_orcamentaria, funcao, subfuncao, codigo_programa, descricao_programa, codigo_acao, descricao_acao, tipo_acao, classificacao_natureza, fonte_recurso, estagio_despesa, valor_centavos, proveniencia`, **somente para dimensões efetivamente presentes no arquivo original**. Campos não publicados pela fonte permanecem nulos; não inferir códigos ou a classificação projeto/atividade/operação especial a partir do nome.
+
+Manter separados empenhos, liquidações, pagamentos, reforços e anulações conforme a semântica e o sinal do registro TCESP; **não somar movimentações heterogêneas**. Identificar investimentos de maneira auditável, respeitando o grupo de natureza `44` e verificando o layout do arquivo para não confundir o código com outra classificação.
+
+Controle obrigatório por município/ano/mês/estágio:
+1. Soma dos programas = soma das ações = agregado de investimento na mesma base, filtro e estágio.
+2. Chaves de programa/ação incluem escopo institucional e exercício, pois códigos locais podem ser reutilizados.
+3. A classificação da ação e a descrição original são conservadas; agregações de programa e ação não podem apagar o detalhamento.
+4. Distinguir ausências, movimentos negativos e dados parciais; reportar discrepâncias em centavos sem correção silenciosa.
+5. Usar os 21 extratos da RMJ (2023–2025), com decomposições já reconciliadas, como amostra de regressão; conferir paridade com o arquivo estadual antes de promover seus derivados.
+6. Materializar no SQLite tabelas separadas de dimensão programa/ação e fatos de execução TCESP, preservando a DCA/FINBRA canônica. API de análise por programas e ações deve permitir filtros por município, exercício, estágio, órgão e natureza, com proveniência e cobertura explícitas.
+
+**Critério de aceite:** não declarar concluída a importação de investimentos apenas com totais municipais. Exigir reconciliação das ações e programas e preservar a possibilidade de análise detalhada sem nova coleta TCESP.

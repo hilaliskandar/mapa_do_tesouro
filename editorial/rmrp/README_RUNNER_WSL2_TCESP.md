@@ -33,3 +33,14 @@ Host Windows/Ubuntu 24.04 WSL2 do runner Crawl4AI existente, SEM reutilizar sua 
 - [ ] Piloto executado e artifact examinado.
 - [ ] Fonte e totais conferidos com DCA.
 - [ ] Próximo lote liberado.
+
+
+## Atualizacao operacional — 25/10/2026
+
+Este guia de instalacao documenta uma fase piloto superada. O runner dedicado `financas-tcesp-wsl2` foi utilizado com sucesso para os workflows de reuso dos 106 extratos historicos RMRP/Sao Carlos ([run 40228943048](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40228943048)) e coleta parcial de 2026 nos 34 municipios da RMRP ([run 40229219185](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40229219185)). Os quatro lotes de 2026 foram concluidos.
+
+Os arquivos validados foram preservados no bucket privado R2 `financas-municipais-sp-canonico` por workflows separados de promocao: [RMRP 2026](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40230188884), [RMRP 2023–2025](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40230628954) e [Sao Carlos 2023–2026](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40231520362). As tres execucoes verificaram a recuperacao e integridade SHA-256. Nao confundir esses snapshots privados com API SQLite ou painel publicado.
+
+A matriz inicial de cobertura estadual foi produzida no [run 40231222578](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40231222578), antes da persistencia de Sao Carlos; atualizar esta matriz antes de gerar a fila `missing-only`. A cobertura de 2026 e parcial, com Jardinopolis (receitas) somente ate maio e os outros extratos regionais ate agosto. Nao preencher meses ausentes com zero nem extrapolar ano fechado.
+
+**O que permanece pendente:** catalogar os artefatos RMJ/TIC-TIM; identificar pares ainda sem snapshot; construir ingestao complementar no SQLite/API e testes de regressao; promover novas coletas de forma seletiva. O README raiz concentra o estado e as chaves R2 atualizados.

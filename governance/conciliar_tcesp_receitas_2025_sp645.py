@@ -13,15 +13,17 @@ name_key=next((x for x in name_options if x in fields),None)
 if not name_key:
  name_key=next((x for x in fields if "municip" in x.lower() and x!=code_key),None)
 if not name_key:
- url="https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/municipios"
+ # Public IBGE-derived mirror, used only as a fallback when the official API is unreachable.
+ url="https://raw.githubusercontent.com/kelvins/municipios-brasileiros/main/csv/municipios.csv"
  request=urllib.request.Request(url,headers={"User-Agent":"mapa-do-tesouro-qa/1"})
- with urllib.request.urlopen(request,timeout=90) as response:
-  official=json.load(response)
- by_code={str(x["id"]):x["nome"] for x in official}
- if len(by_code)!=645:raise RuntimeError("IBGE API roster size unexpected: "+str(len(by_code)))
+ with urllib.request.urlopen(request,timeout=45) as response:
+  content=response.read(1000000).decode("utf-8-sig")
+ official=list(csv.DictReader(content.splitlines()))
+ by_code={r["codigo_ibge"]:r["nome"] for r in official if r["codigo_uf"]=="35"}
+ if len(by_code)!=645:raise RuntimeError("Fallback SP roster size unexpected: "+str(len(by_code)))
  missing_codes={r["cod_ibge"] for r in rows}-set(by_code)
- if missing_codes:raise RuntimeError("DCA code absent in official IBGE roster: "+repr(sorted(missing_codes)))
- name_key="IBGE_API:nome"
+ if missing_codes:raise RuntimeError("DCA code absent in fallback roster: "+repr(sorted(missing_codes)))
+ name_key="IBGE_MIRROR:nome"
  rows=[dict(r,**{name_key:by_code[r["cod_ibge"]]}) for r in rows]
 roster={}
 for row in rows:

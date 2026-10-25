@@ -1,0 +1,27 @@
+name: Sao Carlos arrecadacao IPTU ISS ITBI 2023-2026
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sao-carlos-tributos.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  receitas:
+    runs-on: [self-hosted, Linux, X64, financas-tcesp-wsl2]
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Agregar receitas por rubrica e mes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/sao-carlos-tributos
+          for ano in 2023 2024 2025 2026; do
+            python3 editorial/sao_carlos/tributos_tcesp.py "$ano" > "build/sao-carlos-tributos/sao-carlos_${ano}.json"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sao-carlos-tributos-2023-2026
+          path: build/sao-carlos-tributos/*.json
+          retention-days: 30

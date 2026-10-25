@@ -1,0 +1,36 @@
+name: TCESP 2026 RMRP parcial - receitas e investimentos
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-rmrp-2026-parcial.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tcesp-rmrp-2026-parcial
+  cancel-in-progress: false
+jobs:
+  collect:
+    strategy:
+      fail-fast: false
+      matrix:
+        subregiao: [1, 2, 3, 4]
+    runs-on: [self-hosted, Linux, X64, financas-tcesp-wsl2]
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Collect 2026 partial TCESP sources and record observed months
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 editorial/rmrp/coletar_tcesp_2026_parcial.py --roster editorial/rmrp/municipios_subregioes_tcesp.csv --subregiao ${{ matrix.subregiao }} --output build/tcesp-2026/subregiao_${{ matrix.subregiao }}
+      - name: Preserve data and audit trail - no publication
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tcesp-rmrp-2026-subregiao-${{ matrix.subregiao }}
+          path: build/tcesp-2026/subregiao_${{ matrix.subregiao }}/*.json
+          if-no-files-found: warn
+          retention-days: 30

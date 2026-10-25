@@ -1,0 +1,45 @@
+name: TCESP acervo existente - auditoria sem nova coleta
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tcesp-acervo-existente.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: tcesp-acervo-reuso
+  cancel-in-progress: false
+jobs:
+  auditar:
+    runs-on: [self-hosted, Linux, X64, financas-tcesp-wsl2]
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Recuperar quatro artefatos RMRP e Sao Carlos dos runs existentes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/tcesp-reuso/rmrp build/tcesp-reuso/sao-carlos
+          for sub in 1 2 3 4; do
+            gh run download 39203495737 --repo "$GITHUB_REPOSITORY" --name "rmrp-tcesp-subregiao-$sub" --dir "build/tcesp-reuso/rmrp/subregiao_$sub"
+          done
+          gh run download 40213455640 --repo "$GITHUB_REPOSITORY" --name sao-carlos-tcesp-2023-2026 --dir build/tcesp-reuso/sao-carlos
+      - name: Validar 106 extratos e produzir manifesto de reutilizacao
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 editorial/rmrp/auditar_acervo_tcesp_reuso.py --root build/tcesp-reuso --roster editorial/rmrp/municipios_subregioes_tcesp.csv --output build/tcesp-reuso/manifesto.json
+      - name: Preservar acervo recuperado e manifesto para promocao posterior
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tcesp-reuso-rmrp-sao-carlos-2023-2026
+          path: build/tcesp-reuso
+          if-no-files-found: error
+          retention-days: 30

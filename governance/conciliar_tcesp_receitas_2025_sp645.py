@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Reconcile 2025 TCESP revenue municipality names against SP645 canonical roster."""
-import argparse,csv,json,pathlib,re,unicodedata,collections
+import argparse,csv,json,pathlib,re,unicodedata,collections,urllib.request
 p=argparse.ArgumentParser();p.add_argument("--dca",required=True);p.add_argument("--qa",required=True);p.add_argument("--out",required=True);a=p.parse_args()
 def norm(s):
  s=unicodedata.normalize("NFKD",str(s or ""));s="".join(c for c in s if not unicodedata.combining(c))
@@ -12,7 +12,17 @@ name_options=["municipio","nome_municipio","nm_municipio","nome","ds_municipio",
 name_key=next((x for x in name_options if x in fields),None)
 if not name_key:
  name_key=next((x for x in fields if "municip" in x.lower() and x!=code_key),None)
-if not name_key:raise RuntimeError("Cannot identify municipal-name column in DCA: "+repr(fields))
+if not name_key:
+ url="https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/municipios"
+ request=urllib.request.Request(url,headers={"User-Agent":"mapa-do-tesouro-qa/1"})
+ with urllib.request.urlopen(request,timeout=90) as response:
+  official=json.load(response)
+ by_code={str(x["id"]):x["nome"] for x in official}
+ if len(by_code)!=645:raise RuntimeError("IBGE API roster size unexpected: "+str(len(by_code)))
+ missing_codes={r["cod_ibge"] for r in rows}-set(by_code)
+ if missing_codes:raise RuntimeError("DCA code absent in official IBGE roster: "+repr(sorted(missing_codes)))
+ name_key="IBGE_API:nome"
+ rows=[dict(r,**{name_key:by_code[r["cod_ibge"]]}) for r in rows]
 roster={}
 for row in rows:
  k=row[code_key];v=row[name_key]

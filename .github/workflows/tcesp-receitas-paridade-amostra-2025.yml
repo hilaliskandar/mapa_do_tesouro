@@ -1,0 +1,26 @@
+name: TCESP receitas 2025 - paridade amostral
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-receitas-paridade-amostra-2025.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare RMRP and RMJ municipal receipts with state ZIP
+        run: python3 governance/comparar_receitas_tcesp_amostra_2025.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-receitas-paridade-amostra-2025
+          path: build/tcesp-paridade-amostra/qa.json
+          if-no-files-found: warn
+          retention-days: 30

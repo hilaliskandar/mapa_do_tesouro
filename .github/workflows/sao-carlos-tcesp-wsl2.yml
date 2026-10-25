@@ -1,0 +1,47 @@
+name: Sao Carlos TCESP 2023-2025 - runner local
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sao-carlos-tcesp-wsl2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sao-carlos-tcesp-wsl2
+  cancel-in-progress: false
+jobs:
+  coleta:
+    runs-on: [self-hosted, Linux, X64, financas-tcesp-wsl2]
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Baixar e conferir extratos oficiais de Sao Carlos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/sao-carlos-tcesp
+          for ano in 2023 2024 2025; do
+            TCESP_TIMEOUT_SECONDS=180 python3 editorial/rmj/analyze_tcesp_pilot.py sao-carlos "$ano" > "build/sao-carlos-tcesp/sao-carlos_${ano}.json"
+            python3 - "$ano" <<'PY'
+          import json, sys, pathlib
+          ano=int(sys.argv[1])
+          p=pathlib.Path(f'build/sao-carlos-tcesp/sao-carlos_{ano}.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d['slug']=='sao-carlos' and d['year']==ano
+          assert d['bad_values']==0 and d['rows']>0 and len(d['sha256_zip'])==64
+          assert sum(int(r[-1]) for r in d['programas_44_liquidado_completos'])==d['investimento_44_liquidado_centavos']
+          assert sum(int(r[-1]) for r in d['acoes_44_liquidado_completas'])==d['investimento_44_liquidado_centavos']
+          print(json.dumps({'ano':ano,'registros':d['rows'],'investimento_liquidado_centavos':d['investimento_44_liquidado_centavos'],'sha256':d['sha256_zip']},ensure_ascii=False))
+          PY
+          done
+      - name: Guardar evidencias para auditoria privada
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sao-carlos-tcesp-2023-2025
+          path: build/sao-carlos-tcesp/*.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -110,3 +110,11 @@ Próxima validação: comparar os arquivos anuais oficiais às extrações munic
 - **2.215 linhas** em cada origem, colunas iguais, **zero divergências nos 12 totais mensais em centavos**, junho presente em ambas. Demonstra paridade interna entre a edição consolidada e a edição municipal do TCESP para São Carlos 2025; **não significa conciliação com DCA ou verificação de todos os 644 municípios**.
 - O caso Bernardino de Campos 2024, igualmente confrontado com fontes municipal/estadual, mostrou **1.424 linhas** em ambas e ausência de junho nas duas: problema de registro da fonte, não perda na concatenação estadual.
 - Próximo gate: automação da conciliação amostral estratificada e comparações por classificação da receita, com controle de órgãos, sem alterar DCA/FINBRA ou publicar. Posteriormente persistência versionada R2 com readback/SHA-256 e importação SQLite em tabela TCESP separada.
+
+## Amostra adicional de paridade mensal — receitas 2025
+- Workflow `.github/workflows/tcesp-receitas-paridade-amostra-2025.yml`; script `governance/comparar_receitas_tcesp_amostra_2025.py`. Execução [40239603479](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40239603479), artifact `12615937159` obtido e `qa.json` lido.
+- CSV estadual 2025: SHA256 `16df083d2088127108957a028f6c824265813c74542f528108526b44a392b84b`.
+- Municípios auditados: Jundiaí **3.149 registros**; Louveira **1.273**; Ribeirão Preto **3.286**; Sertãozinho **2.748**, total **10.456 registros** nas quatro séries municipais (e igual total correspondente no consolidado).
+- Para os quatro: `monthly_total_equal=true`, `row_count_equal=true`, `columns_equal=true`, `delta_months_centavos={}`, `invalid_values=0` e 12/12 meses presentes nas duas fontes. Paridade aritmética integral em centavos para as séries testadas.
+- Juntamente com São Carlos 2025 (run 40239388761), **cinco municípios** possuem paridade demonstrada em 2025 entre consolidado estadual e arquivo municipal TCESP. Bernardino de Campos 2024 é evidência separada de paridade com ausência do mês 6 em ambas as fontes.
+- Escopo: comparação estadual × municipal **da mesma fonte TCESP**, NÃO constitui conciliação externa com DCA/FINBRA, e não testa a uniformidade por todas as classificações de receitas ou a totalidade dos 644 municípios. Nenhuma alteração R2, SQLite ou produção.

@@ -1,0 +1,38 @@
+name: TCESP receitas 2025 - conciliacao nomes SP645
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-receitas-2025-sp645-roster.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read prior validated QA artifact
+        run: |
+          mkdir -p build/roster/in
+          gh run download 40237096710 --repo "$GITHUB_REPOSITORY" --name tcesp-receitas-2025-full-qa --dir build/roster/in
+      - name: Fetch canonical roster with SHA256 verification
+        run: python3 deployment/download_r2_source.py --object-key sp_645/dca/2013_2025/normalized.csv --output build/roster/in/dca.csv --expected-sha256 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5
+      - name: Reconcile name keys without coercion
+        run: python3 governance/conciliar_tcesp_receitas_2025_sp645.py --dca build/roster/in/dca.csv --qa build/roster/in/qa.json --out build/roster/out/resultado.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-receitas-2025-sp645-roster
+          path: build/roster/out/resultado.json
+          if-no-files-found: warn
+          retention-days: 30

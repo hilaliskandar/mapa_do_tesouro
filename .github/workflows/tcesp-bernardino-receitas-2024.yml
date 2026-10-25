@@ -1,0 +1,26 @@
+name: TCESP receitas Bernardino 2024 - comparacao
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-bernardino-receitas-2024.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read both official ZIP sources and check June 2024
+        run: python3 governance/verificar_bernardino_receitas_2024.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-bernardino-receitas-2024
+          path: build/tcesp-receitas-bernardino-2024/auditoria.json
+          if-no-files-found: warn
+          retention-days: 30

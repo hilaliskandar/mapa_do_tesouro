@@ -1,0 +1,26 @@
+name: TCESP receitas 2025 - QA estadual integral
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-receitas-2025-full-qa.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Stream full official CSV and audit 2025 coverage without persistence
+        run: python3 governance/auditar_tcesp_receitas_estaduais_2025.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-receitas-2025-full-qa
+          path: build/tcesp-receitas-full-qa/qa.json
+          if-no-files-found: warn
+          retention-days: 30

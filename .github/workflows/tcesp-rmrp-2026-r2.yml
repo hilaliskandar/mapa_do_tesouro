@@ -1,0 +1,61 @@
+name: TCESP RMRP 2026 persistencia privada R2
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-rmrp-2026-r2.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  persist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: ${{ vars.CLOUDFLARE_R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify configuration and source run
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_R2_BUCKET"
+          status="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/40229219185" --jq .conclusion)"
+          test "$status" = success
+      - name: Download four source subregions without TCESP access
+        shell: bash
+        run: |
+          set -euo pipefail
+          for s in 1 2 3 4; do
+            mkdir -p "build/source/subregiao_$s"
+            gh run download 40229219185 --repo "$GITHUB_REPOSITORY" --name "tcesp-rmrp-2026-subregiao-$s" --dir "build/source/subregiao_$s"
+          done
+      - name: Reaudit source and package immutable snapshot
+        run: python3 editorial/rmrp/empacotar_tcesp_2026_r2.py --input build/source --output build/package
+      - name: Upload private versioned archive
+        run: |
+          SHA="$(python3 -c 'import json;print(json.load(open("build/package/manifest.json"))["archive_sha256"])')"
+          python3 deployment/upload_r2_source.py --source build/package/tcesp_rmrp_2026_68_extratos.tar.gz --object-key "tcesp/rmrp/2026/run_40229219185/extratos.tar.gz" --content-type application/gzip --expected-sha256 "$SHA"
+      - name: Upload private companion manifest
+        run: python3 deployment/upload_r2_source.py --source build/package/manifest.json --object-key "tcesp/rmrp/2026/run_40229219185/manifest.json" --content-type application/json
+      - name: Confirm retrievability and integrity
+        run: |
+          SHA="$(python3 -c 'import json;print(json.load(open("build/package/manifest.json"))["archive_sha256"])')"
+          python3 deployment/download_r2_source.py --object-key "tcesp/rmrp/2026/run_40229219185/extratos.tar.gz" --output build/verified.tar.gz --expected-sha256 "$SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-rmrp-2026-r2-promotion-manifest
+          path: build/package/manifest.json
+          if-no-files-found: warn
+          retention-days: 30

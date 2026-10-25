@@ -1,0 +1,45 @@
+# Catálogo inicial de fontes TCESP — expansão estadual e exercício de 2026
+
+Data de verificação: 25/10/2026. Fontes primárias: https://transparencia.tce.sp.gov.br/conjunto-de-dados e https://transparencia.tce.sp.gov.br/apis. Páginas efetivamente extraídas pelo Crawl2AI. Estado: catalogação e planejamento; não houve importação dos conjuntos nesta etapa.
+
+## Descoberta substantiva
+O catálogo oficial disponibiliza **downloads estaduais anuais consolidados** de despesas e receitas, além dos extratos municipais do portal. Priorizar esses arquivos consolidados como opção para cobertura dos 645 municípios, depois de confirmar identidade e layout das unidades municipais; preservar consulta municipal para 2026 parcial, preenchimento de lacunas e auditoria.
+
+| Família | Referência temporal e atualização declaradas | Evidência no catálogo (25/10/2026) | Ação |
+|---|---|---|---|
+| Despesas consolidadas | 2008–2025, semanal | ZIP 2023: 1,96 GB, atualizado 03/02/2026; 2024: 1,93 GB, 13/10/2026; 2025: 1,96 GB, 21/10/2026 | Avaliar custos de ingestão dos três grandes ZIPs (não baixar automaticamente) |
+| Receitas consolidadas | 2008–2025, semanal | ZIP 2023: 31,93 MB; 2024: 32,90 MB; 2025: 33,82 MB, atualização 21/10/2026 para 2025 | Primeiro piloto estadual, amostragem e QA |
+| RCL mensal | Desde janeiro de 2015, semanal | CSV atualizado em 23/10/2026, 838,08 KB | Alta prioridade: snapshot + identidade de município/mês |
+| Dívida ativa | Desde 2014, anual | CSV 2019–2024 e 2014–2018 | Importar somente após conferir layout e chaves |
+| Resultado das análises Audesp (LRF, ensino, saúde) | Desde 2016, mensal | CSV atualizado em 01/10/2026, 468,90 KB | Piloto de valores e percentuais |
+| Planejamento municipal | Quadriênios | Cadastro programas e ações 2018–2021, 2022–2025 e **2026–2029**, atualizado 30/07/2026 | Importar dimensões de programa/ação, com validade temporal |
+| Relatório de atividades | Anual, desde 2015 | Conjuntos de programas até 2024 visíveis | Associar indicadores/metas, sem inferir resultados físicos dos valores financeiros |
+| Ajustes, licitações e outras informações de contratação | Arquivos específicos, periodicidades heterogêneas | Recursos visíveis no catálogo | Catalogar como famílias próprias, distintas de execução fiscal |
+
+## URLs oficiais confirmadas na página
+- Despesas estaduais 2025: https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/despesas-2025.zip
+- Despesas estaduais 2024: https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/despesas-2024.zip
+- Despesas estaduais 2023: https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/despesas-2023.zip
+- Receitas estaduais 2025: https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/receitas-2025.zip
+- Receitas estaduais 2024: https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/receitas-2024.zip
+- Receitas estaduais 2023: https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/receitas-2023.zip
+
+## Consulta municipal e restrição importante
+A página oficial de APIs documenta GET JSON/XML:
+- /api/{formato}/despesas/{municipio}/{exercicio}/{mes}
+- /api/{formato}/receitas/{municipio}/{exercicio}/{mes}
+- /api/{formato}/municipios
+
+**A própria documentação das APIs declara exercícios 2014–2019**, logo não é prova de suporte a 2023–2026. Verificar por consulta controlada antes de elegê-la canal de coleta recente. Para 2026, o código do projeto já utiliza downloads municipais do tipo https://transparencia.tce.sp.gov.br/sites/default/files/csv/despesas-{slug}-{ano}.zip; cobertura temporal depende dos meses presentes no arquivo.
+
+## Regras de implementação
+1. Não confundir fontes/datasets com dimensões de extração. Investimentos liquidados, movimentações e IPTU/ISS/ITBI são recortes derivados, não catálogo exaustivo do TCESP.
+2. Separar versão de publicação da fonte, ano, mês, município, domínio, layout, tipo de movimentação e SHA-256; distinguir acervo temporário de R2 com readback.
+3. Priorizar piloto de **receitas estaduais 2023–2025** e RCL, pela menor transferência, antes dos ZIPs de despesas de aproximadamente 2 GB por ano. Confirmar esquema, universo e eventual presença de entidades além das 645 prefeituras.
+4. Comparar qualidade/conciliação com arquivos municipais TCESP já salvos (RMRP, RMJ, São Carlos), registrando divergências; não sobrescrever DCA/FINBRA.
+5. 2026: não há ZIP anual estadual de despesas/receitas 2026 identificado na listagem consultada. Consultar extratos municipais, verificar quais meses estão presentes e nunca completar meses ausentes com zeros.
+6. Planejar coleta seletiva missing-only após inventariar fontes em nível de dataset e objeto R2. Não iniciar grande download estadual antes do piloto.
+7. Atualizar a matriz SP645 com hierarquia família do dataset > produto derivado > município > exercício > mês/versão, mantendo a matriz v2 como testemunho de cobertura dos três manifestos já preservados.
+
+## Próxima execução
+Inspecionar o layout de uma amostra oficial de receitas consolidadas, confirmar chaves municipais e reconciliação com município conhecido; testar o catálogo RCL; só então formalizar jobs segmentados de importação e QA, sem alteração da API pública.

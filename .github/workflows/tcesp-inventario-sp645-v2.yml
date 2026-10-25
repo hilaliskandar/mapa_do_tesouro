@@ -1,0 +1,49 @@
+name: TCESP matriz SP645 v2 - inventario R2 auditado
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-inventario-sp645-v2.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch DCA roster and three existing manifests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/in
+          python3 deployment/download_r2_source.py --object-key sp_645/dca/2013_2025/normalized.csv --output build/in/dca.csv --expected-sha256 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          from deployment.download_r2_source import download_r2_object
+          lookup={
+            'historico':'tcesp/rmrp/2023_2025/run_39203495737/manifest.json',
+            'parcial':'tcesp/rmrp/2026/run_40229219185/manifest.json',
+            'sao_carlos':'tcesp/sao-carlos/2023_2026/acervo_20261025/manifest.json'}
+          for name,key in lookup.items():
+            download_r2_object(account_id=os.environ['CLOUDFLARE_ACCOUNT_ID'],api_token=os.environ['CLOUDFLARE_API_TOKEN'],bucket=os.environ['CLOUDFLARE_R2_BUCKET'],object_key=key,output=Path('build/in/'+name+'.json'))
+          PY
+      - name: Build verified coverage and export CSV
+        run: python3 editorial/rmrp/inventario_tcesp_sp645_v2.py --dca build/in/dca.csv --rmrp-historico build/in/historico.json --rmrp-2026 build/in/parcial.json --sao-carlos build/in/sao_carlos.json --output build/out
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-inventario-sp645-v2
+          path: build/out/*
+          if-no-files-found: warn
+          retention-days: 30

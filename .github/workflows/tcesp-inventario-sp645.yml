@@ -1,0 +1,47 @@
+name: Inventario estadual TCESP - matriz cobertura sem coleta
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-inventario-sp645.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read immutable catalog and R2 TCESP manifests only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          mkdir -p build/input
+          python3 deployment/download_r2_source.py --object-key sp_645/dca/2013_2025/normalized.csv --output build/input/dca.csv --expected-sha256 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+          from deployment.download_r2_source import download_r2_object
+          for name,key in [('historico','tcesp/rmrp/2023_2025/run_39203495737/manifest.json'),('parcial','tcesp/rmrp/2026/run_40229219185/manifest.json')]:
+              download_r2_object(account_id=os.environ['CLOUDFLARE_ACCOUNT_ID'],api_token=os.environ['CLOUDFLARE_API_TOKEN'],bucket=os.environ['CLOUDFLARE_R2_BUCKET'],object_key=key,output=Path(f'build/input/{name}.json'))
+          PY
+      - name: Construct matrix with no TCESP network calls
+        run: |
+          python3 editorial/rmrp/inventariar_cobertura_tcesp_sp645.py --dca build/input/dca.csv --roster editorial/rmrp/municipios_subregioes_tcesp.csv --historico build/input/historico.json --parcial build/input/parcial.json --out build/inventory
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-sp645-matriz-cobertura-2023-2026
+          path: build/inventory/*
+          if-no-files-found: warn
+          retention-days: 30

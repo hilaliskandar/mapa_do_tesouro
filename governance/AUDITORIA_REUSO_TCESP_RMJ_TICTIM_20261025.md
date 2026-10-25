@@ -26,3 +26,10 @@ Data: 2026-10-25. Natureza: auditoria documental, sem nova coleta TCESP, sem alt
 
 ## Fonte de verdade
 README raiz; `governance/PLANO_INCREMENTAL_TCESP_SP645_20261025.md`; `editorial/rmj/README.md`; `editorial/rmj/CONCILIACAO_PROGRAMAS_ACOES_COMPLETA_2025.md`; workflows de inventário v2, reuso, RMJ backfill e TIC-TIM complemento 23.
+
+## Segunda conferência documental — 25/10/2026
+- Reconsultados os artifacts: inventário estadual inicial, run 40231222578, artifact 12612906187, presente e não expirado; RMJ 2025, run 38719698652, artifact 11963767921, presente e não expirado; São Carlos R2, run 40231520362, artifact 12613232136, presente e não expirado. Esta confirmação é sobre metadados dos artifacts, não leitura integral ou revalidação de todos os objetos brutos.
+- Inspecionado diretamente `editorial/rmrp/inventario_tcesp_sp645_v2.py`: o script valida as contagens informadas nos três manifestos (102, 68, 16), exige 645 códigos na DCA, impede sobreposição de chave IBGE/ano/domínio e produz 10.320 posições. Ele **não demonstra por si só** existência e checksum de cada objeto armazenado; o rótulo `r2_validado` depende da validade do processo anterior de promoção e verificação dos manifestos.
+- O modelo v2 ainda não incorpora RMJ nem TIC-TIM e não representa, diretamente, o status intermediário `artifact_temporario`. Os conjuntos RMJ comprovados documentalmente não devem ser inseridos como `r2_validado` sem persistência e readback.
+- Tentativa de consultar a lista de execuções do workflow v2 pela interface disponível não retornou evidência acessível; **execução da v2 continua não confirmada**. Não se deve confundi-la com o sucesso do workflow v1 (run 40231222578).
+- Rota de implementação delimitada: recuperar os 21 extratos RMJ identificáveis; catalogar e validar TIC-TIM por ano/município; somente depois executar inventário com estados separados e produzir fila `missing-only`. Esta segunda conferência não realizou novos downloads do TCESP nem alterou produção.

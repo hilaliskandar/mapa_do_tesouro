@@ -1,0 +1,26 @@
+name: TCESP receitas 2025 - taxonomia fiscal
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-receitas-taxonomia-2025.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inventory full source taxonomy before DCA reconciliation
+        run: python3 governance/inventariar_taxonomia_receitas_tcesp_2025.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-receitas-taxonomia-2025
+          path: build/tcesp-receitas-taxonomia-2025/taxonomia.json
+          if-no-files-found: warn
+          retention-days: 30

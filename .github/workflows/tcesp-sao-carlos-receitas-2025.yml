@@ -1,4 +1,4 @@
-name: TCESP receitas Sao Carlos 2025 - comparacao
+name: TCESP receitas Sao Carlos 2025 - comparacao corrigida
 on:
   push:
     branches: [main]

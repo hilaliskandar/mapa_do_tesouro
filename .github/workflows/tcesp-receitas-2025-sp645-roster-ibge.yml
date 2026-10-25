@@ -1,4 +1,4 @@
-name: TCESP receitas 2025 - conciliacao IBGE e espelho
+name: TCESP receitas 2025 - conciliacao IBGE homologacao
 on:
   push:
     branches: [main]

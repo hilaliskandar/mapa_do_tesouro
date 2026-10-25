@@ -1,0 +1,38 @@
+name: Sao Carlos TCESP detalhado mensal 2023-2026
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sao-carlos-tcesp-detalhe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  detalhe:
+    runs-on: [self-hosted, Linux, X64, financas-tcesp-wsl2]
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extrair agregados mensais, orgaos, fontes e acoes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/sao-carlos-tcesp-detalhe
+          for ano in 2023 2024 2025 2026; do
+            python3 editorial/sao_carlos/tcesp_detalhamento.py "$ano" > "build/sao-carlos-tcesp-detalhe/sao-carlos_${ano}.json"
+            python3 - "$ano" <<'PY'
+          import json,pathlib,sys
+          ano=int(sys.argv[1]);d=json.loads(pathlib.Path(f"build/sao-carlos-tcesp-detalhe/sao-carlos_{ano}.json").read_text())
+          assert d["ano"]==ano and len(d["sha256_zip"])==64
+          months={int(r["mes"]) for r in d["por_mes_tipo"] if r["tipo"]=="Valor Liquidado"}
+          assert months and (ano!=2026 or max(months)<=12)
+          print(ano,round(d["investimento_liquidado_centavos"]/100,2),sorted(months),len(d["agrupamentos"]["acao"]))
+          PY
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sao-carlos-tcesp-detalhe-2023-2026
+          path: build/sao-carlos-tcesp-detalhe/*.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -43,3 +43,12 @@ A página oficial de APIs documenta GET JSON/XML:
 
 ## Próxima execução
 Inspecionar o layout de uma amostra oficial de receitas consolidadas, confirmar chaves municipais e reconciliação com município conhecido; testar o catálogo RCL; só então formalizar jobs segmentados de importação e QA, sem alteração da API pública.
+
+## Piloto efetivamente executado — receitas estaduais 2025
+- Workflow somente leitura: `.github/workflows/tcesp-receitas-2025-schema-probe.yml`; script `governance/probe_tcesp_receitas_2025.py`.
+- Run [40236994657](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40236994657), conclusão `success`; artifact `tcesp-receitas-2025-schema-probe`, ID `12615171971`. O relatório JSON foi recuperado e lido.
+- Fonte: `https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/receitas-2025.zip`.
+- ZIP de **35.462.775 bytes**; SHA-256 `16df083d2088127108957a028f6c824265813c74542f528108526b44a392b84b`.
+- Um arquivo interno: `receitas-2025.csv` de **523.628.376 bytes** descompactados. Primeira amostra decodificada em Latin-1, separador `;`, **18 colunas**: `id_rec_arrec_detalhe, ano_exercicio, ds_municipio, ds_orgao, mes_referencia, mes_ref_extenso, ds_poder, ds_fonte_recurso, ds_cd_aplicacao_fixo, ds_cd_aplicacao_variavel, ds_categoria, ds_subcategoria, ds_fonte, ds_d1, ds_dd2, ds_d3, ds_tipo, vl_arrecadacao`.
+- **Limite da prova:** inspeção de cabeçalho e cinco amostras, sem percorrer todos os registros. Número de municípios, meses existentes, totais e conciliação TCESP/DCA **não verificados** ainda. Dados não persistidos no R2 nem ingeridos no SQLite.
+- Próxima etapa: pipeline de streaming sobre o ZIP para enumerar municípios/meses, contar linhas, validar chaves, parse monetário em centavos e gerar totais por município/mês/classificação, sem guardar dados identificadores individuais; comparar amostras selecionadas com extratos locais já preservados antes de autorizar promoção R2.

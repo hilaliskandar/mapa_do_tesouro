@@ -81,3 +81,18 @@ Inspecionar o layout de uma amostra oficial de receitas consolidadas, confirmar 
 - Reconfirmação direta em 25/10/2026 nas fontes oficiais do IBGE: **Florínea**, código **3516101**. Referências: https://www.ibge.gov.br/cidades-e-estados/sp/florinea.html e https://www.ibge.gov.br/explica/codigos-dos-municipios.php.
 - Documentos cartográficos históricos do mesmo IBGE registram **Florínia** para 3516101, inclusive mapa de 2007 (https://geoftp.ibge.gov.br/cartas_e_mapas/mapas_para_fins_de_levantamentos_estatisticos/contagem_da_populacao_e_censo_agropecuario_2007/mapas_municipais_estatisticos/sp/florinia.pdf). A grafia atual **Florínea** consta nos mapas do IBGE de 2022. Armazenar `Florínia` como variante histórica de nome, sem criar nova unidade geográfica e sem alterar montantes.
 - Rotina QA estadual de receitas 2023 e 2024 criada: `governance/auditar_tcesp_receitas_estaduais_historico.py`; workflow `.github/workflows/tcesp-receitas-2023-2024-qa.yml`; execução [40238668013](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40238668013). Apenas diagnóstico, sem persistência nem publicação. A avaliação de seu resultado deve depender do status final e da leitura dos dois artifacts anuais.
+
+## Resultado homologado do QA de receitas estaduais 2023–2024
+A execução [40238668013](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40238668013) terminou com sucesso em ambos os jobs. Artifacts recuperados, abertos e `qa.json` lidos independentemente: 2023 ID **12615935979**, 2024 ID **12616355060**.
+
+| Exercício | Linhas de receita | Municípios identificados | Municípios com registros em 12 meses | Problemas básicos | SHA-256 do ZIP oficial |
+|---|---:|---:|---:|---|---|
+| 2023 | 852.367 | 644 | 644 | Nenhum | `8a3e5b3db4aa8b47ffad2906f1cd2eb83bd6094dc83d855bc768bbf6ca475236` |
+| 2024 | 872.652 | 644 | 643 | Nenhum valor, ano ou mês inválido | `583307edd4b3cbecac1eaf7b920891eb78678facf665bd9f154301a2a75d01cd` |
+| 2025 | 896.299 | 644 | 644 | Nenhum | `16df083d2088127108957a028f6c824265813c74542f528108526b44a392b84b` |
+
+**Ressalva de 2024:** Bernardino de Campos tem registros para os meses 1–5 e 7–12, **sem linha para junho** no arquivo estadual. Não imputar zero; investigar extrato municipal de 2024 e eventual alteração da versão publicada. Todos os 644 municípios continuam representados no arquivo anual. A capital São Paulo não está presente nos três conjuntos, coerente com a jurisdição do TCESP.
+
+As contagens de linhas são observações do dataset; não equivalem a quantidade de municípios nem a cobertura por rubrica. QA até aqui compreende decodificação, períodos, presença de municípios e aritmética decimal; **não houve conciliação externa por rubrica DCA nem ingestão R2/SQLite**.
+
+Próxima validação: comparar os arquivos anuais oficiais às extrações municipais existentes, identificar o caso Bernardino de Campos 2024, auditar detalhamento por natureza da receita, reconciliar valores compatíveis e decidir integração sob versionamento.

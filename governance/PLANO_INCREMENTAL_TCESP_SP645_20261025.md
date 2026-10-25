@@ -55,3 +55,12 @@ Controle obrigatório por município/ano/mês/estágio:
 6. Materializar no SQLite tabelas separadas de dimensão programa/ação e fatos de execução TCESP, preservando a DCA/FINBRA canônica. API de análise por programas e ações deve permitir filtros por município, exercício, estágio, órgão e natureza, com proveniência e cobertura explícitas.
 
 **Critério de aceite:** não declarar concluída a importação de investimentos apenas com totais municipais. Exigir reconciliação das ações e programas e preservar a possibilidade de análise detalhada sem nova coleta TCESP.
+
+## Primeiro gate operacional de programas e ações — validado em 25/10/2026
+- Script `governance/auditar_investimentos_programas_acoes_2025.py`; workflow `.github/workflows/tcesp-investimentos-programas-acoes-2025.yml`; [execução 40241111155](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40241111155); artifact QA `12616033273`, recuperado e lido.
+- Dados de referência: artifact preexistente `rmj-tcesp-2025-full-raw`, run `38719698652`. O job comprovadamente reutilizou esse acervo (sem recalculá-lo para definir resultados esperados).
+- **Jundiaí 2025:** 157.171 linhas do ZIP despesas; 19 programas e 71 ações com investimentos liquidados; 13.733.386.984 centavos (R$ 137.333.869,84). Somatório por programa e ação idênticos entre si e ao artifact RMJ de referência, incluindo igualdade de todas as chaves e valores dos desdobramentos. `bad_values=0`.
+- **Louveira 2025:** 41.595 linhas; 27 programas e 40 ações; 1.629.685.457 centavos (R$ 16.296.854,57), mesma paridade integral de totais/chaves e valores. `bad_values=0`. Não houve linha de `valor liquidado` do grupo 44 em janeiro; não imputar zero de outras naturezas.
+- O script discrimina `empenhado`, `anulação`, `valor pago` e `valor liquidado` e não soma estágios heterogêneos. SHA-256 dos ZIPs originais ficam no QA para versionamento.
+- `all_pass=true` nos dois municípios. Resultado demonstra a reprodutibilidade do desdobramento por programa e ação e reduz o risco de regressão frente ao acervo já validado da RMJ; **não comprova ainda o processamento do ZIP estadual completo de despesas, nem a ingestão em R2/SQLite**.
+- Próximo teste: identificar as colunas institucionais e classificações do consolidado estadual de despesas 2025 e avaliar ingestão particionada, aproveitando a validação aqui feita como teste de regressão obrigatório.

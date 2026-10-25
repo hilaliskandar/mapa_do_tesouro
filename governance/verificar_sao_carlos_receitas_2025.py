@@ -5,7 +5,7 @@ Y=2025
 CITY="São Carlos"
 SLUG="sao-carlos"
 urls={
- "state":"https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/receitas-2024.zip",
+ "state":f"https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/receitas-{Y}.zip",
  "municipal":f"https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-{SLUG}-{Y}.zip"
 }
 out=pathlib.Path("build/tcesp-receitas-sao-carlos-2025");out.mkdir(parents=True,exist_ok=True)

@@ -43,3 +43,11 @@ Recuperados via conector GitHub e inspecionados os conteúdos de:
 **Interpretação:** a matriz v1 possui duas categorias genéricas (despesas/receitas) para quatro anos e 645 municípios (5.160 posições); a v2 usa quatro domínios (10.320 posições). Não comparar contagens de posições entre matrizes como incremento de cobertura real. A v1 não inclui a RMJ como acervo persistido R2. A próxima validação deve ser executada sobre a v2 com leitura atual dos três manifestos e verificação de objetos R2; a reclassificação de RMJ/TIC-TIM deve ocorrer apenas após eventual promoção comprovada.
 
 **Escopo desta etapa:** leitura dos dois ZIPs e reconciliação integral dos sete JSONs da RMJ; sem download de dados TCESP na fonte, sem escrita no R2, sem alterações em SQLite/API ou produção.
+
+## Quinta conferência — matriz estadual v2 executada e conferida (25/10/2026)
+- **Evidência nova:** execução [40232496031](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40232496031) do workflow `tcesp-inventario-sp645-v2.yml` terminou com sucesso. Artefato `tcesp-inventario-sp645-v2`, ID `12613242500`, efetivamente recuperado e ZIP inspecionado.
+- CSV `cobertura_tcesp_sp645_2023_2026.csv`: 10.320 linhas, 645 códigos IBGE distintos, **10.320 chaves únicas** `(codigo_ibge, ano, dominio)`. Status: `r2_validado=186`, `nao_inventariado_no_r2=10134`. Origens: `rmrp_historico=102`, `rmrp_2026=68`, `sao_carlos=16`. São Carlos figura nos quatro domínios de cada ano 2023-2026; defasagem da v1 corrigida.
+- Parcialidade: das 68 posições RMRP em 2026, 67 têm `ultimo_mes=8` e **uma** tem `ultimo_mes=5` (Jardinópolis, receitas). São Carlos 2026 possui quatro posições `detalhe=parcial`, sem último mês informado: mês não pode ser inferido nem registrado como dezembro.
+- O `resumo.json` do artefato informa `publicacao_autorizada=false`. A matriz não promove RMJ nem TIC-TIM à situação R2; sua ausência significa apenas não inventariados nestes três manifestos.
+- RMJ 2023-2024: o artefato `11680818755` foi recuperado; evidências de 14/14 JSONs internamente conciliados, conforme a quarta conferência comunicada ao usuário. A qualidade interna não equivale a readback R2.
+- TIC-TIM: nesta rodada, ainda sem artefato de execução do workflow antigo identificado. Não contar os 69 extratos planejados como disponíveis.

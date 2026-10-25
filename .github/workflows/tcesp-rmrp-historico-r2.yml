@@ -1,0 +1,59 @@
+name: TCESP RMRP historico 102 persistencia R2
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-rmrp-historico-r2.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  persist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source run and private storage
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/39203495737" --jq .conclusion)" = success
+      - name: Recover original validated artifacts without accessing TCESP
+        shell: bash
+        run: |
+          set -euo pipefail
+          for s in 1 2 3 4; do
+            mkdir -p "build/historico/subregiao_$s"
+            gh run download 39203495737 --repo "$GITHUB_REPOSITORY" --name "rmrp-tcesp-subregiao-$s" --dir "build/historico/subregiao_$s"
+          done
+      - name: Reconcile 102 extracts and package
+        run: python3 editorial/rmrp/empacotar_tcesp_historico_r2.py --input build/historico --roster editorial/rmrp/municipios_subregioes_tcesp.csv --output build/package
+      - name: Upload historical immutable private archive
+        run: |
+          SHA="$(python3 -c 'import json;print(json.load(open("build/package/manifest.json"))["archive_sha256"])')"
+          python3 deployment/upload_r2_source.py --source build/package/rmrp_tcesp_investimentos_2023_2025_102.tar.gz --object-key "tcesp/rmrp/2023_2025/run_39203495737/investimentos_102.tar.gz" --content-type application/gzip --expected-sha256 "$SHA"
+      - name: Upload historical private manifest
+        run: python3 deployment/upload_r2_source.py --source build/package/manifest.json --object-key "tcesp/rmrp/2023_2025/run_39203495737/manifest.json" --content-type application/json
+      - name: Download and verify immutable archive
+        run: |
+          SHA="$(python3 -c 'import json;print(json.load(open("build/package/manifest.json"))["archive_sha256"])')"
+          python3 deployment/download_r2_source.py --object-key "tcesp/rmrp/2023_2025/run_39203495737/investimentos_102.tar.gz" --output build/verify.tar.gz --expected-sha256 "$SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-rmrp-historico-r2-manifest
+          path: build/package/manifest.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -59,7 +59,7 @@ jobs:
           python3 deployment/stage_tcesp_api_v2.py --preview build/tcesp-preview --site build/real-site --enable-tcesp --allow-v1-site
           diff build/legacy-before.sha <(sha256sum build/real-site/data/manifest.json)
           python3 deployment/qa_pages.py --site build/real-site --expected-app-version "$(tr -d '[:space:]' < VERSION)"
-          python3 deployment/qa_tcesp_http_staging.py --site build/real-site --report build/real-http-qa.json
+          python3 deployment/qa_tcesp_http_staging.py --site build/real-site --report build/real-http-qa.json --allow-v1-site
         shell: bash
       - name: Install browser and validate both interfaces
         run: |

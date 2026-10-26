@@ -1,0 +1,57 @@
+name: TCESP top ten old aggregation internal consistency
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-top10-aggregation-parity.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch approved source-level grouping artifacts
+        run: |
+          for year in 2023 2024 2025; do
+            if [ "$year" = 2025 ]; then id=40262193781; else id=40263996213; fi
+            mkdir -p "build/old/$year"
+            gh run download "$id" --repo "$GITHUB_REPOSITORY" --name "tcesp-despesas-$year-integral-qa" --dir "build/old/$year"
+          done
+      - name: Independently reconcile month-stage/program/action within top ten cases
+        run: |
+          python3 - <<'PY'
+          import collections,csv,json,pathlib
+          targets={2023:['3548807','3545209','3502804'],2024:['3554102','3522158','3533254','3548906','3534708','3520301'],2025:['3517901']}
+          output=[]
+          for y,codes in targets.items():
+           root=pathlib.Path(f'build/old/{y}')
+           summaries={}
+           for kind,filename in [('month','investimentos_grupo44_por_municipio_mes_estagio.csv'),('program','investimentos_grupo44_por_programa.csv'),('action','investimentos_grupo44_por_acao.csv')]:
+            groups=collections.Counter()
+            with (root/filename).open(encoding='utf-8',newline='') as f:
+             for r in csv.DictReader(f):
+              if r['codigo_ibge'] in codes:
+               groups[(r['codigo_ibge'],r['mes'],r['estagio'])]+=int(r['centavos'])
+            summaries[kind]=groups
+           for code in codes:
+            keys={key for kind in summaries.values() for key in kind if key[0]==code}
+            assert keys, (y,code,'missing')
+            for key in keys:
+             vals={name:grp[key] for name,grp in summaries.items()}
+             assert len(set(vals.values()))==1,(y,key,vals)
+            liquidated=sum(v for (city,month,stage),v in summaries['month'].items() if city==code and stage=='valor liquidado')
+            output.append({'codigo_ibge':code,'ano':y,'liquidado_centavos':liquidated,'month_stage_groups':len(keys),'month_program_action_equal':True})
+          pathlib.Path('build/old-top10-validation.json').write_text(json.dumps({'status':'pass','cases':output},ensure_ascii=False,indent=2))
+          print(json.dumps({'status':'pass','cases':output},ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-top10-aggregation-three-level-qa
+          path: build/old-top10-validation.json
+          if-no-files-found: warn

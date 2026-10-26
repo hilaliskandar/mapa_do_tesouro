@@ -1,4 +1,5 @@
 name: TCESP API v2 - staged HTTP integration
+# UI smoke test enabled for TCESP preview
 on:
   push:
     branches: [main]

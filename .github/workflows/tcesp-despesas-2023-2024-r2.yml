@@ -1,0 +1,57 @@
+name: TCESP despesas 2023 2024 - persistencia R2 homologada
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-despesas-2023-2024-r2.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  persist:
+    strategy:
+      fail-fast: false
+      matrix:
+        year: [2023, 2024]
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source run and credentials
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/40263996213" --jq .conclusion)" = success
+      - name: Recover approved historic artifact
+        run: |
+          mkdir -p build/historic
+          gh run download 40263996213 --repo "$GITHUB_REPOSITORY" --name "tcesp-despesas-${{ matrix.year }}-integral-qa" --dir build/historic
+      - name: Validate all rows and create immutable manifest
+        run: python3 governance/validar_pacote_despesas_historico_r2.py build/historic ${{ matrix.year }}
+      - name: Upload and verify five objects
+        run: |
+          set -euo pipefail
+          PREFIX="tcesp/estadual/despesas/${{ matrix.year }}/run_40263996213"
+          for f in qa.json investimentos_grupo44_por_municipio_mes_estagio.csv investimentos_grupo44_por_programa.csv investimentos_grupo44_por_acao.csv r2_manifest.json; do
+            SHA="$(sha256sum "build/historic/$f" | cut -d ' ' -f 1)"
+            python3 deployment/upload_r2_source.py --source "build/historic/$f" --object-key "$PREFIX/$f" --expected-sha256 "$SHA" --content-type application/octet-stream
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$f" --output "build/checked-$f" --expected-sha256 "$SHA"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-despesas-${{ matrix.year }}-r2-verified-manifest
+          path: build/historic/r2_manifest.json
+          if-no-files-found: warn
+          retention-days: 30

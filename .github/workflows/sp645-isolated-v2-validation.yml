@@ -1,0 +1,63 @@
+name: SP645 isolated v2 deployment validation
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sp645-isolated-v2-validation.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+      PREVIEW_ALIAS: sp645-v2-qa-20261026
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify credentials and isolated branch
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_PAGES_PROJECT"
+          test "$PREVIEW_ALIAS" != main
+          test "$PREVIEW_ALIAS" != preview
+          test "$PREVIEW_ALIAS" != sp645-candidate
+      - name: Restore already audited statewide static site
+        run: |
+          mkdir -p build/from-approved-artifact
+          gh run download 40317752109 --repo "$GITHUB_REPOSITORY" --name sp645-private-site-40317752109 --dir build/from-approved-artifact
+          test -f build/from-approved-artifact/site-sp645/data/api/v2/manifest.json
+      - name: Re-audit original statewide artifact
+        run: |
+          python3 deployment/qa_api_v2.py --site build/from-approved-artifact/site-sp645
+          python3 deployment/qa_sp645_pages.py --site build/from-approved-artifact/site-sp645
+      - name: Deploy unique preview only
+        run: |
+          npx --yes wrangler@4.148.0 pages deploy build/from-approved-artifact/site-sp645 \
+            --project-name="$CLOUDFLARE_PAGES_PROJECT" \
+            --branch="$PREVIEW_ALIAS" \
+            --commit-hash="${{ github.sha }}" \
+            --commit-message="Isolated SP645 v2 JSON QA, no production promotion" \
+            --commit-dirty=false
+      - name: Validate remote JSON v2 contract
+        run: |
+          python3 deployment/qa_remote_sp645_v2_json.py \
+            --url "https://$PREVIEW_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" \
+            --report build/sp645-v2-isolated-external-qa.json
+      - name: Validate regional pages externally
+        run: |
+          python3 deployment/qa_sp645_pages.py --url "https://$PREVIEW_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-isolated-v2-preview-evidence
+          path: build/sp645-v2-isolated-external-qa.json
+          if-no-files-found: warn

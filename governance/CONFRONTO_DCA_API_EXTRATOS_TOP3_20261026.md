@@ -32,3 +32,20 @@ Os códigos `RE` e `HO` foram preservados literalmente; sua interpretação form
 Consultar os outros sete casos prioritários, resguardando o limite de uma requisição por segundo. Registrar arquivo JSON completo ou hash, quantidade de itens, `hasMore`, valor da conta, data de consulta e extrato. Em seguida comparar a matriz original de 55 diferenças com o **snapshot atual Siconfi, versionado**, para identificar quais discrepâncias persistem e quais desapareceram sem reescrever a base original. Investigar o histórico de envio e retificação especialmente em Taubaté; conferir escopo, elementos e unidades gestoras nos pares ainda divergentes.
 
 Integridade TCESP (10/10 reextraídos) permanece documentada em `governance/REEXTRACAO_TCESP_CASOS_PRIORITARIOS_20261026.md`. Produção inalterada.
+
+## Ampliação: consulta direta de todos os dez casos prioritários
+Após o primeiro lote de três, os **outros sete** pares foram consultados pelo mesmo endpoint e critério exato DCA (Anexo I-D, Padrão, Despesas Liquidadas, DO4.4.00.00.00.00). Cada uma das respostas apresentou `hasMore=false`, sem paginação adicional no atendimento. São **consultas do valor atual**, não testes de histórico de versões.
+
+| Município | IBGE | Exercício | DCA histórica R$ | DCA API atual R$ | TCESP R$ | Efeito da atualização na divergência |
+|---|---|---:|---:|---:|---:|---|
+| Itaóca | 3522158 | 2024 | 7.786.197,26 | 7.786.197,26 | 3.903.919,12 | persiste |
+| Novais | 3533254 | 2024 | 5.077.344,87 | 5.077.344,87 | 1.305.232,40 | persiste |
+| São Carlos | 3548906 | 2024 | 135.579.005,97 | 135.579.005,97 | 138.740.832,67 | persiste |
+| Araçatuba | 3502804 | 2023 | 31.673.342,63 | 31.673.342,63 | 32.513.168,01 | persiste |
+| Ourinhos | 3534708 | 2024 | 89.545.844,38 | **90.267.507,66** | 90.267.507,66 | desaparece na API atual |
+| Guaraci | 3517901 | 2025 | 4.225.489,20 | 4.225.489,20 | 4.827.778,14 | persiste |
+| Iguape | 3520301 | 2024 | 15.053.443,43 | **15.548.454,11** | 15.548.454,11 | desaparece na API atual |
+
+**Balanço dos dez casos:** Taubaté, Ourinhos e Iguape (todos em 2024) mostram na API atual valor DCA idêntico ao TCESP, ao contrário do snapshot DCA anteriormente preservado. Nos outros sete, o valor DCA atual coincide com o snapshot e mantém diferença TCESP. **São diferenças de versão ou conteúdo observado**, sem explicação causal ainda. Para os sete pares deste segundo lote, os extratos de entrega ainda não foram consultados nesta diligência.
+
+URLs são geradas por `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=AAAA&id_ente=CODIGO&no_anexo=DCA-Anexo%20I-D` para os códigos/anos acima. As consultas retornaram respectivamente 111, 163, 264, 216, 246, 144 e 120 itens, `hasMore=false`. Preservar o snapshot anterior como fonte histórica, sem sobrescrevê-lo.

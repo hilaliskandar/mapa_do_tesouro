@@ -25,3 +25,10 @@ Migração `data/schema/006_tcesp_investimentos.sql`; importação transacional 
 - 1.932 arquivos municipais/anuais (644 por exercício, 2023–2025), todos verificados contra os totais da API por município e estágio. Programa e ação têm somatórios iguais em cada arquivo.
 - Maior JSON individual: 557.520 bytes; mediana: 92.705 bytes; todos abaixo do limite de 2.000.000 bytes. Status QA `pass`.
 - Resultado é de **preview isolada**, não de implantação pública. Pendente integração do módulo ao build regular do site e testes HTTP, interface e regressão da API v2 principal.
+
+## Interface experimental para investimentos — 26/10/2026
+- Página `app/static/tcesp-investimentos.html` e script `app/static/tcesp-investimentos.js` adicionados como **prévia independente** do painel fiscal, sem alterar sua navegação pública.
+- Filtros de município por código IBGE, exercício 2023–2025, estágio, nível programa/ação e busca textual; os totais são calculados em centavos, sem misturar estágios, e apresentados em reais.
+- A rotina `deployment/stage_tcesp_api_v2.py` passou a copiar HTML e JS juntamente com a API isolada. A verificação HTTP passou a conferir a entrega e a paridade de bytes dos arquivos da interface.
+- Primeira execução 40317801473 falhou por exigência textual excessivamente restritiva no teste HTTP do arquivo JS, sem erro de integridade ou de dados. Corrigido; [run 40317933869](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40317933869) concluído **success**, artefato HTTP `12647154610` e auditoria tamanho `12648350308`.
+- **Limite:** o teste valida geração, incorporação e entrega dos arquivos, mas ainda não substitui um teste de interação em navegador real com navegação, filtros e acessibilidade, nem uma implantação autenticada de preview no ambiente externo. Sem publicação de produção.

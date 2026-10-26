@@ -43,7 +43,7 @@ def test_missing_canonical_manifest_denied(tmp_path):
 def test_staging_adds_link_only_to_preview_index(tmp_path):
     preview,site=setup(tmp_path)
     index=site/"index.html"
-    before='<main><nav class="tabs" aria-label="Seções"></nav></main>'
+    before='<main>\n    <nav class="tabs" aria-label="Seções"></nav></main>'
     index.write_text(before,encoding="utf-8")
     with patch("deployment.stage_tcesp_api_v2.subprocess.run"):
         result=merge_tcesp_preview(preview=preview,site=site,enabled=True)

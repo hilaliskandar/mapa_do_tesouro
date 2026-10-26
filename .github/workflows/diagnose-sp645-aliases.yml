@@ -1,0 +1,27 @@
+name: Diagnose SP645 Pages preview aliases read only
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/diagnose-sp645-aliases.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  aliases:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe default and isolated SP645 aliases
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_PAGES_PROJECT"
+          for alias in preview sp645-candidate; do
+            python3 deployment/diagnose_v2_remote.py --base-url "https://$alias.$CLOUDFLARE_PAGES_PROJECT.pages.dev" --report "build/probe-$alias.json"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sp645-preview-alias-probes
+          path: build/probe-*.json

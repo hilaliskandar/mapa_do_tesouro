@@ -3,12 +3,13 @@
 Refuses collisions with existing API files and validates the source QA first.
 """
 from __future__ import annotations
-import argparse,hashlib,json,pathlib,shutil
-from deployment.qa_tcesp_api_v2_preview import validate_tcesp_preview
+import argparse,hashlib,json,pathlib,shutil,subprocess,sys,tempfile
 
 def merge_tcesp_preview(*,preview:pathlib.Path,site:pathlib.Path,enabled:bool=False)->dict:
     if not enabled: raise ValueError("TCESP overlay disabled; supply --enable-tcesp")
-    validate_tcesp_preview(preview, max_detail_bytes=2000000)
+    with tempfile.TemporaryDirectory() as tmp:
+        script=pathlib.Path(__file__).with_name('qa_tcesp_api_v2_preview.py')
+        subprocess.run([sys.executable,str(script),'--site',str(preview),'--report',str(pathlib.Path(tmp)/'qa.json'),'--max-detail-bytes','2000000'],check=True)
     source=preview/"data/api/v2/tcesp"
     dest=site/"data/api/v2/tcesp"
     if dest.exists(): raise FileExistsError(f"TCESP destination exists: {dest}")

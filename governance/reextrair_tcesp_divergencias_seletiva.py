@@ -124,7 +124,8 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--year", type=int, required=True, choices=sorted(TARGETS))
     p.add_argument("--output", type=pathlib.Path, required=True)
-    p.add_argument("--url", default=None)\n    p.add_argument("--source-file", type=pathlib.Path, default=None)
+    p.add_argument("--url", default=None)
+    p.add_argument("--source-file", type=pathlib.Path, default=None)
     args = p.parse_args()
     result = execute(args.year, args.output, args.url, args.source_file)
     if result["status"] != "pass":

@@ -32,3 +32,10 @@ Migração `data/schema/006_tcesp_investimentos.sql`; importação transacional 
 - A rotina `deployment/stage_tcesp_api_v2.py` passou a copiar HTML e JS juntamente com a API isolada. A verificação HTTP passou a conferir a entrega e a paridade de bytes dos arquivos da interface.
 - Primeira execução 40317801473 falhou por exigência textual excessivamente restritiva no teste HTTP do arquivo JS, sem erro de integridade ou de dados. Corrigido; [run 40317933869](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40317933869) concluído **success**, artefato HTTP `12647154610` e auditoria tamanho `12648350308`.
 - **Limite:** o teste valida geração, incorporação e entrega dos arquivos, mas ainda não substitui um teste de interação em navegador real com navegação, filtros e acessibilidade, nem uma implantação autenticada de preview no ambiente externo. Sem publicação de produção.
+
+## Validação de interação em Chromium — 26/10/2026
+- Workflow `.github/workflows/tcesp-browser-qa.yml` e script `deployment/qa_tcesp_browser.py`; [execução 40320429776](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40320429776) concluída `success`.
+- Teste de interface em navegador Chromium headless após recompor SQLite isolado 2023–2025, reconstruir API prévia, conferir integridade e simular HTTP local.
+- Cenários implementados: carregamento inicial 2025 liquidado/programas, mudança para ações, troca de exercício 2023, filtro sem ocorrências, remoção de filtro, rejeição de IBGE incompleto e recuperação após correção; verificação de erros JavaScript.
+- Artefato de evidência `tcesp-browser-qa`, ID `12648742249`; também artefatos de tamanho `12648218089` e HTTP `12648093299`.
+- **Não equivale a regressão completa do painel fiscal ou aprovação de publicação pública**; faltam integração com navegação principal, checagem de acessibilidade ampliada, correspondência contábil TCESP/DCA e implantação em ambiente de homologação externo.

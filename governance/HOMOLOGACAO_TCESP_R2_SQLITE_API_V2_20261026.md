@@ -45,3 +45,9 @@ Migração `data/schema/006_tcesp_investimentos.sql`; importação transacional 
 - Artefato `12650696973`: `real-qa-tcesp.json`, `real-http-qa.json`, `real-browser-qa.json`. Conferência do relatório do Chromium: `status=pass`, sete cenários (`default_2025_liquidado_programas`, `change_to_actions`, `change_year_2023`, `filter_zero_rows`, `clear_filter`, `invalid_ibge_rejected`, `recover_after_invalid`), `js_errors=[]`.
 - O endpoint remoto `/data/api/v2/manifest.json` não foi homologado: execução anterior obteve HTTP 403; nova consulta externa também não conseguiu acessá-lo. O teste aprovado usa os dados fiscais v1 reais e os derivados TCESP isolados; não prova a acessibilidade pública da API v2 principal.
 - Nenhuma publicação ou alteração da base fiscal pública efetuada.
+
+## Diagnóstico de conteúdo HTTP da API v2 remota — 26/10/2026
+- Sondagem somente leitura: [run 40325414635](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40325414635), `success`, ferramenta `deployment/diagnose_v2_remote.py`, artefato de evidência `remote-v2-http-diagnostic`.
+- URL `https://preview.finbra-tic-tim-referencia.pages.dev`: `/data/manifest.json` retornou HTTP 200 e `application/json`, prefixo com JSON.
+- **Diferentemente do erro HTTP 403 observado na tentativa anterior**, nesta sondagem `/data/api/v2/manifest.json` e `/data/api/v2/catalog/municipalities.json` retornaram HTTP 200, mas `text/html; charset=utf-8`, sem JSON. Possível fallback HTML da plataforma, a confirmar com configuração de rotas/artefatos. **Acessibilidade de JSON da API v2 não homologada.**
+- Proibir interpretação de `HTTP 200` isolado como aprovação de endpoint JSON. Testes externos devem verificar também `Content-Type`, parse JSON e o contrato de dados esperado. Sem publicação.

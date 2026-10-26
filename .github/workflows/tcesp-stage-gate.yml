@@ -1,4 +1,4 @@
-name: TCESP API v2 - safe staging contract
+name: TCESP API v2 - safe staging and navigation contract
 on:
   push:
     branches: [main]

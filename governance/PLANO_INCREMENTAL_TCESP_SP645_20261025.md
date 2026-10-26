@@ -93,3 +93,9 @@ Controle obrigatório por município/ano/mês/estágio:
 - QA fonte: 28.095.280 linhas de despesas, 644 municípios, 379.897 registros do grupo 44, 25.817 linhas de agregado município/mês/estágio, 135.821 linhas por programa e 177.526 por ação. Total de investimentos **liquidados**: R$ 9.612.787.262,18. Somatórios das três granularidades conciliados por município/mês/estágio, zero diferenças.
 - **Limite da persistência:** foram preservados os quatro **resultados derivados** e o manifesto; o ZIP bruto integral do TCESP de ~2,10 GB **não foi armazenado** nessa rotina. O arquivo da fonte é rastreável por URL e SHA256, mas uma nova coleta seria necessária para reprocessar registros não presentes nos derivados.
 - **Não integrado ao SQLite/API** e não publicado. DCA/FINBRA permanece intacta. Próxima etapa: verificar manifesto de evidência e, em seguida, processar 2023/2024 com mesmo padrão, conciliando os resultados e preservando programas/ações.
+
+## Auditoria integral de despesas 2023–2024 — acionada em 26/10/2026
+- Workflow `.github/workflows/tcesp-despesas-2023-2024-integral.yml`; script `governance/auditar_despesas_estaduais_historico_integral.py`; execução [40263996213](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40263996213), jobs independentes de 2023 e 2024.
+- Os dois jobs confirmaram início do processamento do arquivo estadual completo; estágio registrado aqui é `in_progress`, **sem conclusão de QA nem evidência R2** até esta verificação.
+- Controles replicados do exercício 2025: leitura sequencial, SHA-256, CRC do ZIP, chaves IBGE, exercício e mês, centavos exatos, totalização por município/mês/estágio e por programas e ações; reprovação se houver erros ou divergências agregadas.
+- Os resultados somente serão elegíveis para persistência R2 após finalização `success`, obtenção e leitura dos artefatos de ambos os exercícios e QA específico do exercício, sem reutilizar indevidamente contagens ou hash de 2025.

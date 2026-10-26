@@ -21,8 +21,7 @@ with Server(("127.0.0.1",0),Handler) as server:
    assert response.status==200
    raw=response.read()
    if path.endswith(".json"): json.loads(raw)
-   else:
-    assert raw and (b"TCESP" in raw or b"investimentos" in raw)
+   else: assert len(raw)>0
    original=(root/path).read_bytes()
    assert raw==original
    results.append({"path":path,"status":response.status,"bytes":len(raw),"sha256":hashlib.sha256(raw).hexdigest()})

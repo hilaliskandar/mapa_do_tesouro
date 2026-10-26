@@ -1,0 +1,32 @@
+name: TCESP despesas estaduais 2025 - auditoria integral
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-despesas-2025-integral.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect available disk space
+        run: df -h .
+      - name: Process whole TCESP 2025 ZIP read-only
+        run: python3 -u governance/auditar_despesas_estaduais_2025_integral.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-despesas-2025-integral-qa
+          path: |
+            build/tcesp-despesas-2025-integral/qa.json
+            build/tcesp-despesas-2025-integral/investimentos_grupo44_por_municipio_mes_estagio.csv
+            build/tcesp-despesas-2025-integral/investimentos_grupo44_por_programa.csv
+            build/tcesp-despesas-2025-integral/investimentos_grupo44_por_acao.csv
+          if-no-files-found: warn
+          retention-days: 30

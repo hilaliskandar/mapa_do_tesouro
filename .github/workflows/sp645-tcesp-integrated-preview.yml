@@ -1,0 +1,110 @@
+name: SP645 plus TCESP integrated isolated preview
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sp645-tcesp-integrated-preview.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+      PREVIEW_ALIAS: sp645-tcesp-qa-20261026
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reuse validated SP645 statewide site
+        run: |
+          set -euo pipefail
+          gh run download 40317752109 --repo "$GITHUB_REPOSITORY" --name sp645-private-site-40317752109 --dir build/site-archive
+          test -f build/site-archive/site-sp645/data/api/v2/manifest.json
+          python3 deployment/qa_api_v2.py --site build/site-archive/site-sp645
+          python3 deployment/qa_sp645_pages.py --site build/site-archive/site-sp645
+          sha256sum build/site-archive/site-sp645/data/api/v2/manifest.json > build/v2-prior.sha
+      - name: Retrieve audited TCESP investment datasets
+        run: |
+          set -euo pipefail
+          for year in 2023 2024 2025; do
+            mkdir -p "build/sources/$year"
+            if [ "$year" = 2025 ]; then id=40262193781; else id=40263996213; fi
+            gh run download "$id" --repo "$GITHUB_REPOSITORY" --name "tcesp-despesas-$year-integral-qa" --dir "build/sources/$year"
+          done
+      - name: Rebuild segregated TCESP SQLite
+        run: |
+          python3 - <<'PY'
+          import sqlite3,pathlib,json
+          c=sqlite3.connect('build/tcesp.sqlite')
+          for p in sorted(pathlib.Path('data/schema').glob('[0-9][0-9][0-9]_*.sql')):c.executescript(p.read_text(encoding='utf-8'))
+          q=[json.loads((pathlib.Path('build/sources')/str(y)/'qa.json').read_text()) for y in (2023,2024,2025)]
+          codes=set(q[0]['codes'])
+          assert len(codes)==644 and all(set(x['codes'])==codes for x in q)
+          c.executemany('INSERT INTO municipio(codigo_ibge,nome,uf) VALUES(?,?,?)',[(x,x,'SP') for x in sorted(codes)])
+          c.commit();c.close()
+          PY
+          for year in 2023 2024 2025; do
+            if [ "$year" = 2025 ]; then id=40262193781; else id=40263996213; fi
+            python3 pipeline/build/import_tcesp_investimentos.py --database build/tcesp.sqlite --source "build/sources/$year" --year "$year" --source-run "$id"
+          done
+      - name: Export, audit and stage complementary API
+        run: |
+          python3 pipeline/build/export_tcesp_investimentos_api_v2.py --database build/tcesp.sqlite --output build/tcesp-preview
+          python3 deployment/stage_tcesp_api_v2.py --preview build/tcesp-preview --site build/site-archive/site-sp645 --enable-tcesp
+          diff build/v2-prior.sha <(sha256sum build/site-archive/site-sp645/data/api/v2/manifest.json)
+          python3 deployment/qa_api_v2.py --site build/site-archive/site-sp645
+          python3 deployment/qa_tcesp_http_staging.py --site build/site-archive/site-sp645 --report build/tcesp-http.json
+        shell: bash
+      - name: Validate isolated deployment settings
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_PAGES_PROJECT"
+          test "$PREVIEW_ALIAS" != main
+          test "$PREVIEW_ALIAS" != preview
+          test "$PREVIEW_ALIAS" != sp645-candidate
+          test "$PREVIEW_ALIAS" != sp645-v2-qa-20261026
+      - name: Deploy integrated isolated preview
+        run: |
+          npx --yes wrangler@4.148.0 pages deploy build/site-archive/site-sp645 \
+            --project-name="$CLOUDFLARE_PAGES_PROJECT" \
+            --branch="$PREVIEW_ALIAS" \
+            --commit-hash="${{ github.sha }}" \
+            --commit-message="TCESP complementary isolated preview; do not promote" \
+            --commit-dirty=false
+      - name: Verify existing fiscal v2 is still served
+        run: |
+          python3 deployment/qa_remote_sp645_v2_json.py --url "https://$PREVIEW_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" --report build/remote-v2.json
+          python3 deployment/qa_sp645_pages.py --url "https://$PREVIEW_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+      - name: Verify TCESP public-preview endpoints
+        run: |
+          python3 - <<'PY'
+          import os,urllib.request,json
+          b='https://'+os.environ['PREVIEW_ALIAS']+'.'+os.environ['CLOUDFLARE_PAGES_PROJECT']+'.pages.dev'
+          paths=['/data/api/v2/tcesp/manifest.json','/data/api/v2/tcesp/2023/municipios.json','/data/api/v2/tcesp/2024/municipios.json','/data/api/v2/tcesp/2025/municipios.json','/data/api/v2/tcesp/2025/municipios/3525904.json']
+          for p in paths:
+           with urllib.request.urlopen(b+p,timeout=40) as r:
+            assert r.status==200 and 'json' in r.headers.get('Content-Type','').lower(),(p,r.status,r.headers.get('Content-Type'))
+            obj=json.load(r);assert obj
+            print(p,'ok')
+          for p in ['/tcesp-investimentos.html','/tcesp-investimentos.js']:
+           with urllib.request.urlopen(b+p,timeout=40) as r:assert r.status==200
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-tcesp-integrated-preview-evidence
+          path: |
+            build/tcesp-http.json
+            build/remote-v2.json
+          if-no-files-found: warn

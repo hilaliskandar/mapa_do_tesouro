@@ -41,3 +41,9 @@ A conciliação estadual 2023–2025 com DCA canônica identificou 55 divergênc
 - Hash diferente e total diferente: não atribuir causa antes da conciliação das versões da fonte.
 
 As fontes brutas não foram alteradas; o novo relatório e o README são os únicos artefatos de documentação persistente desta atualização. Não houve publicação em produção.
+
+## Atualização: 2023 concluído, 2024 em processamento
+- Workflow [40357587853](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40357587853): tarefa 2023 `success`; tarefa 2024 ainda `in_progress` no último exame, sem comparação concluída.
+- ZIP oficial de 2023: **2.103.701.773 bytes**, CRC **pass**, membro `despesas-2023.csv`, hash SHA-256 novo e histórico **idênticos**: `78de6ad8c031240a81c789d5e1379d12efd0a44536c62dbfbaba2c6e45f893d0`.
+- Comparação independente dos três casos de 2023, em centavos: **3502804** antigo 3.251.316.801 / novo 3.251.316.801; **3545209** antigo 3.989.889.344 / novo 3.989.889.344; **3548807** antigo 14.717.318.849 / novo 14.717.318.849. Todas as diferenças novo − antigo: **zero** (`all_totals_equal: true`).
+- Somando o caso de 2025 já validado, **quatro de dez** casos prioritários tiveram a leitura TCESP reproduzida a partir do ZIP oficial com hash idêntico. A divergência original TCESP–DCA não foi resolvida nem atribuída a uma fonte.

@@ -1,0 +1,56 @@
+name: TCESP 2025 verified range re-extraction
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-2025-range-reextract.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify free disk
+        run: df -h .
+      - name: Transfer complete official 2025 ZIP with checked ranges and CRC
+        run: |
+          python3 -u governance/download_tcesp_zip_range.py --year 2025 --output build/source/despesas-2025.zip --chunk-mb 16
+      - name: Reextract 2025 priority pair independently from validated ZIP
+        run: |
+          python3 -u governance/reextrair_tcesp_divergencias_seletiva.py --year 2025 --output build/selective --source-file build/source/despesas-2025.zip
+      - name: Compare historical result and source hashes
+        run: |
+          mkdir -p build/ref
+          gh run download 40262193781 --repo "$GITHUB_REPOSITORY" --name tcesp-despesas-2025-integral-qa --dir build/ref
+          python3 - <<'PY'
+          import json,csv,pathlib
+          new=json.loads(pathlib.Path('build/selective/seletiva_qa.json').read_text())
+          source=json.loads(pathlib.Path('build/source/despesas-2025.qa.json').read_text())
+          old=json.loads(pathlib.Path('build/ref/qa.json').read_text())
+          assert source['sha256']==new['source_sha256']
+          vals=[x['centavos'] for x in new['totals'] if x['codigo_ibge']=='3517901' and x['stage']=='valor liquidado']
+          assert len(vals)==1
+          with pathlib.Path('build/ref/investimentos_grupo44_por_municipio_mes_estagio.csv').open(newline='',encoding='utf-8') as fh:
+           baseline=sum(int(r['centavos']) for r in csv.DictReader(fh) if r['codigo_ibge']=='3517901' and r['estagio']=='valor liquidado')
+          output={'year':2025,'codigo_ibge':'3517901','old_centavos':baseline,'fresh_centavos':vals[0],'delta_centavos':vals[0]-baseline,'new_sha256':source['sha256'],'old_sha256':old.get('sha256_zip'),'same_zip_hash':source['sha256']==old.get('sha256_zip'),'status':'same' if vals[0]==baseline else 'changed_requires_review'}
+          pathlib.Path('build/verification.json').write_text(json.dumps(output,indent=2)+'\n')
+          print(json.dumps(output))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-2025-verified-range-reextract-qa
+          path: |
+            build/source/despesas-2025.qa.json
+            build/selective/seletiva_qa.json
+            build/verification.json
+          if-no-files-found: warn
+          retention-days: 30

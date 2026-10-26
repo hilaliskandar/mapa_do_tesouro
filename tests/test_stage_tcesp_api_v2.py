@@ -39,3 +39,16 @@ def test_missing_canonical_manifest_denied(tmp_path):
     with patch("deployment.stage_tcesp_api_v2.subprocess.run"):
         with pytest.raises(ValueError,match="Main API v2"):
             merge_tcesp_preview(preview=preview,site=site,enabled=True)
+
+def test_staging_adds_link_only_to_preview_index(tmp_path):
+    preview,site=setup(tmp_path)
+    index=site/"index.html"
+    before='<main><nav class="tabs" aria-label="Seções"></nav></main>'
+    index.write_text(before,encoding="utf-8")
+    with patch("deployment.stage_tcesp_api_v2.subprocess.run"):
+        result=merge_tcesp_preview(preview=preview,site=site,enabled=True)
+    result_html=index.read_text(encoding="utf-8")
+    assert result["status"]=="staged_not_published"
+    assert '<a href="./tcesp-investimentos.html">' in result_html
+    assert 'href="./tcesp-investimentos.html"' not in before
+    assert (site/"data/api/v2/manifest.json").read_text()=='{"canonical":"unchanged"}'

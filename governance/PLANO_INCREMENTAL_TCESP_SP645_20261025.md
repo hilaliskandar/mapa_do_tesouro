@@ -79,3 +79,17 @@ Controle obrigatório por município/ano/mês/estágio:
 - O procedimento faz download em blocos e calcula SHA256; verifica CRC do ZIP; percorre o CSV com leitura por fluxo, Decimal em centavos e controle de IBGE, ano, mês e estágios. Produz três CSVs separados: por município/mês/estágio, programa e ação, filtrados para elemento `44`, além de `qa.json` com cobertura, hashes e diferenças.
 - Somatórios são conciliados **por município/mês/estágio** entre agregado, programa e ação, com chaves institucionais preservadas; não se trata de simples comparação de total global.
 - **Estado de controle:** esta anotação registra o início de execução, não a homologação nem a persistência. A aprovação depende de status `success`, artifact recuperado e inspeção do QA. Não há alteração de R2, SQLite ou plataforma pública; saída do Actions é temporária (retenção 30 dias).
+
+## Persistência R2 efetivamente homologada — despesas estaduais 2025
+
+- [Run 40263720734](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40263720734), conclusão **success**; verificou run fonte 40262193781, recuperou artifact 12625326192, validou esquema e quantidades de linhas dos três CSVs, conferiu agregados por município/mês/estágio e SHA do ZIP original.
+- Os arquivos foram enviados ao R2 privado sob o prefixo imutável `tcesp/estadual/despesas/2025/run_40262193781/`, com upload e readback de SHA256 confirmados para **cada objeto**:
+  - `qa.json`
+  - `investimentos_grupo44_por_municipio_mes_estagio.csv`
+  - `investimentos_grupo44_por_programa.csv`
+  - `investimentos_grupo44_por_acao.csv`
+  - `r2_manifest.json`
+- O manifesto foi submetido à mesma verificação de hash e leitura de retorno. Artifact de evidência `tcesp-despesas-2025-r2-readback-evidence`, ID `12625880899`, criado.
+- QA fonte: 28.095.280 linhas de despesas, 644 municípios, 379.897 registros do grupo 44, 25.817 linhas de agregado município/mês/estágio, 135.821 linhas por programa e 177.526 por ação. Total de investimentos **liquidados**: R$ 9.612.787.262,18. Somatórios das três granularidades conciliados por município/mês/estágio, zero diferenças.
+- **Limite da persistência:** foram preservados os quatro **resultados derivados** e o manifesto; o ZIP bruto integral do TCESP de ~2,10 GB **não foi armazenado** nessa rotina. O arquivo da fonte é rastreável por URL e SHA256, mas uma nova coleta seria necessária para reprocessar registros não presentes nos derivados.
+- **Não integrado ao SQLite/API** e não publicado. DCA/FINBRA permanece intacta. Próxima etapa: verificar manifesto de evidência e, em seguida, processar 2023/2024 com mesmo padrão, conciliando os resultados e preservando programas/ações.

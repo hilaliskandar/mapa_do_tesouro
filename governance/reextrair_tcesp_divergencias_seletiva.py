@@ -28,16 +28,28 @@ def centavos(text):
         raise ValueError("not exact integer cents")
     return int(value)
 
-def execute(year, dest, source=None):
+def execute(year, dest, source=None, source_file=None):
     dest.mkdir(parents=True, exist_ok=True)
     url = source or f"https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/despesas-{year}.zip"
     archive_path = dest / "fonte_tcesp.zip"
     digest = hashlib.sha256()
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (independent TCESP audit)", "Accept-Encoding": "identity"})
-    with urllib.request.urlopen(req, timeout=240) as resp, archive_path.open("wb") as target:
-        while block := resp.read(4 * 1024 * 1024):
-            target.write(block)
-            digest.update(block)
+    if source_file is not None:
+        import shutil
+        if not source_file.is_file() or not zipfile.is_zipfile(source_file):
+            raise ValueError("Source file must be an existing valid ZIP")
+        shutil.copyfile(source_file, archive_path)
+        with archive_path.open("rb") as stream:
+            while block := stream.read(4 * 1024 * 1024):
+                digest.update(block)
+    else:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (independent TCESP audit)", "Accept-Encoding": "identity"})
+        with urllib.request.urlopen(req, timeout=240) as resp, archive_path.open("wb") as target:
+            while block := resp.read(4 * 1024 * 1024):
+                target.write(block)
+                digest.update(block)
+            expected = int(resp.headers.get("Content-Length", "0"))
+            if expected and archive_path.stat().st_size != expected:
+                raise IOError("Downloaded source was truncated")
     totals = Counter()
     months = defaultdict(set)
     stages = Counter()
@@ -112,8 +124,8 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--year", type=int, required=True, choices=sorted(TARGETS))
     p.add_argument("--output", type=pathlib.Path, required=True)
-    p.add_argument("--url", default=None)
+    p.add_argument("--url", default=None)\n    p.add_argument("--source-file", type=pathlib.Path, default=None)
     args = p.parse_args()
-    result = execute(args.year, args.output, args.url)
+    result = execute(args.year, args.output, args.url, args.source_file)
     if result["status"] != "pass":
         raise SystemExit(2)

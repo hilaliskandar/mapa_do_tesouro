@@ -10,7 +10,7 @@ class Server(socketserver.ThreadingMixIn,http.server.HTTPServer):daemon_threads=
 with Server(("127.0.0.1",0),Handler) as server:
  thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
  base=f"http://127.0.0.1:{server.server_address[1]}"
- paths=["data/api/v2/manifest.json","data/api/v2/tcesp/manifest.json"]
+ paths=["data/api/v2/manifest.json","data/api/v2/tcesp/manifest.json","tcesp-investimentos.html","tcesp-investimentos.js"]
  for year in (2023,2024,2025):
   paths.append(f"data/api/v2/tcesp/{year}/municipios.json")
   for code in ("3509502","3525904","3543402"):
@@ -20,7 +20,9 @@ with Server(("127.0.0.1",0),Handler) as server:
   with urllib.request.urlopen(base+"/"+path,timeout=12) as response:
    assert response.status==200
    raw=response.read()
-   obj=json.loads(raw)
+   if path.endswith(".json"): json.loads(raw)
+   else:
+    assert raw and (b"TCESP" in raw or b"investimentos" in raw)
    original=(root/path).read_bytes()
    assert raw==original
    results.append({"path":path,"status":response.status,"bytes":len(raw),"sha256":hashlib.sha256(raw).hexdigest()})

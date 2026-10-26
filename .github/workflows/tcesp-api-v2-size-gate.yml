@@ -1,0 +1,57 @@
+name: TCESP API v2 preview - size and parity
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/tcesp-api-v2-size-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reuse audited 2023 to 2025 investments
+        run: |
+          for year in 2023 2024 2025; do
+            mkdir -p "build/sources/$year"
+            if [ "$year" = 2025 ]; then id=40262193781; else id=40263996213; fi
+            gh run download "$id" --repo "$GITHUB_REPOSITORY" --name "tcesp-despesas-$year-integral-qa" --dir "build/sources/$year"
+          done
+      - name: Prepare development-only SQLite
+        run: |
+          python3 - <<'PY'
+          import sqlite3,pathlib,json
+          c=sqlite3.connect('build/dev.sqlite')
+          for p in sorted(pathlib.Path('data/schema').glob('[0-9][0-9][0-9]_*.sql')):
+              c.executescript(p.read_text(encoding='utf-8'))
+          qa=[json.loads((pathlib.Path('build/sources')/str(y)/'qa.json').read_text()) for y in [2023,2024,2025]]
+          codes=set(qa[0]['codes'])
+          assert len(codes)==644 and all(set(x['codes'])==codes for x in qa)
+          c.executemany('INSERT INTO municipio(codigo_ibge,nome,uf) VALUES(?,?,?)',[(x,x,'SP') for x in sorted(codes)])
+          c.commit();c.close()
+          PY
+      - name: Load isolated layer
+        run: |
+          for year in 2023 2024 2025; do
+            if [ "$year" = 2025 ]; then id=40262193781; else id=40263996213; fi
+            python3 pipeline/build/import_tcesp_investimentos.py --database build/dev.sqlite --source "build/sources/$year" --year "$year" --source-run "$id"
+          done
+      - name: Export preview static API
+        run: python3 pipeline/build/export_tcesp_investimentos_api_v2.py --database build/dev.sqlite --output build/preview-site
+      - name: Verify all records and payload-size constraints
+        run: python3 deployment/qa_tcesp_api_v2_preview.py --site build/preview-site --report build/qa-tcesp-preview.json --max-detail-bytes 2000000
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-api-v2-size-gate
+          path: build/qa-tcesp-preview.json
+          if-no-files-found: warn

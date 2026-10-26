@@ -1,5 +1,5 @@
 name: TCESP API v2 - staged HTTP integration
-# UI smoke test enabled for TCESP preview
+# UI smoke test enabled for TCESP preview; byte-parity fix
 on:
   push:
     branches: [main]

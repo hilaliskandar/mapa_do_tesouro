@@ -1,0 +1,60 @@
+name: TCESP DCA SP645 statewide parity matrix
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-dca-sp645-parity.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover previously audited SP645 data
+        run: |
+          gh run download 40317752109 --repo "$GITHUB_REPOSITORY" --name sp645-private-site-40317752109 --dir build/private
+      - name: Recover audited complementary layer from integrated QA
+        run: |
+          test -f build/private/site-sp645/data/api/v2/manifest.json
+          python3 - <<'PY'
+          import pathlib
+          print('Native v2 site verified:',pathlib.Path('build/private/site-sp645/data/api/v2/manifest.json').is_file())
+          PY
+          mkdir -p build/tcesp
+          for year in 2023 2024 2025; do
+            if [ "$year" = 2025 ]; then id=40262193781; else id=40263996213; fi
+            mkdir -p "build/sources/$year"
+            gh run download "$id" --repo "$GITHUB_REPOSITORY" --name "tcesp-despesas-$year-integral-qa" --dir "build/sources/$year"
+          done
+      - name: Import and export isolated TCESP in same site
+        run: |
+          python3 - <<'PY'
+          import sqlite3,pathlib,json
+          c=sqlite3.connect('build/tcesp.sqlite')
+          for p in sorted(pathlib.Path('data/schema').glob('[0-9][0-9][0-9]_*.sql')):c.executescript(p.read_text(encoding='utf-8'))
+          q=[json.loads((pathlib.Path('build/sources')/str(y)/'qa.json').read_text()) for y in (2023,2024,2025)]
+          codes=set(q[0]['codes'])
+          assert len(codes)==644 and all(set(x['codes'])==codes for x in q)
+          c.executemany('INSERT INTO municipio(codigo_ibge,nome,uf) VALUES(?,?,?)',[(x,x,'SP') for x in sorted(codes)])
+          c.commit();c.close()
+          PY
+          for year in 2023 2024 2025; do
+            if [ "$year" = 2025 ]; then id=40262193781; else id=40263996213; fi
+            python3 pipeline/build/import_tcesp_investimentos.py --database build/tcesp.sqlite --source "build/sources/$year" --year "$year" --source-run "$id"
+          done
+          python3 pipeline/build/export_tcesp_investimentos_api_v2.py --database build/tcesp.sqlite --output build/private/site-sp645
+      - name: Compare all statewide municipal year rows
+        run: python3 pipeline/qa/conciliar_tcesp_dca_sp645.py --site build/private/site-sp645 --output build/conciliacao_tcesp_dca_sp645.csv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: statewide-tcesp-dca-reconciliation
+          path: |
+            build/conciliacao_tcesp_dca_sp645.csv
+            build/conciliacao_tcesp_dca_sp645.summary.json
+          if-no-files-found: warn

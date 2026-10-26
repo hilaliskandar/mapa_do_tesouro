@@ -1,0 +1,20 @@
+name: TCESP API v2 - safe staging contract
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-stage-gate.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install pytest
+      - name: Verify opt-in, collision guard and canonical API isolation
+        run: python3 -m pytest -q tests/test_stage_tcesp_api_v2.py

@@ -34,10 +34,9 @@ def execute(year, dest, source=None, source_file=None):
     archive_path = dest / "fonte_tcesp.zip"
     digest = hashlib.sha256()
     if source_file is not None:
-        import shutil
         if not source_file.is_file() or not zipfile.is_zipfile(source_file):
             raise ValueError("Source file must be an existing valid ZIP")
-        shutil.copyfile(source_file, archive_path)
+        archive_path = source_file
         with archive_path.open("rb") as stream:
             while block := stream.read(4 * 1024 * 1024):
                 digest.update(block)

@@ -139,6 +139,22 @@ jobs:
           python deployment/qa_sp645_pages.py \
             --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
 
+      - name: Reject HTML fallback on external SP645 API v2 JSON
+        shell: bash
+        env:
+          DEPLOY_ALIAS: ${{ inputs.alias }}
+        run: |
+          python deployment/qa_remote_sp645_v2_json.py \
+            --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" \
+            --report build/sp645-v2-remote-qa.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-external-v2-json-contract
+          path: build/sp645-v2-remote-qa.json
+          if-no-files-found: warn
+
       - name: Publish preview URL
         shell: bash
         env:

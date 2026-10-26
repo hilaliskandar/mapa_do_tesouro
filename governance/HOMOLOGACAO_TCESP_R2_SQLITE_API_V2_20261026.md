@@ -51,3 +51,9 @@ Migração `data/schema/006_tcesp_investimentos.sql`; importação transacional 
 - URL `https://preview.finbra-tic-tim-referencia.pages.dev`: `/data/manifest.json` retornou HTTP 200 e `application/json`, prefixo com JSON.
 - **Diferentemente do erro HTTP 403 observado na tentativa anterior**, nesta sondagem `/data/api/v2/manifest.json` e `/data/api/v2/catalog/municipalities.json` retornaram HTTP 200, mas `text/html; charset=utf-8`, sem JSON. Possível fallback HTML da plataforma, a confirmar com configuração de rotas/artefatos. **Acessibilidade de JSON da API v2 não homologada.**
 - Proibir interpretação de `HTTP 200` isolado como aprovação de endpoint JSON. Testes externos devem verificar também `Content-Type`, parse JSON e o contrato de dados esperado. Sem publicação.
+
+## Verificação da existência da API v2 estadual no artefato privado
+- Em [execução 40326152205](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40326152205) a validação integral `deployment/qa_api_v2.py` passou para o artefato privado da execução `40317752109` (`sp645-private-site-40317752109`).
+- Artefato contém `data/api/v2/manifest.json` JSON: 645 municípios, 174.795 observações e catálogo de 75 variáveis; catálogo de municípios JSON íntegro com 645 entradas.
+- Na mesma auditoria, o alias `preview.finbra-tic-tim-referencia.pages.dev` persistiu retornando HTML para dois caminhos `/data/api/v2/*.json`. Logo, a fonte dos dados v2 **está materializada no artefato estadual privado**; a prévia examinada não entrega esses arquivos corretamente. É necessário verificar o alias SP645 efetivo e o processo de publicação antes de qualquer implantação, sem substituir inadvertidamente o snapshot v1.
+- A execução de auditoria foi somente leitura; não realizou deploy. Controle obrigatório: aceitar endpoint apenas se `Content-Type` JSON, parse JSON válido e esquema correto.

@@ -1,4 +1,4 @@
-name: Validate existing integrated TCESP preview without redeploy
+name: Validate integrated TCESP preview immutable URL without redeploy
 on:
   push:
     branches: [main]
@@ -22,12 +22,18 @@ jobs:
       - name: Validate three exercises and individual TCESP payload content
         run: |
           python3 - <<'PY'
-          import json,urllib.request,pathlib
-          base='https://sp645-tcesp-qa-20261026.finbra-tic-tim-referencia.pages.dev'
+          import json,urllib.request,urllib.error,pathlib,time
+          base='https://47141558.finbra-tic-tim-referencia.pages.dev'
           def get(path):
-           with urllib.request.urlopen(base+path,timeout=45) as r:
-            assert r.status==200 and 'json' in r.headers.get('Content-Type','').lower(),(path,r.status)
-            return json.load(r)
+           for attempt in range(4):
+            try:
+             req=urllib.request.Request(base+path,headers={'User-Agent':'sp645-tcesp-qa/1','Accept':'application/json'})
+             with urllib.request.urlopen(req,timeout=45) as r:
+              assert r.status==200 and 'json' in r.headers.get('Content-Type','').lower(),(path,r.status)
+              return json.load(r)
+            except urllib.error.HTTPError as e:
+             if e.code not in (403,429,502,503) or attempt==3:raise
+             time.sleep(3*(attempt+1))
           manifest=get('/data/api/v2/tcesp/manifest.json')
           assert manifest['status']=='preview_not_published'
           assert [z['exercicio'] for z in manifest['exercises']]==[2023,2024,2025]

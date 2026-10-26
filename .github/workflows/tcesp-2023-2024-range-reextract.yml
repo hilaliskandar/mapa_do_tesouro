@@ -1,0 +1,63 @@
+name: TCESP 2023 2024 verified selective re-extraction
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        year: [2023, 2024]
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download complete audited official ZIP by byte ranges
+        run: |
+          python3 -u governance/download_tcesp_zip_range.py --year ${{ matrix.year }} --output build/source/despesas-${{ matrix.year }}.zip --chunk-mb 16
+      - name: Reconstruct priority investment totals independently
+        run: |
+          python3 -u governance/reextrair_tcesp_divergencias_seletiva.py --year ${{ matrix.year }} --output build/selective --source-file build/source/despesas-${{ matrix.year }}.zip
+      - name: Recover historic audited baseline
+        run: |
+          mkdir -p build/reference
+          gh run download 40263996213 --repo "$GITHUB_REPOSITORY" --name "tcesp-despesas-${{ matrix.year }}-integral-qa" --dir build/reference
+      - name: Compare all selected cities and original ZIP hashes
+        run: |
+          python3 - <<'PY'
+          import csv,json,pathlib
+          year=int("${{ matrix.year }}")
+          qa=json.loads(pathlib.Path('build/selective/seletiva_qa.json').read_text())
+          source=json.loads(pathlib.Path(f'build/source/despesas-{year}.qa.json').read_text())
+          old_qa=json.loads(pathlib.Path('build/reference/qa.json').read_text())
+          targets={2023:{'3548807','3545209','3502804'},2024:{'3554102','3522158','3533254','3548906','3534708','3520301'}}[year]
+          current={r['codigo_ibge']:r['centavos'] for r in qa['totals'] if r['stage']=='valor liquidado'}
+          prev={}
+          with pathlib.Path('build/reference/investimentos_grupo44_por_municipio_mes_estagio.csv').open(newline='',encoding='utf-8') as f:
+           for r in csv.DictReader(f):
+            if r['codigo_ibge'] in targets and r['estagio']=='valor liquidado':
+             prev[r['codigo_ibge']]=prev.get(r['codigo_ibge'],0)+int(r['centavos'])
+          assert set(prev)==targets and set(current)==targets
+          assert source['sha256']==qa['source_sha256']
+          cases=[{'code':c,'previous_cents':prev[c],'new_cents':current[c],'difference_cents':current[c]-prev[c]} for c in sorted(targets)]
+          result={'year':year,'status':'pass','previous_zip_sha256':old_qa.get('sha256_zip'),'current_zip_sha256':source['sha256'],'zip_hash_equal':source['sha256']==old_qa.get('sha256_zip'),'cases':cases,'all_totals_equal':all(x['difference_cents']==0 for x in cases)}
+          pathlib.Path('build/comparison.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+          print(json.dumps(result,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-validated-reextract-${{ matrix.year }}
+          path: |
+            build/source/despesas-${{ matrix.year }}.qa.json
+            build/selective/seletiva_qa.json
+            build/comparison.json
+          if-no-files-found: warn

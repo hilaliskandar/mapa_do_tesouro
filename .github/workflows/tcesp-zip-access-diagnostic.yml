@@ -1,0 +1,42 @@
+name: TCESP official ZIP response headers and signature diagnosis
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-zip-access-diagnostic.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        year: [2023, 2024, 2025]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect public download response without full transfer
+        run: |
+          mkdir -p build
+          python3 - <<'PY'
+          import urllib.request,urllib.error,json,datetime,pathlib
+          y=${{ matrix.year }}
+          url=f'https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/despesas-{y}.zip'
+          outcome={'year':y,'url':url,'checked_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          for label,method,headers in [('head','HEAD',{}),('range','GET',{'Range':'bytes=0-255'})]:
+           req=urllib.request.Request(url,method=method,headers={'User-Agent':'Mozilla/5.0 (TCESP QA, readonly)','Accept-Encoding':'identity',**headers})
+           try:
+            with urllib.request.urlopen(req,timeout=55) as r:
+             prefix=r.read(256) if method=='GET' else b''
+             outcome[label]={'status':r.status,'final_url':r.url,'content_type':r.headers.get('Content-Type'),'content_length':r.headers.get('Content-Length'),'content_range':r.headers.get('Content-Range'),'prefix_hex':prefix[:32].hex(),'zip_signature':prefix[:4] in (b'PK\x03\x04',b'PK\x05\x06',b'PK\x07\x08')}
+           except urllib.error.HTTPError as e:
+            outcome[label]={'status':e.code,'content_type':e.headers.get('Content-Type'),'error':'HTTP'}
+           except Exception as e:outcome[label]={'error':type(e).__name__,'message':str(e)[:160]}
+          pathlib.Path(f'build/zip-diagnostic-{y}.json').write_text(json.dumps(outcome,indent=2)+'\n')
+          print(json.dumps(outcome))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tcesp-source-access-${{ matrix.year }}
+          path: build/zip-diagnostic-${{ matrix.year }}.json

@@ -34,6 +34,6 @@ jobs:
             observed=int(r.headers['Content-Range'].split('/')[-1])
             if total is not None:assert observed==total
             total=observed;blocks.append(payload)
-          assert b''.join(blocks).startswith(b'PK\\x03\\x04')
+          assert b''.join(blocks).startswith(bytes.fromhex('504b0304'))
           print(json.dumps({'status':'pass','year':2024,'verified_bytes':256,'server_object_size':total,'signature':'ZIP','first_256_sha256':hashlib.sha256(b''.join(blocks)).hexdigest()}))
           PY

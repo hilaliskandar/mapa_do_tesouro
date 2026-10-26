@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Investimentos municipais TCESP — prévia</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#1d2c3d;background:#f4f6f8}
+body{max-width:1160px;margin:0 auto;padding:28px 18px}
+h1{margin-bottom:5px}p{line-height:1.5}.panel{background:#fff;border:1px solid #d8dfe7;border-radius:12px;padding:18px;margin:18px 0}
+.controls{display:flex;gap:12px;flex-wrap:wrap}.controls label{display:flex;flex-direction:column;gap:6px;font-weight:600}
+select,input{min-width:150px;padding:9px;border:1px solid #b3c0ce;border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid #e3e8ee;padding:9px;text-align:left}
+th:last-child,td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.scroll{overflow:auto}button{cursor:pointer;padding:7px 10px;border:1px solid #a4b5c6;background:#fff;border-radius:6px}
+.note{font-size:13px;color:#586779}.error{color:#9c2020}#status{font-weight:600}
+</style></head><body>
+<a href="./index.html">Voltar ao painel fiscal</a>
+<h1>Investimentos municipais — TCESP</h1>
+<p class="note">Consulta experimental das despesas classificadas no grupo 44. Os programas e ações são classificações de cada município e não são automaticamente comparáveis entre localidades. Valores expressos em reais; fonte independente da DCA/FINBRA.</p>
+<section class="panel controls">
+<label>Município (código IBGE)<input id="municipio" inputmode="numeric" pattern="[0-9]{7}" maxlength="7" value="3525904"></label>
+<label>Exercício<select id="ano"><option>2023</option><option>2024</option><option selected>2025</option></select></label>
+<label>Estágio<select id="estagio"></select></label>
+<label>Detalhamento<select id="nivel"><option value="programas">Programas</option><option value="acoes">Ações</option></select></label>
+<label>Filtrar descrição<input id="filtro" placeholder="Texto de programa ou ação"></label>
+<button id="consultar" type="button">Consultar</button>
+</section>
+<section class="panel"><div id="status" role="status" aria-live="polite">Pronto para consultar.</div>
+<p id="total"></p><div class="scroll"><table><thead><tr><th>Órgão</th><th>Programa</th><th>Ação</th><th>Valor (R$)</th></tr></thead><tbody id="resultado"></tbody></table></div>
+<p class="note">Os valores são somados por órgão, programa e ação ao longo dos meses selecionados no exercício. A consulta não soma estágios diferentes.</p></section>
+<script src="./tcesp-investimentos.js" defer></script>
+</body></html>

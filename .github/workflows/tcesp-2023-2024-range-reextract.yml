@@ -1,5 +1,8 @@
 name: TCESP 2023 2024 verified selective re-extraction
 on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-2023-2024-range-reextract.yml']
   workflow_dispatch:
 permissions:
   contents: read

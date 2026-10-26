@@ -1,0 +1,39 @@
+name: TCESP range download controlled smoke
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-range-smoke.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile revised download and selective extractor
+        run: |
+          python3 -m py_compile governance/download_tcesp_zip_range.py governance/reextrair_tcesp_divergencias_seletiva.py
+      - name: Test official Range 206 continuity without fetching full ZIP
+        run: |
+          python3 - <<'PY'
+          import urllib.request,json,hashlib
+          url='https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/despesas-2024.zip'
+          blocks=[]
+          total=None
+          for start,end in [(0,127),(128,255)]:
+           req=urllib.request.Request(url,headers={'Range':f'bytes={start}-{end}','Accept-Encoding':'identity','User-Agent':'Mozilla/5.0 (TCESP QA, readonly)'})
+           with urllib.request.urlopen(req,timeout=60) as r:
+            payload=r.read()
+            assert r.status==206 and len(payload)==end-start+1,(r.status,len(payload))
+            assert r.headers['Content-Range'].startswith(f'bytes {start}-{end}/')
+            observed=int(r.headers['Content-Range'].split('/')[-1])
+            if total is not None:assert observed==total
+            total=observed;blocks.append(payload)
+          assert b''.join(blocks).startswith(b'PK\\x03\\x04')
+          print(json.dumps({'status':'pass','year':2024,'verified_bytes':256,'server_object_size':total,'signature':'ZIP','first_256_sha256':hashlib.sha256(b''.join(blocks)).hexdigest()}))
+          PY

@@ -15,13 +15,20 @@ def merge_tcesp_preview(*,preview:pathlib.Path,site:pathlib.Path,enabled:bool=Fa
     if dest.exists(): raise FileExistsError(f"TCESP destination exists: {dest}")
     if not (site/"data/api/v2/manifest.json").is_file():
         raise ValueError("Main API v2 manifest missing, refusing accidental new site")
-    # Copy only the isolated namespace; canonical v2 manifest stays untouched.
-    shutil.copytree(source,dest)
     assets=pathlib.Path(__file__).resolve().parents[1]/"app"/"static"
     for filename in ("tcesp-investimentos.html","tcesp-investimentos.js"):
-        target=site/filename
-        if target.exists(): raise FileExistsError(f"TCESP UI destination exists: {target}")
-        shutil.copy2(assets/filename,target)
+        if (site/filename).exists(): raise FileExistsError(f"TCESP UI destination exists: {filename}")
+    # No canonical API changes; stage isolated files after checking all collisions.
+    shutil.copytree(source,dest)
+    for filename in ("tcesp-investimentos.html","tcesp-investimentos.js"):
+        shutil.copy2(assets/filename,site/filename)
+    index=site/"index.html"
+    if index.is_file():
+        document=index.read_text(encoding="utf-8")
+        anchor='    <nav class="tabs" aria-label="Seções">'
+        if anchor in document and 'href="./tcesp-investimentos.html"' not in document:
+            document=document.replace(anchor,'    <p class="tcesp-preview-link"><a href="./tcesp-investimentos.html">Investimentos por programa e ação — TCESP (prévia)</a></p>\\n'+anchor,1)
+            index.write_text(document,encoding="utf-8")
     main_hash=hashlib.sha256((site/"data/api/v2/manifest.json").read_bytes()).hexdigest()
     result={"status":"staged_not_published","namespace":"data/api/v2/tcesp",
         "files":len(list(dest.rglob("*.json"))),"main_manifest_sha256":main_hash}

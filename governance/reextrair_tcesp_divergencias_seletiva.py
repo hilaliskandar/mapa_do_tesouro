@@ -46,6 +46,14 @@ def execute(year, dest, source=None):
     sample = defaultdict(list)
     rows_seen = 0
     selected = 0
+    if not zipfile.is_zipfile(archive_path):
+        signature = archive_path.open("rb").read(64)
+        failure = {"status": "blocked_source_not_zip", "year": year, "url": url,
+                   "sha256": digest.hexdigest(), "bytes": archive_path.stat().st_size,
+                   "prefix_hex": signature[:16].hex()}
+        (dest / "source_access_diagnostic.json").write_text(json.dumps(failure, indent=2) + "\\n")
+        print(json.dumps(failure), flush=True)
+        raise RuntimeError("Official source did not return ZIP; no financial comparison made")
     with zipfile.ZipFile(archive_path) as z:
         if z.testzip() is not None:
             raise ValueError("ZIP CRC error")

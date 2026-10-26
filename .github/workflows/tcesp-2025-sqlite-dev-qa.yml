@@ -35,7 +35,7 @@ jobs:
           c.commit();c.close()
           PY
       - name: Import 2025 into disposable SQLite, verify all three aggregations
-        run: python3 pipeline/build/import_tcesp_investimentos.py --database build/tcesp-dev.sqlite --source build/tcesp2025 --year 2025
+        run: python3 pipeline/build/import_tcesp_investimentos.py --database build/tcesp-dev.sqlite --source build/tcesp2025 --year 2025 --source-run 40262193781
       - name: Check DCA table is untouched and all keys indexed
         run: |
           python3 - <<'PY'

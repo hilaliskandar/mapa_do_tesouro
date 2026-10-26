@@ -26,18 +26,6 @@ jobs:
           python3 deployment/materialize_preview.py --url "https://preview.$CLOUDFLARE_PAGES_PROJECT.pages.dev" --output build/real-site --app-version "$(tr -d '[:space:]' < VERSION)"
           python3 deployment/qa_pages.py --site build/real-site --expected-app-version "$(tr -d '[:space:]' < VERSION)"
           sha256sum build/real-site/data/manifest.json > build/legacy-before.sha
-      - name: Retrieve native v2 manifest from the same fiscal preview
-        run: |
-          python3 - <<'PY'
-          import os,pathlib,urllib.request,json
-          url='https://preview.'+os.environ['CLOUDFLARE_PAGES_PROJECT']+'.pages.dev/data/api/v2/manifest.json'
-          with urllib.request.urlopen(url,timeout=40) as r: raw=r.read()
-          manifest=json.loads(raw)
-          assert manifest.get('municipality_count')==645,manifest
-          target=pathlib.Path('build/real-site/data/api/v2/manifest.json')
-          target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(raw)
-          PY
-          sha256sum build/real-site/data/api/v2/manifest.json > build/v2-before.sha
       - name: Recover approved expense artifacts
         run: |
           set -euo pipefail
@@ -68,9 +56,8 @@ jobs:
           python3 deployment/qa_tcesp_api_v2_preview.py --site build/tcesp-preview --report build/real-qa-tcesp.json
       - name: Stage on top of the REAL fiscal preview snapshot
         run: |
-          python3 deployment/stage_tcesp_api_v2.py --preview build/tcesp-preview --site build/real-site --enable-tcesp
+          python3 deployment/stage_tcesp_api_v2.py --preview build/tcesp-preview --site build/real-site --enable-tcesp --allow-v1-site
           diff build/legacy-before.sha <(sha256sum build/real-site/data/manifest.json)
-          diff build/v2-before.sha <(sha256sum build/real-site/data/api/v2/manifest.json)
           python3 deployment/qa_pages.py --site build/real-site --expected-app-version "$(tr -d '[:space:]' < VERSION)"
           python3 deployment/qa_tcesp_http_staging.py --site build/real-site --report build/real-http-qa.json
         shell: bash

@@ -1,0 +1,38 @@
+name: Diagnose integrated TCESP preview endpoint access
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sp645-tcesp-remote-diagnostic.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect response status and MIME for each namespace
+        run: |
+          python3 - <<'PY'
+          import urllib.request,urllib.error,json,pathlib
+          bases=['https://sp645-tcesp-qa-20261026.finbra-tic-tim-referencia.pages.dev','https://47141558.finbra-tic-tim-referencia.pages.dev']
+          paths=['/data/api/v2/manifest.json','/data/api/v2/tcesp/manifest.json','/data/api/v2/tcesp/2025/municipios.json','/data/api/v2/tcesp/2025/municipios/3525904.json','/tcesp-investimentos.html','/tcesp-investimentos.js']
+          rows=[]
+          for base in bases:
+           for path in paths:
+            req=urllib.request.Request(base+path,headers={'User-Agent':'sp645-tcesp-diagnostics/1','Accept':'*/*'})
+            try:
+             with urllib.request.urlopen(req,timeout=30) as r:
+              data=r.read(128)
+              rows.append({'base':base,'path':path,'status':r.status,'mime':r.headers.get('Content-Type'),'sample_is_json':data.lstrip().startswith((b'{',b'['))})
+            except urllib.error.HTTPError as e:rows.append({'base':base,'path':path,'status':e.code,'mime':e.headers.get('Content-Type'),'error':'HTTP'})
+            except Exception as e:rows.append({'base':base,'path':path,'error':type(e).__name__})
+          pathlib.Path('build').mkdir(exist_ok=True)
+          pathlib.Path('build/tcesp-probe.json').write_text(json.dumps(rows,indent=2))
+          print(json.dumps(rows))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: integrated-tcesp-remote-probe
+          path: build/tcesp-probe.json

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Test HTTP delivery of the staged TCESP API without a public deployment."""
 import argparse,hashlib,http.server,json,pathlib,socketserver,threading,urllib.request
-p=argparse.ArgumentParser();p.add_argument("--site",type=pathlib.Path,required=True);p.add_argument("--report",type=pathlib.Path,required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument("--site",type=pathlib.Path,required=True);p.add_argument("--report",type=pathlib.Path,required=True);p.add_argument("--allow-v1-site",action="store_true");a=p.parse_args()
 root=a.site.resolve()
 class Handler(http.server.SimpleHTTPRequestHandler):
  def __init__(self,*args,**kwargs):super().__init__(*args,directory=str(root),**kwargs)
@@ -10,7 +10,7 @@ class Server(socketserver.ThreadingMixIn,http.server.HTTPServer):daemon_threads=
 with Server(("127.0.0.1",0),Handler) as server:
  thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
  base=f"http://127.0.0.1:{server.server_address[1]}"
- paths=["data/api/v2/manifest.json","data/api/v2/tcesp/manifest.json","tcesp-investimentos.html","tcesp-investimentos.js"]
+ paths=[("data/manifest.json" if a.allow_v1_site else "data/api/v2/manifest.json"),"data/api/v2/tcesp/manifest.json","tcesp-investimentos.html","tcesp-investimentos.js"]
  for year in (2023,2024,2025):
   paths.append(f"data/api/v2/tcesp/{year}/municipios.json")
   for code in ("3509502","3525904","3543402"):

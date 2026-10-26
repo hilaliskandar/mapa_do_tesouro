@@ -1,0 +1,25 @@
+name: TCESP despesas estaduais 2025 - ZIP range probe
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-despesas-2025-range-probe.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 governance/probe_despesas_estaduais_2025_range.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-despesas-2025-range-probe
+          path: build/tcesp-despesas-2025-schema/probe.json
+          if-no-files-found: warn
+          retention-days: 30

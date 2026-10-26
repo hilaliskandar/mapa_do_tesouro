@@ -1,0 +1,58 @@
+name: TCESP despesas 2025 - persistencia R2 auditada
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-despesas-2025-r2.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  persist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify immutable source action and private storage
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/40262193781" --jq .conclusion)" = success
+      - name: Recover full-audit artifact, no second TCESP download
+        run: |
+          set -euo pipefail
+          mkdir -p build/tcesp2025
+          gh run download 40262193781 --repo "$GITHUB_REPOSITORY" --name tcesp-despesas-2025-integral-qa --dir build/tcesp2025
+      - name: Check exact QA and all aggregated records
+        run: python3 governance/validar_pacote_despesas_2025_r2.py build/tcesp2025
+      - name: Upload immutable copies and verify readback
+        shell: bash
+        run: |
+          set -euo pipefail
+          PREFIX="tcesp/estadual/despesas/2025/run_40262193781"
+          for f in qa.json investimentos_grupo44_por_municipio_mes_estagio.csv investimentos_grupo44_por_programa.csv investimentos_grupo44_por_acao.csv; do
+            SHA="$(python3 -c 'import hashlib,sys;print(hashlib.file_digest(open(sys.argv[1],"rb"),"sha256").hexdigest())' "build/tcesp2025/$f")"
+            python3 deployment/upload_r2_source.py --source "build/tcesp2025/$f" --object-key "$PREFIX/$f" --expected-sha256 "$SHA" --content-type "$(test "$f" = qa.json && echo application/json || echo text/csv)"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$f" --output "build/verified-$f" --expected-sha256 "$SHA"
+          done
+          python3 deployment/upload_r2_source.py --source build/tcesp2025/r2_manifest.json --object-key "$PREFIX/r2_manifest.json" --content-type application/json
+          SHA="$(python3 -c 'import hashlib;print(hashlib.file_digest(open("build/tcesp2025/r2_manifest.json","rb"),"sha256").hexdigest())')"
+          python3 deployment/download_r2_source.py --object-key "$PREFIX/r2_manifest.json" --output build/verified-manifest.json --expected-sha256 "$SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-despesas-2025-r2-readback-evidence
+          path: build/tcesp2025/r2_manifest.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -49,3 +49,20 @@ Após o primeiro lote de três, os **outros sete** pares foram consultados pelo 
 **Balanço dos dez casos:** Taubaté, Ourinhos e Iguape (todos em 2024) mostram na API atual valor DCA idêntico ao TCESP, ao contrário do snapshot DCA anteriormente preservado. Nos outros sete, o valor DCA atual coincide com o snapshot e mantém diferença TCESP. **São diferenças de versão ou conteúdo observado**, sem explicação causal ainda. Para os sete pares deste segundo lote, os extratos de entrega ainda não foram consultados nesta diligência.
 
 URLs são geradas por `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=AAAA&id_ente=CODIGO&no_anexo=DCA-Anexo%20I-D` para os códigos/anos acima. As consultas retornaram respectivamente 111, 163, 264, 216, 246, 144 e 120 itens, `hasMore=false`. Preservar o snapshot anterior como fonte histórica, sem sobrescrevê-lo.
+
+## Conclusão da consulta de extratos de entrega — dez pares
+Foram consultados também os extratos dos sete pares restantes na operação oficial `/extrato_entregas`, com filtros `id_ente` e `an_referencia`, conforme a matriz abaixo. Todos retornaram `hasMore=false`. O número de linhas total das respostas foi registrado, sem confundir as diversas entregas MSC/RREO/RGF com a DCA anual.
+
+| IBGE | Município | Ano | Situação literal DCA | Data do status em UTC | Linhas extrato |
+|---|---|---:|---|---|---:|
+| 3522158 | Itaóca | 2024 | HO | 2025-06-16T09:34:40Z | 28 |
+| 3533254 | Novais | 2024 | HO | 2025-04-03T09:04:17Z | 26 |
+| 3548906 | São Carlos | 2024 | HO | 2025-04-30T16:48:54Z | 33 |
+| 3502804 | Araçatuba | 2023 | HO | 2024-03-27T17:30:27Z | 36 |
+| 3534708 | Ourinhos | 2024 | RE | 2025-10-20T09:24:23Z | 39 |
+| 3517901 | Guaraci | 2025 | HO | 2026-03-30T16:52:35Z | 39 |
+| 3520301 | Iguape | 2024 | RE | 2026-05-14T14:08:16Z | 38 |
+
+Os três extratos já examinados eram: São Caetano do Sul/2023 `RE` (2024-07-10T11:41:01Z); Taubaté/2024 `RE` (2025-08-14T09:07:00Z); Salto/2023 `HO` (2024-04-30T15:30:00Z). Assim, **10/10 extratos DCA foram consultados**, com três casos de valor atualmente coincidente com TCESP (Taubaté, Ourinhos e Iguape), todos com código `RE`. São Caetano do Sul também apresenta `RE` mas a divergência permanece, o que demonstra que o código sozinho não implica convergência de valor.
+
+Padrão de consulta: `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/extrato_entregas?id_ente=CODIGO&an_referencia=AAAA`. As siglas `RE` e `HO` são transcritas literalmente sem inferir histórico de versões. **O endpoint de extrato não disponibilizou, nesta consulta, o valor anterior de cada retificação.** É necessário investigar a documentação de status e, quando possível, a sequência de arquivos/declarações antigas antes de atribuir causalidade. A base canônica histórica permanece preservada.

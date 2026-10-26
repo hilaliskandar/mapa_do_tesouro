@@ -1,0 +1,90 @@
+name: TCESP full fiscal snapshot regression - no deploy
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-real-snapshot-regression.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover current published fiscal data snapshot
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_PAGES_PROJECT"
+          python3 deployment/materialize_preview.py --url "https://preview.$CLOUDFLARE_PAGES_PROJECT.pages.dev" --output build/real-site --app-version "$(tr -d '[:space:]' < VERSION)"
+          python3 deployment/qa_pages.py --site build/real-site --expected-app-version "$(tr -d '[:space:]' < VERSION)"
+          sha256sum build/real-site/data/manifest.json > build/legacy-before.sha
+      - name: Retrieve native v2 manifest from the same fiscal preview
+        run: |
+          python3 - <<'PY'
+          import os,pathlib,urllib.request,json
+          url='https://preview.'+os.environ['CLOUDFLARE_PAGES_PROJECT']+'.pages.dev/data/api/v2/manifest.json'
+          with urllib.request.urlopen(url,timeout=40) as r: raw=r.read()
+          manifest=json.loads(raw)
+          assert manifest.get('municipality_count')==645,manifest
+          target=pathlib.Path('build/real-site/data/api/v2/manifest.json')
+          target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(raw)
+          PY
+          sha256sum build/real-site/data/api/v2/manifest.json > build/v2-before.sha
+      - name: Recover approved expense artifacts
+        run: |
+          set -euo pipefail
+          for year in 2023 2024 2025; do
+            mkdir -p "build/sources/$year"
+            if [ "$year" = 2025 ]; then run=40262193781; else run=40263996213; fi
+            gh run download "$run" --repo "$GITHUB_REPOSITORY" --name "tcesp-despesas-$year-integral-qa" --dir "build/sources/$year"
+          done
+      - name: Prepare complementary database without touching canonical observation
+        run: |
+          python3 - <<'PY'
+          import sqlite3,pathlib,json
+          c=sqlite3.connect('build/preview-tcesp.sqlite')
+          for p in sorted(pathlib.Path('data/schema').glob('[0-9][0-9][0-9]_*.sql')):c.executescript(p.read_text(encoding='utf-8'))
+          qa=[json.loads((pathlib.Path('build/sources')/str(y)/'qa.json').read_text()) for y in (2023,2024,2025)]
+          cities=set(qa[0]['codes'])
+          assert len(cities)==644 and all(set(x['codes'])==cities for x in qa)
+          c.executemany('INSERT INTO municipio(codigo_ibge,nome,uf) VALUES(?,?,?)',[(x,x,'SP') for x in sorted(cities)])
+          c.commit();c.close()
+          PY
+          for year in 2023 2024 2025; do
+            if [ "$year" = 2025 ]; then run=40262193781; else run=40263996213; fi
+            python3 pipeline/build/import_tcesp_investimentos.py --database build/preview-tcesp.sqlite --source "build/sources/$year" --year "$year" --source-run "$run"
+          done
+      - name: Export validated complementary API
+        run: |
+          python3 pipeline/build/export_tcesp_investimentos_api_v2.py --database build/preview-tcesp.sqlite --output build/tcesp-preview
+          python3 deployment/qa_tcesp_api_v2_preview.py --site build/tcesp-preview --report build/real-qa-tcesp.json
+      - name: Stage on top of the REAL fiscal preview snapshot
+        run: |
+          python3 deployment/stage_tcesp_api_v2.py --preview build/tcesp-preview --site build/real-site --enable-tcesp
+          diff build/legacy-before.sha <(sha256sum build/real-site/data/manifest.json)
+          diff build/v2-before.sha <(sha256sum build/real-site/data/api/v2/manifest.json)
+          python3 deployment/qa_pages.py --site build/real-site --expected-app-version "$(tr -d '[:space:]' < VERSION)"
+          python3 deployment/qa_tcesp_http_staging.py --site build/real-site --report build/real-http-qa.json
+        shell: bash
+      - name: Install browser and validate both interfaces
+        run: |
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+          python3 deployment/qa_tcesp_browser.py --site build/real-site --report build/real-browser-qa.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-real-fiscal-regression-evidence
+          path: |
+            build/real-qa-tcesp.json
+            build/real-http-qa.json
+            build/real-browser-qa.json
+          if-no-files-found: warn

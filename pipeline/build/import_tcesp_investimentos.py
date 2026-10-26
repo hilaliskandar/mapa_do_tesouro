@@ -3,16 +3,16 @@
 No changes to observacao; transaction rollback on missing municipalities or failed reconciliation.
 """
 import argparse,collections,csv,json,sqlite3,pathlib
-p=argparse.ArgumentParser();p.add_argument("--database",type=pathlib.Path,required=True);p.add_argument("--source",type=pathlib.Path,required=True);p.add_argument("--year",type=int,default=2025)
+p=argparse.ArgumentParser();p.add_argument("--database",type=pathlib.Path,required=True);p.add_argument("--source",type=pathlib.Path,required=True);p.add_argument("--year",type=int,default=2025);p.add_argument("--source-run",type=int,required=True)
 a=p.parse_args()
 qa=json.loads((a.source/"qa.json").read_text(encoding="utf-8"))
 assert qa["status"]=="pass" and qa["year"]==a.year and qa["issues"]=={} and qa["difference_count"]==0
-lote=f"tcesp_despesas_{a.year}_run_40262193781" if a.year==2025 else f"tcesp_despesas_{a.year}_qa"
+assert a.year in (2023,2024,2025)\nassert a.source_run in (40263996213,40262193781)\nassert (a.year==2025)==(a.source_run==40262193781)\nlote=f"tcesp_despesas_{a.year}_run_{a.source_run}"
 con=sqlite3.connect(a.database)
 con.execute("PRAGMA foreign_keys=ON")
 try:
  with con:
-  con.execute("INSERT INTO tcesp_lote(lote_id,exercicio,source_sha256,artifact_run,qa_status) VALUES(?,?,?,?,?)",(lote,a.year,qa["sha256_zip"],40262193781 if a.year==2025 else 0,"pass"))
+  con.execute("INSERT INTO tcesp_lote(lote_id,exercicio,source_sha256,artifact_run,qa_status) VALUES(?,?,?,?,?)",(lote,a.year,qa["sha256_zip"],a.source_run,"pass"))
   def read(name):
    with (a.source/name).open(newline="",encoding="utf-8") as f:
     yield from csv.DictReader(f)

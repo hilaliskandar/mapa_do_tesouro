@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Resumable read-only retrieval of large official TCESP ZIPs with strict byte-range checks."""
-import argparse,hashlib,json,pathlib,re,urllib.request,zipfile
+import argparse,hashlib,json,pathlib,re,urllib.request,zipfile,time
 p=argparse.ArgumentParser()
 p.add_argument("--year",type=int,required=True,choices=[2023,2024,2025])
 p.add_argument("--output",type=pathlib.Path,required=True)
@@ -17,12 +17,14 @@ with urllib.request.urlopen(request("HEAD"),timeout=90) as r:
 etag=r.headers.get("ETag")
 partial=a.output.with_suffix(a.output.suffix+".part")
 size=partial.stat().st_size if partial.exists() else 0
+print(json.dumps({"phase":"start_or_resume","year":a.year,"expected_bytes":expected,"resumed_bytes":size,"etag":etag}),flush=True)
+if size and not etag: raise ValueError("Cannot safely resume without remote ETag")
 if size>expected:raise ValueError("Existing part exceeds official content length")
 block_size=a.chunk_mb*1024*1024
 with partial.open("ab") as f:
  while size<expected:
   end=min(size+block_size,expected)-1
-  with urllib.request.urlopen(request(more={"Range":f"bytes={size}-{end}"}),timeout=180) as r:
+  with urllib.request.urlopen(request(more={"Range":f"bytes={size}-{end}",**({"If-Range":etag} if etag else {})}),timeout=180) as r:
    cr=r.headers.get("Content-Range","")
    m=re.fullmatch(r"bytes (\d+)-(\d+)/(\d+)",cr)
    if r.status!=206 or not m or tuple(map(int,m.groups()))!=(size,end,expected):
@@ -33,6 +35,7 @@ with partial.open("ab") as f:
     if not chunk:raise IOError(f"Truncated range at offset {size}")
     f.write(chunk);size+=len(chunk);remaining-=len(chunk)
   f.flush()
+  print(json.dumps({"phase":"download","year":a.year,"received_bytes":size,"expected_bytes":expected,"percent":round(100*size/expected,2)}),flush=True)
  if size!=expected:raise ValueError("Incomplete download")
 digest=hashlib.sha256()
 with partial.open("rb") as f:

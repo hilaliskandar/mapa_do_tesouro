@@ -18,3 +18,10 @@ Migração `data/schema/006_tcesp_investimentos.sql`; importação transacional 
 - Antes de publicar, comparar o conjunto com a DCA e documentar diferenças contábeis, validar tamanho/performance de JSONs municipais, integrar a árvore da API complementar ao build existente, executar testes de regressão e preparar rollback.
 - Dados TCESP são fonte adicional, nunca sobrescrever a DCA/FINBRA. Não comparar programas locais entre municípios automaticamente sem correspondência explícita.
 - Exercício 2026 é parcial e ainda não faz parte desta camada estadual completa.
+
+## Gate adicional de integridade e tamanho da API complementar
+- Execução [40268446243](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/40268446243), `success`, artifact `12627472295`, relatório QA recuperado e examinado.
+- Script `deployment/qa_tcesp_api_v2_preview.py` e workflow `.github/workflows/tcesp-api-v2-size-gate.yml`.
+- 1.932 arquivos municipais/anuais (644 por exercício, 2023–2025), todos verificados contra os totais da API por município e estágio. Programa e ação têm somatórios iguais em cada arquivo.
+- Maior JSON individual: 557.520 bytes; mediana: 92.705 bytes; todos abaixo do limite de 2.000.000 bytes. Status QA `pass`.
+- Resultado é de **preview isolada**, não de implantação pública. Pendente integração do módulo ao build regular do site e testes HTTP, interface e regressão da API v2 principal.

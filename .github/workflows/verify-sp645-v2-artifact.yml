@@ -1,0 +1,50 @@
+name: Verify SP645 native v2 artifact and preview routing
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/verify-sp645-v2-artifact.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download approved private statewide site
+        run: |
+          mkdir -p build/sp645
+          gh run download 40317752109 --repo "$GITHUB_REPOSITORY" --name sp645-private-site-40317752109 --dir build/private-artifact
+      - name: Locate and audit native v2 endpoints
+        run: |
+          python3 - <<'PY'
+          import pathlib,json
+          root=pathlib.Path('build/private-artifact')
+          files=list(root.rglob('data/api/v2/manifest.json'))
+          assert len(files)==1,files
+          site=files[0].parents[3]
+          manifest=json.loads(files[0].read_text(encoding='utf-8'))
+          print('SITE_ROOT',site)
+          print('V2_MANIFEST',json.dumps({k:v for k,v in manifest.items() if k in ('municipality_count','variable_catalog_count','observation_count','schema_version')},ensure_ascii=False))
+          assert manifest['municipality_count']==645
+          assert (site/'data/api/v2/catalog/municipalities.json').is_file()
+          assert len(json.loads((site/'data/api/v2/catalog/municipalities.json').read_text()))==645
+          PY
+      - name: Validate full native SP645 contract
+        run: |
+          SITE="$(dirname "$(dirname "$(dirname "$(dirname "$(find build/private-artifact -path '*/data/api/v2/manifest.json' -print -quit)")")")")"
+          python3 deployment/qa_api_v2.py --site "$SITE"
+      - name: Compare remote JSON content type without treating HTML as success
+        env:
+          CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+        run: python3 deployment/diagnose_v2_remote.py --base-url "https://preview.$CLOUDFLARE_PAGES_PROJECT.pages.dev" --report build/remote-v2.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-v2-artifact-vs-remote-audit
+          path: build/remote-v2.json
+          if-no-files-found: warn

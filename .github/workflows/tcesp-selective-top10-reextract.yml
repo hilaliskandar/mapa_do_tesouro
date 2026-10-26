@@ -1,0 +1,70 @@
+name: TCESP selective raw-source re-extraction top ten
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-selective-top10-reextract.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  independent-reextract:
+    strategy:
+      fail-fast: false
+      matrix:
+        year: [2023, 2024, 2025]
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download and reconstruct only targeted cases from official raw ZIP
+        run: |
+          python3 -u governance/reextrair_tcesp_divergencias_seletiva.py \
+            --year ${{ matrix.year }} --output build/reextracao-${{ matrix.year }}
+      - name: Retrieve audited prior aggregation and source fingerprint
+        run: |
+          mkdir -p build/reference
+          if [ "${{ matrix.year }}" = 2025 ]; then id=40262193781; else id=40263996213; fi
+          gh run download "$id" --repo "$GITHUB_REPOSITORY" --name "tcesp-despesas-${{ matrix.year }}-integral-qa" --dir build/reference
+      - name: Compare independent extraction against previous TCESP totals
+        run: |
+          python3 - <<'PY'
+          import csv,json,pathlib,collections,os
+          year=int("${{ matrix.year }}")
+          base=pathlib.Path('build/reextracao-'+str(year))
+          fresh=json.loads((base/'seletiva_qa.json').read_text())
+          ref=pathlib.Path('build/reference')
+          report=json.loads((ref/'qa.json').read_text())
+          old_hash=report.get('sha256_zip')
+          new_hash=fresh['source_sha256']
+          old=collections.Counter()
+          with (ref/'investimentos_grupo44_por_municipio_mes_estagio.csv').open(newline='',encoding='utf-8') as fd:
+           for r in csv.DictReader(fd):
+            if r['estagio']=='valor liquidado':
+             old[r['codigo_ibge']]+=int(r['centavos'])
+          rows=[]
+          for entry in fresh['totals']:
+           if entry['stage']!='valor liquidado':continue
+           city=entry['codigo_ibge']
+           previous=old.get(city)
+           rows.append({'codigo_ibge':city,'year':year,'previous_centavos':previous,'new_centavos':entry['centavos'],'difference_centavos':entry['centavos']-previous if previous is not None else None})
+          assert len(rows)==(3 if year==2023 else 6 if year==2024 else 1)
+          result={'year':year,'source_hash_old':old_hash,'source_hash_new':new_hash,'same_source_bytes':old_hash==new_hash,'comparisons':rows,'all_equal':all(r['difference_centavos']==0 for r in rows)}
+          (base/'comparacao_anterior_nova.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
+          print(json.dumps(result,ensure_ascii=False))
+          if not result['all_equal']:raise SystemExit('Change in extracted totals: review required')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-top10-selective-${{ matrix.year }}
+          path: |
+            build/reextracao-${{ matrix.year }}/seletiva_qa.json
+            build/reextracao-${{ matrix.year }}/comparacao_anterior_nova.json
+          if-no-files-found: warn
+          retention-days: 30

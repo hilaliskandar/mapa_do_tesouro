@@ -1,0 +1,47 @@
+name: TCESP investimentos 2025 - integracao SQLite isolada
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tcesp-2025-sqlite-dev-qa.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reuse approved audit artifact
+        run: |
+          mkdir -p build/tcesp2025
+          gh run download 40262193781 --repo "$GITHUB_REPOSITORY" --name tcesp-despesas-2025-integral-qa --dir build/tcesp2025
+      - name: Create local disposable SQLite and run schema migrations
+        run: |
+          python3 - <<'PY'
+          import sqlite3,pathlib,json
+          c=sqlite3.connect("build/tcesp-dev.sqlite")
+          for p in sorted(pathlib.Path("data/schema").glob("[0-9][0-9][0-9]_*.sql")):
+              c.executescript(p.read_text())
+          qa=json.loads(pathlib.Path("build/tcesp2025/qa.json").read_text())
+          assert len(qa["codes"])==644
+          c.executemany("INSERT INTO municipio(codigo_ibge,nome,uf) VALUES(?,?,?)",[(code,code,"SP") for code in qa["codes"]])
+          c.commit();c.close()
+          PY
+      - name: Import 2025 into disposable SQLite, verify all three aggregations
+        run: python3 pipeline/build/import_tcesp_investimentos.py --database build/tcesp-dev.sqlite --source build/tcesp2025 --year 2025
+      - name: Check DCA table is untouched and all keys indexed
+        run: |
+          python3 - <<'PY'
+          import sqlite3
+          c=sqlite3.connect("build/tcesp-dev.sqlite")
+          assert c.execute("SELECT count(*) FROM observacao").fetchone()[0]==0
+          assert c.execute("SELECT count(DISTINCT codigo_ibge) FROM tcesp_investimento_acao").fetchone()[0]==644
+          print("SQLite complementary TCESP layer QA PASS")
+          PY

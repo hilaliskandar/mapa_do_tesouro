@@ -17,6 +17,11 @@ def merge_tcesp_preview(*,preview:pathlib.Path,site:pathlib.Path,enabled:bool=Fa
         raise ValueError("Main API v2 manifest missing, refusing accidental new site")
     # Copy only the isolated namespace; canonical v2 manifest stays untouched.
     shutil.copytree(source,dest)
+    assets=pathlib.Path(__file__).resolve().parents[1]/"app"/"static"
+    for filename in ("tcesp-investimentos.html","tcesp-investimentos.js"):
+        target=site/filename
+        if target.exists(): raise FileExistsError(f"TCESP UI destination exists: {target}")
+        shutil.copy2(assets/filename,target)
     main_hash=hashlib.sha256((site/"data/api/v2/manifest.json").read_bytes()).hexdigest()
     result={"status":"staged_not_published","namespace":"data/api/v2/tcesp",
         "files":len(list(dest.rglob("*.json"))),"main_manifest_sha256":main_hash}

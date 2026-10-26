@@ -39,3 +39,9 @@ Migração `data/schema/006_tcesp_investimentos.sql`; importação transacional 
 - Cenários implementados: carregamento inicial 2025 liquidado/programas, mudança para ações, troca de exercício 2023, filtro sem ocorrências, remoção de filtro, rejeição de IBGE incompleto e recuperação após correção; verificação de erros JavaScript.
 - Artefato de evidência `tcesp-browser-qa`, ID `12648742249`; também artefatos de tamanho `12648218089` e HTTP `12648093299`.
 - **Não equivale a regressão completa do painel fiscal ou aprovação de publicação pública**; faltam integração com navegação principal, checagem de acessibilidade ampliada, correspondência contábil TCESP/DCA e implantação em ambiente de homologação externo.
+
+## Regressão integrada concluída — execução 40322855496
+- Run `40322855496` terminou `success` na execução sobre cópia do acervo fiscal real da prévia; a rotina `deployment/qa_pages.py`, a incorporação opcional e o HTTP local passaram.
+- Artefato `12650696973`: `real-qa-tcesp.json`, `real-http-qa.json`, `real-browser-qa.json`. Conferência do relatório do Chromium: `status=pass`, sete cenários (`default_2025_liquidado_programas`, `change_to_actions`, `change_year_2023`, `filter_zero_rows`, `clear_filter`, `invalid_ibge_rejected`, `recover_after_invalid`), `js_errors=[]`.
+- O endpoint remoto `/data/api/v2/manifest.json` não foi homologado: execução anterior obteve HTTP 403; nova consulta externa também não conseguiu acessá-lo. O teste aprovado usa os dados fiscais v1 reais e os derivados TCESP isolados; não prova a acessibilidade pública da API v2 principal.
+- Nenhuma publicação ou alteração da base fiscal pública efetuada.

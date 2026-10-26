@@ -7,7 +7,10 @@ p=argparse.ArgumentParser();p.add_argument("--database",type=pathlib.Path,requir
 a=p.parse_args()
 qa=json.loads((a.source/"qa.json").read_text(encoding="utf-8"))
 assert qa["status"]=="pass" and qa["year"]==a.year and qa["issues"]=={} and qa["difference_count"]==0
-assert a.year in (2023,2024,2025)\nassert a.source_run in (40263996213,40262193781)\nassert (a.year==2025)==(a.source_run==40262193781)\nlote=f"tcesp_despesas_{a.year}_run_{a.source_run}"
+assert a.year in (2023,2024,2025)
+assert a.source_run in (40263996213,40262193781)
+assert (a.year==2025)==(a.source_run==40262193781)
+lote=f"tcesp_despesas_{a.year}_run_{a.source_run}"
 con=sqlite3.connect(a.database)
 con.execute("PRAGMA foreign_keys=ON")
 try:

@@ -66,3 +66,20 @@ Foram consultados também os extratos dos sete pares restantes na operação ofi
 Os três extratos já examinados eram: São Caetano do Sul/2023 `RE` (2024-07-10T11:41:01Z); Taubaté/2024 `RE` (2025-08-14T09:07:00Z); Salto/2023 `HO` (2024-04-30T15:30:00Z). Assim, **10/10 extratos DCA foram consultados**, com três casos de valor atualmente coincidente com TCESP (Taubaté, Ourinhos e Iguape), todos com código `RE`. São Caetano do Sul também apresenta `RE` mas a divergência permanece, o que demonstra que o código sozinho não implica convergência de valor.
 
 Padrão de consulta: `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/extrato_entregas?id_ente=CODIGO&an_referencia=AAAA`. As siglas `RE` e `HO` são transcritas literalmente sem inferir histórico de versões. **O endpoint de extrato não disponibilizou, nesta consulta, o valor anterior de cada retificação.** É necessário investigar a documentação de status e, quando possível, a sequência de arquivos/declarações antigas antes de atribuir causalidade. A base canônica histórica permanece preservada.
+
+## Conclusão da consulta de extratos dos dez casos — 27/10/2026
+Consulta independente ao endpoint oficial `/extrato_entregas?id_ente=CODIGO&an_referencia=ANO`. Todos os sete extratos adicionais vieram com `hasMore=false`. Para a Prefeitura Municipal, entregável `Balanço Anual (DCA)`:
+
+| Município | Código IBGE | Exercício | status_relatorio | data_status (UTC) | forma_envio |
+|---|---|---:|---|---|---|
+| Itaóca | 3522158 | 2024 | HO | 2025-06-16T09:34:40Z | M |
+| Novais | 3533254 | 2024 | HO | 2025-04-03T09:04:17Z | P |
+| São Carlos | 3548906 | 2024 | HO | 2025-04-30T16:48:54Z | M |
+| Araçatuba | 3502804 | 2023 | HO | 2024-03-27T17:30:27Z | P |
+| Ourinhos | 3534708 | 2024 | RE | 2025-10-20T09:24:23Z | M |
+| Guaraci | 3517901 | 2025 | HO | 2026-03-30T16:52:35Z | M |
+| Iguape | 3520301 | 2024 | RE | 2026-05-14T14:08:16Z | M |
+
+Juntamente com os três previamente examinados: São Caetano do Sul/2023 `RE` (2024-07-10), Taubaté/2024 `RE` (2025-08-14) e Salto/2023 `HO` (2024-04-30), temos **10/10 extratos DCA inspecionados**. Os três casos de concordância da DCA atual com o TCESP (Taubaté, Ourinhos, Iguape) têm `RE`; São Caetano do Sul também tem `RE` apesar da divergência persistente. A interpretação formal das siglas e a versão exata de cada declaração ainda dependem de verificação oficial adicional: a correlação não prova causa.
+
+URLs reproduzíveis: `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/extrato_entregas?id_ente=CODIGO&an_referencia=ANO`. Preservar em todas as análises o valor do snapshot DCA histórico e o valor atual como observações separadas.

@@ -24,3 +24,15 @@ Dez extratos DCA `/extrato_entregas` foram consultados. Quatro situações `RE`:
 
 ## Proteções
 Não substituir o CSV canônico DCA, os objetos TCESP no R2, a API nem a produção. Registrar snapshots distintos e diferenças em centavos. Esta diligência documental não produziu novas versões numéricas dos demonstrativos nem solucionou causalmente as divergências.
+
+
+## Verificação direta das interfaces públicas em 27/10/2026
+Foram lidas diretamente por Crawl2AI as páginas oficiais do [Histórico das Declarações](https://manualsiconfi.tesouro.gov.br/area-publica/consultas/consultar-historicos/consultar-historico-das-declaracoes), da [Consulta de Pacote de Declarações](https://manualsiconfi.tesouro.gov.br/consultas/consultar-pacote-de-declaracoes) e a [interface pública real do histórico](https://siconfi.tesouro.gov.br/siconfi/pages/public/consulta_historico_declaracoes/historico_declaracoes_list.jsf).
+
+A consulta pública exige Esfera, UF (municipal), Ente, Poder, Instituição e Escopo; permite filtros de exercício e tipo de declaração, com resultado em exercício, declaração, data de homologação e situação, além de exportação CSV/PDF. O pacote é documentado como ZIP de declarações homologadas/retificadas filtrável por período de homologação/retificação, mas sua descrição não afirma disponibilizar versões históricas sucessivas da *mesma* declaração.
+
+A página pública de histórico respondeu e apresentou controles e tabela vazia **antes da seleção dos parâmetros**; isto não constitui resultado negativo para nenhum município. A tentativa de extração programática dos elementos interativos da página falhou na ferramenta JS do crawler, portanto não há consulta municipal concluída nem arquivo histórico antigo recuperado nesta rodada.
+
+A documentação oficial das situações homologada e retificada consta também do [Manual de Procedimentos das Declarações e MSC de maio de 2020](https://siconfi.tesouro.gov.br/siconfi/pages/public/arquivo/conteudo/Manual_de_Procedimentos_Declaracoes_e_MSC_29_05_2020.pdf). A documentação geral não é um dicionário de codificação literal da API: manter `RE` e `HO` como valores de origem até confrontar a especificação desse campo.
+
+**Próxima diligência prioritária:** executar o formulário interativo com ambiente de navegador capaz de preservar a sessão JSF, selecionar Prefeitura/Executivo/DCA e os exercícios de Taubaté, Ourinhos, Iguape e São Caetano do Sul; exportar os históricos quando disponíveis. Separadamente, procurar identificadores de versões e verificar se alguma edição anterior pode ser aberta; se não, registrar ausência de acesso à versão, sem inferência causal. A API atual e os dez extratos já consultados não precisam de nova consulta apenas para repetir seus valores.

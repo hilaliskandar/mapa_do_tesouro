@@ -36,3 +36,5 @@ with sync_playwright() as p:
         browser.close()
 if report["status"] != "form_inventory_ok":
     raise SystemExit(1)
+
+# GitHub Actions public-form QA trigger: 2026-10-28.

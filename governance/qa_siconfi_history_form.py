@@ -94,9 +94,14 @@ with sync_playwright() as p:
                             page.wait_for_timeout(4500)
                             report["query_clicked"] = True
                             report["after_query_text"] = page.locator("body").inner_text()[-3000:]
+                            report["human_verification_detected"]=page.locator('iframe[src*="captcha"],iframe[src*="recaptcha"],[class*="hcaptcha"],[id*="hcaptcha"]').count()>0
+                            report["history_retrieved"]=False
+                            if report["human_verification_detected"]:
+                                report["status"]="human_verification_required"
+
                             report["after_query_messages"] = page.locator(".ui-messages,.ui-message,.ui-growl,.ui-state-error").all_inner_texts()
                             page.screenshot(path=str(OUT/"after_query.png"),full_page=False)
-                            report["status"] = "query_attempted_results_unverified"
+                            if not report.get("human_verification_detected"): report["status"] = "query_attempted_results_unverified"
 
 
                     page.screenshot(path=str(OUT/"orgao_autocomplete.png"),full_page=False)

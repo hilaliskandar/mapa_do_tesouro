@@ -51,3 +51,17 @@ Conciliação compulsória TCESP–DCA encerrada (README 28/10/2026). Tratar fon
 6. **Fonte cartográfica matriz:** [RMRP_VOLUME_PUBLICO_MAPAS_E_ANALISES_16_INDICADORES_2026_10_19.pdf](https://drive.google.com/file/d/10vbnQ_eBNsSmpWekFrrgJyeyTeNlm3YN/view), ID `10vbnQ_eBNsSmpWekFrrgJyeyTeNlm3YN`: quatro mosaicos originais 3000×2500 px nas páginas 2,3,6,7. README registra 16 recortes individuais sem reamostragem, mas seus caminhos locais não devem ser presumidos persistentes.
 
 **Decisões de montagem:** preservar 51 tabelas, 34 fichas e cobertura dos 16 indicadores cartográficos; usar mapas ampliados *nos capítulos correspondentes*, sem atlas separado. Antes de promover a prova de quatro imagens, resolver o acesso/posicionamento dos outros 12 mapas; evitar substituir o documento principal automaticamente. QA de paginação, legendas, fontes, escalas e impressão obrigatória. Nenhuma edição nativa ou publicação efetuada nesta diligência.
+
+
+## Conferência estrutural nativa executada — 28/10/2026
+Leitura direta pela API Google Docs, sem alteração (revisões observadas preservadas no inventário de execução):
+
+| Documento | ID | Elementos do corpo | Tabelas nativas | Objetos de imagem | Aba |
+|---|---|---:|---:|---:|---|
+| Minuta editorial 23/10 | `1UXpfCAllRc84nj49yeRyT14H2Neij_S8elZzq79MxyY` | 342 | 35 | 2 | `t.0` |
+| Consolidado 23/10 | `1-M-HKvexFFra_k7j-R_kXAzd5BzfSl1q4A3E_BbxU5s` | 621 | 51 | 4 | `t.0` |
+| Prova cartográfica 25/10 | `1FF5nX64MwOcX3oF5SKIl72w-4zG0MD74tzmtFsyMxAg` | 622 | 51 | 4 | `t.0` |
+
+**Interpretação:** o arquivo chamado 'minuta editorial principal' no README de continuidade é estruturalmente menor que o consolidado e a prova de 25/10. Não o promover nem utilizá-lo para sobrescrever as versões mais completas sem conciliar editorialmente as diferenças. A cópia de prova de 25/10 preserva 51 tabelas/4 imagens e é o suporte recomendado para futuras edições cartográficas experimentais, respeitada a integridade da fonte consolidada e a necessidade de cobertura dos 16 indicadores. A conferência nativa não substitui renderização nem teste de impressão.
+
+**Plano de preservação dos 16 indicadores:** manter os quatro mapas ampliados atuais como figuras de leitura principal, selecionar os demais 12 e inserir por blocos temáticos no ponto de discussão correspondente ou como material complementar diretamente vinculado à seção (sem atlas autônomo); conservar referência e acesso à matriz original completa de 16 mapas. Fazer qualquer inclusão em **nova cópia de teste** para não degradar a prova validada. Conferir ao fim 51 tabelas, 34 fichas, índices de objetos, legenda/citação e paginação. Não publicar, promover nem modificar originais nesta fase.

@@ -490,3 +490,9 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - **Próxima prioridade:** voltar à integração, controles de qualidade e produção analítica do relatório RMRP, com mapas inseridos nas seções temáticas pertinentes, gráficos e tabelas rastreáveis, e avançar na plataforma estadual sem alterar produção automaticamente. Verificar o estado verificável dos artefatos e da implantação antes de publicar.
 
 **Status da frente:** ENCERRADA PARA FINS DE FLUXO DE TRABALHO, COM RESSALVAS METODOLÓGICAS DOCUMENTADAS. Nenhum dado contábil, publicação ou endpoint alterado por esta decisão.
+
+
+### Retomada do caderno fiscal RMRP — 28/10/2026
+- Inventário editorial e roteiro de integração produzido em [`editorial/rmrp/RETOMADA_CONSOLIDACAO_2026_10_28.md`](editorial/rmrp/RETOMADA_CONSOLIDACAO_2026_10_28.md), commit `77427a97`. Localizados seis registros canônicos de consolidação DCA, evolução real IPCA, investimentos TCESP e estado do caderno integrado.
+- Recuperação documental **parcial**: o arquivo integral de 34 fichas e o pacote de mapas/gráficos são mencionados, mas ainda não foram recuperados e conferidos nesta diligência. Não afirmar que o relatório integral foi recomposto. Planejada inserção de mapas nas seções temáticas (território, receitas, investimentos, gestão fiscal), sem atlas isolado.
+- Fatos-base preservados: 34 municípios (15/6/6/7); DCA variação real 2023–2025 receita corrente +10,25%, despesa corrente +7,09%, investimento -42,97%; TCESP 2025 investimento liquidado R$ 302.301.895,18. Séries distintas. Sem alterações nas fontes, API ou publicação.

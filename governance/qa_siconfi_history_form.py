@@ -87,13 +87,24 @@ with sync_playwright() as p:
                         report["orgao_hidden_after_selection"]=page.locator('[id="formHistorico:orgao_hinput"]').input_value()
                         report["form_buttons"]=page.evaluate("""() => [...document.querySelectorAll('#formHistorico button,#formHistorico input[type="submit"]')].map(e=>({id:e.id,text:e.textContent.trim().slice(0,90),disabled:e.disabled}))""")
                         page.screenshot(path=str(OUT/"institution_selected.png"),full_page=False)
+                        report["before_query_ui"] = page.locator("#formHistorico").inner_text()[-900:]
+                        query = page.get_by_role("button", name="Consultar", exact=True)
+                        if query.count()==1:
+                            query.click()
+                            page.wait_for_timeout(4500)
+                            report["query_clicked"] = True
+                            report["after_query_text"] = page.locator("body").inner_text()[-3000:]
+                            report["after_query_messages"] = page.locator(".ui-messages,.ui-message,.ui-growl,.ui-state-error").all_inner_texts()
+                            page.screenshot(path=str(OUT/"after_query.png"),full_page=False)
+                            report["status"] = "query_attempted_results_unverified"
+
 
                     page.screenshot(path=str(OUT/"orgao_autocomplete.png"),full_page=False)
 
                 page.screenshot(path=str(OUT/"selected_municipality.png"),full_page=False)
             report["ente_text"] = ente.input_value()
             page.screenshot(path=str(OUT/"autocomplete.png"),full_page=False)
-        report["status"]="partial_form_selection"
+        if not report.get("query_clicked"): report["status"]="partial_form_selection"
         report["next_step"]="Municipality autocomplete and institution must be resolved from live form."
     except Exception as e:
         report["status"]="blocked_or_failed"

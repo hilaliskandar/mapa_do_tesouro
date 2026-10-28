@@ -513,3 +513,8 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 ### Preparação cartográfica dos 16 mapas RMRP — 28/10/2026
 - Recuperado o PDF original de nove páginas [RMRP_VOLUME_PUBLICO_MAPAS_E_ANALISES_16_INDICADORES_2026_10_19](https://drive.google.com/file/d/10vbnQ_eBNsSmpWekFrrgJyeyTeNlm3YN/view). Extraídos os quatro mosaicos raster originais (páginas 2, 3, 6 e 7, 3000×2500 pixels) e gerados 16 recortes por quadrante, 1500×1250 pixels, **sem interpolação**, acompanhados de manifesto com hashes SHA-256, prova PDF de 16 páginas e pacote ZIP disponibilizados nesta conversa.
 - [Inventário nominal dos 16 indicadores e distribuição editorial](editorial/rmrp/INVENTARIO_16_MAPAS_2026_10_28.md), commit `403cc539`. Quatro mapas individuais já estão na cópia nativa de trabalho; os outros 12 exigem QA de legenda, enquadramento e inserção por capítulo. **Nenhuma alteração no Google Doc principal ou na cópia de trabalho nesta etapa.**
+
+
+### Regra cromática de leitura intuitiva da cartografia RMRP — 28/10/2026
+- Diretriz aprovada: escala de magnitude **frio (baixo) → quente (alto)**; cores permitem leitura geral sem consulta obrigatória à legenda, que continua indispensável para valores/classes. Sem dado em cor neutra; variações com centro de zero visualmente distinguível; oscilação fria/baixa e quente/alta sem avaliação normativa.
+- Parágrafo 'Como interpretar as cores' atualizado na [cópia de trabalho RMRP](https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI/edit) e verificado: 51 tabelas, quatro imagens; nenhum mapa foi recolorido nem o consolidado principal alterado. [Protocolo e critérios de QA](editorial/rmrp/INVENTARIO_16_MAPAS_2026_10_28.md).

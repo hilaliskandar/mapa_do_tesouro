@@ -61,6 +61,17 @@ with sync_playwright() as p:
             report["autocomplete_dom"] = page.evaluate("""() => Array.from(document.querySelectorAll('[id*="ente_panel"]')).map(e=>({id:e.id,visible:e.getClientRects().length>0,text:e.textContent.trim().slice(0,800),html:e.outerHTML.slice(0,1400)}))""")
             report["suggestions"] = page.evaluate("""() => Array.from(document.querySelectorAll('[id*="ente_panel"] li,[id*="ente_panel"] tr,[id*="ente_panel"] [role="option"]')).map(e=>({id:e.id,visible:e.getClientRects().length>0,text:e.textContent.trim().slice(0,140)})).slice(0,20)""")
             report["ente_hidden_value"] = page.locator('[id="formHistorico:ente_hinput"]').input_value()
+            candidate=page.locator('[id="formHistorico:ente_panel"] li[data-item-value="3554102"]')
+            report["candidate_count"]=candidate.count()
+            if candidate.count()==1 and candidate.is_visible():
+                candidate.click()
+                page.wait_for_timeout(2300)
+                report["municipality_selected"]=True
+                report["selected_ente_hidden"]=page.locator('[id="formHistorico:ente_hinput"]').input_value()
+                orgao=page.locator('[id="formHistorico:orgao_input"]')
+                report["orgao_after_selection_disabled"]=orgao.is_disabled() if orgao.count() else None
+                report["controls_after_municipality"]=control_snapshot(page,"municipality")
+                page.screenshot(path=str(OUT/"selected_municipality.png"),full_page=False)
             report["ente_text"] = ente.input_value()
             page.screenshot(path=str(OUT/"autocomplete.png"),full_page=False)
         report["status"]="partial_form_selection"

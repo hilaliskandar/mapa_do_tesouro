@@ -78,6 +78,16 @@ with sync_playwright() as p:
                     page.wait_for_timeout(3200)
                     report["orgao_candidates"]=page.evaluate("""() => Array.from(document.querySelectorAll('[id*="orgao_panel"] li')).slice(0,15).map(e=>({name:e.textContent.trim().slice(0,160),value:e.getAttribute('data-item-value'),visible:e.getClientRects().length>0}))""")
                     report["orgao_hidden_before_selection"]=page.locator('[id="formHistorico:orgao_hinput"]').input_value()
+                    option=page.locator('[id="formHistorico:orgao_panel"] li[data-item-value="7953"]')
+                    report["verified_orgao_option_count"]=option.count()
+                    if option.count()==1 and option.is_visible():
+                        option.click()
+                        page.wait_for_timeout(1700)
+                        report["institution_selected"]=True
+                        report["orgao_hidden_after_selection"]=page.locator('[id="formHistorico:orgao_hinput"]').input_value()
+                        report["form_buttons"]=page.evaluate("""() => [...document.querySelectorAll('#formHistorico button,#formHistorico input[type="submit"]')].map(e=>({id:e.id,text:e.textContent.trim().slice(0,90),disabled:e.disabled}))""")
+                        page.screenshot(path=str(OUT/"institution_selected.png"),full_page=False)
+
                     page.screenshot(path=str(OUT/"orgao_autocomplete.png"),full_page=False)
 
                 page.screenshot(path=str(OUT/"selected_municipality.png"),full_page=False)

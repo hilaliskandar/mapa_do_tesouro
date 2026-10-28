@@ -242,3 +242,13 @@ Ver [LITELLM_PILOTO_EDITORIAL_RM_AU_2026_10_18.md](LITELLM_PILOTO_EDITORIAL_RM_A
 - [ ] Incorporar achados confirmados à matriz RMRP e ao texto regional, distinguindo registro contábil, finalidade inferida e hipótese pendente; executar QA de paridade e versão antes de publicação.
 
 Fonte de execução: https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/39208371015 . Não modificar dados-fonte ou publicações por efeito deste registro.
+
+
+## Fechamento metodológico TCESP–DCA — 28/10/2026
+- [x] **Encerrada por decisão de direção** a investigação geral de diferenças TCESP–DCA como bloqueio operacional. Manter as séries TCESP e DCA/Siconfi separadas por conceito, fonte e referência temporal; não exigir conciliação automática nem reclassificar diferenças como erros comprovados.
+- [x] Preservadas as evidências históricas dos 55 pares originalmente divergentes e das dez diligências prioritárias, incluindo três mudanças observadas na DCA atual. Encerramento não significa equivalência contábil demonstrada nem causa esclarecida em cada caso.
+- [ ] Retomar a consolidação editorial e analítica do relatório de finanças da RMRP: recuperar estado dos capítulos, tabelas, gráficos e mapas; inserir mapas nos capítulos pertinentes; usar TCESP em execução detalhada e DCA em demonstrativos oficiais, com notas metodológicas quando necessário.
+- [ ] Priorizar QA dos produtos efetivamente publicados e integração à plataforma estadual, sem alterações de produção sem verificação.
+- [ ] Reabrir conciliação pontual somente quando relevante para indicador central, ranking, decisão editorial ou evidência objetiva de erro.
+
+Referência de decisão: [README](../README.md), seção *Decisão de encerramento da conciliação compulsória TCESP–DCA — 28/10/2026*.

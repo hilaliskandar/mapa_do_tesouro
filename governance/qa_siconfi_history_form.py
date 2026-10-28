@@ -71,6 +71,15 @@ with sync_playwright() as p:
                 orgao=page.locator('[id="formHistorico:orgao_input"]')
                 report["orgao_after_selection_disabled"]=orgao.is_disabled() if orgao.count() else None
                 report["controls_after_municipality"]=control_snapshot(page,"municipality")
+                orgao=page.locator('[id="formHistorico:orgao_input"]')
+                if not orgao.is_disabled():
+                    orgao.click()
+                    orgao.press_sequentially("Prefeitura",delay=95)
+                    page.wait_for_timeout(3200)
+                    report["orgao_candidates"]=page.evaluate("""() => Array.from(document.querySelectorAll('[id*="orgao_panel"] li')).slice(0,15).map(e=>({name:e.textContent.trim().slice(0,160),value:e.getAttribute('data-item-value'),visible:e.getClientRects().length>0}))""")
+                    report["orgao_hidden_before_selection"]=page.locator('[id="formHistorico:orgao_hinput"]').input_value()
+                    page.screenshot(path=str(OUT/"orgao_autocomplete.png"),full_page=False)
+
                 page.screenshot(path=str(OUT/"selected_municipality.png"),full_page=False)
             report["ente_text"] = ente.input_value()
             page.screenshot(path=str(OUT/"autocomplete.png"),full_page=False)

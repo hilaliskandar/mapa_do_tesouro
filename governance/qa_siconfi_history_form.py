@@ -41,10 +41,17 @@ with sync_playwright() as p:
         page.screenshot(path=str(OUT/"after_sphere.png"),full_page=False)
         # Only select if the public application exposes options; never invent ente IDs.
         try:
-            choose(page,"uf","São Paulo")
+            choose(page,"estado","São Paulo")
+            choose(page,"poder","Executivo")
+            choose(page,"exercicio","2024")
+            choose(page,"tipoDemonstrativo","Balanço Anual (DCA)")
+            choose(page,"escopo","Declarações Homologadas")
         except RuntimeError as e:
             report["uf_selection_note"]=str(e)
-        report["controls_after_uf"]=control_snapshot(page,"uf")
+        report["controls_after_uf"]=control_snapshot(page,"estado")
+        report["ente_input_disabled"]=page.locator('[id="formHistorico:ente_input"]').is_disabled()
+        report["orgao_input_disabled"]=page.locator('[id="formHistorico:orgao_input"]').is_disabled()
+        page.screenshot(path=str(OUT/"after_filters.png"),full_page=False)
         report["status"]="partial_form_selection"
         report["next_step"]="Municipality autocomplete and institution must be resolved from live form."
     except Exception as e:

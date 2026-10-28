@@ -29,3 +29,13 @@ Os quatro mapas já ampliados na cópia nativa são: receita corrente por habita
 Documento de trabalho: [RMRP — Trabalho cartográfico 16 indicadores — 28/10](https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI/edit).
 
 **Portão editorial:** preservar 51 tabelas, 34 fichas e 16 indicadores; preferir dois mapas por bloco para leitura e economia de páginas, com legendas independentes e mesma fonte. A adequação de escala para impressão e a decisão de quais mapas terão figura própria precisam ser verificadas. Não foi efetuada inserção de imagem no Google Doc nem publicação.
+
+## Regra cromática editorial aprovada — 28/10/2026
+**Diretriz expressa:** adotar orientação cromática intuitiva **frio → quente** e escala ordenada, sem depender da legenda para reconhecer onde o indicador é menor ou maior. Para magnitude/razão positiva, usar **azul frio (baixo) → tons intermediários → vinho/vermelho quente (alto)**, assegurando contraste e legibilidade em impressão. Manter rótulos de cada classe e valores numéricos verificáveis; cores iguais em mapas diferentes representam posição relativa, e não montantes idênticos. `Sem dado` precisa de cor neutra inequivocamente distinta; nunca equiparar ausente a zero.
+
+**Casos não monotônicos:**
+- Variação com valores negativos e positivos: usar centro neutro em **zero**, divergindo do frio (negativo) ao quente (positivo); se a classificação original não tiver ponto de corte zero, reconstruir a legenda e as classes a partir dos dados originais, não da cor dos pixels.
+- Oscilação/volatilidade: frio representa **menor oscilação** e quente **maior oscilação**; evitar sugestão de mérito/qualidade fiscal.
+- Para todas as figuras: preservar ordem cromática, contrastes entre municípios e legenda; não usar simples remapeamento RGB se alterar classes, contornos, textos, linhas ou símbolos.
+
+**Implementação registrada:** alterado o parágrafo 'Como interpretar as cores' exclusivamente na [cópia nativa de trabalho](https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI/edit), com confirmação de 1 ocorrência substituída e readback de 51 tabelas/4 imagens. Os PNGs/figuras existentes **não foram recoloridos** nesta operação. A matriz original já utiliza a direção frio → quente (azul-claro até vinho), mas ainda é necessário QA específico da classe neutra/zero na evolução dos investimentos e da separação de 'Sem dado'. A correção cartográfica de fato depende da base geográfica/valores, não apenas de edição de legenda.

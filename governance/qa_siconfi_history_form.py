@@ -54,9 +54,13 @@ with sync_playwright() as p:
         page.screenshot(path=str(OUT/"after_filters.png"),full_page=False)
         ente = page.locator('[id="formHistorico:ente_input"]')
         if not ente.is_disabled():
-            ente.fill("Taubaté")
-            page.wait_for_timeout(2500)
-            report["suggestions"] = page.evaluate("""() => Array.from(document.querySelectorAll('[id*="ente_panel"] li, [id*="ente_panel"] tr, [id*="ente_panel"] [role="option"]')).filter(e => e.getClientRects().length > 0).slice(0,12).map(e => ({id:e.id, text:e.textContent.trim().slice(0,140)}))""")
+            ente.click()
+            ente.press("ControlOrMeta+A")
+            ente.press_sequentially("Taubaté", delay=120)
+            page.wait_for_timeout(4000)
+            report["autocomplete_dom"] = page.evaluate("""() => Array.from(document.querySelectorAll('[id*="ente_panel"]')).map(e=>({id:e.id,visible:e.getClientRects().length>0,text:e.textContent.trim().slice(0,800),html:e.outerHTML.slice(0,1400)}))""")
+            report["suggestions"] = page.evaluate("""() => Array.from(document.querySelectorAll('[id*="ente_panel"] li,[id*="ente_panel"] tr,[id*="ente_panel"] [role="option"]')).map(e=>({id:e.id,visible:e.getClientRects().length>0,text:e.textContent.trim().slice(0,140)})).slice(0,20)""")
+            report["ente_hidden_value"] = page.locator('[id="formHistorico:ente_hinput"]').input_value()
             report["ente_text"] = ente.input_value()
             page.screenshot(path=str(OUT/"autocomplete.png"),full_page=False)
         report["status"]="partial_form_selection"

@@ -502,3 +502,9 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - **Corrigido o inventário da retomada**: localizado e lido o README canônico de continuidade no Drive (`1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU`), que aponta a minuta editorial principal `1UXpfCAllRc84nj49yeRyT14H2Neij_S8elZzq79MxyY` e os relatórios integrados de 23/10. O caderno de 19/10 não é a última edição.
 - Recuperada a referência de prova cartográfica nativa de 25/10 (`1FF5nX64MwOcX3oF5SKIl72w-4zG0MD74tzmtFsyMxAg`): 63 páginas, 51 tabelas, 34 fichas e quatro mapas ampliados junto aos capítulos, segundo QA anotado no README de continuidade. Prova não homologada e com 12 dos 16 mapas originais ainda não integrados nessa modalidade.
 - O [inventário editorial de 28/10](editorial/rmrp/RETOMADA_CONSOLIDACAO_2026_10_28.md) foi corrigido com IDs/links dos originais e orientações para a continuidade. Pendente conferir conteúdo e formato da minuta editorial principal e planejar preservação dos 16 indicadores; nenhum documento canônico ou produção foi modificado.
+
+
+### Base editorial de trabalho cartográfico da RMRP — 28/10/2026
+- Conferência nativa por Google Docs: minuta editorial 23/10 (`1UXpf...`) **35 tabelas/2 imagens**, relatório consolidado 23/10 (`1-M-HK...`) **51 tabelas/4 imagens**, prova cartográfica 25/10 (`1FF5...`) **51 tabelas/4 imagens**. Portanto, não confundir a minuta menor com a versão consolidada integral.
+- Criada cópia independente para continuidade [RMRP — Trabalho cartográfico 16 indicadores — 28-10-2026](https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI/edit), cujo readback confirmou **51 tabelas, 4 imagens, 622 elementos de corpo**. Nenhuma edição nas fontes/principais e nenhuma publicação.
+- [Inventário detalhado](editorial/rmrp/RETOMADA_CONSOLIDACAO_2026_10_28.md) atualizado com vínculo da cópia e plano para conservar os 16 indicadores cartográficos integrados aos capítulos, sem atlas separado.

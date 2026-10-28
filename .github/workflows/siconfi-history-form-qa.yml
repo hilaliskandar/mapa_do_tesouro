@@ -1,0 +1,27 @@
+name: Siconfi public history form QA
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'governance/qa_siconfi_history_form.py'
+      - '.github/workflows/siconfi-history-form-qa.yml'
+permissions:
+  contents: read
+jobs:
+  public-form:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright
+      - run: python -m playwright install --with-deps chromium
+      - run: python governance/qa_siconfi_history_form.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: siconfi-history-form-qa
+          path: siconfi-history-qa/
+          retention-days: 14

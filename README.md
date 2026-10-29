@@ -518,3 +518,8 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 ### Regra cromática de leitura intuitiva da cartografia RMRP — 28/10/2026
 - Diretriz aprovada: escala de magnitude **frio (baixo) → quente (alto)**; cores permitem leitura geral sem consulta obrigatória à legenda, que continua indispensável para valores/classes. Sem dado em cor neutra; variações com centro de zero visualmente distinguível; oscilação fria/baixa e quente/alta sem avaliação normativa.
 - Parágrafo 'Como interpretar as cores' atualizado na [cópia de trabalho RMRP](https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI/edit) e verificado: 51 tabelas, quatro imagens; nenhum mapa foi recolorido nem o consolidado principal alterado. [Protocolo e critérios de QA](editorial/rmrp/INVENTARIO_16_MAPAS_2026_10_28.md).
+
+
+### Integração temática ITBI e FPM RMRP — 29/10/2026
+- Avanço na [cópia de trabalho cartográfica](https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI/edit): adicionados os mapas de **ITBI principal por habitante** e **FPM por habitante** com legenda completa e escala frio→quente, junto das análises temáticas. Conferência nativa: **51 tabelas, sete imagens**; PDF de prova com 65 páginas, posicionamento de ITBI p. 19, ISS p. 30 e FPM p. 31, cada figura junto de sua legenda textual. A página FPM foi renderizada e inspecionada. Restam nove mapas individuais a integrar, com QA de impressão e eventual correção dos anteriores.
+- [Inventário de QA](editorial/rmrp/INVENTARIO_16_MAPAS_2026_10_28.md) atualizado (commit `ca693f4b`). Relatório consolidado original e publicação intactos.

@@ -109,3 +109,10 @@ Documento de trabalho: [RMRP — Trabalho cartográfico 16 indicadores — 28/10
 - Corrigida na cópia Google Docs a orientação geral sobre mapas de variação: o mapa de evolução entre triênios possui classe intermediária cruzando o zero, de modo que a cor isolada não identifica sinal; a cartografia divergente apropriada depende de reclassificação dos valores municipais com quebra exata no zero. `replaceAllText` 1 ocorrência.
 - Reexportação posterior confirmou **74 páginas**, **16 imagens** e **51 tabelas** na estrutura nativa; relatório consolidado original intacto. Arquivo local de QA: `RMRP_QA_GRAFICO_2026_10_29.md`.
 - Não homologado: faltam análise visual manual em tamanho de impressão de todas as figuras, recomposição das cinco páginas pouco ocupadas e reconstrução semântica do mapa de evolução.
+
+
+## Revisão gráfica de legendas e estilos — 29/10/2026
+- Inspeção visual manual das páginas 5, 7, 35, 37 e 38 da prova anterior de 74 páginas: nenhuma vazia; todas incluem mapa. Observou-se tipografia demasiadamente grande nas legendas das páginas 35 e 38; a redução da densidade de texto era efeito da ocupação pela figura, não ausência de conteúdo.
+- Corrigidos na cópia de trabalho Google Docs os parágrafos de imagem e legenda de nove mapas que estavam configurados como `HEADING_2`: estilos normalizados a `NORMAL_TEXT`, legendas textuais com fonte de 10 pt; atualização com `requiredRevisionId` e leitura posterior.
+- Nova exportação PDF: **72 páginas** (antes 74); Google Docs mantém **51 tabelas e 16 imagens**; nenhuma das 34 fichas foi alterada intencionalmente. Página de Saúde conferida visualmente na nova exportação, legenda reduzida e junto à figura (p. 34). Página de pessoal por habitante localizada na p. 37; permanece QA gráfico do conjunto completo após a repaginação.
+- Não concluir homologação final com base nesta amostra. Antes de publicar, verificar todos os 16 pares figura/legenda na nova paginação, eventuais quebras de tabela e impressão das classes cromáticas. Conservar o mapa de evolução com ressalva de classe cruzando zero até reclassificação vetorial comprovada.

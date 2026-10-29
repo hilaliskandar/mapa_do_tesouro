@@ -21,3 +21,8 @@ Inspeção direta da estrutura nativa Google Docs em 29/10/2026, sem alteração
 
 ## Situação
 QA estrutural realizado; **QA visual de 74 páginas ainda não concluído**. Não afirmar homologação gráfica nem inventar páginas críticas sem verificar a renderização.
+
+## Confronto com QA anterior já registrado no inventário (29/10/2026)
+Após a inspeção estrutural, foi localizado registro mais recente no `INVENTARIO_16_MAPAS_2026_10_28.md`: auditoria automatizada de PDF de **74 páginas** por PyMuPDF, com **16 páginas contendo mapas e legendas na mesma página** (5, 7, 11, 16, 18, 19, 21, 32, 33, 35, 36, 37, 38, 39, 40, 42). Foram identificadas **cinco páginas com baixa densidade textual**: 5, 7, 35, 37 e 38. O inventário também registra correção textual pontual sobre a classe cartográfica cruzando zero, seguida de reexportação de 74 páginas. Portanto, a auditoria automatizada já está **concluída**; não deve ser refeita como se estivesse pendente. Continuam pendentes inspeção visual manual das figuras em tamanho de impressão, decisões localizadas de paginação e a reclassificação do mapa de evolução com base nos dados municipais.
+
+As ocorrências de estrutura apontadas acima são **candidatas a controle de estilo**, não defeitos gráficos comprovados: a auditoria automatizada anterior demonstrou que todas as figuras têm legenda na mesma página.

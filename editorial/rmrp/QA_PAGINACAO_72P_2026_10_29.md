@@ -18,3 +18,11 @@ No trecho **“Exemplos de trajetórias contrastantes”**, os elementos que dev
 - Nenhuma alteração no Google Docs decorrente desta rodada. Nenhuma publicação.
 
 **Status:** QA estrutural/cartográfico de 72 páginas realizado; ocorrência de quadro editorial comprovada; correção e nova prova pendentes.
+
+
+## Correção executada na cópia de trabalho — 29/10/2026
+- O quadro “Exemplos de trajetórias contrastantes” foi convertido de nove parágrafos sem colunas para **uma tabela nativa Google Docs de 7 linhas × 4 colunas** (cabeçalho mais seis municípios), preservando integralmente os valores das seis linhas.
+- Para evitar a divisão desfavorável do quadro entre páginas, foi aplicada a propriedade `pageBreakBefore` ao título da seção que imediatamente antecede a tabela.
+- Conferência por leitura nativa após a operação: total passou de **51 para 52 tabelas**, mantendo **16 imagens cartográficas**; todos os 28 campos da nova tabela conferidos.
+- Nova exportação e inspeção por PyMuPDF: **72 páginas**, título do quadro e a linha de Sertãozinho constam juntos na **página 40**; figura anterior permanece na página 39. O termo Sertãozinho também ocorre no texto analítico da página 39, independentemente da linha do quadro. A quebra editorial original foi sanada.
+- Não se alteraram as séries fiscais nem a interpretação dos valores. Documento consolidado de origem não modificado. Homologação geral do caderno ainda depende de controle completo de impressão e revisão editorial final.

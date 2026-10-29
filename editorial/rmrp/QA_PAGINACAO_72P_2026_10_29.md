@@ -26,3 +26,11 @@ No trecho **“Exemplos de trajetórias contrastantes”**, os elementos que dev
 - Conferência por leitura nativa após a operação: total passou de **51 para 52 tabelas**, mantendo **16 imagens cartográficas**; todos os 28 campos da nova tabela conferidos.
 - Nova exportação e inspeção por PyMuPDF: **72 páginas**, título do quadro e a linha de Sertãozinho constam juntos na **página 40**; figura anterior permanece na página 39. O termo Sertãozinho também ocorre no texto analítico da página 39, independentemente da linha do quadro. A quebra editorial original foi sanada.
 - Não se alteraram as séries fiscais nem a interpretação dos valores. Documento consolidado de origem não modificado. Homologação geral do caderno ainda depende de controle completo de impressão e revisão editorial final.
+
+
+## Nova prova após revisão terminológica e correção figura–legenda — 29/10/2026
+- Reexportação após substituições terminológicas: a prova permaneceu com **72 páginas**, 52 tabelas nativas e 16 imagens no Google Docs.
+- Verificação de co-localização mostrou exceção antes não registrada: imagem do **coeficiente de oscilação dos investimentos** na página 40 e legenda deslocada para página 41; no restante dos 15 casos, cada mapa possuía legenda na própria página.
+- Aplicado `keepWithNext: true` ao parágrafo nativo da imagem desse mapa, preservando imagem, legenda, texto e as 52 tabelas.
+- Prova posterior: **73 páginas**, mapa de oscilação e legenda juntos na página **41**; os **16 mapas** têm legenda na respectiva página na extração verificada por PyMuPDF. O quadro 'Exemplos de trajetórias contrastantes' permanece completo na página **40**.
+- A mudança de 72 para 73 páginas é paginação deliberada para evitar figura sem legenda; não é regressão de conteúdo. Inspeção visual integral de impressão e homologação permanecem pendentes.

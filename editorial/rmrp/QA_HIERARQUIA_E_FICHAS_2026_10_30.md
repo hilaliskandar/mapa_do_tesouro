@@ -18,3 +18,11 @@ Documento editável: https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrN
 4. Necessária revisão gráfica visual minuciosa de linhas e limites em tabelas continuadas, e conferência impressa dos detalhes cartográficos.
 
 **Status**: hierarquia normalizada; demais ajustes sugeridos ainda não realizados.
+
+
+## Continuidade — reposicionamento das orientações (30/10/2026)
+- Na cópia editável `19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI`, o bloco `ORIENTAÇÕES PARA A LEITURA DAS FICHAS FISCAIS` e seu parágrafo explicativo foram deslocados do intervalo após o capítulo 9 para a posição imediatamente anterior a `SUB-REGIÃO 1 — RIBEIRÃO PRETO`.
+- Edição efetuada por API Google Docs com controle de revisão; leitura posterior confirmou ocorrência única do título e sequência `ANÁLISES COMPLEMENTARES` → capítulos 10–13 → `ORIENTAÇÕES` → `SUB-REGIÃO 1`.
+- Texto de orientação preservado, sem alterações deliberadas de números, tabelas, mapas ou análises individuais. O estilo de título no novo local foi lido como `HEADING_1`.
+- **Ainda não concluído:** exportação e inspeção visual da nova prova PDF, QA de quebras de tabelas e legibilidade cartográfica, avaliação de redundâncias substantivas, homologação e publicação.
+- A contagem de páginas anterior (73) permanece referência histórica: não atribuir essa paginação à versão atual sem nova exportação.

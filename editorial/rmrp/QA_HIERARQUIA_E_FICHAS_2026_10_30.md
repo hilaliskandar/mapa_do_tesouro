@@ -52,3 +52,11 @@ Documento editável: https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrN
 - Aplicado então `pageBreakBefore=true` ao parágrafo `12.2 O movimento entre 2023 e 2025 foi disseminado`, preservando `keepWithNext=true`; leitura de retorno da API Google Docs confirmou ambas as propriedades e a revisão da edição.
 - **QA pendente**: embora o exportador tenha respondido com arquivo PDF, o material local recuperado permaneceu com o mesmo tamanho e a mesma paginação da prova anterior; não há comprovação de que os bytes verificados correspondam à revisão mais recente. Portanto a correção está aplicada no documento nativo, mas **não homologada graficamente**. Exigir uma prova independente efetivamente atualizada antes de encerrar a ocorrência.
 - A alteração foi exclusivamente de propriedades de parágrafo; não houve edição deliberada dos dados, das 52 tabelas ou das 16 imagens.
+
+
+## RMRP — Revisão editorial da seção 12.2 — 30/10/2026
+- **Cópia de trabalho:** Google Docs `19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI`. Frente de QA: `editorial/rmrp/QA_HIERARQUIA_E_FICHAS_2026_10_30.md`.
+- A prova anterior evidenciou título da subseção 12.2 isolado na página 25 e primeira tabela na página 26. A inspeção da API Docs identificou dois parágrafos de legenda, dois separadores vazios e uma tabela nativa.
+- **Correção desta rodada, confirmada pela API:** removida a propriedade `pageBreakBefore` do título 12.2 (agora `false`); preservado `keepWithNext=true` no título; removidos os espaçamentos acima/abaixo do primeiro parágrafo separador; ativado `keepWithNext=true` no segundo parágrafo da legenda, de modo a manter a cadeia até a tabela. Aplicado com controle de revisão.
+- **Status de prova:** ajuste nativo persistido; a paginação final após essa rodada ainda requer nova exportação e inspeção gráfica independente. Não declarar resolvido nem homologado sem confirmar PDF. Não houve alteração de dados, mapas ou texto fiscal.
+- Os números **73 páginas, 52 tabelas nativas e 16 mapas** são referência da última prova analisada, não certificação automática da versão agora editada. Permanecem pendentes a inspeção integral das tabelas e das legendas cartográficas e a homologação.

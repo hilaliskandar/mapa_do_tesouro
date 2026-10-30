@@ -26,3 +26,12 @@ Documento editável: https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrN
 - Texto de orientação preservado, sem alterações deliberadas de números, tabelas, mapas ou análises individuais. O estilo de título no novo local foi lido como `HEADING_1`.
 - **Ainda não concluído:** exportação e inspeção visual da nova prova PDF, QA de quebras de tabelas e legibilidade cartográfica, avaliação de redundâncias substantivas, homologação e publicação.
 - A contagem de páginas anterior (73) permanece referência histórica: não atribuir essa paginação à versão atual sem nova exportação.
+
+
+## Lote ampliado de normalização estrutural — 30/10/2026
+- Auditoria de todos os títulos da versão editável por API Google Docs: identificados 12 subtítulos explicativos sem prefixo numérico, indevidamente no mesmo nível (`HEADING_2`) das subseções numeradas dos capítulos 12 e 13. Convertidos conjuntamente a `HEADING_3`, preservando todo o texto.
+- O título `Quadro comparativo — Variação real das médias anuais, 2020–2022 para 2023–2025 (%)` foi retirado de `HEADING_1` e convertido a parágrafo normal, por não constituir capítulo.
+- O parágrafo explicativo imediatamente após `ORIENTAÇÕES PARA A LEITURA DAS FICHAS FISCAIS`, que após o deslocamento havia herdado `HEADING_1`, foi corrigido para `NORMAL_TEXT`.
+- Total: 14 correções de estilo realizadas em uma chamada de edição com controle de revisão. Leitura posterior confirmou os 12 títulos em `HEADING_3`, os dois parágrafos em `NORMAL_TEXT`, 52 tabelas nativas, 34 títulos de fichas e ocorrência única das orientações.
+- Os mapas e as linhas contábeis não foram editados intencionalmente neste lote. A preservação das 16 figuras na exportação e a paginação resultante continuam pendentes de prova PDF.
+- Status: normalização estrutural efetiva; publicação e homologação não autorizadas.

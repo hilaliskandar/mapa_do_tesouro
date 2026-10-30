@@ -537,3 +537,11 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - Leitura independente da fonte canônica DCA (Drive ID 1BtXY_FxydMREEbMACJtaoW2n24ohVH33), cruzada com os 34 códigos IBGE das fichas, confirmou 204 combinações município–ano em 2020–2025.
 - Índices IPCA dez/2020–dez/2025 até set/2026 (SIDRA tabela 1737) reproduzem a comparação das médias anuais reais: 15 municípios com alta, 19 com queda; mediana municipal -4,03%. Investimento médio metropolitano +R$ 18,53 milhões/ano; receita corrente +R$ 1.813,45 milhões/ano; despesa corrente +R$ 2.043,85 milhões/ano. Saúde e Educação cresceram nos 34 municípios.
 - Dossiê reprodutível: editorial/rmrp/QA_TRIENIOS_2026_10_29.md (commit 265dfe15). Não foram alterados dados, mapas ou versão homologada. Pendente QA da escala do mapa de variação entre triênios e controle gráfico das tabelas.
+
+
+## RMRP — Revisão editorial da seção 12.2 — 30/10/2026
+- **Cópia de trabalho:** Google Docs `19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI`. Frente de QA: `editorial/rmrp/QA_HIERARQUIA_E_FICHAS_2026_10_30.md`.
+- A prova anterior evidenciou título da subseção 12.2 isolado na página 25 e primeira tabela na página 26. A inspeção da API Docs identificou dois parágrafos de legenda, dois separadores vazios e uma tabela nativa.
+- **Correção desta rodada, confirmada pela API:** removida a propriedade `pageBreakBefore` do título 12.2 (agora `false`); preservado `keepWithNext=true` no título; removidos os espaçamentos acima/abaixo do primeiro parágrafo separador; ativado `keepWithNext=true` no segundo parágrafo da legenda, de modo a manter a cadeia até a tabela. Aplicado com controle de revisão.
+- **Status de prova:** ajuste nativo persistido; a paginação final após essa rodada ainda requer nova exportação e inspeção gráfica independente. Não declarar resolvido nem homologado sem confirmar PDF. Não houve alteração de dados, mapas ou texto fiscal.
+- Os números **73 páginas, 52 tabelas nativas e 16 mapas** são referência da última prova analisada, não certificação automática da versão agora editada. Permanecem pendentes a inspeção integral das tabelas e das legendas cartográficas e a homologação.

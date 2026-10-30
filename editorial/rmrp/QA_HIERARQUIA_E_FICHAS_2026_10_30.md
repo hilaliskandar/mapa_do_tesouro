@@ -35,3 +35,12 @@ Documento editável: https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrN
 - Total: 14 correções de estilo realizadas em uma chamada de edição com controle de revisão. Leitura posterior confirmou os 12 títulos em `HEADING_3`, os dois parágrafos em `NORMAL_TEXT`, 52 tabelas nativas, 34 títulos de fichas e ocorrência única das orientações.
 - Os mapas e as linhas contábeis não foram editados intencionalmente neste lote. A preservação das 16 figuras na exportação e a paginação resultante continuam pendentes de prova PDF.
 - Status: normalização estrutural efetiva; publicação e homologação não autorizadas.
+
+
+## Revisão ampliada das fichas e prova PDF — 30/10/2026
+- Reexaminados integralmente os oito comentários previamente sinalizados: Barrinha, Brodowski, Pontal, Pradópolis, Santa Rita do Passa Quatro, Cajuru, Nuporanga e Orlândia. Todos já abordam a despesa corrente liquidada, embora nem sempre usem a expressão exata procurada no teste anterior. Oito alertas da triagem textual foram, portanto, considerados falsos positivos; nenhuma reescrita fiscal foi realizada.
+- Exportada a versão de trabalho para PDF: **73 páginas**, **16 páginas com mapas**, **52 tabelas nativas** (contagem Google Docs). A página 25 contém apenas o título `12.2 O movimento entre 2023 e 2025 foi disseminado`, enquanto a tabela inicia na página 26: problema concreto de paginação.
+- Aplicada a propriedade `keepWithNext=true` ao título 12.2, com leitura de retorno confirmando a propriedade. Uma nova exportação manteve 73 páginas e **não eliminou o título isolado na página 25**. Portanto, a falha segue aberta; não considerá-la resolvida.
+- A estrutura nativa também contém um parágrafo vazio entre título e legenda da tabela; é necessário examinar a cadeia de propriedades keepWithNext e a eventual quebra antes da tabela, com alteração localizada e nova prova.
+- Páginas cartográficas com baixa densidade textual (5, 7, 34, 36 e 37) contêm mapas, não devem ser eliminadas automaticamente.
+- A homologação visual integral de todas as tabelas e mapas segue pendente, assim como a correção demonstrada da página 25 e a revisão conclusiva de redundâncias.

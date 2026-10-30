@@ -44,3 +44,11 @@ Documento editável: https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrN
 - A estrutura nativa também contém um parágrafo vazio entre título e legenda da tabela; é necessário examinar a cadeia de propriedades keepWithNext e a eventual quebra antes da tabela, com alteração localizada e nova prova.
 - Páginas cartográficas com baixa densidade textual (5, 7, 34, 36 e 37) contêm mapas, não devem ser eliminadas automaticamente.
 - A homologação visual integral de todas as tabelas e mapas segue pendente, assim como a correção demonstrada da página 25 e a revisão conclusiva de redundâncias.
+
+
+## Nova correção localizada de paginação — 30/10/2026
+- Retomada a quebra entre o título 12.2 e a primeira tabela. Inspeção nativa confirmou a sequência: título, parágrafo vazio, título de tabela distribuído em dois parágrafos, outro parágrafo vazio, tabela nativa.
+- Lote inicial alterou `keepWithNext=true` nos dois parágrafos finais anteriores à tabela. A prova PDF disponibilizada pelo exportador continuou apresentando título isolado na página 25.
+- Aplicado então `pageBreakBefore=true` ao parágrafo `12.2 O movimento entre 2023 e 2025 foi disseminado`, preservando `keepWithNext=true`; leitura de retorno da API Google Docs confirmou ambas as propriedades e a revisão da edição.
+- **QA pendente**: embora o exportador tenha respondido com arquivo PDF, o material local recuperado permaneceu com o mesmo tamanho e a mesma paginação da prova anterior; não há comprovação de que os bytes verificados correspondam à revisão mais recente. Portanto a correção está aplicada no documento nativo, mas **não homologada graficamente**. Exigir uma prova independente efetivamente atualizada antes de encerrar a ocorrência.
+- A alteração foi exclusivamente de propriedades de parágrafo; não houve edição deliberada dos dados, das 52 tabelas ou das 16 imagens.

@@ -547,3 +547,10 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - Os números **73 páginas, 52 tabelas nativas e 16 mapas** são referência da última prova analisada, não certificação automática da versão agora editada. Permanecem pendentes a inspeção integral das tabelas e das legendas cartográficas e a homologação.
 
 - **Verificação adicional após a edição (30/10, 12h):** exportação PDF novamente executada; arquivo disponibilizado com **4.063.202 bytes**, 73 páginas. Inspeção local com PyMuPDF constatou que a **página 25 ainda contém apenas o título 12.2 (54 caracteres extraídos)** e que a **página 26 começa pela legenda e tabela**. Logo, **não foi demonstrada correção gráfica**. A API nativa confirma as novas propriedades, mas a exportação apresenta a mesma composição; investigar atualização/cache do exportador ou a interação com a estrutura nativa. Não homologar.
+
+
+## RMRP — correção homologada da quebra 12.2 — 31/10/2026
+- **Defeito resolvido em prova PDF:** o título `12.2 O movimento entre 2023 e 2025 foi disseminado`, a legenda `Tabela 1 – Municípios segundo direção...` e a tabela nativa estão agora na **mesma página 25**.
+- Intervenção: exclusão cirúrgica de um caractere separador de parágrafo imediatamente depois do título 12.2 (`deleteContentRange` no índice correspondente, com proteção por revisão); a tentativa anterior de remover integralmente dois parágrafos em lote falhou e não modificou o arquivo. A edição bem-sucedida preservou conteúdo fiscal e estrutura da tabela.
+- **Nova prova realmente alterada:** PDF exportado com **4.062.467 bytes e 72 páginas** (a prova precedente tinha 4.063.202 bytes e 73 páginas). PyMuPDF localizou título e legenda da primeira tabela na página 25, com 1.843 caracteres extraídos nessa página: deixou de existir título isolado.
+- **Status:** problema gráfico 12.2 encerrado com verificação textual de página e nova exportação. A homologação integral de 52 tabelas e 16 mapas, sobretudo legibilidade de legendas e quebras das fichas, continua pendente. Documento ainda não publicado. Cópia de trabalho Google Docs `19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI`.

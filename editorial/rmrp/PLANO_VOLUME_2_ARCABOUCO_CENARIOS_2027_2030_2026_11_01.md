@@ -158,3 +158,10 @@ A leitura das planilhas XLSX foi realizada pela representação textual do conec
 ## Lote 17 — recuperacao da serie mensal IPCA e fatores reais (01/11/2026)
 - Fonte localizada no acervo: `tabela1737.xlsx`, Google Drive ID `1ZzuDCnZC1X13f51XzsyJ34dH8dDLxp2Z` (SIDRA 1737 ate maio de 2026). Foram extraidos 12 meses por ano, 2013–2025, 156 observacoes, sem ausentes. O indice referencia setembro/2026 7.695,82 foi obtido da planilha RMRP existente, nao do arquivo mensal. Fatores e 13 medias documentados em [lote 17](editorial/rmrp/IPCA_MEDIA_ANUAL_SET2026_LOTE17.md).
 - Metodo media anual para fluxos: fator 2023 1,1553290348; 2025 1,0541003834. Crescimento real RMRP 2023–2025 receitas correntes +9,9465%; investimentos liquidados -43,1250%. Anterior metodo dezembro: +10,2500% e -42,9680%, respectivamente. Nao misturar convencoes. Proxima prioridade aplicar fatores a 442 linhas DCA, verificar populacao por exercicio e cobertura. Sem fontes externas.
+
+
+## Lote 18 — processamento integral e persistencia parcial 2013-2025 (01/11/2026)
+- DCA SP645 filtrada para 34 municipios da RMRP: 442 linhas 2013–2025 processadas com 13 fatores do IPCA medio anual, referencia set/2026 7695,82. Receita corrente, despesa corrente, receita tributaria e investimento liquidados receberam calculo em memoria por municipio-ano; populacao DCA usada como denominador per capita. Sem consulta externa.
+- Cobertura por variavel central e populacao: 33/34 em 2013; 33/34 em 2014; 34/34 de 2015 a 2025. Ausencias preservadas; nao se agregam series de cobertura incompleta como total integral.
+- **Persistencia parcial somente:** [SR4, 91 linhas](editorial/rmrp/SERIE_REAL_SR4_LOTE18.md), commit `c87c20d`. A plataforma de gravacao bloqueou a publicacao do conjunto integral de 442 linhas e as tentativas de divisao em SR1/SR2/SR3, mesmo em fragmentos. Nao declarar entregues tais arquivos. Dados originais Drive inalterados.
+- Proximo gate: gerar artefato auditavel integral por mecanismo de importacao de arquivo autorizado, depois conferir hashes, cobertura e totais; nao confundir calculo transitorio com persistencia. Nenhum efeito nos resultados homologados.

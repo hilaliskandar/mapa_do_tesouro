@@ -708,3 +708,9 @@ Distribuições e medianas dos 34 municípios e quatro SRs calculadas a partir d
 ## Lote 17 — recuperacao da serie mensal IPCA e fatores reais (01/11/2026)
 - Fonte localizada no acervo: `tabela1737.xlsx`, Google Drive ID `1ZzuDCnZC1X13f51XzsyJ34dH8dDLxp2Z` (SIDRA 1737 ate maio de 2026). Foram extraidos 12 meses por ano, 2013–2025, 156 observacoes, sem ausentes. O indice referencia setembro/2026 7.695,82 foi obtido da planilha RMRP existente, nao do arquivo mensal. Fatores e 13 medias documentados em [lote 17](editorial/rmrp/IPCA_MEDIA_ANUAL_SET2026_LOTE17.md).
 - Metodo media anual para fluxos: fator 2023 1,1553290348; 2025 1,0541003834. Crescimento real RMRP 2023–2025 receitas correntes +9,9465%; investimentos liquidados -43,1250%. Anterior metodo dezembro: +10,2500% e -42,9680%, respectivamente. Nao misturar convencoes. Proxima prioridade aplicar fatores a 442 linhas DCA, verificar populacao por exercicio e cobertura. Sem fontes externas.
+
+
+## Lote 19 — series reais com nomes completos das sub-regioes (01/11/2026)
+- Entrega persistida: [series reais anuais 2013–2025](editorial/rmrp/SERIES_REAIS_SUBREGIOES_NOMEADAS_2013_2025_LOTE19.md), 65 registros, para Ribeirão Preto, Jaboticabal, Mococa, Batatais e toda a RMRP. Os nomes completos substituem siglas SR1–SR4 no texto e nos quadros, sem alterar o cadastro territorial.
+- Fontes internas: DCA SP645 e tabela IPCA mensal 1737, indice referencial set./2026 7695,82 do acervo. Somente exibidos totais reais com cobertura completa; per capita exige tambem populacao observada para todos. Em 2013 a RMRP possui 33/34 em receitas e investimentos e nao recebeu totais indevidamente integrais. 2025 34/34: receita corrente real R$ 12.476.502.257,70, investimento real R$ 318.656.543,61, investimento real per capita R$ 193,07.
+- A persistencia municipal integral de 442 linhas continua pendente (lote 18). O novo arquivo regional NAO deve ser apresentado como prova dessa persistencia. Sem pesquisa externa.

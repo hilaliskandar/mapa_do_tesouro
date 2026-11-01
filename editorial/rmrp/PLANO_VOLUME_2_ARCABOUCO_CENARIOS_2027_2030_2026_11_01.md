@@ -43,3 +43,9 @@ A cada execução: ler README e este plano; registrar data da ação, fontes/URL
 - E1: recuperada versão digital de 120.998 caracteres do relatório RMJ, capítulos e matriz preliminar de transposição organizados; fichamento exaustivo e 31 figuras/PDF continuam abertos.
 - E2: READMEs e memória do painel de finanças municipais lidos; identificado snapshot FINBRA/DCA 2013–2025 ID 14i5tnXO6IC6dugU-4w-D_5ogbCWV3RLGoUED-YrGh90. Base canônica de 30 municípios TIC-TIM não comprova cobertura de 34 RMRP; checar por IBGE. RMRP RGF/RREO tem 26/34 em alguns indicadores.
 - Próximo gate: conferir cobertura 34×13 no snapshot; aprofundar fichamento de mecanismos federais e análise de fontes oficiais; atualizar caderno Drive e este plano após cada lote.
+
+
+## Lote intermediário 02 — 01/11/2026
+- Fichamento de todo o capítulo 2 da versão digital RMJ (22.748 caracteres) extraído pelo Crawl2AI e persistido no Caderno 01: https://docs.google.com/document/d/1LCaWdGKK1iVdsDQsfccstoJi6o78OtAHD4Pr9321BC4/edit . Tese, duas trilhas de execução, cinco modalidades de transferências, hipóteses alternativas, LC 200/2023 e IBS registrados. Textos da LC 200 (Senado) e LC 227/2026 (Câmara) consultados; vigência consolidada requer checagem no relatório definitivo.
+- Snapshot FINBRA_DCA_CANONICA_FINAL_2013_2025_2026-09-26 identificado como arquivo XLSX de aproximadamente 1,63 milhão de caracteres na leitura textual do Drive. Metadados registram repetidamente '33 municípios-alvo' e '33/33', mas isto não é prova de cobertura dos 34 municípios RMRP: faltam teste das abas de dados, chaves IBGE e série 2013–2025. Nenhuma cobertura 34/34 foi homologada.
+- E1 e E2 permanecem em andamento, sem promoção de gates. Próxima entrega: teste de 34 códigos IBGE contra registros efetivos, dicionário e cobertura; fichamento capítulos 1 e 3–9, conferência de 31 visuais.

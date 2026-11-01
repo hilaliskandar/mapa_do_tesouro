@@ -590,3 +590,10 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 
 - **Artefato final de conferência emitido localmente:** `RMRP_Financas_Municipais_Relatorio_Analitico_2026-11-01_v1.pdf` (cópia binariamente idêntica à prova homologada, SHA-256 acima); a data de 01/11 identifica o congelamento do arquivo, **não altera a data que aparece na capa**. Não foi enviado ao Drive ou publicado no site.
 - **Formato físico apurado com `pdfinfo`: US Letter (612 × 792 pt), não A4.** Isto não impede a divulgação digital, mas uma edição impressa em A4 exige prova própria de escalonamento e legibilidade das legendas.
+
+
+## RMRP — disponibilização do PDF no Drive e limite de acesso (01/11/2026)
+- PDF congelado em 01/11/2026 enviado ao Google Drive: `RMRP_Financas_Municipais_Relatorio_Analitico_2026-11-01_v1.pdf`, ID `1LSQYFzO9N-sxHfBJD4MYqSvIt4dygSFk`, URL `https://drive.google.com/file/d/1LSQYFzO9N-sxHfBJD4MYqSvIt4dygSFk/view?usp=drivesdk`. Upload concluído; metadados conferidos: MIME `application/pdf`, **4.063.462 bytes**, owner da conta conectada, `shared=false` e única permissão registrada `owner`.
+- O conector disponível para compartilhamento oferece usuário específico ou domínio da organização; **não permite habilitar acesso público irrestrito** nesta interface. Logo, arquivo disponível no Drive da conta, **AINDA NÃO PUBLICADO PUBLICAMENTE**. Não circular o link como acesso anônimo validado.
+- Para publicidade externa, configurar manualmente no Drive `Compartilhar > Acesso geral > Qualquer pessoa com o link > Leitor` (quando permitido pelo administrador), depois verificar abertura sem autenticação. Alternativamente escolher o destino público/editorial para deploy e validar HTTP/PDF/hash. Nenhuma alteração ao site público nem anúncio em redes foi feita.
+- Conservar distinção entre homologação para divulgação digital e publicação efetivamente acessível; preservar o documento nativo e as 34 fichas, 52 tabelas e 16 mapas.

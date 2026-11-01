@@ -671,3 +671,10 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - Cobertura histórica: receitas correntes 440/442, investimentos 440/442, transferências de capital 432/442, função urbanismo 438/442, saneamento 341/442, transporte 300/442, habitação 84/442. Não converter campos vazios em zero.
 - Resultados e detalhamento sub-regional registrados no [Caderno 03](https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit) e no [plano canônico](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md).
 - Interface pública da plataforma não pôde ser lida ao vivo nesta sessão; não confundir recorte da DCA (até 2025) com integração comprovada dos RREO/RGF parciais de 2026 ao frontend. E2/E4 permanecem em andamento; priorizar artefatos já persistidos e QA de versão sem nova consulta externa.
+
+
+## RMRP Volume II — lote 11, integração multifuentes, 01/11/2026
+- Arquivos existentes na plataforma: `FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx` (Drive 12XfaN7ati-wGgw_a5puwechp7ipFdWRG) e `FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx` (Drive 1wYnFB8Dg000qrBM1do8pe083FlqWzHDk). Filtro pelos 34 códigos RMRP: 34/34 linhas no exercício 2025 em ambas as bases.
+- RCL, DTP/RCL, caixa pós-RPNP e dívida líquida: 26/34; dívida consolidada: 32/34. Quatro indicadores tributários/de investimento derivados examinados: 34/34. Oito municípios sem RCL/DTP na fotografia; sem imputações.
+- Alerta Pontal: percentuais DTP/RCL 805,41 e DCL/RCL 1.333,33 na base integrada, valores NÃO HOMOLOGADOS até exame da escala/demonstrativo. CAPAG da base 2025 (4 n.d.) distinta da prévia set./2026 (1 n.d.): manter versionamento.
+- Evidências e limites registrados no [Caderno 03](https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit) e no [plano canônico](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md). Etapas E2/E4 ainda em andamento. Nenhuma consulta externa executada.

@@ -120,3 +120,11 @@ Documento editável: https://docs.google.com/document/d/19qwSxQuy_1N4XEPqfpWgJrN
 
 ## 01/11/2026 — Emdash PDF upload
 A tentativa de envio do PDF final da RMRP ao Emdash pela operação media_upload falhou duas vezes por erro HTTP/2 de transporte do payload base64 (5,4 milhões de caracteres). Consulta subsequente da biblioteca mostrou apenas dois PDFs RMJ, sem o arquivo RMRP. Rascunho Emdash 01M6AN17PNGPDKP3YRHA77H3SG permanece sem publicação. Recomendado envio pela interface administrativa da biblioteca, preservando os bytes e conferindo URL pública antes de publicar a matéria.
+
+
+## Publicacao do estudo RMRP no Emdash — 01/11/2026
+- Post ID `01M6AN17PNGPDKP3YRHA77H3SG` atualizado e publicado no CMS, categoria `estudos-e-analises`, slug `financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026`.
+- URL de publicacao: https://boletim.radarregulatorio.org/posts/financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026
+- Link do PDF inserido no corpo da secao `Acesso ao estudo`: https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BTPGYT7G6DA5S7P8XCJQTH.01M6BTPJQFK1RVPZHSRTA37ASK.pdf
+- Biblioteca confirmou mídia ID `01M6BTPGYTB33D22T7MV7RWVVP`, nome `RELATORIO_RMRP_COMPLETO_73_PAGINAS_DOWNLOAD.pdf`, status `ready`, tamanho 4.088.547 bytes. Essa contagem DIFERE da antiga prova homologada de 4.063.462 bytes; identidade binaria nao comprovada.
+- API CMS confirmou status final `published`. Verificacao HTTP externa do dominio nao foi possivel neste ambiente (resolucao DNS/consulta web falhou); disponibilidade publica anonima da URL requer verificacao separada. Nenhuma divulgacao em redes sociais foi executada.

@@ -165,3 +165,9 @@ A leitura das planilhas XLSX foi realizada pela representação textual do conec
 - Cobertura por variavel central e populacao: 33/34 em 2013; 33/34 em 2014; 34/34 de 2015 a 2025. Ausencias preservadas; nao se agregam series de cobertura incompleta como total integral.
 - **Persistencia parcial somente:** [SR4, 91 linhas](editorial/rmrp/SERIE_REAL_SR4_LOTE18.md), commit `c87c20d`. A plataforma de gravacao bloqueou a publicacao do conjunto integral de 442 linhas e as tentativas de divisao em SR1/SR2/SR3, mesmo em fragmentos. Nao declarar entregues tais arquivos. Dados originais Drive inalterados.
 - Proximo gate: gerar artefato auditavel integral por mecanismo de importacao de arquivo autorizado, depois conferir hashes, cobertura e totais; nao confundir calculo transitorio com persistencia. Nenhum efeito nos resultados homologados.
+
+
+## Lote 19 — series reais com nomes completos das sub-regioes (01/11/2026)
+- Entrega persistida: [series reais anuais 2013–2025](editorial/rmrp/SERIES_REAIS_SUBREGIOES_NOMEADAS_2013_2025_LOTE19.md), 65 registros, para Ribeirão Preto, Jaboticabal, Mococa, Batatais e toda a RMRP. Os nomes completos substituem siglas SR1–SR4 no texto e nos quadros, sem alterar o cadastro territorial.
+- Fontes internas: DCA SP645 e tabela IPCA mensal 1737, indice referencial set./2026 7695,82 do acervo. Somente exibidos totais reais com cobertura completa; per capita exige tambem populacao observada para todos. Em 2013 a RMRP possui 33/34 em receitas e investimentos e nao recebeu totais indevidamente integrais. 2025 34/34: receita corrente real R$ 12.476.502.257,70, investimento real R$ 318.656.543,61, investimento real per capita R$ 193,07.
+- A persistencia municipal integral de 442 linhas continua pendente (lote 18). O novo arquivo regional NAO deve ser apresentado como prova dessa persistencia. Sem pesquisa externa.

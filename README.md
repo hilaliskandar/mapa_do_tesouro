@@ -642,3 +642,10 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - Nas republicações foram removidas frases que diziam haver imagens anexas e preservadas as análises e referências do e-mail de falha. As republicações não contêm imagens; usam prévia do artigo para evitar repetir falha de CDN.
 - RMRP primeira pauta Buffer `6ae76efad27d61fd66ff47fe`: 4 imagens presentes, horário 02/11 01h17 confirmado, mas erro persistente `Please update the media URL ...`; permanece sob risco.
 - Limitação: verificações HTTP externas de todas as imagens ainda não concluídas por falha de DNS no contêiner e quota Browserless; 156/156 itens do manifesto Emdash presentes e prontos não substituem teste de fetch por LinkedIn.
+
+
+### Validação de URLs PNG com Crawl2AI local — 01/11/2026
+- Leitura de manifesto `editorial/rmrp/campanha_41_pautas_midia_2026_11_01.json`: 164 referências (156 URLs únicas).
+- Execução via MCP Crawl2AI local, `crawl`, `cache_mode=BYPASS`, 6 lotes de 26 URLs: **156/156 retornaram status_code HTTP 200 e Content-Type image/png; zero URLs falharam nesses critérios**.
+- O campo `success:false` e a mensagem de proteção anti-bot `Structural: minimal_text, no_content_elements` surgem porque o crawler tenta extrair texto/HTML de imagens PNG; não são evidência de falha HTTP da imagem.
+- Validação mede resposta HTTP observada pelo navegador do Crawl2AI, não prova download integral ou ingestão de mídia pelo servidor do LinkedIn. Buffer ainda registra erro residual de mídia no post `6ae76efad27d61fd66ff47fe`; manter acompanhamento e não afirmar resolvido sem confirmação de publicação efetiva.

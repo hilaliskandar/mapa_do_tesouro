@@ -94,3 +94,20 @@ A cada execução: ler README e este plano; registrar data da ação, fontes/URL
 - As razões não exprimem saldo fiscal, primário, financeiro ou de caixa: são comparação aritmética de dois fluxos RREO e não se prestam, isoladamente, a diagnóstico de equilíbrio. Três municípios não constituem amostra representativa da região.
 - A leitura do Caderno 03 comprovou apenas três linhas municipais individualizadas no texto persistido, embora haja agregados de 30 municípios. **Bloqueio E2/E4:** recuperar e arquivar as 30 linhas originais (e extratos dos quatro municípios de competência menor) com fonte, modalidade, conta, coluna, data, eventual retificação e confrontos; não extrapolar indicadores nem marcar etapa concluída.
 - Evidência atualizada no [Caderno 03](https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit). A API Siconfi não retornou payload acessível ao verificador web nesta rodada; verificação independente dos dados exige execução via Crawl2AI/API em rodada posterior.
+
+
+## Lote 10 — auditoria direta da base SP645 filtrada à RMRP, 01/11/2026
+
+
+LOTE 10 — AUDITORIA DIRETA DA BASE ESTADUAL E RECORTE RMRP — 01/11/2026
+Fonte primária deste lote: acervo existente da plataforma no Drive, DCA_SP_645_2013_2025_CANONICO.csv (ID 1BtXY_FxydMREEbMACJtaoW2n24ohVH33). Cadastro territorial: editorial/rmrp/municipios_subregioes_tcesp.csv, GitHub main. Extração lógica pelo código IBGE, sem consulta ao Siconfi ou fonte externa.
+Universo: 34 municípios; 442 registros distintos município-ano de 2013 a 2025, correspondentes à cobertura de linhas de 34 × 13. Cobertura de valores preenchidos: receita corrente 440/442, tributária 440/442, investimento liquidado 440/442, transferências de capital 432/442, operações de crédito 84/442, função Urbanismo 438/442, Habitação 84/442, Saneamento 341/442, Transporte 300/442. O indicador de presença é registro não vazio, não certificação de valores zero.
+Em 2025, receita corrente, tributária, investimento e Urbanismo 34/34. Transferências de capital 33/34, operações de crédito 9/34, Habitação 2/34, Saneamento 25/34 e Transporte 20/34.
+Somas nominais diretas da base, 2025 (R$):
+SR1 Ribeirão Preto: receita corrente 8.192.898.266,50; tributária 2.366.546.288,15; investimentos liquidados 208.212.555,64.
+SR2 Jaboticabal: receita corrente 1.406.753.479,52; tributária 270.631.856,19; investimentos 29.313.238,96.
+SR3 Mococa: receita corrente 907.047.490,93; tributária 156.649.087,51; investimentos 23.837.004,17.
+SR4 Batatais: receita corrente 1.329.462.151,61; tributária 217.124.446,93; investimentos 40.939.096,41.
+Agregados RMRP 2025: receita corrente 11.836.161.388,56; receita tributária 3.010.951.678,78; investimentos 302.301.895,18. Reproduzem os agregados anteriormente registrados para o Volume I, no nível das rubricas e recorte examinados.
+Governança: o contrato GitHub governance/PUBLICATION_API.md confirma um universo editorial para a RM Ribeirão Preto, com endpoints de série, cobertura e municípios. Não se comprovou leitura HTTP atual da API publicada (navegação não retornou dados e ambiente de código sem DNS). Base FINBRA/DCA 2013–2025 e API editorial v1 documentada NÃO comprovam que todos os RREO parciais de 2026 estejam servidos pela produção. Próxima ação restrita à plataforma: obter manifestos e JSONs atuais por interface conectada disponível, confrontar SHA e variáveis; reaproveitar camadas RGF/RREO/CAPAG privadas datadas e não interpretar lacunas como zero.
+Status: E2 e E4 avançam com prova da integridade territorial e reconciliação de três rubricas 2025; não concluídos pela ausência de conciliação 2026 completa nem paridade HTTP da API. Sem novas consultas externas.

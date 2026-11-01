@@ -136,3 +136,9 @@ A leitura das planilhas XLSX foi realizada pela representação textual do conec
 - Medianas municipais RMRP: tributação/receita corrente 14,20%; FPM/receita corrente 22,93%; investimentos/receita corrente 2,33%; investimento liquidado per capita R$ 185,11. Distribuição e extremos municipais preservados no artefato.
 - Medianas de FPM por SR: SR1 22,48%; SR2 22,09%; SR3 27,77%; SR4 22,22%. Medianas tributárias: SR1 14,76%; SR2 13,63%; SR3 12,75%; SR4 14,88%. SR3 apresenta maior mediana FPM e menor tributária, sem inferir causalidade, insolvência ou cortes federais.
 - Medianas municipais não equivalem a composição fiscal agregada sub-regional; para peso econômico utilizar razão dos totais de valores de numerador e denominador de mesma cobertura. Período apenas 2025, sem extrapolação automática ao cenário 2027–2030. E2/E4 permanecem em andamento.
+
+
+## Lote 14 — comparacao per capita e padrao monetario (01/11/2026)
+- [Protocolo e resultados](editorial/rmrp/PROTOCOLO_PER_CAPITA_PRECOS_SET2026_LOTE14.md) persistidos no GitHub. A partir da DCA estadual existente, 34 municipios, populacao da linha de 2025 total 1.650.449, investimento per capita RMRP R$ 183,16, SR1 R$ 181,83, SR2 R$ 147,01, SR3 R$ 170,90, SR4 R$ 245,92 (valores nominais 2025).
+- Metodo: razao dos totais por populacao, nao media de indicadores; valores nominais para conciliacao do mesmo exercicio, valores reais em precos de setembro/2026 para comparacoes 2013–2025. Para fluxos anuais, usar numero-indice de setembro/2026 dividido pela media dos 12 indices mensais do ano. O deflator e seus fatores anuais ainda necessitam recuperacao e QA do acervo. Portanto, nenhum valor real foi inventado neste lote. Para RREO jan-ago, deflacao propria do periodo, sem aplicar fator de ano fechado.
+- E2/E4 continuam abertos; prioridade obter fatores IPCA ja existentes, auditar populacao e compor series reais comparaveis.

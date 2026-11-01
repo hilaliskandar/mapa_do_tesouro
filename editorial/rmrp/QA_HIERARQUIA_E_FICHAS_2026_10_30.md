@@ -163,3 +163,11 @@ A tentativa de envio do PDF final da RMRP ao Emdash pela operação media_upload
 - As pautas municipais foram extraidas das seis linhas contabilizadas nas fichas 2023-2025 da prova PDF de 73 paginas; identificadores IBGE e paginas do PDF estao na planilha. Os quatro visuais padrao sao receita corrente, investimento liquidado, intensidade investimento/receita e quadro 2023-2025. Valores nominais dos graficos; variação real calculada a partir de cifras das fichas ja arredondadas, devendo ser validada com o texto antes da divulgacao.
 - **Gate pendente:** as 164 imagens ainda NAO foram carregadas na biblioteca de midia Emdash; nao se criaram paginas Emdash por pauta nem se agendaram/divulgaram posts no LinkedIn. A grade de horarios sera indicada posteriormente pelo usuario. Planilha marca explicitamente as pendencias.
 - A pagina de referencia do relatorio ja publicada permanece https://boletim.radarregulatorio.org/posts/financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026 . Nao modificar relatorio homologado.
+
+
+## 01/11/2026 — campanha LinkedIn RMRP: midias Emdash finalizadas
+- Foram transferidos e conferidos 156 PNGs distintos na biblioteca de midia Emdash, todos com status `ready`, correspondentes aos 164 usos previstos nas 41 pautas: 136 arquivos municipais, 16 sub-regionais e 12 referencias metropolitanas. As 3 pautas metropolitanas reutilizam byte a byte quatro imagens: deduplicacao de oito duplicatas pelo CMS e comportamento esperado.
+- Manifesto rastreavel (164 entradas, 156 IDs, URLs individuais e estados): `editorial/rmrp/campanha_41_pautas_midia_2026_11_01.json`.
+- Planilha de acompanhamento atualizada e exportada como `Campanha_RMRP_41_pautas_controle_EMDASH.xlsx`, campos de hospedagem, manifesto e destino unico. As 41 chamadas ja usam URL `https://boletim.radarregulatorio.org/posts/financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026`.
+- Decisao editorial expressa: NAO criar pagina Emdash por municipio/sub-regiao/tema; a pagina metropolitana em Estudos e Analises e o unico destino das chamadas do LinkedIn, nela esta o acesso ao PDF integral.
+- Nenhuma postagem agendada ou publicada no LinkedIn; aguardando grade de horarios, revisao/aprovacao final das 41 chamadas. O upload intermediario via Google Drive utilizou arquivo `RMRP_TRANSFER_STORED_164.zip`.

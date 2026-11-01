@@ -622,3 +622,11 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - Horários distribuídos em janelas previamente definidas, no fuso de Brasília; verificação cruzada final encontrou **zero conflitos em intervalo inferior a 60 minutos** entre as 41 pautas RMRP e os demais agendamentos existentes na fila LinkedIn.
 - Todas as pautas usam como destino único `https://boletim.radarregulatorio.org/posts/financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026`.
 - **Status `scheduled` não significa `sent`**. Verificar status e URLs reais no Buffer/LinkedIn após cada horário de publicação; planilha de controle Emdash original ainda contém estado anterior aos agendamentos, devendo ser sincronizada futuramente.
+
+
+### QA de imagens Buffer/Emdash — 01/11/2026
+- Canal LinkedIn: 41 pautas em status scheduled; consulta à fila retornou 164 objetos de mídia (4 por pauta), todos image/png; URLs de mídia do endpoint Emdash e sem arquivos locais como origem.
+- Biblioteca Emdash: verificação paginada de 156 IDs de mídia distintos do manifesto, 156 encontrados, 156 status ready, sem tamanho zero.
+- EXCEÇÃO: primeira pauta metropolitana Buffer `6ae76efad27d61fd66ff47fe`, 02/11 01h17 BRT: originalmente listada com 0 assets e erro `Please update the media URL to be publicly accessible before retrying the post.`; edição reassociou 4 PNGs e restaurou o horário customScheduled; Buffer conserva mensagem de erro, mesmo após readback. Não há evidência conclusiva de resolução. Tentativa de recriação rejeitada por duplicidade; post original preservado.
+- Verificação pública HTTP ponta-a-ponta de todos os arquivos não foi concluída: internet do contêiner indisponível, browserless com cota esgotada e ferramentas de navegação não puderam provar status 200 de cada URL. Crawl2AI carregou representação de uma imagem, mas retornou indicador interno de proteção anti-bot; status ready no CMS e mídia cadastrada no Buffer não comprovam que o LinkedIn conseguirá buscar as imagens no instante de envio.
+- Recomenda-se validar a primeira publicação em especial no horário previsto, observar status sent/error e a presença real do carrossel no LinkedIn.

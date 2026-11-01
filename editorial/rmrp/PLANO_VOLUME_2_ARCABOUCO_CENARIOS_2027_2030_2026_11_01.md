@@ -78,3 +78,9 @@ A cada execução: ler README e este plano; registrar data da ação, fontes/URL
 - Evidência intermediária persistida no Caderno 02 do Drive: https://docs.google.com/document/d/11cx3xmfRfjjNxVoGPT0tBbiFZrZzYqtQgalEINpZYts/edit . E2 continua aberto para QA dos indicadores, períodos, modalidades, retificações e formação de tabela municipal auditável.
 
 - Atualização complementar lote 07: RGF Anexo 01 1º quadrimestre recuperado para Jardinópolis, Morro Agudo, Pontal e Santa Rosa de Viterbo; cobertura de municípios com pelo menos um RGF de 2026 sobe a 26/34 (22/34 ainda no 2º quadrimestre). Oito pendentes de modalidade alternativa/extrato: Barrinha, Guariba, Nuporanga, Orlândia, Pitangueiras, Sales Oliveira, Taiúva, Taquaral. Adendo também persistido no Caderno 02 Drive.
+
+
+## Lote 08 — comparação RREO de janeiro a agosto de 2025 e 2026
+- API Siconfi: 34/34 com RREO Anexo 01 do quarto bimestre 2025; 30/34 no quarto bimestre 2026 (RREO e Simplificado combinados). Sem quarto bimestre 2026: Jardinópolis, Morro Agudo, Pontal, Santa Rosa de Viterbo; não somar competências menores.
+- Nos mesmos 30 municípios: receitas realizadas exceto intraorçamentárias R$ 6.933.939.773,71 (2025) para R$ 7.316.519.891,50 (2026), aumento nominal de 5,52%; despesas liquidadas exceto intraorçamentárias R$ 6.042.896.600,02 para R$ 6.653.030.328,57, aumento nominal de 10,10%. Não confundir com receitas/despesas correntes ou saldo fiscal. Ainda sem deflator ou QA das retificações.
+- Caderno intermediário 03 criado e verificado no Drive: https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit . Próximos: dados por município/conta, cobertura RGF, investimentos, inflação e fontes federais.

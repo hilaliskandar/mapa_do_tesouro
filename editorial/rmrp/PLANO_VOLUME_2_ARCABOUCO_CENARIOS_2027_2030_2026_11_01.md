@@ -36,3 +36,10 @@ Consolidação RMRP 2025 (valores nominais, DCA): receita corrente **R$ 11.836.1
 
 ## Protocolo de continuidade
 A cada execução: ler README e este plano; registrar data da ação, fontes/URLs, objeto examinado, cobertura, cálculos, produto produzido, gate atingido, riscos, lacunas e próximo passo; atualizar este arquivo e README. **Status somente 'concluído' com evidência persistida e verificada.** Não alegar execução em segundo plano: cada avanço depende de nova execução ou de automação explicitamente criada e configurada. Prioridade imediata: E1 fichamento integral do modelo, E2 acesso efetivo à plataforma e matriz de cobertura, E3 pesquisa normativa.
+
+
+## Registro intermediário 01 — Drive — 01/11/2026
+- Caderno validado no Drive: https://docs.google.com/document/d/1LCaWdGKK1iVdsDQsfccstoJi6o78OtAHD4Pr9321BC4/edit
+- E1: recuperada versão digital de 120.998 caracteres do relatório RMJ, capítulos e matriz preliminar de transposição organizados; fichamento exaustivo e 31 figuras/PDF continuam abertos.
+- E2: READMEs e memória do painel de finanças municipais lidos; identificado snapshot FINBRA/DCA 2013–2025 ID 14i5tnXO6IC6dugU-4w-D_5ogbCWV3RLGoUED-YrGh90. Base canônica de 30 municípios TIC-TIM não comprova cobertura de 34 RMRP; checar por IBGE. RMRP RGF/RREO tem 26/34 em alguns indicadores.
+- Próximo gate: conferir cobertura 34×13 no snapshot; aprofundar fichamento de mecanismos federais e análise de fontes oficiais; atualizar caderno Drive e este plano após cada lote.

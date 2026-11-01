@@ -630,3 +630,15 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - EXCEÇÃO: primeira pauta metropolitana Buffer `6ae76efad27d61fd66ff47fe`, 02/11 01h17 BRT: originalmente listada com 0 assets e erro `Please update the media URL to be publicly accessible before retrying the post.`; edição reassociou 4 PNGs e restaurou o horário customScheduled; Buffer conserva mensagem de erro, mesmo após readback. Não há evidência conclusiva de resolução. Tentativa de recriação rejeitada por duplicidade; post original preservado.
 - Verificação pública HTTP ponta-a-ponta de todos os arquivos não foi concluída: internet do contêiner indisponível, browserless com cota esgotada e ferramentas de navegação não puderam provar status 200 de cada URL. Crawl2AI carregou representação de uma imagem, mas retornou indicador interno de proteção anti-bot; status ready no CMS e mídia cadastrada no Buffer não comprovam que o LinkedIn conseguirá buscar as imagens no instante de envio.
 - Recomenda-se validar a primeira publicação em especial no horário previsto, observar status sent/error e a presença real do carrossel no LinkedIn.
+
+
+### Falhas históricas Buffer LinkedIn — correção e repostagem, 01/11/2026
+- Gmail: pesquisa de avisos Buffer identificou pelo menos 13 notificações de falhas no LinkedIn no período 23/10–01/11, em sua maioria com mensagem `Please update the media URL to be publicly accessible before retrying the post` (algumas outras relacionadas a problemas ou timeout no anexo). Também existem avisos antigos para Facebook, fora da fila LinkedIn ativa.
+- Buffer: consulta filtrada por status `error` retornou zero, embora os e-mails comprovem erros históricos; originais não podem ser editados com segurança sem identificação de IDs de post, sobretudo os que já saíram da fila.
+- **Três republicações da RMJ agendadas e relidas com status scheduled, zero erros, sem anexos quebrados e com linkAttachment nativo à página do estudo**:
+  - 02/11 03h13 BRT — cenários fiscais 2027–2030, Buffer `6ae7752ecfdcf9feb714d317`;
+  - 03/11 02h28 BRT — ISS/FPM/investimento por habitante, Buffer `6ae77530a9b1b4ba58f4de6c`;
+  - 04/11 03h19 BRT — arrecadação versus investimento, Buffer `6ae77532142f545151f04ecc`.
+- Nas republicações foram removidas frases que diziam haver imagens anexas e preservadas as análises e referências do e-mail de falha. As republicações não contêm imagens; usam prévia do artigo para evitar repetir falha de CDN.
+- RMRP primeira pauta Buffer `6ae76efad27d61fd66ff47fe`: 4 imagens presentes, horário 02/11 01h17 confirmado, mas erro persistente `Please update the media URL ...`; permanece sob risco.
+- Limitação: verificações HTTP externas de todas as imagens ainda não concluídas por falha de DNS no contêiner e quota Browserless; 156/156 itens do manifesto Emdash presentes e prontos não substituem teste de fetch por LinkedIn.

@@ -682,3 +682,7 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 
 ### RMRP Volume II — lote 12: matriz municipal 2025
 Matriz de 34 municípios e 19 campos a partir de Gate C/Gate D, sem novas consultas externas: [arquivo versionado](editorial/rmrp/MATRIZ_EXPOSICAO_FISCAL_RMRP_2025_LOTE12.md). Oito lacunas RCL/DTP e anomalia de Pontal identificadas; CAPAG conservada por versão. Etapas E2/E4 ainda não encerradas; conferir [plano canônico](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md).
+
+
+### RMRP Volume II — lote 13: assimetrias fiscais 2025
+Distribuições e medianas dos 34 municípios e quatro SRs calculadas a partir da matriz Gate C/D: [análise do lote 13](editorial/rmrp/ANALISE_DESIGUALDADES_FISCAIS_2025_LOTE13.md). Medianas RMRP: tributação 14,20%, FPM 22,93%, investimento 2,33% da receita corrente, investimento per capita R$ 185,11. A SR3 tem maior mediana de FPM (27,77%), sem inferências causais. Nenhuma consulta externa; E2/E4 continuam abertos. [Plano](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md).

@@ -686,3 +686,9 @@ Matriz de 34 municípios e 19 campos a partir de Gate C/Gate D, sem novas consul
 
 ### RMRP Volume II — lote 13: assimetrias fiscais 2025
 Distribuições e medianas dos 34 municípios e quatro SRs calculadas a partir da matriz Gate C/D: [análise do lote 13](editorial/rmrp/ANALISE_DESIGUALDADES_FISCAIS_2025_LOTE13.md). Medianas RMRP: tributação 14,20%, FPM 22,93%, investimento 2,33% da receita corrente, investimento per capita R$ 185,11. A SR3 tem maior mediana de FPM (27,77%), sem inferências causais. Nenhuma consulta externa; E2/E4 continuam abertos. [Plano](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md).
+
+
+## Lote 14 — comparacao per capita e padrao monetario (01/11/2026)
+- [Protocolo e resultados](editorial/rmrp/PROTOCOLO_PER_CAPITA_PRECOS_SET2026_LOTE14.md) persistidos no GitHub. A partir da DCA estadual existente, 34 municipios, populacao da linha de 2025 total 1.650.449, investimento per capita RMRP R$ 183,16, SR1 R$ 181,83, SR2 R$ 147,01, SR3 R$ 170,90, SR4 R$ 245,92 (valores nominais 2025).
+- Metodo: razao dos totais por populacao, nao media de indicadores; valores nominais para conciliacao do mesmo exercicio, valores reais em precos de setembro/2026 para comparacoes 2013–2025. Para fluxos anuais, usar numero-indice de setembro/2026 dividido pela media dos 12 indices mensais do ano. O deflator e seus fatores anuais ainda necessitam recuperacao e QA do acervo. Portanto, nenhum valor real foi inventado neste lote. Para RREO jan-ago, deflacao propria do periodo, sem aplicar fator de ano fechado.
+- E2/E4 continuam abertos; prioridade obter fatores IPCA ja existentes, auditar populacao e compor series reais comparaveis.

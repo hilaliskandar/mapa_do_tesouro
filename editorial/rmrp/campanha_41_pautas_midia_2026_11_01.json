@@ -3,9 +3,11 @@
   "destination": "Emdash media library",
   "linkTarget": "https://boletim.radarregulatorio.org/posts/financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026",
   "counts": {
-    "mun": 136,
-    "sub": 16,
-    "metro": 4
+    "municipalFiles": 136,
+    "subregionalFiles": 16,
+    "metropolitanFiles": 12,
+    "totalSourceFiles": 164,
+    "uniqueMedia": 156
   },
   "items": [
     {
@@ -1129,6 +1131,78 @@
       "alt": "Estudo RMRP: rmrp-1/04.png"
     },
     {
+      "filename": "rmrp-rmrp-2-01.png",
+      "id": "01M6BYPQNEHGQKC1WGCNJ74QDM",
+      "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BYPQ66K6C2MFF0BMDJ2VTE.png",
+      "status": "ready",
+      "size": 31942,
+      "alt": "Estudo RMRP: rmrp-1/01.png",
+      "deduplicatedFrom": "rmrp-rmrp-1-01.png"
+    },
+    {
+      "filename": "rmrp-rmrp-2-02.png",
+      "id": "01M6BZ0CP8P7CPCQYB85HZGSHB",
+      "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BZ0C5FDQY0VWVP32Y5985P.png",
+      "status": "ready",
+      "size": 27908,
+      "alt": "Estudo RMRP: rmrp-1/02.png",
+      "deduplicatedFrom": "rmrp-rmrp-1-02.png"
+    },
+    {
+      "filename": "rmrp-rmrp-2-03.png",
+      "id": "01M6BZ0FX1BH106T6ZY827Q5KQ",
+      "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BZ0FDQMAGPVKEJA9MRA4BR.png",
+      "status": "ready",
+      "size": 33400,
+      "alt": "Estudo RMRP: rmrp-1/03.png",
+      "deduplicatedFrom": "rmrp-rmrp-1-03.png"
+    },
+    {
+      "filename": "rmrp-rmrp-2-04.png",
+      "id": "01M6BZ0R5QMBA3JQQK5SRQC87P",
+      "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BZ0QNNG0MYHEBZG81HDQ55.png",
+      "status": "ready",
+      "size": 43221,
+      "alt": "Estudo RMRP: rmrp-1/04.png",
+      "deduplicatedFrom": "rmrp-rmrp-1-04.png"
+    },
+    {
+      "filename": "rmrp-rmrp-3-01.png",
+      "id": "01M6BYPQNEHGQKC1WGCNJ74QDM",
+      "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BYPQ66K6C2MFF0BMDJ2VTE.png",
+      "status": "ready",
+      "size": 31942,
+      "alt": "Estudo RMRP: rmrp-1/01.png",
+      "deduplicatedFrom": "rmrp-rmrp-1-01.png"
+    },
+    {
+      "filename": "rmrp-rmrp-3-02.png",
+      "id": "01M6BZ0CP8P7CPCQYB85HZGSHB",
+      "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BZ0C5FDQY0VWVP32Y5985P.png",
+      "status": "ready",
+      "size": 27908,
+      "alt": "Estudo RMRP: rmrp-1/02.png",
+      "deduplicatedFrom": "rmrp-rmrp-1-02.png"
+    },
+    {
+      "filename": "rmrp-rmrp-3-03.png",
+      "id": "01M6BZ0FX1BH106T6ZY827Q5KQ",
+      "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BZ0FDQMAGPVKEJA9MRA4BR.png",
+      "status": "ready",
+      "size": 33400,
+      "alt": "Estudo RMRP: rmrp-1/03.png",
+      "deduplicatedFrom": "rmrp-rmrp-1-03.png"
+    },
+    {
+      "filename": "rmrp-rmrp-3-04.png",
+      "id": "01M6BZ0R5QMBA3JQQK5SRQC87P",
+      "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BZ0QNNG0MYHEBZG81HDQ55.png",
+      "status": "ready",
+      "size": 43221,
+      "alt": "Estudo RMRP: rmrp-1/04.png",
+      "deduplicatedFrom": "rmrp-rmrp-1-04.png"
+    },
+    {
       "filename": "rmrp-sub-1-01.png",
       "id": "01M6BYMWJRY2QEWAR20R9DE7M4",
       "url": "https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BYMW4ER5616MEEZG9TCVKS.png",
@@ -1256,5 +1330,6 @@
       "size": 40936,
       "alt": "Estudo RMRP: sub-4/04.png"
     }
-  ]
+  ],
+  "note": "Oito arquivos metropolitanos repetem byte a byte quatro PNG, uma vez por pauta. O Emdash os deduplica: 164 referencias originais, 156 imagens distintas cadastradas."
 }

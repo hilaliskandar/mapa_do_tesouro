@@ -148,3 +148,10 @@ A tentativa de envio do PDF final da RMRP ao Emdash pela operação media_upload
 - Midias cadastradas com status de upload confirmado via `mcp__radar__media_upload`, `image/png`, dimensoes 640x320: `01M6BWMWGZESCHFZMDKJAHZZ46` (variacao real 2023-25), `01M6BWN06ZT4DA08VN6BBS7M6Q` (queda por subregioes), `01M6BWN37EBB0ZCGZMEG91YKZJ` (municipios com aumento da media de investimentos entre trienios).
 - Os tres enderecos `/_emdash/api/media/file/<storageKey>` foram inseridos como imagens Markdown com texto alternativo no artigo `01M6AN17PNGPDKP3YRHA77H3SG` (Estudos e Analises). Blocos de barras textuais removidos. As tabelas existentes e citacoes de paginas mantidas. CMS confirmou tres marcadores de imagem, nenhuma barra em bloco `text` e retorno `published` de `content_publish`.
 - O arquivo fonte PDF permaneceu intocado. Evidencia principal: IDs de midia e revisao CMS. Visualizacao externa anonima/HTML da pagina nao foi aferida nesta rodada.
+
+
+## Revisao editorial final no Emdash — 01/11/2026
+- Post RMRP `01M6AN17PNGPDKP3YRHA77H3SG` conferido diretamente no CMS e republicado com status `published`.
+- Detectado defeito: cinco tabelas Markdown eram convertidas pelo `portableText` em linhas literais com `|`, nao tabelas HTML. Corrigido no artigo com 19 linhas comparativas sem caracteres `|`, preservando valores e referencias documentais. Suporte a tabela HTML nao demonstrado no esquema atual; para tabela nativa seria preciso alterar renderizador/editor.
+- Os tres graficos sao blocos `image` no Portable Text e as tres midias foram consultadas individualmente com `status=ready`, PNG 640x320; link PDF mantido no corpo; referencias de paginas presentes.
+- A tentativa de conferir pagina HTML e imagens anonimamente pelo web retornou indisponibilidade da ferramenta, portanto nao afirmar revisao visual externa; controle de publicacao e midia comprovado no CMS. Nenhuma alteracao ao PDF integral.

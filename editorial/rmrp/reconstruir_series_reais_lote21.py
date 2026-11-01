@@ -20,7 +20,7 @@ def number(s):
     return Decimal(s) if s not in ("", None, "n.d.") else None
 
 def build(dca_path, territory_path, ipca_path, output):
-    cities = {r["cod_ibge"]: r for r in read_csv(territory_path)}
+    cities = {r["codigo_ibge"]: r for r in read_csv(territory_path)}
     # IPCA mensal normalizado: mes no formato AAAAMM, numero_indice decimal.
     ipca = defaultdict(list)
     for row in read_csv(ipca_path):

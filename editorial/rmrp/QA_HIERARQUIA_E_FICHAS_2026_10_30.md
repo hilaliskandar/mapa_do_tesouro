@@ -142,3 +142,9 @@ A tentativa de envio do PDF final da RMRP ao Emdash pela operação media_upload
 - Referencias de paginas adicionadas conforme leitura de PDF de 73 paginas: sintese pp.1-3; receitas pp.13-17; investimentos pp.21-22; comparacao entre trienios pp.24-29 e 38-40; analise territorial pp.29-41; fichas pp.44-73. Adicionado quadro per capita com cinco municipios, fonte p.32.
 - Tres graficos PNG gerados e consolidados no arquivo local `RMRP_GRAFICOS_PARA_EMDASH.zip` (variacao real de quatro rubricas 2023-25; quedas por subregiao; numero de municipios com aumento das medias reais entre trienios). O CMS rejeitou formato SVG (`File type not allowed`); **os PNG ainda nao foram inseridos na biblioteca de midia**. Nao declarar que aparecem na pagina: ainda se apresentam barras textuais ate o proximo upload comprovado.
 - Fonte dos novos graficos: valores do relatorio homologado; na terceira visualizacao, os aumentos municipais por sub-regiao somam 15, representando apenas a direcao das medias trienais.
+
+
+## 01/11/2026 — tres graficos PNG inseridos no Emdash
+- Midias cadastradas com status de upload confirmado via `mcp__radar__media_upload`, `image/png`, dimensoes 640x320: `01M6BWMWGZESCHFZMDKJAHZZ46` (variacao real 2023-25), `01M6BWN06ZT4DA08VN6BBS7M6Q` (queda por subregioes), `01M6BWN37EBB0ZCGZMEG91YKZJ` (municipios com aumento da media de investimentos entre trienios).
+- Os tres enderecos `/_emdash/api/media/file/<storageKey>` foram inseridos como imagens Markdown com texto alternativo no artigo `01M6AN17PNGPDKP3YRHA77H3SG` (Estudos e Analises). Blocos de barras textuais removidos. As tabelas existentes e citacoes de paginas mantidas. CMS confirmou tres marcadores de imagem, nenhuma barra em bloco `text` e retorno `published` de `content_publish`.
+- O arquivo fonte PDF permaneceu intocado. Evidencia principal: IDs de midia e revisao CMS. Visualizacao externa anonima/HTML da pagina nao foi aferida nesta rodada.

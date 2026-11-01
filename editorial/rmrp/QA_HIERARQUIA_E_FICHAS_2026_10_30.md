@@ -155,3 +155,11 @@ A tentativa de envio do PDF final da RMRP ao Emdash pela operação media_upload
 - Detectado defeito: cinco tabelas Markdown eram convertidas pelo `portableText` em linhas literais com `|`, nao tabelas HTML. Corrigido no artigo com 19 linhas comparativas sem caracteres `|`, preservando valores e referencias documentais. Suporte a tabela HTML nao demonstrado no esquema atual; para tabela nativa seria preciso alterar renderizador/editor.
 - Os tres graficos sao blocos `image` no Portable Text e as tres midias foram consultadas individualmente com `status=ready`, PNG 640x320; link PDF mantido no corpo; referencias de paginas presentes.
 - A tentativa de conferir pagina HTML e imagens anonimamente pelo web retornou indisponibilidade da ferramenta, portanto nao afirmar revisao visual externa; controle de publicacao e midia comprovado no CMS. Nenhuma alteracao ao PDF integral.
+
+
+## 01/11/2026 — Planejamento da campanha LinkedIn RMRP (sem agendamento)
+- Entregues, em arquivos de trabalho desta conversa, `Campanha_RMRP_41_pautas_controle.xlsx`, `Campanha_RMRP_41_chamadas.md` e `Campanha_RMRP_164_visuais.zip`.
+- Universo fechado: 34 pautas municipais (15+6+6+7), quatro sub-regionais e tres metropolitanas; 41 achados, 41 minutas e 4 imagens locais por pauta (164 PNG).
+- As pautas municipais foram extraidas das seis linhas contabilizadas nas fichas 2023-2025 da prova PDF de 73 paginas; identificadores IBGE e paginas do PDF estao na planilha. Os quatro visuais padrao sao receita corrente, investimento liquidado, intensidade investimento/receita e quadro 2023-2025. Valores nominais dos graficos; variação real calculada a partir de cifras das fichas ja arredondadas, devendo ser validada com o texto antes da divulgacao.
+- **Gate pendente:** as 164 imagens ainda NAO foram carregadas na biblioteca de midia Emdash; nao se criaram paginas Emdash por pauta nem se agendaram/divulgaram posts no LinkedIn. A grade de horarios sera indicada posteriormente pelo usuario. Planilha marca explicitamente as pendencias.
+- A pagina de referencia do relatorio ja publicada permanece https://boletim.radarregulatorio.org/posts/financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026 . Nao modificar relatorio homologado.

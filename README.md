@@ -754,3 +754,9 @@ Distribuições e medianas dos 34 municípios e quatro SRs calculadas a partir d
 
 ### RMRP Lote 32 (01/11/2026)
 Síntese interpretativa e cenários condicionais 2027–2030: [documento](editorial/rmrp/SINTESE_VOLUME_II_LOTE32.md), commit `f67542e`. Evidências: 34/34 municípios com crescimento da receita real per capita entre 2015–2025; 31/34 com queda do investimento real per capita entre 2023–2025. Sem causalidade estabelecida nem projeções arbitrárias. Pendentes: carteira de obras, receitas de capital, DTP/RCL e quantificação dos cenários. Preços setembro/2026, sub-regiões nomeadas por extenso. Plano operacional atualizado.
+
+
+## Lote 33 — matriz auditavel dos cenarios 2027–2030 (01/11/2026)
+- Documento persistido: [MATRIZ_PARAMETROS_CENARIOS_LOTE33](editorial/rmrp/MATRIZ_PARAMETROS_CENARIOS_LOTE33.md), commit `fff1e26367f443c162f2a900df71d9d6dba8e8a0`. Modelo com 34 municipios x 2027–2030 x tres cenarios; agregacao posterior nas quatro sub-regioes e na RMRP.
+- Entradas: tributacao propria, FPM, ICMS/IPVA, despesas correntes, pessoal, investimentos, capital, caixa/divida, populacao, IPCA, reforma tributaria e instrumentos federais. Cada hipotese requer fonte, vigencia, cobertura e testes de soma; nao foram inseridos choques numericos arbitrarios. Ultimo ano anual consolidado 2025; dados 2026 parciais nao anualizados.
+- Gates: E6 matriz de variaveis concluida, cenarios monetarios condicionados a parametros verificaveis; E4 pendencias RGF/RREO/RCL/DTP e Pontal; E5 carteira e fontes de capital pendentes. Proximo lote: dicionario de entradas e esquema tabular de cenarios com controles de cobertura e agregacao.

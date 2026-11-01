@@ -171,3 +171,9 @@ A leitura das planilhas XLSX foi realizada pela representação textual do conec
 - Entrega persistida: [series reais anuais 2013–2025](editorial/rmrp/SERIES_REAIS_SUBREGIOES_NOMEADAS_2013_2025_LOTE19.md), 65 registros, para Ribeirão Preto, Jaboticabal, Mococa, Batatais e toda a RMRP. Os nomes completos substituem siglas SR1–SR4 no texto e nos quadros, sem alterar o cadastro territorial.
 - Fontes internas: DCA SP645 e tabela IPCA mensal 1737, indice referencial set./2026 7695,82 do acervo. Somente exibidos totais reais com cobertura completa; per capita exige tambem populacao observada para todos. Em 2013 a RMRP possui 33/34 em receitas e investimentos e nao recebeu totais indevidamente integrais. 2025 34/34: receita corrente real R$ 12.476.502.257,70, investimento real R$ 318.656.543,61, investimento real per capita R$ 193,07.
 - A persistencia municipal integral de 442 linhas continua pendente (lote 18). O novo arquivo regional NAO deve ser apresentado como prova dessa persistencia. Sem pesquisa externa.
+
+
+## Lote 20 — QA de Batatais e regra de nomenclatura (01/11/2026)
+- [QA cruzado da Sub-região de Batatais](editorial/rmrp/QA_SERIE_BATATAIS_LOTE20.md): 91 observações municipais em 13 anos, sete municípios, 26 reconciliações anuais de receita corrente e investimento com série regional Lote 19. Desvios máximos ~R$ 0,01 por arredondamento; consistência interna aprovada para estas rubricas.
+- Em todo novo texto/tabela/gráfico, usar nomes completos **Sub-região de Ribeirão Preto**, **Sub-região de Jaboticabal**, **Sub-região de Mococa** e **Sub-região de Batatais**, não SR1, SR2, SR3, SR4. Arquivos legados com códigos mantidos sem renomeação destrutiva.
+- Persistência municipal individual de Ribeirão Preto, Jaboticabal e Mococa continua pendente. A conformidade de Batatais nao prova integridade das demais. Bases nominais preservadas; valores reais IPCA media anual a precos de setembro/2026; per capita para comparacao de portes.

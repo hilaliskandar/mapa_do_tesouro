@@ -128,3 +128,10 @@ A tentativa de envio do PDF final da RMRP ao Emdash pela operação media_upload
 - Link do PDF inserido no corpo da secao `Acesso ao estudo`: https://boletim.radarregulatorio.org/_emdash/api/media/file/01M6BTPGYT7G6DA5S7P8XCJQTH.01M6BTPJQFK1RVPZHSRTA37ASK.pdf
 - Biblioteca confirmou mídia ID `01M6BTPGYTB33D22T7MV7RWVVP`, nome `RELATORIO_RMRP_COMPLETO_73_PAGINAS_DOWNLOAD.pdf`, status `ready`, tamanho 4.088.547 bytes. Essa contagem DIFERE da antiga prova homologada de 4.063.462 bytes; identidade binaria nao comprovada.
 - API CMS confirmou status final `published`. Verificacao HTTP externa do dominio nao foi possivel neste ambiente (resolucao DNS/consulta web falhou); disponibilidade publica anonima da URL requer verificacao separada. Nenhuma divulgacao em redes sociais foi executada.
+
+
+## 01/11/2026 — ampliacao da apresentacao Emdash RMRP
+- Post `01M6AN17PNGPDKP3YRHA77H3SG` atualizado e novamente publicado via `content_publish`, mantendo mesma URL e categoria Estudos e Analises.
+- Texto editorial passa a ~6,8 mil caracteres, com dois graficos de barras esquematicos em blocos de texto (variacoes reais RMRP e quedas sub-regionais), quatro tabelas Markdown (metropolitana, sub-regional, receitas selecionadas e evolucao entre trienios) e interpretacoes com limitacoes metodologicas; mantido link para PDF no Emdash.
+- Confirmada persistencia da string dos quadros/tabelas e graficos no campo `content` do CMS e status `published`. **Nao foi confirmada renderizacao HTML nativa de tabelas nem renderizacao externa das barras na pagina publica**, pois o CMS converte Markdown em Portable Text e a checagem externa nao foi realizada. Tratar graficos como textual/esquematicos, nao imagens vetoriais incorporadas.
+- Dados sintetizados do relatorio homologado (receita +10,25%, investimentos -42,97%, 31/34 municipios em queda, 15/34 com alta de media trienal etc.). Sem alteracao no PDF ou na serie de origem.

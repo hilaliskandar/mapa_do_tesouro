@@ -760,3 +760,7 @@ Síntese interpretativa e cenários condicionais 2027–2030: [documento](editor
 - Documento persistido: [MATRIZ_PARAMETROS_CENARIOS_LOTE33](editorial/rmrp/MATRIZ_PARAMETROS_CENARIOS_LOTE33.md), commit `fff1e26367f443c162f2a900df71d9d6dba8e8a0`. Modelo com 34 municipios x 2027–2030 x tres cenarios; agregacao posterior nas quatro sub-regioes e na RMRP.
 - Entradas: tributacao propria, FPM, ICMS/IPVA, despesas correntes, pessoal, investimentos, capital, caixa/divida, populacao, IPCA, reforma tributaria e instrumentos federais. Cada hipotese requer fonte, vigencia, cobertura e testes de soma; nao foram inseridos choques numericos arbitrarios. Ultimo ano anual consolidado 2025; dados 2026 parciais nao anualizados.
 - Gates: E6 matriz de variaveis concluida, cenarios monetarios condicionados a parametros verificaveis; E4 pendencias RGF/RREO/RCL/DTP e Pontal; E5 carteira e fontes de capital pendentes. Proximo lote: dicionario de entradas e esquema tabular de cenarios com controles de cobertura e agregacao.
+
+
+### Lote 34 — dicionario e controles dos cenarios (01/11/2026)
+Especificacao versionada em [Lote 34](editorial/rmrp/DICIONARIO_E_CONTROLES_CENARIOS_LOTE34.md), commit 82039f52. Grade de 408 registros municipio-ano-cenario, 60 agregados sub-regionais e metropolitanos, campos com proveniencia, nulos e regras de soma. Ainda sem projeções numericas homologadas. Proximo lote: materializar grade, auditar 34 municipios e controles de ausencias.

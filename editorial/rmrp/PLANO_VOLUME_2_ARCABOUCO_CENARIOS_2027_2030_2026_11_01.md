@@ -69,3 +69,10 @@ A cada execução: ler README e este plano; registrar data da ação, fontes/URL
 - Distribuição difere do snapshot prévio A+1/A4/B+1/B2/C21/D1/n.d.4. Conferir versão e composição dos dados antes de substituir fichas.
 - Pesquisa nos arquivos Drive não identificou ainda RREO/RGF de 2026 para os 34 municípios, nem DCA anual 2026 — em 01/11/2026 o ano está em curso. Testar acesso à fonte oficial por bimestre/quadrimestre em nova coleta; comparar períodos homogêneos, nunca anualizar automaticamente.
 - Registro detalhado persistido no [Caderno intermediário 02](https://docs.google.com/document/d/11cx3xmfRfjjNxVoGPT0tBbiFZrZzYqtQgalEINpZYts/edit). E2 continua aberto, com classificação CAPAG 2026 localizada, mas auditoria de execução parcial 2026 pendente.
+
+
+## Lote 07 — Coleta parcial 2026 via Siconfi API, 01/11/2026
+- RREO Anexo 01 4º bimestre: 22/34 na modalidade padrão, mais 8 na modalidade Simplificado = 30/34 com competência jan–ago. Pontal e Santa Rosa de Viterbo possuem 3º bimestre; Jardinópolis e Morro Agudo 2º bimestre. Todos os 34 possuem ao menos um retorno para 2026, mas **não é permitido agregar períodos diferentes como se equivalentes**.
+- RGF Anexo 01 2º quadrimestre: 22/34 na modalidade padrão; faltam testes de periodicidade semestral, simplificado, 1º quadrimestre e extrato de entregas dos demais 12.
+- Fonte: API oficial Siconfi `https://apidatalake.tesouro.gov.br/docs/siconfi/` via Crawl2AI. Extrações-piloto confirmaram dados reais, inclusive receita realizada acumulada e despesa liquidada acumulada. Ainda não consolidados em painel regional 2026 nem confrontados com período homólogo de 2025.
+- Evidência intermediária persistida no Caderno 02 do Drive: https://docs.google.com/document/d/11cx3xmfRfjjNxVoGPT0tBbiFZrZzYqtQgalEINpZYts/edit . E2 continua aberto para QA dos indicadores, períodos, modalidades, retificações e formação de tabela municipal auditável.

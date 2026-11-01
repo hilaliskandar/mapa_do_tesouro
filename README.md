@@ -764,3 +764,7 @@ Síntese interpretativa e cenários condicionais 2027–2030: [documento](editor
 
 ### Lote 34 — dicionario e controles dos cenarios (01/11/2026)
 Especificacao versionada em [Lote 34](editorial/rmrp/DICIONARIO_E_CONTROLES_CENARIOS_LOTE34.md), commit 82039f52. Grade de 408 registros municipio-ano-cenario, 60 agregados sub-regionais e metropolitanos, campos com proveniencia, nulos e regras de soma. Ainda sem projeções numericas homologadas. Proximo lote: materializar grade, auditar 34 municipios e controles de ausencias.
+
+
+### Lote 35 — grade de cenarios materializada (01/11/2026)
+Documento: [GRADE_CENARIOS_LOTE35](editorial/rmrp/GRADE_CENARIOS_LOTE35.md), commit `df452bd`. Execucao real sobre fontes DCA/IPCA/cadastro arquivadas: 408 registros municipais, 60 agregados, 34/34 municipios em seis bases fiscais de 2025; QA de unicidade e conciliacao passou. Gerados arquivos locais CSV, XLSX, ZIP e script. Projecoes futuras permanecem nulas ate parametros auditados; nao anualizar 2026 parcial. Proximo gate: persistir arquivos derivados externamente e integrar RGF/RREO e carteira de investimentos.

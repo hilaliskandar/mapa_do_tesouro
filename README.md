@@ -613,3 +613,12 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - 03/11/2026 07h23: diferenças entre sub-regiões; post Buffer `6ae76efca9b1b4ba58f2977e`; status `scheduled`.
 - 04/11/2026 00h43: comparação entre triênios; post Buffer `6ae76efe7c4e555926661ac8`; status `scheduled`.
 - **Pendência:** recuperar/validar as 38 minutas restantes (34 municípios e 4 sub-regiões), que não foram localizadas nos arquivos de trabalho acessíveis nesta sessão, antes de agendar. Não afirmar que 41 publicações estão agendadas. Sem publicação imediata; status indica agendamento, não postagem efetiva.
+
+
+### Campanha LinkedIn RMRP — programação integral confirmada em 01/11/2026
+- Canal Buffer LinkedIn `6a946366065799be46558e67`, organização `6a945ebadaf0def1db0ec1ab`, fuso America/Sao_Paulo.
+- Arquivos-fonte recuperados de anexos: `Campanha_RMRP_41_chamadas (1).md`, `Campanha_RMRP_41_pautas_controle_EMDASH.xlsx`, `Campanha_RMRP_164_visuais (1).zip`.
+- **41 de 41 pautas com status `scheduled` confirmado por nova leitura da fila Buffer**, IDs únicos, **4 imagens cadastradas em cada publicação**; 3 pautas metropolitanas agendadas inicialmente para 02–04/11, 34 municípios e 4 sub-regiões agendados depois para 05/11–12/12/2026.
+- Horários distribuídos em janelas previamente definidas, no fuso de Brasília; verificação cruzada final encontrou **zero conflitos em intervalo inferior a 60 minutos** entre as 41 pautas RMRP e os demais agendamentos existentes na fila LinkedIn.
+- Todas as pautas usam como destino único `https://boletim.radarregulatorio.org/posts/financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026`.
+- **Status `scheduled` não significa `sent`**. Verificar status e URLs reais no Buffer/LinkedIn após cada horário de publicação; planilha de controle Emdash original ainda contém estado anterior aos agendamentos, devendo ser sincronizada futuramente.

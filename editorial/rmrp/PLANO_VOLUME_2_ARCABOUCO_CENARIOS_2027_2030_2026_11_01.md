@@ -84,3 +84,13 @@ A cada execução: ler README e este plano; registrar data da ação, fontes/URL
 - API Siconfi: 34/34 com RREO Anexo 01 do quarto bimestre 2025; 30/34 no quarto bimestre 2026 (RREO e Simplificado combinados). Sem quarto bimestre 2026: Jardinópolis, Morro Agudo, Pontal, Santa Rosa de Viterbo; não somar competências menores.
 - Nos mesmos 30 municípios: receitas realizadas exceto intraorçamentárias R$ 6.933.939.773,71 (2025) para R$ 7.316.519.891,50 (2026), aumento nominal de 5,52%; despesas liquidadas exceto intraorçamentárias R$ 6.042.896.600,02 para R$ 6.653.030.328,57, aumento nominal de 10,10%. Não confundir com receitas/despesas correntes ou saldo fiscal. Ainda sem deflator ou QA das retificações.
 - Caderno intermediário 03 criado e verificado no Drive: https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit . Próximos: dados por município/conta, cobertura RGF, investimentos, inflação e fontes federais.
+
+
+## Lote 09 — análise comparada de três municípios, 01/11/2026
+- Fonte: Caderno 03 do Drive, que contém valores individualizados de Ribeirão Preto, Sertãozinho e Barrinha; recálculos aritméticos realizados sobre a mesma rubrica e competência (RREO Anexo 01, janeiro–agosto, 2025 e 2026). Nenhuma extração adicional de microdados foi comprovada neste lote.
+- Ribeirão Preto: receita realizada +3,84%; despesa liquidada +11,45%; razão descritiva despesa/receita 85,14% → 91,37%.
+- Sertãozinho: receita +17,20%; despesa +18,19%; razão 72,52% → 73,14%.
+- Barrinha: receita +17,60%; despesa +14,84%; razão 93,58% → 91,38%.
+- As razões não exprimem saldo fiscal, primário, financeiro ou de caixa: são comparação aritmética de dois fluxos RREO e não se prestam, isoladamente, a diagnóstico de equilíbrio. Três municípios não constituem amostra representativa da região.
+- A leitura do Caderno 03 comprovou apenas três linhas municipais individualizadas no texto persistido, embora haja agregados de 30 municípios. **Bloqueio E2/E4:** recuperar e arquivar as 30 linhas originais (e extratos dos quatro municípios de competência menor) com fonte, modalidade, conta, coluna, data, eventual retificação e confrontos; não extrapolar indicadores nem marcar etapa concluída.
+- Evidência atualizada no [Caderno 03](https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit). A API Siconfi não retornou payload acessível ao verificador web nesta rodada; verificação independente dos dados exige execução via Crawl2AI/API em rodada posterior.

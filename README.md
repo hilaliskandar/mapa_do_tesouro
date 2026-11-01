@@ -604,3 +604,12 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - **Rascunho editorial efetivamente criado no Emdash e relido**: ID `01M6AN17PNGPDKP3YRHA77H3SG`, slug `financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026`, status `draft`, título `Finanças municipais na Região Metropolitana de Ribeirão Preto: receitas, investimentos e desigualdades territoriais`. Conteúdo: síntese dos resultados, distinção entre comparações 2023/2025 e triênios, metodologia, 16 mapas e 34 fichas, ressalvas e metadados SEO. URL projetada pelo esquema `/posts/{slug}`, **não afirmar que já é pública**.
 - PDF homologado 73p identificado no Drive pelo ID `1LSQYFzO9N-sxHfBJD4MYqSvIt4dygSFk`, porém metadados indicaram `shared=false`. A biblioteca do Emdash já contém PDFs (ex.: RMJ), mas a ferramenta MCP `media_upload` requer conteúdo binário como base64, não aceita diretamente referência `file_uri` exportada do Drive; a conexão disponível não fornece publicação de PDF por referência remota. **Não foi anexado PDF da RMRP ao Emdash.**
 - **Estado: RASCUNHO, NÃO PUBLICADO.** Gate para publicação: carregar a cópia exata do PDF congelado no Emdash/R2, obter URL pública funcional e validar a resposta HTTP PDF; substituir na matéria o aviso de disponibilização pendente por link público; conferir persistência do vínculo e publicar o item. Não divulgar um link de Drive privado ao leitor. Nenhuma alteração no relatório-fonte nem no conteúdo fiscal.
+
+
+## RMRP — campanha LinkedIn, agendamentos iniciais — 01/11/2026
+- Canal Buffer LinkedIn `6a946366065799be46558e67`, fuso America/Sao_Paulo; verificados 82 posts previamente agendados (novembro/dezembro), preservados.
+- Três chamadas metropolitanas criadas com 4 PNG cada, hospedados na biblioteca Emdash; destino comum: https://boletim.radarregulatorio.org/posts/financas-rmrp-receitas-investimentos-desigualdades-territoriais-2026.
+- 02/11/2026 01h17: receitas versus investimentos; post Buffer `6ae76efad27d61fd66ff47fe`; status `scheduled`.
+- 03/11/2026 07h23: diferenças entre sub-regiões; post Buffer `6ae76efca9b1b4ba58f2977e`; status `scheduled`.
+- 04/11/2026 00h43: comparação entre triênios; post Buffer `6ae76efe7c4e555926661ac8`; status `scheduled`.
+- **Pendência:** recuperar/validar as 38 minutas restantes (34 municípios e 4 sub-regiões), que não foram localizadas nos arquivos de trabalho acessíveis nesta sessão, antes de agendar. Não afirmar que 41 publicações estão agendadas. Sem publicação imediata; status indica agendamento, não postagem efetiva.

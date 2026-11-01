@@ -664,3 +664,10 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 ## RMRP Volume II — lote 09, 01/11/2026
 - Avanço da comparação RREO de janeiro–agosto 2025/2026, com três municípios cujos valores individuais estão no Caderno 03: Ribeirão Preto (receita +3,84%; despesa liquidada +11,45%), Sertãozinho (+17,20%; +18,19%) e Barrinha (+17,60%; +14,84%). Rubricas exceto intraorçamentárias, valores nominais; razões entre fluxos não equivalem a saldo fiscal.
 - [Caderno 03 atualizado](https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit) e [plano canônico atualizado](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md). Lote 09 não encerra E2/E4: documento persistido traz somente três casos desagregados; tabela individualizada completa de 30 e QA de modalidades/retificações estão pendentes. Não presumir consulta nova à API ou dados completos de 2026.
+
+
+## RMRP Volume II — lote 10: auditoria da base da plataforma (01/11/2026)
+- Filtro da base estadual canônica `DCA_SP_645_2013_2025_CANONICO.csv` (Drive `1BtXY_FxydMREEbMACJtaoW2n24ohVH33`) por 34 códigos IBGE RMRP: 442/442 pares 2013–2025; reconciliação 2025 aprovada para receitas correntes R$ 11.836.161.388,56, receita tributária R$ 3.010.951.678,78 e investimento liquidado R$ 302.301.895,18.
+- Cobertura histórica: receitas correntes 440/442, investimentos 440/442, transferências de capital 432/442, função urbanismo 438/442, saneamento 341/442, transporte 300/442, habitação 84/442. Não converter campos vazios em zero.
+- Resultados e detalhamento sub-regional registrados no [Caderno 03](https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit) e no [plano canônico](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md).
+- Interface pública da plataforma não pôde ser lida ao vivo nesta sessão; não confundir recorte da DCA (até 2025) com integração comprovada dos RREO/RGF parciais de 2026 ao frontend. E2/E4 permanecem em andamento; priorizar artefatos já persistidos e QA de versão sem nova consulta externa.

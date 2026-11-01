@@ -678,3 +678,7 @@ O bloco anterior sobre v0.4.0 documenta a infraestrutura inicial e **não** resu
 - RCL, DTP/RCL, caixa pós-RPNP e dívida líquida: 26/34; dívida consolidada: 32/34. Quatro indicadores tributários/de investimento derivados examinados: 34/34. Oito municípios sem RCL/DTP na fotografia; sem imputações.
 - Alerta Pontal: percentuais DTP/RCL 805,41 e DCL/RCL 1.333,33 na base integrada, valores NÃO HOMOLOGADOS até exame da escala/demonstrativo. CAPAG da base 2025 (4 n.d.) distinta da prévia set./2026 (1 n.d.): manter versionamento.
 - Evidências e limites registrados no [Caderno 03](https://docs.google.com/document/d/18IVXIO-sMrs1KJhnpAO41smjNbkZyRBygpzvJSqdBXk/edit) e no [plano canônico](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md). Etapas E2/E4 ainda em andamento. Nenhuma consulta externa executada.
+
+
+### RMRP Volume II — lote 12: matriz municipal 2025
+Matriz de 34 municípios e 19 campos a partir de Gate C/Gate D, sem novas consultas externas: [arquivo versionado](editorial/rmrp/MATRIZ_EXPOSICAO_FISCAL_RMRP_2025_LOTE12.md). Oito lacunas RCL/DTP e anomalia de Pontal identificadas; CAPAG conservada por versão. Etapas E2/E4 ainda não encerradas; conferir [plano canônico](editorial/rmrp/PLANO_VOLUME_2_ARCABOUCO_CENARIOS_2027_2030_2026_11_01.md).

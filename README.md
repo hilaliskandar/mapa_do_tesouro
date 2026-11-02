@@ -849,3 +849,9 @@ Documento: [Revisao interpretativa de 34 municipios](editorial/rmrp/REVISAO_INTE
 - [Manuscrito integrado Volume II](editorial/rmrp/VOLUME_II_RMRP_MANUSCRITO_INTEGRADO_LOTE50.md), commit `c85d24b5d05cff0984b63814bcd8c6ce0dc641bb`, com quatro partes: diagnostico e desigualdades (Lote 46), SWOT 39 recortes (47), arcabouco fiscal e reforma tributaria (48), cenarios condicionais 2027-2030 (49).
 - Montagem editorial real de 100229 caracteres com resumo executivo, roteiro de figuras e mapas nos capitulos e lista de QA. Sem nova coleta fiscal. Os graficos, mapas e a paginacao final ainda NAO foram produzidos e conferidos; nao declarar documento publicado ou homologado.
 - Proximo Lote 51: auditoria de coerencia, repeticao, citacoes normativas e qualidade grafo-cartografica, verificacao dos binarios do Lote 35 e montagem da versao revisada para exame externo.
+
+
+### RMRP Lotes 51A-51B - reconstrucao SWOT sob a transicao tributaria (02/11/2026)
+- [39 SWOT reconstruidas](editorial/rmrp/SWOT_TRANSICAO_TRIBUTARIA_ARCABOUCO_RMRP_LOTE51A.md), commit `3ab27862ab6645b95bd9f649ad5cb0213f95d11e`; 34 municipios, quatro sub-regioes e RMRP; fatores internos anteriores mantidos; oportunidades e ameacas reformuladas segundo transicao IBS/ISS, EC 132/2023, LC 214/2025, LC 227/2026 e canais indiretos LC 200/2023. Hipoteses condicionais, sem ganhos ou perdas monetarios inferidos.
+- [Segunda montagem do Volume II](editorial/rmrp/VOLUME_II_RMRP_REVISAO_SWOT_LOTE51B.md), commit `e47c4db76474e8fd3b9477c88f593af1e3a55bba`, substitui a Parte II pelas SWOT revisadas. Manuscrito original Lote 50 e Lotes 40-47 preservados.
+- Nova fase E7: revisao final de exposicao juridico-economica por municipio, decomposicao de ISS e verificacao das regras de transicao para 2027-2030; quadros ainda candidatos, nao homologados. Figuras e mapas pendentes. Nenhuma extracao fiscal nova.

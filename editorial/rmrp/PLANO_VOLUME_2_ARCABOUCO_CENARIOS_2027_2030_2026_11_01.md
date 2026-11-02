@@ -326,3 +326,9 @@ Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_M
 - Novo documento [SWOT ISS municipal Lote 55](editorial/rmrp/SWOT_ISS_MUNICIPAL_OBSERVADO_LOTE55.md), commit b3122c7c77725e06812ff6a59da02b753a75688f: 34 municipios cruzados por IBGE com o arquivo existente `FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx` no Drive (ID 12XfaN7ati-wGgw_a5puwechp7ipFdWRG). Medido ISS PRINCIPAL/receita corrente de 2025, sem confundir com ISS total, tributacao geral ou ganho/perda IBS. A exposicao liquida IBS segue INDETERMINADA.
 - [Volume II atualizado Lote 56](editorial/rmrp/VOLUME_II_RMRP_ISS_SWOT_LOTE56.md), commit caae7a6fb5d14d38cb66b5e86b80e01f7a2e6d9c; Parte II substituida pela analise de ISS observado, versoes anteriores preservadas.
 - Prioridades para homologacao: conciliar ISS total versus principal, historicidade ISS, mecanismos distributivos IBS, carteira de projetos e responsabilidades administrativas municipais. Nao houve nova extracao fiscal; a base consultada ja pertencia a plataforma.
+
+
+### RMRP Lote 57 - ISS principal 2015-2025 (02/11/2026)
+- [Serie municipal ISS principal](SERIE_ISS_PRINCIPAL_2015_2025_LOTE57.md), commit 498e75c3c5657cabb12e89b336eb753c8566abb8. A base DCA 645 municipios 2013-2025 ja arquivada no Drive foi lida, sem reextracao. Recorte RMRP 34 x 11 = 374 chaves, 369 observacoes com indicador valido. Cinco lacunas: Brodowski, Pradopolis, Sales Oliveira e Serra Azul (2016); Santa Rita do Passa Quatro (2021).
+- Taxas ISS principal/receita corrente por exercicio e evolucao 2015-2025 documentadas, sem confundir principal com ISS total, nem participacao historica com ganho/perda de IBS. ISS total e regras distributivas permanecem pendentes.
+- Proximo: Lote 58 - leitura juridica das regras transitórias IBS e sua incidencia condicional, para orientar atualizacao das SWOT. Gate E7 ainda em QA; nenhuma projetacao de efeito liquido.

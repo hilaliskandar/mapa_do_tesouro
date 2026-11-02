@@ -815,3 +815,7 @@ Recuperada no anexo I-C original 2025 a conta sintetica RO2.0.0.0, coluna Receit
 - Documento de trabalho persistido: [RECOMENDACOES_TERRITORIALIZADAS_LOTE44](editorial/rmrp/RECOMENDACOES_TERRITORIALIZADAS_LOTE44.md), commit `83e5b9819ba468c05a4955fa1c0e3090fc34c73d`, com 34 casos municipais e sintese sub-regional.
 - Utilizados exclusivamente Lotes 12, 13, 31, 42 e 43. Encaminhamentos diferenciados conforme tributacao/receita, FPM/receita, investimento/receita, despesa corrente/receita e variacao real per capita 2023-2025. Nao houve extracao ou pesquisa externa.
 - Estado: recomendacoes analiticas preliminares e condicionais, nao propostas normativas homologadas. Projetos e instrumentos de financiamento nao foram imputados. Indicadores legais com ausencias e Pontal sob controle. Proximo: revisao de singularidade dos 34 textos, associacao de instrumentos efetivamente documentados e integracao editorial E8.
+
+
+### RMRP Lote 45 - revisao municipal (02/11/2026)
+Documento: [Revisao interpretativa de 34 municipios](editorial/rmrp/REVISAO_INTERPRETATIVA_34_MUNICIPIOS_LOTE45.md), commit 2579b29. Dados internos Lotes 12, 28 e 31, sem novas extracoes. Os 34 perfis combinam tributacao, FPM, gastos correntes e trajetorias reais de receitas e investimentos. Texto para revisao qualitativa, sem homologacao. Proximo: consolidacao sub-regional e montagem do Volume II.

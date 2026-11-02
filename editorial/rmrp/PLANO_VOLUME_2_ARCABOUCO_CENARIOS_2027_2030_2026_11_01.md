@@ -362,3 +362,10 @@ Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_M
 
 ### Correcao de pendencia cartografica — 02/11/2026
 A geometria da RMRP ja foi empregada no Volume I: inventario `editorial/rmrp/INVENTARIO_16_MAPAS_2026_10_28.md` comprova 16 mapas tematicos e integracao em copia de trabalho no Google Docs (ID 19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI; 16 imagens e 51 tabelas; 74 paginas na prova). Matriz cartografica de origem: PDF Drive ID 10vbnQ_eBNsSmpWekFrrgJyeyTeNlm3YN. Portanto nao solicitar novamente a geometria nem declarar inexistencia de mapas. Pendencia atual: localizar o arquivo vetorial original na cadeia de producao, confirmar CRS/chaves/validade e reutilizar ou extrair elementos cartograficos do Volume I com QA de legenda e pertinencia para o Volume II. A disponibilidade dos mapas raster NAO comprova acesso ao arquivo vetorial em si. Preservar o documento cartografico original e evitar reprocessamento desnecessario.
+
+
+### Lote 64 — reuso da cartografia preexistente (02/11/2026)
+- Matriz original de 16 mapas do Volume I localizada no Drive (PDF ID 10vbnQ_eBNsSmpWekFrrgJyeyTeNlm3YN); caderno Google Docs de 16 indicadores (ID 19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI) conferido por metadados e leitura textual.
+- Inventario com destinacao editorial: `editorial/rmrp/REUSO_CARTOGRAFICO_VOLUME_I_VOLUME_II_LOTE64.md` (commit 3cd813f97bbfa393361eb248447c3706ef199231).
+- Manuscrito com referencias cartograficas nos capitulos relevantes: `editorial/rmrp/VOLUME_II_RMRP_REFERENCIAS_CARTOGRAFICAS_LOTE64B.md` (commit c0bc2d8ce6f5d88b4873d3d3e6a357e818052dc6).
+- Nao exigir novamente arquivo geométrico do usuario: mapas ja existem. Pendente localizar arquivo vetorial original e QA dos recortes individuais/legendas; referencias externas no Markdown ainda nao sao raster embutido. Evitar mapa tematico ficticio. Mapa 15 do Volume I tem classe que cruza zero.

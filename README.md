@@ -843,3 +843,9 @@ Documento: [Revisao interpretativa de 34 municipios](editorial/rmrp/REVISAO_INTE
 - Capitulo: [Cenarios condicionais 2027-2030](editorial/rmrp/CENARIOS_CONDICIONAIS_2027_2030_LOTE49.md), commit e7e022314ae7636bc7d5f3feda75b8ecfabbc550.
 - Integrados Lotes 33, 35, 46 e 48: tres cenarios nao probabilisticos, unidade municipal 34 x 4 anos x 3 cenarios (408 chaves), 60 chaves agregadas. Sem projecoes monetarias ou parametros arbitrarios.
 - QA original da grade do Lote 35 documentado, mas persistencia externa dos CSV, XLSX e script permanece nao comprovada. Nenhuma nova extracao. Proximo: Lote 50 montar Volume II com capitulos, quadros, graficos e mapas nas secoes pertinentes; verificar arquivos antes de afirmar pacote final pronto.
+
+
+### RMRP Lote 50 - manuscrito integral do Volume II (02/11/2026)
+- [Manuscrito integrado Volume II](editorial/rmrp/VOLUME_II_RMRP_MANUSCRITO_INTEGRADO_LOTE50.md), commit `c85d24b5d05cff0984b63814bcd8c6ce0dc641bb`, com quatro partes: diagnostico e desigualdades (Lote 46), SWOT 39 recortes (47), arcabouco fiscal e reforma tributaria (48), cenarios condicionais 2027-2030 (49).
+- Montagem editorial real de 100229 caracteres com resumo executivo, roteiro de figuras e mapas nos capitulos e lista de QA. Sem nova coleta fiscal. Os graficos, mapas e a paginacao final ainda NAO foram produzidos e conferidos; nao declarar documento publicado ou homologado.
+- Proximo Lote 51: auditoria de coerencia, repeticao, citacoes normativas e qualidade grafo-cartografica, verificacao dos binarios do Lote 35 e montagem da versao revisada para exame externo.

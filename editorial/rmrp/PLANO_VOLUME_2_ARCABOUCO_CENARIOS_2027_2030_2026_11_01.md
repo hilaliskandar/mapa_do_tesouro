@@ -339,3 +339,9 @@ Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_M
 - Lote 59: `editorial/rmrp/ISS_ICMS_REFERENCIA_SWOT_LOTE59.md` (34 municipios, 238 registros 2019-2025; uma lacuna em Santa Rita do Passa Quatro 2021; nao equivale a receita media legal nem estima ganhos/perdas).
 - Lote 60A: `editorial/rmrp/VOLUME_II_RMRP_COMPLEMENTO_IBS_LOTE60A.md` (manuscrito integrado com complemento das SWOT).
 - Pendencias: ISS total/acessorios, ano 2026, correcao nominal e parametros IBS, carteira de obras, homologacao fiscal e figuras. Nao foram realizadas novas extracoes DCA.
+
+
+### RMRP Lotes 61A e 61B - integracao das SWOT (02/11/2026)
+- [39 recortes, com 34 fichas municipais consolidadas](SWOT_CONSOLIDADAS_ISS_ICMS_LOTE61A.md), commit e53817fabf3d793be3223329a19f43c828bfc789. Fatores fiscais anteriores preservados e ISS principal e ICMS creditado em 2025 incorporados com ressalvas legais.
+- [Manuscrito sem duplicacao da Parte II](VOLUME_II_RMRP_SWOT_INTEGRADAS_LOTE61B.md), commit 859ef10c944899b3d334cd3eec199ea286403d55. Substitui lote 60A na leitura editorial; documentos anteriores preservados.
+- QA: 34/34 municipios pareados. Efeito liquido do IBS indeterminado. ISS total/acessorios, 2026, coeficientes oficiais, financiamentos por instrumento, revisao editorial e graficos/mapas continuam pendentes. Nenhuma nova extracao DCA.

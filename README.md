@@ -772,3 +772,7 @@ Documento: [GRADE_CENARIOS_LOTE35](editorial/rmrp/GRADE_CENARIOS_LOTE35.md), com
 
 ### RMRP Lote 36 (01/11/2026)
 Auditoria de RGF/RREO, caixa e capital: [relatorio](editorial/rmrp/COBERTURA_RGF_CAPITAL_LOTE36.md). RCL/DTP/caixa 26/34, oito ausentes, doze caixas negativos no snapshot, Pontal em quarentena. Transferencias de capital DCA 33/34, Santa Cruz da Esperanca ausente. Sem imputar zeros ou inferir ilegalidade. Plano de Volume II atualizado.
+
+
+### Lote 37 — pre-inventario da carteira de investimentos (01/11/2026)
+Persistido [PRE_INVENTARIO_CARTEIRA_LOTE37](editorial/rmrp/PRE_INVENTARIO_CARTEIRA_LOTE37.md), commit ca3417a9. DCA 2025: investimentos liquidados 34/34, transferencias de capital 33/34 (ausencia Santa Cruz da Esperanca). Matriz por municipio distingue fluxo de receita, despesa e carteira identificada; **nenhum projeto individual comprovado** na base contábil consultada. Notas Drive de auditoria de receita de capital total lidas; total nao corresponde a soma incompleta de transferencias, alienacoes e operacoes de credito. Proximo: recuperar DCA I-C/crosswalk e localizar instrumentos por identificadores oficiais. Sem fonte externa nova; sem projeção numerica.

@@ -261,3 +261,9 @@ Recuperada no anexo I-C original 2025 a conta sintetica RO2.0.0.0, coluna Receit
 - Auditoria persistida: [QUALIFICACAO_EVIDENCIAS_EXTERNAS_SWOT_LOTE43](editorial/rmrp/QUALIFICACAO_EVIDENCIAS_EXTERNAS_SWOT_LOTE43.md), commit `8d471a80d5ef0e5bc97ee0e0d422f09be3094d43`.
 - O pré-inventário financeiro Lote 37 apresenta investimento para 34/34 municípios e transferências de capital para 33/34, mas não atribui instrumentos ou projetos individualizados. A pesquisa nos arquivos de governança e nos documentos fiscais examinados não demonstrou carteira de convênios/obras com IDs municipais; não interpretar como inexistência na plataforma completa.
 - Revisão dos quatro perfis sub-regionais e regra de evidências: oportunidades/ameaças externas sem documento individual permanecem não caracterizadas, nunca preenchidas com ações administrativas ou inferências causais; recomendações separadas. E7 ainda não homologado; E5 carteira pendente. Próximo: argumentos municipais próprios e integração às recomendações do Volume II. Sem nova extração fiscal.
+
+
+### RMRP Lote 44 — recomendacoes fiscais territorializadas (02/11/2026)
+- Documento de trabalho persistido: [RECOMENDACOES_TERRITORIALIZADAS_LOTE44](editorial/rmrp/RECOMENDACOES_TERRITORIALIZADAS_LOTE44.md), commit `83e5b9819ba468c05a4955fa1c0e3090fc34c73d`, com 34 casos municipais e sintese sub-regional.
+- Utilizados exclusivamente Lotes 12, 13, 31, 42 e 43. Encaminhamentos diferenciados conforme tributacao/receita, FPM/receita, investimento/receita, despesa corrente/receita e variacao real per capita 2023-2025. Nao houve extracao ou pesquisa externa.
+- Estado: recomendacoes analiticas preliminares e condicionais, nao propostas normativas homologadas. Projetos e instrumentos de financiamento nao foram imputados. Indicadores legais com ausencias e Pontal sob controle. Proximo: revisao de singularidade dos 34 textos, associacao de instrumentos efetivamente documentados e integracao editorial E8.

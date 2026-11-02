@@ -392,3 +392,7 @@ Manuscrito integral do Lote 64B com oito mapas recuperados do Volume I foi conve
 - Relatório de evidência `editorial/rmrp/INTEGRACAO_GRAFICA_VOLUME_II_LOTE69.md`, commit `a1abf785a8d192b9b3f510798b5ce06c56e87319`.
 - F1 é variação real 2015–2025 entre extremos, não série anual. F2–F4 refeitos sobre Lotes 12 e 31; F5–F6 são esquemas qualitativos.
 - Renderizados 56 PNG, conferidos panoramicamente; falta QA página a página em 100%, edição final, atualização de referências e homologação jurídico-fiscal. Sem projeção arbitrária de IBS.
+
+
+### Lote 70 — revisao editorial Volume II (02/11/2026)
+Produzidos DOCX e PDF da edicao Lote 70 (57 paginas), a partir do Lote 69, mantendo 45 tabelas, 14 figuras e 39 SWOT. Atualizados metadados e referencias editoriais, adicionadas conclusoes/recomendacoes finais. QA de renderizacao e panorama das 57 paginas, sem homologacao plena. Registro `editorial/rmrp/REVISAO_EDITORIAL_VOLUME_II_LOTE70.md`, commit a41d685e307eb059ceb4e1da23786aafcd523b8d. Tentativa de upload a Biblioteca falhou; binarios entregues nesta conversa, nao alegar persistencia externa. Necessaria revisao de pagina integral e jurimetrica.

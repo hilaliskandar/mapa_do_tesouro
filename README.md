@@ -893,3 +893,10 @@ Documento: [Revisao interpretativa de 34 municipios](editorial/rmrp/REVISAO_INTE
 - [39 recortes, com 34 fichas municipais consolidadas](editorial/rmrp/SWOT_CONSOLIDADAS_ISS_ICMS_LOTE61A.md), commit e53817fabf3d793be3223329a19f43c828bfc789. Fatores fiscais anteriores preservados e ISS principal e ICMS creditado em 2025 incorporados com ressalvas legais.
 - [Manuscrito sem duplicacao da Parte II](editorial/rmrp/VOLUME_II_RMRP_SWOT_INTEGRADAS_LOTE61B.md), commit 859ef10c944899b3d334cd3eec199ea286403d55. Substitui lote 60A na leitura editorial; documentos anteriores preservados.
 - QA: 34/34 municipios pareados. Efeito liquido do IBS indeterminado. ISS total/acessorios, 2026, coeficientes oficiais, financiamentos por instrumento, revisao editorial e graficos/mapas continuam pendentes. Nenhuma nova extracao DCA.
+
+
+### RMRP Lote 62 - auditoria e recomposicao SWOT agregadas (02/11/2026)
+- [Auditoria editorial e grafica](editorial/rmrp/AUDITORIA_EDITORIAL_GRAFICA_VOLUME_II_LOTE62.md), commit ead4fa4b1bf794430e0ebbafaaf928637eeca6d9: figuras F1-F6 e M1 nao incorporadas, roteiro ainda a produzir; persistem residuos editoriais e inconsistencias de versao.
+- [Cinco SWOT agregadas formais](editorial/rmrp/SWOT_AGREGADAS_RECONSTRUIDAS_LOTE62A.md), commit 416c8e4fbf440800ba5971dc7f418e1d47423681: quatro sub-regioes mais RMRP; integram os 34 municipios do Lote 61A (39 matrizes).
+- [Volume II revisto](editorial/rmrp/VOLUME_II_RMRP_SWOT_39_REVISADO_LOTE62B.md), commit a8a0dd71330a862c3abe0ed6c4bac6ed7df3ffdf: integracao das cinco matrizes e nota editorial corrigida. Documento em QA, nao homologado.
+- Proximo: verificar figuras previamente existentes no Drive; produzir e conferir F1-F6 com dados ja arquivados, e mapa apenas com geometria oficial validada. Substituir metadados restantes e revisar coerencia normativa, efeito IBS indeterminado e binarios de cenarios.

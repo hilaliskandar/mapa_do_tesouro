@@ -283,3 +283,9 @@ Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_M
 - Documento: [Integracao SWOT 39 territorios](INTEGRACAO_SWOT_39_TERRITORIOS_LOTE47.md), commit c13b8b21ae319934f85d92965114a125437e953a.
 - Cruzamento concluido entre os Lotes 42 e 45: 34 municipios presentes, quatro sub-regioes e um conjunto metropolitano. Elementos fiscais internos preservados; recomendacoes destacadas; oportunidades e ameacas externas sem documento nao homologadas.
 - Articulado com o capitulo Lote 46, sem novas extracoes. E7 segue pendente de homologacao qualitativa e demonstracao de eventos externos. Proximo: Lote 48, articulacao normativa do arcabouco federal e reforma tributaria, com revisao de fontes vigentes; em seguida cenarios Lote 49 e montagem editorial Lote 50.
+
+
+### RMRP Lote 48 - arcabouco fiscal e reforma tributaria (02/11/2026)
+- Capitulo normativo: [Arcabouco e reforma tributaria](ARCABOUCO_FISCAL_REFORMA_TRIBUTARIA_LOTE48.md), commit `44998c2a1be5e6254a5476f66a13ffb8d58b708f`.
+- Revisados os objetos juridicos da LC 200/2023, EC 132/2023, LC 214/2025 e LC 227/2026 em fontes oficiais. LC 200 incide diretamente sobre orcamentos da Uniao, sem teto automatico municipal; reforma tributaria requer transicao e parametros por ente antes de projetar impactos.
+- Lote 48 documentado como capitulo candidato, ainda sem exegese exaustiva de todos os dispositivos e sem ganhos/perdas municipais quantificados. Nenhuma extracao fiscal. Proximo Lote 49: cenarios 2027-2030 com mecanismos documentados, parametros ausentes sem zeros artificiais.

@@ -220,3 +220,7 @@ Especificacao versionada em [Lote 34](editorial/rmrp/DICIONARIO_E_CONTROLES_CENA
 
 ### Lote 35 — grade de cenarios materializada (01/11/2026)
 Documento: [GRADE_CENARIOS_LOTE35](editorial/rmrp/GRADE_CENARIOS_LOTE35.md), commit `df452bd`. Execucao real sobre fontes DCA/IPCA/cadastro arquivadas: 408 registros municipais, 60 agregados, 34/34 municipios em seis bases fiscais de 2025; QA de unicidade e conciliacao passou. Gerados arquivos locais CSV, XLSX, ZIP e script. Projecoes futuras permanecem nulas ate parametros auditados; nao anualizar 2026 parcial. Proximo gate: persistir arquivos derivados externamente e integrar RGF/RREO e carteira de investimentos.
+
+
+### Lote 36 — cobertura fiscal e transferencias de capital 2025 (01/11/2026)
+Documento permanente: [COBERTURA_RGF_CAPITAL_LOTE36](editorial/rmrp/COBERTURA_RGF_CAPITAL_LOTE36.md), commit 334d89b. No snapshot integrado RCL/DTP/DC/DCL/caixa estao presentes em 26/34 municipios; oito faltantes: Barrinha, Guariba, Nuporanga, Orlandia, Pitangueiras, Sales Oliveira, Taiuva e Taquaral. Caixa apos RPNP negativo em 12 de 26; escala legal nao homologada e Pontal permanece em quarentena. Transferencias de capital DCA 2025: cobertura 33/34, ausente Santa Cruz da Esperanca; totais nominais Sub-regiao de Ribeirao Preto R$72,30mi; Jaboticabal R$23,66mi; Mococa R$21,51mi parcial; Batatais R$15,23mi. Proximo: carteira de convenios e verificacao documental RGF/RREO, vedada inferencia automatica ou zero para ausentes.

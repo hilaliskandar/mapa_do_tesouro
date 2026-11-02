@@ -320,3 +320,9 @@ Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_M
 - [Manuscrito Volume II com SWOT corrigidas](VOLUME_II_RMRP_SWOT_CORRIGIDAS_LOTE54.md), commit 16c9f88129a2798ccf7fb015d537d271d5090cec. Substituida a Parte II da montagem anterior, preservando a versao do Lote 51B.
 - SWOT: condicionantes externos reformulados (IBS, distribuicao, programas federais), antigas forcas/fraquezas preservadas, estrategias com area responsavel sugerida, horizonte, produto e indicador. Nao se presumiu corte automatico do FPM ou causalidade da LC 200/2023. Sem nova extracao fiscal.
 - **Status E7:** revisao substantiva executada; ainda sem homologacao externa. Pendem ISS municipal conciliado, parametros distributivos IBS, instrumentos de investimento e QA juridico/editorial. Proximo: recuperar ISS na plataforma ja existente e revisar exposicoes municipalmente, sem repetir extracao DCA.
+
+
+### RMRP Lotes 55-56 — ISS municipal observado e SWOT IBS (02/11/2026)
+- Novo documento [SWOT ISS municipal Lote 55](editorial/rmrp/SWOT_ISS_MUNICIPAL_OBSERVADO_LOTE55.md), commit b3122c7c77725e06812ff6a59da02b753a75688f: 34 municipios cruzados por IBGE com o arquivo existente `FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx` no Drive (ID 12XfaN7ati-wGgw_a5puwechp7ipFdWRG). Medido ISS PRINCIPAL/receita corrente de 2025, sem confundir com ISS total, tributacao geral ou ganho/perda IBS. A exposicao liquida IBS segue INDETERMINADA.
+- [Volume II atualizado Lote 56](editorial/rmrp/VOLUME_II_RMRP_ISS_SWOT_LOTE56.md), commit caae7a6fb5d14d38cb66b5e86b80e01f7a2e6d9c; Parte II substituida pela analise de ISS observado, versoes anteriores preservadas.
+- Prioridades para homologacao: conciliar ISS total versus principal, historicidade ISS, mecanismos distributivos IBS, carteira de projetos e responsabilidades administrativas municipais. Nao houve nova extracao fiscal; a base consultada ja pertencia a plataforma.

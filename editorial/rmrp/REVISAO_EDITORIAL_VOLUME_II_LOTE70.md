@@ -1,0 +1,7 @@
+# Lote 70 — Revisão editorial da edição integrada do Volume II
+Data: 02/11/2026. Fonte: Lote 69, 56 páginas, com 45 tabelas, 14 elementos gráficos (8 mapas e 6 figuras).
+Foram produzidos DOCX e PDF Lote70 em ambiente de execução, preservando-se 45 tabelas e 14 imagens. A nova prova tem 57 páginas.
+Alterações circunscritas: correção da apresentação e do registro de estágio, substituição de referências anacrônicas a lotes futuros, atualização da descrição do aparato gráfico já incorporado e adição de seção final de conclusões e recomendações sobre investimento, transição tributária, cooperação sub-regional, gestão de cenários e limites de evidência. Texto e séries fiscais não foram recalculados.
+QA: renderização de 57 páginas; inspeção de panorama de todas as páginas; conferência de quatro partes, 45 tabelas, 14 imagens. Não corresponde a revisão integral em zoom 100% nem homologação jurídico-fiscal.
+O upload dos dois binários à Biblioteca nesta execução retornou falha, sem confirmação de persistência externa. Permanecem disponíveis como arquivos de conversa: `/mnt/data/RMRP_VOLUME_II_REVISAO_EDITORIAL_LOTE70.docx` e `/mnt/data/RMRP_VOLUME_II_REVISAO_EDITORIAL_LOTE70.pdf`. Não declarar que foram persistidos na Biblioteca.
+Pendências: inspeção detalhada das 57 páginas, revisão das SWOT individualizadas, confirmação de dispositivos legais atuais e parâmetros IBS, atualização de referências históricas remanescentes, validação de indicadores e legenda dos mapas.

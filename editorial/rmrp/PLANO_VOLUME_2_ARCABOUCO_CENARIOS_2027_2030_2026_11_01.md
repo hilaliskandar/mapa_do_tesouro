@@ -249,3 +249,9 @@ Recuperada no anexo I-C original 2025 a conta sintetica RO2.0.0.0, coluna Receit
 - Auditoria registrada em [AUDITORIA_SWOT_OBJETIVIDADE_ROBUSTEZ_LOTE41](editorial/rmrp/AUDITORIA_SWOT_OBJETIVIDADE_ROBUSTEZ_LOTE41.md), commit `fd9677eb3d8af2aa1e7eae6e952859719966a18e`. Persistencia do texto Lote 40 confirmada: 39 matrizes, 34 municipios distintos, README e plano atualizados.
 - Teste de repeticao: 34 oportunidades municipais em apenas quatro formulacoes (uma repetida 23 vezes); 34 ameacas em apenas tres (uma repetida 25 vezes). A diversidade numerica dos fatores internos nao demonstra argumentacao individual suficiente. Oportunidades confundem recomendacoes internas com fatores externos; ameacas confundem riscos internos com ameaças externas.
 - Parecer: estrutura descritiva aproveitavel, E7 ainda nao homologado; nao publicar como SWOT final. Proximo lote: reelaborar 39 matrizes com composicao tributaria/FPM e indicadores complementares ja arquivados, singularidade municipal e distincao rigorosa entre evidencias, riscos externos e recomendacoes; se fator externo nao documentado, explicitar ausencia. Nenhuma nova extracao externa ou alteracao do arquivo original.
+
+
+### RMRP Lote 42 — SWOT V2 (02/11/2026)
+- Documento persistido: [SWOT_RMRP_V2_EVIDENCIAS_FISCAIS_LOTE42](editorial/rmrp/SWOT_RMRP_V2_EVIDENCIAS_FISCAIS_LOTE42.md), commit `df6f4aeeb5766115b4449cb2282b43c10430c891`; 39 matrizes, 34 municipios.
+- Indicadores cruzados: tributacao/receita, FPM/receita, investimentos/receita, despesa corrente/receita e trajeto real per capita; dados preexistentes Lotes 12, 13 e 31. Nenhuma extracao nova.
+- SWOT nao homologada: fatores externos sem instrumento comprovado assinalados como nao caracterizados; recomendacoes administrativas separadas. Proxima etapa: investigacao das evidencias externas ja arquivadas e singularidade dos casos.

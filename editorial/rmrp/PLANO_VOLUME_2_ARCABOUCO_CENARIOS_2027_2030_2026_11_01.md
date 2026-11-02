@@ -271,3 +271,9 @@ Recuperada no anexo I-C original 2025 a conta sintetica RO2.0.0.0, coluna Receit
 
 ### RMRP Lote 45 - revisao municipal (02/11/2026)
 Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_MUNICIPIOS_LOTE45.md), commit 2579b29. Dados internos Lotes 12, 28 e 31, sem novas extracoes. Perfis combinam tributacao, FPM, gastos correntes e trajetorias reais. Texto para revisao qualitativa, sem homologacao. Proximo: consolidacao sub-regional e montagem do Volume II.
+
+
+### RMRP Lote 46 - consolidacao sub-regional e metropolitana (02/11/2026)
+- Capitulo integrado: [Desigualdades fiscais e capacidade de investimento](CAPITULO_DESIGUALDADES_FISCAIS_SUBREGIOES_LOTE46.md), commit `d98a7f71f944e4c82e85efdf6e3fbf451bfd7bb4`.
+- Bases arquivadas: Lotes 28, 31, 32 e 45 e analise sub-regional de 2025. Quatro sub-regioes e RMRP, distinguindo totais ponderados, medianas e trajetorias municipais. Sem nova extracao fiscal.
+- Resultado: redacao analitica candidata ao Volume II; mapa e graficos previstos nas secoes pertinentes, ainda nao produzidos neste lote. Alertas RGF/RREO e Pontal preservados. Proximo passo: Lote 47, integracao SWOT com argumentos territoriais, sem presumir eventos externos sem prova.

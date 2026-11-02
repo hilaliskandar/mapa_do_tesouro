@@ -925,3 +925,7 @@ Os 16 PNG do Volume I foram depositados em ZIP na Biblioteca `/RMRP/Volume_II/RM
 
 ### Lote 67 — Caderno cartografico paginado (02/11/2026)
 Criado PDF A4 de 9 paginas: `RMRP_VOLUME_II_CADERNO_CARTOGRAFICO_LOTE67.pdf`, oito mapas do Volume I em paginas proprias, titulo, fonte e notas metodologicas. SHA-256 e3c03b68ec4daa76b4972ffe71c2a343e17ff92a08f5306078f096fe96003f0a. Persistido na Biblioteca `/RMRP/Volume_II/RMRP_VOLUME_II_CADERNO_CARTOGRAFICO_LOTE67.pdf` (libfile_6ab5d5e76df0819188f5db26780556d4). PDFInfo confirma 9 paginas; QA visual executado sobre M15. Registro `editorial/rmrp/PROVA_PAGINADA_CARTOGRAFIA_LOTE67.md` (41927837b027e5a1923b06ffb03c2ae069c9b277). Ainda NAO e o Volume II integral nem layout homologado; faltam combinar manuscrito integral e figuras F1, F5, F6, revisar todas as paginas e dados normativos.
+
+
+### Lote 68 — primeira edicao integrada texto e mapas (02/11/2026)
+Manuscrito integral do Lote 64B com oito mapas recuperados do Volume I foi convertido em DOCX editavel e PDF de 54 paginas, com 45 tabelas. Binarios persistidos na Biblioteca em `/RMRP/Volume_II/RMRP_VOLUME_II_INTEGRADO_TEXTO_MAPAS_LOTE68.docx` e `.pdf`. Registro de evidencias: `editorial/rmrp/INTEGRACAO_VOLUME_II_TEXTOS_MAPAS_LOTE68.md` (commit 9f071c5dea9a2d31f5ef05588d36575c6613f69d). QA: render completo e inspecao da pagina 8; sem revisao visual de todas as paginas. F2, F3 e F4 estao no texto como referencias SVG, nao imagens embutidas; F1, F5 e F6 pendentes. Nao homologar.

@@ -332,3 +332,10 @@ Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_M
 - [Serie municipal ISS principal](SERIE_ISS_PRINCIPAL_2015_2025_LOTE57.md), commit 498e75c3c5657cabb12e89b336eb753c8566abb8. A base DCA 645 municipios 2013-2025 ja arquivada no Drive foi lida, sem reextracao. Recorte RMRP 34 x 11 = 374 chaves, 369 observacoes com indicador valido. Cinco lacunas: Brodowski, Pradopolis, Sales Oliveira e Serra Azul (2016); Santa Rita do Passa Quatro (2021).
 - Taxas ISS principal/receita corrente por exercicio e evolucao 2015-2025 documentadas, sem confundir principal com ISS total, nem participacao historica com ganho/perda de IBS. ISS total e regras distributivas permanecem pendentes.
 - Proximo: Lote 58 - leitura juridica das regras transitórias IBS e sua incidencia condicional, para orientar atualizacao das SWOT. Gate E7 ainda em QA; nenhuma projetacao de efeito liquido.
+
+
+### RMRP continuidade Lotes 58-59-60A (02/11/2026)
+- Lote 58: `editorial/rmrp/MATRIZ_LEGAL_TRANSICAO_DISTRIBUICAO_IBS_LOTE58.md` (mecanismo legal ISS + ICMS 2019-2026 e coeficientes CGIBS).
+- Lote 59: `editorial/rmrp/ISS_ICMS_REFERENCIA_SWOT_LOTE59.md` (34 municipios, 238 registros 2019-2025; uma lacuna em Santa Rita do Passa Quatro 2021; nao equivale a receita media legal nem estima ganhos/perdas).
+- Lote 60A: `editorial/rmrp/VOLUME_II_RMRP_COMPLEMENTO_IBS_LOTE60A.md` (manuscrito integrado com complemento das SWOT).
+- Pendencias: ISS total/acessorios, ano 2026, correcao nominal e parametros IBS, carteira de obras, homologacao fiscal e figuras. Nao foram realizadas novas extracoes DCA.

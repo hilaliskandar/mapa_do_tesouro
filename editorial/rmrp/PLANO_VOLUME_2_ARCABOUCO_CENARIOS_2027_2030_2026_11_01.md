@@ -236,3 +236,10 @@ Fonte nova recuperada no acervo Drive: `RMRP_RECEITA_CAPITAL_BRUTA_IC_2015_2019.
 
 ### Lote 39 — receitas de capital DCA I-C (01/11/2026)
 Recuperada no anexo I-C original 2025 a conta sintetica RO2.0.0.0, coluna Receitas Brutas Realizadas, para 34/34 municipios RMRP, total nominal R$ 327.942.785,14. Sub-regiao de Ribeirao Preto R$ 233.092.440,70; Sub-regiao de Jaboticabal R$ 32.712.302,23; Sub-regiao de Mococa R$ 36.523.843,09; Sub-regiao de Batatais R$ 25.614.199,12. Identificados no inventario Drive anexos I-C de 2020–2024, ainda nao extraidos no lote. Documento: [RECEITA_CAPITAL_IC_2025_LOTE39](editorial/rmrp/RECEITA_CAPITAL_IC_2025_LOTE39.md), commit 33bfb24. Valor bruto nao e receita liquida nem disponibilidade de caixa; proximo: extrair 2020–2024, auditar rubrica e reconciliar 2015–2025.
+
+
+### RMRP Lote 40 — SWOT territoriais preliminares (02/11/2026)
+- Entrega: [39 matrizes SWOT fiscais preliminares](editorial/rmrp/SWOT_PRELIMINARES_39_TERRITORIOS_LOTE40.md), com 34 municipios, quatro sub-regioes e RMRP, commit `27f8042437e80e5fe0aa82145f8b65d1e314d2c3`.
+- Fontes: matrizes DCA e series reais ja arquivadas, sobretudo Lotes 26, 29, 31–33. Nenhuma extracao de FINBRA/Siconfi e nenhuma pesquisa externa. Dados reais referidos a setembro/2026; per capita segundo denominadores do mesmo ano.
+- Resultado: E7 iniciado, 39 quadros preliminares sem homologacao. Forcas e fragilidades usam indicadores observados; oportunidades e ameacas sao condicionais, sem atribuir efeitos municipais automaticos a LC 200/2023. Preservados nulos, limites da cobertura RGF/RREO e anomalias de Pontal.
+- Proximo gate: revisao critica individual dos 34 perfis com indicadores de tributacao/FPM e dimensoes qualitativas; evitar argumentos mecanicos; incorporar tabelas, mapas e graficos nas secoes proprias do Volume II. Nao bloquear o desenvolvimento pelo agregado de receitas de capital ainda nao identificado como variavel no catalogo editorial da plataforma; conferir sua presenca no SQLite antes de falar em lacuna da base.

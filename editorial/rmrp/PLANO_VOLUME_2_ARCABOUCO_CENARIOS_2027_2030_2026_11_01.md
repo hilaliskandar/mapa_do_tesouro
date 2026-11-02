@@ -228,3 +228,7 @@ Documento permanente: [COBERTURA_RGF_CAPITAL_LOTE36](editorial/rmrp/COBERTURA_RG
 
 ### Lote 37 — pre-inventario da carteira de investimentos (01/11/2026)
 Persistido [PRE_INVENTARIO_CARTEIRA_LOTE37](editorial/rmrp/PRE_INVENTARIO_CARTEIRA_LOTE37.md), commit ca3417a9. DCA 2025: investimentos liquidados 34/34, transferencias de capital 33/34 (ausencia Santa Cruz da Esperanca). Matriz por municipio distingue fluxo de receita, despesa e carteira identificada; **nenhum projeto individual comprovado** na base contábil consultada. Notas Drive de auditoria de receita de capital total lidas; total nao corresponde a soma incompleta de transferencias, alienacoes e operacoes de credito. Proximo: recuperar DCA I-C/crosswalk e localizar instrumentos por identificadores oficiais. Sem fonte externa nova; sem projeção numerica.
+
+
+### Lote 38 — receitas de capital brutas DCA I-C (01/11/2026)
+Fonte nova recuperada no acervo Drive: `RMRP_RECEITA_CAPITAL_BRUTA_IC_2015_2019.xlsx` (ID `1ZddPo59osLV8L7J1pXJsgnmw2GJP_G5x`), conta RO2.0.0.0 e estágio Receitas Brutas Realizadas. Cobertura de 167/170 observacoes (2015–2019); ausencias Cássia dos Coqueiros 2015, Cajuru 2017, Santa Cruz da Esperança 2017. Metodologia e limite em [Lote 38](editorial/rmrp/RECEITA_CAPITAL_BRUTA_2015_2019_LOTE38.md), commit 1d8f577. Ainda sem homologação contábil e sem série 2020–2025 neste arquivo. Próximo: procurar I-C 2020–2025 e instrumentos individualizados. Não usar ausências como zero nem inferir financiamento de investimento.

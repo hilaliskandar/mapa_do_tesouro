@@ -780,3 +780,7 @@ Persistido [PRE_INVENTARIO_CARTEIRA_LOTE37](editorial/rmrp/PRE_INVENTARIO_CARTEI
 
 ### Lote 38 — receitas de capital brutas DCA I-C (01/11/2026)
 Fonte nova recuperada no acervo Drive: `RMRP_RECEITA_CAPITAL_BRUTA_IC_2015_2019.xlsx` (ID `1ZddPo59osLV8L7J1pXJsgnmw2GJP_G5x`), conta RO2.0.0.0 e estágio Receitas Brutas Realizadas. Cobertura de 167/170 observacoes (2015–2019); ausencias Cássia dos Coqueiros 2015, Cajuru 2017, Santa Cruz da Esperança 2017. Metodologia e limite em [Lote 38](editorial/rmrp/RECEITA_CAPITAL_BRUTA_2015_2019_LOTE38.md), commit 1d8f577. Ainda sem homologação contábil e sem série 2020–2025 neste arquivo. Próximo: procurar I-C 2020–2025 e instrumentos individualizados. Não usar ausências como zero nem inferir financiamento de investimento.
+
+
+### Lote 39 — receitas de capital DCA I-C (01/11/2026)
+Recuperada no anexo I-C original 2025 a conta sintetica RO2.0.0.0, coluna Receitas Brutas Realizadas, para 34/34 municipios RMRP, total nominal R$ 327.942.785,14. Sub-regiao de Ribeirao Preto R$ 233.092.440,70; Sub-regiao de Jaboticabal R$ 32.712.302,23; Sub-regiao de Mococa R$ 36.523.843,09; Sub-regiao de Batatais R$ 25.614.199,12. Identificados no inventario Drive anexos I-C de 2020–2024, ainda nao extraidos no lote. Documento: [RECEITA_CAPITAL_IC_2025_LOTE39](editorial/rmrp/RECEITA_CAPITAL_IC_2025_LOTE39.md), commit 33bfb24. Valor bruto nao e receita liquida nem disponibilidade de caixa; proximo: extrair 2020–2024, auditar rubrica e reconciliar 2015–2025.

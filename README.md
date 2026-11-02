@@ -913,3 +913,7 @@ Documento: [Revisao interpretativa de 34 municipios](editorial/rmrp/REVISAO_INTE
 - Inventario com destinacao editorial: `editorial/rmrp/REUSO_CARTOGRAFICO_VOLUME_I_VOLUME_II_LOTE64.md` (commit 3cd813f97bbfa393361eb248447c3706ef199231).
 - Manuscrito com referencias cartograficas nos capitulos relevantes: `editorial/rmrp/VOLUME_II_RMRP_REFERENCIAS_CARTOGRAFICAS_LOTE64B.md` (commit c0bc2d8ce6f5d88b4873d3d3e6a357e818052dc6).
 - Nao exigir novamente arquivo geométrico do usuario: mapas ja existem. Pendente localizar arquivo vetorial original e QA dos recortes individuais/legendas; referencias externas no Markdown ainda nao sao raster embutido. Evitar mapa tematico ficticio. Mapa 15 do Volume I tem classe que cruza zero.
+
+
+### Lote 65 (02/11/2026) — 16 imagens cartograficas efetivamente recuperadas
+Fonte original PDF Drive ID 10vbnQ_eBNsSmpWekFrrgJyeyTeNlm3YN, quatro mosaicos 3000x2500 pixels em paginas 2/3/6/7. Extraidos os 16 paineis PNG em 1500x1180 pixels, com legendas de cinco classes preservadas e faixa superior de titulos de mosaico removida. Pacote ZIP local da conversa: `RMRP_16_MAPAS_VOLUME_I_RECUPERADOS_LOTE65.zip`, com manifesto e SHA-256. Documento de evidencia: `editorial/rmrp/EXTRACAO_CARTOGRAFICA_VOLUME_I_LOTE65.md` (commit 7cf795d857771be54b79122a4a173cc8d18b974f). Ainda falta transferir PNGs ao armazenamento permanente e testar a diagramacao de cada mapa no Volume II; o PDF original e Google Docs Volume I permanecem intactos. Mapa 15 exige ressalva sobre classe cruzando zero. Nao alegar recuperacao de geometria vetorial.

@@ -803,3 +803,9 @@ Recuperada no anexo I-C original 2025 a conta sintetica RO2.0.0.0, coluna Receit
 - Documento persistido: [SWOT_RMRP_V2_EVIDENCIAS_FISCAIS_LOTE42](editorial/rmrp/SWOT_RMRP_V2_EVIDENCIAS_FISCAIS_LOTE42.md), commit `df6f4aeeb5766115b4449cb2282b43c10430c891`; 39 matrizes, 34 municipios.
 - Indicadores cruzados: tributacao/receita, FPM/receita, investimentos/receita, despesa corrente/receita e trajeto real per capita; dados preexistentes Lotes 12, 13 e 31. Nenhuma extracao nova.
 - SWOT nao homologada: fatores externos sem instrumento comprovado assinalados como nao caracterizados; recomendacoes administrativas separadas. Proxima etapa: investigacao das evidencias externas ja arquivadas e singularidade dos casos.
+
+
+### RMRP Lote 43 — qualificação das evidências externas SWOT (02/11/2026)
+- Auditoria persistida: [QUALIFICACAO_EVIDENCIAS_EXTERNAS_SWOT_LOTE43](editorial/rmrp/QUALIFICACAO_EVIDENCIAS_EXTERNAS_SWOT_LOTE43.md), commit `8d471a80d5ef0e5bc97ee0e0d422f09be3094d43`.
+- O pré-inventário financeiro Lote 37 apresenta investimento para 34/34 municípios e transferências de capital para 33/34, mas não atribui instrumentos ou projetos individualizados. A pesquisa nos arquivos de governança e nos documentos fiscais examinados não demonstrou carteira de convênios/obras com IDs municipais; não interpretar como inexistência na plataforma completa.
+- Revisão dos quatro perfis sub-regionais e regra de evidências: oportunidades/ameaças externas sem documento individual permanecem não caracterizadas, nunca preenchidas com ações administrativas ou inferências causais; recomendações separadas. E7 ainda não homologado; E5 carteira pendente. Próximo: argumentos municipais próprios e integração às recomendações do Volume II. Sem nova extração fiscal.

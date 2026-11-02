@@ -352,3 +352,9 @@ Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_M
 - [Cinco SWOT agregadas formais](SWOT_AGREGADAS_RECONSTRUIDAS_LOTE62A.md), commit 416c8e4fbf440800ba5971dc7f418e1d47423681: quatro sub-regioes mais RMRP; integram os 34 municipios do Lote 61A (39 matrizes).
 - [Volume II revisto](VOLUME_II_RMRP_SWOT_39_REVISADO_LOTE62B.md), commit a8a0dd71330a862c3abe0ed6c4bac6ed7df3ffdf: integracao das cinco matrizes e nota editorial corrigida. Documento em QA, nao homologado.
 - Proximo: verificar figuras previamente existentes no Drive; produzir e conferir F1-F6 com dados ja arquivados, e mapa apenas com geometria oficial validada. Substituir metadados restantes e revisar coerencia normativa, efeito IBS indeterminado e binarios de cenarios.
+
+
+### RMRP Lote 63 — figuras fiscais inseridas (02/11/2026)
+- Três SVG produzidos a partir de indicadores municipais dos Lotes 12 e 31, sem nova extração DCA: `editorial/rmrp/figuras/F2_COMPOSICAO_FISCAL_2025_LOTE63.svg`, `editorial/rmrp/figuras/F3_DISPERSAO_TRIBUTACAO_FPM_2025_LOTE63.svg` (34 municípios), `editorial/rmrp/figuras/F4_INVESTIMENTO_REAL_2023_2025_LOTE63.svg` (oito municípios selecionados, valores reais set./2026).
+- Manuscrito atualizado: `editorial/rmrp/VOLUME_II_RMRP_COM_FIGURAS_FISCAIS_LOTE63.md`; imagens vinculadas diretamente nas seções de composição e de investimentos da Parte I. Arquivos SVG e links conferidos por leitura do repositório; QA visual de renderização ainda pendente.
+- Próximos: F1 série real sub-regional; F5 fluxo jurídico e F6 cenários; M1 apenas com geometria oficial validada. Nenhuma edição homologada.

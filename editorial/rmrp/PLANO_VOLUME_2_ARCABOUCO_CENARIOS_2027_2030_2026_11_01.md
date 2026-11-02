@@ -385,3 +385,10 @@ Criado PDF A4 de 9 paginas: `RMRP_VOLUME_II_CADERNO_CARTOGRAFICO_LOTE67.pdf`, oi
 
 ### Lote 68 — primeira edicao integrada texto e mapas (02/11/2026)
 Manuscrito integral do Lote 64B com oito mapas recuperados do Volume I foi convertido em DOCX editavel e PDF de 54 paginas, com 45 tabelas. Binarios persistidos na Biblioteca em `/RMRP/Volume_II/RMRP_VOLUME_II_INTEGRADO_TEXTO_MAPAS_LOTE68.docx` e `.pdf`. Registro de evidencias: `editorial/rmrp/INTEGRACAO_VOLUME_II_TEXTOS_MAPAS_LOTE68.md` (commit 9f071c5dea9a2d31f5ef05588d36575c6613f69d). QA: render completo e inspecao da pagina 8; sem revisao visual de todas as paginas. F2, F3 e F4 estao no texto como referencias SVG, nao imagens embutidas; F1, F5 e F6 pendentes. Nao homologar.
+
+
+### Lote 69 (02/11/2026) — Volume II com gráficos e mapas integrados
+- Gerados DOCX e PDF, 56 páginas, 45 tabelas e 14 figuras (8 mapas + F1–F6), preservados na Biblioteca `/RMRP/Volume_II/RMRP_VOLUME_II_INTEGRADO_GRAFICOS_MAPAS_LOTE69.{docx,pdf}`.
+- Relatório de evidência `editorial/rmrp/INTEGRACAO_GRAFICA_VOLUME_II_LOTE69.md`, commit `a1abf785a8d192b9b3f510798b5ce06c56e87319`.
+- F1 é variação real 2015–2025 entre extremos, não série anual. F2–F4 refeitos sobre Lotes 12 e 31; F5–F6 são esquemas qualitativos.
+- Renderizados 56 PNG, conferidos panoramicamente; falta QA página a página em 100%, edição final, atualização de referências e homologação jurídico-fiscal. Sem projeção arbitrária de IBS.

@@ -289,3 +289,9 @@ Documento: [Revisao interpretativa de 34 municipios](REVISAO_INTERPRETATIVA_34_M
 - Capitulo normativo: [Arcabouco e reforma tributaria](ARCABOUCO_FISCAL_REFORMA_TRIBUTARIA_LOTE48.md), commit `44998c2a1be5e6254a5476f66a13ffb8d58b708f`.
 - Revisados os objetos juridicos da LC 200/2023, EC 132/2023, LC 214/2025 e LC 227/2026 em fontes oficiais. LC 200 incide diretamente sobre orcamentos da Uniao, sem teto automatico municipal; reforma tributaria requer transicao e parametros por ente antes de projetar impactos.
 - Lote 48 documentado como capitulo candidato, ainda sem exegese exaustiva de todos os dispositivos e sem ganhos/perdas municipais quantificados. Nenhuma extracao fiscal. Proximo Lote 49: cenarios 2027-2030 com mecanismos documentados, parametros ausentes sem zeros artificiais.
+
+
+### RMRP Lote 49 - cenarios condicionais 2027-2030 (02/11/2026)
+- Capitulo: [Cenarios condicionais 2027-2030](CENARIOS_CONDICIONAIS_2027_2030_LOTE49.md), commit e7e022314ae7636bc7d5f3feda75b8ecfabbc550.
+- Integrados Lotes 33, 35, 46 e 48: tres cenarios nao probabilisticos, unidade municipal 34 x 4 anos x 3 cenarios (408 chaves), 60 chaves agregadas. Sem projecoes monetarias ou parametros arbitrarios.
+- QA original da grade do Lote 35 documentado, mas persistencia externa dos CSV, XLSX e script permanece nao comprovada. Nenhuma nova extracao. Proximo: Lote 50 montar Volume II com capitulos, quadros, graficos e mapas nas secoes pertinentes; verificar arquivos antes de afirmar pacote final pronto.

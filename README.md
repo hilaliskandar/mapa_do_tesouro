@@ -825,3 +825,9 @@ Documento: [Revisao interpretativa de 34 municipios](editorial/rmrp/REVISAO_INTE
 - Capitulo integrado: [Desigualdades fiscais e capacidade de investimento](editorial/rmrp/CAPITULO_DESIGUALDADES_FISCAIS_SUBREGIOES_LOTE46.md), commit `d98a7f71f944e4c82e85efdf6e3fbf451bfd7bb4`.
 - Bases arquivadas: Lotes 28, 31, 32 e 45 e analise sub-regional de 2025. Quatro sub-regioes e RMRP, distinguindo totais ponderados, medianas e trajetorias municipais. Sem nova extracao fiscal.
 - Resultado: redacao analitica candidata ao Volume II; mapa e graficos previstos nas secoes pertinentes, ainda nao produzidos neste lote. Alertas RGF/RREO e Pontal preservados. Proximo passo: Lote 47, integracao SWOT com argumentos territoriais, sem presumir eventos externos sem prova.
+
+
+### RMRP Lote 47 - integracao editorial de 39 matrizes SWOT (02/11/2026)
+- Documento: [Integracao SWOT 39 territorios](editorial/rmrp/INTEGRACAO_SWOT_39_TERRITORIOS_LOTE47.md), commit c13b8b21ae319934f85d92965114a125437e953a.
+- Cruzamento concluido entre os Lotes 42 e 45: 34 municipios presentes, quatro sub-regioes e um conjunto metropolitano. Elementos fiscais internos preservados; recomendacoes destacadas; oportunidades e ameacas externas sem documento nao homologadas.
+- Articulado com o capitulo Lote 46, sem novas extracoes. E7 segue pendente de homologacao qualitativa e demonstracao de eventos externos. Proximo: Lote 48, articulacao normativa do arcabouco federal e reforma tributaria, com revisao de fontes vigentes; em seguida cenarios Lote 49 e montagem editorial Lote 50.

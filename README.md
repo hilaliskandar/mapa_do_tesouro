@@ -906,3 +906,10 @@ Documento: [Revisao interpretativa de 34 municipios](editorial/rmrp/REVISAO_INTE
 - Três SVG produzidos a partir de indicadores municipais dos Lotes 12 e 31, sem nova extração DCA: `editorial/rmrp/figuras/F2_COMPOSICAO_FISCAL_2025_LOTE63.svg`, `editorial/rmrp/figuras/F3_DISPERSAO_TRIBUTACAO_FPM_2025_LOTE63.svg` (34 municípios), `editorial/rmrp/figuras/F4_INVESTIMENTO_REAL_2023_2025_LOTE63.svg` (oito municípios selecionados, valores reais set./2026).
 - Manuscrito atualizado: `editorial/rmrp/VOLUME_II_RMRP_COM_FIGURAS_FISCAIS_LOTE63.md`; imagens vinculadas diretamente nas seções de composição e de investimentos da Parte I. Arquivos SVG e links conferidos por leitura do repositório; QA visual de renderização ainda pendente.
 - Próximos: F1 série real sub-regional; F5 fluxo jurídico e F6 cenários; M1 apenas com geometria oficial validada. Nenhuma edição homologada.
+
+
+### Lote 64 — reuso da cartografia preexistente (02/11/2026)
+- Matriz original de 16 mapas do Volume I localizada no Drive (PDF ID 10vbnQ_eBNsSmpWekFrrgJyeyTeNlm3YN); caderno Google Docs de 16 indicadores (ID 19qwSxQuy_1N4XEPqfpWgJrNB371WxiJwLfQad6oaIsI) conferido por metadados e leitura textual.
+- Inventario com destinacao editorial: `editorial/rmrp/REUSO_CARTOGRAFICO_VOLUME_I_VOLUME_II_LOTE64.md` (commit 3cd813f97bbfa393361eb248447c3706ef199231).
+- Manuscrito com referencias cartograficas nos capitulos relevantes: `editorial/rmrp/VOLUME_II_RMRP_REFERENCIAS_CARTOGRAFICAS_LOTE64B.md` (commit c0bc2d8ce6f5d88b4873d3d3e6a357e818052dc6).
+- Nao exigir novamente arquivo geométrico do usuario: mapas ja existem. Pendente localizar arquivo vetorial original e QA dos recortes individuais/legendas; referencias externas no Markdown ainda nao sao raster embutido. Evitar mapa tematico ficticio. Mapa 15 do Volume I tem classe que cruza zero.

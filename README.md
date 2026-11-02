@@ -768,3 +768,7 @@ Especificacao versionada em [Lote 34](editorial/rmrp/DICIONARIO_E_CONTROLES_CENA
 
 ### Lote 35 — grade de cenarios materializada (01/11/2026)
 Documento: [GRADE_CENARIOS_LOTE35](editorial/rmrp/GRADE_CENARIOS_LOTE35.md), commit `df452bd`. Execucao real sobre fontes DCA/IPCA/cadastro arquivadas: 408 registros municipais, 60 agregados, 34/34 municipios em seis bases fiscais de 2025; QA de unicidade e conciliacao passou. Gerados arquivos locais CSV, XLSX, ZIP e script. Projecoes futuras permanecem nulas ate parametros auditados; nao anualizar 2026 parcial. Proximo gate: persistir arquivos derivados externamente e integrar RGF/RREO e carteira de investimentos.
+
+
+### RMRP Lote 36 (01/11/2026)
+Auditoria de RGF/RREO, caixa e capital: [relatorio](editorial/rmrp/COBERTURA_RGF_CAPITAL_LOTE36.md). RCL/DTP/caixa 26/34, oito ausentes, doze caixas negativos no snapshot, Pontal em quarentena. Transferencias de capital DCA 33/34, Santa Cruz da Esperanca ausente. Sem imputar zeros ou inferir ilegalidade. Plano de Volume II atualizado.

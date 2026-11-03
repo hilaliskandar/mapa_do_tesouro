@@ -1,7 +1,7 @@
 # Projeto — Integração de transferências e investimentos federais no Mapa do Tesouro
 
 **Data de abertura:** 03/11/2026  
-**Status:** G0 documentado; G1 inspecao inicial realizada; G2 codigo experimental adicionado, testes CI pendentes  
+**Status:** G0 documentado; G1 inspeção inicial realizada; G2 cliente e testes unitários aprovados no CI anterior; smoke HTTP real criado, execução pendente de confirmação  
 **Escopo territorial:** 645 municípios do Estado de São Paulo, com identificador IBGE de sete dígitos  
 **Branch:** `feat/integracao-transferencias-federais-pac-20261103`
 
@@ -96,4 +96,8 @@ As tabelas são proposta conceitual: nomes e migração dependem do exame do esq
 
 ## Não objetivos deste PR
 
-Não executa coleta estadual, não modifica o SQLite canônico, não altera workflows do GitHub Actions, não publica Cloudflare Pages, não cria agendamento e não libera indicador de Novo PAC sem vínculo oficial validado.
+Não executa coleta estadual nem modifica o SQLite canônico. Foi acrescentado um workflow de smoke HTTP isolado, acionável por PR e manualmente, com GET limitado a duas linhas por serviço, sem publicação de dados ou Cloudflare Pages. Não cria agendamento e não libera indicador de Novo PAC sem vínculo oficial validado.
+
+## Incremento de 03/11/2026 — verificação HTTP pública
+
+Arquivos adicionados: [smoke opt-in](../tests/test_federal_public_api_live.py) e [workflow isolado](../.github/workflows/federal-public-api-smoke.yml). Três consultas GET mínimas foram previamente verificadas fora do código deste repositório com Crawl2AI, todas com `tamanho_da_pagina=2` e dados válidos: `obrasgov/projeto-investimento?uf_principal=SP` (total_items 20.837), `parcerias/proposta?sg_uf_recebedor=SP` (13.434) e `especiais/programas-especiais` (16). São totais de sistemas e amostras distintas, não contagem de PAC nem de 645 municípios. **A execução HTTP do novo cliente pelo workflow ainda não foi comprovada** e permanece pendente. Após sucesso, conferir logs/sha do run e só então homologar a conectividade G2. A introdução do workflow representa mudança de escopo documental em relação ao PR original, sem afetar produção.

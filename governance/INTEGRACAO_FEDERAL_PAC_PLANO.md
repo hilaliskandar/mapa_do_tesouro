@@ -1,7 +1,7 @@
 # Projeto — Integração de transferências e investimentos federais no Mapa do Tesouro
 
 **Data de abertura:** 03/11/2026  
-**Status:** G0 documentado; G1 inspeção inicial realizada; G2 cliente e testes unitários aprovados no CI anterior; smoke HTTP real criado, execução pendente de confirmação  
+**Status:** G0 documentado; G1 inspeção inicial realizada; G2 conectividade amostral e testes executados com sucesso em sandbox remoto; G3 staging local SHA-256 validado em amostra; G4 testes sintéticos aprovados, SP645 real pendente  
 **Escopo territorial:** 645 municípios do Estado de São Paulo, com identificador IBGE de sete dígitos  
 **Branch:** `feat/integracao-transferencias-federais-pac-20261103`
 
@@ -74,8 +74,8 @@ As tabelas são proposta conceitual: nomes e migração dependem do exame do esq
 | G0 — planejamento | Contrato conceitual, fontes, riscos e README | Arquivos e PR revisáveis | **Documentado neste PR** |
 | G1 — inspeção do repositório | Ponto de extensão, esquemas e testes existentes | Inventário de caminhos e decisão de desenho | **Parcial — arquitetura canônica lida** |
 | G2 — adaptadores GET | Cliente comum para tres APIs, com allowlist, paginacao, timeout e retries | Testes por mocks adicionados; CI e amostras reais neste repo a verificar | **CI unitario aprovado; HTTP real pendente** |
-| G3 — staging e dados | JSON canônico local e manifesto SHA-256, R2/SQLite isolado ainda pendente | Testes simulados adicionados; CI e lote real por validar | **Implementação local inicial; não homologado** |
-| G4 — vínculo e cobertura SP | Normalizador estrito para códigos IBGE de recebedor; cadastro SP645 completo ainda não carregado | Testes simulados criados, CI e cobertura estadual a conferir | **Validador e leitura SQLite somente leitura implementados; QA no banco real pendente** |
+| G3 — staging e dados | JSON canônico local e manifesto SHA-256, R2/SQLite isolado ainda pendente | Testes simulados adicionados; CI e lote real por validar | **Staging local amostral verificado com SHA-256; R2/SQLite pendentes** |
+| G4 — vínculo e cobertura SP | Normalizador estrito para códigos IBGE de recebedor; cadastro SP645 completo ainda não carregado | Testes simulados criados, CI e cobertura estadual a conferir | **Testes sintéticos aprovados; leitura do banco canônico SP645 ainda pendente** |
 | G5 — conciliação | Transferido × empenhado × pago × obra × DCA, sem dupla contagem | Amostra auditada e diferenças explicadas | Pendente |
 | G6 — consulta e visualização | API editorial JSON v2/v3 em prévia isolada e filtros territoriais | Contrato, testes de regressão e navegação | Pendente |
 | G7 — promoção | Release pública e monitoramento | QA remoto JSON, aprovação expressa, SHA e rollback | **Bloqueado** |
@@ -117,3 +117,9 @@ O módulo [federal_territory.py](../pipeline/normalize/federal_territory.py) ver
 ## G4 — ligação ao cadastro SQLite canônico (03/11/2026)
 
 O [leitor de universo SP645](../pipeline/normalize/federal_canonical_universe.py) consulta diretamente as tabelas `municipio` e `universo_municipio` em SQLite com `mode=ro` e `PRAGMA query_only=ON`. O gate exige 645 municípios ativos, todos da UF SP, código IBGE estrito de sete dígitos com prefixo `35`, sem duplicação ou quebra de junção. O novo [QA com banco sintético](../tests/test_federal_canonical_universe.py) testa cardinalidade, UF incorreta, inativos e preservação do arquivo. **Esse recurso ainda não foi executado contra o SQLite canônico real**, e a CI da revisão não foi confirmada. Não se presume que a chave de recebedor do Transferegov seja chave territorial do empreendimento Obrasgov; o G4 continua parcialmente implementado, sem homologação.
+
+## Atualização de homologação remota — 03/11/2026
+
+A execução em sandbox remoto na branch do [PR #213](https://github.com/hilaliskandar/mapa_do_tesouro/pull/213), commit `15c7c0565143825ebc6da6e1e5944907fad10d83`, aprovou **37 testes unitários** e **3 testes HTTP reais** (Obrasgov, Parcerias e Especiais). Foi persistida uma amostra de **3 arquivos JSON/6 registros** em diretório temporário e o verificador SHA-256 aprovou os três artefatos e o manifesto `71b18d5c74a4ce06734d53509f116d7235b19eb4809f9ade31e671f7e767b2c7`. A evidência exata, com hashes por fonte, encontra-se no [diário](INTEGRACAO_FEDERAL_VALIDACOES.md). A homologação não abrange R2, SQLite de produção, cobertura SP645, conciliação financeira ou classificação oficial Novo PAC.
+
+O GitHub Actions identificou **14 runs antigos na branch**, sem runs recentes vinculados aos novos commits. O workflow criado exclusivamente no PR respondeu `404 Workflow not found` na API de workflows — não é adequado depender de disparo manual desse arquivo antes de ele estar registrado na branch padrão. **A execução remota independente foi concluída com êxito sem merge e sem depender do computador do usuário.** Manter G4 e G5–G7 bloqueados para aprovação de produção.

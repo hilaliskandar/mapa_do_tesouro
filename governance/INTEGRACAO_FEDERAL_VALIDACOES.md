@@ -48,3 +48,7 @@ Atualização realizada no README: SIM/NÃO
 - **G1:** pontos de extensão iniciais identificados, inventario estrutural completo pendente. **G2:** codigo + testes criados, **nao homologado** enquanto CI/consulta real neste repo não forem validados. G3–G7 seguem bloqueados.
 - **Segurança:** nenhuma credencial usada, nenhuma API externa consumida pelo codigo experimental nesta rodada; somente mock de teste. Não alterar produção.
 
+
+### CI verificado em 03/11/2026
+
+No commit `11888db9`, o Core CI run `41662568905` terminou `success`. O workflow `bootstrap-ci.yml` inclui `python -m compileall -q pipeline` e `pytest -q tests`. Também terminaram com sucesso os runs `41662568831` (SICONFI Smoke), `41662568875` (State Smoke), `41662568886` (Baseline Crosscheck) e `41662568781` (SP645 Scale). Pages Preview run `41662568828` ainda estava em andamento na última consulta. A aprovação é de compilação e testes unitários simulados; nenhuma consulta externa realizada pelo novo cliente foi homologada. G2 segue parcialmente validado até testes HTTP reais, sem alterar produção.

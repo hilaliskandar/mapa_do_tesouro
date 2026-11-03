@@ -52,3 +52,15 @@ Atualização realizada no README: SIM/NÃO
 ### CI verificado em 03/11/2026
 
 No commit `11888db9`, o Core CI run `41662568905` terminou `success`. O workflow `bootstrap-ci.yml` inclui `python -m compileall -q pipeline` e `pytest -q tests`. Também terminaram com sucesso os runs `41662568831` (SICONFI Smoke), `41662568875` (State Smoke), `41662568886` (Baseline Crosscheck) e `41662568781` (SP645 Scale). Pages Preview run `41662568828` ainda estava em andamento na última consulta. A aprovação é de compilação e testes unitários simulados; nenhuma consulta externa realizada pelo novo cliente foi homologada. G2 segue parcialmente validado até testes HTTP reais, sem alterar produção.
+
+## Registro 2026-11-03 — Smoke HTTP real de baixo volume
+
+**Novos arquivos:** `tests/test_federal_public_api_live.py` (commit `dd39ecc`) e `.github/workflows/federal-public-api-smoke.yml` (commit `b5c5d65`). O teste é opt-in, com a variável `FEDERAL_API_LIVE_SMOKE=1`, realiza somente GET, primeira página de dois registros por serviço, não grava dados nem executa migrações. O workflow dispõe de permissões `contents: read` e limite de oito minutos, acionado somente em PR que altere caminhos específicos ou manualmente.
+
+**Evidência das fontes externas, obtida via Crawl2AI e não pelo novo cliente Python:** 
+- `https://api-publica.obrasgov.gestao.gov.br/obras/projeto-investimento?uf_principal=SP&tamanho_da_pagina=2` retornou `total_items=20837`, duas linhas e `id_projeto_investimento`.
+- `https://api-publica.transferegov.gestao.gov.br/parcerias/proposta?sg_uf_recebedor=SP&tamanho_da_pagina=2` retornou `total_items=13434`, duas linhas e `id_proposta`, com campo `cd_ibge_recebedor`.
+- `https://api-publica.transferegov.gestao.gov.br/especiais/programas-especiais?tamanho_da_pagina=2` retornou `total_items=16`, duas linhas e `id_programa`.
+
+**Situação de homologação:** Consulta externa direta comprovada; teste do cliente Python conectado às APIs **ainda não confirmado** (consulta ao histórico de workflows do commit `b5c5d65` não retornou execução correspondente). Tentativa de execução via host local não foi possível devido à indisponibilidade de DNS para github.com. Evitar classificar o gate G2 como aprovado por extrapolação. Reavaliar workflow/CI após evento de PR com log explícito, depois repetir amostra e criar snapshot com hash em staging, no G3. Não houve ingestão ou publicação.
+

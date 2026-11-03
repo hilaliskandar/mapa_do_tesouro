@@ -115,3 +115,7 @@ No commit `11888db9`, o Core CI run `41662568905` terminou `success`. O workflow
 
 **Critérios ainda pendentes:** executar QA contra SQLite canônico privado aprovado; provar 645 códigos e testagem de casos fora do universo; validar dados reais das propostas (código do recebedor); verificar regras de localização de obras do Obrasgov; registrar hashes, CI e eventual divergência. Nenhum dado recebido nem publicado.
 
+
+## Operação remota — 03/11/2026
+
+O usuário não dispõe de runner local no computador atual. **Não exigir comandos ou instalações locais** para a continuidade. O fluxo escolhido é GitHub Actions hospedado (`ubuntu-latest`) a partir do PR #213. Atualizado `.github/workflows/federal-public-api-smoke.yml` (commit `7fd6302`) para compilar módulos, executar QA de staging e territorialização com mocks, efetuar três GETs públicos e salvar uma amostra mínima efêmera, exibindo no `GITHUB_STEP_SUMMARY` somente contagens e hash do manifesto, sem os registros brutos. O workflow já tem evento `pull_request` restrito a arquivos experimentais e `workflow_dispatch` para uso quando disponível; no caso de um novo workflow criado apenas na branch, a opção de execução manual pode depender de sua presença na branch padrão. **Não presumir que o workflow executou após o commit.** Ainda falta consultar os runs/checks da revisão para confirmar passagem. A infraestrutura privada e a produção seguem intocadas.

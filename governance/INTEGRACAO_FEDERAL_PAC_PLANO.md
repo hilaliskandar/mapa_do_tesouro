@@ -73,7 +73,7 @@ As tabelas são proposta conceitual: nomes e migração dependem do exame do esq
 |---|---|---|---|
 | G0 — planejamento | Contrato conceitual, fontes, riscos e README | Arquivos e PR revisáveis | **Documentado neste PR** |
 | G1 — inspeção do repositório | Ponto de extensão, esquemas e testes existentes | Inventário de caminhos e decisão de desenho | **Parcial — arquitetura canônica lida** |
-| G2 — adaptadores GET | Cliente comum para tres APIs, com allowlist, paginacao, timeout e retries | Testes por mocks adicionados; CI e amostras reais neste repo a verificar | **Implementado, nao homologado** |
+| G2 — adaptadores GET | Cliente comum para tres APIs, com allowlist, paginacao, timeout e retries | Testes por mocks adicionados; CI e amostras reais neste repo a verificar | **CI unitario aprovado; HTTP real pendente** |
 | G3 — staging e dados | Manifesto bruto R2/SQLite isolado, schema versionado | Hash, data-base, fontes, idempotência e rollback | Pendente |
 | G4 — vínculo e cobertura SP | Crosswalk 645 municípios, verificação de chaves, duplicidade 1:N | QA de 645 códigos e classificação de não correspondências | Pendente |
 | G5 — conciliação | Transferido × empenhado × pago × obra × DCA, sem dupla contagem | Amostra auditada e diferenças explicadas | Pendente |

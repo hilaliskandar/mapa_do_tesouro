@@ -7,10 +7,12 @@ on:
       - "pipeline/acquire/federal_staging.py"
       - "pipeline/acquire/federal_sample_staging.py"
       - "pipeline/normalize/federal_territory.py"
+      - "pipeline/normalize/federal_canonical_universe.py"
       - "tests/test_federal_public_api_live.py"
       - "tests/test_federal_staging.py"
       - "tests/test_federal_sample_staging.py"
       - "tests/test_federal_territory.py"
+      - "tests/test_federal_canonical_universe.py"
       - ".github/workflows/federal-public-api-smoke.yml"
   workflow_dispatch:
 
@@ -29,7 +31,7 @@ jobs:
       - name: Install minimal requirements
         run: python -m pip install pytest
       - name: Validate staging using network-free tests
-        run: python -m pytest -q tests/test_federal_staging.py tests/test_federal_sample_staging.py tests/test_federal_territory.py
+        run: python -m pytest -q tests/test_federal_staging.py tests/test_federal_sample_staging.py tests/test_federal_territory.py tests/test_federal_canonical_universe.py
       - name: Validate real read-only GETs
         env:
           FEDERAL_API_LIVE_SMOKE: "1"

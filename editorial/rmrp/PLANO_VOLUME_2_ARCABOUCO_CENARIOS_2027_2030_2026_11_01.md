@@ -409,3 +409,7 @@ DOCX Lote71 gravado no Drive ID `17x7GJ-EBNJTDheYI4iZj73JThS-5bXaR` (2.104.507 b
 
 ### 03/11/2026 — Lote 73
 Matriz das 34 prioridades municipais concluida: `editorial/rmrp/MATRIZ_PRIORIDADES_34_SWOT_LOTE73_2026_11_03.md` (commit 3d9fb674). Base: Lotes 12 e 31. Gatilhos convencionais (FPM, tributacao, investimento, custeio); sem simulacao de IBS ou atribuicao de causalidade. Proximo passo: comprovar exposicoes externas com convênios, carteira de obras, economia setorial e fontes municipais antes de reescrever oportunidades/ameacas nas 34 SWOT. Preservar Lote71 no Drive.
+
+
+### Lote 74 — fontes municipais externas das SWOT (03/11/2026)
+Dossie piloto com coleta Crawl2AI em quatro municipios (Jardinopolis, Santa Rosa de Viterbo, Sao Simao, Taquaral). Verificadas fontes oficiais municipais sobre equipamentos Novo PAC Saude, dois convenios de obras urbanas (FID/Bairro Paulista), repasses hospitalares e reforma de cozinha piloto. Registro `editorial/rmrp/DOSSIE_FONTES_EXTERNAS_SWOT_LOTE74_2026_11_03.md`, commit `3b90bf1570a66fdad4f8346a82a41a51f0a634fa`. Nao afirmar causalidade sobre DCA nem execucao total sem plano, extrato e liquidacao. Cobertura 4/34, demais 30 pendentes. Lote71 no Drive segue canonico; dossie e sugestao de individualizacao, nao revisao homologada.

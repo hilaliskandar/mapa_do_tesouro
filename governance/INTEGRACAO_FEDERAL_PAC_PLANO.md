@@ -74,7 +74,7 @@ As tabelas são proposta conceitual: nomes e migração dependem do exame do esq
 | G0 — planejamento | Contrato conceitual, fontes, riscos e README | Arquivos e PR revisáveis | **Documentado neste PR** |
 | G1 — inspeção do repositório | Ponto de extensão, esquemas e testes existentes | Inventário de caminhos e decisão de desenho | **Parcial — arquitetura canônica lida** |
 | G2 — adaptadores GET | Cliente comum para tres APIs, com allowlist, paginacao, timeout e retries | Testes por mocks adicionados; CI e amostras reais neste repo a verificar | **CI unitario aprovado; HTTP real pendente** |
-| G3 — staging e dados | Manifesto bruto R2/SQLite isolado, schema versionado | Hash, data-base, fontes, idempotência e rollback | Pendente |
+| G3 — staging e dados | JSON canônico local e manifesto SHA-256, R2/SQLite isolado ainda pendente | Testes simulados adicionados; CI e lote real por validar | **Implementação local inicial; não homologado** |
 | G4 — vínculo e cobertura SP | Crosswalk 645 municípios, verificação de chaves, duplicidade 1:N | QA de 645 códigos e classificação de não correspondências | Pendente |
 | G5 — conciliação | Transferido × empenhado × pago × obra × DCA, sem dupla contagem | Amostra auditada e diferenças explicadas | Pendente |
 | G6 — consulta e visualização | API editorial JSON v2/v3 em prévia isolada e filtros territoriais | Contrato, testes de regressão e navegação | Pendente |
@@ -101,3 +101,7 @@ Não executa coleta estadual nem modifica o SQLite canônico. Foi acrescentado u
 ## Incremento de 03/11/2026 — verificação HTTP pública
 
 Arquivos adicionados: [smoke opt-in](../tests/test_federal_public_api_live.py) e [workflow isolado](../.github/workflows/federal-public-api-smoke.yml). Três consultas GET mínimas foram previamente verificadas fora do código deste repositório com Crawl2AI, todas com `tamanho_da_pagina=2` e dados válidos: `obrasgov/projeto-investimento?uf_principal=SP` (total_items 20.837), `parcerias/proposta?sg_uf_recebedor=SP` (13.434) e `especiais/programas-especiais` (16). São totais de sistemas e amostras distintas, não contagem de PAC nem de 645 municípios. **A execução HTTP do novo cliente pelo workflow ainda não foi comprovada** e permanece pendente. Após sucesso, conferir logs/sha do run e só então homologar a conectividade G2. A introdução do workflow representa mudança de escopo documental em relação ao PR original, sem afetar produção.
+
+## Incremento de 03/11/2026 — persistência local G3
+
+O módulo [federal_staging.py](../pipeline/acquire/federal_staging.py) mantém **snapshots locais imutáveis por SHA-256** e manifestos de lote, com verificador de integridade e diferenciação entre valor nulo e zero. O destino deve ser caminho absoluto explícito e **não há escrita no R2, SQLite nem publicação**. [Testes de staging](../tests/test_federal_staging.py) cobrem idempotência, conteúdo modificado, corrupção e rejeição de entrada inválida. A execução dos testes no CI e a persistência de resposta HTTP real pelo cliente do repositório **ainda não foram confirmadas**; portanto, G3 continua pendente de homologação. Retenção, proteção de dados, gestão de snapshots e sincronização com R2 privado exigem deliberação e evidências antes de qualquer migração.

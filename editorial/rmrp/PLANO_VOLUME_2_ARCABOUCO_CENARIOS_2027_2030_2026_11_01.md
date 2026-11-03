@@ -413,3 +413,9 @@ Matriz das 34 prioridades municipais concluida: `editorial/rmrp/MATRIZ_PRIORIDAD
 
 ### Lote 74 — fontes municipais externas das SWOT (03/11/2026)
 Dossie piloto com coleta Crawl2AI em quatro municipios (Jardinopolis, Santa Rosa de Viterbo, Sao Simao, Taquaral). Verificadas fontes oficiais municipais sobre equipamentos Novo PAC Saude, dois convenios de obras urbanas (FID/Bairro Paulista), repasses hospitalares e reforma de cozinha piloto. Registro `editorial/rmrp/DOSSIE_FONTES_EXTERNAS_SWOT_LOTE74_2026_11_03.md`, commit `3b90bf1570a66fdad4f8346a82a41a51f0a634fa`. Nao afirmar causalidade sobre DCA nem execucao total sem plano, extrato e liquidacao. Cobertura 4/34, demais 30 pendentes. Lote71 no Drive segue canonico; dossie e sugestao de individualizacao, nao revisao homologada.
+
+
+### 03/11/2026 — Lotes 75 e 76, evidencia externa das SWOT
+- Lote 75: Sales Oliveira, Altinopolis, Jaboticabal e Serra Azul, com paginas oficiais lidas via Crawl2AI. Registro `editorial/rmrp/DOSSIE_FONTES_EXTERNAS_SWOT_LOTE75_2026_11_03.md`, commit `7b24445cb07865599252c779a15b4b79925a618c`.
+- Lote 76: Sertaozinho (CAPS Novo PAC R$2,3 mi; praca estadual R$1,136 mi anunciados), Orlandia (40 moradias em licitacao e termo federal), Batatais (Decreto 4.818/2026 de contencao; extracao textual de DO) e Cassia dos Coqueiros (noticia de convenio FID de R$1 mi, ainda sem extrato oficial; screenshot PDF falhou). Registro `editorial/rmrp/DOSSIE_FONTES_EXTERNAS_SWOT_LOTE76_2026_11_03.md`, commit `293f8fde3b07adbf51378fd81b489a1cba2136d4`.
+- Cobertura acumulada dos Lotes 74-76: 12/34 municipios com ao menos um indicio externo lido, mas graus de prova distintos; 22 sem dossie. Nao converter anuncio, noticia ou licitacao em execucao, pagamento ou causalidade fiscal. Lote71 permanece referencia no Drive; SWOT nao foram alteradas.

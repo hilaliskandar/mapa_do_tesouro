@@ -30,6 +30,8 @@ jobs:
           python-version: "3.12"
       - name: Install minimal requirements
         run: python -m pip install pytest
+      - name: Compile experimental modules
+        run: python -m compileall -q pipeline/acquire/federal_public_api.py pipeline/acquire/federal_staging.py pipeline/acquire/federal_sample_staging.py pipeline/normalize/federal_territory.py pipeline/normalize/federal_canonical_universe.py
       - name: Validate staging using network-free tests
         run: python -m pytest -q tests/test_federal_staging.py tests/test_federal_sample_staging.py tests/test_federal_territory.py tests/test_federal_canonical_universe.py
       - name: Validate real read-only GETs
@@ -37,6 +39,18 @@ jobs:
           FEDERAL_API_LIVE_SMOKE: "1"
         run: python -m pytest -q -s tests/test_federal_public_api_live.py
       - name: Stage bounded real sample and verify hashes
-        run: python -m pipeline.acquire.federal_sample_staging --output "$RUNNER_TEMP/federal-public-sample"
+        run: python -m pipeline.acquire.federal_sample_staging --output "$RUNNER_TEMP/federal-public-sample" | tee "$RUNNER_TEMP/federal-public-summary.json"
+      - name: Summarize validation without raw data
+        if: always()
+        run: |
+          echo "## APIs federais — validação experimental" >> "$GITHUB_STEP_SUMMARY"
+          echo "PR: #213; execução hospedada no GitHub, sem runner local." >> "$GITHUB_STEP_SUMMARY"
+          echo "Resultado por etapa: consultar os steps acima. Os dados brutos não são enviados como artefatos." >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "$RUNNER_TEMP/federal-public-summary.json" ]; then
+            echo "Resumo da amostra: somente contagens e hash de manifesto." >> "$GITHUB_STEP_SUMMARY"
+            echo "\`\`\`json" >> "$GITHUB_STEP_SUMMARY"
+            cat "$RUNNER_TEMP/federal-public-summary.json" >> "$GITHUB_STEP_SUMMARY"
+            echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
       # The ephemeral private directory is not uploaded as a workflow artifact.
       # No writes to R2, SQLite, Cloudflare Pages or public datasets.

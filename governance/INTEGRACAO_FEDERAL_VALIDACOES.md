@@ -64,3 +64,13 @@ No commit `11888db9`, o Core CI run `41662568905` terminou `success`. O workflow
 
 **Situação de homologação:** Consulta externa direta comprovada; teste do cliente Python conectado às APIs **ainda não confirmado** (consulta ao histórico de workflows do commit `b5c5d65` não retornou execução correspondente). Tentativa de execução via host local não foi possível devido à indisponibilidade de DNS para github.com. Evitar classificar o gate G2 como aprovado por extrapolação. Reavaliar workflow/CI após evento de PR com log explícito, depois repetir amostra e criar snapshot com hash em staging, no G3. Não houve ingestão ou publicação.
 
+
+## Registro 2026-11-03 — Implementação inicial do G3 (staging local)
+
+- Verificações dos commits de smoke HTTP `b5c5d65` e `8ccd87a` via consulta GitHub a runs associados: a consulta **não retornou execuções**. Portanto, o teste do próprio cliente contra APIs reais ainda não pode ser homologado; as respostas externas anteriores continuam sendo evidência separada do Crawl2AI.
+- Criado `pipeline/acquire/federal_staging.py` (commit `46a16a1`): grava JSON canônico UTF-8 de cada página em pasta local explícita, nomes content-addressed SHA-256, manifesto por lote com contagem, URL e hash, reutilização idempotente, verificação de integridade e validação dos domínios oficiais.
+- Criado `tests/test_federal_staging.py` (commit `abf4644`): cenários sem rede para roundtrip de hash, repetição sem segundo manifesto, revisão de valores, corrupção detectada, fonte/URL não autorizada, página repetida e distinção zero vs nulo.
+- **Limite:** o código de staging usa uma pasta local fornecida explicitamente, não faz upload ao R2 nem cria snapshots persistentes em infraestrutura. Os testes foram adicionados ao PR; a CI desse commit **não foi confirmada ainda**, logo não marcar G3 aprovado.
+- **Segurança:** não há novo serviço, automação de coleta ou escrita na base fiscal. Não acrescentar registros brutos ao Git, pois payloads podem conter identificadores e informações pessoais de beneficiários.
+- Próximos critérios: 1) confirmar CI dos testes de staging; 2) confirmar smoke HTTP real do cliente; 3) persistir em diretório isolado um lote real e validar hashes, origem, granularidade e ausência de segredos; 4) somente então avaliar R2 privado e expansão de escopo.
+

@@ -74,3 +74,17 @@ No commit `11888db9`, o Core CI run `41662568905` terminou `success`. O workflow
 - **Segurança:** não há novo serviço, automação de coleta ou escrita na base fiscal. Não acrescentar registros brutos ao Git, pois payloads podem conter identificadores e informações pessoais de beneficiários.
 - Próximos critérios: 1) confirmar CI dos testes de staging; 2) confirmar smoke HTTP real do cliente; 3) persistir em diretório isolado um lote real e validar hashes, origem, granularidade e ausência de segredos; 4) somente então avaliar R2 privado e expansão de escopo.
 
+
+## Registro 2026-11-03 — G2/G3: cadeia de smoke e staging real controlado
+
+**Evidência metodológica de API:** os OpenAPI oficiais Obrasgov, Transferegov Parcerias e Especiais especificam parâmetros de paginação `pagina` e `tamanho_da_pagina`. Leitura das amostras públicas mostrou `cd_ibge_recebedor` nas propostas do Transferegov (exemplos com códigos de sete dígitos), mas não forneceu campo `cod_ibge` municipal equivalente em três projetos do Obrasgov. Territorialização territorial **dependerá de nova verificação de chaves/geometria**; não converter localização textual em código definitivo.
+
+**Implementação:** 
+- `pipeline/acquire/federal_sample_staging.py` (commit `6863dfe`): três GETs, primeira página com tamanho 2, interrupção se resposta de uma fonte vier vazia, armazenamento local explícito, verificação de SHA dos artefatos e manifesto; saída impressa somente com IDs de manifesto e contagens, sem dados brutos.
+- `tests/test_federal_sample_staging.py` (commit `c3a71cb`): teste de ponta a ponta com cliente simulado, idempotência, abortamento de lote incompleto e rejeição de saída relativa.
+- `.github/workflows/federal-public-api-smoke.yml` atualizado (commit `2dd1148`) para realizar testes unitários sem rede, smoke HTTP de todas as três APIs e gravação temporária de pequeno lote real em `RUNNER_TEMP`, sem upload de artefatos ou conexão a produção.
+
+**Status no momento do registro:** os endpoints oficiais foram consultados com sucesso por Crawl2AI e os parâmetros validados contra OpenAPI; **não foi localizado run do novo workflow na consulta de runs por commit `2dd1148`**. Testes e staging real pelo próprio Python **não homologados**. G2 e G3 permanecem parcialmente implementados e pendentes de validação. A impossibilidade de acessar github.com via DNS no container impediu checkout/teste local nesse ambiente; isso não prova falha do código.
+
+**Próxima decisão:** identificar logs de um run `Federal Public APIs - Isolated Live Smoke` com commit da branch, verificar explicitamente `success` e saída de manifesto; se falhar, corrigir a causa antes de usar R2 ou SQLite. Manter ausência/zero separados e não promover as observações à API editorial.
+

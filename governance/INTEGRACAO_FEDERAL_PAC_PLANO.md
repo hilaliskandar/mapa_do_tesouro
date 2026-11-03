@@ -1,7 +1,7 @@
 # Projeto — Integração de transferências e investimentos federais no Mapa do Tesouro
 
 **Data de abertura:** 03/11/2026  
-**Status:** G0 — arquitetura e plano documentados; nenhum conector implantado  
+**Status:** G0 documentado; G1 inspecao inicial realizada; G2 codigo experimental adicionado, testes CI pendentes  
 **Escopo territorial:** 645 municípios do Estado de São Paulo, com identificador IBGE de sete dígitos  
 **Branch:** `feat/integracao-transferencias-federais-pac-20261103`
 
@@ -73,7 +73,7 @@ As tabelas são proposta conceitual: nomes e migração dependem do exame do esq
 |---|---|---|---|
 | G0 — planejamento | Contrato conceitual, fontes, riscos e README | Arquivos e PR revisáveis | **Documentado neste PR** |
 | G1 — inspeção do repositório | Ponto de extensão, esquemas e testes existentes | Inventário de caminhos e decisão de desenho | **Parcial — arquitetura canônica lida** |
-| G2 — adaptadores GET | Três clientes somente leitura, com paginação, timeout e retries | Testes com respostas reais, mocks, nenhum segredo | Pendente |
+| G2 — adaptadores GET | Cliente comum para tres APIs, com allowlist, paginacao, timeout e retries | Testes por mocks adicionados; CI e amostras reais neste repo a verificar | **Implementado, nao homologado** |
 | G3 — staging e dados | Manifesto bruto R2/SQLite isolado, schema versionado | Hash, data-base, fontes, idempotência e rollback | Pendente |
 | G4 — vínculo e cobertura SP | Crosswalk 645 municípios, verificação de chaves, duplicidade 1:N | QA de 645 códigos e classificação de não correspondências | Pendente |
 | G5 — conciliação | Transferido × empenhado × pago × obra × DCA, sem dupla contagem | Amostra auditada e diferenças explicadas | Pendente |

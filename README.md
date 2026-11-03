@@ -940,3 +940,9 @@ Manuscrito integral do Lote 64B com oito mapas recuperados do Volume I foi conve
 
 ### Lote 70 — revisao editorial Volume II (02/11/2026)
 Produzidos DOCX e PDF da edicao Lote 70 (57 paginas), a partir do Lote 69, mantendo 45 tabelas, 14 figuras e 39 SWOT. Atualizados metadados e referencias editoriais, adicionadas conclusoes/recomendacoes finais. QA de renderizacao e panorama das 57 paginas, sem homologacao plena. Registro `editorial/rmrp/REVISAO_EDITORIAL_VOLUME_II_LOTE70.md`, commit a41d685e307eb059ceb4e1da23786aafcd523b8d. Tentativa de upload a Biblioteca falhou; binarios entregues nesta conversa, nao alegar persistencia externa. Necessaria revisao de pagina integral e jurimetrica.
+
+
+### Lote 71 — auditoria das 39 SWOT e revisão editorial (03/11/2026)
+- Fonte revista: DOCX integral do Lote 70. Nova edição Lote 71: 55 páginas, 45 tabelas, 14 figuras e 39 SWOT preservadas. A fraqueza de Santa Rosa de Viterbo foi corrigida sem mudar crescimento real observado de 42,67%; mantida lacuna de Santa Rita do Passa Quatro em 2021. 34 notas de controle foram depuradas; metalinguagem de alguns trechos corrigida; sem novas projeções IBS.
+- Registro e pendências: `editorial/rmrp/AUDITORIA_SWOT_E_REVISAO_EDITORIAL_LOTE71_2026_11_03.md`, commit `067716b4a726ad3ed48a43e806598cefb33da22b`.
+- Artefatos criados nesta conversa: `/mnt/data/RMRP_VOLUME_II_REVISAO_SWOT_LOTE71.docx` e `.pdf`; **persistência na Biblioteca falhou por limite de armazenamento**. Não excluir documentos anteriores sem autorização. QA: render completo de 55 páginas, inspeção panorâmica e detecção automatizada de margens, mas não homologação visual integral ou jurídica. Revisão oficial/legal ainda pendente.

@@ -88,3 +88,16 @@ No commit `11888db9`, o Core CI run `41662568905` terminou `success`. O workflow
 
 **Próxima decisão:** identificar logs de um run `Federal Public APIs - Isolated Live Smoke` com commit da branch, verificar explicitamente `success` e saída de manifesto; se falhar, corrigir a causa antes de usar R2 ou SQLite. Manter ausência/zero separados e não promover as observações à API editorial.
 
+
+## Registro 2026-11-03 — diagnóstico CI e territorialização conservadora G4
+
+**GitHub:** PR [#213](https://github.com/hilaliskandar/mapa_do_tesouro/pull/213) permanece aberto como draft. Consulta de runs associados ao commit `b2890ee` retornou lista vazia; consulta de status combinado também não retornou checks. Não é prova de falha nem de sucesso do GitHub Actions. Tentativa de `git ls-remote` via container falhou por DNS `github.com`; não houve checkout/testes neste host. Portanto **G2/G3 não estão homologados por nova CI nem por staging real**.
+
+**OpenAPI e amostra:** leitura pelo Crawl2AI dos esquemas `/obras/openapi.json`, `/parcerias/openapi.json` e `/especiais/openapi.json` confirmou os parâmetros `pagina` e `tamanho_da_pagina` nas rotas testadas. URLs com `pagina=1&tamanho_da_pagina=2` retornaram: Obrasgov projetos filtrados SP, `total_items=20837`; Parcerias propostas recebedoras SP, `total_items=13434`; Especiais programas, `total_items=16`. Em três propostas SP inspecionadas, `cd_ibge_recebedor` veio preenchido (ex.: São Paulo 3550308 e Ribeirão Preto 3543402). Em três obras consultadas, não foi observado campo municipal IBGE equivalente; não inferir localização da obra a partir do recebedor.
+
+**Incremento G4:** novo [validador territorial](../pipeline/normalize/federal_territory.py), commit `b5928e7`, recebe cadastro IBGE explicitamente fornecido pelo chamador e só reconhece código exato de sete dígitos nele presente. Retorna `confirmado_recebedor`, `fora_do_universo` ou `em_revisao`; preserva papel `ente_recebedor_proposta`, sem afirmar localização do investimento ou ocorrência de pagamento. [Testes isolados](../tests/test_federal_territory.py), commit `f31746a`, cobrem códigos inválidos, ausência, município fora do cadastro, rejeição de correspondência por nome e não atribuição de valores financeiros. Workflow experimental passa a incluir QA territorial (commit `03a1af1`).
+
+**Limitações:** não carregado cadastro integral SP645 pelo validador; a lista deve ser proveniente do cadastro canônico verificado. Não executada conciliação entre propostas, empenhos, pagamentos e obras. Não declarado G4 aprovado. Não houve alteração da base canônica, R2 privado ou Pages.
+
+**Critérios para próximo gate:** (1) executar workflow com logs verificáveis, (2) validar snapshot real e hash, (3) recuperar cadastro SP645 canônico e testar unicidade/cobertura, (4) separar município do ente recebedor de município da obra, (5) só depois projetar agregados.
+

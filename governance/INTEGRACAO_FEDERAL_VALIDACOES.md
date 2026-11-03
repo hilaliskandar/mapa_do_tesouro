@@ -101,3 +101,17 @@ No commit `11888db9`, o Core CI run `41662568905` terminou `success`. O workflow
 
 **Critérios para próximo gate:** (1) executar workflow com logs verificáveis, (2) validar snapshot real e hash, (3) recuperar cadastro SP645 canônico e testar unicidade/cobertura, (4) separar município do ente recebedor de município da obra, (5) só depois projetar agregados.
 
+
+## Registro 2026-11-03 — G4: leitura direta do cadastro canônico SP645
+
+**Evidência de esquema:** `data/schema/001_initial.sql` define `municipio(codigo_ibge, nome, uf, ativo)` e `universo_municipio(universo_id, codigo_ibge)`. `pipeline/build/export_state_api_v2.py` já consulta essas tabelas em junção para publicar catálogo municipal. O leitor novo preserva esse contrato e não cria cadastro derivado.
+
+**Implementação:** 
+- [`pipeline/normalize/federal_canonical_universe.py`](../pipeline/normalize/federal_canonical_universe.py), commit `5f488a8`: conexão SQLite via `mode=ro`, `PRAGMA query_only=ON`, leitura do universo `SP_645` e checagem de exatamente 645 códigos IBGE de sete dígitos, prefixo `35`, UF `SP`, integrantes ativos, integridade de junção e unicidade.
+- [`tests/test_federal_canonical_universe.py`](../tests/test_federal_canonical_universe.py), commit `1fde853`: testes com SQLite sintético, banco inalterado, cardinalidade divergente, UF inválida, inativo e uso do normalizador de recebedor.
+- Workflow experimental inclui esses testes (commit `fe68932`). **Não houve leitura do banco canônico real**, apenas código/testes para fazê-la quando o ambiente privado estiver disponível.
+
+**CI e infraestrutura:** a consulta GitHub ao commit anterior `2ab911b` retornou `workflow_runs=[]` e `statuses=[]`. Esse resultado não permite concluir sucesso ou falha de Actions. O checkout por `git ls-remote` no ambiente local falhou com `Could not resolve host: github.com`. **Os testes desta revisão não foram executados localmente**; não marcar G4 homologado.
+
+**Critérios ainda pendentes:** executar QA contra SQLite canônico privado aprovado; provar 645 códigos e testagem de casos fora do universo; validar dados reais das propostas (código do recebedor); verificar regras de localização de obras do Obrasgov; registrar hashes, CI e eventual divergência. Nenhum dado recebido nem publicado.
+

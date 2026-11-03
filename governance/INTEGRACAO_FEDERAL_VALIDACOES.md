@@ -119,3 +119,30 @@ No commit `11888db9`, o Core CI run `41662568905` terminou `success`. O workflow
 ## Operação remota — 03/11/2026
 
 O usuário não dispõe de runner local no computador atual. **Não exigir comandos ou instalações locais** para a continuidade. O fluxo escolhido é GitHub Actions hospedado (`ubuntu-latest`) a partir do PR #213. Atualizado `.github/workflows/federal-public-api-smoke.yml` (commit `7fd6302`) para compilar módulos, executar QA de staging e territorialização com mocks, efetuar três GETs públicos e salvar uma amostra mínima efêmera, exibindo no `GITHUB_STEP_SUMMARY` somente contagens e hash do manifesto, sem os registros brutos. O workflow já tem evento `pull_request` restrito a arquivos experimentais e `workflow_dispatch` para uso quando disponível; no caso de um novo workflow criado apenas na branch, a opção de execução manual pode depender de sua presença na branch padrão. **Não presumir que o workflow executou após o commit.** Ainda falta consultar os runs/checks da revisão para confirmar passagem. A infraestrutura privada e a produção seguem intocadas.
+
+## Registro 2026-11-03 — Homologacao amostral remota efetivamente executada
+
+**Ambiente:** sandbox remoto independente do computador do usuario, com checkout da branch `feat/integracao-transferencias-federais-pac-20261103`, commit exato `15c7c0565143825ebc6da6e1e5944907fad10d83`. Esse commit antecede esta atualizacao apenas documental. Nenhum comando executado no equipamento do usuario.
+
+**Resultado verificavel no ambiente de execucao:**
+- `python -m pytest -q tests/test_federal_public_api.py tests/test_federal_staging.py tests/test_federal_sample_staging.py tests/test_federal_territory.py tests/test_federal_canonical_universe.py`: **37 passed** (0.17s).
+- `FEDERAL_API_LIVE_SMOKE=1 python -m pytest -q -s tests/test_federal_public_api_live.py`: **3 passed** (1.86s); GETs reais das tres APIs com primeira pagina de 2 linhas por fonte.
+- `python -m pipeline.acquire.federal_sample_staging --output /tmp/mapa_federal_213_private_sample`: **status `staging_verified_local_only`**, 3 artefatos, 6 linhas; totais de origem informados pela API: Obrasgov-SP 20.837 projetos, Parcerias-SP 13.434 propostas, Especiais 16 programas. Totais **nao equivalem** a Novo PAC, a repasses realizados ou a cobertura de todos os 645 municipios.
+- `verify_manifest` executado novamente sobre arquivos efetivamente gravados: **1 manifesto verificado, 3 arquivos, 6 registros, nenhum hash divergente**.
+- Rodada de `pytest` sem ativar a variavel do smoke: **37 passed, 3 skipped**, indicando que chamadas HTTP reais continuam opt-in.
+
+**Rastreabilidade do lote real (SHA-256):**
+- Manifesto: `71b18d5c74a4ce06734d53509f116d7235b19eb4809f9ade31e671f7e767b2c7`.
+- Obrasgov `projeto-investimento`: `541c65e378fd281ac761821a3a074c030d3f4e0039fdea2ca13329836940b413`.
+- Parcerias `proposta`: `8fcbcac3cc57adc80e6cd52542df134cb60a04a25895f611b3c6d76f66501d0b`.
+- Especiais `programas-especiais`: `fe61658be382846bb1a5ff6f8bb4e81212eabb6e58b46534ef54ad6444d273fd`.
+
+**Diagnostico do GitHub Actions:** a busca de runs por branch mostrou 14 execucoes, todas referentes aos commits iniciais do PR, inclusive Core CI 41662568905 success no commit `11888db9`. A API de workflow `federal-public-api-smoke.yml` devolveu **404 Workflow not found**; esse workflow novo consta da branch do PR, mas nao esta registrado na `main`. Nao foi disparado job recente no GitHub Actions. A causa exata de todos os nao-disparos subsequentes nao foi conclusivamente demonstrada. **A homologacao desta rodada decorre do sandbox remoto, nao do GitHub Actions**.
+
+**Decisoes de gate, com escopo rigoroso:**
+- **G2: aprovado para conectividade e contrato amostral** do cliente das 3 APIs em 03/11/2026; ainda falta continuidade automatizada e controle de cobertura/paginacao ampla.
+- **G3: aprovado somente para staging local isolado de 3 paginas**, escrita, manifesto e verificador SHA-256; **nao** homologado para armazenamento permanente R2, ingestao SQLite ou recuperacao operacional.
+- **G4: testes unitarios aprovados em SQLite sintetico**; leitura do SQLite SP645 canonico real, verificacao dos 645 registros e correspondencia territorial em escala **ainda nao homologadas**.
+- G5-G7 continuam pendentes. Nenhuma atualizacao no R2, SQLite canonico, Cloudflare Pages ou publicacao.
+
+**Proxima etapa:** inventariar o caminho de snapshot privado/canonico aprovado, criar rotina de exportacao controlada e versionada apenas em ambiente de teste, e validar cobertura, chaves e conciliação sem duplicar cifras de empenho/pagamento. Nao expor registros brutos no Git.

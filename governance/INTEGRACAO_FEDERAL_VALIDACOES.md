@@ -37,3 +37,14 @@ Resultado: APROVADO | REPROVADO | PENDENTE | BLOQUEADO
 Decisão, responsável e próximo passo:
 Atualização realizada no README: SIM/NÃO
 ```
+
+## Registro 2026-11-03 — Incremento G1/G2
+
+- Inspecionados: `pipeline/acquire/`, `data/schema/`, testes, `pyproject.toml`, `pipeline/acquire/siconfi_dca.py` e `tests/test_siconfi_source.py`. O projeto ja usa testes pytest e clientes HTTP com retries, preservando snapshots brutos e manifests.
+- Adicionado `pipeline/acquire/federal_public_api.py`: cliente GET de `obrasgov`, `parcerias` e `especiais`; allowlist de endpoints, filtros validados, limite de paginas/tamanho, HTTP timeout, retries transientes, validacao do contrato paginado. **Nao ha envio ao R2, SQLite ou Pages.**
+- Adicionado `tests/test_federal_public_api.py`: testes isolados sem rede para filtros, ids, paginação, erros, retry 503, não-retry 403 e bloqueio de endpoint nao autorizado.
+- Commits de implementacao: `facecfaa` e `11888db`.
+- CI do commit `11888db`: workflows Core CI, SICONFI e prévia foram iniciados automaticamente pelo GitHub; **resultados ainda pendentes no momento deste registro**. A existência de workflow de Pages Preview nao significa promoção em produção. Confirmar alias e conteudo se implantado automaticamente.
+- **G1:** pontos de extensão iniciais identificados, inventario estrutural completo pendente. **G2:** codigo + testes criados, **nao homologado** enquanto CI/consulta real neste repo não forem validados. G3–G7 seguem bloqueados.
+- **Segurança:** nenhuma credencial usada, nenhuma API externa consumida pelo codigo experimental nesta rodada; somente mock de teste. Não alterar produção.
+

@@ -68,3 +68,15 @@ Inspeção visual da página 7: o mapa **“Evolução real dos investimentos”
 6. Manter o Lote 85 inalterado até haver material suficiente para produzir Lote 87, sem alegar homologação externa antecipada.
 
 **Conclusão parcial:** há confirmação documental suficiente para manter os casos descritos como **condicionados**, mas não para classificar execução financeira, afirmar risco de perda de recursos ou produzir estimativa municipal de IBS.
+
+
+## 9. Achado adicional crítico: aditivos oficiais de Guariba em setembro de 2025
+
+A pesquisa dirigida encontrou **duas publicações no domínio oficial da Imprensa Nacional** posteriores ao instrumento de 2024. Isso altera a conciliação inicialmente proposta na seção 2, sem permitir presumir que os números publicados em 2025 sejam a última versão vigente em novembro de 2026.
+
+- **DOU de 08/09/2025, edição 170, seção 3, p. 92:** em tabela da CAIXA, Termo **959097/2024**, FNDE, Município de Guariba, **aditivo de 04/09/2025**: “Altera repasse e contrap: R$ 9.675.808,83 e R$ 82.942,62”. Fonte oficial: https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=08%2F09%2F2025&jornal=530&pagina=92 .
+- **DOU de 25/09/2025, edição 183, seção 3, p. 80:** para o mesmo termo, tabela indica aditivo de **22/09/2025**, “Altera repasse: R$ 9.675.808,83” e alteração de vigência. A extração textual apresenta “31/10/2026” no cabeçalho de coluna compartilhado com outra linha, de modo que a **data de vigência de Guariba não está segura apenas pela extração tabular** e deve ser conferida na íntegra do termo. Fonte oficial: https://pesquisa.in.gov.br/imprensa/servlet/INPDFViewer?captchafield=firstAccess&data=25%2F09%2F2025&jornal=530&pagina=80 .
+- **Soma dos componentes informados no aditivo de 04/09/2025:** R$ 9.675.808,83 + R$ 82.942,62 = **R$ 9.758.751,45**. Comparada ao total resumido do portal municipal (R$ 9.775.559,11), a diferença é **R$ 16.807,66**. O primeiro valor é uma soma descritiva de componentes do aditivo de 2025, **não valor final vigente homologado**.
+- A página municipal apresenta ainda **R$ 8.128.377,24** para componente FNDE da licitação; **não é o mesmo estágio contratual/financeiro** do termo e não deve ser substituído sem exame do contrato e de suas alterações.
+
+**Novo resultado probatório:** o valor de 2024 e os campos do portal têm versões temporais distintas comprovadas em parte. A existência de aditivo reduz a pertinência de falar em mero erro aritmético do portal como explicação fechada. O achado é **divergência de versões e de estágios financeiros**, com necessidade de conciliar instrumento original, dois aditivos, contrato administrativo, plano de trabalho e pagamentos. A busca oficial identificou fontes P0 no nível de **publicação integral do extrato do aditivo**; **não P0 da íntegra do instrumento contratual**. A tentativa de obter captura visual via serviço de PDF oficial retornou falha técnica; conferência baseada no texto extraído e identificação oficial da publicação. Evitar afirmar homologação visual do PDF.

@@ -108,3 +108,62 @@ Permanecem as evidências do Lote 86: **R$ 13.803,52** corresponde ao **segundo 
 5. Prosseguir revisão jurídica e financeira já delimitada, e inspeção das 63 páginas. **Não efetuar reedição extensa das SWOT antes de concluir as diligências.**
 
 **Resultado da rodada:** nova separação entre lotes contratuais de Guariba e reconhecimento da distinta fonte orçamentária da proposta de crédito para o terreno, ampliação da cadeia de evidência de Cravinhos, localização de documentação orçamentária/licitatória em Orlândia e setor de obras FID de Cássia. A homologação ainda não está concluída.
+
+
+## 9. Complemento decisivo — recuperação textual de instrumentos originais por Firecrawl
+
+**Atualização após o fechamento preliminar deste dossiê, em 04/11/2026.** A limitação informada nas seções 1 e 2 sobre a impossibilidade de ler as integrais por bloqueio no ambiente local **foi parcialmente superada** com um extrator remoto de PDFs (Firecrawl). Preserva-se o relato da falha da primeira tentativa, mas o estado probatório atual é o seguinte:
+
+### 9.1 Contrato Administrativo 043/2025 — 27/27 páginas extraídas
+
+Documento oficial do portal de Guariba: https://ecrie.com.br/sistema/conteudos/arquivo/a_39_2_5_04092025115646.pdf . **27 páginas identificadas e 27 processadas**; o texto extraído foi examinado em seus dispositivos financeiros e de execução. **Uma página foi conferida visualmente; não houve cotejo visual de todas as 27 páginas, assinaturas e anexos**, de modo que o exame de cláusulas não equivale a homologação integral.
+
+A **cláusula 4.1 confirma expressamente** a composição do valor contratual:
+
+| Item | Valor do contrato 043/2025 |
+|---|---:|
+| Lote 1 — Escola padrão FNDE de nove salas | **R$ 8.211.319,86** |
+| Lote 2 — Adequações do terreno e instalações | **R$ 364.840,50** |
+| **Total contratado, cláusula 4.1** | **R$ 8.576.160,36** |
+
+**Conferência aritmética:** R$ 8.211.319,86 + R$ 364.840,50 = R$ 8.576.160,36, sem discrepância.
+
+- Cláusula **3.1**: vigência contratual de 28 meses a partir da assinatura.
+- Cláusula **3.2**: execução dos serviços em **24 meses a partir do recebimento da ordem de execução**, passível de alteração legal; **3.2.1** condiciona a ordem de serviço à autorização de liberação de recursos FNDE/CAIXA.
+- Cláusula **4.3**: dotação de 2025 **02.17.03.12.361.0016.1.152.000.4.4.90.51** (obras e instalações).
+- Cláusulas **7.3.1 e 7.4**: pagamentos vinculados à execução efetiva e aceite dos serviços, com notas fiscais e nota de empenho; isso é uma **condição contratual**, não prova de pagamento ocorrido.
+- Documento contém, em anexos, valores estimados pré-licitação distintos do contratado, inclusive estimativa anterior para Lote 2 (**R$ 434.344,85**), que não deve substituir o preço adjudicado (**R$ 364.840,50**).
+
+### 9.2 Ordem de início — documento original de 1/1 página extraída
+
+A **“ORDEM DE INÍCIO DE SERVIÇO”** disponibilizada oficialmente em https://ecrie.com.br/sistema/conteudos/arquivo/a_39_0_1_29042026112213.pdf foi lida integralmente por extração de texto (1 página). Autoriza a ARCON Engenharia e Serviços Ltda. a dar início aos serviços **em 12/09/2025**, abarcando os lotes 1 e 2 do Contrato 043/2025. O documento é datado de **12 de setembro de 2025**, emitido por representante da Secretaria Municipal de Planejamento, Obras e Serviços Públicos. **A data final do nome de arquivo (29/04/2026) não é a data de início da obra.**
+
+**Força probatória:** prova documental do **ato administrativo de autorização de início** com data e objeto. Não demonstra por si só se a empreiteira efetivamente mobilizou o canteiro nessa data, percentual físico realizado, medições, liquidações ou pagamentos.
+
+### 9.3 Termo FNDE 959097/2024 — 22/24 páginas extraídas
+
+O documento de origem https://ecrie.com.br/sistema/conteudos/arquivo/a_39_0_1_27082024155336.pdf foi processado em **22 das 24 páginas** (limite configurado na extração), suficiente para ler as cláusulas originais:
+
+- **Cláusula 6.2.1**: repasse federal previsto de **R$ 9.775.082,35**;
+- **Cláusula 6.3.1.1**: contrapartida municipal prevista de **R$ 99.750,28**;
+- **Soma contratualmente prevista no instrumento inicial:** **R$ 9.874.832,63**;
+- **Cláusula 6.3.1.3**: rendimentos de aplicações financeiras **não podem ser computados como contrapartida**;
+- A liberação dos recursos está condicionada ao cronograma e requisitos do Plano de Trabalho.
+
+Esses valores **confirmam o corpo do portal para o termo original**, mas **não confirmam** o total resumido do portal (R$ 9.775.559,11) nem a versão atual após os aditivos de setembro de 2025 e eventuais alterações posteriores. A reconciliação histórica deve registrar instrumento original e cada aditivo separadamente.
+
+### 9.4 Anexos rotulados “contrato” são planilhas, não contratos assinados
+
+- Arquivo municipal https://ecrie.com.br/sistema/conteudos/arquivo/a_39_0_1_19052026133801.pdf = **Planilha orçamentária do Lote 1**, 16 páginas; a extração do PDF indica planilha Excel de origem.
+- Arquivo municipal https://ecrie.com.br/sistema/conteudos/arquivo/a_39_0_1_19052026133809.pdf = **Planilha Orçamentária OGU do Lote 2**, 1 página, com total **R$ 364.840,50**, coincidente com o valor do Lote 2 do contrato assinado.
+
+Os títulos dos links no portal podem induzir a classificar esses anexos como termos contratuais. A classificação correta decorre **do conteúdo extraído**: anexos orçamentários do contrato 043/2025.
+
+### 9.5 Implicações para a SWOT de Guariba e próximos passos
+
+É possível afirmar, com apoio nos documentos originais, a **existência do contrato 043/2025**, **valor total e desagregação por lotes**, e a **ordem administrativa autorizando o início em 12/09/2025**. Isso **eleva a qualidade de comprovação documental do estágio contratual e da autorização de execução**, sem promover afirmações sobre montante efetivamente investido/pago ou entrega da escola.
+
+Permanecem exigíveis: (i) conferir as 2 páginas restantes e o aspecto visual integral do termo; (ii) confirmar termo aditivo vigente em 2026 via fonte oficial; (iii) identificar e confrontar medições da obra, execução orçamentária e transferências bancárias; (iv) verificar projeto de lei de crédito adicional R$ 150 mil até lei/decreto e execução, preservando a fonte distinta; (v) cotejo visual integral do contrato e documentos de assinatura, além das demais pendências municipais e jurídicas.
+
+**Correção do próprio Lote 88:** a frase da seção 2.2 sobre “dois anexos distintos para o mesmo contrato” deve ser lida como **duas planilhas por lote**, e não como dois contratos autônomos; a versão de valores da cláusula 4.1 acima prevalece sobre qualquer hipótese anterior de desagregação não determinada. Esta atualização não apaga o histórico da diligência, apenas registra a evolução de sua evidência.
+

@@ -108,3 +108,8 @@ A presente rodada avançou especificamente na comprovação da **execução decl
 5. Completar QA gráfico e jurídico e somente então produzir nova versão de circulação externa.
 
 **Referências normativas complementares:** https://www.gov.br/transferegov/pt-br/ferramentas-gestao/api-de-dados-abertos-transferegov.br ; https://api-publica.transferegov.gestao.gov.br/especiais ; https://api-publica.transferegov.gestao.gov.br/downloads . Consulta realizada em 04/11/2026. Registro de origem: `CONCILIACAO_CREDITOS_TRANSFERENCIAS_LOTE89_2026_11_04.md`.
+
+
+## 9. Teste de transferência efetiva dos ZIPs oficiais — bloqueio de execução
+
+Foi tentado acessar `https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_convenio.zip` e `.../siconv_desembolso.zip`. A página HTML do catálogo e os respectivos URLs foram acessados via Crawl2AI, mas o download binário via serviço de contêiner não foi habilitado porque o verificador de URLs não conseguiu abrir o ZIP; o teste HTTP na área de execução retornou **falha DNS (Could not resolve host)**. Portanto, **não existe CSV do novo catálogo baixado, filtrado nem conciliado neste Lote 90**; nenhuma relação de pagamentos do FNDE 959097/2024 foi obtida a partir desses ZIPs. Fica reservado para o Lote 91 o download por conector com suporte efetivo a binários ou ambiente de rede com DNS válido. Essa restrição **não afeta a validação via API JSON** dos planos especiais 17081/20422 já efetivamente realizada.

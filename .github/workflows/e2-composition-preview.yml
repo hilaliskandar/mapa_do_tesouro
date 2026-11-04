@@ -1,0 +1,64 @@
+name: E2 composicao orcamentaria - revisao isolada
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/e2-composition-preview.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  charts-preview:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Obter pacote editorial validado com graficos
+        run: |
+          mkdir -p build/e2-charts
+          gh run download 38959538784 --repo "$GITHUB_REPOSITORY" --name prepublicacao-e2-api-e-html --dir build/e2-charts
+          python - <<'PY'
+          import pathlib,json,hashlib
+          p=pathlib.Path("build/e2-charts")
+          m=json.loads((p/"PREVIEW_MANIFEST.json").read_text())
+          assert m["bulletins"]==10 and m["municipal_profiles"]==280
+          for name,digest in m["files"].items():
+              assert hashlib.sha256((p/name).read_bytes()).hexdigest()==digest,name
+          found=[]
+          for f in p.glob("publicacoes/*/index.html"):
+              data=f.read_text(encoding="utf-8")
+              assert 'id="graficos"' in data,f
+              found.append((f.parent.name,data.count('class="chart-card"')))
+          assert len(found)==10
+          print("Graficos por universo:",found)
+          all_fichas=list(p.glob("publicacoes/*/municipios/*.html"))
+          assert len(all_fichas)==280
+          assert all('id="comparacoes"' in f.read_text(encoding="utf-8") and 'id="composicao"' in f.read_text(encoding="utf-8") for f in all_fichas)
+          assert (p/"index.html").read_text().count('<li><a href="publicacoes/')==10
+          PY
+      - name: Publicar somente na ramificacao graficos-e2 do projeto isolado
+        run: |
+          npx --yes wrangler@4 pages deploy build/e2-charts \
+            --project-name financas-e2-homologacao \
+            --branch composicao-e2 \
+            --commit-hash "$GITHUB_SHA"
+      - name: Auditar resposta HTTP e SHA no endereco de graficos
+        run: |
+          python editorial/multiuniverso/qa_http_all_editorial.py \
+            --bundle build/e2-charts \
+            --root https://composicao-e2.financas-e2-homologacao.pages.dev \
+            --out build/e2-charts-qa/resultado.json
+      - name: Preservar relatorio
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-composicao-e2
+          path: build/e2-charts-qa/
+          if-no-files-found: warn

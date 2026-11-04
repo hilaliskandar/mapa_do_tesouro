@@ -1,0 +1,126 @@
+name: Gerar boletins dos universos editoriais
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'editorial/multiuniverso/**'
+      - 'data/catalogs/publication_variables_v1.yml'
+      - '.github/workflows/build-editorial-universes.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  gerar-boletins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Testar regras editoriais sem rede
+        run: |
+          python editorial/multiuniverso/test_regras_editoriais.py
+          python editorial/multiuniverso/test_graficos_municipais.py
+          python editorial/multiuniverso/test_graficos_composicao.py
+          python editorial/multiuniverso/test_graficos_agregados.py
+      - name: Recuperar API corrigida do build privado aprovado
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/private-source
+          gh run download 38905063653 --repo "$GITHUB_REPOSITORY" --name sp645-private-site-38905063653 --dir build/private-source
+          test -f build/private-source/site-sp645/data/api/v1/publication/universes.json
+          test -f build/private-source/qa_rgf_gate_e_integration.json
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("build/private-source/qa_rgf_gate_e_integration.json")
+          data=json.loads(p.read_text())
+          assert data["changed"]==3068 and data["reclassified_absent"]==802,data
+          print("Base privada verificada:",data["changed"],data["reclassified_absent"])
+          PY
+      - name: Regenerar apenas API editorial com catalogo ampliado
+        run: |
+          python -m pip install pyyaml
+          test -s build/private-source/sp645_private.sqlite
+          mkdir -p build/expanded-api
+          cp -a build/private-source/site-sp645/data/api/v1/. build/expanded-api/
+          python -m pipeline.build.export_publication_api \
+            build/private-source/sp645_private.sqlite build/expanded-api \
+            --universes-catalog data/catalogs/publication_universes_sp.yml \
+            --variables-catalog data/catalogs/publication_variables_v1.yml
+          python - <<'PY'
+          import json,pathlib
+          a=pathlib.Path("build/expanded-api")
+          idx=json.loads((a/"publication/universes.json").read_text())
+          assert len(idx)==11
+          ids=("tributos_imobiliarios","receitas_capital_selecionadas",
+               "dca_inversoes_financeiras_liquidada","dca_amortizacao_divida_liquidada")
+          for entry in idx:
+              data=json.loads((a/"publication/universes"/entry["publication_id"]/"context.json").read_text())
+              assert all(k in data["variables"] for k in ids)
+          print("Catalogo ampliado: universos 11; campos verificados.")
+          PY
+      - name: Recuperar contextos e construir dez boletins
+        run: |
+          python editorial/multiuniverso/build_boletins.py --base "file://$PWD/build/expanded-api" --out build/editorial-universes
+          python editorial/multiuniverso/build_fichas.py --base "file://$PWD/build/expanded-api" --out build/editorial-universes
+      - name: Conferir resultados
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("build/editorial-universes")
+          m=json.loads((p/"manifest.json").read_text())
+          assert len(m["editions"]) == 10
+          assert len(m["municipal_profiles"]) == 280
+          assert len({x["publication_id"] for x in m["editions"]})==10
+          for item in m["editions"]:
+              assert (p/item["publication_id"]/"index.html").stat().st_size>300
+          assert sum(1 for _ in (p/item["publication_id"]/"municipios").glob("*.html")) == item["member_count"]
+          print("10 boletins produzidos; publicacao nao executada")
+          PY
+      - name: Auditar artefato editorial
+        run: python editorial/multiuniverso/qa_artefato.py --out build/editorial-universes
+      - name: Auditar dicionarios editoriais
+        run: python editorial/multiuniverso/qa_dicionarios.py build/editorial-universes
+      - name: Auditar dependencias e fontes de indicadores derivados
+        run: python editorial/multiuniverso/qa_rastreabilidade.py build/editorial-universes
+      - name: Conferir paridade dos valores municipais com o contexto da API
+        run: python editorial/multiuniverso/qa_paridade_municipal.py --base "file://$PWD/build/private-source/site-sp645/data/api/v1" --out build/editorial-universes
+      - name: Montar pacote privado autocontido da pré-publicação
+        run: |
+          python editorial/multiuniverso/build_private_preview_bundle.py \
+            --api build/expanded-api \
+            --editorial build/editorial-universes \
+            --output build/prepublicacao-e2
+          python editorial/multiuniverso/qa_artefato.py --out build/prepublicacao-e2/publicacoes
+          python - <<'PY'
+          import json,pathlib
+          r=pathlib.Path("build/prepublicacao-e2")
+          m=json.loads((r/"PREVIEW_MANIFEST.json").read_text())
+          assert m["public_deploy"] is False
+          assert m["bulletins"]==10 and m["municipal_profiles"]==280
+          for f in r.glob("publicacoes/*/municipios/*.html"):
+              assert "href=\"file://" not in f.read_text()
+          print("Pacote privado íntegro, sem deploy")
+          PY
+      - name: Instalar navegador de homologação
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Testar navegação em computador e celular
+        run: node editorial/multiuniverso/qa_browser.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qa-navegador-editorial
+          path: build/editorial-browser-qa/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boletins-dez-universos
+          path: build/editorial-universes/
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prepublicacao-e2-api-e-html
+          path: build/prepublicacao-e2/
+          retention-days: 30

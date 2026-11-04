@@ -80,3 +80,10 @@ A pesquisa dirigida encontrou **duas publicações no domínio oficial da Impren
 - A página municipal apresenta ainda **R$ 8.128.377,24** para componente FNDE da licitação; **não é o mesmo estágio contratual/financeiro** do termo e não deve ser substituído sem exame do contrato e de suas alterações.
 
 **Novo resultado probatório:** o valor de 2024 e os campos do portal têm versões temporais distintas comprovadas em parte. A existência de aditivo reduz a pertinência de falar em mero erro aritmético do portal como explicação fechada. O achado é **divergência de versões e de estágios financeiros**, com necessidade de conciliar instrumento original, dois aditivos, contrato administrativo, plano de trabalho e pagamentos. A busca oficial identificou fontes P0 no nível de **publicação integral do extrato do aditivo**; **não P0 da íntegra do instrumento contratual**. A tentativa de obter captura visual via serviço de PDF oficial retornou falha técnica; conferência baseada no texto extraído e identificação oficial da publicação. Evitar afirmar homologação visual do PDF.
+
+
+## 10. Linha de base de cobertura dos 34 municípios
+
+Leitura e contagem da matriz editorial de incorporação do **Lote 81** (Drive `1LrCMYReVdPvHqPdUHnWoFrVy88qBZKBvZwzthpqwtmA`), com **34 registros municipais distintos**: **27 P1**, **6 P2** e **1 P3** na classificação registrada naquela matriz. O único P3 é **Cássia dos Coqueiros**; P2 são **Barrinha, Batatais, Cravinhos, Guatapará, Luís Antônio e Santa Cruz da Esperança**. Os demais 27 são P1. **Nenhum caso foi P0 de instrumento integral auditado na base do Lote 81.**
+
+Estes são graus de evidência dos fatos externos descritos, não de completude das séries fiscais. A verificação do Lote 86 aprofundou cinco casos, mas **não substitui formalmente a matriz integral nem autoriza promover um município inteiro a P0**. O DOU de Guariba acrescentou comprovação de dois **extratos oficiais de aditivos**, sem leitura da íntegra dos termos. A cobertura precisa ser interpretada no nível de cada documento, não somente do município.

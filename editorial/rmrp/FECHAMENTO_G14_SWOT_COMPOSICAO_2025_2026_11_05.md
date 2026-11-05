@@ -17,12 +17,12 @@ Data 05/11/2026. **Corpus analisado:** texto Lote 61A, com 34 matrizes municipai
 
 A soma ISS+ICMS é soma de montantes das rubricas observadas, dividida pela receita corrente; não representa média legal de referência do IBS nem projeção de repartição. FPM nos enunciados corresponde a **cota mensal** (`dca_fpm_cota_mensal`); a denominação genérica “FPM” exige esclarecimento editorial, pois não representa o FPM total. `dca_receita_tributaria_bruta` e `dca_receita_corrente_bruta` foram utilizados para as participações. Despesas correntes e investimento foram selecionados como valores liquidados, divididos por receita corrente bruta.
 
-Também foram identificados **3 enunciados com investimento real por habitante em reais em 2025**, dos quais 3 conformes. Esses casos estão em [CSV complementar](G14_AUDITORIA_MONTANTES_INVESTIMENTO_PER_CAPITA_2025_SWOT.csv).
+Também foram identificados **3 enunciados com investimento real por habitante em reais em 2025**, dos quais 3 conformes. Os três casos são: Cravinhos (R$ 1.154,73; valor calculado R$ 1.154,7283), Cajuru (R$ 231,17; calculado R$ 231,1736) e Santa Rosa de Viterbo (R$ 197,93; calculado R$ 197,9325). As diferenças são inferiores a R$ 0,005 por habitante.
 
 Os registros individuais dos 194 testes encontram-se em [CSV de auditoria](G14_AUDITORIA_SWOT_COMPOSICAO_2025_194_TESTES.csv). **Não se deve somar indiscriminadamente os 194 testes aos 35 indicadores longitudinais já auditados**, pois são famílias e padrões textuais distintos; a contagem mede afirmações localizadas, não abrangência da totalidade de qualquer documento.
 
 ## Achados editoriais
-- O texto Lote 61A contém **0** ocorrências literais do fechamento `indeterminado..` (duplicação de ponto). Corrigir numa **cópia de trabalho**, apenas depois do QA contra o documento de referência.
+- O texto Lote 61A contém **34** ocorrências do fechamento em Markdown `**indeterminado**..` (duplicação de ponto). Corrigir numa **cópia de trabalho**, apenas depois do QA contra o documento de referência.
 - O título “ISS principal” é juridicamente e contabilmente mais restrito que “ISS total”; preservar o qualificador em qualquer tabela/legenda.
 - O “FPM” no Lote 61A foi numericamente calculado como **FPM cota mensal**; expandir rótulo para evitar sua interpretação como FPM integral.
 - O somatório “ISS principal + ICMS” é exposição contábil de 2025, não simulação de arrecadação de IBS.

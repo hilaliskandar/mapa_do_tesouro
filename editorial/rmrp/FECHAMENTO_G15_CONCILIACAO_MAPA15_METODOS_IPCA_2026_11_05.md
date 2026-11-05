@@ -32,3 +32,10 @@ Os outros 33 municípios preservam a mesma classe sob os dois métodos.
 - [QA da reclassificação anterior](QA_MAPA_15_RECLASSIFICACAO_2026_10_29.md).
 - [Histórico de recuperação no Lote 87](RECUPERACAO_MAPA15_CONTRATO_GUARIBA_LOTE87_2026_11_04.md).
 - DCA SP645: Google Drive ID `1BtXY_FxydMREEbMACJtaoW2n24ohVH33`.
+
+## Auditoria geométrica executada posteriormente — G15
+Recuperados do Drive os cinco componentes originais de `SP_Municipios_2022` (SHP, SHX, DBF, PRJ e CPG), disponíveis na pasta `135bW7V-5agl3HjRW4M52CjENR12KJF3o`. Geopandas confirmou **EPSG:4674**, 645 geometrias estaduais e 645 códigos municipais distintos. A junção por `CD_MUN` (texto) com os 34 códigos de RMRP encontrou **34/34 feições**, 34 chaves únicas, sem duplicações, sem geometrias vazias/nulas/inválidas e sem ausências de pareamento. As geometrias não foram simplificadas.
+
+Os valores reais e as classes de ambos os métodos foram inseridos em cópia derivada geoespacial (GeoPackage) e renderizados em dois painéis de comparação, sem alterar o mapa original. **Exatamente uma das 34 geometrias muda de classe: Santa Rosa de Viterbo (3547601)**. A feição antes classificada como alta superior a 50% pelo IPCA dezembro aparece como alta de 0% a 50% no método de média anual. Reproduzida a distribuição do próprio mapa e verificado o posicionamento territorial da mudança.
+
+**Status corrigido:** divergência numérica cartográfica **reconciliada por método de deflação**; integridade da geometria e cardinalidade de junção do mapa 15 **aprovadas**. A eventual substituição no Volume II é **decisão editorial de homogeneização metodológica**, não correção de erro dos dados originais. Os demais mapas não foram submetidos ao mesmo grau de QA neste lote.

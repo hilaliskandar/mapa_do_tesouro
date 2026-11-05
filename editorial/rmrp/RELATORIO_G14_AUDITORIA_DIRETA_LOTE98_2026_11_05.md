@@ -12,3 +12,6 @@ Data: 05/11/2026. Fonte: DOCX congelado do pacote G0, SHA-256 fffd21bb65251d89ca
 - Original Lote 98 permanece intacto; a auditoria não inclui homologação jurídica ou análise de todas as feições dos mapas.
 
 Origem documental: RMRP_G0_PACOTE_BASE_CONGELADA_2026_11_05.zip, Drive ID 1eROu1DKokcGlxwv_qRZZLYJAyo__XmeK.
+
+## Adendo G15 — divergência cartográfica resolvida metodologicamente
+A investigação posterior reproduziu **exatamente** as classes 3/9/7/5/10 do mapa existente utilizando IPCA de dezembro por exercício, como o próprio registro de criação do mapa documentava. Pelo IPCA médio anual, obtém-se 3/9/7/6/9. Só Santa Rosa de Viterbo muda de classe: +51,44568883% (dezembro) versus +49,9897161% (média anual). Não há prova de erro de contagem do mapa sob seu próprio método; a pendência é **homogeneização editorial da convenção de deflação**, antes de comparar seus valores com as séries do Volume II. Detalhamento em [G15](FECHAMENTO_G15_CONCILIACAO_MAPA15_METODOS_IPCA_2026_11_05.md).

@@ -1,0 +1,69 @@
+codigo_ibge;municipio;subregiao;ano;despesa_corrente_liquidada_brl;investimento_liquidado_brl;populacao_dca;status;fonte_api
+3501004;Altinópolis;4;2023;99432595.82;3886588.92;16221;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3501004&no_anexo=DCA-Anexo%20I-D
+3501004;Altinópolis;4;2024;110986598.89;2102100.82;16845;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3501004&no_anexo=DCA-Anexo%20I-D
+3505609;Barrinha;1;2023;125651743.7;12070143.98;33537;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3505609&no_anexo=DCA-Anexo%20I-D
+3505609;Barrinha;1;2024;144569940.03;6029212.68;32465;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3505609&no_anexo=DCA-Anexo%20I-D
+3505906;Batatais;4;2023;255823565.17;33984212.97;63438;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3505906&no_anexo=DCA-Anexo%20I-D
+3505906;Batatais;4;2024;295950495.51;34262783.24;59342;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3505906&no_anexo=DCA-Anexo%20I-D
+3507803;Brodowski;1;2023;135788708.06;2844675.47;25605;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3507803&no_anexo=DCA-Anexo%20I-D
+3507803;Brodowski;1;2024;146435436.02;3497602.7;25334;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3507803&no_anexo=DCA-Anexo%20I-D
+3509403;Cajuru;3;2023;112921439.25;4480809.57;26613;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3509403&no_anexo=DCA-Anexo%20I-D
+3509403;Cajuru;3;2024;115179036.77;6325848.68;23845;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3509403&no_anexo=DCA-Anexo%20I-D
+3510906;Cássia dos Coqueiros;3;2023;25332308.93;2915129.88;2488;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3510906&no_anexo=DCA-Anexo%20I-D
+3510906;Cássia dos Coqueiros;3;2024;25461703.69;978280.39;2777;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3510906&no_anexo=DCA-Anexo%20I-D
+3513108;Cravinhos;1;2023;199122147.37;20845284.25;35858;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3513108&no_anexo=DCA-Anexo%20I-D
+3513108;Cravinhos;1;2024;228802838.85;33385673.84;33252;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3513108&no_anexo=DCA-Anexo%20I-D
+3514601;Dumont;1;2023;52608208.53;5007792.04;10174;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3514601&no_anexo=DCA-Anexo%20I-D
+3514601;Dumont;1;2024;59118993.04;7530292.07;9476;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3514601&no_anexo=DCA-Anexo%20I-D
+3518602;Guariba;2;2023;174860009.64;17945327.81;40857;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3518602&no_anexo=DCA-Anexo%20I-D
+3518602;Guariba;2;2024;184045481.91;15267289.54;37022;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3518602&no_anexo=DCA-Anexo%20I-D
+3518859;Guatapará;1;2023;49263360.02;2108764.79;7760;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3518859&no_anexo=DCA-Anexo%20I-D
+3518859;Guatapará;1;2024;48426613.49;1067910.56;7435;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3518859&no_anexo=DCA-Anexo%20I-D
+3524303;Jaboticabal;2;2023;478411651.5;11256452.31;78029;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3524303&no_anexo=DCA-Anexo%20I-D
+3524303;Jaboticabal;2;2024;513849599.39;23637382.24;72001;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3524303&no_anexo=DCA-Anexo%20I-D
+3525102;Jardinópolis;1;2023;222363006.7;7895613.64;45544;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3525102&no_anexo=DCA-Anexo%20I-D
+3525102;Jardinópolis;1;2024;217114258.94;3590111.73;45328;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3525102&no_anexo=DCA-Anexo%20I-D
+3527603;Luís Antônio;1;2023;122582819.06;4652320.1;15628;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3527603&no_anexo=DCA-Anexo%20I-D
+3527603;Luís Antônio;1;2024;120921072.25;5380861.49;13680;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3527603&no_anexo=DCA-Anexo%20I-D
+3530508;Mococa;3;2023;294904388.99;9958536.56;69072;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3530508&no_anexo=DCA-Anexo%20I-D
+3530508;Mococa;3;2024;320515263.96;14509401.57;65469;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3530508&no_anexo=DCA-Anexo%20I-D
+3531308;Monte Alto;2;2023;216516480.59;8622647.59;51039;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3531308&no_anexo=DCA-Anexo%20I-D
+3531308;Monte Alto;2;2024;237887472.54;4066812.84;47478;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3531308&no_anexo=DCA-Anexo%20I-D
+3531902;Morro Agudo;4;2023;230256757.03;11854736.67;33598;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3531902&no_anexo=DCA-Anexo%20I-D
+3531902;Morro Agudo;4;2024;221574922.88;10679957.64;26806;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3531902&no_anexo=DCA-Anexo%20I-D
+3533601;Nuporanga;4;2023;54603275.67;8764733.43;7522;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3533601&no_anexo=DCA-Anexo%20I-D
+3533601;Nuporanga;4;2024;60192162.57;5590458.07;7370;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3533601&no_anexo=DCA-Anexo%20I-D
+3534302;Orlândia;4;2023;229707777.69;19579042.48;44682;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3534302&no_anexo=DCA-Anexo%20I-D
+3534302;Orlândia;4;2024;279560656.53;25611678.86;37916;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3534302&no_anexo=DCA-Anexo%20I-D
+3539509;Pitangueiras;2;2023;181714125.64;19944526.72;40430;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3539509&no_anexo=DCA-Anexo%20I-D
+3539509;Pitangueiras;2;2024;204522098.59;13023798.96;33731;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3539509&no_anexo=DCA-Anexo%20I-D
+3540200;Pontal;1;2023;200780762.76;6870800.35;51717;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3540200&no_anexo=DCA-Anexo%20I-D
+3540200;Pontal;1;2024;201543458.35;3755083.01;37526;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3540200&no_anexo=DCA-Anexo%20I-D
+3540903;Pradópolis;1;2023;127624353.95;8597572.49;22239;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3540903&no_anexo=DCA-Anexo%20I-D
+3540903;Pradópolis;1;2024;116738641.94;2413338.81;17035;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3540903&no_anexo=DCA-Anexo%20I-D
+3543402;Ribeirão Preto;1;2023;3806490990.32;192750983.44;720116;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3543402&no_anexo=DCA-Anexo%20I-D
+3543402;Ribeirão Preto;1;2024;4168239190.51;218916157.18;702739;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3543402&no_anexo=DCA-Anexo%20I-D
+3544905;Sales Oliveira;4;2023;73471680.82;5276400.51;12103;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3544905&no_anexo=DCA-Anexo%20I-D
+3544905;Sales Oliveira;4;2024;77922644.63;2766332.28;11420;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3544905&no_anexo=DCA-Anexo%20I-D
+3546256;Santa Cruz da Esperança;3;2023;24003319.55;3146402.51;2166;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3546256&no_anexo=DCA-Anexo%20I-D
+3546256;Santa Cruz da Esperança;3;2024;28421438.73;2827456.74;2129;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3546256&no_anexo=DCA-Anexo%20I-D
+3547502;Santa Rita do Passa Quatro;1;2023;141950040.95;12548021.26;27641;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3547502&no_anexo=DCA-Anexo%20I-D
+3547502;Santa Rita do Passa Quatro;1;2024;155733939.13;6317717.39;24858;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3547502&no_anexo=DCA-Anexo%20I-D
+3547601;Santa Rosa de Viterbo;3;2023;106660989.89;3237405.88;26960;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3547601&no_anexo=DCA-Anexo%20I-D
+3547601;Santa Rosa de Viterbo;3;2024;110211715.75;2199905.53;23783;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3547601&no_anexo=DCA-Anexo%20I-D
+3547908;Santo Antônio da Alegria;4;2023;43102263.06;2524246.82;7024;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3547908&no_anexo=DCA-Anexo%20I-D
+3547908;Santo Antônio da Alegria;4;2024;46768088.92;3408286.06;6775;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3547908&no_anexo=DCA-Anexo%20I-D
+3550902;São Simão;1;2023;84350565.49;1626041.3;15446;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3550902&no_anexo=DCA-Anexo%20I-D
+3550902;São Simão;1;2024;81625332.15;2308788.15;13374;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3550902&no_anexo=DCA-Anexo%20I-D
+3551405;Serra Azul;1;2023;49533202.48;3262515.83;15292;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3551405&no_anexo=DCA-Anexo%20I-D
+3551405;Serra Azul;1;2024;54819093.06;711112.01;10429;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3551405&no_anexo=DCA-Anexo%20I-D
+3551504;Serrana;1;2023;195447433.15;5445183.37;46166;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3551504&no_anexo=DCA-Anexo%20I-D
+3551504;Serrana;1;2024;212413639.31;7340273.04;44495;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3551504&no_anexo=DCA-Anexo%20I-D
+3551702;Sertãozinho;1;2023;704144337.17;23996950.92;128432;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3551702&no_anexo=DCA-Anexo%20I-D
+3551702;Sertãozinho;1;2024;796956415.31;25753197.55;127670;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3551702&no_anexo=DCA-Anexo%20I-D
+3553203;Taiúva;2;2023;34197753.43;1476060.72;5562;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3553203&no_anexo=DCA-Anexo%20I-D
+3553203;Taiúva;2;2024;36461872.41;1320893.13;6549;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3553203&no_anexo=DCA-Anexo%20I-D
+3553302;Tambaú;3;2023;115239706.97;4995646.5;23255;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3553302&no_anexo=DCA-Anexo%20I-D
+3553302;Tambaú;3;2024;124969717.72;3056866.62;21475;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3553302&no_anexo=DCA-Anexo%20I-D
+3553658;Taquaral;2;2023;24021115.21;576828.16;2815;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3553658&no_anexo=DCA-Anexo%20I-D
+3553658;Taquaral;2;2024;24611319.11;1191286.64;2620;OK;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3553658&no_anexo=DCA-Anexo%20I-D

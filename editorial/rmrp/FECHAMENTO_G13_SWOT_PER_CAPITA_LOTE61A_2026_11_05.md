@@ -22,3 +22,6 @@ A população no arquivo DCA repete exatamente os valores de 2024 em 2025 para 3
 4. Não editar o Lote 98 até encerrar o gate de consistência.
  
 [Planilha CSV de auditoria completa](G13_AUDITORIA_SWOT_PER_CAPITA_LOTE61A_34_MUNICIPIOS.csv)
+
+## Inspeção adicional do arquivo de população IBGE
+A planilha Google Sheets `FINBRA_PARTE5_parametros_temporais_IPCA_populacao_2013_2025` (ID `1ZiX9B2qgkUFcqibztgvGgvMdScqJGOvKLgL5nZfq6_I`) registra critérios demográficos na aba `METODOLOGIA` e possui aba `POPULACAO_IBGE`. Inspeção restrita às 1.000 linhas disponibilizadas na aba não identificou a chave `3543402` (Ribeirão Preto). Isso **não é prova de inexistência da série IBGE em outros arquivos**; apenas demonstra que esta aba, sob o limite consultado, não resolve o denominador de todos os municípios/anos. Não substituir populações da DCA com dados não recuperados nem classificar a comparação demográfica como concluída.

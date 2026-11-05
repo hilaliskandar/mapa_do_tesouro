@@ -1,0 +1,9 @@
+codigo_ibge;municipio;ano;despesa_corrente_liquidada_brl;investimento_liquidado_brl;populacao_dca;fonte
+3543402;Ribeirão Preto;2023;3806490990.32;192750983.44;720116;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3543402&no_anexo=DCA-Anexo%20I-D
+3543402;Ribeirão Preto;2024;4168239190.51;218916157.18;702739;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3543402&no_anexo=DCA-Anexo%20I-D
+3513108;Cravinhos;2023;199122147.37;20845284.25;35858;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3513108&no_anexo=DCA-Anexo%20I-D
+3513108;Cravinhos;2024;228802838.85;33385673.84;33252;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3513108&no_anexo=DCA-Anexo%20I-D
+3524303;Jaboticabal;2023;478411651.50;11256452.31;78029;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3524303&no_anexo=DCA-Anexo%20I-D
+3524303;Jaboticabal;2024;513849599.39;23637382.24;72001;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3524303&no_anexo=DCA-Anexo%20I-D
+3530508;Mococa;2023;294904388.99;9958536.56;69072;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2023&id_ente=3530508&no_anexo=DCA-Anexo%20I-D
+3530508;Mococa;2024;320515263.96;14509401.57;65469;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/dca?an_exercicio=2024&id_ente=3530508&no_anexo=DCA-Anexo%20I-D

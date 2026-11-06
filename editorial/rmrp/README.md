@@ -88,3 +88,21 @@ A partir de **G30 v1**, em nova cópia do Volume II, realizaram-se **34 ampliaç
 | Pacote técnico ZIP G30 v2 | [Drive](https://drive.google.com/file/d/1-8Pa5tJHOxumC-MFi5L65Fo1rhVjtMJm/view) | `211eca717ee5bf74f92b2ab08aa0f4b53b837fa4314151e06f6fa7fac8631b0a` |
 
 **Persistência:** cinco uploads e cinco leituras de metadados confirmadas. O README nativo do Drive deve ser atualizado com esses mesmos registros se a edição não estiver disponível na sessão. **Próximo controle:** revisar em escala de leitura as 39 análises, quadros e conclusões; não converter a G30 v2 em versão de circulação sem fechamento temático e gráfico.
+
+
+## G30 v3 — revisão fina, 06/11/2026
+
+**Status:** versão integral de trabalho, não homologada para circulação. A partir de cópia da G30 v2, foram realizadas **24 correções localizadas** em parágrafos analíticos posteriores às matrizes SWOT municipais. Objetivos: reduzir redundâncias, retirar metalinguagem sobre a pesquisa, tornar o argumento fiscal mais direto e corrigir um resíduo de marcação `**não**` no comentário de Jaboticabal. Cada troca contém antes/depois no JSON de diferenças.
+
+**QA:** 45 tabelas idênticas em XML à G30 v2; 16 mídias preservadas byte a byte; 15 imagens inline; ressalvas fiscais de Barrinha, Pontal e Orlândia presentes. DOCX renderizado com **75 páginas**; zero blocos de texto além dos limites geométricos e zero páginas com menos de 90 caracteres. Cinco montagens, cobrindo todas as páginas, examinadas. **Limitação:** montagens não equivalem à inspeção a 100% de todas as páginas e dos quadros partidos; análise final de coerência entre partes I–IV e conclusões ainda é necessária. Sem nova conferência Siconfi, sem homologação de projetos ou cenários. ZIP validado sem erro.
+
+| Produto | Identificador e link do Drive | SHA-256 |
+| --- | --- | --- |
+| DOCX G30 v3 | [15mW1pD9Wg5kK-z7-GyDfysxsm7Sh8_2Y](https://docs.google.com/document/d/15mW1pD9Wg5kK-z7-GyDfysxsm7Sh8_2Y/edit) | `0cca838102f1bb99870a61d4e51e2c102bf36f927be026cf56d3f650958f63ca` |
+| PDF G30 v3 | [1vEBOVZakuszocwOadSmBCb4xSK--R2VQ](https://drive.google.com/file/d/1vEBOVZakuszocwOadSmBCb4xSK--R2VQ/view) | `cdec38a66d0c97d16f3e3fd6cdf6ae45b0e5edcc1db4c39e883a8a00fe0a6e87` |
+| Diff 24 intervenções | [1wGUYsfNx8hmYdskBBJUwJCl-XpEV90cR](https://drive.google.com/file/d/1wGUYsfNx8hmYdskBBJUwJCl-XpEV90cR/view) | `564a9ac197441febe6b07398a3371e70d172def4b42a5e0b78875f5f2263a31b` |
+| QA PDF/estrutura | [1kNtSYU5fNG2QB2gFa7BMJQnoe-o0lYsl](https://drive.google.com/file/d/1kNtSYU5fNG2QB2gFa7BMJQnoe-o0lYsl/view) | `3f2d92a530863f27d0619cf703cd634286448b482b2b512924ea3b005111dc6f` |
+| Relatório de revisão | [1JRIkqoQc8Wii8VgZUHVpz9hHv5DAHOel](https://drive.google.com/file/d/1JRIkqoQc8Wii8VgZUHVpz9hHv5DAHOel/view) | `ae79c7fa455c9c343447f3692471fa46c6f2a11f0845e4ecb773987b1b36df32` |
+| ZIP G30 v3 | [1R_sfzb_CLlNzO3bm1_uqmD1KepUnUZ0F](https://drive.google.com/file/d/1R_sfzb_CLlNzO3bm1_uqmD1KepUnUZ0F/view) | `1e24b05b7b53e84785b26f4f86a755796a99e8e449be881cba38f634a6377251` |
+
+**Persistência:** seis uploads aceitos e seis leituras de metadados confirmadas. Arquivos e hashes correspondem à versão gerada localmente. A G29, G30 v1 e G30 v2 não foram sobrescritas. **Próximo gate:** revisar coesão e remissões entre diagnóstico, reforma tributária, cenários 2027–2030, conclusões e matrizes, verificar em tamanho integral páginas com tabelas partidas e produzir eventual versão G30 v4.

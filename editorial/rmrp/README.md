@@ -196,3 +196,20 @@ Foram extraídos, sem alterações, 16 arquivos PNG do pacote Word G30 RC1, com 
 **Ressalvas:** a imagem ANEXO é um mapa de evolução real dos investimentos sem vínculo de exibição na RC1 e não deve ser divulgada sem validação de versão/legenda. Verificar o contexto estatístico de cada mapa, os créditos e a legibilidade móvel antes de usar em chamadas.
 
 **Próximo gate:** validação pública das URLs, adaptação responsiva e incorporação em HTML, quando a versão editorial for escolhida. A G30 RC1 DOCX/PDF permanece imutável.
+
+
+## Galeria HTML das mídias G30 RC1 — 06/11/2026
+
+**Objetivo:** validar a reutilização dos mapas e figuras já cadastrados na biblioteca de mídia EmDash, sem publicar a edição integral do relatório. Foram produzidos dois arquivos HTML5 responsivos, ambos com 15 elementos visuais (M1–M9 e F1–F6), identificações originais, legendas, textos alternativos e links de referência ao relatório RC1. O mapa ANEXO, sem chamada no corpo, foi deliberadamente omitido. As 45 tabelas editáveis do DOCX não integram a galeria e ainda exigem conversão semântica própria em uma edição HTML integral.
+
+**Produtos no Google Drive:** pasta de mídias e catálogos [RMRP Volume II](https://drive.google.com/drive/folders/1du7654ezGKWV7HTEfUX3leVVq0Kh198C).
+
+- [Galeria HTML autônoma, com imagens incorporadas](https://drive.google.com/file/d/1ZvYMT1JVyIStMr68hwX2kMMuiDhN_w3S/view): 3.492.183 bytes; SHA-256  obtido no manifesto local do gate.
+- [Galeria HTML com caminhos relativos da biblioteca EmDash](https://drive.google.com/file/d/1tvqvF0mQAZTO2S7o6nRJDYdNgXAit2yJ/view): 13.948 bytes; endereços internos exatos do CMS, a serem testados no site.
+- [Relatório da prova HTML](https://drive.google.com/file/d/1AJp1ltyCxDeUaZok5RwCQ7ybpdlsj3cF/view).
+- [QA estruturado](https://drive.google.com/file/d/1Vu5Mk2-zO-ArXtlJ9Y-ucb2mHXd4A8cA/view): 15 SHA-256, 15 SHA-1 e 15 tamanhos confirmados.
+- [Pacote completo ZIP](https://drive.google.com/file/d/1G4doU25PHEMyw9plWDP7LxrRU6UoF4sL/view).
+
+**Persistência:** cinco uploads no Drive concluídos e cinco leituras de metadados confirmadas; os HTML são artefatos arquivados, **não publicados** como páginas no EmDash. Foi validada por análise estática a existência de 15 figuras, 15 imagens e 15 descrições alternativas em cada HTML. A variante autônoma incorpora os PNG como data URI; a variante EmDash resolve imagens por URL relativa e funciona quando servida no domínio do CMS.
+
+**Validação HTTP externa:** **inconclusiva**. O teste HTTPS em ambiente container falhou por resolução DNS de boletim.radarregulatorio.org; dois endpoints de imagem foram rejeitados pela ferramenta pública de consulta. Isso **não demonstra indisponibilidade do site** e tampouco confirma entrega pública. Os 16 objetos estavam em status ready no EmDash, com hashes e legendas validados pelo conector. Próximo gate: consultar URLs externamente de navegador com acesso; comprovar HTTP 200 e image/png, testar viewport móvel e integrar figuras com 45 tabelas semânticas ao texto integral antes de publicar.

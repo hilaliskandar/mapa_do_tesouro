@@ -1,0 +1,3 @@
+# G29 — Revisão editorial do Volume II
+
+A edição G28 continha instruções internas de pesquisa nas 34 matrizes SWOT, em lugar de análise fiscal municipal voltada ao público. A G29 revisou as 39 matrizes, os cenários e as recomendações, preservando as 45 tabelas e os 16 arquivos de mídia. O novo texto examina receita própria, FPM, custeio, investimentos e prioridades de serviços municipais. As notas sobre divergências fiscais e projetos permanecem nos pontos pertinentes. A versão PDF G29 possui 69 páginas; não foram encontrados blocos fora dos limites. Esta edição requer revisão temática final antes de circulação institucional. Binários DOCX/PDF estão no pacote técnico G29 no ambiente de trabalho, não no GitHub.

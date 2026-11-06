@@ -1,0 +1,15 @@
+id;pagina;categoria;estado;encaminhamento
+G19-01;20 62 63;FPM cota mensal;corrigido;Três rótulos atualizados
+G19-02;1 a 66;Identificação da versão;corrigido;Rodapé e apresentação G19
+G19-03;65;Referência Siconfi;corrigido;Anexos I-C e I-D explicitados
+G19-04;63 64;Tabela de inserção;corrigido;Cabeçalho repetido na continuação
+G19-05;61;Figura F6;corrigido;Sem sobreposição ou truncamento
+G19-06;9;Figura F2;pendente;Qualificar FPM no raster
+G19-07;12 13;IPCA mapas vs séries;documentado;Decidir padronização editorial
+G19-08;2 7 11;População IBGE vs DCA;documentado;Preservar identificação de fontes
+G19-09;64;Mapa M1 específico;pendente;Reavaliar necessidade
+G19-10;2 16 60 63 65;RGF RREO;quarentena;Não inferir conformidade
+G19-11;55 65 66;Instrumentos externos;pendente;Conciliação individual
+G19-12;55 a 59;LC 200 e LC 227;conferido;Revalidar vigência antes de circulação
+G19-13;61;Figura F6 cenários;conforme;Sem previsões monetárias
+G19-14;1 a 66;QA de página;conforme geometria;66 páginas com rodapé e sem blocos extravasados

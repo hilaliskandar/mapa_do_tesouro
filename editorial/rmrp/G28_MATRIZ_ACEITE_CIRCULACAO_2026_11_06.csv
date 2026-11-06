@@ -1,0 +1,7 @@
+controle;estado_g27;estado_g28;resultado;criterio
+CART-01;M1_PENDENTE;RESOLVIDO;Mapa M1 localizado na pagina 3;34 municipios e quatro subregioes EPSG4674
+MET-01;CLASSIFICACAO_FPM_AMBIGUA;QUALIFICADA;Nota de classificacao DCA anual na pagina 7;Nao confundir rubrica cota mensal com valor de um mes
+FIS-01_A_04;ENCERRADO_EDIT_RESSALVADO;MANTIDO;Notas G26 preservadas;Sem juizo legal de conformidade
+FIN-01;ENCERRADO_EDIT_RESSALVADO;MANTIDO;Nota G27 preservada;Valor contratado nao significa pagamento
+QA-01;G27_66_PAGINAS;G28_66_PAGINAS;45 tabelas 16 medias;Texto e rodapes verificados
+HOM-01;PENDENTE;VALIDACAO_EDITORIAL_FINAL;Circulacao externa condicionada;Sem homologacao institucional presumida

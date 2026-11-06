@@ -23,7 +23,7 @@ def run():
             b=z.read(member)
             try:s=b.decode("utf-8-sig")
             except UnicodeError:s=b.decode("latin1")
-            sep=max((";","\\t",","),key=lambda c:s[:4000].count(c))
+            sep=max((";",chr(9),","),key=lambda c:s[:4000].count(c))
             reader=csv.DictReader(io.StringIO(s),delimiter=sep);fields=reader.fieldnames or []
             print(json.dumps({"member":member,"columns":fields,"delimiter":sep},ensure_ascii=False))
             if v.mode=="inspect":continue

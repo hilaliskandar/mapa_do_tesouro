@@ -17,7 +17,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 TARGETS={"3540200":"Pontal","3505609":"Barrinha","3534302":"Orlandia"}
-BASE="https://www.transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados"
+BASE="https://transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados"
 FILES={"rcl_mensal":"rcl_completo.zip","analises_lrf":"resultado_analises_audesp.zip"}
 OUT=Path(sys.argv[1] if len(sys.argv)>1 else "build/rmrp/audesp-g25")
 OUT.mkdir(parents=True,exist_ok=True)

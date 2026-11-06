@@ -73,3 +73,18 @@ Cópia derivada do DOCX G29 original, que **não foi sobrescrito**. Foram substi
 | ZIP G30 v1 (conjunto) | [Abrir](https://drive.google.com/file/d/1qa0EABWscsBxQew3Ob9cihygh5DY3bv6/view) | `a66e43fad7f3e8cfbd577c76b05cdf6e755191e32c6ed6ba82e9730d1c41a1c2` |
 
 **Persistência:** seis uploads aceitos e seis readbacks de metadados concluídos. Os hashes referem-se aos arquivos gerados localmente, previamente ao envio. Nenhuma ação desta integração modificou o DOCX G29 armazenado no Drive. Próximo gate editorial: revisão detalhada dos 39 parágrafos, validação de consistência dos indicadores, inspeção final, versão G30 v2 e novo ciclo de arquivamento no Drive.
+
+
+## G30 v2 — revisão dos municípios e arquivamento — 06/11/2026
+
+A partir de **G30 v1**, em nova cópia do Volume II, realizaram-se **34 ampliações analíticas municipais**, relacionando trajetórias de investimento com oportunidades, riscos e serviços documentados nas tabelas SWOT, e **duas revisões** da síntese metropolitana. Foram preservados 45 quadros/tabelas (XML idêntico), 16 mídias OOXML (hash idêntico), notas fiscais de Barrinha, Pontal e Orlândia e distinção entre projetos anunciados, contratos, empenhos e pagamentos. **75 páginas** renderizadas; cinco montagens de 15 páginas examinadas, sem anomalias grosseiras; zero páginas quase vazias e zero blocos textuais além dos limites geométricos. O ZIP foi testado sem erros. A G29 e G30 v1 originais não foram modificadas. **Estado: minuta G30 v2 não homologada para circulação.**
+
+| Produto | Local no Google Drive | SHA-256 |
+| --- | --- | --- |
+| Word integral G30 v2 | [Drive](https://docs.google.com/document/d/12hog0AKEoFDWF54TcjURU5muIGUI-w5e/edit) | `bbd438577246c287c05126a75a31f9b1de23a01b6805356a8c5f76e08218b3d1` |
+| Prova PDF G30 v2 | [Drive](https://drive.google.com/file/d/1o7tYJrQsUM6OwN0yMWYZjdiF7KF3HZum/view) | `b4faeab9080af8bcaa09c9685bebebf79502cb3074873262bd07ba62341a824e` |
+| Registro de 36 alterações e QA | [Drive](https://drive.google.com/file/d/1ydtfiTf-GK1jMSTPYWuJQC42ASaE9CEN/view) | `756f0495d0451bb6508e2d4f08c6bf0557d5bfaa44e5ba52229cae1e4ba9e740` |
+| Relatório de revisão G30 v2 | [Drive](https://drive.google.com/file/d/16CYolmoExw1V1LfezVE7fxNI3n_NFqdY/view) | `83662c02ee9e5a7944d399b18635f312e71fad1519d1f7a0477af05272bd5e87` |
+| Pacote técnico ZIP G30 v2 | [Drive](https://drive.google.com/file/d/1-8Pa5tJHOxumC-MFi5L65Fo1rhVjtMJm/view) | `211eca717ee5bf74f92b2ab08aa0f4b53b837fa4314151e06f6fa7fac8631b0a` |
+
+**Persistência:** cinco uploads e cinco leituras de metadados confirmadas. O README nativo do Drive deve ser atualizado com esses mesmos registros se a edição não estiver disponível na sessão. **Próximo controle:** revisar em escala de leitura as 39 análises, quadros e conclusões; não converter a G30 v2 em versão de circulação sem fechamento temático e gráfico.

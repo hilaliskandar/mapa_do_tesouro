@@ -226,3 +226,12 @@ Foram extraídos, sem alterações, 16 arquivos PNG do pacote Word G30 RC1, com 
 **Inventário canônico com os 34 municípios, Q, CMS IDs e URLs:** [INVENTARIO_EMDASH_ESTUDOS_34_MUNICIPIOS_2026_11_06.md](INVENTARIO_EMDASH_ESTUDOS_34_MUNICIPIOS_2026_11_06.md). Fonte Markdown completa arquivada em [ZIP no Drive](https://drive.google.com/file/d/1pB2biUpmzBXafDm-dhFRT2EU6hu8Kz-L/view); [manifesto original](https://drive.google.com/file/d/1Ha-IzUzVjcTBXOGseLpd1peN0zGdGYA3/view). Navegação: https://boletim.radarregulatorio.org/posts/financas-rmrp-indice-34-estudos-municipais-2026
 
 **Próximo controle:** verificar acesso público HTTP, confirmar apresentação da categoria e navegação a partir da seção do site, avaliar legibilidade móvel e eventual imagem de destaque específica. Preservar versões de fonte e dados metodológicos.
+
+
+## Fechamento gráfico dos 34 estudos municipais — 06/11/2026
+
+Após trabalhar em lotes reduzidos, o EmDash confirma **34/34 publicações municipais com quatro imagens na revisão live**: 1 matriz SWOT individual (Q8–Q41) e 3 mapas metropolitanos M1/M5/M6. Em todos os 34 casos, `content_compare` retornou `hasChanges=false` e quatro imagens na versão publicada. Foi corrigida a pendência da publicação da revisão de Santa Rita do Passa Quatro. Não foram alterados os slugs.
+
+As 34 matrizes SWOT também conservam a transcrição acessível dos seis componentes. A conversão Markdown do CMS não cria tabelas HTML nativas; por esse motivo, utiliza-se prancha PNG + texto. Os mapas são contexto regional, não cartografia individual. Os capítulos gerais da RC1 não são repetidos em cada publicação. Ressalvas de Barrinha, Pontal e Orlândia preservadas. HTTP público, leitura em dispositivos móveis e indexação externa ainda não foram comprovados.
+
+**QA canônico e inventário no Google Drive:** https://docs.google.com/document/d/1BoLYbvVrn-T9jyEZ8f_fPHaAqDjQjQ12gBkB4hqPN5U/edit. **Pasta de mídia com as 34 pranchas:** https://drive.google.com/drive/folders/1du7654ezGKWV7HTEfUX3leVVq0Kh198C. **Índice publicado no CMS:** https://boletim.radarregulatorio.org/posts/financas-rmrp-indice-34-estudos-municipais-2026. Próximo gate: verificação visual externa da apresentação e legibilidade das imagens, preservando as publicações já confirmadas.

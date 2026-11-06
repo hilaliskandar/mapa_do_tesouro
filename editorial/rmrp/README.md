@@ -106,3 +106,24 @@ A partir de **G30 v1**, em nova cópia do Volume II, realizaram-se **34 ampliaç
 | ZIP G30 v3 | [1R_sfzb_CLlNzO3bm1_uqmD1KepUnUZ0F](https://drive.google.com/file/d/1R_sfzb_CLlNzO3bm1_uqmD1KepUnUZ0F/view) | `1e24b05b7b53e84785b26f4f86a755796a99e8e449be881cba38f634a6377251` |
 
 **Persistência:** seis uploads aceitos e seis leituras de metadados confirmadas. Arquivos e hashes correspondem à versão gerada localmente. A G29, G30 v1 e G30 v2 não foram sobrescritas. **Próximo gate:** revisar coesão e remissões entre diagnóstico, reforma tributária, cenários 2027–2030, conclusões e matrizes, verificar em tamanho integral páginas com tabelas partidas e produzir eventual versão G30 v4.
+
+
+## G30 v4 — revisao transversal do Volume II — 06/11/2026
+
+**Estado:** minuta integral, ainda não homologada para circulação institucional. Trabalho realizado sobre **cópia da G30 v3**, sem alterar G29 ou outras versões.
+
+Procedimentos: oito correções textuais e uma mudança de posição de referência bibliográfica (total de nove intervenções documentadas em JSON). A referência STN da rubrica FPM, antes localizada após o sumário, passou à seção de referências; a Parte IV teve corrigida a numeração da seção 7; duas passagens introdutórias redundantes dos cenários foram reformuladas; as conclusões passaram a citar dados concretos: 31 de 34 municípios com queda real per capita dos investimentos em 2023–2025, retração agregada de 39,52%, relação investimento/receita corrente de 4,94% em 2023 e 2,55% em 2025; sub-regiões de Ribeirão Preto (tributação 28,89%), Mococa (FPM ordinário 24,06%), Jaboticabal (investimento/receita 2,08%) e Batatais (receita corrente real per capita R$ 8.418,05).
+
+QA: **45 tabelas XML idênticas**, **16 mídias com hashes idênticos**, **15 imagens inline**, ressalvas de Barrinha, Pontal e Orlândia e convenções populacionais e de IPCA preservadas. Renderizado DOCX em 75 páginas; sem páginas de texto quase vazias nem blocos além dos limites geométricos. Cinco folhas de contato de 15 páginas foram examinadas; permanece a necessidade de revisar em tamanho de leitura os quadros SWOT quebrados entre páginas antes de homologação. Não se atribui causalidade à LC 200/2023 nem se estima impacto líquido municipal do IBS. A grade metodológica dos cenários não constitui previsão monetária.
+
+| Produto | Link no Drive | SHA-256 |
+| --- | --- | --- |
+| DOCX G30 v4 | [Drive](https://docs.google.com/document/d/1IL_cE753pivlMnP38oZXec4vq6FVgVza/edit) | `78a9c51374395802b999f88260e6e06d189297a9222ca385da3ded7cd04ed811` |
+| PDF G30 v4 (75 páginas) | [Drive](https://drive.google.com/file/d/1W3fysJ76qOvQ4wJ-Y7-EBV5lwDz75nRL/view) | `bf1eba0dcd12dd7bd030c1bbf70141009d0c8362e1122247593d919111d474b8` |
+| Diferenças e QA detalhado | [Drive](https://drive.google.com/file/d/1CnSDY6YoThnARooLxdbwKfBZ4h_550pw/view) | `92158f479205bb1008eb8d25aaa6d13c6687f2decdf33d647980e6bb35203a20` |
+| QA de paginação | [Drive](https://drive.google.com/file/d/1iW_ZQ7fxl6hE5kP6yGE5xQKUF7_RMISO/view) | `6da1a3bef064734bb073ab1d79c2353178207df306cc8034cf32d3042a1868ff` |
+| Relatório editorial G30 v4 | [Drive](https://drive.google.com/file/d/1XUxvRKvEf2NhHy2KjwfFgD76k08AS0AK/view) | `4c4ff43ccc52270c1bb30fba7673693a5afcba3a1030ad0ffcbbcd912d567811` |
+| Manifesto de hashes | [Drive](https://drive.google.com/file/d/1S3g8VUT-859UfVmrmKoBy0Sb3bAZU1Kd/view) | `9caef32120891bd3df89fa63815a34253ef3391f7ae8db4de8d8721c99ea8ac2` |
+| Pacote ZIP completo | [Drive](https://drive.google.com/file/d/172K1Ww_7F4ZWcV8ie9B9vv7eNQkTY7-O/view) | `8daeb1ff82d0ab04edf67ec12f4dd472ea0929f65b507c85c2d7d0e04271bed9` |
+
+**Persistência:** sete uploads confirmados e sete readbacks de metadados; cada arquivo possui identificador permanente do Drive. Próximo gate: conferência visual integral das páginas com quebra de tabela, consistência entre legenda, gráfico e seção conclusiva, revisão de linguagem final. Após eventuais ajustes, produzir cópia G30 v5 e arquivar todos os produtos novamente.

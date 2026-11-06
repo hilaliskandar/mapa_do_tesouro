@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/rmrp-audesp-rcl-g25.yml
+      - editorial/rmrp/scripts/coletar_audesp_g25.py
   workflow_dispatch:
 permissions:
   contents: read

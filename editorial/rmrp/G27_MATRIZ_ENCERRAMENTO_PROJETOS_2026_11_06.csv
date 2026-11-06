@@ -1,0 +1,6 @@
+controle;estado_anterior;estado_g27;pagina;critério
+FIN-01;ABERTA_INSTRUMENTO_SEM_FLUXO;ENCERRADA_EDITORIALMENTE_COM_RESSALVA;37;Contrato e termo não equivalem a pagamento
+FIN-02;LIMITES_GERAIS_PENDENTES;CLASSIFICACAO_DOCUMENTAL_EXPLICITA;14;Anúncio termo crédito empenho liquidação pagamento separados
+EDT-01;REFERENCIA_VERSAO_DESATUALIZADA;CORRIGIDA;1 e rodapes;Identificação G27
+EDT-02;HOMOLOGACAO_GLOBAL_PENDENTE;MANTIDA;64-66;Revisão final de circulação continua necessária
+CART-01;M1_MAPA_ESPECIFICO_PENDENTE;NAO_ALTERADO;;Decisão editorial de escopo

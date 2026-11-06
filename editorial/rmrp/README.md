@@ -150,3 +150,25 @@ QA: **45 tabelas XML idênticas**, **16 mídias com hashes idênticos**, **15 im
 | Pacote de produtos ZIP (sem scripts executáveis) | [Drive](https://drive.google.com/file/d/1dzGbNl0ZecBiH8tiY0LYfrFXTve4kUqz/view) | `ed1510c56e94b5f6a163ee56b2db710039d475bf32735092903b2405a2b70fec` |
 
 **Persistência:** 7 de 7 uploads úteis confirmados por readback individual de nome/tipo/tamanho. Um ZIP técnico contendo scripts teve upload recusado pelo serviço; a alternativa sem executáveis foi enviada e verificada. As fontes G29 e versões G30 v1–v4 permanecem preservadas. **Estado:** G30 v5, minuta diagramada, ainda não homologada para circulação. Próximo gate: revisão visual ampliada de páginas densas, avaliação editorial da distância entre chamada e prancha e controle de remissões do documento integral.
+
+
+## G30 RC1 — verificação pré-circulação — 06/11/2026
+
+O Volume II G30 v5 foi submetido a controle adicional de **remissões, legibilidade, ocupação vertical e integridade documental**, sem reabrir a auditoria fiscal. A versão RC1 deriva de cópia de G30 v5 e corrige **uma formulação interna** na seção de referências, substituindo a menção a "escopo homologado deste diagnóstico" por uma formulação dirigida à leitura pública. G29 e G30 v1–v5 mantidas sem sobrescrita.
+
+**Resultado verificado:** 103 páginas (43 retrato, 60 paisagem); Q1–Q45, M1–M9 e F1–F6 completos; **60/60 chamadas em página de texto anterior**, separação de 1–3 páginas (32 a uma página, 18 a duas, 10 a três); texto das 45 tabelas preservado; 16 mídias intactas por hash; nenhuma extrapolação geométrica de texto. As 15 imagens inline apresentam resolução efetiva de aproximadamente 158–284 dpi, sem teste de impressão física. Amostragem ampliada de tabelas densas e mapas confirma legibilidade, mas não constitui inspeção humana individual exaustiva de 103 páginas.
+
+**Descoberta na auditoria:** o teste anterior de "páginas retrato com mais de 450 caracteres" não detectava baixíssima ocupação vertical. Novo teste identificou páginas **3 (37%), 25 (41%), 38 (26%) e 103 (33%)** com ocupação de menos de 52% da altura útil; em particular, página 38 contém final de análise antes de prancha e página 103, encerramento metodológico. São ressalvas gráficas explícitas. Um teste alternativo de agrupamento com limiar de 2.600 caracteres resultou em 110 páginas e numerosas transições vazias; rejeitado. Uma realocação pontual de Q8 apenas deslocou a baixa ocupação para outra página, também rejeitada. Não há perda de conteúdo, tabela dividida ou bloqueio estrutural comprovado.
+
+**Decisão:** a G30 RC1 é **candidata de circulação**, sujeita à chancela editorial e à aceitação consciente das quatro páginas subocupadas ou a novo ajuste final de paginação. Não declarar homologação institucional automática.
+
+| Produto | Link Google Drive | SHA-256 do original local |
+| --- | --- | --- |
+| DOCX RC1 editável | [Drive](https://docs.google.com/document/d/1WC7_pxbDFe76RtEmFRYCVQs4hxVrXfSP/edit) | `b5963e67547c8700de5ceee4928461f990fe3b7ce95672c3f8282f27c55b16e0` |
+| Prova PDF RC1 | [Drive](https://drive.google.com/file/d/1sDNZpnRzGSwcqTRZDZWztTHWFFNUu9Dc/view) | `c1468c5c55796cc2d28db15ca64d21f688bd69e7df8386cc9f2d14c3f5cb98ef` |
+| Diff redacional | [Drive](https://drive.google.com/file/d/1rAOqzFK8t-tQo3mnk4ZNrwMwst4KgF3X/view) | `10016d4a36bc711052080470343121ae0a8bc9be04898585ae65d7eca515120c` |
+| QA estruturado e remissões | [Drive](https://drive.google.com/file/d/1gs8uNcPWvLDaImoQEjMbVQgU2qDy1MRZ/view) | `413c8373f1eba9e3a701e130ff1b812bf65b3c75ede7ab88ad06b6a933655703` |
+| Parecer de pré-circulação | [Drive](https://drive.google.com/file/d/1bnbE5obQ4tdpaqHOjRjVxywsGV9Iumae/view) | `2940f3165974bcd6b035ea3bf579ea7a2bac9a3c0e4b1b07e6562701529f4d90` |
+| Pacote ZIP | [Drive](https://drive.google.com/file/d/1y8CWH-8-aAzGOKbyVpRF1OLPnS4Vyk6a/view) | `767cc32a8dca75ee27274726fe80d9e6c7c5e1eaffaf64312044b6d8dff312ac` |
+
+Seis uploads e seis consultas de metadados confirmados. O PDF avulso precisou de segunda tentativa, concluída. **Próximo gate:** aceite editorial de quatro páginas com espaço não utilizado, seguido de eventual homologação da RC1 sem outra intervenção no conteúdo fiscal, ou correção tipográfica seletiva em cópia RC2.

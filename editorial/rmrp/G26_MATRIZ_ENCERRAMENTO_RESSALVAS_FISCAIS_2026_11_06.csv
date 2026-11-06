@@ -1,0 +1,7 @@
+controle;municipio_ibge;status_anterior;status_g26;local_nota_pdf;limite_da_conclusao
+FIS-01;3540200;P0_ABERTO;ENCERRADO_EDITORIAL_RESSALVADO;29;RCL e pessoal divergentes sem retificacao comprovada
+FIS-02;3540200;P0_CAUSA_ABERTA;ENCERRADO_EDITORIAL_RESSALVADO;29;DCL explicada aritmeticamente sem causa documental provada
+FIS-03;3505609;P0_ABERTO;ENCERRADO_EDITORIAL_RESSALVADO;22;RGF A02 A06 discrepantes e RCL mensal distinta de ajustada
+FIS-04;3534302;P0_ABERTO;ENCERRADO_EDITORIAL_RESSALVADO;53;DTP e DCL diferem entre Audesp DO e Siconfi
+MET-01;;GERAL;NOTA_INSERIDA;16;Comparacoes de indicadores legais e DCA mantidas separadas
+EDT-01;;REVISAO_INTERNA;REVISAO_INTERNA;66;Circulacao externa depende de outros controles

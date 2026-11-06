@@ -11,7 +11,7 @@ Cada gate registra: **data; objetivo; fontes e documentos-base; procedimentos ex
 ## Volume II — estado em 06/11/2026
 
 - **G29**: última edição integral, 69 páginas, 45 tabelas, 16 mídias; arquivos originais recuperados do usuário e **arquivados no Drive em 06/11/2026**. Preservar a versão imutável e editar G30 apenas em cópia. Ver [fechamento G29](FECHAMENTO_G29_REVISAO_PUBLICA_2026_11_06.md).
-- **G30**: caderno analítico complementar, com propostas para 34 municípios, quatro sub-regiões e RMRP (39 entradas), 13 páginas. Não incorporado à edição integral G29; pendente de confronto documentado e QA final.
+- **G30 v1**: versão integral de trabalho produzida a partir da G29, com 39 parágrafos analíticos incorporados (34 municípios, quatro sub-regiões e RMRP), 74 páginas; 45 tabelas e 16 mídias preservadas. **Salva no Drive; ainda não homologada para circulação**. O caderno G30 anterior de 13 páginas permanece como fonte da intervenção.
 - **Lote 85**: DOCX anterior localizado no Drive para confronto [ID 1kMn6AnvCQ10OfZErDUVWtQ61dbvmznpl](https://docs.google.com/document/d/1kMn6AnvCQ10OfZErDUVWtQ61dbvmznpl/edit), sem alteração.
 - Distinção metodológica crítica: queda do investimento real **total** G30 = -43,12% em 2023–2025; queda real **por habitante** da versão Lote 85 = -39,52%. Não intercambiar. Razão das somas difere de mediana municipal; ISS e ICMS contábeis observados não equivalem à receita de referência legal do IBS.
 
@@ -42,7 +42,7 @@ Cada gate registra: **data; objetivo; fontes e documentos-base; procedimentos ex
 
 ## Próximo gate
 
-Usar **o DOCX exato G29 já recuperado** (ID Drive 1rCaJZ7ops1uWl-2OsLS8Te1FTNs34DUO) e comparar 39 textos; aplicar mudanças seletivas sobre cópia, sem perder 45 tabelas, 16 mídias, notas fiscais G26 e ajustes G27–G29; renderizar, examinar, armazenar versão DOCX/PDF e anexos no **Drive**, verificar todos os IDs e atualizar os dois READMEs. Não declarar Volume II G30 integral nem homologação enquanto não cumprido.
+**G30 v1 foi integrada em cópia da G29**. Próximo gate: conferir individualmente as 39 passagens contra indicadores e fontes, revisar coesão editorial, manter dados, 45 tabelas, 16 mídias e notas fiscais G26–G29. Revisar a prova PDF e produzir G30 v2, salvar DOCX/PDF e anexos no Drive, conferir todos os IDs e atualizar ambos READMEs. Não homologar G30 v1 para circulação sem revisão temática final.
 
 
 ## G29 — arquivos originais recuperados e preservados no Drive em 06/11/2026
@@ -55,3 +55,21 @@ Usar **o DOCX exato G29 já recuperado** (ID Drive 1rCaJZ7ops1uWl-2OsLS8Te1FTNs3
 | PDF G29 interno ao ZIP, preservado separadamente | [1ZPmS6FKMBfYeNVwP6S2ueLu-3sszEYKL](https://drive.google.com/file/d/1ZPmS6FKMBfYeNVwP6S2ueLu-3sszEYKL/view) | 2.423.377 bytes | `28d494099d226bb8ef014040a1e105879aa75b05b3861d7aaed269211e9e1f76` |
 
 **Procedimento:** os três anexos foram recebidos, suas dimensões e hashes apurados, a integridade do ZIP testada e o PDF interno extraído. Quatro arquivos enviados e confirmados por leitura de metadados no Drive. O DOCX avulso coincide com o DOCX do ZIP. **O PDF avulso não coincide, em bytes, com o PDF interno**, cujo hash consta no `G29_QA.json`. Não excluir nenhuma variante nem afirmar que são visualmente equivalentes sem confronto. ZIP: cinco itens, teste sem erro; QA interno informa 69 páginas, 45 tabelas, 16 imagens e 39 SWOT. Ambos os PDFs e o DOCX G29 permanecem intocados. A pendência de recuperação da versão-base foi resolvida; o gate seguinte é integrar seletivamente G30 sobre **uma nova cópia** de G29, arquivando novos DOCX/PDF, diff e QA no Drive.
+
+
+## Integração G30 v1 — executada e arquivada em 06/11/2026
+
+Cópia derivada do DOCX G29 original, que **não foi sobrescrito**. Foram substituídos seletivamente 39 parágrafos analíticos imediatamente posteriores às matrizes SWOT, preservados os indicadores contábeis tabulados e as notas documentais. As cinco análises agregadas foram organizadas em parágrafos temáticos; formulações metatextuais foram reduzidas nos textos municipais. A prova PDF resultante possui **74 páginas**.
+
+**QA executado:** 45 de 45 tabelas com XML byte a byte idêntico ao G29; 16 de 16 mídias OOXML com hashes idênticos; 15 figuras inline nas duas versões; ressalvas fiscais de Barrinha, Pontal e Orlândia conservadas; nenhum bloco de texto encontrado fora dos limites geométricos do PDF; inspeção visual das montagens. Revisão temática individual dos 39 textos permanece pendente. Estado: **minuta G30 v1, não homologada**.
+
+| Produto | Google Drive | SHA-256 |
+| --- | --- | --- |
+| DOCX integral G30 v1 | [Abrir](https://docs.google.com/document/d/1oRABLHnoG3kk0acY2wIsO25KJLlkBBZS/edit) | `86a9849f64bc286d87e92f6cfed34c673998d3ad4d0aeeca110fe3fdc50b88e2` |
+| PDF G30 v1 (74 páginas) | [Abrir](https://drive.google.com/file/d/1mJ4DYNdI_-58npl3fHGdb_oCdEVSpAQ8/view) | `52f3bcefb27ad2c6a550e4529137e0f71445b87dcb4ba5a38d991441c9b577c9` |
+| Diferenças 39 SWOT JSON | [Abrir](https://drive.google.com/file/d/1-sDg4CvlmDcuwNYh4D4Do8rwdHNOBH8-/view) | `1ce44b47c1ab17c3f1b95f5828a70a2fb79c324a9396ec05ed973199146c39a1` |
+| QA estrutural JSON | [Abrir](https://drive.google.com/file/d/1YOTXDRyYZIe0hR333hLQeDDPsnTn-nfD/view) | `1a44dd2ca3c69c9bdf53e63ebb2205175e0f2b75cd0e3b5f9b805372dc904fba` |
+| Relatório técnico de integração | [Abrir](https://drive.google.com/file/d/1Mm0x_qP9fEZgWAWtpT4SMy6XPD-KHrvH/view) | `3451f0a4fca43925caa4098df53c789648fdeda380d5d79f8272ad9cb1b7ca27` |
+| ZIP G30 v1 (conjunto) | [Abrir](https://drive.google.com/file/d/1qa0EABWscsBxQew3Ob9cihygh5DY3bv6/view) | `a66e43fad7f3e8cfbd577c76b05cdf6e755191e32c6ed6ba82e9730d1c41a1c2` |
+
+**Persistência:** seis uploads aceitos e seis readbacks de metadados concluídos. Os hashes referem-se aos arquivos gerados localmente, previamente ao envio. Nenhuma ação desta integração modificou o DOCX G29 armazenado no Drive. Próximo gate editorial: revisão detalhada dos 39 parágrafos, validação de consistência dos indicadores, inspeção final, versão G30 v2 e novo ciclo de arquivamento no Drive.

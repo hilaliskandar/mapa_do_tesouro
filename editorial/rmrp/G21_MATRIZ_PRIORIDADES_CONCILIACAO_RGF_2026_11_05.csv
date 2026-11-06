@@ -1,0 +1,5 @@
+id;municipio;ibge;periodo;indicador;estado;achado;criterio_de_aceite;efeito_editorial
+FIS-01;Pontal;3540200;2025_Q3;RCL_DTP;P0_ABERTO;RCL RGF 13494039,69 versus RREO 209571785,24;RGF protocolizado RREO B6 nota explicativa e historico de entrega;Nao homologar indices LRF
+FIS-02;Pontal;3540200;2025_Q3_2026_Q1;DCL_DEDUCOES;P0_CAUSA_ABERTA;Diferenca DCL 28138160,11 coincide com caixa bruta ausente na coluna historica;Versoes RGF A02 protocolos e memoria das deducoes;Nao corrigir automaticamente a DCL
+FIS-03;Barrinha;3505609;2025_S2_2026_S1;RGF_A02_A06;P0_ABERTO;Percentuais A02 A06 2025 divergentes e valor DCL 2026 A06 diverso;PDF Executivo que identifique semestre e historico de retificacao RE;Nao utilizar indice A06 nao conciliado
+FIS-04;Orlandia;3534302;2025_S2_2026_S1;RGF_DO_AUDESP;P0_ABERTO;DCL DO -19720109,67 contra STN -17264485,35 e DTP divergente 66390,45;Publicacao PDF Audesp STN protocolo de versoes e contas analiticas;Preservar restricao de comparabilidade

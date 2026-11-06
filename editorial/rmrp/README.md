@@ -29,7 +29,7 @@ Cada gate registra: **data; objetivo; fontes e documentos-base; procedimentos ex
 | Confronto G30 × Lote 85 | [Drive](https://drive.google.com/file/d/17Z69gMxqwbMDhkcfqIsBP4i4VKuJpbiy/view) | Upload confirmado |
 | Manifesto SHA-256 | [Drive](https://drive.google.com/file/d/1BY99Hcw5JPlhaMSA021Kl9tR0HjyX-UY/view) | Upload confirmado |
 
-**Nota de controle:** os quatro primeiros tiveram readback de metadados no momento da gravação; os cinco restantes ainda devem ser individualmente reabertos em QA. O pacote ZIP não equivale a uma versão G30 do Volume II integral.
+**Nota de controle:** os nove produtos tiveram upload confirmado e readback individual de existência e identidade por metadados do Drive. A inspeção aprofundada de conteúdo permanece etapa de QA antes de homologação. O pacote ZIP não equivale a uma versão G30 do Volume II integral.
 
 ## Procedimentos e resultados já registrados
 

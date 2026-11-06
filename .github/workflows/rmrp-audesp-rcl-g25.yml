@@ -1,0 +1,27 @@
+name: RMRP G25 Audesp fiscal source collection
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/rmrp-audesp-rcl-g25.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect official Audesp ZIP sources, without publication
+        run: |
+          python3 editorial/rmrp/scripts/coletar_audesp_g25.py build/rmrp/audesp-g25
+          test -s build/rmrp/audesp-g25/qa_manifest.json
+      - name: Preserve raw sources and QA as private workflow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rmrp-audesp-g25-evidencias
+          path: build/rmrp/audesp-g25/
+          if-no-files-found: warn
+          retention-days: 14

@@ -172,3 +172,27 @@ O Volume II G30 v5 foi submetido a controle adicional de **remissões, legibilid
 | Pacote ZIP | [Drive](https://drive.google.com/file/d/1y8CWH-8-aAzGOKbyVpRF1OLPnS4Vyk6a/view) | `767cc32a8dca75ee27274726fe80d9e6c7c5e1eaffaf64312044b6d8dff312ac` |
 
 Seis uploads e seis consultas de metadados confirmados. O PDF avulso precisou de segunda tentativa, concluída. **Próximo gate:** aceite editorial de quatro páginas com espaço não utilizado, seguido de eventual homologação da RC1 sem outra intervenção no conteúdo fiscal, ou correção tipográfica seletiva em cópia RC2.
+
+
+## EmDash — imagens e mapas do Volume II — 06/11/2026
+
+Foram extraídos, sem alterações, 16 arquivos PNG do pacote Word G30 RC1, com identificação por vínculos OOXML e hashes SHA-256. Destes, **15 são imagens exibidas no relatório** (M1–M9, F1–F6) e **uma é um mapa adicional sem chamada no corpo da RC1**, que exige conferência antes de divulgação. Os 45 quadros não foram convertidos: continuam editáveis no DOCX.
+
+**Procedimento:** extração dos arquivos binários do DOCX; atribuição de código/título, alt text e legenda; upload dos 16 PNG para pasta dedicada do Google Drive; envio autenticado para a biblioteca de mídia do **EmDash Radar Regulatório**, pelo conector radar/media_upload; leitura posterior da biblioteca e conferência entre conteúdo original e servidor.
+
+**Resultados verificados:** 16/16 itens com status ready; 16/16 hashes SHA-1 correspondentes à origem; 16/16 tamanhos exatos; 16/16 textos alternativos e legendas preenchidos. Os identificadores retornados pelo EmDash foram persistidos em catálogo. A operação não publicou posts, páginas ou versões HTML.
+
+**Pasta de preservação no Drive:** https://drive.google.com/drive/folders/1du7654ezGKWV7HTEfUX3leVVq0Kh198C
+
+**Produtos persistidos:**
+- Catálogo JSON com identificadores EmDash, caminhos relativos das imagens, dimensões, hashes e IDs Drive: https://drive.google.com/file/d/1WOrRhK2obl5iTLWKfVCOisNYyiIpI6BK/view
+- Catálogo CSV, delimitado por ponto e vírgula: https://drive.google.com/file/d/1c3pJcZtzJS9sgvJVAsTcS9eE8mVF8Qon/view
+- Orientações e exemplos para HTML: https://drive.google.com/file/d/1mQC35jQ79EpZRhCA2tR3Jnialagi3ZFN/view
+- ZIP dos 16 PNG originais e catálogos: https://drive.google.com/file/d/16H0HcNFJ5xs_pa5W9cfZiGn89S9E09DW/view
+- Catálogo de texto para validação cruzada: https://drive.google.com/file/d/1UNZdq2-1PZbS-Pmtmb8Tr3p8DWUsZdqy/view
+
+**Exemplo:** figura F1, ID EmDash 01M6RVNETJBEC8DBA2C5W2YV18, caminho relativo /_emdash/api/media/file/01M6RVNE9DYDM06A8P6QDPGESE.png. Preferir mediaId e caminho do CMS em HTML. A URL pública absoluta no domínio boletim.radarregulatorio.org **não teve verificação HTTP externa conclusiva**; não declarar acesso público verificado até executar essa etapa.
+
+**Ressalvas:** a imagem ANEXO é um mapa de evolução real dos investimentos sem vínculo de exibição na RC1 e não deve ser divulgada sem validação de versão/legenda. Verificar o contexto estatístico de cada mapa, os créditos e a legibilidade móvel antes de usar em chamadas.
+
+**Próximo gate:** validação pública das URLs, adaptação responsiva e incorporação em HTML, quando a versão editorial for escolhida. A G30 RC1 DOCX/PDF permanece imutável.

@@ -1,0 +1,5 @@
+controle;municipio_ibge;municipio;fonte;url;estado
+FIS-01;3540200;Pontal;RCL mensal Audesp;https://www.transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/rcl_completo.zip;URL_VERIFICADA_SEM_BYTES
+FIS-02;3540200;Pontal;Modelo DCL LRF 2025;https://www.tce.sp.gov.br/audesp/documentacao/demonstrativos-audesp-modelos-e-metodologias-calculo-lrf-2025;MODELO_IDENTIFICADO_SEM_DEMONSTRATIVO
+FIS-03;3505609;Barrinha;Resultado Análises Audesp;https://www.transparencia.tce.sp.gov.br/sites/default/files/conjunto-dados/resultado_analises_audesp.zip;URL_VERIFICADA_SEM_BYTES
+FIS-04;3534302;Orlandia;Modelo DTP Executivo 2025;https://www.tce.sp.gov.br/audesp/documentacao/demonstrativos-audesp-modelos-e-metodologias-calculo-lrf-2025;MODELO_IDENTIFICADO_SEM_DEMONSTRATIVO

@@ -127,3 +127,26 @@ QA: **45 tabelas XML idênticas**, **16 mídias com hashes idênticos**, **15 im
 | Pacote ZIP completo | [Drive](https://drive.google.com/file/d/172K1Ww_7F4ZWcV8ie9B9vv7eNQkTY7-O/view) | `8daeb1ff82d0ab04edf67ec12f4dd472ea0929f65b507c85c2d7d0e04271bed9` |
 
 **Persistência:** sete uploads confirmados e sete readbacks de metadados; cada arquivo possui identificador permanente do Drive. Próximo gate: conferência visual integral das páginas com quebra de tabela, consistência entre legenda, gráfico e seção conclusiva, revisão de linguagem final. Após eventuais ajustes, produzir cópia G30 v5 e arquivar todos os produtos novamente.
+
+
+## G30 v5 — Pranchas em paisagem — 06/11/2026
+
+**Resultado:** versão integral de trabalho com **103 páginas**, sendo **43 páginas de texto em retrato** e **60 páginas de pranchas em paisagem**, derivada de cópia da G30 v4. As matrizes e demais quadros ficam editáveis no DOCX. Abrange 45 quadros Q1–Q45, nove mapas M1–M9 e seis figuras F1–F6. Os títulos e chamadas foram normalizados para permitir que o texto refira cada peça numerada.
+
+**Decisão de paginação:** o protótipo de inserção rigidamente imediata de cada prancha após sua menção gerou 131 páginas, com várias páginas retrato quase vazias. Para respeitar o objetivo de leitura e economia gráfica, a edição v5 **agrupa pranchas de um bloco analítico** em páginas paisagem consecutivas; o texto percorre um bloco antes de abrir a seção gráfica, retomando retrato após o grupo. Assim, o quadro nem sempre aparece literalmente na página seguinte à primeira menção. A relação sequencial e a numeração dos artefatos foram preservadas. A alteração é editorial e não altera os dados.
+
+**Auditoria comparativa G30 v4 × v5:** 45 tabelas com texto integral idêntico; 16 mídias OOXML bit a bit idênticas; 15 imagens inline. No PDF, 60 de 60 pranchas paisagem identificadas por título e número, Q1–Q45/M1–M9/F1–F6 completos, zero página retrato com menos de 450 caracteres e zero blocos de texto além dos limites geométricos. A produção incluiu rasterização das 103 páginas e inspeção visual de amostras e folhas de contato. Isso **não substitui revisão humana de todas as páginas ampliadas** antes de homologação institucional. Os 39 quadros SWOT são apresentados sem quebra entre páginas. Nenhuma nova pesquisa fiscal ou alteração de ressalvas foi executada.
+
+**Produtos depositados e individualmente verificados por metadados no Google Drive:**
+
+| Produto | Endereço no Drive | SHA-256 |
+| --- | --- | --- |
+| DOCX integral G30 v5 | [Drive](https://docs.google.com/document/d/12bRAHqmifToUaWWS2pQEAWx0ZckgKnSN/edit) | `f3b17cb2b6460177c1903cc93d99035bc48f9b3c1c8f19c782a79965a2c45a8d` |
+| PDF G30 v5 (103 páginas) | [Drive](https://drive.google.com/file/d/1lVfAqKz9yCOouuajCLstS52lTdZ9Cbts/view) | `42d63806f42c08c0b14f88bd40e610620d5379b54ba9541b4b2f091cae01c0b3` |
+| QA de 60 pranchas | [Drive](https://drive.google.com/file/d/1D_ehJ8p9ptTcmibg24Wu2zlr2gb1iqXM/view) | `a591fade0a2964eae035c3e208a798197f7997c31ecb9dfc012333de001dcbc6` |
+| Relatório metodológico/diagramação | [Drive](https://drive.google.com/file/d/17nsYij8IYWlhIAO_Noi5CELcI-hau1Gx/view) | `4038496d4bf8f5257f21b576606a6fce88cd4ac90fb610751c56d8185e8cea84` |
+| Manifesto de integridade | [Drive](https://drive.google.com/file/d/177Mm2TzAkxZ_C-RkzqjhKKJ6_WrTXNp1/view) | `ed2f228e52179e0424659984b804508b583eb35d5e5586a104f574f7ff4ac6cb` |
+| Agrupamento das pranchas | [Drive](https://drive.google.com/file/d/1tx2sOfJ3bgJ1cVPoSuGUo78c0aR6PD-H/view) | consultar manifesto |
+| Pacote de produtos ZIP (sem scripts executáveis) | [Drive](https://drive.google.com/file/d/1dzGbNl0ZecBiH8tiY0LYfrFXTve4kUqz/view) | `ed1510c56e94b5f6a163ee56b2db710039d475bf32735092903b2405a2b70fec` |
+
+**Persistência:** 7 de 7 uploads úteis confirmados por readback individual de nome/tipo/tamanho. Um ZIP técnico contendo scripts teve upload recusado pelo serviço; a alternativa sem executáveis foi enviada e verificada. As fontes G29 e versões G30 v1–v4 permanecem preservadas. **Estado:** G30 v5, minuta diagramada, ainda não homologada para circulação. Próximo gate: revisão visual ampliada de páginas densas, avaliação editorial da distância entre chamada e prancha e controle de remissões do documento integral.

@@ -1,0 +1,10 @@
+municipio;codigo_ibge;ano;competencia_rcl;rcl_audesp_reais;dtp_audesp_analise_2025_reais;referencia_de_confronto;delta_reais;estado
+Pontal;3540200;2025;12;209571785,24;101153171,46;RCL_RREO_B6_2025;0,00;coincide
+Pontal;3540200;2025;12;209571785,24;101153171,46;RCL_RGF_Q3_2025;196077745,55;divergencia_documental_aberta
+Pontal;3540200;2025;12;209571785,24;101153171,46;DTP_DO_2025;-666363,45;divergencia_documental_aberta
+Pontal;3540200;2025;12;209571785,24;101153171,46;DTP_RGF_Q3_2025;-7529524,04;divergencia_documental_aberta
+Barrinha;3505609;2025;12;163137716,10;81810937,42;RCL_AJUSTADA_DIVIDA_RGF_S2_2025;1629897,00;conceitos_nao_identicos
+Orlandia;3534302;2025;12;263831501,04;139863791,37;RCL_AJUSTADA_DIVIDA_RGF_S2_2025;330000,00;conceitos_nao_identicos
+Orlandia;3534302;2025;12;263831501,04;139863791,37;RCL_AJUSTADA_PESSOAL_RGF_S2_2025;1961488,00;conceitos_nao_identicos
+Orlandia;3534302;2025;12;263831501,04;139863791,37;DTP_DO_2025;0,00;coincide
+Orlandia;3534302;2025;12;263831501,04;139863791,37;DTP_RGF_S2_2025;66390,45;divergencia_documental_aberta

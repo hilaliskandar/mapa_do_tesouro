@@ -40,6 +40,11 @@ def download(name):
     except Exception as e:
         return None,{"url":url,"state":"failed","error":type(e).__name__+": "+str(e)[:400]}
 
+def fold(s):
+    import unicodedata
+    return "".join(ch for ch in unicodedata.normalize("NFKD", str(s).strip().casefold())
+                   if not unicodedata.combining(ch))
+
 def candidate_rows(text,delimiter):
     reader=csv.DictReader(io.StringIO(text),delimiter=delimiter)
     head=reader.fieldnames or []
@@ -47,11 +52,14 @@ def candidate_rows(text,delimiter):
     count=0
     for row in reader:
         count+=1
-        plain=" ".join(str(x or "") for x in row.values()).lower()
-        if any(code in plain or city.lower() in plain for code,city in TARGETS.items()):
-            if re.search(r"(?:^|[^0-9])2025(?:[^0-9]|$)",plain):
-                hits.append(row)
-                if len(hits)>=2000:break
+        norm={fold(k):str(v).strip() for k,v in row.items() if k is not None}
+        city=fold(norm.get("ds_municipio",norm.get("municipio","")))
+        code=norm.get("codigo ibge","")
+        year=norm.get("ano_referencia",norm.get("exercicio",""))
+        target=any(city==fold(name) for name in TARGETS.values()) or code in TARGETS
+        if target and year=="2025":
+            hits.append(row)
+            if len(hits)>=2000:break
     return head,hits,count
 
 for kind,name in FILES.items():

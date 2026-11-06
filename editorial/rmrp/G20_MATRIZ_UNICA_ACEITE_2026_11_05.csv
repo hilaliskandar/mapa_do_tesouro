@@ -1,0 +1,18 @@
+id;componente;estado;criterio
+G20-01;Figura F2;corrigido;FPM cota mensal identificado no raster e investimento liquidado
+G20-02;Figura F2 na pagina 10;corrigido;Titulo e imagem juntos
+G20-03;Versao documental;corrigido;Rodape G20 em 66 paginas
+G20-04;Indicadores fiscais;aceite dirigido G14;273 testes documentados nos lotes anteriores
+G20-05;Mapas tematicos;aceite dirigido G16;272 pareamentos documentados
+G20-06;Figuras;aceite dirigido G17;Verificacoes graficas delimitadas
+G20-07;Deflator IPCA;ressalva;Dezembro em mapas versus media anual em series
+G20-08;Populacao per capita;ressalva;IBGE em mapas versus FINBRA DCA em tabelas
+G20-09;Mapa M1 especifico;pendente;Decisao de escopo
+G20-10;Pontal RGF RREO;bloqueio parcial;Conciliacao fiscal nao homologada
+G20-11;Barrinha RGF RREO;bloqueio parcial;Conciliacao fiscal nao homologada
+G20-12;Orlandia RGF RREO;bloqueio parcial;Conciliacao fiscal nao homologada
+G20-13;Projetos e transferencias;bloqueio parcial;Instrumentos sem conciliacao financeira
+G20-14;LC 200 2023 e LC 227 2026;aceite dirigido G19;Sem parecer integral
+G20-15;Volume I;fora do escopo;Nao reavaliado integralmente
+G20-16;Volume II G20;revisao interna;66 paginas 45 tabelas 15 midias
+G20-17;Circulacao externa;nao autorizada;Pendencias substantivas em aberto

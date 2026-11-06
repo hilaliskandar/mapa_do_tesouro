@@ -49,7 +49,7 @@ def candidate_rows(text,delimiter):
         count+=1
         plain=" ".join(str(x or "") for x in row.values()).lower()
         if any(code in plain or city.lower() in plain for code,city in TARGETS.items()):
-            if re.search(r"(?:^|\\D)2025(?:\\D|$)",plain):
+            if re.search(r"(?:^|[^0-9])2025(?:[^0-9]|$)",plain):
                 hits.append(row)
                 if len(hits)>=2000:break
     return head,hits,count

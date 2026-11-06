@@ -1,0 +1,5 @@
+id;municipio_ibge;fonte_publica;classe_de_evidencia;estado_do_acesso;conclusao;pendencia
+FIS-01;3540200;https://dosp.com.br/exibe_do.php?i=NzkyNDYw;diario_oficial_texto_indexado;texto_recuperado_captura_visual_falhou;RCL 209571785,24 na publicacao e RGF STN Q3 2025 13494039,69 divergem;RGF protocolizado e justificativa
+FIS-02;3540200;https://apidatalake.tesouro.gov.br/ords/cdwhprd/siconfi/tt/rgf;stn_rgf_2025_2026;historico_registrado_G21;Diferenca DCL 28138160,11 aritmeticamente explicada;memoria_deducoes_e_versoes
+FIS-03;3505609;http://www.barrinha.sp.gov.br:50000/responsabilidade-fiscal/LRF-2025;portal_municipal_indice;indice_lido_pdf_falhou;RGF 2 QUADR nao prova RGF S2;PDF_executivo_e_protocolo_RE
+FIS-04;3534302;https://www.dioe.com.br/verificador/c0f6-961a-870e-5cd7-b5;verificador_oficial_publicacao;autenticidade_edicao_2238_confirmada;DCL e DTP DO e STN diferem;extrato_versoes_audesp_e_RGF_assinado

@@ -244,3 +244,19 @@ As 34 matrizes SWOT também conservam a transcrição acessível dos seis compon
 - Controle estrutural após as atualizações: **34/34 publicações com quatro blocos gráficos**, totalizando **136 referências de imagens**, todas com URL e `alt`. Correspondência de **136/136** nomes de arquivo do endpoint com `storageKey` de mídia cadastrado e com status `ready`; **34 pranchas SWOT Q8-Q41** e **mapas M1/M5/M6** estão presentes. **34/34** possuem legenda numerada para cada mapa, não repetem H1 interno nem as marcas literais detectadas.
 - **Limite de verificação:** a correspondência entre CMS e biblioteca de mídia não certifica acesso HTTP 200, carregamento no navegador nem responsividade em celular. Tentativas externas tiveram bloqueio de DNS e limite de unidades Browserless; a captura Crawl2AI só abrangeu a abertura da página. Não declarar homologação visual completa. Permanecem a prova desktop/móvel e eventual substituição de pranchas por tabelas HTML semânticas para acessibilidade e reprodução integral das fichas.
 - Persistência: README de continuidade do Google Drive, seção 22, https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit. As publicações foram atualizadas in loco no EmDash, com seus mesmos slugs; versão G30 RC1 não foi alterada.
+
+
+### Quatro estudos sub-regionais publicados no EmDash — 07/11/2026
+
+Foram publicados artigos independentes na categoria **Estudos e Análises**, com fonte no Volume II G30 RC1: os diagnósticos, os cinco componentes textuais integrais das SWOT Q4–Q7 e os gráficos existentes M1/M3/M5/M6/F1. Os gráficos são metropolitanos e não foram apresentados como levantamentos exclusivos de cada sub-região. Todos os 34 municípios foram vinculados a partir das respectivas sub-regiões, sem recriar fichas municipais.
+
+| Sub-região | ID EmDash | Municípios vinculados | URL |
+|---|---|---:|---|
+| Ribeirão Preto | `01M6TYC7ABBWCJBY01R7Z4HHRE` | 15 | https://boletim.radarregulatorio.org/posts/financas-rmrp-sub-regiao-ribeirao-preto-2026 |
+| Jaboticabal | `01M6TYCEE8SF5VFSH7M6YPM2N0` | 6 | https://boletim.radarregulatorio.org/posts/financas-rmrp-sub-regiao-jaboticabal-2026 |
+| Mococa | `01M6TYCN9BG7MEXEYG26PRFE1B` | 6 | https://boletim.radarregulatorio.org/posts/financas-rmrp-sub-regiao-mococa-2026 |
+| Batatais | `01M6TYCVRFHW4YN1GE3S8BRPVF` | 7 | https://boletim.radarregulatorio.org/posts/financas-rmrp-sub-regiao-batatais-2026 |
+
+O índice geral dos 34 estudos municipais foi atualizado com acesso às quatro páginas: https://boletim.radarregulatorio.org/posts/financas-rmrp-indice-34-estudos-municipais-2026 . QA: cada artigo está `published`, contém cinco blocos de imagem e o `content_compare` indicou `hasChanges=false`; quatro extrações públicas por Crawl2AI obtiveram conteúdo textual e links. Cópia preservada e verificada no Drive: https://docs.google.com/document/d/1rH-xvjdlEfUxVH-yz3du3Pmvb4MsYJP2STBYway4VaE/edit . README operacional no Drive também atualizado (seção 23): https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit .
+
+Pendente: QA visual em desktop/celular e eventual criação de pranchas das matrizes SWOT Q4–Q7; a íntegra textual das dimensões já está publicada, mas as cinco imagens atuais por página são mapas e figura metropolitana, não as próprias matrizes. Preservar as versões anteriores e não atribuir a verificação de conteúdo externo o alcance de homologação visual de imagens.

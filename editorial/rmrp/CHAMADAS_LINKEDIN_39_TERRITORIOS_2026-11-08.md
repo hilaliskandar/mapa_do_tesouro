@@ -623,3 +623,11 @@ Leia a análise de RMRP — Panorama metropolitano: https://boletim.radarregulat
 **Imagem principal:** `capa-rmrp-metropolitana-verificada.webp` · mediaId `01M6Y9V4BKMJZS0F62Q7AYNYBC` · storageKey `01M6Y9V3SN5F8P5ZNKB5FW4A7A.webp`
 
 ---
+
+
+## Complemento de imagens documentais
+
+- **Sub-região de Ribeirão Preto:** além da capa, está disponível a matriz SWOT territorial **Q4** revisada, `rmrp-volume-ii-q4-swot-subregiao-ribeirão-preto-qa-v2-2026.webp`, mediaId `01M6XYBZ2CEHTT68AQ3C6N5H1Z`, como segunda imagem *opcional*, condicionada à legibilidade no formato do LinkedIn.
+- **Panorama metropolitano:** além da capa, pode ser usado o **Mapa M6 — investimentos liquidados por habitante**, `rmrp-volume-ii-g30-m6-2026-11-06.png`, mediaId `01M6RVRZ93CD21WMV3PVV977KM`; alternativamente, a **Figura F4**, `rmrp-volume-ii-g30-f4-2026-11-06.png`, mediaId `01M6RVT1FDCXYTZSD7XY6RGE5X`. Evitar ambas simultaneamente sem checar legibilidade.
+
+**Teste público das 39 capas:** execução Browserless de 39 solicitações HEAD independentes às URLs diretas das imagens; 39/39 HTTP 200 com `Content-Type` de imagem; zero falhas. Esse teste comprova acessibilidade pública no momento da verificação, mas não comprova comportamento futuro do upload no Buffer ou do processamento de carrosséis pelo LinkedIn.

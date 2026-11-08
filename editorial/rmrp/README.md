@@ -356,3 +356,17 @@ A pendência editorial residual da seção 30 foi tratada: foram produzidas trê
 As três imagens foram inspecionadas visualmente no ambiente de geração, receberam texto alternativo, foram enviadas à pasta de mídia do Drive `1du7654ezGKWV7HTEfUX3leVVq0Kh198C` e tiveram retorno `ready` no EmDash (tamanhos 53.988, 43.236 e 46.126 bytes, respectivamente). As três publicações registraram a nova `featured_image` e status `published`; na metropolitana, um `content_compare` detectou draft remanescente e foi executado `content_publish` adicional. Não houve alteração dos conteúdos fiscais nem dos 168 gráficos internos das páginas.
 
 **Controles finais:** conferir `content_compare.hasChanges=false` nas três páginas e metadados públicos `og:image`/`twitter:image`; persistir pacote de geração com manifesto SHA-256 e script. Os três pilotos antigos devem permanecer preservados na biblioteca como histórico, mas não ser usados como destaque. A avaliação WCAG completa segue como aperfeiçoamento separado.
+
+
+### Errata de correspondência dos investimentos em quatro páginas municipais — 08/11/2026
+
+Auditoria dos 34 parágrafos publicados sob **“Investimentos e interpretação territorial”** identificou um deslocamento circular de indicadores em **Serra Azul, Serrana, Sertãozinho e São Simão**. A correspondência numérica estava incorreta nesses quatro comentários, apesar de as respectivas páginas, matrizes SWOT e descrições de projetos permanecerem vinculadas aos municípios certos. A errata foi aplicada **somente** aos quatro parágrafos de investimentos, sem modificar slugs, imagens ou relatório-fonte G30 RC1:
+
+- Serra Azul: investimentos nominais de R$ 3,26 milhões (2023), R$ 0,71 milhão (2024) e R$ 1,64 milhão (2025).
+- Serrana: pico nominal de R$ 7,34 milhões (2024), seguido de R$ 2,07 milhões (2025).
+- Sertãozinho: queda real de 11,19% (2023–2025); investimento/receita corrente de 2,98% para 2,35%.
+- São Simão: R$ 2,31 milhões (2024) e R$ 0,44 milhão (2025); investimento/receita próximo de 0,40% em 2025.
+
+**QA:** quatro publicações com `content_compare.hasChanges=false` e status `published`; quatro páginas públicas HTTP 200, com texto atualizado encontrado, expressões anteriores ausentes e H1 único. Os demais 30 comentários foram confrontados com as características numéricas principais da matriz anterior, sem identificação de troca equivalente; não se declara revisão contábil integral nesta rodada. **Errata rastreável:** [ERRATA_AUDITORIA_MUNICIPAL_2026-11-08.md](ERRATA_AUDITORIA_MUNICIPAL_2026-11-08.md), commit `47826970`.
+
+A auditoria pública adicional das três capas substituídas confirmou `og:image` e `twitter:image` corretos nas páginas metropolitana, sub-regional Ribeirão Preto e Cravinhos (6/6 verificações). O README de continuidade no Google Drive recebeu a seção 31, com leitura posterior confirmando sua persistência. A etapa seguinte é examinar a possibilidade de deslocamentos semelhantes nos demais campos dos 34 artigos e concluir a revisão substantiva sem reescritas generalizadas.

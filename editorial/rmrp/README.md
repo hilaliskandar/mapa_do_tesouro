@@ -343,3 +343,16 @@ Para as **outras 36 publicações**, criaram-se capas programáticas em Pillow: 
 **Reprodução e backup:** [código-fonte](scripts/render_capas_destaque_2026.py) e [dados municipais](data/indicadores_receita_2025_capas.csv) no repositório. Cópias isoladas em Drive: script `1npF4Bil1AIIihEXvFSSGrkN3Tddmq6b8`, CSV `17W_RuUtrM-djaF-XmREVHlhVfCwYCa0W`. [Pacote completo com 39 WebP, manifesto, dados e código](https://drive.google.com/file/d/1i4G4fPyfFEED6eeCCSHmmTc50c4Af3wJ/view) no Google Drive. Arquivos individuais WebP também foram transferidos para o Drive durante o processo de upload ao EmDash. Registrar qualquer substituição futura pelos mesmos IDs dos posts, com nova publicação e verificação `og:image`/`twitter:image`.
 
 Os detalhes e os IDs dos três pilotos constam da seção 29 e a conclusão das 39 capas da seção 30 do [README operacional no Google Drive](https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit).
+
+
+### Substituição das três capas-piloto ilustrativas por WebP programáticos — 08/11/2026
+
+A pendência editorial residual da seção 30 foi tratada: foram produzidas três novas imagens de destaque **1200 × 630, WebP, com Pillow**, sem cartografia ilustrativa, para o panorama metropolitano, a sub-região de Ribeirão Preto e Cravinhos. Os textos e slugs das publicações foram preservados; as outras 36 capas não foram modificadas. A fonte dos indicadores é o Volume II G30 RC1.
+
+- **Panorama:** variação real per capita da receita corrente **+39,86% (2015–2025)** e dos investimentos liquidados **−39,52% (2023–2025)**, com indicação explícita dos períodos distintos; mídia EmDash `01M6Y9V4BKMJZS0F62Q7AYNYBC`, storage `01M6Y9V3SN5F8P5ZNKB5FW4A7A.webp`, backup Drive `1I-GrKolidh86jyVrZzDWMJt5FwVytCMn`.
+- **Sub-região Ribeirão Preto:** investimento real agregado, índice 2023=100 e 2025=61,18, queda **38,82%**, barra calculada exatamente como 61,18/100; mídia `01M6Y9V863YYYMM957DHJVH4ZC`, storage `01M6Y9V7Q6JEF784M1AEVQEP5K.webp`, backup Drive `149pMFaR-WHPon0p_kkNWgnIn4ViSdDjr`.
+- **Cravinhos:** variação real de investimentos **+59,88% (2023–2025)** e investimentos/receita corrente **12,43% (2025)**; mídia `01M6Y9VBTHR3VMKZ2MN90YTPRH`, storage `01M6Y9VBAVTD87DRZFZJMWAA33.webp`, backup Drive `1UnJccuhlG5kaTZuLkS5I4j5gE032ui0M`.
+
+As três imagens foram inspecionadas visualmente no ambiente de geração, receberam texto alternativo, foram enviadas à pasta de mídia do Drive `1du7654ezGKWV7HTEfUX3leVVq0Kh198C` e tiveram retorno `ready` no EmDash (tamanhos 53.988, 43.236 e 46.126 bytes, respectivamente). As três publicações registraram a nova `featured_image` e status `published`; na metropolitana, um `content_compare` detectou draft remanescente e foi executado `content_publish` adicional. Não houve alteração dos conteúdos fiscais nem dos 168 gráficos internos das páginas.
+
+**Controles finais:** conferir `content_compare.hasChanges=false` nas três páginas e metadados públicos `og:image`/`twitter:image`; persistir pacote de geração com manifesto SHA-256 e script. Os três pilotos antigos devem permanecer preservados na biblioteca como histórico, mas não ser usados como destaque. A avaliação WCAG completa segue como aperfeiçoamento separado.

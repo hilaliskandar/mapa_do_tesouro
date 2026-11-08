@@ -276,3 +276,19 @@ Produzidas quatro pranchas em SVG a partir das dimensões integrais de SWOT do V
 As pranchas estão inseridas como imagem externa com texto alternativo logo após o título da SWOT em cada uma das quatro publicações existentes no EmDash. **QA estrutural:** quatro posts publicados com seis imagens cada (cinco mapas/figuras metropolitanas e uma prancha SWOT específica), `content_compare.hasChanges=false`, 34 vínculos municipais preservados. **Limitação:** upload de `image/svg+xml` no conector `media_upload` do EmDash retornou `INVALID_TYPE`, razão pela qual a fonte de imagem é `raw.githubusercontent.com` e não a biblioteca de mídia interna. É necessário verificar a entrega e apresentação efetivas em navegador, bem como o comportamento em telas móveis; o HTML extraído pelo Crawl2AI confirma a existência da figura mas remove o atributo `src`. Não se declara homologação visual integral.
 
 Registro espelhado no README de continuidade no Drive, seção 24: https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit .
+
+
+### Substituição de SVG externo por WebP na biblioteca EmDash — 08/11/2026
+
+**Operação efetivamente realizada.** As quatro matrizes SWOT raster foram convertidas em WebP (1491×1055) e enviadas à biblioteca de mídia do EmDash, sem depender de GitHub Raw para renderização. Fluxo operacional reprodutível: arquivo WebP local (`/mnt/data/qN_swot_subregional.webp`) → `Google_Drive.upload_file(file_uri=path, mime_type=image/webp)` → `Google_Drive.fetch(download_raw_file=true, include_base64=true)` → `radar.media_upload(base64, contentType=image/webp, alt, caption)` → `radar.content_get/update/publish` (substituir somente o campo `asset.url` do bloco SVG externo por URL da biblioteca) → `radar.content_compare` e `radar.media_get`. Ao fazer alterações, manter títulos, conteúdo SWOT em texto e links municipais.
+
+| Quadro | EmDash media ID | Arquivo na mídia | Tamanho |
+|---|---|---|---:|
+| Q4, Ribeirão Preto | `01M6XW7EM5DQRN0HT875FBAPX8` | `01M6XW7D23F77NK678MB65PTHE.webp` | 347086 B |
+| Q5, Jaboticabal | `01M6XW8V7C4G0SSFBSB51EZGFF` | `01M6XW8TQ831PQ7CB1WXADZEHJ.webp` | 346372 B |
+| Q6, Mococa | `01M6XW941HP901WACQAB8YMWHK` | `01M6XW93FD504E1EGE7ETSY90N.webp` | 331986 B |
+| Q7, Batatais | `01M6XW9BKRV2GSYEX8H8XZ7C98` | `01M6XW9B1QF6X128PJ7N5QMVKY.webp` | 338964 B |
+
+**QA do CMS:** quatro uploads `ready`, MIME `image/webp`, 1491×1055; quatro artigos `published`; `content_compare.hasChanges=false`; seis imagens por artigo, uma WebP interna cada e nenhuma referência SVG restante; 34 links municipais preservados (15+6+6+7). Cópias dos quatro WebP também armazenadas no Google Drive; IDs das cópias: Q4 `1Hpdpygk3wqLqlM_W1pMfaWivbJcBm0id`, Q5 `1WkzPD0WfqA7kn9Wr9_AlBqI4DPQG9vDA`, Q6 `1qjt92L4FxgiZJHtAI9jmBaIqRpeuOaBM`, Q7 `1tlZVjpuBr71Kc6kB-two8ViXB40Jt_Kf`.
+
+**Ressalva:** o WebP desta rodada provém das pranchas raster de geração de imagem, ao passo que os arquivos vetoriais no repositório representam alternativa de controle. Algumas barras horizontais das pranchas raster podem não estar perfeitamente proporcionais à queda percentual. Manter auditoria de exatidão gráfica antes da homologação final. Ainda falta teste visual de carregamento no navegador e responsividade móvel. A atualização foi registrada também na seção 25 do [README de continuidade no Drive](https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit).

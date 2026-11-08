@@ -292,3 +292,19 @@ Registro espelhado no README de continuidade no Drive, seção 24: https://docs.
 **QA do CMS:** quatro uploads `ready`, MIME `image/webp`, 1491×1055; quatro artigos `published`; `content_compare.hasChanges=false`; seis imagens por artigo, uma WebP interna cada e nenhuma referência SVG restante; 34 links municipais preservados (15+6+6+7). Cópias dos quatro WebP também armazenadas no Google Drive; IDs das cópias: Q4 `1Hpdpygk3wqLqlM_W1pMfaWivbJcBm0id`, Q5 `1WkzPD0WfqA7kn9Wr9_AlBqI4DPQG9vDA`, Q6 `1qjt92L4FxgiZJHtAI9jmBaIqRpeuOaBM`, Q7 `1tlZVjpuBr71Kc6kB-two8ViXB40Jt_Kf`.
 
 **Ressalva:** o WebP desta rodada provém das pranchas raster de geração de imagem, ao passo que os arquivos vetoriais no repositório representam alternativa de controle. Algumas barras horizontais das pranchas raster podem não estar perfeitamente proporcionais à queda percentual. Manter auditoria de exatidão gráfica antes da homologação final. Ainda falta teste visual de carregamento no navegador e responsividade móvel. A atualização foi registrada também na seção 25 do [README de continuidade no Drive](https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit).
+
+
+### Homologação das barras e WebP sub-regionais v2 — 08/11/2026
+
+Foram produzidas **novas pranchas determinísticas** com Pillow, substituindo as imagens rasterizadas em que a posição da barra percentual poderia não corresponder ao valor anunciado. O script reprodutível está em [`scripts/render_swot_subregionais_g30rc1.py`](scripts/render_swot_subregionais_g30rc1.py), com cópia no Google Drive (ID `1pCB5hTbY5ZoZC4oLQZuqER-0qeLAIp2n`) e manifesto de execução no Drive (ID `18-QORpd2v8pvIeco5HHJ_4C1XPVj55DD`). O código preserva as cinco dimensões textuais SWOT Q4–Q7 do Volume II G30 RC1 e calcula matematicamente a largura das barras de 2025 como `100 − queda real agregada (%)`, sempre com índice 2023=100. Não confundir com indicador per capita.
+
+| Quadro | Sub-região | Índice 2025 | Queda 2023–2025 | Novo media ID | Storage key WebP QA v2 |
+|---|---|---:|---:|---|---|
+| Q4 | Ribeirão Preto | 61,18 | −38,82% | `01M6XYBZ2CEHTT68AQ3C6N5H1Z` | `01M6XYBYHJ51WMRE7GDKREX00X.webp` |
+| Q5 | Jaboticabal | 44,71 | −55,29% | `01M6XYC9AJ7EDSA24SH7QRJ7JH` | `01M6XYC8RPGDS45X697PMQ23E5.webp` |
+| Q6 | Mococa | 75,69 | −24,31% | `01M6XYCKYMGAHZD4BQFMH2MAK4` | `01M6XYCKAWJY013K9TN6V4MDKG.webp` |
+| Q7 | Batatais | 43,50 | −56,50% | `01M6XYCXJ0MJBEZK0K4TXM37Z5` | `01M6XYCX2115WJMRDF6HRAA7K5.webp` |
+
+Os novos arquivos foram salvos no Drive, enviados à biblioteca EmDash como `image/webp` (2100×1580, status `ready`) e as URLs das pranchas anteriores foram substituídas **in loco** nas quatro publicações. QA pós-publicação: `content_compare.hasChanges=false` para 4/4 artigos, seis imagens em cada, 34 links municipais preservados, nenhum SVG externo e versão pública de todos os quatro estudos extraída via Crawl2AI. Os antigos arquivos WebP foram conservados na biblioteca para rastreabilidade, mas não são mais os utilizados nos artigos. Cópias Drive das quatro imagens novas: Q4 `1SxGMCQ6xWlcDjtIp5DshgZV-OnwZdK9B`, Q5 `1tpvqNgU3vDnSl4rw-tSqXZyMXojhbTkA`, Q6 `1Q2X-r1tF78jMwAv9hUhpQpUs1oLXz5yG`, Q7 `1Md4sqOsEbe1UBPInnonf6IJNa2Vh-6SP`.
+
+A análise visual dos quatro WebP gerados foi efetuada no ambiente de produção dos arquivos. **Limite:** a extração pública por crawler confirma conteúdo, não o carregamento e a legibilidade real das imagens no navegador, especialmente em mobile. Não declarar homologação responsiva final antes dessa prova. Registro detalhado também no README de continuidade do Drive, seção 26.

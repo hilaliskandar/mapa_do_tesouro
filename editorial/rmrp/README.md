@@ -260,3 +260,19 @@ Foram publicados artigos independentes na categoria **Estudos e Análises**, com
 O índice geral dos 34 estudos municipais foi atualizado com acesso às quatro páginas: https://boletim.radarregulatorio.org/posts/financas-rmrp-indice-34-estudos-municipais-2026 . QA: cada artigo está `published`, contém cinco blocos de imagem e o `content_compare` indicou `hasChanges=false`; quatro extrações públicas por Crawl2AI obtiveram conteúdo textual e links. Cópia preservada e verificada no Drive: https://docs.google.com/document/d/1rH-xvjdlEfUxVH-yz3du3Pmvb4MsYJP2STBYway4VaE/edit . README operacional no Drive também atualizado (seção 23): https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit .
 
 Pendente: QA visual em desktop/celular e eventual criação de pranchas das matrizes SWOT Q4–Q7; a íntegra textual das dimensões já está publicada, mas as cinco imagens atuais por página são mapas e figura metropolitana, não as próprias matrizes. Preservar as versões anteriores e não atribuir a verificação de conteúdo externo o alcance de homologação visual de imagens.
+
+
+### Pranchas vetoriais SWOT sub-regionais Q4–Q7 incorporadas — 07/11/2026
+
+Produzidas quatro pranchas em SVG a partir das dimensões integrais de SWOT do Volume II G30 RC1. O painel gráfico compara **índice real agregado dos investimentos, 2023=100**, com 2025 em Ribeirão Preto **61,18**, Jaboticabal **44,71**, Mococa **75,69** e Batatais **43,50**. A queda correspondente é, respectivamente, −38,82%, −55,29%, −24,31% e −56,50%. Esses indicadores não são variações do investimento por habitante. Para garantir escalas proporcionais, as pranchas vetoriais substituem, como ativos canônicos, as composições de imagens geradas anteriormente que apresentavam ambiguidades nas barras percentuais.
+
+| Quadro | Prancha SVG canônica |
+|---|---|
+| Q4 — Ribeirão Preto | [`assets/q4-swot-sub-regiao-ribeirao-preto-g30rc1.svg`](assets/q4-swot-sub-regiao-ribeirao-preto-g30rc1.svg) |
+| Q5 — Jaboticabal | [`assets/q5-swot-sub-regiao-jaboticabal-g30rc1.svg`](assets/q5-swot-sub-regiao-jaboticabal-g30rc1.svg) |
+| Q6 — Mococa | [`assets/q6-swot-sub-regiao-mococa-g30rc1.svg`](assets/q6-swot-sub-regiao-mococa-g30rc1.svg) |
+| Q7 — Batatais | [`assets/q7-swot-sub-regiao-batatais-g30rc1.svg`](assets/q7-swot-sub-regiao-batatais-g30rc1.svg) |
+
+As pranchas estão inseridas como imagem externa com texto alternativo logo após o título da SWOT em cada uma das quatro publicações existentes no EmDash. **QA estrutural:** quatro posts publicados com seis imagens cada (cinco mapas/figuras metropolitanas e uma prancha SWOT específica), `content_compare.hasChanges=false`, 34 vínculos municipais preservados. **Limitação:** upload de `image/svg+xml` no conector `media_upload` do EmDash retornou `INVALID_TYPE`, razão pela qual a fonte de imagem é `raw.githubusercontent.com` e não a biblioteca de mídia interna. É necessário verificar a entrega e apresentação efetivas em navegador, bem como o comportamento em telas móveis; o HTML extraído pelo Crawl2AI confirma a existência da figura mas remove o atributo `src`. Não se declara homologação visual integral.
+
+Registro espelhado no README de continuidade no Drive, seção 24: https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit .

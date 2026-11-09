@@ -1,4 +1,4 @@
-name: FED02 - FPM e Fundeb: testar residuos decendiais
+name: 'FED02 - FPM e Fundeb: testar residuos decendiais'
 on:
   push:
     branches: [main]

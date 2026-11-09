@@ -1,0 +1,90 @@
+name: FED02 - inspecionar ementario oficial STN 2026 (somente leitura)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/fed02-ementario-2026-inspection.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install openpyxl for official XLSX read-only analysis
+        run: pip install openpyxl
+      - name: Read only official fiscal-year 2026 Ementario, preserve source SHA
+        run: |
+          python3 - <<'PY'
+          import csv, hashlib, json, re
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from datetime import datetime, timezone
+          from openpyxl import load_workbook
+
+          target=Path('build/fed02-ementario')
+          target.mkdir(parents=True,exist_ok=True)
+          url='https://thot-arquivos.tesouro.gov.br/publicacao-anexo/27870'
+          qa={'retrieved_utc':datetime.now(timezone.utc).isoformat(),
+              'reference_url':url, 'fiscal_year':2026,'status':'failed_or_unavailable'}
+          terms=re.compile(r'FUNDEB|PARTICIPA.C.AO DOS MUNIC.PIOS|FPM|ROYALT|ITR|TERRITORIAL RURAL|CFEM|MINERAIS|PETR.LEO|IOF.O(U|URO)|COMPENSA.C.AO FINANCEIRA|EXPORTA.C.O|LEI COMPLEMENTAR N. 176|VAAT|VAAR',re.IGNORECASE)
+          try:
+              req=Request(url,headers={'User-Agent':'mapa-do-tesouro-source-inspection/1.0'})
+              with urlopen(req,timeout=70) as response:
+                  blob=response.read(15_000_001)
+                  final_url=response.geturl()
+              if len(blob)>15_000_000 or not blob.startswith(b'PK'):
+                  raise ValueError('invalid_or_oversized_official_xlsx')
+              p=target/'EMENTARIO_RECEITAS_2026_OFFICIAL.xlsx'
+              p.write_bytes(blob)
+              wb=load_workbook(p,read_only=True,data_only=True)
+              matches=[]; sheetcounts={}
+              for ws in wb.worksheets:
+                  ws.reset_dimensions()
+                  n=0
+                  for rowidx, cells in enumerate(ws.iter_rows(values_only=True),start=1):
+                      n+=1
+                      if n>350000:
+                          raise ValueError('sheet_row_safety_limit_reached')
+                      celltexts=[str(v).strip() if v is not None else '' for v in cells]
+                      line=' | '.join(x for x in celltexts if x)
+                      if terms.search(line):
+                          matches.append([ws.title,rowidx,line[:1600]])
+                          if len(matches)>5000:
+                              raise ValueError('too_many_candidate_rows')
+                  sheetcounts[ws.title]=n
+              wb.close()
+              with (target/'EMENTARIO_2026_TERMS_CANDIDATES.csv').open('w',encoding='utf-8',newline='') as f:
+                  writer=csv.writer(f,delimiter=';')
+                  writer.writerow(['sheet','source_row','source_fields_truncated'])
+                  writer.writerows(matches)
+              qa.update({'status':'qa_pass_source_inspection_only',
+                         'resolved_url':final_url,
+                         'source_sha256':hashlib.sha256(blob).hexdigest(),
+                         'bytes':len(blob),'worksheet_rows_scanned':sheetcounts,
+                         'candidate_rows':len(matches),
+                         'restrictions':['Search hits are not automatically codes linked to STN cash transfers',
+                          'Check row structure, edition and municipal applicability before mapping',
+                          'No SQLite or R2 write, no declared nature codes without source-row inspection']})
+          except Exception as e:
+              qa['error']=type(e).__name__+': '+str(e)[:350]
+          (target/'QA_EMENTARIO_2026.json').write_text(json.dumps(qa,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps({k:qa.get(k) for k in ('status','bytes','source_sha256','candidate_rows','error')},ensure_ascii=False))
+          if qa['status']!='qa_pass_source_inspection_only':raise SystemExit(2)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed02-ementario-2026-evidence
+          path: |
+            build/fed02-ementario/EMENTARIO_2026_TERMS_CANDIDATES.csv
+            build/fed02-ementario/QA_EMENTARIO_2026.json
+          retention-days: 30
+          if-no-files-found: warn

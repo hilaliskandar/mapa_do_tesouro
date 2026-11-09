@@ -123,9 +123,9 @@ def inspect_csv(text: str) -> dict:
                 cell = obj.get(field, "").strip()
                 if not cell:
                     kind = "blank"
-                elif re.fullmatch(r"-?(?:[0-9]{1,3}(?:\\.[0-9]{3})+|[0-9]+)(?:,[0-9]{1,2})?", cell):
+                elif re.fullmatch(r"-?(?:[0-9]{1,3}(?:\.[0-9]{3})+|[0-9]+)(?:,[0-9]{1,2})?", cell):
                     kind = "decimal_br"
-                elif re.fullmatch(r"-?(?:[0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)(?:\\.[0-9]{1,2})?", cell):
+                elif re.fullmatch(r"-?(?:[0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)(?:\.[0-9]{1,2})?", cell):
                     kind = "decimal_en"
                 elif cell in ("-", "—", "N/A", "NA"):
                     kind = "placeholder"

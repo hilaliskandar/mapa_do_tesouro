@@ -67,3 +67,7 @@ A LC 200/2023 incide diretamente sobre o regime fiscal federal. A série de prop
 5. Atualizar README principal, `governance/PROJECT_STATE.md` e este plano ao concluir cada gate; registrar run, commit, hashes, lacunas e **próxima ação exata**.
 
 **Não executado nesta etapa:** nova ingestão, mudança do SQLite, criação de D1, alteração de R2, workflows, deployments ou publicação.
+
+## Registro de execução FED00 — 09/11/2026
+
+Foram produzidos [`MATRIZ_FONTES_FEDERAIS_SP645.csv`](MATRIZ_FONTES_FEDERAIS_SP645.csv) (11 conjuntos) e [`RELATORIO_FED00_INVENTARIO_2026_11_09.md`](RELATORIO_FED00_INVENTARIO_2026_11_09.md). Schema SQLite, tabelas de proveniência, integração TCESP e coletor regional Transferegov examinados por leitura direta de arquivos GitHub; fontes públicas nacionais validadas documentalmente. Nenhuma API estadual/CSV de dados foi integralmente extraída nesta etapa e o conteúdo do banco materializado/R2 live não foi auditado. **Status FED00: in_progress**, pendentes prova de arquivos, layouts, tamanhos, históricos, mapeamento operacional do build e consulta R2 read-only. Ação seguinte: auditoria técnica de pipeline de build + teste não destrutivo dos downloads nacionais. Preservar G06-F4 regional em paralelo.

@@ -1,0 +1,32 @@
+name: 'FED02 - SICONFI RREO 2026 FPM FUNDEB sentinelas'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed02-siconfi-rreo-2026-probe.yml"
+      - "pipeline/acquire/probe_siconfi_rreo_fpm_fundeb_2026.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  read-only-rreo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Query official municipal RREO 2026 at most once per second
+        run: |
+          python3 -m pipeline.acquire.probe_siconfi_rreo_fpm_fundeb_2026 \
+            --output build/fed02-rreo/QA_SICONFI_RREO_2026_FPM_FUNDEB.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed02-rreo-public-metadata-${{ github.run_id }}
+          path: build/fed02-rreo/QA_SICONFI_RREO_2026_FPM_FUNDEB.json
+          retention-days: 30
+          if-no-files-found: warn

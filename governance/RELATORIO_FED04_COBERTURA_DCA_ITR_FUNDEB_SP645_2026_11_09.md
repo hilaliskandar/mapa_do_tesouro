@@ -62,3 +62,20 @@ Com os dois documentos adicionais consultados diretamente na API, a **disponibil
 ## 6. Verificação final de persistência em Drive
 
 A matriz de controle de **7.704 linhas** foi carregada na pasta Google Drive das fontes e verificada por leitura de retorno. [Abrir matriz de QA](https://drive.google.com/file/d/19qUwskjGxBrakPakHuXl9WR5J6Z1a8Rv/view). A comparação dos SHA-256 confirmou **`359989e9a3287ce37b4150662133ce4a4ca79d4985b8558032543febe01ab183`** tanto na origem local quanto no download após persistência. As fontes de dados originais não foram modificadas. As **128 divergências** entre fonte anual e suplemento permanecem apenas identificadas para revisão; a matriz preserva prioridade da fonte anual.
+
+## 7. Fechamento da matriz de identidade SP645 com deltas API
+
+Em 09/11/2026 concluiu-se uma **matriz estadual de presença de contas, com 645 códigos IBGE e 7.740 linhas** (645 municípios × quatro contas analíticas × três colunas de receita/dedução), com três fontes de origem **explicitamente distintas**: (i) CSV anual I-C de 2025, primário; (ii) XLSX `Receitas 2022–2025`, usado somente quando o primário não contém a célula; (iii) **delta pontual da API SICONFI** para Braúna e Tanabi. Sarutaiá está representado por 12 linhas `anexo_sem_registros`, **sem imputação de zero**. Os valores de origem nos municípios do delta API não foram utilizados para substituir valores dos arquivos locais. O controle de 645 códigos foi verificado quanto à unicidade da chave `codigo_ibge × conceito × coluna`.
+
+| Conceito, `Receitas Brutas Realizadas`, exercício 2025 | Municípios com linha observada | Sem linha/sem anexo |
+|---|---:|---:|
+| FPM — cota mensal regular, `RO1.7.1.1.51.1.0` | **643** | 2 |
+| ITR, `RO1.7.1.1.52.0.0` | **633** | 12 |
+| Fundeb recebido, `RO1.7.5.1.00.0.0` | **623** | 22 |
+| Fundeb — complementação federal, `RO1.7.1.5.00.0.0` | **453** | 192 |
+
+**Persistência confirmada:** [`QA_FED04_DCA_ITR_FUNDEB_2025_SP645_COMPLETO.csv`](https://drive.google.com/file/d/1Tik1vEa5tSIIHp0GLPEjgJi_M6HUdP_d/view), pasta de fontes do projeto no Google Drive; **2.106.605 bytes**, SHA-256 **`9e34296a0aa9abdcd8fa5c8af9432bcb52d1cd8e550c4ae377c3efcf5947afe7`**, **download de retorno e comparação SHA aprovados**. O arquivo de 642 municípios preservado anteriormente continua como versão intermediária, não como a matriz estadual concluída.
+
+**Questão substantiva resolvida:** o ITR já tem conta fiscal específica na DCA de 2025 e aparece em 633 municípios, apesar de não ter sido transformado em variável individualizada na plataforma. O Fundeb recebido e a complementação federal também têm contas distintas na DCA, e sua decomposição em eventos, origens e complementações VAAT/VAAR pela STN é informação complementar, **não receita municipal adicional automaticamente somável**.
+
+**Pendências:** 128 discrepâncias entre fontes locais em células coincidentes não resolvidas; Rio das Pedras possui DCA mas não as quatro contas analíticas; Sarutaiá permanece sem anexo; validar contas e ementários 2013–2024 antes de promover variáveis ao SQLite. **Nenhuma migration, escrita em `observacao` ou publicação de indicador ocorreu.**

@@ -59,7 +59,9 @@ def analyze(dbpath:Path,manifest:Path,csvout:Path,qaout:Path):
             raise ValueError("expected 645 Sao Paulo municipalities")
         vars={r[0]:(r[1],r[2]) for r in db.execute(
             "SELECT variavel_id,fonte_preferencial_id,periodicidade FROM variavel")}
-        manifestdata=json.loads(manifest.read_text(encoding="utf-8"))
+        # Source tracker is a semicolon-delimited governance CSV, not JSON.
+        if not manifest.read_text(encoding="utf-8-sig").startswith('"gate";'):
+            raise ValueError("unexpected_governance_manifest_format")
         counts={}
         for label,concept,vid,category,notes in AUDIT_ITEMS:
             n=Counter()
@@ -76,7 +78,7 @@ def analyze(dbpath:Path,manifest:Path,csvout:Path,qaout:Path):
             present=vid in vars
             n=counts[label]
             rows.append([label,concept,vid,category,"sim" if present else "nao",
-                         vars[vid][0] if present else "",sum(n.values())-(n["zero"] if False else 0),
+                         vars[vid][0] if present else "",sum(v for k,v in n.items() if k!="zero"),
                          n["observado"],n["zero"],n["ausente"],n["nao_aplicavel"],
                          n["em_revisao"],sum(v for k,v in n.items() if k not in
                             ("observado","zero","ausente","nao_aplicavel","em_revisao")),notes])
@@ -101,7 +103,7 @@ def analyze(dbpath:Path,manifest:Path,csvout:Path,qaout:Path):
                                   "An observed zero is a value in the municipal declared account, not a missing STN source record",
                                   "No accounting equivalence between DCA reported receipts and STN cash transfers was inferred",
                                   "No canonical SQLite, R2 nor frontend data writes"]})
-        if sum(counts["STN_FPM_REGULAR"].values())!=645:
+        if sum(v for k,v in counts["STN_FPM_REGULAR"].items() if k!="zero")!=645:
             raise ValueError("2025 FPM observation status count not 645")
         db.close()
     except Exception as e:

@@ -1,0 +1,50 @@
+name: RMSJRP G06-B - sensibilidades e efeito polo
+on:
+  push:
+    branches: [analysis/rmsjrp-g06b-sensibilidade-2026-11-09]
+    paths:
+      - editorial/rmsjrp/qa_sensibilidade_g06b.py
+      - .github/workflows/rmsjrp-g06b-sensibilidade.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa_sensibilidade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: .
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify prior G06 and run independent shocks and pole checks
+        run: python3 editorial/rmsjrp/qa_sensibilidade_g06b.py
+      - name: Persist sensitivity evidence with SHA-256 readback
+        run: |
+          set -euo pipefail
+          PREFIX="rmsjrp/g06/2026_11_09/sensibilidades_v1"
+          for F in build/rmsjrp-g06b/G06B_*.csv build/rmsjrp-g06b/QA_G06B.json; do
+            test -f "$F" || continue
+            N="$(basename "$F")"
+            SHA="$(sha256sum "$F" | cut -d ' ' -f 1)"
+            MIME=text/csv
+            if [ "$N" = QA_G06B.json ]; then MIME=application/json; fi
+            python3 deployment/upload_r2_source.py --source "$F" --object-key "$PREFIX/$N" --expected-sha256 "$SHA" --content-type "$MIME"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$N" --output "build/rmsjrp-g06b/readback-$N" --expected-sha256 "$SHA"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g06b-sensibilidades-qa
+          path: |
+            build/rmsjrp-g06b/G06B_*.csv
+            build/rmsjrp-g06b/QA_G06B.json
+          retention-days: 30
+          if-no-files-found: warn

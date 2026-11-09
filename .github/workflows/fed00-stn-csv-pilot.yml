@@ -48,5 +48,6 @@ jobs:
           path: |
             build/fed00_stn_csv/QA_FED00_STN_CSV.json
             build/fed00_stn_csv/STN_IBGE_SP_MATCH.csv
+            build/fed00_stn_csv/STN_IBGE_SP_MATCH_CANDIDATE.csv
           retention-days: 30
           if-no-files-found: warn

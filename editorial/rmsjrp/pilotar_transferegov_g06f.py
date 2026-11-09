@@ -91,7 +91,7 @@ for module,path,param,kind in QUERY:
                 codes,names=test_municipality_match(item,city)
                 if codes or names:
                     verified.append("codigo" if codes else "nome")
-                    id_fields={k:safe_string(v) for k,v in item.items() if re.search(r"(^id_|^id$|numero|nr_|cod_|codigo_|proposta|instrumento)",k,re.I) and not isinstance(v,(list,dict))}
+                    id_fields={k:safe_string(v)[:100] for k,v in item.items() if re.search(r"^(id_|id$|nr_|num_|cod_|codigo_|situacao_proposta$|ano_proposta$|dt_proposta$)",k,re.I) and not isinstance(v,(list,dict))}
                     sample.append({"identificadores":dict(list(id_fields.items())[:8]),
                       "campo_confirmacao":codes+names,"chaves":list(item)[:60]})
             row["evidencia_localizacao"]=" | ".join(sorted(set(verified))) if verified else "nenhuma_correspondencia_verificada"

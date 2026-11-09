@@ -1,0 +1,55 @@
+name: 'FED04 - testar contas ITR e Fundeb no DCA 2025'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed04-dca-itr-fundeb-2025-pilot.yml"
+      - "pipeline/qa/audit_siconfi_dca_itr_fundeb_2025_pilot.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect read-only official DCA 2025 accounting cells in eight municipalities
+        run: |
+          python3 -m pipeline.qa.audit_siconfi_dca_itr_fundeb_2025_pilot \
+            --matrix build/fed04-dca/CONTAS_ITR_FUNDEB_PILOTO_2025.csv \
+            --qa build/fed04-dca/QA_ITR_FUNDEB_2025_PILOTO.json
+      - name: Archive candidate-only matrix and QA with SHA readback
+        run: |
+          SHA="$(python3 -c 'import hashlib;print(hashlib.sha256(open("build/fed04-dca/CONTAS_ITR_FUNDEB_PILOTO_2025.csv","rb").read()).hexdigest())')"
+          python3 deployment/upload_r2_source.py \
+            --source build/fed04-dca/CONTAS_ITR_FUNDEB_PILOTO_2025.csv \
+            --object-key sp_645/federal/governance/dca_itr_fundeb_2025/candidates/CONTAS_ITR_FUNDEB_PILOTO_${{ github.run_id }}.csv \
+            --expected-sha256 "$SHA" \
+            --content-type text/csv
+          python3 deployment/upload_r2_source.py \
+            --source build/fed04-dca/QA_ITR_FUNDEB_2025_PILOTO.json \
+            --object-key sp_645/federal/governance/dca_itr_fundeb_2025/candidates/QA_ITR_FUNDEB_PILOTO_${{ github.run_id }}.json \
+            --content-type application/json
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/governance/dca_itr_fundeb_2025/candidates/CONTAS_ITR_FUNDEB_PILOTO_${{ github.run_id }}.csv \
+            --output build/fed04-dca/readback.csv \
+            --expected-sha256 "$SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed04-dca-itr-fundeb-2025-pilot-${{ github.run_id }}
+          path: |
+            build/fed04-dca/CONTAS_ITR_FUNDEB_PILOTO_2025.csv
+            build/fed04-dca/QA_ITR_FUNDEB_2025_PILOTO.json
+          retention-days: 30
+          if-no-files-found: warn

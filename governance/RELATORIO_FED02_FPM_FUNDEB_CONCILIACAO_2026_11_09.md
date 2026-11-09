@@ -40,3 +40,12 @@ O script [`probe_siconfi_rreo_fpm_fundeb_2026.py`](../pipeline/acquire/probe_sic
 4. Manter `FED02=in_progress`; não aplicar a [migration candidata](proposals/PROPOSTA_STN_EVENTOS_DECENDIAIS_SP645.sql) e não escrever `observacao` anual até aprovação contábil e revisão dos 27 pares.
 
 **Estado:** evidência forte da composição FPM–ITR para `FUNDEB/DEDU`, sem transformação em regra operacional de soma nem declaração de causalidade de política fiscal.
+
+## 5. Controles complementares em execução e ponto exato de retomada
+
+Em 09/11/2026 foram preparados dois refinamentos técnicos adicionais, **ainda sem homologação de suas execuções mais recentes**:
+
+- [`audit_stn_dedu_fpm_itr_hypotheses.py`](../pipeline/qa/audit_stn_dedu_fpm_itr_hypotheses.py) foi aprimorado para identificar os **13 municípios sem linha `ITR/ITR`**, distinguir explicitamente sua ausência de valor zero e registrar a única exceção de 5,25 centavos, inclusive município/decêndio e valores literais da fonte. O [run 42673731964](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42673731964) terminou com `failure` sem jobs disponíveis; o [run corretivo 42674297595](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42674297595) estava **queued** no último acompanhamento. Não reportar detalhes nominais ou nova regra de arredondamento antes do QA real.
+- [`fed02-siconfi-rreo-2026-probe.yml`](../.github/workflows/fed02-siconfi-rreo-2026-probe.yml) foi estendido para guardar o relatório público de disponibilidade dos RREOs no **R2 privado existente**, sob `sp_645/federal/siconfi/rreo/2026/candidates/QA_FPM_FUNDEB_SENTINELAS_<run_id>.json`, com SHA-256 e readback. O primeiro teste [42673859324](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42673859324) está aprovado, mas seus resultados permaneciam em artefato GitHub de retenção limitada; a [reexecução 42674400674](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42674400674) estava **queued**, portanto **não declarar persistência R2 sem log de leitura de retorno**.
+
+**Ponto de retomada:** consultar os dois runs, baixar os QA JSON, atualizar os resultados e o manifesto de R2, se aprovados. Prosseguir com `SICONFI /extrato_entregas` e o documento decendial de distribuição Banco do Brasil/STN para validar a relação de 20% e a equivalência temporal das contas, sem escrever em `observacao` ou alterar a publicação.

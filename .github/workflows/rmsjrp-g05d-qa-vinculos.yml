@@ -1,0 +1,49 @@
+name: RMSJRP G05-D - QA vinculos candidatos obras contratos
+on:
+  push:
+    branches: [audit/rmsjrp-g05d-contratos-olimpia-2026-11-09]
+    paths:
+      - editorial/rmsjrp/qa_g05d_vinculos_contratos_obras.py
+      - editorial/rmsjrp/G05D_OBRAS_CONTRATOS_CANDIDATOS_2026_11_09.csv
+      - .github/workflows/rmsjrp-g05d-qa-vinculos.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa_vinculos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: .
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare candidate keys against audited R2 datasets
+        run: python3 editorial/rmsjrp/qa_g05d_vinculos_contratos_obras.py
+      - name: Persist derived QA privately and read back
+        run: |
+          set -euo pipefail
+          PREFIX="rmsjrp/g05d/2026_11_09/olimpia_vinculos"
+          for F in QA_G05D_VINCULOS_CONTRATOS_OBRAS.csv QA_G05D_VINCULOS.json; do
+            SRC="build/rmsjrp-g05d-vinculos/$F"
+            SHA="$(sha256sum "$SRC" | cut -d ' ' -f 1)"
+            MIME="text/csv"; case "$F" in *.json) MIME=application/json;; esac
+            python3 deployment/upload_r2_source.py --source "$SRC" --object-key "$PREFIX/$F" --expected-sha256 "$SHA" --content-type "$MIME"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$F" --output "build/rmsjrp-g05d-vinculos/readback-$F" --expected-sha256 "$SHA"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g05d-qa-vinculos
+          path: |
+            build/rmsjrp-g05d-vinculos/QA_G05D_VINCULOS_CONTRATOS_OBRAS.csv
+            build/rmsjrp-g05d-vinculos/QA_G05D_VINCULOS.json
+          retention-days: 30
+          if-no-files-found: warn

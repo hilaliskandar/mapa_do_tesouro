@@ -1,10 +1,10 @@
-gate;estado;data_referencia;evidencia;pendencia
-FED00;in_progress;2026-11-09;Inventario 14 fontes 146 recursos CKAN; CSV STN validado com 126807 linhas nacionais 13889 SP e competencia setembro 2026;Crosswalk 645 chaves candidato R2 com SHA readback aprovado; homologar contra SQLite IBGE e conciliar valores decendiais
-FED01;not_started;2026-11-09;Schema SQLite 001 004 006 inspecionados;Projetar e auditar migrations federais incrementais
-FED02;not_started;2026-11-09;APIs 4 de 5 qa_pass com Selic anomalia temporal; STN um CSV nacional qa_pass e SHA certificado;Revalidar Selic e ampliar testes das fontes Transferegov
-FED03;not_started;2026-11-09;Bucket R2 canonico identificado pela documentacao;Carga historica estadual e readback SHA
-FED04;not_started;2026-11-09;Catalogo CKAN possui seis nomes repetidos e 18 divergencias entre nome e URL;Conferir conteudo e chaves antes de deduplicar
-FED05;not_started;2026-11-09;G06F3 RMSJRP proposta 398 e sete empenhos identificados;Conciliacao documental federal e municipal
-FED06;not_started;2026-11-09;Modelo observacao municipio ano variavel identificado;QA de agregacoes SP645
-FED07;not_started;2026-11-09;Nenhuma rotina recorrente criada para ingestao estadual;Definir janela de captura e retificacao
-FED08;not_started;2026-11-09;Producao atual inalterada;Homologar regressao e autorizacao de publicacao
+"gate";"estado";"data_referencia";"evidencia";"pendencia"
+"FED00";"in_progress";"2026-11-09";"STN arquivo nacional 126807 linhas e SP 13889; 645 codigos IBGE coincidem com SQLite real; fonte e staging R2 com SHA readback e QA aprovados";"Homologar unidades contabeis, deducoes, rubricas e somatorios antes de importar observacoes"
+"FED01";"not_started";"2026-11-09";"Schema SQLite 001 004 006 inspecionados; modelo de eventos em planejamento";"Projetar tabelas federais complementares e auditar migrations sem substituir DCA"
+"FED02";"in_progress";"2026-11-09";"APIs 4 de 5 qa_pass; Selic data futura; STN setembro 2026 com readback e staging validado";"Ampliar testes Transferegov e verificar semantica financeira no dicionario STN"
+"FED03";"in_progress";"2026-11-09";"Um snapshot nacional STN e um extrato estadual SP645 persistidos no bucket canonico";"Carga historica de outros periodos e fontes com deduplicacao e manifests"
+"FED04";"in_progress";"2026-11-09";"STN 2026/09 sem duplicados no grao IBGE periodo classe item; catalogo CKAN tem nomes repetidos";"Conciliar retificacoes, versoes, sinais e sobreposicao entre rubricas"
+"FED05";"not_started";"2026-11-09";"G06F3 RMSJRP proposta 398 e sete empenhos identificados";"Conciliacao documental federal e municipal"
+"FED06";"not_started";"2026-11-09";"Modelo observacao municipio ano variavel identificado; crosswalk STN 645/645";"QA de agregacoes SP645 e universos regionais"
+"FED07";"not_started";"2026-11-09";"Nenhuma rotina recorrente de ingestao estadual em producao";"Definir janela de captura e retificacao"
+"FED08";"not_started";"2026-11-09";"Producao atual inalterada";"Homologar regressao e autorizacao de publicacao"

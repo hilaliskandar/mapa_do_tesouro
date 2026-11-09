@@ -1,0 +1,53 @@
+name: RMSJRP G04 - indicadores fiscais derivados e QA
+on:
+  push:
+    branches: [feature/rmsjrp-g04-indicadores-2026-11-09]
+    paths:
+      - editorial/rmsjrp/build_indicadores_g04.py
+      - editorial/rmsjrp/IPCA_MEDIA_ANUAL_SET2026.csv
+      - .github/workflows/rmsjrp-g04-indicadores.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  indicadores:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: .
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild nominal and real regional indicators from DCA R2
+        run: |
+          set -euo pipefail
+          python3 editorial/rmsjrp/build_indicadores_g04.py
+      - name: Persist G04 outputs in private R2 with readback SHA
+        run: |
+          set -euo pipefail
+          PREFIX="rmsjrp/g04/2026_11_09"
+          for f in SERIES_MUNICIPAIS_2013_2025.csv SERIES_TERRITORIAIS_2013_2025.csv QA_G04.json; do
+            SOURCE="build/rmsjrp_g04/$f"
+            SHA="$(sha256sum "$SOURCE" | cut -d ' ' -f 1)"
+            CT=text/csv
+            if [ "$f" = QA_G04.json ]; then CT=application/json; fi
+            python3 deployment/upload_r2_source.py --source "$SOURCE" --object-key "$PREFIX/$f" --expected-sha256 "$SHA" --content-type "$CT"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$f" --output "build/rmsjrp_g04/readback-$f" --expected-sha256 "$SHA"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g04-indicadores-qa
+          path: |
+            build/rmsjrp_g04/SERIES_MUNICIPAIS_2013_2025.csv
+            build/rmsjrp_g04/SERIES_TERRITORIAIS_2013_2025.csv
+            build/rmsjrp_g04/QA_G04.json
+          retention-days: 30
+          if-no-files-found: warn

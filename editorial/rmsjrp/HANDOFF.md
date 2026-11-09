@@ -17,3 +17,11 @@
 
 ## Próxima ação exata
 Após incorporar o PR desta Fase I, começar G04 com exame interno das ausências RREO/RGF, definição do IPCA médio anual e base de setembro/2026, série populacional e geometria EPSG:4674. Não recolher DCA/TCESP. Atualizar relatório e status ao encerrar cada gate; verificar PR/commit na main.
+
+
+## Continuidade após G04 — 09/11/2026
+- **Execução:** [run 42561177880](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42561177880) `success`, artifact `13648798649`; script `editorial/rmsjrp/build_indicadores_g04.py`; `IPCA_MEDIA_ANUAL_SET2026.csv`.
+- **Resultados:** 481 séries município-ano e 65 território-ano (quatro sub-regiões + total RMSJRP), 2013–2025; ausência preservada. Receitas correntes 2023/2024/2025: R$ 5.928.863.624,96 / 6.618.138.707,79 / 7.252.878.267,79 nominais. Investimentos liquidados nominais R$ 444.230.252,48 / 480.737.206,37 / 208.056.124,00; investimentos reais set/2026 R$ 513.232.108,92 / 532.167.431,30 / 219.312.039,99.
+- **Persistência:** R2 privado `rmsjrp/g04/2026_11_09/`, três objetos com hashes/readback no `RELATORIO_G04_2026_11_09.md`. Não reconstruir dados de fonte externa.
+- **Ressalvas:** fatores do IPCA média anual reproduzidos do Lote 17 RMRP (referência setembro/2026 7695,82); denominação populacional 2025 é repetição numérica de 2024 para 37/37 municípios, não nova estimativa observada. Falta definir cartografia métrica EPSG:4674 e ampliar RREO/RGF apenas a partir de acervo disponível, se possível.
+- **Próxima ação:** executar G05 em lotes: tabela 2023–2025 regional e por quatro sub-regiões; explorar contribuições municipais para variação real 2023–2025; mapas somente com CRS comprovado; nenhuma atribuição causal antes de investigação. Iniciar novo chat lendo este arquivo, README e relatório G04, verificar commit atual de `main` e readback R2; após lote atualizar todos os registros de estado.

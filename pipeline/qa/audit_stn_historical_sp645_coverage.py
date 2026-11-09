@@ -99,6 +99,8 @@ def run(fpm: Path, itr: Path, stage: Path, coverage: Path, crosswalk: Path, qa_p
             coverage_details = Counter()
             invalid_samples = []
             all_rows = 0
+            invalid_geographic_rows = Counter()
+            invalid_geographic_samples = []
             with path.open(encoding="cp1252", newline="") as f:
                 rd = csv.DictReader(f, delimiter=";")
                 if rd.fieldnames != META+YEARS: raise ValueError(label+": unexpected historical CSV columns")
@@ -109,7 +111,15 @@ def run(fpm: Path, itr: Path, stage: Path, coverage: Path, crosswalk: Path, qa_p
                     month = r["Mês"].strip()
                     n = r["Município"].strip()
                     if not mun or not n or not uf or month not in [str(i) for i in range(1,13)]:
-                        raise ValueError(label+": empty geographic key or invalid month")
+                        reason=("month_outside_1_12" if month not in [str(i) for i in range(1,13)]
+                                else "missing_geographic_identifier")
+                        invalid_geographic_rows[reason] += 1
+                        if len(invalid_geographic_samples)<25:
+                            invalid_geographic_samples.append({
+                                "source_line":all_rows+1,"uf":uf,"cod_mun":mun,
+                                "municipio":n,"mes":month,"year_2026_cell":r.get("2026","")[:30],
+                                "reason":reason})
+                        continue
                     key = (uf,mun,month)
                     if key in rowkeys:
                         duplicate_rows.append(key)
@@ -154,7 +164,12 @@ def run(fpm: Path, itr: Path, stage: Path, coverage: Path, crosswalk: Path, qa_p
                     len(entry["places"]),c["positive"]+c["negative"]+c["zero"],
                     c["positive"],c["zero"],c["negative"],c["absent"],c["invalid"]])
             results[label] = {
-                "source_rows": all_rows, "distinct_source_municipality_uf_keys":len(stn_codes),
+                "source_rows": all_rows,
+                "invalid_or_auxiliary_geographic_rows":sum(invalid_geographic_rows.values()),
+                "invalid_or_auxiliary_reasons":dict(sorted(invalid_geographic_rows.items())),
+                "invalid_or_auxiliary_samples":invalid_geographic_samples,
+                "eligible_municipal_month_rows":len(rowkeys),
+                "distinct_source_municipality_uf_keys":len(stn_codes),
                 "month_row_counts":dict(sorted(month_counts.items(),key=lambda x:int(x[0]))),
                 "duplicate_uf_codmun_month_count":len(duplicate_rows),
                 "duplicate_sample":duplicate_rows[:20],

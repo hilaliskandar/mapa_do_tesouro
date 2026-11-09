@@ -46,3 +46,7 @@ O CSV de auditoria foi produzido na sessão como `FED04_53_CELULAS_EXCLUSIVAS_SU
 7. Preservar o SQLite, `observacao`, série FINBRA e publicação; nenhuma migration ou deploy foi realizado.
 
 **Relatório complementar:** [auditoria das 128 divergências e teste de precisão](RELATORIO_FED04_DIVERGENCIAS_PRECISAO_DCA_2025_2026_11_09.md). **Controle:** [FED00–FED08](STATUS_FED_SP645.csv).
+
+## Conferência independente com a matriz estadual já preservada no Drive
+
+Foi recuperada novamente a matriz final [`QA_FED04_DCA_ITR_FUNDEB_2025_SP645_COMPLETO.csv`](https://drive.google.com/file/d/1Tik1vEa5tSIIHp0GLPEjgJi_M6HUdP_d/view) e examinadas todas as linhas dos dez códigos IBGE. Foram identificadas **120 posições** (dez municípios × quatro conceitos × três colunas), das quais **53 classificadas `preenchimento_candidato_suplemento`**, com `fonte_prioritaria=suplemento_2022_2025` e valores não vazios; outras **67 classificadas `linha_ausente`**, com fonte `nenhuma`. Nenhum preenchimento foi incorretamente rotulado `anual_2025`. Assim, a matriz estadual anterior **já contém os 53 preenchimentos candidatos corretamente identificados e não precisa ser reconstruída**. Essa conferência valida o estado e a proveniência das posições, não a correção contábil independente dos valores.

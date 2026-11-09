@@ -191,3 +191,7 @@ O [workflow 42658172768](https://github.com/hilaliskandar/mapa_do_tesouro/action
 ### FED00-K — Identidade estadual conferida com o SQLite real
 
 O [QA do SQLite efetivo SP645](../../governance/RELATORIO_FED00_SQLITE_TERRITORIO_2026_11_09.md) aprovou **645/645 códigos IBGE** comparados à referência candidata STN, com zero ausentes e duplicados; realizado no workflow [42661684901](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42661684901). A homologação é **territorial**, não financeira: não comprova pagamentos de convênios nem resolve G06-F4.
+
+### FED00-L — Snapshot histórico nacional STN disponível no R2
+
+O [run 42662690269](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42662690269) persistiu no R2 canônico o CSV nacional STN setembro/2026, SHA `097638cec48145ac0f509d526be49d40929d177ef3a2ae3b7f77c0acd990cf24`, 126.807 registros nacionais e 13.889 SP, readback aprovado. O arquivo permitirá filtrar a RMSJRP pelos **37 códigos IBGE** sem nova coleta na origem. **Não é evidência de pagamento dos instrumentos G06-F4**, nem substitui os dados municipais SICONFI/TCESP.

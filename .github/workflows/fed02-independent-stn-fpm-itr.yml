@@ -1,0 +1,32 @@
+name: 'FED02 - fontes independentes STN FPM e ITR: QA de layout'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed02-independent-stn-fpm-itr.yml"
+      - "pipeline/acquire/probe_stn_obrigatorias_fpm_itr.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Bounded read-only official FPM and ITR file schema checks
+        run: |
+          python3 -m pipeline.acquire.probe_stn_obrigatorias_fpm_itr \
+            --output build/fed02/QA_STN_OBRIGATORIAS_FPM_ITR_LAYOUT.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed02-stn-obrigatorias-layout-${{ github.run_id }}
+          path: build/fed02/QA_STN_OBRIGATORIAS_FPM_ITR_LAYOUT.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -29,3 +29,11 @@ A matriz vinculada `MATRIZ_FONTES_FEDERAIS_SP645.csv` contém **11 linhas de fon
 **Próxima ação exata:** (a) auditar montagem SQLite e índices nas migrations posteriores; (b) testar HEAD/GET ou metadados dos CSVs nacionais Transferegov/STN/CGU, incluindo tamanho, cabeçalho, periodicidade e cobertura histórica; (c) escolher um lote piloto não destrutivo e propor migrations de entidades federais, preservando integração com `municipio`, `artefato_fonte` e `build`; (d) validar os sete empenhos e a proposta 398 como sentinelas; (e) atualizar matriz e relatórios de QA e manter FED00 aberto até os testes.
 
 **Segurança:** não substituir DCA, TCESP ou R2 existentes; não atribuir causalidade da LC 200/2023; zero não significa dado ausente; aprovações de propostas não são pagamentos.
+
+## Inspeção adicional do mecanismo de publicação
+
+- `pipeline/build/build_static_site.py` abre o banco indicado como argumento via `sqlite3.connect(database)` e constrói uma saída estática, sem indicar banco D1 de produção.
+- `pipeline/build/build_sp645_private_site.py` abre um arquivo SQLite informado por `--database`, importa universos e materializa artefatos de API v1/v2 para site privado; não comprova por si uma implantação remota.
+- `pipeline/build/export_static_data.py` consulta a tabela `build` e escreve `metadata.json`, catálogos, índices e `manifest.json` na saída estática. É um ponto natural para integrar indicadores federais *após QA*, sem alterar contrato do frontend atual.
+
+**Pendente:** identificar a rotina que materializa o SQLite a partir das fontes e a versão exata do SQLite usado no build homologado; essa leitura dos scripts de exportação não substitui prova de importação nem verificação de um arquivo de banco efetivo.

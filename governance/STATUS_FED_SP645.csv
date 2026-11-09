@@ -1,0 +1,10 @@
+gate;estado;data_referencia;evidencia;pendencia
+FED00;in_progress;2026-11-09;Inventario 14 fontes e 146 recursos CKAN preservados em GitHub;Confirmar execucao dos workflows e leitura do CSV nacional
+FED01;not_started;2026-11-09;Schema SQLite 001 004 006 inspecionados;Projetar e auditar migrations federais incrementais
+FED02;not_started;2026-11-09;Probes read-only publicados e workflows definidos;Homologar endpoints API e downloads efetivos
+FED03;not_started;2026-11-09;Bucket R2 canonico identificado pela documentacao;Carga historica estadual e readback SHA
+FED04;not_started;2026-11-09;Catalogo CKAN possui seis nomes repetidos e 18 divergencias entre nome e URL;Conferir conteudo e chaves antes de deduplicar
+FED05;not_started;2026-11-09;G06F3 RMSJRP proposta 398 e sete empenhos identificados;Concilicacao documental federal e municipal
+FED06;not_started;2026-11-09;Modelo observacao municipio ano variavel identificado;QA de agregacoes SP645
+FED07;not_started;2026-11-09;Nenhuma rotina recorrente criada para ingestao estadual;Definir janela de captura e retificacao
+FED08;not_started;2026-11-09;Producao atual inalterada;Homologar regressao e autorizacao de publicacao

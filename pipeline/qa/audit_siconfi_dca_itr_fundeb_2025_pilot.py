@@ -52,7 +52,16 @@ def main():
    entries=[x for x in data.items if str(x.get("cod_ibge"))==code
             and x.get("anexo")=="DCA-Anexo I-C"
             and x.get("rotulo")=="Padrão"]
-   if not entries:raise ValueError("DCA annex unavailable for "+code)
+   if not entries:
+    qa.setdefault("municipalities_with_no_annex_rows",[]).append({"codigo_ibge":code,"municipio":name})
+    for concept,account in ACCOUNTS.items():
+     for column in COLS:
+      rows.append({"codigo_ibge":code,"municipio":name,"anexo":"DCA-Anexo I-C",
+       "ano":"2025","conceito":concept,"cod_conta":account,"coluna":column,
+       "valor_literal_api":"","estado":"anexo_sem_registros",
+       "linha_dca_detectada":"nao","fonte_url":"https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca",
+       "source_response_sha256":""})
+    continue
    canonical=json.dumps(entries,ensure_ascii=False,sort_keys=True,default=str).encode("utf-8")
    response_hash=hashlib.sha256(canonical).hexdigest()
    qa.setdefault("per_municipality",{})[code]={
@@ -84,8 +93,10 @@ def main():
    w.writeheader();w.writerows(rows)
   qa.update({"status":"qa_pass_pilot_accounts_only","matrix_sha256":hashlib.sha256(a.matrix.read_bytes()).hexdigest(),
    "matrix_rows":len(rows),"municipalities_with_anexo":len(qa["per_municipality"]),
+   "municipalities_without_annex":len(qa.get("municipalities_with_no_annex_rows",[])),
    "account_columns_with_rows":stats,"requests":client.request_count,
    "limitations":["2025 DCA only; no conclusion about 2013-2024 coverage",
+   "Anexo sem registros is an evidence state and cannot be assumed filing delinquency or fiscal zero",
    "Absent account or deduction row is not an explicit fiscal zero",
    "Receitas Brutas Realizadas and Deducoes are separate; no gross/net totals inferred",
    "Broader parent accounts may include child accounts; aggregation is prohibited",

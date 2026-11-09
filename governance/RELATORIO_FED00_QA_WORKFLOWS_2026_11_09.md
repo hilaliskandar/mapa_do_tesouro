@@ -31,3 +31,17 @@ A alteração do script aciona automaticamente o workflow [42654718716](https://
 3. Verificar se arquivos STN são cumulativos ou correspondem a uma única competência (inspecionar `ANO` e `Mês`), antes de compor séries temporais.
 4. Examinar unidade e estrutura dos campos por decêndio antes de somar valores; não supor sinal, escala ou efeito contábil.
 5. Manter `FED00=in_progress`; documentar falhas de API e anomalias de data sem classificá-las como ausência da fonte.
+
+## FED00-E — Resultado de cobertura estadual e competência real do arquivo STN
+
+O segundo workflow [42654718716](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42654718716), artefato [13691785591](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42654718716/artifacts/13691785591), terminou com **success** e seu `QA_FED00_STN_CSV.json` foi aberto diretamente. Fonte: exatamente os **7.585.504 bytes**, SHA **`097638cec48145ac0f509d526be49d40929d177ef3a2ae3b7f77c0acd990cf24`**, previamente conferidos.
+
+- **Brasil:** 126.807 linhas, UF preenchida em 126.807/126.807, 0 linhas com divergência estrutural, 27 siglas UF.
+- **São Paulo:** **13.889 linhas**, **645 nomes municipais distintos** (`UF=SP`), todos com `ANO=2026`, `Mês=09`.
+- **Brasil inteiro:** **126.807/126.807 linhas com `ANO=2026`, `Mês=09`**. A denominação do recurso **`202610` se refere a sua publicação/carga**, não à competência econômica da tabela. **A competência demonstrada do conteúdo é setembro de 2026**, não outubro.
+- Distribuição paulista, por classificação original de `Transferência`: `AJUSTE FUNDEB` **4.708**; `FPM` **645**; `FPM 1%` **645**; `FUNDEB` **5.414**; `IOF-Ouro` **1**; `ITR` **632**; `LC 176/2020 (ADO25)` **610**; `Royalties` **1.234**. **Total = 13.889 linhas**. A classificação do arquivo não corresponde, por si, a oito categorias mutuamente exclusivas de receita municipal na DCA.
+- Cabeçalho **não possui `codigo_ibge`**. Portanto **645 nomes distintos não implicam ainda 645 códigos IBGE homologados**. A importação para `observacao` permanece proibida até crosswalk validado.
+
+Foi implementado um teste reprodutível na mesma rotina, utilizando a [API IBGE de municípios de SP](https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/municipios): normalização determinística de nomes, procura de correspondência unívoca, controle do número de registros IBGE, das chaves de sete dígitos e dos 645 nomes distintos. Se e somente se resultar em **645 combinações unívocas**, o workflow escreve `STN_IBGE_SP_MATCH.csv` (formato `;`) com `municipio_stn`, `municipio_ibge`, `codigo_ibge`, `match_method`. Se houver ambiguidades ou faltantes, o relatório apresenta listas de revisão e **não gera crosswalk homologado**. Workflows [42655203386](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42655203386) e [42655242340](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42655242340) acionados após mudanças; **validar status e artefatos antes de informar homologação da chave**.
+
+A próxima etapa não é nova coleta dos 645 municípios pela API: a **extração nacional de setembro/2026 já comprova cobertura nominal de SP645**, restando conferir identificação unívoca, classificação, valores e regras de integração no SQLite existente. Sem modificação do banco ou R2.

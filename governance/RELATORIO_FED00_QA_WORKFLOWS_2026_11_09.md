@@ -64,3 +64,22 @@ As execuções [42655850668](https://github.com/hilaliskandar/mapa_do_tesouro/ac
 A rotina agora reutiliza como alternativa exatamente o GeoJSON estadual versionado em `https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json`, já empregado no [workflow Siconfi Smoke](../.github/workflows/siconfi-smoke.yml) e no [módulo de aquisição DCA](../pipeline/acquire/siconfi_dca.py), nos quais `feature.properties.id` é usado como código IBGE. Essa alternativa **não cria base de municípios separada**: é uma referência externa reprodutível para cotejar nomes; a identificação canônica permanece na tabela `municipio` do SQLite. A API do IBGE continua como fonte preferencial de verificação.
 
 Se o recurso substituto permitir correspondência unívoca, o programa produz apenas `STN_IBGE_SP_MATCH_CANDIDATE.csv`, classificado como **`candidate_secondary_reference`**, e mantém o QA total **`partial`**, mesmo com 645 códigos distintos. Somente resposta oficial IBGE com 645/645 unívocos gera `STN_IBGE_SP_MATCH.csv` e `qa_pass`. A verificação secundária não é homologação do cadastro. Alterações no [script](../pipeline/acquire/probe_stn_transfer_csv.py) e no [workflow](../.github/workflows/fed00-stn-csv-pilot.yml) acionaram [42656735846](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42656735846) e [42656758013](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42656758013); **confirmar artefatos antes de informar resultado**.
+
+
+## FED00-H — Auditoria de dez divergências de nomes com a referência territorial
+
+O artefato [13693186113](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42656735846/artifacts/13693186113) contém `ibge_crosswalk_qa` e comprova **645 nomes de municípios no STN**, **645 geometrias municipais no GeoJSON versionado**, **635 correspondências normalizadas exatas**, nenhuma ambiguidade e **10 nomes sem correspondência**. A chamada primária à API IBGE falhou por timeout; a consulta à referência cartográfica versionada funcionou, SHA da fonte `dbaf27769eb9bc847043872b41490eafd84fcb78d807690ca0f3757713f7f347`.
+
+Nomes STN pendentes e causa documentada:
+- **Oito pontuações de apóstrofo:** `Aparecida DOeste`, `Estrela DOeste`, `Guarani DOeste`, `Palmeira DOeste`, `Santa Bárbara DOeste`, `Santa Clara DOeste`, `Santa Rita DOeste`, `São João do Pau DAlho`. A referência cartográfica e o IBGE atual registram, respectivamente, `d'Oeste` ou `d'Alho`; equivalência por normalização de apóstrofos, não fuzzy matching.
+- **Duas mudanças/grafias de denominação:** `Embu das Artes` (STN e IBGE atual) corresponde ao código IBGE **3515004**, enquanto a referência cartográfica legada usa `Embu`; `Mogi-Mirim` (STN) corresponde a **3530805**, grafado `Mogi Mirim` no IBGE atual e `Moji Mirim` na referência legada. São necessárias duas exceções explícitas com verificação do código, não algoritmo de aproximação.
+
+Uma comparação de conteúdo **IBGE oficial atual vs GeoJSON cartográfico versionado**, indexada por `id` de sete dígitos, comprovou **645/645 códigos idênticos** e **quatro diferenças de nome**:
+- `3515004`: IBGE `Embu das Artes` vs GeoJSON `Embu`;
+- `3516101`: IBGE `Florínea` vs GeoJSON `Florínia`;
+- `3530805`: IBGE `Mogi Mirim` vs GeoJSON `Moji Mirim`;
+- `3550001`: IBGE `São Luiz do Paraitinga` vs GeoJSON `São Luís do Paraitinga`.
+
+As quatro diferenças **não são quatro municípios distintos** e os códigos não devem ser remapeados por semelhança. O STN conserva `Florínia` e `São Luís do Paraitinga`, coincidentes com a referência legada nesses dois casos. A identificação é por código 7 dígitos, preservando a forma literal da fonte e a denominação IBGE no catálogo editorial.
+
+**Correção implementada:** normalizador explícito de apóstrofos e duas equivalências condicionadas ao identificador `3515004`/`3530805`, somente quando a origem é o GeoJSON já usado na plataforma. Caso os 645 pareamentos se confirmem, gera-se `STN_IBGE_SP_MATCH_CANDIDATE.csv` **como candidato**, sem homologação como resultado da API IBGE ao vivo. A execução [42657206584](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42657206584) deverá ter artefato conferido antes de qualquer afirmação de 645/645 pareamentos efetivos. Nenhuma importação ou publicação.

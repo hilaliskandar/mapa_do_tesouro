@@ -83,7 +83,7 @@ def stage(source: Path, crosswalk: Path, output: Path) -> dict:
             for cell in raw:
                 if re.fullmatch(r"-?[0-9]+", cell):
                     formats["integer"] += 1
-                elif re.fullmatch(r"-?[0-9]+\\.[0-9]{1,2}", cell):
+                elif re.fullmatch(r"-?[0-9]+\.[0-9]{1,2}", cell):
                     formats["dot_decimal"] += 1
                 else:
                     formats["invalid"] += 1

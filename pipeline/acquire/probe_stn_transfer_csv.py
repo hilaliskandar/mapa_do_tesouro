@@ -25,16 +25,18 @@ API = "https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=
 RESOURCE_ID_DEFAULT = "63b5f470-135f-4431-9158-ca8b7a43f61b"
 IBGE_API = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/municipios"
 MAX_IBGE_BYTES = 2_000_000
+PINNED_SP_GEOJSON = "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json"
+MAX_PINNED_GEOJSON_BYTES = 4_000_000
 MAX_CSV_BYTES = 20_000_000
 MAX_CATALOG_BYTES = 2_000_000
 UA = "mapa-do-tesouro-FED00-STN-read-only/1.0"
 
-def fetch(url: str, limit: int) -> bytes:
+def fetch(url: str, limit: int, *, attempts: int = 3, timeout: int = 35) -> bytes:
     last_error = None
-    for attempt in range(1, 4):
+    for attempt in range(1, attempts + 1):
         try:
             req = Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
-            with urlopen(req, timeout=35) as response:
+            with urlopen(req, timeout=timeout) as response:
                 if response.status != 200:
                     raise RuntimeError(f"HTTP_{response.status}")
                 blob = response.read(limit + 1)
@@ -43,10 +45,10 @@ def fetch(url: str, limit: int) -> bytes:
             return blob
         except Exception as exc:
             last_error = exc
-            if attempt == 3 or "bounded_download_exceeded" in str(exc):
+            if attempt == attempts or "bounded_download_exceeded" in str(exc):
                 break
             time.sleep(attempt * 2)
-    raise RuntimeError(f"download_failed_after_3_attempts: {type(last_error).__name__}: {str(last_error)[:170]}")
+    raise RuntimeError(f"download_failed_after_{attempts}_attempts: {type(last_error).__name__}: {str(last_error)[:170]}")
 
 def decode_text(blob: bytes) -> tuple[str, str]:
     for encoding in ("utf-8-sig", "cp1252", "latin-1"):
@@ -122,10 +124,24 @@ def normalize_name(value: str) -> str:
     return " ".join(re.sub(r"[^a-z0-9]+", " ", value).split())
 
 def check_sp_ibge(stn_names: list[str], output: Path) -> dict:
-    raw = fetch(IBGE_API, MAX_IBGE_BYTES)
-    ibge = json.loads(raw.decode("utf-8-sig"))
+    official_error = None
+    try:
+        raw = fetch(IBGE_API, MAX_IBGE_BYTES, attempts=1, timeout=14)
+        ibge = json.loads(raw.decode("utf-8-sig"))
+        source_url = IBGE_API
+        source_method = "official_ibge_api"
+    except Exception as exc:
+        official_error = f"{type(exc).__name__}: {str(exc)[:250]}"
+        raw = fetch(PINNED_SP_GEOJSON, MAX_PINNED_GEOJSON_BYTES, attempts=2, timeout=30)
+        geo = json.loads(raw.decode("utf-8-sig"))
+        ibge = [
+            {"id": obj["properties"]["id"], "nome": obj["properties"].get("name", "")}
+            for obj in geo["features"] if isinstance(obj, dict) and isinstance(obj.get("properties"), dict)
+        ]
+        source_url = PINNED_SP_GEOJSON
+        source_method = "pinned_sp_geodata_reference"
     if not isinstance(ibge, list):
-        raise RuntimeError("unexpected_ibge_response")
+        raise RuntimeError("unexpected_municipality_registry_response")
     by_key: dict[str, list[dict]] = defaultdict(list)
     for item in ibge:
         if not isinstance(item, dict):
@@ -145,18 +161,19 @@ def check_sp_ibge(stn_names: list[str], output: Path) -> dict:
             unmatched.append(stn)
         else:
             ambiguous.append({"municipio_stn": stn, "candidates": options})
-    dst = output.parent / "STN_IBGE_SP_MATCH.csv"
+    dst = output.parent / ("STN_IBGE_SP_MATCH.csv" if source_method == "official_ibge_api" else "STN_IBGE_SP_MATCH_CANDIDATE.csv")
     if len(pairs) == 645 and len({p["codigo_ibge"] for p in pairs}) == 645 and len(ibge) == 645:
         with dst.open("w", encoding="utf-8", newline="") as out:
             writer = csv.DictWriter(out, fieldnames=("municipio_stn", "municipio_ibge", "codigo_ibge", "match_method"), delimiter=";")
             writer.writeheader()
             writer.writerows(pairs)
         crosswalk_sha = hashlib.sha256(dst.read_bytes()).hexdigest()
-        status = "qa_pass"
+        status = "qa_pass" if source_method == "official_ibge_api" else "candidate_secondary_reference"
     else:
         crosswalk_sha = None
         status = "requires_review"
-    return {"status": status, "ibge_api_url": IBGE_API, "ibge_response_sha256": hashlib.sha256(raw).hexdigest(),
+    return {"status": status, "registry_source_url": source_url, "registry_source_method": source_method,
+            "official_ibge_api_error": official_error, "registry_source_sha256": hashlib.sha256(raw).hexdigest(),
             "ibge_municipalities": len(ibge), "stn_distinct_names": len(set(stn_names)),
             "matched": len(pairs), "matched_unique_ibge_codes": len({p["codigo_ibge"] for p in pairs}),
             "unmatched_names": unmatched, "ambiguous_matches": ambiguous,

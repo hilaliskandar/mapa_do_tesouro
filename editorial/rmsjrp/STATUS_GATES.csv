@@ -4,4 +4,4 @@ G01;in_progress;2026-11-09;37 municipios quatro subregioes e malha IBGE 2022 EPS
 G02;qa_pass;2026-11-09;481 chaves unicas 774 valores 2025 paritarios e SHA DCA R2 confirmado;lacunas historicas declaradas
 G03;qa_pass;2026-11-09;111 TCESP liquidados e 111 confrontos DCA sem divergencias R2 readback;RREO RGF parciais e NA preservado
 G04;qa_pass;2026-11-09;481 municipais e 65 territoriais com serie real per capita e QA R2 readback;referencia IPCA set2026 e denominador pop2025 requer cautela
-G05;in_progress;2026-11-09;G05 ABC QA G05D obras 82 cadastros contratos 2512 linhas 1958 chaves compostas 3 vinculos candidatos com dados contratuais conferidos R2;pendente empenho medicao liquidacao por contrato e acao TCESP
+G05;in_progress;2026-11-09;G05 ABC QA G05D contratos Olimpia 3 fichas e 8 aditivos selecionados examinados sem vinculo de liquidacoes;pendente empenho medicao liquidacao e interpretacao causal expressamente nao homologada

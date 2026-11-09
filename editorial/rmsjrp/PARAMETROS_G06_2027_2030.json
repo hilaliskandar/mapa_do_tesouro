@@ -1,0 +1,46 @@
+{
+  "version": "g06_2026_11_09_v1",
+  "base_year": 2025,
+  "base_price": "2026-09",
+  "horizon": [
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "transition_year_2026": "hypothetical_compounding_only_no_observed_2026",
+  "purpose": "numerical conditional stress test; NOT forecast, causal impact or municipal budget",
+  "scenarios": [
+    {
+      "id": "adverso",
+      "revenue_real_growth": -0.01,
+      "current_expenditure_real_growth": 0.025,
+      "investment_share_method": "multiply_2025_share",
+      "investment_share_factor_2030": 0.85
+    },
+    {
+      "id": "continuidade",
+      "revenue_real_growth": 0.015,
+      "current_expenditure_real_growth": 0.015,
+      "investment_share_method": "keep_2025_share",
+      "investment_share_factor_2030": 1
+    },
+    {
+      "id": "favoravel",
+      "revenue_real_growth": 0.03,
+      "current_expenditure_real_growth": 0.015,
+      "investment_share_method": "recover_half_positive_gap_to_2024_by_2030",
+      "positive_gap_fraction_2030": 0.5
+    }
+  ],
+  "independent_sensitivity": {
+    "fpm_real_shock_fraction": -0.1,
+    "scope": "independent diagnostic sensitivity to 2025 observed FPM, not a projected transfer cut"
+  },
+  "price_policy": "no future inflation path assumed; all currency in BRL at September 2026 prices",
+  "population_policy": "future population not forecast; projected per capita indicators must be null",
+  "revenue_policy": "current revenue total modeled as one block, no fictitious projection of municipal ISS, FPM or IBS shares",
+  "capital_policy": "investment modeled as a share of modeled current revenue, not a result of current revenue minus current expenditure",
+  "missing_policy": "missing 2025 component remains null; do not impute as 0",
+  "qa_policy": "compute municipality before subregion; regional sums only on full coverage; fiscal/legal categories remain distinct"
+}

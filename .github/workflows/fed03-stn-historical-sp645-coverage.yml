@@ -1,0 +1,84 @@
+name: 'FED03 - auditar cobertura historica STN 1996-2026 e COD_MUN SP645'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed03-stn-historical-sp645-coverage.yml"
+      - "pipeline/qa/audit_stn_historical_sp645_coverage.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read pinned national FPM and ITR historical CSVs and SP645 source candidate from R2
+        run: |
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/FPM_NACIONAL_a86cad83.csv \
+            --output build/fed03-historical/fpm.csv \
+            --expected-sha256 a86cad831115e02518198f4873967785a82eb3cbae651ef8505aa498c2cab088
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/ITR_NACIONAL_9c93138d.csv \
+            --output build/fed03-historical/itr.csv \
+            --expected-sha256 9c93138d30b3c384ccb05ea91edbb8e6ee6f807f26ee2ce359e0a3e5b25f44ec
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/2026_09/candidates/STN_SP645_ITEMS_2026_09_FROM_097638ce.csv \
+            --output build/fed03-historical/stage.csv \
+            --expected-sha256 3b9b5bf22748579a0f90912c160159b8d50a7664294a750fc74b2f98a59657fb
+      - name: Audit all years, missing observations and strict STN SIAFI IBGE crosswalk
+        run: |
+          python3 -m pipeline.qa.audit_stn_historical_sp645_coverage \
+            --fpm build/fed03-historical/fpm.csv \
+            --itr build/fed03-historical/itr.csv \
+            --stage build/fed03-historical/stage.csv \
+            --coverage build/fed03-historical/STN_1996_2026_COVERAGE_BR_SP.csv \
+            --crosswalk build/fed03-historical/STN_202609_COD_MUN_IBGE_SP645.csv \
+            --qa build/fed03-historical/QA_STN_1996_2026_COVERAGE.json
+      - name: Persist QA candidates to existing private R2 and verify two readbacks
+        run: |
+          COVERAGE_SHA="$(python3 -c 'import json;print(json.load(open("build/fed03-historical/QA_STN_1996_2026_COVERAGE.json"))["coverage_sha256"])')"
+          CROSSWALK_SHA="$(python3 -c 'import json;print(json.load(open("build/fed03-historical/QA_STN_1996_2026_COVERAGE.json"))["crosswalk_sha256"])')"
+          python3 deployment/upload_r2_source.py \
+            --source build/fed03-historical/STN_1996_2026_COVERAGE_BR_SP.csv \
+            --object-key sp_645/federal/stn/historical/1996_2026/candidates/STN_1996_2026_COVERAGE_BR_SP.csv \
+            --expected-sha256 "$COVERAGE_SHA" \
+            --content-type text/csv
+          python3 deployment/upload_r2_source.py \
+            --source build/fed03-historical/STN_202609_COD_MUN_IBGE_SP645.csv \
+            --object-key sp_645/federal/stn/historical/1996_2026/candidates/STN_202609_COD_MUN_IBGE_SP645.csv \
+            --expected-sha256 "$CROSSWALK_SHA" \
+            --content-type text/csv
+          python3 deployment/upload_r2_source.py \
+            --source build/fed03-historical/QA_STN_1996_2026_COVERAGE.json \
+            --object-key sp_645/federal/stn/historical/1996_2026/candidates/QA_STN_1996_2026_COVERAGE_${{ github.run_id }}.json \
+            --content-type application/json
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/candidates/STN_1996_2026_COVERAGE_BR_SP.csv \
+            --output build/fed03-historical/coverage_readback.csv \
+            --expected-sha256 "$COVERAGE_SHA"
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/candidates/STN_202609_COD_MUN_IBGE_SP645.csv \
+            --output build/fed03-historical/crosswalk_readback.csv \
+            --expected-sha256 "$CROSSWALK_SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed03-stn-historical-coverage-${{ github.run_id }}
+          path: |
+            build/fed03-historical/QA_STN_1996_2026_COVERAGE.json
+            build/fed03-historical/STN_1996_2026_COVERAGE_BR_SP.csv
+            build/fed03-historical/STN_202609_COD_MUN_IBGE_SP645.csv
+          retention-days: 30
+          if-no-files-found: warn

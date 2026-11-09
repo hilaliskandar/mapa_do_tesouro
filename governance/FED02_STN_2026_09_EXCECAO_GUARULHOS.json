@@ -1,0 +1,40 @@
+{
+  "referencia": "2026-11-09",
+  "status": "qa_pass_arithmetic_only",
+  "fonte": "R2 private STN SP645 candidate",
+  "r2_object_key": "sp_645/federal/stn/2026_09/candidates/STN_SP645_ITEMS_2026_09_FROM_097638ce.csv",
+  "sha256_source": "3b9b5bf22748579a0f90912c160159b8d50a7664294a750fc74b2f98a59657fb",
+  "method": "exact integer cents: numerator=4*DEDU_cents-FPM_cents-ITR_cents; residual=numerator/4 cents",
+  "compare_5_centavos": {
+    "observations": 1896,
+    "passed": 1895,
+    "outliers": 1
+  },
+  "compare_6_centavos": {
+    "observations": 1896,
+    "passed": 1896
+  },
+  "outlier": {
+    "codigo_ibge": "3518800",
+    "municipio": "Guarulhos",
+    "decendio": 3,
+    "competencia": "2026-09",
+    "fpm_raw": "3109776.79",
+    "itr_raw": "1170.18",
+    "dedu_raw": "777736.69",
+    "numerator_quarter_cents": "-21",
+    "residual_brl": "-0.0525"
+  },
+  "missing_itr": {
+    "municipalities": 13,
+    "decendial_observations": 39,
+    "within_5_centavos_for_Dedu_minus_FPM_over_4": 39,
+    "list": "governance/FED02_STN_2026_09_MUNICIPIOS_SEM_LINHA_ITR.csv"
+  },
+  "cautions": [
+    "A ausência de linha ITR não equivale a declaração de valor zero.",
+    "O resultado é equivalência aritmética empírica e não homologação contábil ou definição oficial das bases bruta e líquida.",
+    "Sem escrita no SQLite ou alteração das séries fiscais publicadas."
+  ],
+  "verified_via": "Cloudflare connected R2 API read-only; direct parse and integer-cent replication independent of failing GitHub Actions runs."
+}

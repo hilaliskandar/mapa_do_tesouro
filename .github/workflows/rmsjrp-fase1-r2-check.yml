@@ -30,6 +30,18 @@ jobs:
           test -n "$CLOUDFLARE_API_TOKEN"
       - name: Read approved R2 snapshots and audit regional totals
         run: python3 editorial/rmsjrp/qa_tcesp_r2_regional.py
+      - name: Persist regional QA in private R2 with SHA-256 readback
+        run: |
+          set -euo pipefail
+          PREFIX="rmsjrp/fase1/2026_11_09/tcesp"
+          for f in RESULTADO_TCESP_R2.json MATRIZ_TCESP_RMSJRP_2023_2025.csv; do
+            PATH_LOCAL="build/rmsjrp-r2-qa/$f"
+            SHA="$(sha256sum "$PATH_LOCAL" | cut -d ' ' -f 1)"
+            CT="text/csv"
+            if [ "$f" = "RESULTADO_TCESP_R2.json" ]; then CT="application/json"; fi
+            python3 deployment/upload_r2_source.py --source "$PATH_LOCAL" --object-key "$PREFIX/$f" --expected-sha256 "$SHA" --content-type "$CT"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$f" --output "build/rmsjrp-r2-qa/readback-$f" --expected-sha256 "$SHA"
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -1,0 +1,49 @@
+name: 'FED02 - Hipoteses DEDU FPM ITR por decendio'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed02-stn-dedu-fpm-itr-hypotheses.yml"
+      - "pipeline/qa/audit_stn_dedu_fpm_itr_hypotheses.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read immutable candidate from canonical R2
+        run: |
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/2026_09/candidates/STN_SP645_ITEMS_2026_09_FROM_097638ce.csv \
+            --output build/fed02-dedu/source.csv \
+            --expected-sha256 3b9b5bf22748579a0f90912c160159b8d50a7664294a750fc74b2f98a59657fb
+      - name: Compare two empirical DEDU ratios only
+        run: |
+          python3 -m pipeline.qa.audit_stn_dedu_fpm_itr_hypotheses \
+            --input build/fed02-dedu/source.csv \
+            --output build/fed02-dedu/QA_STN_DEDU_FPM_ITR_2026_09.json
+      - name: Preserve diagnostic in candidate prefix, not production
+        run: |
+          python3 deployment/upload_r2_source.py \
+            --source build/fed02-dedu/QA_STN_DEDU_FPM_ITR_2026_09.json \
+            --object-key sp_645/federal/stn/2026_09/candidates/QA_STN_DEDU_FPM_ITR_2026_09_${{ github.run_id }}.json \
+            --content-type application/json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed02-dedu-fpm-itr-${{ github.run_id }}
+          path: build/fed02-dedu/QA_STN_DEDU_FPM_ITR_2026_09.json
+          retention-days: 30
+          if-no-files-found: warn

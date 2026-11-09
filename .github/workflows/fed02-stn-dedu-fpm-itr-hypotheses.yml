@@ -47,3 +47,4 @@ jobs:
           path: build/fed02-dedu/QA_STN_DEDU_FPM_ITR_2026_09.json
           retention-days: 30
           if-no-files-found: warn
+# FED02: rerun after source-outlier metadata extension; same read-only R2 source

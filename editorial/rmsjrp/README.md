@@ -171,3 +171,7 @@ A investigação G06-F4 será aproveitada como teste sentinela de um **pipeline 
 ## FED00 estadual — resultado do inventário preliminar em 09/11/2026
 
 A frente compartilhada estadual produziu [relatório FED00](../../governance/RELATORIO_FED00_INVENTARIO_2026_11_09.md) e [matriz de fontes](../../governance/MATRIZ_FONTES_FEDERAIS_SP645.csv) de 11 conjuntos e identificou schema SQLite e coletores reutilizáveis. **Não houve reprocessamento das 9.338 propostas regionais nem extração SP645.** G06-F4 continua pendente de prova de instrumentos, pagamentos e recepção municipal. FED00 permanece `in_progress` até confirmar download, layout e manifestos; nenhum efeito causal atribuído à LC 200/2023.
+
+### FED00-B — APIs federais e BCB integradas ao inventário estadual
+
+O FED00 estadual ampliou a matriz para [14 conjuntos](../../governance/MATRIZ_FONTES_FEDERAIS_SP645.csv), incorporando API SGS do Banco Central e ESTBAN com `CODMUN_IBGE`. Foram identificados ZIPs nacionais Transferegov específicos de **desembolsos** e **pagamentos**, úteis para investigar os sete registros de empenho e a proposta 398 de SJR, mas **nenhum desses arquivos foi baixado ou conciliado ainda**. Script de sondagem read-only em [`pipeline/acquire/probe_federal_sources.py`](../../pipeline/acquire/probe_federal_sources.py). G06-F4 e FED00 seguem abertos, sem inferência causal ou alteração da base regional.

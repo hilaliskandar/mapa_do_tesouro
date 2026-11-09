@@ -1,0 +1,49 @@
+name: FED00 - APIs federais e Banco Central (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/fed00-api-probes.yml
+      - pipeline/acquire/probe_federal_sources.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-api-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Query bounded public API metadata and record source QA
+        id: probes
+        continue-on-error: true
+        run: |
+          python3 pipeline/acquire/probe_federal_sources.py --output build/fed00_api_probes/QA_FED00_API_PROBES.json
+      - name: Validate report schema and count successful sources
+        if: always()
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path("build/fed00_api_probes/QA_FED00_API_PROBES.json")
+          assert p.exists(), "probe report not created"
+          r=json.loads(p.read_text(encoding="utf-8"))
+          assert r["total"]==5 and len(r["results"])==5
+          assert r["successful"]==sum(x["status"]=="qa_pass" for x in r["results"])
+          assert len({x["id"] for x in r["results"]})==5
+          print("FED00 sources:",r["successful"],"/",r["total"],"responded successfully")
+          for x in r["results"]:
+              print(x["id"],x["status"],x.get("error",""))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed00-api-metadata-qa
+          path: build/fed00_api_probes/QA_FED00_API_PROBES.json
+          retention-days: 30
+          if-no-files-found: warn

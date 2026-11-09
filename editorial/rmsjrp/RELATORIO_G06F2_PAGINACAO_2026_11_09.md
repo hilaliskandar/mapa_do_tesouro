@@ -33,3 +33,32 @@ As seguintes informações ainda são necessárias para passar do mapeamento doc
 
 ## 5. Próximo ponto de retomada
 Após conferir o run 42632869767 e os arquivos de QA, atualizar o total efetivamente paginado e a cobertura por módulo/município; onde houver erros, refazer **apenas** as páginas necessárias e versionar novos snapshots sem sobrescrever provas anteriores. A fase seguinte deve concentrar-se em demonstrar quais propostas se converteram em instrumentos celebrados e em cruzar seus identificadores com registros de empenho e pagamento federal, recebimentos na prefeitura e investimentos liquidados. **Nenhuma dessas inferências está autorizada somente pela enumeração.**
+
+## 6. Fechamento efetivo da enumeração — QA posteriormente concluído em 09/11/2026
+
+A execução [GitHub Actions 42632869767](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42632869767) terminou **`success`** e produziu o manifesto `QA_G06F2.json` com **`status=pass`**. O resultado substitui a classificação preliminar do item 4 (em execução), sem apagar a sequência de evidências.
+
+| Controle | Resultado validado |
+|---|---:|
+| Combinações município–módulo esperadas | **74** |
+| Combinações com QA `pass` | **74** |
+| Páginas consultadas e reconciliadas | **231** |
+| Identificadores de propostas deduplicados dentro de cada módulo–município | **9.338** |
+| Registros Gestão de Parcerias | **508** |
+| Registros Discricionárias e Legais | **8.830** |
+| Arquivos produzidos com readback SHA no R2 | **5** |
+
+As 231 páginas foram obtidas com parâmetros de paginação declarados no próprio OpenAPI; cada combinação teve seus `total_pages`, `total_items`, `page_number` e códigos IBGE conferidos. A deduplicação foi feita **somente por identificador de proposta no mesmo município e módulo**. **Não houve deduplicação jurídica entre os módulos**, nem inferência de identidade de instrumentos jurídicos, pois os esquemas podem representar objetos e períodos diferentes.
+
+**Situações de propostas no módulo Gestão de Parcerias:** `Aprovada` (480), `Em Análise` (9), `Em Elaboração` (7), `Inativada` (1) e `Rejeitada` (11), totalizando 508. No módulo Discricionárias e Legais foram observados diferentes estágios, incluindo `Proposta/Plano de Trabalho Enviado para Análise` (3.703), `Rejeitados` (1.677), `Aprovados` (1.275), `em Análise` (1.003), `Cadastrados` (607), entre outras situações específicas. **Situação de proposta aprovada NÃO demonstra contrato assinado nem pagamento.** Os registros do mesmo módulo têm situações distintas; não somar essas categorias aos repasses financeiros.
+
+**Persistência auditada no R2 privado**, prefixo `rmsjrp/g06/2026_11_09/instrumentos_api_f2/`, com leitura de retorno e igualdade de SHA-256 para os cinco objetos:
+- `G06F2_COBERTURA_74_CONSULTAS.csv`;
+- `G06F2_AUDITORIA_PAGINAS.csv`;
+- `G06F2_PROPOSTAS_CANONICAS.csv`;
+- `G06F2_SITUACOES_OBSERVADAS.csv`;
+- `QA_G06F2.json`.
+
+**Limitação da completude:** QA `pass` significa que todas as páginas informadas pelas APIs foram recuperadas e reconciliadas **na data da captura**, não que o universo jurídico de convênios/transferências federais tenha sido integralmente capturado. Alguns registros podem ter sido alterados ou reclassificados posteriormente; a versão tem data/hora e hashes de páginas. As bases não demonstram por si valores de empenhos, pagamentos, repasses creditados ou liquidações municipais.
+
+**Próxima etapa G06-F3:** identificar instrumentos efetivamente celebrados — preferencialmente documentos contratuais e campos específicos de instrumentos — por chave vinculada ao `id_proposta`; reconciliar execução financeira federal e crédito/execução municipal. Preservar separadamente a condição de proposta e nunca classificar `Aprovada` como `Paga`. G06 permanece `in_progress`, sem estimativa de impacto da LC 200/2023.

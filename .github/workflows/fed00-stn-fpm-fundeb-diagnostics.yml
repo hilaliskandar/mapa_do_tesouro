@@ -1,0 +1,49 @@
+name: FED00 - diagnostico FPM e FUNDEB DEDU
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed00-stn-fpm-fundeb-diagnostics.yml"
+      - "pipeline/qa/audit_stn_fpm_fundeb_relations.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  nonaccounting-ratios:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read-only immutable source download
+        run: |
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/2026_09/candidates/STN_SP645_ITEMS_2026_09_FROM_097638ce.csv \
+            --output build/fed00-fpm-fundeb/source.csv \
+            --expected-sha256 3b9b5bf22748579a0f90912c160159b8d50a7664294a750fc74b2f98a59657fb
+      - name: Empirical item ratios not revenue aggregates
+        run: |
+          python3 -m pipeline.qa.audit_stn_fpm_fundeb_relations \
+            --input build/fed00-fpm-fundeb/source.csv \
+            --output build/fed00-fpm-fundeb/QA_STN_FPM_FUNDEB_RATIOS_2026_09.json
+      - name: Preserve read-only QA as R2 candidate
+        run: |
+          python3 deployment/upload_r2_source.py \
+            --source build/fed00-fpm-fundeb/QA_STN_FPM_FUNDEB_RATIOS_2026_09.json \
+            --object-key sp_645/federal/stn/2026_09/candidates/QA_STN_FPM_FUNDEB_RATIOS_2026_09_${{ github.run_id }}.json \
+            --content-type application/json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed00-fpm-fundeb-diagnostics-${{ github.run_id }}
+          path: build/fed00-fpm-fundeb/QA_STN_FPM_FUNDEB_RATIOS_2026_09.json
+          retention-days: 30
+          if-no-files-found: warn

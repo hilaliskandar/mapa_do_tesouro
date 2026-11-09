@@ -49,3 +49,28 @@ Em 09/11/2026 foram preparados dois refinamentos técnicos adicionais, **ainda s
 - [`fed02-siconfi-rreo-2026-probe.yml`](../.github/workflows/fed02-siconfi-rreo-2026-probe.yml) foi estendido para guardar o relatório público de disponibilidade dos RREOs no **R2 privado existente**, sob `sp_645/federal/siconfi/rreo/2026/candidates/QA_FPM_FUNDEB_SENTINELAS_<run_id>.json`, com SHA-256 e readback. O primeiro teste [42673859324](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42673859324) está aprovado, mas seus resultados permaneciam em artefato GitHub de retenção limitada; a [reexecução 42674400674](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42674400674) estava **queued**, portanto **não declarar persistência R2 sem log de leitura de retorno**.
 
 **Ponto de retomada:** consultar os dois runs, baixar os QA JSON, atualizar os resultados e o manifesto de R2, se aprovados. Prosseguir com `SICONFI /extrato_entregas` e o documento decendial de distribuição Banco do Brasil/STN para validar a relação de 20% e a equivalência temporal das contas, sem escrever em `observacao` ou alterar a publicação.
+
+
+## 6. Comprovação do extrato de entregas SICONFI e bloqueio no GitHub Actions
+
+**Consulta oficial direta em 09/11/2026** ao endpoint SICONFI `https://apidatalake.tesouro.gov.br/ords/siconfi/tt/extrato_entregas`, com parâmetros `id_ente` e `an_referencia=2026`. A documentação do endpoint consta em https://apidatalake.tesouro.gov.br/docs/siconfi/ e no catálogo https://www.tesourotransparente.gov.br/ckan/dataset/api-extrato-entes. A API retornou `count=26`, `hasMore=false` para cada um dos três municípios; as entregas do RREO foram filtradas por `entregavel='Relatório Resumido de Execução Orçamentária'` e pela instituição Prefeitura, evitando confundir com o RGF ou as MSCs da Câmara.
+
+| IBGE | Município | RREOs registrados em 2026 | Último RREO observado | Data de status da última entrega |
+|---|---|---|---|---|
+| 3543402 | Ribeirão Preto | Bimestres 1 a 4 | 4º bimestre, `HO` | 2026-09-30T10:57:23Z |
+| 3549805 | São José do Rio Preto | Bimestres 1 a 4 | 4º bimestre, `HO` | 2026-09-28T15:47:05Z |
+| 3533908 | Olímpia | Bimestres 1 a 4 | 4º bimestre, `HO` | 2026-09-25T14:56:16Z |
+
+**Nenhum RREO do 5º bimestre constava no extrato consultado.** Isso **não** significa atraso, inadimplemento ou receita zero; a competência do 5º bimestre (setembro–outubro) e os prazos de apresentação devem ser verificados independentemente. Não confundir `status_relatorio=HO` com classificação do pagamento STN. O 4º bimestre acumulado até agosto não pode ser diretamente usado para homologar transferências STN de setembro.
+
+O script read-only [`probe_siconfi_extrato_entregas_2026.py`](../pipeline/acquire/probe_siconfi_extrato_entregas_2026.py) foi versionado para reproduzir esse exame, com limitação de frequência e sem imputar zeros. A consulta documental direta foi realizada; **o script recém-criado ainda não teve workflow próprio executado nesta rodada**.
+
+### Instabilidade do GitHub Actions em reexecuções
+
+Duas reexecuções para aprofundar o único resíduo de aproximadamente R$0,0525 e persistir os resultados do RREO tiveram **falha de infraestrutura antes de iniciar jobs**:
+- [42674297595](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42674297595): `failure`, sem jobs nem artefatos. A página do GitHub exibe **Internal server error**, correlação `96f10c01-5b70-4e5a-b385-fc7e1f2fb074`.
+- [42674400674](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42674400674): `failure`, sem jobs nem artefatos. **Internal server error**, correlação `05b21b08-285d-4106-9103-13a98462e830`.
+
+Esses erros **não fornecem evidência de defeito no coletor ou na fonte**, e tampouco permitem declarar sucesso de arquivamento do novo QA no R2. Permanecem válidos apenas os artefatos das execuções anteriores efetivamente aprovadas: [42673434287](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42673434287), diagnóstico FPM+ITR com 1.895/1.896 comparações dentro de R$0,05; [42673859324](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42673859324), inspeção estrutural do RREO. **O diagnóstico detalhado da exceção e a nova persistência R2 continuam pendentes.**
+
+**Retomada prioritária:** verificar disponibilidade do GitHub Actions, executar o script de extrato de entregas como artefato de QA com SHA e persistência R2, recuperar o município/decêndio do resíduo de R$0,0525 e confrontar FPM/ITR com demonstrativos de distribuição do Banco do Brasil/ STN. Nenhuma regra foi homologada para converter `FUNDEB/DEDU` em receita ou para atualizar a DCA.

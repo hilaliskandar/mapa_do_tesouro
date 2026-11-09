@@ -21,7 +21,6 @@ jobs:
           python-version: '3.12'
       - name: Inspect a single CKAN CSV resource without ingestion
         id: probe
-        continue-on-error: true
         run: |
           python3 pipeline/acquire/probe_stn_transfer_csv.py --output build/fed00_stn_csv/QA_FED00_STN_CSV.json
       - name: Validate presence of bounded QA report

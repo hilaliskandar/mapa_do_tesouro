@@ -1,0 +1,47 @@
+name: FED00 - STN CKAN CSV piloto por resource ID
+on:
+  push:
+    branches: [main]
+    paths:
+      - pipeline/acquire/probe_stn_transfer_csv.py
+      - .github/workflows/fed00-stn-csv-pilot.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stn-csv-inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect a single CKAN CSV resource without ingestion
+        id: probe
+        continue-on-error: true
+        run: |
+          python3 pipeline/acquire/probe_stn_transfer_csv.py --output build/fed00_stn_csv/QA_FED00_STN_CSV.json
+      - name: Validate presence of bounded QA report
+        if: always()
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('build/fed00_stn_csv/QA_FED00_STN_CSV.json')
+          assert p.exists(), 'source report not created'
+          x=json.loads(p.read_text(encoding='utf-8'))
+          assert x['status'] in ('qa_pass','partial','failed_or_unavailable')
+          assert x['resource_id']=='63b5f470-135f-4431-9158-ca8b7a43f61b'
+          print('FED00 STN probe:',x['status'])
+          print('Records in national resource:',x.get('csv_evidence',{}).get('row_count_national_not_sp'))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed00-stn-ckan-one-csv-qa
+          path: build/fed00_stn_csv/QA_FED00_STN_CSV.json
+          retention-days: 30
+          if-no-files-found: warn

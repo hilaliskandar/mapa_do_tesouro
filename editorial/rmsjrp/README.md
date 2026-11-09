@@ -183,3 +183,7 @@ O acervo estadual de metadados STN (146 recursos) foi preservado em [governance/
 ### FED00-D — STN confirma presença nominal de todos os municípios paulistas
 
 O primeiro CSV nacional do Tesouro foi efetivamente baixado e auditado por Actions: **126.807 linhas nacionais, 13.889 paulistas, 645 nomes distintos SP**, competência comprovada **setembro/2026**, embora o recurso se chame `202610`. A conciliação oficial com os códigos IBGE foi adicionada ao workflow, mas ainda depende do QA das execuções de 09/11. Fonte e rastreabilidade: [relatório FED00](../../governance/RELATORIO_FED00_QA_WORKFLOWS_2026_11_09.md). O conjunto não demonstra pagamentos de convênios Transferegov nem conclusão do G06-F4; sem mudança do SQLite/R2 ou atribuição causal.
+
+### FED00-J — Reuso confirmado do bucket R2 para dados federais candidatos
+
+O [workflow 42658172768](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42658172768) persistiu no bucket R2 existente a correspondência candidata completa **645 nomes STN / 645 códigos municipais**, com readback SHA `20c80f6464de30f899430327db569fd7a52610c14bfc88678b769638572f036c`. Chave `sp_645/federal/stn/2026_09/candidates/STN_IBGE_SP_MATCH_CANDIDATE_20c80f6464de.csv`; [relatório e cautelas](../../governance/RELATORIO_FED00_QA_WORKFLOWS_2026_11_09.md). A fonte STN é de **setembro de 2026**, não prova pagamento de parcerias Transferegov nem conclusão do G06-F4 regional; sem modificação de SQLite ou do painel.

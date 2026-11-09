@@ -1,0 +1,69 @@
+# Integração estadual de transferências e investimentos federais — SP_645
+
+**Data:** 2026-11-09  
+**Situação:** projeto documentado; inventário/ingestão estadual ainda não executados; sem mudança de dados, schema, R2 ou publicação.
+
+## Decisão arquitetural
+
+O projeto **não criará banco de dados ou plataforma paralela**. Utilizará o núcleo SQLite canônico do repositório `hilaliskandar/mapa_do_tesouro`, documentado em `governance/ARCHITECTURE.md` e `governance/DATA_MODEL.md`, com modelo longo, dados versionados, `artefato_fonte` e `observacao_proveniencia`. O bucket privado R2 **`financas-municipais-sp-canonico`** é a camada existente de guarda dos snapshots brutos, normalizados e artefatos volumosos, **não** um segundo banco de observações. A publicação atual segue `SQLite → materialização JSON static-first → Cloudflare Pages`; **D1 é opcional**, somente se surgirem consultas dinâmicas justificadas. Não há evidência de uma instância D1 já homologada como base operacional desta plataforma.
+
+Evitar duplicação: (1) um único cadastro IBGE de 645 municípios; (2) universos regionais são filtros, não tabelas de origem independentes; (3) ingestão federal reusável e versionada na camada estadual; (4) estudos RMSJRP, RMRP, RMJ e outros consultam a mesma base; (5) cada fonte mantém identidade, conceito, data de competência, status e proveniência, mesmo quando se refere ao mesmo instrumento.
+
+## Acervo reutilizável e motivação
+
+- DCA 2013–2025: snapshot estadual em R2 `sp_645/dca/2013_2025/normalized.csv` e manifesto, sem substituição.
+- TCESP estadual 2023–2025: agregados no R2 `tcesp/estadual/despesas/{ano}/run_.../`, sem substituição.
+- RMSJRP G06-F2: **9.338 identificadores de propostas** em dois módulos (508 Parcerias e 8.830 Discricionárias/Legais), **74/74** consultas município–módulo e **231 páginas**, versionadas sob `rmsjrp/g06/2026_11_09/instrumentos_api_f2/`. São registros de propostas, **não** convênios celebrados ou pagamentos.
+- RMSJRP G06-F3: amostra intencional de 37 registros de parceria e sete registros de empenho; um metadado de assinatura sem comprovação do documento. Preservados sob `rmsjrp/g06/2026_11_09/instrumentos_api_f3_amostra37/`. O G06-F4 permanece aberto; utilizar seus casos como sentinelas do novo coletor estadual.
+
+## Fontes a inventariar, sem presumir cobertura
+
+1. Transferegov: transferências discricionárias/legais, Gestão de Parcerias, transferências especiais e fundo a fundo, com documentação OpenAPI, situação e paginação de cada módulo.
+2. Tesouro Nacional/Tesouro Transparente: FPM e transferências constitucionais/legais; distinguir normas e origens das transferências discricionárias.
+3. Portal da Transparência federal: convênios, emendas, empenhos, ordens bancárias, pagamentos e outros datasets disponíveis; preferir arquivos completos quando melhor que requisições municipais.
+4. Obrasgov/Novo PAC: contratos, localização, empreendimentos, execução e eventual vínculo de financiamento, respeitando escopo e datas dos cadastros.
+5. Fontes municipais e TCESP: somente para conciliar crédito recebido, fonte de recursos, empenho, medição e liquidação locais.
+
+O inventário deve registrar URL e endpoint, esquema, chave, tipo de transferência, licença, autenticação, filtros e paginação, cobertura histórica, atraso, limites, atualização retroativa e erros. **A existência de documentação de rota não prova sua operacionalidade ou completude.** Fundo a fundo retornou HTTP 500 no piloto RMSJRP e não pode ser marcado como ausência de recursos.
+
+## Modelo lógico e prevenção de dupla contagem
+
+A camada federal deve manter entidades próprias de **proposta**, **instrumento/parceria**, **partícipe/beneficiário**, **emenda**, **empenho federal**, **pagamento federal**, **obra/empreendimento** e **vínculo de conciliação municipal**, com chaves de origem compostas por sistema/módulo/identificador e datas. Antes da implementação, levantar os contratos e tabelas já existentes para optar por migrations incrementais sem alterar a semântica de `observacao`.
+
+Separar município do beneficiário, sede do proponente, local da obra, executor e município efetivamente creditado. Uma relação territorial de obra ou beneficiário não equivale a ingresso de receita municipal. Registrar links por identificador explícito e nível de certeza; sem junções por similaridade isolada de valor/nome. Nunca somar linhas de módulos diferentes sem deduplicação jurídica comprovada. Não tratar valores de proposta, contrato ou empenho como pagamentos, nem pagamentos federais como despesas liquidadas municipais.
+
+Novos indicadores anuais compatíveis com o modelo longo podem ser **derivados** apenas de eventos classificados, temporalizados e homologados. Valores ausentes continuam `ausente` ou `em_revisao`, jamais zero. Preservar diferenças entre transferência constitucional, legal, fundo a fundo, voluntária, especial e financiamento federal direto.
+
+## Gates de execução e evidências
+
+| Gate | Entrega | Critério de conclusão |
+|---|---|---|
+| FED00 | Inventário do acervo, SQLite/schema, R2, conectores e fontes | Matriz fonte–período–chave–disponibilidade, conferida; sem criar duplicata |
+| FED01 | Contratos de dados, migrations propostas e crosswalk | Compatibilidade com modelo canônico e regressão, incluindo município IBGE |
+| FED02 | Pilotos de aquisição em lote e API | Paginação, retries, limites, schemas, datas e versionamento testados |
+| FED03 | Carga histórica estadual SP_645 | Contagem por fonte/ano/município, manifesto/hash/readback; cobertura documentada, não presumida |
+| FED04 | Deduplicação e cadeia documental | Chaves únicas por módulo e vínculos com evidência; diferenças conciliadas |
+| FED05 | Conciliação federal–municipal por amostra sentinela | Verificação de proposta 398 (SJR), sete empenhos G06-F3 e outros casos sem união por valor |
+| FED06 | Indicadores e agregações regionais | Paridade 645 municípios + universos filtrados, regras de ausência e contas sem sobreposição |
+| FED07 | Atualização incremental e retificações | Checkpoint, janelas de reprocessamento, comparação de versões, monitoramento de falhas |
+| FED08 | Homologação integrada/publicação opcional | QA metodológico, regressão, hashes, prévia isolada e autorização explícita de promoção |
+
+## Operação
+
+Priorizar download integral de bases públicas para seleção por IBGE quando houver arquivos confiáveis; usar API paginada quando não houver lote ou para complementação e eventos recentes. Aquisições entram em `pipeline/acquire`; normalização em `pipeline/normalize` ou módulos equivalentes existentes; documentação/crosswalk em `data/catalogs`, `data/mappings` e `governance`. Usar workflows GitHub Actions e credenciais existentes sem expor segredos. Persistir originais e derivados em prefixo estadual próprio do mesmo bucket R2, a definir após inventário, por `fonte/versao/data_de_extracao`; nunca sobrescrever artefatos RMSJRP existentes.
+
+Cadência inicial a validar conforme atualização da fonte: execução financeira diária quando publicada; propostas/instrumentos diária ou semanal; séries constitucionais semanal com conciliação mensal; obras semanal; QA e cobertura mensal. Usar captura incremental com correções retroativas e trilha de retificações; não presumir calendário uniforme.
+
+## Controles editoriais e legais
+
+A LC 200/2023 incide diretamente sobre o regime fiscal federal. A série de propostas, empenhos ou pagamentos, isoladamente, **não identifica efeito causal** do arcabouço sobre município. Cenários de RMSJRP G06-A/B seguem classificados como testes condicionais. Requerer prova de mecanismo, execução e explicações alternativas antes de quantificar impactos atribuíveis.
+
+## Próxima operação exata e continuidade
+
+1. Inspecionar `data/schema`, `pipeline/build`, a origem do SQLite produzido no build e os manifestos estaduais existentes; identificar migrations, índices e bindings **reais**.
+2. Inventariar downloads nacionais e OpenAPI dos quatro módulos Transferegov, STN, Portal da Transparência e Obrasgov, anotando limites e cobertura; evitar coletar 645 municípios antes da decisão lote × API.
+3. Produzir `MATRIZ_FONTES_FEDERAIS_SP645.csv` e proposta de schema/crosswalk em branch isolada. Gatilho de FED01: inventário validado.
+4. Fazer piloto estadual controlado com a proposta 398/SJR, os sete empenhos G06-F3 e municípios de portes distintos; comparar com R2 já homologado.
+5. Atualizar README principal, `governance/PROJECT_STATE.md` e este plano ao concluir cada gate; registrar run, commit, hashes, lacunas e **próxima ação exata**.
+
+**Não executado nesta etapa:** nova ingestão, mudança do SQLite, criação de D1, alteração de R2, workflows, deployments ou publicação.

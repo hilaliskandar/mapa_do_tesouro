@@ -119,7 +119,7 @@ def inspect_csv(text: str) -> dict:
             "warning": "municipality labels are not official IBGE codes; counts are names, not validated municipal entities"}
 
 def normalize_name(value: str) -> str:
-    value = unicodedata.normalize("NFKD", value.casefold())
+    value = unicodedata.normalize("NFKD", value.casefold()).replace("\u2019", "'").replace("'", "")
     value = "".join(c for c in value if not unicodedata.combining(c))
     return " ".join(re.sub(r"[^a-z0-9]+", " ", value).split())
 
@@ -149,14 +149,24 @@ def check_sp_ibge(stn_names: list[str], output: Path) -> dict:
         code, name = str(item.get("id", "")), str(item.get("nome", ""))
         if len(code) == 7 and code.startswith("35") and name:
             by_key[normalize_name(name)].append({"codigo_ibge": code, "nome_ibge": name})
+    source_aliases = {
+        "Embu das Artes": ("Embu", "3515004"),
+        "Mogi-Mirim": ("Moji Mirim", "3530805"),
+    }
     pairs = []
     unmatched = []
     ambiguous = []
     for stn in sorted(set(stn_names)):
         options = by_key.get(normalize_name(stn), [])
+        method = "name_uf_sp_normalized_exact"
+        if not options and source_method == "pinned_sp_geodata_reference" and stn in source_aliases:
+            expected_name, expected_code = source_aliases[stn]
+            options = [x for x in by_key.get(normalize_name(expected_name), [])
+                       if x["codigo_ibge"] == expected_code]
+            method = "explicit_legacy_alias_code_verified"
         if len(options) == 1:
-            pairs.append({"municipio_stn": stn, "municipio_ibge": options[0]["nome_ibge"],
-                          "codigo_ibge": options[0]["codigo_ibge"], "match_method": "name_uf_sp_normalized_exact"})
+            pairs.append({"municipio_stn": stn, "municipio_referencia": options[0]["nome_ibge"],
+                          "codigo_ibge": options[0]["codigo_ibge"], "match_method": method})
         elif not options:
             unmatched.append(stn)
         else:
@@ -164,7 +174,7 @@ def check_sp_ibge(stn_names: list[str], output: Path) -> dict:
     dst = output.parent / ("STN_IBGE_SP_MATCH.csv" if source_method == "official_ibge_api" else "STN_IBGE_SP_MATCH_CANDIDATE.csv")
     if len(pairs) == 645 and len({p["codigo_ibge"] for p in pairs}) == 645 and len(ibge) == 645:
         with dst.open("w", encoding="utf-8", newline="") as out:
-            writer = csv.DictWriter(out, fieldnames=("municipio_stn", "municipio_ibge", "codigo_ibge", "match_method"), delimiter=";")
+            writer = csv.DictWriter(out, fieldnames=("municipio_stn", "municipio_referencia", "codigo_ibge", "match_method"), delimiter=";")
             writer.writeheader()
             writer.writerows(pairs)
         crosswalk_sha = hashlib.sha256(dst.read_bytes()).hexdigest()
@@ -175,7 +185,7 @@ def check_sp_ibge(stn_names: list[str], output: Path) -> dict:
     return {"status": status, "registry_source_url": source_url, "registry_source_method": source_method,
             "official_ibge_api_error": official_error, "registry_source_sha256": hashlib.sha256(raw).hexdigest(),
             "ibge_municipalities": len(ibge), "stn_distinct_names": len(set(stn_names)),
-            "matched": len(pairs), "matched_unique_ibge_codes": len({p["codigo_ibge"] for p in pairs}),
+            "matched": len(pairs), "explicit_alias_matches": sum(p["match_method"] == "explicit_legacy_alias_code_verified" for p in pairs), "matched_unique_ibge_codes": len({p["codigo_ibge"] for p in pairs}),
             "unmatched_names": unmatched, "ambiguous_matches": ambiguous,
             "crosswalk_file": str(dst) if crosswalk_sha else None,
             "crosswalk_sha256": crosswalk_sha,

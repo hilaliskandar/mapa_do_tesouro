@@ -16,6 +16,7 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+      PYTHONPATH: .
     steps:
       - uses: actions/checkout@v4
         with:

@@ -1,5 +1,5 @@
 gate;status;data_verificacao;resultado;pendencia
-G00;in_progress;2026-11-09;DCA e Gate C/D Drive recuperados, R2 documentado;readback R2 e manifestos multifuentes
-G01;in_progress;2026-11-09;37 municipios e quatro subregioes PDUI conciliados;geometria CRS e referencia populacao deflator
-G02;qa_pass;2026-11-09;481 chaves unicas, 774 valores 2025 conciliados, cobertura por variavel e ano;validacao hash bruto e congelamento de snapshot
-G03;blocked;2026-11-09;37 CAPAG, 18 RREO RCL, 18 RGF DTP, 17 DC, 18 DCL;readback direto R2 TCESP e completa cobertura RREO RGF
+G00;qa_pass;2026-11-09;Drive DCA GateC GateD e R2 DCA TCESP recuperados e QA por SHA;complementacao RREO RGF somente missing-only
+G01;in_progress;2026-11-09;37 municipios e quatro subregioes PDUI conciliados;geometria analitica EPSG4674 e IPCA medio anual exato no G04
+G02;qa_pass;2026-11-09;481 chaves unicas 774 valores 2025 paritarios e SHA DCA R2 confirmado;lacunas historicas declaradas
+G03;qa_pass;2026-11-09;111 TCESP liquidados e 111 confrontos DCA sem divergencias R2 readback;RREO RGF parciais e NA preservado

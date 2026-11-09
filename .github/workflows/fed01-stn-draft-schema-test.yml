@@ -1,0 +1,24 @@
+name: FED01 - test SQL proposal (no migration)
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed01-stn-draft-schema-test.yml"
+      - "governance/proposals/PROPOSTA_STN_EVENTOS_DECENDIAIS_SP645.sql"
+      - "tests/test_stn_draft_schema.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  draft-isolated-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: python -m pytest -q tests/test_stn_draft_schema.py

@@ -1,5 +1,5 @@
 # RMSJRP — continuidade operacional do estudo fiscal
-**Atualizado:** 2026-11-09. **Estado:** Fase I registrada; G04 executado e com QA técnico aprovado para séries nominais/reais/per capita. G01 permanece com cartografia analítica pendente e cautelas demográficas/IPCA; G05 é a próxima etapa. Nenhum texto municipal ou cenário homologado.
+**Atualizado:** 2026-11-09. **Estado:** Fase I e G04 concluídos quanto aos dados centrais. G05-A/B/C executados e auditados (diagnóstico, programas/ações e cartografia IBGE 2022); G05-D ainda pendente de verificação substantiva de projetos. Nenhum texto municipal ou cenário homologado.
 
 ## Ponto de partida
 - Plano integral e sequência de gates: [PLANO_EXECUCAO_2026_11_09.md](PLANO_EXECUCAO_2026_11_09.md).
@@ -22,7 +22,7 @@
 | G02 | Filtro e QA DCA 2013–2025 | qa_pass |
 | G03 | TCESP 2023–2025, RREO/RGF/CAPAG | qa_pass — cobertura legal parcial documentada |
 | G04 | Indicadores, cálculos e reprodutibilidade | qa_pass — séries DCA; cautelas IPCA/população |
-| G05 | Diagnóstico territorial, tabelas e mapas | not_started — próxima etapa |
+| G05 | Diagnóstico territorial, tabelas e mapas | in_progress — A/B/C QA e R2 aprovados; D documental pendente |
 | G06 | Arcabouço e cenários 2027–2030 | not_started |
 | G07 | Cinco fichas-piloto e 32 fichas restantes | not_started |
 | G08 | Sínteses territoriais e revisão substantiva | not_started |
@@ -44,3 +44,12 @@ Sempre começar pela leitura do plano, deste README, dos registros de gate e do 
 - **Resultado de controle:** receita corrente real RMSJRP +11,61% 2023–2025; investimento liquidado real −57,27% no mesmo intervalo; não inferir causalidade a partir dessas variações.
 - **Denominador demográfico:** a base DCA contém a mesma população numérica em 2024 e 2025 para todos os 37 municípios; não tratar 2025 como atualização populacional independente. Existem três populações ausentes em anos anteriores; agregados incompletos permanecem NA.
 - **Próxima ação exata G05:** recuperar as séries de 65 território-ano do R2, produzir as tabelas da trajetória de 2023, 2024 e 2025 e a desagregação municipal, testar as diferenças entre polo/demais municípios e preparar mapas somente com malha cujo CRS analítico esteja comprovado. Conferir fonte das 19 lacunas RREO/RGF sem nova coleta estadual. Atualizar README/HANDOFF ao final de cada lote; sem alterações no portal público.
+
+
+## G05 — Diagnóstico territorial e cartografia — 09/11/2026
+- **Documento substantivo e inventário:** [`RELATORIO_G05_LOTE_A_2026_11_09.md`](RELATORIO_G05_LOTE_A_2026_11_09.md). Retomada no [HANDOFF](HANDOFF.md).
+- **G05-A**: 15 séries território-ano, 15 variações territoriais, 111 contribuições municipais; 2024–2025: investimentos reais −R$ 312,86 mi, 29/37 municípios com queda; São José do Rio Preto −R$ 220,83 mi. [run 42561961530](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42561961530). R2 `rmsjrp/g05/2026_11_09/` e hashes no relatório.
+- **G05-B**: reuso TCESP 2023–2025 por órgão/programa/ação, 4.884 movimentos por chave e 111 conciliações municipal-ano em centavos; [run 42562212589](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42562212589). R2 `rmsjrp/g05/2026_11_09/programas_acoes/`. **Diferenças nominais por programa não são diferenças reais do município**, nem provam descontinuidade física de obra.
+- **G05-C**: IBGE malha municipal SP 2022, SIRGAS2000 EPSG:4674, 645 feições no estado, 37 feições selecionadas e válidas, sem simplificação geométrica. Dois mapas de investimentos (variação 2024–2025 e per capita 2025) + GeoJSON regional com readback R2. [run 42562450625](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42562450625), R2 `rmsjrp/g05/2026_11_09/cartografia/`. Origem oficial e SHA no relatório.
+- **G05-D pendente:** confrontar os movimentos principais a documentação de execução física, contratos, reclassificações e programas; somente depois incorporar interpretações individualizadas e homologar texto. Os mapas devem entrar nos pontos analíticos adequados, não em um atlas separado.
+- **Próxima ação exata:** usar `G05B_MAIORES_MOVIMENTOS.csv` e `G05B_TRANSICOES_PROGRAMA_ACAO_2023_2025.csv` já persistidos, levantar evidências para os programas SJR Prefeitura 9/SEMAE 31, Olímpia 45, Monte Aprazível 14, comparar mudanças de código/órgão e documentar o que permanece hipótese. Depois fechar G05-D com QA editorial e retomar G06.

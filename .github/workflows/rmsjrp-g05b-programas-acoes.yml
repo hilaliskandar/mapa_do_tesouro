@@ -1,0 +1,49 @@
+name: RMSJRP G05-B - programas e acoes TCESP
+on:
+  push:
+    branches: [analysis/rmsjrp-g05-diagnostico-2026-11-09]
+    paths:
+      - editorial/rmsjrp/build_programas_acoes_g05b.py
+      - .github/workflows/rmsjrp-g05b-programas-acoes.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  decomposicao:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      PYTHONPATH: .
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover only approved TCESP R2 and reconcile municipality, program and action
+        run: python3 editorial/rmsjrp/build_programas_acoes_g05b.py
+      - name: Save derived classifications in private R2 with SHA256 readback
+        run: |
+          set -euo pipefail
+          PREFIX="rmsjrp/g05/2026_11_09/programas_acoes"
+          for F in G05B_TRANSICOES_PROGRAMA_ACAO_2023_2025.csv G05B_MAIORES_MOVIMENTOS.csv QA_G05B.json; do
+            SRC="build/rmsjrp-g05b/$F"
+            SHA="$(sha256sum "$SRC" | cut -d ' ' -f 1)"
+            MIME="text/csv"
+            if [ "$F" = QA_G05B.json ]; then MIME="application/json"; fi
+            python3 deployment/upload_r2_source.py --source "$SRC" --object-key "$PREFIX/$F" --expected-sha256 "$SHA" --content-type "$MIME"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$F" --output "build/rmsjrp-g05b/readback-$F" --expected-sha256 "$SHA"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g05b-programas-acoes-qa
+          path: |
+            build/rmsjrp-g05b/G05B_*.csv
+            build/rmsjrp-g05b/QA_G05B.json
+          retention-days: 30
+          if-no-files-found: warn

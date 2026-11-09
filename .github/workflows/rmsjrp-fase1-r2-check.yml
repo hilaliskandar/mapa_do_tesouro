@@ -34,7 +34,7 @@ jobs:
         run: |
           set -euo pipefail
           PREFIX="rmsjrp/fase1/2026_11_09/tcesp"
-          for f in RESULTADO_TCESP_R2.json MATRIZ_TCESP_RMSJRP_2023_2025.csv; do
+          for f in RESULTADO_TCESP_R2.json MATRIZ_TCESP_RMSJRP_2023_2025.csv CONFRONTO_TCESP_DCA_2023_2025.csv; do
             PATH_LOCAL="build/rmsjrp-r2-qa/$f"
             SHA="$(sha256sum "$PATH_LOCAL" | cut -d ' ' -f 1)"
             CT="text/csv"
@@ -49,5 +49,6 @@ jobs:
           path: |
             build/rmsjrp-r2-qa/RESULTADO_TCESP_R2.json
             build/rmsjrp-r2-qa/MATRIZ_TCESP_RMSJRP_2023_2025.csv
+            build/rmsjrp-r2-qa/CONFRONTO_TCESP_DCA_2023_2025.csv
           retention-days: 30
           if-no-files-found: warn

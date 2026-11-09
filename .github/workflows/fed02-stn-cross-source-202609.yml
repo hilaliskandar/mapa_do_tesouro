@@ -1,0 +1,62 @@
+name: 'FED02 - Confronto STN historico FPM ITR com decendios 2026-09'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed02-stn-cross-source-202609.yml"
+      - "pipeline/qa/compare_stn_obrigatorias_202609.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download immutable STN SP645 candidate from R2
+        run: |
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/2026_09/candidates/STN_SP645_ITEMS_2026_09_FROM_097638ce.csv \
+            --output build/fed02-stn-cross/staging.csv \
+            --expected-sha256 3b9b5bf22748579a0f90912c160159b8d50a7664294a750fc74b2f98a59657fb
+      - name: Download fixed official STN historical FPM and ITR sources
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib,urllib.request
+          entries=[
+              ("FPM","https://www.tesourotransparente.gov.br/ckan/dataset/3b5a779d-78f5-4602-a6b7-23ece6d60f27/resource/d69ff32a-6681-4114-81f0-233bb6b17f58/download/fpm-por-municipio.csv","a86cad831115e02518198f4873967785a82eb3cbae651ef8505aa498c2cab088"),
+              ("ITR","https://www.tesourotransparente.gov.br/ckan/dataset/3b5a779d-78f5-4602-a6b7-23ece6d60f27/resource/f6ad4e51-fc7e-40bb-b35a-3686da7fde2d/download/itr-por-municipio.csv","9c93138d30b3c384ccb05ea91edbb8e6ee6f807f26ee2ce359e0a3e5b25f44ec")
+          ]
+          for name,url,sha in entries:
+              with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'mapa-do-tesouro-FED02/1.0'}),timeout=70) as response:
+                  blob=response.read(35_000_001)
+              if len(blob)>35_000_000 or hashlib.sha256(blob).hexdigest()!=sha:
+                  raise ValueError("Official source changed or size bound exceeded: "+name)
+              Path("build/fed02-stn-cross/"+name.lower()+".csv").write_bytes(blob)
+              print(name,len(blob),sha)
+          PY
+      - name: Compare source definitions without accounting promotion
+        run: |
+          python3 -m pipeline.qa.compare_stn_obrigatorias_202609 \
+            --fpm build/fed02-stn-cross/fpm.csv \
+            --itr build/fed02-stn-cross/itr.csv \
+            --staging build/fed02-stn-cross/staging.csv \
+            --output build/fed02-stn-cross/QA_STN_CROSS_SOURCE_FPM_ITR_202609.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed02-stn-cross-source-qa-${{ github.run_id }}
+          path: build/fed02-stn-cross/QA_STN_CROSS_SOURCE_FPM_ITR_202609.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -1,0 +1,40 @@
+name: RMSJRP Fase I - QA read-only TCESP R2
+on:
+  push:
+    branches: [audit/rmsjrp-fase-i-2026-11-09]
+    paths:
+      - editorial/rmsjrp/qa_tcesp_r2_regional.py
+      - .github/workflows/rmsjrp-fase1-r2-check.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa_r2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify required readback credentials
+        run: |
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_API_TOKEN"
+      - name: Read approved R2 snapshots and audit regional totals
+        run: python3 editorial/rmsjrp/qa_tcesp_r2_regional.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-fase1-tcesp-r2-qa
+          path: |
+            build/rmsjrp-r2-qa/RESULTADO_TCESP_R2.json
+            build/rmsjrp-r2-qa/MATRIZ_TCESP_RMSJRP_2023_2025.csv
+          retention-days: 30
+          if-no-files-found: warn

@@ -61,3 +61,10 @@ Após incorporar o PR desta Fase I, começar G04 com exame interno das ausência
 - Contrato Olímpia 398/2023 e aditivo Monte Aprazível 08/2024 conferidos em páginas oficiais; não se demonstrou pareamento com liquidações.
 - Controle G01 corrigido: malha EPSG:4674 está auditada no G05-C; permanecem ressalvas sobre população 2025 e deflator IPCA.
 - **Estado fiel:** G05-A/B/C QA aprovado, G05-D `in_progress`. Ação: capturar dados oficiais de obras com hash, cruzar por contrato/empenho/medição e nunca converter valores de contrato em despesas liquidadas. Atualizar README e matriz ao concluir cada lote.
+
+
+## Handoff — extração de obras de Olímpia (G05-D), 09/11/2026
+- O endpoint de obras de Olímpia **foi recuperado de forma efetiva** por workflow [42565405140](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42565405140), status `success`, artifact temporário `13651640345`. São **57 registros indexados em 2024**, **25 em 2025**, 82 entradas e 70 títulos distintos, com 12 títulos comuns e valores cadastrais iguais nos dois conjuntos.
+- QA temporal: 27/57 obras com início anterior a 2024; 15/25 com início anterior a 2025; 20 atualizações posteriores a 2024 e oito posteriores a 2025. **Não são snapshots anuais da despesa ou liquidação**, e não há chave de contrato, ação TCESP ou empenho nos oito campos recuperados.
+- Fonte: `https://www.olimpia.sp.gov.br/portal/dados-abertos/obras/2024` e `.../2025`. Quatro produtos com SHA e readback aprovados no R2 `rmsjrp/g05d/2026_11_09/olimpia_obras/`; CSV normalizado de 82 linhas SHA `c9c304f6a3b0e83dcd168ebd2ceb539c43c934cd08ef384ddc3d6b62eea51689`. [Relatório específico](RELATORIO_G05D_OBRAS_OLIMPIA_2026_11_09.md).
+- **Próxima ação exata:** identificar recursos do conjunto de dados oficiais de contratos Olímpia; confrontar objeto/título como **candidatura apenas**, exigindo contrato/processo/empenho/medição e documento de prova antes de casar com as despesas TCESP. Em paralelo, continuar diligências Monte Aprazível 08/2024 e Rio Preto 1003/1004/SeMAE 1029. Manter G05-D `in_progress`. Atualizar README e matriz de evidências após cada vínculo validado.

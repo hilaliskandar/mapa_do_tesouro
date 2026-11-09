@@ -219,3 +219,7 @@ Consulta direta `SICONFI/extrato_entregas` de 09/11/2026: **São José do Rio Pr
 ### FED02 — Exceção de Guarulhos e ausência de 13 linhas ITR documentadas
 
 A leitura read-only do R2 estadual identificou **Guarulhos** como único desvio de R$0,0525 na hipótese `DEDU=(FPM+ITR)/4` para 09/2026; os **13 municípios sem linha ITR** e seus resíduos foram documentados. O controle é **empírico**, não equivalência de receita municipal nem execução G06-F4. [Relatório FED02](../../governance/RELATORIO_FED02_FPM_FUNDEB_CONCILIACAO_2026_11_09.md).
+
+### FED02 — Fonte nacional independente FPM/ITR e MSC mensal como evidência
+
+O [relatório FED02 de fontes independentes](../../governance/RELATORIO_FED02_FONTE_INDEPENDENTE_MSC_2026_11_09.md) acrescenta conjunto oficial STN separado por FPM, ITR e Fundeb, com IDs e estados de validação em [inventário](../../governance/STN_FONTES_CONCILIACAO_FPM_ITR_2026_11_09.csv). Piloto GitHub [42683157606](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42683157606) testa FPM/ITR sem somas. A entrega da MSC municipal setembro/2026 foi verificada para Ribeirão Preto, mas o endpoint orçamentário ainda não retornou registros com os parâmetros empregados. O prazo do RREO 5º bimestre é 30/11/2026; **não confundir ausência antes do prazo com descumprimento**. Sem qualquer afirmação de pagamento de parcerias G06-F4 ou de receita municipal homologada.

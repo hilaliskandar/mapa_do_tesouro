@@ -52,6 +52,7 @@ def main():
             if any(x not in items for x in REQUIRED):
                 raise ValueError("missing_FPM_or_DEDU")
             if ITR in items:cnt["itr_municipality_rows"]+=1
+            else:cnt["itr_absent_municipality_rows"]+=1
             for i in range(3):
                 fpm=items[REQUIRED[0]][i]
                 dedu=items[REQUIRED[1]][i]
@@ -61,6 +62,9 @@ def main():
                 cnt["h1_comparisons"]+=1
                 if abs(a1)<=TOL:cnt["h1_matches_5_cents"]+=1
                 if a1>=-TOL:cnt["h3_nonnegative_with_5_cents"]+=1
+                if ITR not in items:
+                    cnt["h1_no_itr_source_comparisons"]+=1
+                    if abs(a1)<=TOL:cnt["h1_no_itr_source_matches_5_cents"]+=1
                 if ITR in items:
                     itr=items[ITR][i]
                     a2=dedu-(fpm+itr)/4
@@ -68,6 +72,13 @@ def main():
                     comparable_pairs.append((a1,a2))
                     cnt["h2_comparisons"]+=1
                     if abs(a2)<=TOL:cnt["h2_matches_5_cents"]+=1
+                    else:
+                        out.setdefault("h2_outlier_over_5_cents",[]).append({
+                            "codigo_ibge":code,"decendio":i+1,
+                            "fpm_raw":str(fpm),"itr_raw":str(itr),"dedu_raw":str(dedu),
+                            "residual_brl":str(a2),"residual_label":"observed_minus_one_quarter_fpm_plus_itr"
+                        })
+                    if abs(a2)<=Decimal("0.06"):cnt["h2_matches_6_cents"]+=1
                     if abs(a2)<abs(a1):cnt["h2_improves_absolute_residual"]+=1
                     if abs(a2)>abs(a1):cnt["h2_worsens_absolute_residual"]+=1
                     if abs(a2)==abs(a1):cnt["h2_equal_absolute_residual"]+=1

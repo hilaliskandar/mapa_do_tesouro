@@ -7,6 +7,7 @@ assume that a resource's title or filename proves month of competence.
 """
 from __future__ import annotations
 import argparse
+from collections import Counter
 import csv
 import hashlib
 import io
@@ -58,17 +59,47 @@ def inspect_csv(text: str) -> dict:
         raise RuntimeError("unexpected_csv_header")
     count = 0
     width_mismatches = 0
+    uf_counts: Counter[str] = Counter()
+    sp_municipalities: set[str] = set()
+    period_counts: Counter[str] = Counter()
+    sp_period_counts: Counter[str] = Counter()
+    transfer_type_counts: Counter[str] = Counter()
+    missing_uf = 0
     for row in reader:
         if not row:
             continue
         count += 1
         if len(row) != len(header):
             width_mismatches += 1
+            continue
+        obj = dict(zip(header, row))
+        uf = obj.get("UF", "").strip().upper()
+        municipio = obj.get("Município", "").strip()
+        ano = obj.get("ANO", "").strip()
+        mes = obj.get("Mês", "").strip()
+        uf_counts[uf] += 1
+        period_counts[f"{ano}/{mes}"] += 1
+        if not uf:
+            missing_uf += 1
+        if uf == "SP":
+            sp_municipalities.add(municipio)
+            sp_period_counts[f"{ano}/{mes}"] += 1
+            transfer_type_counts[obj.get("Transferência", "").strip()] += 1
     if not count:
         raise RuntimeError("csv_without_records")
     return {"delimiter": delimiter, "column_names": header,
             "row_count_national_not_sp": count, "column_count": len(header),
-            "row_width_mismatches": width_mismatches}
+            "row_width_mismatches": width_mismatches,
+            "uf_counts": dict(sorted(uf_counts.items())),
+            "sp_rows": uf_counts["SP"],
+            "sp_distinct_municipality_names": len(sp_municipalities),
+            "sp_municipality_names_sample": sorted(sp_municipalities)[:12],
+            "all_period_counts": dict(sorted(period_counts.items())),
+            "sp_period_counts": dict(sorted(sp_period_counts.items())),
+            "sp_transfer_types": dict(sorted(transfer_type_counts.items())),
+            "missing_uf_rows": missing_uf,
+            "ibge_join_status": "pending_official_ibge_name_uf_crosswalk",
+            "warning": "municipality labels are not official IBGE codes; counts are names, not validated municipal entities"}
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -97,7 +128,9 @@ def main() -> None:
         blob = fetch(url, MAX_CSV_BYTES)
         content, encoding = decode_text(blob)
         stats = inspect_csv(content)
-        report.update({"status": "qa_pass" if stats["row_width_mismatches"] == 0 else "partial",
+        report.update({"status": "qa_pass" if stats["row_width_mismatches"] == 0 and
+                       stats["missing_uf_rows"] == 0 and
+                       stats["sp_rows"] > 0 else "partial",
                        "catalog_sha256": hashlib.sha256(catalog_raw).hexdigest(),
                        "catalog_modified": catalog["result"].get("metadata_modified"),
                        "resource_name": resource.get("name"),

@@ -195,3 +195,7 @@ O [QA do SQLite efetivo SP645](../../governance/RELATORIO_FED00_SQLITE_TERRITORI
 ### FED00-L — Snapshot histórico nacional STN disponível no R2
 
 O [run 42662690269](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42662690269) persistiu no R2 canônico o CSV nacional STN setembro/2026, SHA `097638cec48145ac0f509d526be49d40929d177ef3a2ae3b7f77c0acd990cf24`, 126.807 registros nacionais e 13.889 SP, readback aprovado. O arquivo permitirá filtrar a RMSJRP pelos **37 códigos IBGE** sem nova coleta na origem. **Não é evidência de pagamento dos instrumentos G06-F4**, nem substitui os dados municipais SICONFI/TCESP.
+
+### FED00-M — Extrato estadual de transferências disponível para recortes regionais
+
+O extrato estadual STN de setembro/2026 foi normalizado em **13.889 linhas com 645 códigos IBGE**, preservado no [R2 canônico e homologado por readback](../../governance/RELATORIO_FED00_STN_NORMALIZACAO_SP645_2026_11_09.md), SHA `3b9b5bf22748579a0f90912c160159b8d50a7664294a750fc74b2f98a59657fb`. Os universos RMSJRP, RMRP e demais regiões poderão selecionar registros do mesmo acervo por código, sem consultas duplicadas. **Não equiparar este estágio a pagamento comprovado de convênios G06-F4 nem publicar somatórios como receitas.**

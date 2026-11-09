@@ -49,13 +49,19 @@ def norm(s: str) -> str:
 def cell_kind(s: str) -> str:
     s = s.strip()
     if not s or s in ("-", "—", "N/A", "NA"): return "absent"
-    if re.fullmatch(r"-?(?:[0-9]{1,3}(?:\.[0-9]{3})+|[0-9]+),[0-9]{1,2}", s) or re.fullmatch(r"-?[0-9]+", s):
-        clean = s.replace(".", "").replace(",", ".")
+    # STN historical accounting-style negatives: (180.529,62).
+    bracketed = s.startswith("(") and s.endswith(")")
+    raw = s[1:-1].strip() if bracketed else s
+    if re.fullmatch(r"-?(?:[0-9]{1,3}(?:\.[0-9]{3})+|[0-9]+),[0-9]{1,2}", raw) or re.fullmatch(r"-?[0-9]+", raw):
+        clean = raw.replace(".", "").replace(",", ".")
         try:
             from decimal import Decimal
             n = Decimal(clean)
         except Exception:
             return "invalid"
+        if bracketed:
+            if n < 0: return "invalid"  # Reject double negative signs.
+            n = -n
         return "zero" if n == 0 else ("negative" if n < 0 else "positive")
     return "invalid"
 
@@ -194,6 +200,8 @@ def run(fpm: Path, itr: Path, stage: Path, coverage: Path, crosswalk: Path, qa_p
             if results[label]["duplicate_uf_codmun_month_count"]:
                 raise ValueError(label+": duplicate municipality/month source key")
         if len(all_coverage)!=len(YEARS)*4: raise ValueError("Coverage year count not 124")
+        if any(row[10] != 0 for row in all_coverage):
+            raise ValueError('Unrecognized numeric formats remain after accounting-negative parsing')
         coverage.parent.mkdir(parents=True,exist_ok=True)
         with coverage.open("w",encoding="utf-8",newline="") as f:
             w=csv.writer(f,delimiter=";");w.writerow(COVERAGE_HEADER);w.writerows(all_coverage)

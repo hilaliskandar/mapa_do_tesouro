@@ -10,7 +10,7 @@ import argparse
 import hashlib
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -40,8 +40,11 @@ def inspect(kind: str, data: object) -> dict:
             raise ValueError("empty_or_invalid_sgs_array")
         if any(not isinstance(item, dict) or not {"data", "valor"}.issubset(item) for item in data):
             raise ValueError("unexpected_sgs_schema")
+        dates = [datetime.strptime(str(x["data"]), "%d/%m/%Y").date() for x in data]
         return {"records": len(data), "first_date": data[0]["data"], "last_date": data[-1]["data"],
-                "schema_fields": ["data", "valor"], "value_semantics": "source_specific_no_reinterpretation"}
+                "schema_fields": ["data", "valor"], "value_semantics": "source_specific_no_reinterpretation",
+                "dates_monotone": dates == sorted(dates),
+                "future_dated_relative_to_probe": any(d > datetime.now(timezone.utc).date() for d in dates)}
     if kind == "openapi":
         if not isinstance(data, dict) or not isinstance(data.get("paths"), dict):
             raise ValueError("unexpected_openapi_schema")
@@ -96,8 +99,11 @@ def main() -> int:
         record = {"id": name, "url": url, "kind": kind}
         try:
             data, raw = request_json(url)
-            record.update({"status": "qa_pass", "sha256_response": hashlib.sha256(raw).hexdigest(),
-                           "bytes": len(raw), "evidence": inspect(kind, data)})
+            evidence = inspect(kind, data)
+            anomalous = evidence.get("future_dated_relative_to_probe", False) or evidence.get("dates_monotone", True) is False
+            record.update({"status": "source_date_anomaly" if anomalous else "qa_pass",
+                           "sha256_response": hashlib.sha256(raw).hexdigest(),
+                           "bytes": len(raw), "evidence": evidence})
         except (HTTPError, URLError, TimeoutError, ValueError, UnicodeError, json.JSONDecodeError) as exc:
             record.update({"status": "failed_or_unavailable",
                            "error": f"{type(exc).__name__}: {str(exc)[:220]}"})

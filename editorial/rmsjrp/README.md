@@ -187,3 +187,7 @@ O primeiro CSV nacional do Tesouro foi efetivamente baixado e auditado por Actio
 ### FED00-J — Reuso confirmado do bucket R2 para dados federais candidatos
 
 O [workflow 42658172768](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42658172768) persistiu no bucket R2 existente a correspondência candidata completa **645 nomes STN / 645 códigos municipais**, com readback SHA `20c80f6464de30f899430327db569fd7a52610c14bfc88678b769638572f036c`. Chave `sp_645/federal/stn/2026_09/candidates/STN_IBGE_SP_MATCH_CANDIDATE_20c80f6464de.csv`; [relatório e cautelas](../../governance/RELATORIO_FED00_QA_WORKFLOWS_2026_11_09.md). A fonte STN é de **setembro de 2026**, não prova pagamento de parcerias Transferegov nem conclusão do G06-F4 regional; sem modificação de SQLite ou do painel.
+
+### FED00-K — Identidade estadual conferida com o SQLite real
+
+O [QA do SQLite efetivo SP645](../../governance/RELATORIO_FED00_SQLITE_TERRITORIO_2026_11_09.md) aprovou **645/645 códigos IBGE** comparados à referência candidata STN, com zero ausentes e duplicados; realizado no workflow [42661684901](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42661684901). A homologação é **territorial**, não financeira: não comprova pagamentos de convênios nem resolve G06-F4.

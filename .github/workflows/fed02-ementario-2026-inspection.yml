@@ -10,7 +10,11 @@ permissions:
 jobs:
   inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
     steps:
       - uses: actions/checkout@v4
         with:
@@ -79,6 +83,25 @@ jobs:
           print(json.dumps({k:qa.get(k) for k in ('status','bytes','source_sha256','candidate_rows','error')},ensure_ascii=False))
           if qa['status']!='qa_pass_source_inspection_only':raise SystemExit(2)
           PY
+      - name: Preserve source XLSX and inspection in canonical private R2
+        run: |
+          python3 deployment/upload_r2_source.py \
+            --source build/fed02-ementario/EMENTARIO_RECEITAS_2026_OFFICIAL.xlsx \
+            --object-key sp_645/federal/stn/ementario/2026/source/EMENTARIO_RECEITAS_2026_97cd8bd3.xlsx \
+            --expected-sha256 97cd8bd31da8d5e5d62174d4296c779df4cf7bb89db0eb58c701c7035f6eeffa \
+            --content-type application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+          python3 deployment/upload_r2_source.py \
+            --source build/fed02-ementario/EMENTARIO_2026_TERMS_CANDIDATES.csv \
+            --object-key sp_645/federal/stn/ementario/2026/candidates/EMENTARIO_2026_TERMS_CANDIDATES.csv \
+            --content-type text/csv
+          python3 deployment/upload_r2_source.py \
+            --source build/fed02-ementario/QA_EMENTARIO_2026.json \
+            --object-key sp_645/federal/stn/ementario/2026/candidates/QA_EMENTARIO_2026_${{ github.run_id }}.json \
+            --content-type application/json
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/ementario/2026/source/EMENTARIO_RECEITAS_2026_97cd8bd3.xlsx \
+            --output build/fed02-ementario/EMENTARIO_SOURCE_READBACK.xlsx \
+            --expected-sha256 97cd8bd31da8d5e5d62174d4296c779df4cf7bb89db0eb58c701c7035f6eeffa
       - uses: actions/upload-artifact@v4
         if: always()
         with:

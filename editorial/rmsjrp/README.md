@@ -1,5 +1,5 @@
 # RMSJRP — continuidade operacional do estudo fiscal
-**Atualizado:** 2026-11-09. **Estado:** planejamento registrado em branch, ainda sem homologação da base regional ou texto final.
+**Atualizado:** 2026-11-09. **Estado:** Fase I executada com leitura direta de fontes; G00/G02/G03 QA aprovado para os componentes observados e G01 parcialmente pendente de cartografia métrica e deflator. Nenhum texto municipal ou cenário homologado.
 
 ## Ponto de partida
 - Plano integral e sequência de gates: [PLANO_EXECUCAO_2026_11_09.md](PLANO_EXECUCAO_2026_11_09.md).
@@ -12,15 +12,15 @@
 - Documentação de dados e QA precede redação; publicação, deploy e divulgação requerem decisão específica.
 
 ## Gate ativo
-**G00 — INVENTÁRIO E RECUPERAÇÃO DE FONTES.** Nenhum gate foi executado pela simples criação dos documentos. A primeira ação operacional deverá verificar HEAD/main/PR, ler inventário de fontes, confirmar objetos no Drive/R2 e registrar as variáveis efetivamente acessíveis. Não realizar coleta externa antes da matriz de lacunas.
+**G04 — Indicadores e cálculos**, após Fase I. Foram lidos DCA 2013–2025 (481/481 pares), Gate C/D 2025 (37 municípios), TCESP R2 2023–2025 (111/111 liquidados), e 111/111 pares DCA × TCESP com diferença zero. Run 42559912064, R2 privado readback. Ver [relatório G00–G03](RELATORIO_FASE_I_2026_11_09.md), [handoff](HANDOFF.md) e [matrizes de cobertura](MATRIZ_COBERTURA_DCA_2013_2025.csv). Indicadores RREO/RGF seguem parciais e sem imputação.
 
 ## Quadro de gates
 | Gate | Conteúdo | Status inicial |
 |---|---|---|
-| G00 | Inventário de reuso, versão e hash | not_started |
-| G01 | Território, sub-regiões, população, IPCA | not_started |
-| G02 | Filtro e QA DCA 2013–2025 | not_started |
-| G03 | TCESP 2023–2025, RREO/RGF/CAPAG | not_started |
+| G00 | Inventário de reuso, versão e hash | qa_pass |
+| G01 | Território, sub-regiões, população, IPCA | in_progress — território aprovado; geometria e deflator pendentes |
+| G02 | Filtro e QA DCA 2013–2025 | qa_pass |
+| G03 | TCESP 2023–2025, RREO/RGF/CAPAG | qa_pass — cobertura legal parcial documentada |
 | G04 | Indicadores, cálculos e reprodutibilidade | not_started |
 | G05 | Diagnóstico territorial, tabelas e mapas | not_started |
 | G06 | Arcabouço e cenários 2027–2030 | not_started |
@@ -34,4 +34,4 @@
 Sempre começar pela leitura do plano, deste README, dos registros de gate e do manifesto existente; consultar o commit da branch/main e o último handoff, conferir os artefatos remotos. Ao terminar, registrar data, gate, decisão, arquivos, URLs/IDs, SHA, testes, municípios concluídos, bloqueios e **próxima ação exata**, e verificar o readback dos arquivos de Drive/R2. Não trocar a fonte oficial, a escala de percentuais, o deflator ou texto aprovado silenciosamente. Manter ausência distinta de zero. A existência de arquivo no R2 não prova ingestão SQLite; um CI verde não prova deploy; um PDF gerado não prova revisão editorial.
 
 ## Registro inicial / próximo comando de trabalho
-**2026-11-09 — Planejamento:** arquivo detalhado criado em ramo documental, sem cálculo, extração ou publicação. **Próxima ação exata:** executar G00, cruzando a lista dos 37 códigos com os manifests DCA, TCESP, RREO, RGF e CAPAG; gerar `INVENTARIO_REUSO.md` e `MATRIZ_COBERTURA.csv`, com evidencia de readback; em seguida proceder a G01.
+**2026-11-09 — Execução Fase I:** matriz de 37 municípios e quatro sub-regiões; 481 pares DCA com QA; 774 observações DCA–Gate C 2025 conciliadas; R2 TCESP 111 pares e DCA 111 pares conciliados em centavos, três objetos QA persistidos no R2 com hashes. Run [42559912064](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42559912064). **Próxima ação:** iniciar G04, resolvendo deflator IPCA médio anual, população, cartografia analítica e a verificação seletiva das ausências RREO/RGF. Ver HANDOFF.

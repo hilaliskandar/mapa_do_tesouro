@@ -13,6 +13,8 @@ import hashlib
 import io
 import json
 import re
+import unicodedata
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -20,6 +22,8 @@ from urllib.request import Request, urlopen
 
 API = "https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=transferencias-constitucionais-para-municipios"
 RESOURCE_ID_DEFAULT = "63b5f470-135f-4431-9158-ca8b7a43f61b"
+IBGE_API = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/municipios"
+MAX_IBGE_BYTES = 2_000_000
 MAX_CSV_BYTES = 20_000_000
 MAX_CATALOG_BYTES = 2_000_000
 UA = "mapa-do-tesouro-FED00-STN-read-only/1.0"
@@ -94,12 +98,61 @@ def inspect_csv(text: str) -> dict:
             "sp_rows": uf_counts["SP"],
             "sp_distinct_municipality_names": len(sp_municipalities),
             "sp_municipality_names_sample": sorted(sp_municipalities)[:12],
+            "sp_municipality_names": sorted(sp_municipalities),
             "all_period_counts": dict(sorted(period_counts.items())),
             "sp_period_counts": dict(sorted(sp_period_counts.items())),
             "sp_transfer_types": dict(sorted(transfer_type_counts.items())),
             "missing_uf_rows": missing_uf,
             "ibge_join_status": "pending_official_ibge_name_uf_crosswalk",
             "warning": "municipality labels are not official IBGE codes; counts are names, not validated municipal entities"}
+
+def normalize_name(value: str) -> str:
+    value = unicodedata.normalize("NFKD", value.casefold())
+    value = "".join(c for c in value if not unicodedata.combining(c))
+    return " ".join(re.sub(r"[^a-z0-9]+", " ", value).split())
+
+def check_sp_ibge(stn_names: list[str], output: Path) -> dict:
+    raw = fetch(IBGE_API, MAX_IBGE_BYTES)
+    ibge = json.loads(raw.decode("utf-8-sig"))
+    if not isinstance(ibge, list):
+        raise RuntimeError("unexpected_ibge_response")
+    by_key: dict[str, list[dict]] = defaultdict(list)
+    for item in ibge:
+        if not isinstance(item, dict):
+            continue
+        code, name = str(item.get("id", "")), str(item.get("nome", ""))
+        if len(code) == 7 and code.startswith("35") and name:
+            by_key[normalize_name(name)].append({"codigo_ibge": code, "nome_ibge": name})
+    pairs = []
+    unmatched = []
+    ambiguous = []
+    for stn in sorted(set(stn_names)):
+        options = by_key.get(normalize_name(stn), [])
+        if len(options) == 1:
+            pairs.append({"municipio_stn": stn, "municipio_ibge": options[0]["nome_ibge"],
+                          "codigo_ibge": options[0]["codigo_ibge"], "match_method": "name_uf_sp_normalized_exact"})
+        elif not options:
+            unmatched.append(stn)
+        else:
+            ambiguous.append({"municipio_stn": stn, "candidates": options})
+    dst = output.parent / "STN_IBGE_SP_MATCH.csv"
+    if len(pairs) == 645 and len({p["codigo_ibge"] for p in pairs}) == 645 and len(ibge) == 645:
+        with dst.open("w", encoding="utf-8", newline="") as out:
+            writer = csv.DictWriter(out, fieldnames=("municipio_stn", "municipio_ibge", "codigo_ibge", "match_method"), delimiter=";")
+            writer.writeheader()
+            writer.writerows(pairs)
+        crosswalk_sha = hashlib.sha256(dst.read_bytes()).hexdigest()
+        status = "qa_pass"
+    else:
+        crosswalk_sha = None
+        status = "requires_review"
+    return {"status": status, "ibge_api_url": IBGE_API, "ibge_response_sha256": hashlib.sha256(raw).hexdigest(),
+            "ibge_municipalities": len(ibge), "stn_distinct_names": len(set(stn_names)),
+            "matched": len(pairs), "matched_unique_ibge_codes": len({p["codigo_ibge"] for p in pairs}),
+            "unmatched_names": unmatched, "ambiguous_matches": ambiguous,
+            "crosswalk_file": str(dst) if crosswalk_sha else None,
+            "crosswalk_sha256": crosswalk_sha,
+            "caution": "Exact normalized names are checked against current IBGE names; historical renamings require separate versioned rules"}
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -128,9 +181,10 @@ def main() -> None:
         blob = fetch(url, MAX_CSV_BYTES)
         content, encoding = decode_text(blob)
         stats = inspect_csv(content)
+        crosswalk = check_sp_ibge(stats["sp_municipality_names"], Path(args.output))
         report.update({"status": "qa_pass" if stats["row_width_mismatches"] == 0 and
                        stats["missing_uf_rows"] == 0 and
-                       stats["sp_rows"] > 0 else "partial",
+                       stats["sp_rows"] > 0 and crosswalk["status"] == "qa_pass" else "partial",
                        "catalog_sha256": hashlib.sha256(catalog_raw).hexdigest(),
                        "catalog_modified": catalog["result"].get("metadata_modified"),
                        "resource_name": resource.get("name"),
@@ -139,7 +193,7 @@ def main() -> None:
                        "resource_size_declared": resource.get("size"),
                        "download_sha256": hashlib.sha256(blob).hexdigest(),
                        "download_bytes": len(blob), "encoding": encoding,
-                       "csv_evidence": stats,
+                       "csv_evidence": stats, "ibge_crosswalk_qa": crosswalk,
                        "caution": "File header and content month must be checked before assigning fiscal competence"})
     except Exception as exc:
         report.update({"status": "failed_or_unavailable",

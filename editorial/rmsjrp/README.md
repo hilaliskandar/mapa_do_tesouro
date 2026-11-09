@@ -71,3 +71,10 @@ Sempre começar pela leitura do plano, deste README, dos registros de gate e do 
 - **Rio Preto:** continuam faltando cruzamentos entre contrato, obra, empenho, ação 1003/1004 e liquidação TCESP; não adotar valores de contratação como execução.
 - **Origem da documentação:** documentos oficiais e SEC; Crawl2AI apresentou falha técnica, adotada recuperação alternativa. PDFs de diário foram lidos textualmente, mas screenshot devolveu erro; não foi homologada inspeção visual das páginas.
 **Status:** G05-D `in_progress`, ampliação documental **não causal**. **Próxima ação exata:** extrair registros de obras municipais de Olímpia, localizar os empenhos/medições do contrato 08/2024 em Monte Aprazível e os contratos/ações 1003/1004 da Prefeitura Rio Preto; comparar chaves e períodos, anotando ausência como não verificada, nunca zero. Consultar relatório e HANDOFF antes de repetir pesquisa.
+
+
+## Verificação de consistência — 09/11/2026
+Foi realizada conferência de readback do PR #219 e das matrizes, dos endpoints oficiais de obras de Olímpia e da evidência de concessão/contrato. Ver [VERIFICACAO_CONSISTENCIA_G05D_2026_11_09.md](VERIFICACAO_CONSISTENCIA_G05D_2026_11_09.md).
+**Correção de gate:** a geometria EPSG:4674 já foi validada no G05-C (37/37); não permanece pendência cartográfica no G01. G01 mantém restrições demográficas da base DCA (população de 2025 repete 2024) e método IPCA médio anual.
+**Cautela reforçada:** os JSON municipais de Olímpia para 2024/2025 retornam dados, mas incluem empreendimentos de outros anos e atualizações posteriores ao ano indicado; não são séries de liquidação de cada exercício e não têm correspondência financeira demonstrada com TCESP. G05-D permanece `in_progress` e o vínculo contrato–empenho–medição–liquidação não foi demonstrado.
+**Próxima ação exata:** capturar versões e hashes dos JSONs, identificar processo/contrato por outras fontes, conferir empenhos e medições para os casos prioritários e atualizar matriz. Não recapturar DCA/TCESP.

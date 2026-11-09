@@ -1,0 +1,75 @@
+name: 'FED03 - preparar staging mensal STN FPM e ITR SP645 2013-2025'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed03-stn-stage-fpm-itr-2013-2025.yml"
+      - "pipeline/normalize/stage_stn_historical_fpm_itr_sp645.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Read four pinned QA-approved sources from existing R2
+        run: |
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/FPM_NACIONAL_a86cad83.csv \
+            --output build/fed03-stage/fpm.csv \
+            --expected-sha256 a86cad831115e02518198f4873967785a82eb3cbae651ef8505aa498c2cab088
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/ITR_NACIONAL_9c93138d.csv \
+            --output build/fed03-stage/itr.csv \
+            --expected-sha256 9c93138d30b3c384ccb05ea91edbb8e6f807f26ee2ce359e0a3e5b25f44ec
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/candidates/STN_202609_COD_MUN_IBGE_SP645.csv \
+            --output build/fed03-stage/crosswalk.csv \
+            --expected-sha256 c90c31678c1f2c1dfc269e85d158aaeade790908e277dcf83c6617cf3af59b7a
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/candidates/STN_1996_2026_COVERAGE_BR_SP.csv \
+            --output build/fed03-stage/coverage.csv \
+            --expected-sha256 678f68b588707c34c84630973629ef6722dd6e6538de56d79aaa95b644defeb3
+      - name: Normalize SP645 2013-2025 into reversible candidate, not fiscal indicators
+        run: |
+          python3 -m pipeline.normalize.stage_stn_historical_fpm_itr_sp645 \
+            --fpm build/fed03-stage/fpm.csv \
+            --itr build/fed03-stage/itr.csv \
+            --crosswalk build/fed03-stage/crosswalk.csv \
+            --coverage build/fed03-stage/coverage.csv \
+            --out build/fed03-stage/STN_FPM_ITR_SP645_2013_2025_CANDIDATE.csv \
+            --qa build/fed03-stage/QA_STN_FPM_ITR_SP645_2013_2025.json
+      - name: Persist stage as candidate to canonical R2 and verify SHA readback
+        run: |
+          SHA="$(python3 -c 'import json;print(json.load(open("build/fed03-stage/QA_STN_FPM_ITR_SP645_2013_2025.json"))["output_sha256"])')"
+          python3 deployment/upload_r2_source.py \
+            --source build/fed03-stage/STN_FPM_ITR_SP645_2013_2025_CANDIDATE.csv \
+            --object-key sp_645/federal/stn/historical/2013_2025/candidates/STN_FPM_ITR_SP645_2013_2025_CANDIDATE.csv \
+            --expected-sha256 "$SHA" \
+            --content-type text/csv
+          python3 deployment/upload_r2_source.py \
+            --source build/fed03-stage/QA_STN_FPM_ITR_SP645_2013_2025.json \
+            --object-key sp_645/federal/stn/historical/2013_2025/candidates/QA_STN_FPM_ITR_SP645_2013_2025_${{ github.run_id }}.json \
+            --content-type application/json
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/2013_2025/candidates/STN_FPM_ITR_SP645_2013_2025_CANDIDATE.csv \
+            --output build/fed03-stage/readback.csv \
+            --expected-sha256 "$SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed03-stn-2013-2025-stage-qa-${{ github.run_id }}
+          path: build/fed03-stage/QA_STN_FPM_ITR_SP645_2013_2025.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -51,8 +51,40 @@ def inspect(kind: str, data: object) -> dict:
         if not isinstance(data, dict) or data.get("success") is not True or not isinstance(data.get("result"), dict):
             raise ValueError("unexpected_ckan_response")
         rs = data["result"].get("resources") or []
-        return {"resources": len(rs), "formats": sorted({str(x.get("format", "")).upper() for x in rs if isinstance(x, dict)}),
-                "sample_resource_names": [str(x.get("name", "")) for x in rs[:5] if isinstance(x, dict)]}
+        import re
+        from collections import Counter
+        from urllib.parse import urlparse, unquote
+        counts = Counter(str(x.get("name", "")) for x in rs if isinstance(x, dict))
+        duplicates = [
+            {"name": name, "resource_ids": [str(x.get("id", "")) for x in rs if isinstance(x, dict) and x.get("name") == name],
+             "sizes": [str(x.get("size", "")) for x in rs if isinstance(x, dict) and x.get("name") == name]}
+            for name, n in sorted(counts.items()) if n > 1
+        ]
+        mismatches = []
+        for x in rs:
+            if not isinstance(x, dict):
+                continue
+            name, url = str(x.get("name", "")), str(x.get("url", ""))
+            a = re.search(r"(20[0-9]{4})", name)
+            b = re.search(r"(20[0-9]{4})", unquote(urlparse(url).path))
+            if a and b and a.group(1) != b.group(1):
+                mismatches.append({"resource_id": str(x.get("id", "")),
+                                   "name": name, "period_name": a.group(1),
+                                   "period_url": b.group(1)})
+        recent = [
+            {"resource_id": str(x.get("id", "")), "name": str(x.get("name", "")),
+             "url": str(x.get("url", "")), "declared_size_bytes": str(x.get("size", "")),
+             "last_modified": str(x.get("last_modified", ""))}
+            for x in rs if isinstance(x, dict) and
+            re.search(r"202[456][0-1][0-9]", str(x.get("name", "")))
+        ]
+        return {"resources": len(rs),
+                "formats": sorted({str(x.get("format", "")).upper() for x in rs if isinstance(x, dict)}),
+                "metadata_modified": str(data["result"].get("metadata_modified", "")),
+                "duplicate_resource_names": duplicates,
+                "name_url_period_mismatch": mismatches,
+                "recent_resource_metadata": recent,
+                "caution": "resource metadata is not proof of downloaded CSV schema or competence"}
     raise ValueError("unknown_kind")
 
 def main() -> int:

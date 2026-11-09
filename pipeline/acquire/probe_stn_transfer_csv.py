@@ -173,6 +173,7 @@ def check_sp_ibge(stn_names: list[str], output: Path) -> dict:
             ambiguous.append({"municipio_stn": stn, "candidates": options})
     dst = output.parent / ("STN_IBGE_SP_MATCH.csv" if source_method == "official_ibge_api" else "STN_IBGE_SP_MATCH_CANDIDATE.csv")
     if len(pairs) == 645 and len({p["codigo_ibge"] for p in pairs}) == 645 and len(ibge) == 645:
+        dst.parent.mkdir(parents=True, exist_ok=True)
         with dst.open("w", encoding="utf-8", newline="") as out:
             writer = csv.DictWriter(out, fieldnames=("municipio_stn", "municipio_referencia", "codigo_ibge", "match_method"), delimiter=";")
             writer.writeheader()

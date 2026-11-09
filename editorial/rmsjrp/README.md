@@ -167,3 +167,7 @@ Relatório canônico: [`RELATORIO_G06F3_VINCULOS_2026_11_09.md`](RELATORIO_G06F3
 ## Integração federal estadual compartilhada — decisão de 09/11/2026
 
 A investigação G06-F4 será aproveitada como teste sentinela de um **pipeline único estadual**, que utilizará o mesmo SQLite canônico e bucket R2 do projeto, sem bancos regionais independentes. Plano em [`governance/PLANO_INTEGRACAO_DADOS_FEDERAIS_SP645_2026_11_09.md`](../../governance/PLANO_INTEGRACAO_DADOS_FEDERAIS_SP645_2026_11_09.md); seção de continuidade também no README principal. **Não houve nova carga, mudança de schema nem publicação.** Preservar G06-F2/F3 no R2 e iniciar FED00 com inventário real de schema e fontes; a proposta 398 de SJR e os sete empenhos G06-F3 servirão para validação de vínculos, mantendo o G06-F4 `in_progress` e a causalidade não identificada.
+
+## FED00 estadual — resultado do inventário preliminar em 09/11/2026
+
+A frente compartilhada estadual produziu [relatório FED00](../../governance/RELATORIO_FED00_INVENTARIO_2026_11_09.md) e [matriz de fontes](../../governance/MATRIZ_FONTES_FEDERAIS_SP645.csv) de 11 conjuntos e identificou schema SQLite e coletores reutilizáveis. **Não houve reprocessamento das 9.338 propostas regionais nem extração SP645.** G06-F4 continua pendente de prova de instrumentos, pagamentos e recepção municipal. FED00 permanece `in_progress` até confirmar download, layout e manifestos; nenhum efeito causal atribuído à LC 200/2023.

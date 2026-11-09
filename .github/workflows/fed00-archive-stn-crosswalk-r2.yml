@@ -1,0 +1,69 @@
+name: FED00 - arquivar crosswalk STN SP645 candidato no R2 existente
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/fed00-archive-stn-crosswalk-r2.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  archive-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_R2_BUCKET: ${{ secrets.CLOUDFLARE_R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch evidence from completed FED00 Actions run
+        run: |
+          mkdir -p build/fed00-archive
+          gh run download 42657409755 --repo "$GITHUB_REPOSITORY" --name fed00-stn-ckan-one-csv-qa --dir build/fed00-archive
+      - name: Strict validation before any R2 write
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import csv,hashlib,json
+          d=Path('build/fed00-archive')
+          j=json.loads((d/'QA_FED00_STN_CSV.json').read_text(encoding='utf-8'))
+          q=j['ibge_crosswalk_qa']
+          source=d/'STN_IBGE_SP_MATCH_CANDIDATE.csv'
+          expected='20c80f6464de30f899430327db569fd7a52610c14bfc88678b769638572f036c'
+          actual=hashlib.sha256(source.read_bytes()).hexdigest()
+          assert actual==expected==q['crosswalk_sha256']
+          assert j['status']=='partial' and j['stage']=='ibge_requires_review'
+          assert q['status']=='candidate_secondary_reference'
+          assert q['matched']==645 and q['matched_unique_ibge_codes']==645
+          assert q['stn_distinct_names']==645 and q['ibge_municipalities']==645
+          assert q['unmatched_names']==[] and q['ambiguous_matches']==[]
+          assert j['csv_evidence']['sp_rows']==13889
+          assert j['csv_evidence']['sp_period_counts']=={'2026/09':13889}
+          assert j['download_sha256']=='097638cec48145ac0f509d526be49d40929d177ef3a2ae3b7f77c0acd990cf24'
+          rows=list(csv.DictReader(source.open(encoding='utf-8',newline=''),delimiter=';'))
+          assert len(rows)==645 and len({x['codigo_ibge'] for x in rows})==645
+          print('Candidate QA passed: 645 distinct IBGE codes; NOT official homologation; SHA=',actual)
+          PY
+      - name: Upload candidate and QA to existing private R2 bucket
+        run: |
+          python3 deployment/upload_r2_source.py --source build/fed00-archive/STN_IBGE_SP_MATCH_CANDIDATE.csv --object-key sp_645/federal/stn/2026_09/candidates/STN_IBGE_SP_MATCH_CANDIDATE_20c80f6464de.csv --content-type text/csv --expected-sha256 20c80f6464de30f899430327db569fd7a52610c14bfc88678b769638572f036c
+          python3 deployment/upload_r2_source.py --source build/fed00-archive/QA_FED00_STN_CSV.json --object-key sp_645/federal/stn/2026_09/candidates/QA_FED00_STN_CSV_42657409755.json --content-type application/json
+      - name: Verify readback SHA of candidate
+        run: |
+          python3 deployment/download_r2_source.py --object-key sp_645/federal/stn/2026_09/candidates/STN_IBGE_SP_MATCH_CANDIDATE_20c80f6464de.csv --output build/fed00-archive/readback.csv --expected-sha256 20c80f6464de30f899430327db569fd7a52610c14bfc88678b769638572f036c
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed00-archival-evidence
+          path: |
+            build/fed00-archive/QA_FED00_STN_CSV.json
+          retention-days: 30
+          if-no-files-found: warn

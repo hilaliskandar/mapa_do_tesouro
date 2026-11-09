@@ -203,3 +203,7 @@ O extrato estadual STN de setembro/2026 foi normalizado em **13.889 linhas com 6
 ### FED00-N — Regra de uso regional das transferências STN
 
 A auditoria estadual de setembro/2026 identificou **27 pares de rubrica/item** e [sinais distintos para Fundeb e ajustes](../../governance/RELATORIO_FED00_STN_CLASSIFICACAO_CONTABIL_2026_11_09.md). A fonte STN é **critério de caixa/SIAFI, unidade R$1**, e não prova execução de convênio nem receita declarada na DCA. Para RMSJRP, o extrato será filtrado pelos **37 códigos IBGE já homologados**, mantendo os três decêndios e o item de origem; nenhum total agregado será publicado sem homologação de deduções. Proposta de SQL complementar registrada, sem alteração da base.
+
+### FED02 — Naturezas de receita 2026 e recortes da RMSJRP
+
+O [relatório FED02](../../governance/RELATORIO_FED02_CONCILIACAO_STN_SICONFI_EMENTARIO_2026_11_09.md) recuperou o Ementário 2026, preservou o XLSX no R2 e auditou as **27 categorias combinadas** do STN. O mapeamento aos indicadores DCA é **candidato e ainda não aprovado**: em particular, `FPM` mensal é distinto da cota adicional e `FUNDEB/DEDU` não representa receita autônoma de mesmo sinal; evitar somas de classes sobrepostas. O G06-F4 da RMSJRP continua exigindo documentos próprios de pagamento e conciliação municipal.

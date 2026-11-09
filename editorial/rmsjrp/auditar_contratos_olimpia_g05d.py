@@ -53,10 +53,13 @@ counts_distinct={}
 for year in (2024,2025):
   rr=[r for r in RECORDS if r["ano_endpoint"]==year]
   counts_distinct[str(year)]=len(set((r["numero_contrato"],r["numero_processo"],r["contratada"]) for r in rr))
+keys_by_endpoint={str(year):set((r["ano_assinatura"],r["numero_contrato"],r["numero_processo"],r["contratada"]) for r in RECORDS if r["ano_endpoint"]==year) for year in (2024,2025)}
+overlap=keys_by_endpoint["2024"] & keys_by_endpoint["2025"]
 qa={"status":"pass" if len(SOURCES)==2 else ("partial" if SOURCES else "blocked"),
  "captured_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
  "sources":SOURCES,"failed_requests":ATTEMPTS,
  "records":len(RECORDS),"by_endpoint_year":dict(by_endpoint),
+ "composite_keys_in_both_endpoints":len(overlap),"distinct_composite_keys":len(keys_by_endpoint["2024"] | keys_by_endpoint["2025"]),
  "by_signature_year":dict(yearcounts),"distinct_contract_process_supplier_tuples":counts_distinct,
  "inventory_sha256":sha_inv,
  "limitations":["No object/description key in this register if not in source fields",
@@ -65,6 +68,6 @@ qa={"status":"pass" if len(SOURCES)==2 else ("partial" if SOURCES else "blocked"
     "No matching to DCA/TCESP program or action without expense reference"]}
 (ROOT/"QA_G05D_CONTRATOS_OLIMPIA.json").write_text(json.dumps(qa,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print(json.dumps({"status":qa["status"],"records":len(RECORDS),"by_endpoint_year":dict(by_endpoint),
- "by_signature_year":dict(yearcounts),"schema":{z["endpoint_year"]:z["fields"] for z in SOURCES},
+ "by_signature_year":dict(yearcounts),"overlap":len(overlap),"distinct":qa["distinct_composite_keys"],"schema":{z["endpoint_year"]:z["fields"] for z in SOURCES},
  "inventory_sha256":sha_inv},ensure_ascii=False))
 if not SOURCES:sys.exit(2)

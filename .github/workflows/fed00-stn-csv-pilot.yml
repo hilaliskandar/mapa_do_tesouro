@@ -37,11 +37,17 @@ jobs:
           assert x['resource_id']=='63b5f470-135f-4431-9158-ca8b7a43f61b'
           print('FED00 STN probe:',x['status'])
           print('Records in national resource:',x.get('csv_evidence',{}).get('row_count_national_not_sp'))
+          print('SP rows:',x.get('csv_evidence',{}).get('sp_rows'))
+          print('SP distinct names:',x.get('csv_evidence',{}).get('sp_distinct_municipality_names'))
+          print('SP matched IBGE:',x.get('ibge_crosswalk_qa',{}).get('matched'))
+          print('IBGE crosswalk status:',x.get('ibge_crosswalk_qa',{}).get('status'))
           PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: fed00-stn-ckan-one-csv-qa
-          path: build/fed00_stn_csv/QA_FED00_STN_CSV.json
+          path: |
+            build/fed00_stn_csv/QA_FED00_STN_CSV.json
+            build/fed00_stn_csv/STN_IBGE_SP_MATCH.csv
           retention-days: 30
           if-no-files-found: warn

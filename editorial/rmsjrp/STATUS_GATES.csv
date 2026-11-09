@@ -5,4 +5,4 @@ G02;qa_pass;2026-11-09;481 chaves unicas 774 valores 2025 paritarios e SHA DCA R
 G03;qa_pass;2026-11-09;111 TCESP liquidados e 111 confrontos DCA sem divergencias R2 readback;RREO RGF parciais e NA preservado
 G04;qa_pass;2026-11-09;481 municipais e 65 territoriais com serie real per capita e QA R2 readback;referencia IPCA set2026 e denominador pop2025 requer cautela
 G05;in_progress;2026-11-09;G05 ABC QA G05D contratos Olimpia 3 fichas e 8 aditivos selecionados examinados sem vinculo de liquidacoes;pendente empenho medicao liquidacao e interpretacao causal expressamente nao homologada
-G06;in_progress;2026-11-09;G06 F2 74 consultas 231 paginas 9338 propostas deduplicadas somente por modulo municipio 508 Parcerias 8830 Discricionarias QA R2;G06F3 vincular propostas a instrumentos celebrados empenho pagamento federal recebimento e liquidacao municipal sem causalidade presumida
+G06;in_progress;2026-11-09;G06F2 9338 propostas G06F3 37 registros parceria amostra 1 metadado assinatura e 7 empenhos QA R2;G06F4 confirmar instrumento assinado pagamento federal recebimento municipal liquidacao e nexo causal ainda nao demonstrado

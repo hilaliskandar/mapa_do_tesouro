@@ -1,0 +1,49 @@
+name: RMSJRP G06-F3 - amostra 37 parcerias e empenhos
+on:
+  push:
+    branches: [analysis/rmsjrp-g06f3-instrumentos-2026-11-09]
+    paths:
+      - editorial/rmsjrp/amostrar_37_parcerias_g06f3.py
+      - .github/workflows/rmsjrp-g06f3-amostra37.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  amostra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: .
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Trace verified F2 proposal IDs to partnership and SIAFI commitment registry
+        run: python3 editorial/rmsjrp/amostrar_37_parcerias_g06f3.py
+      - name: Persist 37-case pilot to private R2 with SHA256 readback
+        run: |
+          set -euo pipefail
+          PREFIX="rmsjrp/g06/2026_11_09/instrumentos_api_f3_amostra37"
+          for F in build/rmsjrp-g06f3-cohort/*.csv build/rmsjrp-g06f3-cohort/QA_G06F3_AMOSTRA37.json; do
+            test -f "$F" || continue
+            NAME="$(basename "$F")"
+            SHA="$(sha256sum "$F" | cut -d ' ' -f 1)"
+            MIME="text/csv"; case "$F" in *.json) MIME="application/json";; esac
+            python3 deployment/upload_r2_source.py --source "$F" --object-key "$PREFIX/$NAME" --expected-sha256 "$SHA" --content-type "$MIME"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$NAME" --output "build/rmsjrp-g06f3-cohort/readback-$NAME" --expected-sha256 "$SHA"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g06f3-amostra37
+          path: |
+            build/rmsjrp-g06f3-cohort/*.csv
+            build/rmsjrp-g06f3-cohort/QA_G06F3_AMOSTRA37.json
+          retention-days: 30
+          if-no-files-found: warn

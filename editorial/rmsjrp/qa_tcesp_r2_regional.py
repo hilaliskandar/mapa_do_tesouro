@@ -66,9 +66,34 @@ with (ROOT/"MATRIZ_TCESP_RMSJRP_2023_2025.csv").open("w",encoding="utf-8",newlin
     wr=csv.DictWriter(f,fieldnames=results[0].keys(),delimiter=";")
     wr.writeheader()
     wr.writerows(results)
+# Crosscheck against the immutable statewide DCA snapshot; never alter either source.
+dca_key="sp_645/dca/2013_2025/normalized.csv"
+dca_path=ROOT/"dca_sp645_canonical.csv"
+dca_sha=fetch(dca_key,dca_path)
+assert dca_sha=="67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5",dca_sha
+dca_values={}
+with dca_path.open(encoding="utf-8",newline="") as f:
+    for row in csv.DictReader(f):
+        if row["cod_ibge"] in ids and int(row["ano"]) in prefixes:
+            value=row["dca_investimentos_liquidada"]
+            dca_values[(int(row["ano"]),row["cod_ibge"])]=round(float(value)*100) if value else None
+comparisons=[]
+for row in results:
+    if row["estagio"]!="valor liquidado":continue
+    k=(row["ano"],row["cod_ibge"])
+    dca=dca_values.get(k)
+    tcesp=int(row["centavos"]) if row["observado"] else None
+    comparisons.append({"ano":row["ano"],"cod_ibge":row["cod_ibge"],"dca_centavos":dca if dca is not None else "",
+        "tcesp_centavos":tcesp if tcesp is not None else "",
+        "diferenca_centavos":tcesp-dca if dca is not None and tcesp is not None else ""})
+assert len(comparisons)==111
+with (ROOT/"CONFRONTO_TCESP_DCA_2023_2025.csv").open("w",encoding="utf-8",newline="") as f:
+    writer=csv.DictWriter(f,fieldnames=comparisons[0].keys(),delimiter=";")
+    writer.writeheader();writer.writerows(comparisons)
+nonzero=[x for x in comparisons if x["diferenca_centavos"] not in ("",0)]
 summary={"status":"pass","source":"TCESP_R2_approved","municipalities":37,"years":[2023,2024,2025],
  "pairs_expected":111,
  "liquidated_pairs_observed":sum(x["observado"] for x in results if x["estagio"]=="valor liquidado"),
- "rows":len(results),"manifest_evidence":manifest_evidence}
+ "rows":len(results),"manifest_evidence":manifest_evidence,"dca_r2_sha256":dca_sha,"dca_comparison_pairs":len(comparisons),"dca_discrepancies":len(nonzero),"dca_discrepancy_examples":nonzero[:20]}
 (ROOT/"RESULTADO_TCESP_R2.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-print(json.dumps({"status":summary["status"],"pairs_expected":111,"liquidated_pairs_observed":summary["liquidated_pairs_observed"],"years":summary["years"]}))
+print(json.dumps({"status":summary["status"],"pairs_expected":111,"liquidated_pairs_observed":summary["liquidated_pairs_observed"],"years":summary["years"],"dca_comparison_pairs":summary["dca_comparison_pairs"],"dca_discrepancies":summary["dca_discrepancies"]}))

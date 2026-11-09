@@ -78,3 +78,26 @@ A fonte `data/catalogs/sp645_web_cartography.yml` documenta GeoJSON com 645 muni
 - O cruzamento RREO/RGF está parcialmente disponível; não substituí-lo por DCA e não considerar ausência como zero.
 - Não atribuir causalidade à LC 200/2023 nem antecipar conclusões de cenários G06.
 - Próxima ação: recuperar acervos TCESP de programas e ações preservados no R2, filtrar municípios-chave, produzir tabela das maiores variações e examinar recodificações; em paralelo localizar e validar camada EPSG:4674 antes dos mapas. Registrar cada subgate no README principal e no HANDOFF, mantendo o estado `G05=in_progress` até terminar esses procedimentos.
+
+
+## 9. Complemento G05-B — programas e ações TCESP (execução concluída, análise substantiva pendente)
+A leitura direta dos agregados estaduais **por programa e por ação**, para 2023, 2024 e 2025, foi concluída no [GitHub Actions run 42562212589](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42562212589), status `success`, artifact `13649449797`. O processamento `editorial/rmsjrp/build_programas_acoes_g05b.py` filtra os 37 códigos IBGE, estágio **valor liquidado** e grupo 44, preserva o identificador do órgão, do programa e da ação, e concilia 111 pares município-ano com os totais auditados na Fase I. **4.884 registros de movimento** entre chaves programáticas e de ação foram produzidos para três intervalos (2023–2024, 2024–2025, 2023–2025), dos quais 480 compõem o extrato ranqueado por magnitude, com QA.
+
+**Maiores quedas nominais por chave órgão/programa em 2024–2025**, em reais correntes e **não** corrigidos pelo IPCA:
+
+| Município | Órgão e programa | Redução nominal |
+|---|---|---:|
+| São José do Rio Preto | Prefeitura, programa 9 — Planejamento e Infraestrutura Urbana | R$ 171,98 milhões |
+| Olímpia | Prefeitura, programa 45 — Concessão Água e Esgoto | R$ 46,67 milhões |
+| São José do Rio Preto | SEMAE, programa 31 — Investimentos | R$ 13,09 milhões |
+| Monte Aprazível | Prefeitura, programa 14 — Infraestrutura de Serviços Urbanos | R$ 9,56 milhões |
+| São José do Rio Preto | Prefeitura, programa 8 — Gestão do SUS | R$ 7,15 milhões |
+
+Os títulos são os **rótulos contábeis presentes no TCESP**, não interpretações de execução física, responsabilidade da União ou eventos conclusivos sobre obras. As cifras deste quadro são diferenças por chave contábil específica; podem divergir das quedas **reais totais municipais** e não se devem somar a elas. A ocorrência de uma chave em um ano e sua ausência em outro não comprova encerramento de projeto: requer verificação de recodificações, mudanças de órgão e eventuais deslocamentos de classificações.
+
+Os três arquivos G05-B foram persistidos e tiveram leitura de retorno SHA-256 no R2 privado em `rmsjrp/g05/2026_11_09/programas_acoes/`:
+- `G05B_TRANSICOES_PROGRAMA_ACAO_2023_2025.csv`: SHA `02bbf839bf849fc374ee3dcb64aad8dc9695c6972cfaec2cff89ee741ccd5d31`;
+- `G05B_MAIORES_MOVIMENTOS.csv`: SHA `d9b99861b86b211ee533e388617ec615fcec35087b9b0b8eeb624cf541860742`;
+- `QA_G05B.json`: SHA `f792619b7c8595bc62fa2d31803dc76f9a432de0c75fd999fb6bc5920fe5f2d6`.
+
+**Situação de continuidade:** G05-A e G05-B aritmética e contabilidade aprovados. Prossegue pendente **G05-C** cartografia com camada IBGE EPSG:4674 auditada; e **G05-D** revisão interpretativa dos principais programas/ações contra documentos primários (contratos, orçamento, projetos e cronograma), com especial atenção aos três municípios de maior contribuição negativa. Não declarar G05 inteiramente homologado até os mapas e a revisão de interpretações.

@@ -81,6 +81,15 @@ def inspect_csv(text: str) -> dict:
     sp_period_counts: Counter[str] = Counter()
     transfer_type_counts: Counter[str] = Counter()
     missing_uf = 0
+    # Profile only SP payment-looking fields, without adding values or interpreting
+    # source rubrics as comparable municipal revenues.
+    monetary_fields = ("1º Decêndio", "2º Decêndio", "3º Decêndio")
+    monetary_patterns: dict[str, Counter[str]] = {x: Counter() for x in monetary_fields}
+    monetary_examples: dict[str, dict[str, str]] = {x: {} for x in monetary_fields}
+    observed_transfer_items: Counter[str] = Counter()
+    blank_item_count = 0
+    suspicious_duplicate_grain_count = 0
+    observed_grain: set[tuple[str, ...]] = set()
     for row in reader:
         if not row:
             continue
@@ -101,6 +110,30 @@ def inspect_csv(text: str) -> dict:
             sp_municipalities.add(municipio)
             sp_period_counts[f"{ano}/{mes}"] += 1
             transfer_type_counts[obj.get("Transferência", "").strip()] += 1
+            item = obj.get("Item transferência", "").strip()
+            observed_transfer_items[item] += 1
+            if not item:
+                blank_item_count += 1
+            grain = (uf, municipio, ano, mes, obj.get("Transferência", "").strip(), item)
+            if grain in observed_grain:
+                suspicious_duplicate_grain_count += 1
+            else:
+                observed_grain.add(grain)
+            for field in monetary_fields:
+                cell = obj.get(field, "").strip()
+                if not cell:
+                    kind = "blank"
+                elif re.fullmatch(r"-?(?:[0-9]{1,3}(?:\\.[0-9]{3})+|[0-9]+)(?:,[0-9]{1,2})?", cell):
+                    kind = "decimal_br"
+                elif re.fullmatch(r"-?(?:[0-9]{1,3}(?:,[0-9]{3})+|[0-9]+)(?:\\.[0-9]{1,2})?", cell):
+                    kind = "decimal_en"
+                elif cell in ("-", "—", "N/A", "NA"):
+                    kind = "placeholder"
+                else:
+                    kind = "nonstandard"
+                monetary_patterns[field][kind] += 1
+                if kind not in monetary_examples[field]:
+                    monetary_examples[field][kind] = cell[:50]
     if not count:
         raise RuntimeError("csv_without_records")
     return {"delimiter": delimiter, "column_names": header,
@@ -114,6 +147,12 @@ def inspect_csv(text: str) -> dict:
             "all_period_counts": dict(sorted(period_counts.items())),
             "sp_period_counts": dict(sorted(sp_period_counts.items())),
             "sp_transfer_types": dict(sorted(transfer_type_counts.items())),
+            "sp_item_transferencia_counts": dict(sorted(observed_transfer_items.items())),
+            "sp_blank_item_transferencia_rows": blank_item_count,
+            "sp_repeated_potential_grain_rows": suspicious_duplicate_grain_count,
+            "sp_monetary_cell_patterns": {k: dict(sorted(v.items())) for k,v in monetary_patterns.items()},
+            "sp_monetary_cell_pattern_examples": monetary_examples,
+            "monetary_profile_is_not_a_total": True,
             "missing_uf_rows": missing_uf,
             "ibge_join_status": "pending_official_ibge_name_uf_crosswalk",
             "warning": "municipality labels are not official IBGE codes; counts are names, not validated municipal entities"}

@@ -93,3 +93,15 @@ As divergências de nomes têm [tabela de exceções versionada](STN_IBGE_EXCECO
 Para evitar perda do candidato em 30 dias, foi criado [workflow de arquivamento no bucket R2 existente](../.github/workflows/fed00-archive-stn-crosswalk-r2.yml), com gatilho `push`/manual, auditoria prévia rigorosa de 645 chaves e SHA, envio sob `sp_645/federal/stn/2026_09/candidates/` e leitura de retorno para verificação. A execução [42657908820](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42657908820) deve ser verificada antes de afirmar persistência em R2. **O prefixo `candidates` não é conjunto canônico de observações e o SQLite e o site permanecem inalterados.**
 
 **Próximo gate:** leitura do arquivamento R2 e confronto dos 645 IDs com a tabela `municipio` do SQLite canônico; depois validar as rubricas e valores decendiais do STN com referências FINBRA/DCA, controlando que outubro/2026 no nome significa lote publicado e que a competência efetiva é setembro/2026.
+
+## FED00-J — Persistência R2 auditada e verificada
+
+O [run GitHub Actions 42658172768](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42658172768), job `129302208584`, concluiu com **success** após corrigir as variáveis de ambiente conforme a prática existente: `CLOUDFLARE_ACCOUNT_ID` em `vars`, `CLOUDFLARE_API_TOKEN` em `secrets` e bucket fixo `financas-municipais-sp-canonico`. O [run anterior 42657908820](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42657908820) falhou por configuração (account e bucket ausentes), sem escrita no R2; manter esse histórico de diagnóstico.
+
+**Objetos comprovadamente persistidos no bucket privado existente** `financas-municipais-sp-canonico`, sob prefixo estadual `sp_645/federal/stn/2026_09/candidates/`:
+1. `STN_IBGE_SP_MATCH_CANDIDATE_20c80f6464de.csv`: **39.503 bytes**, SHA `20c80f6464de30f899430327db569fd7a52610c14bfc88678b769638572f036c`; 645 chaves IBGE distintas. **Readback por `deployment/download_r2_source.py` aprovado e SHA idêntico**.
+2. `QA_FED00_STN_CSV_42657409755.json`: **17.696 bytes**, SHA `8982291b764a8ff8d263ad6fad4da7303a0cd1697c45fc97dba05f974eedf009`; relatório preservado, mas **a leitura de retorno deste segundo objeto não foi efetuada nesse workflow**.
+
+Os dois objetos são **candidatos auditáveis, não observações fiscais homologadas**. Não houve escrita no SQLite, D1 ou API pública. O CSV nacional original do Tesouro (7.585.504 bytes) **não foi persistido no R2 nesta etapa**; seu SHA `097638cec48145ac0f509d526be49d40929d177ef3a2ae3b7f77c0acd990cf24` permanece documentado e recuperável da URL CKAN, sujeito à disponibilidade e retificações da origem.
+
+**Próxima ação exata:** confrontar os 645 pares candidatos com `municipio` do SQLite versionado e com o cadastro IBGE vigente, tratando as quatro diferenças históricas de denominação; analisar `1º`, `2º` e `3º Decêndio` por classificação, unidade e sinal; só então propor migration incremental de eventos federais sem alterar a semântica da DCA. `FED00=in_progress` quanto à homologação integral da fonte; o subcontrole de arquivamento de candidato no R2 está **qa_pass**.

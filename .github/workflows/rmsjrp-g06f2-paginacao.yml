@@ -1,0 +1,30 @@
+name: RMSJRP G06-F2 - verificar schema e paginacao
+on:
+  push:
+    branches: [analysis/rmsjrp-g06f2-paginacao-2026-11-09]
+    paths:
+      - editorial/rmsjrp/auditar_paginacao_g06f2.py
+      - .github/workflows/rmsjrp-g06f2-paginacao.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  paginacao:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit real OpenAPI pagination fields and sample status
+        run: python3 editorial/rmsjrp/auditar_paginacao_g06f2.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g06f2-pagination-schema
+          path: build/rmsjrp-g06f2/QA_G06F2_PAGINACAO.json
+          retention-days: 30
+          if-no-files-found: warn

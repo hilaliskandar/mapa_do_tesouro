@@ -1,0 +1,55 @@
+name: 'FED04 - auditar sobreposicao federal em FINBRA DCA SQLite 2025'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed04-audit-existing-finbra-overlap.yml"
+      - "pipeline/qa/audit_federal_overlap_existing_db.py"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install isolated importer dependencies
+        run: pip install openpyxl pyyaml
+      - name: Retrieve pinned official 2025 canonical R2 workbook
+        run: |
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/site_inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --output build/fed04-overlap/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --expected-sha256 ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566
+      - name: Reconstruct 2025 SP645 observations in temporary SQLite - NO production edits
+        run: |
+          python3 -m pipeline.ingest.import_multifuentes \
+            build/fed04-overlap/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --mapping data/mappings/base_multifuentes_sp645_2025.yml \
+            --database build/fed04-overlap/isolate_2025.sqlite
+      - name: Audit actual observation statuses and federal source concepts
+        run: |
+          python3 -m pipeline.qa.audit_federal_overlap_existing_db \
+            --database build/fed04-overlap/isolate_2025.sqlite \
+            --manifest governance/STATUS_FED_SP645.csv \
+            --matrix build/fed04-overlap/MATRIZ_SOBREPOSICAO_FEDERAL_FINBRA_2025.csv \
+            --qa build/fed04-overlap/QA_FED04_SOBREPOSICAO_2025.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed04-finbra-overlap-2025-${{ github.run_id }}
+          path: |
+            build/fed04-overlap/MATRIZ_SOBREPOSICAO_FEDERAL_FINBRA_2025.csv
+            build/fed04-overlap/QA_FED04_SOBREPOSICAO_2025.json
+          retention-days: 30
+          if-no-files-found: warn

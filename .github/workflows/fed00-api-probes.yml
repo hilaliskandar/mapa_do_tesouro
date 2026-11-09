@@ -21,7 +21,6 @@ jobs:
           python-version: '3.12'
       - name: Query bounded public API metadata and record source QA
         id: probes
-        continue-on-error: true
         run: |
           python3 pipeline/acquire/probe_federal_sources.py --output build/fed00_api_probes/QA_FED00_API_PROBES.json
       - name: Validate report schema and count successful sources

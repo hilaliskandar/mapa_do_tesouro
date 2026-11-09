@@ -41,3 +41,15 @@ A [página oficial da STN](https://www.gov.br/tesouronacional/pt-br/estados-e-mu
 6. O arquivamento dos dois originais históricos no **R2 canônico existente** foi acionado pelo workflow [42684426884](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42684426884), para as chaves `sp_645/federal/stn/historical/1996_2026/source/FPM_NACIONAL_a86cad83.csv` e `ITR_NACIONAL_9c93138d.csv`. **A persistência e a leitura de retorno SHA só podem ser declaradas quando seu log de QA estiver concluído.**
 
 **Próxima ação objetiva:** conferir workflow de arquivamento, inspecionar cadastro SIAFI→IBGE por código com 645 entradas, construir QA de cobertura histórica por ano e aprofundar demonstrativos BB e MSC de setembro, sem sobrescrever as séries DCA.
+
+## 4. Arquivamento histórico no R2 — execução e readback confirmados
+
+O [GitHub Actions 42684426884](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42684426884) concluiu com **success**, job `129387303200`, e produziu o [artefato de QA 13703772602](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42684426884/artifacts/13703772602). Foram comprovadas as seguintes operações no **bucket privado já existente** `financas-municipais-sp-canonico`:
+
+| Objeto R2 | Bytes | SHA-256 | Readback |
+|---|---:|---|---|
+| `sp_645/federal/stn/historical/1996_2026/source/FPM_NACIONAL_a86cad83.csv` | 30.493.612 | `a86cad831115e02518198f4873967785a82eb3cbae651ef8505aa498c2cab088` | **Aprovado** |
+| `sp_645/federal/stn/historical/1996_2026/source/ITR_NACIONAL_9c93138d.csv` | 20.858.658 | `9c93138d30b3c384ccb05ea91edbb8e6ee6f807f26ee2ce359e0a3e5b25f44ec` | **Aprovado** |
+| `sp_645/federal/stn/historical/1996_2026/source/QA_STN_HISTORICAL_42684426884.json` | 955 | `b57bcc905aa41d2fead87ee02f7944424f7b79f2437ca9542aa7b236a0f27f1a` | Enviado, **readback específico do JSON não testado** |
+
+O escopo dos arquivos é **nacional**, com colunas anuais 1996–2026, embora armazenados sob o prefixo estadual do projeto. **O QA de completude de cada ano, histórico de retificações e identificação `COD_MUN`→IBGE ainda não foi concluído.** A persistência não implica importação no SQLite, alteração de valores da DCA, atualização de indicadores ou publicação do site.

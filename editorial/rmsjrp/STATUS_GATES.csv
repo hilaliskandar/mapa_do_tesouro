@@ -5,4 +5,4 @@ G02;qa_pass;2026-11-09;481 chaves unicas 774 valores 2025 paritarios e SHA DCA R
 G03;qa_pass;2026-11-09;111 TCESP liquidados e 111 confrontos DCA sem divergencias R2 readback;RREO RGF parciais e NA preservado
 G04;qa_pass;2026-11-09;481 municipais e 65 territoriais com serie real per capita e QA R2 readback;referencia IPCA set2026 e denominador pop2025 requer cautela
 G05;in_progress;2026-11-09;G05 ABC QA G05D contratos Olimpia 3 fichas e 8 aditivos selecionados examinados sem vinculo de liquidacoes;pendente empenho medicao liquidacao e interpretacao causal expressamente nao homologada
-G06;in_progress;2026-11-09;G06 v1 simulacoes condicionais 444 municipio ano cenario e 60 territorios com QA e readback R2;hipoteses apenas teste de tensao revisao de sensibilidade e efeitos causais nao homologados
+G06;in_progress;2026-11-09;G06 A 444 municipio ano cenario e 60 territorios G06 B 48 sensibilidades 6 recortes polo demais QA R2 e Drive;calibracao de referencia 2024 versus media 2023 2024 carteira e efeitos causais nao homologados

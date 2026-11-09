@@ -86,13 +86,24 @@ def analyze(dbpath:Path,manifest:Path,csvout:Path,qaout:Path):
         with csvout.open("w",encoding="utf-8",newline="") as f:
             writer=csv.writer(f,delimiter=";")
             writer.writerow(FIELDS);writer.writerows(rows)
+        missing_fpm=[
+            {"codigo_ibge":row[0],"municipio":row[1],"status":row[2]}
+            for row in db.execute(
+                "SELECT o.codigo_ibge,m.nome,o.status FROM observacao o "
+                "JOIN municipio m USING(codigo_ibge) "
+                "WHERE o.ano=2025 AND o.variavel_id='dca_fpm_cota_mensal' "
+                "AND o.status<>'observado' ORDER BY o.codigo_ibge"
+            )
+        ]
         qa.update({"status":"qa_pass_2025_actual_db_only",
                    "mun_sp":645,"catalog_variable_count":len(vars),
                    "catalog_sources":sorted({x[0] for x in db.execute("SELECT fonte_id FROM fonte")}),
                    "actual_observation_count_2025":db.execute(
                        "SELECT COUNT(*) FROM observacao WHERE ano=2025").fetchone()[0],
                    "fpm":dict(counts["STN_FPM_REGULAR"]),
+                   "fpm_missing_municipalities":missing_fpm,
                    "icms":dict(counts["DCA_ICMS"]),"ipva":dict(counts["DCA_IPVA"]),
+                   "catalog_variable_ids":sorted(vars),
                    "concepts_checked":len(rows),"catalog_fpm_present":"dca_fpm_cota_mensal" in vars,
                    "catalog_itr_specific_present":any("itr" in k.lower() for k in vars),
                    "catalog_fundeb_specific_present":any("fundeb" in k.lower() for k in vars),
@@ -110,7 +121,7 @@ def analyze(dbpath:Path,manifest:Path,csvout:Path,qaout:Path):
         qa.update({"status":"failed_or_unavailable","error":f"{type(e).__name__}: {str(e)[:370]}"})
     qaout.parent.mkdir(parents=True,exist_ok=True)
     qaout.write_text(json.dumps(qa,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps({k:qa.get(k) for k in ("status","mun_sp","concepts_checked","actual_observation_count_2025","fpm","error")},ensure_ascii=False))
+    print(json.dumps({k:qa.get(k) for k in ("status","mun_sp","concepts_checked","actual_observation_count_2025","fpm","fpm_missing_municipalities","icms","ipva","catalog_itr_specific_present","catalog_fundeb_specific_present","error")},ensure_ascii=False))
     if qa["status"]!="qa_pass_2025_actual_db_only":raise SystemExit(2)
 
 def main():

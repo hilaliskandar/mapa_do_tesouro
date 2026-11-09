@@ -101,3 +101,24 @@ Os três arquivos G05-B foram persistidos e tiveram leitura de retorno SHA-256 n
 - `QA_G05B.json`: SHA `f792619b7c8595bc62fa2d31803dc76f9a432de0c75fd999fb6bc5920fe5f2d6`.
 
 **Situação de continuidade:** G05-A e G05-B aritmética e contabilidade aprovados. Prossegue pendente **G05-C** cartografia com camada IBGE EPSG:4674 auditada; e **G05-D** revisão interpretativa dos principais programas/ações contra documentos primários (contratos, orçamento, projetos e cronograma), com especial atenção aos três municípios de maior contribuição negativa. Não declarar G05 inteiramente homologado até os mapas e a revisão de interpretações.
+
+
+## 10. Complemento G05-C — cartografia oficial IBGE 2022, com QA aprovado
+A etapa cartográfica foi executada no [GitHub Actions run 42562450625](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42562450625), resultado `success`, artifact `13650151673`, usando exclusivamente a **Malha Municipal Digital de São Paulo de 2022** do IBGE, fonte [FTP IBGE SP_Municipios_2022.zip](https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2022/UFs/SP/SP_Municipios_2022.zip). Essa camada oficial supera a limitação do GeoJSON simplificado do painel estadual.
+
+A versão original foi preservada, SHA-256 `341664fdb610df9b92a8f01546e1a83474135cf686c4dcf6c2e0ea91552b0013`. O script `editorial/rmsjrp/gerar_mapas_g05c.py` inspecionou o CRS declarado na própria PRJ (`EPSG:4674`, SIRGAS 2000), as 645 feições estaduais, as **37 geometrias selecionadas por código IBGE**, a existência de códigos únicos e a validade geométrica de todas as 37. O mapa usa os vértices completos do arquivo de origem, **sem simplificação**. Houve verificação visual das duas pranchas; auditoria topológica completa de todas as fronteiras do estado não foi realizada, e não se afirmou tal nível de QA.
+
+Foram produzidos:
+1. `MAPA_G05_VAR_INVEST_2024_2025.png`: variação real percentual do investimento liquidado, 2024–2025, por município; variações positivas e negativas visualizadas no território.
+2. `MAPA_G05_INVESTIMENTO_PC_2025.png`: investimento liquidado real per capita em 2025, preços de setembro/2026; a população 2025 da DCA repete numericamente a de 2024, cautela obrigatória.
+3. `RMSJRP_37_IBGE2022_EPSG4674.geojson`: recorte com 37 feições e valores fiscal-geográficos para recomposição das pranchas.
+4. `QA_G05C_CARTOGRAFIA.json`: proveniência, integridade e hashes.
+
+Objetos preservados no R2 privado em `rmsjrp/g05/2026_11_09/cartografia/`, com leitura de retorno e validação SHA-256:
+- ZIP IBGE original: `341664fdb610df9b92a8f01546e1a83474135cf686c4dcf6c2e0ea91552b0013`;
+- GeoJSON regional: `d171e094f045461687900463925297bdb843a1db07e32a3cfa78940a063cc3a2`;
+- mapa de variação: `661bc3e2c23ba0e32f2de792e0e2105c0c316fe086a09571d1c6e03de913868c`;
+- mapa per capita: `e0f557ceb5a55aeeb33a906e658b8838794377b2c937aaf3ec4a954126760b53`;
+- QA: `1f0142a3a014bc9b946f4af9926e6bc4cbd428c04d1835d6ce31a7a29822b927`.
+
+**Estado após G05-C:** G05-A (decomposição territorial), G05-B (programas/ações) e G05-C (dois mapas) possuem QA técnico e persistência aprovados. **Ainda pendente G05-D**: leitura substantiva de programas/ações e possíveis recodificações, com confronto a documentos orçamentários, contratos e cronogramas para as conclusões individualizadas; também verificar coerência editorial dos mapas com textos quando forem inseridos. Não homologar inferências causais apenas pela qualidade das tabelas e mapas.

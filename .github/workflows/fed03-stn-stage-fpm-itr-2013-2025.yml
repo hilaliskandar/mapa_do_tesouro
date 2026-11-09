@@ -32,7 +32,7 @@ jobs:
           python3 deployment/download_r2_source.py \
             --object-key sp_645/federal/stn/historical/1996_2026/source/ITR_NACIONAL_9c93138d.csv \
             --output build/fed03-stage/itr.csv \
-            --expected-sha256 9c93138d30b3c384ccb05ea91edbb8e6f807f26ee2ce359e0a3e5b25f44ec
+            --expected-sha256 9c93138d30b3c384ccb05ea91edbb8e6ee6f807f26ee2ce359e0a3e5b25f44ec
           python3 deployment/download_r2_source.py \
             --object-key sp_645/federal/stn/historical/1996_2026/candidates/STN_202609_COD_MUN_IBGE_SP645.csv \
             --output build/fed03-stage/crosswalk.csv \

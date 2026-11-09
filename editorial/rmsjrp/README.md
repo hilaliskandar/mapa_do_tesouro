@@ -215,3 +215,7 @@ O [teste estadual 2026/09](../../governance/RELATORIO_FED02_FPM_FUNDEB_CONCILIAC
 ### FED02 — RREO entregue no 4º bimestre e 5º ainda não observado
 
 Consulta direta `SICONFI/extrato_entregas` de 09/11/2026: **São José do Rio Preto e Olímpia** apresentam RREO até o **4º bimestre de 2026**, status `HO`, e nenhum registro do 5º no extrato. **Não inferir atraso ou receita zero**, nem comparar STN setembro com RREO até agosto. As duas novas reexecuções de workflow falharam por erro interno GitHub **antes de jobs** e não foram homologadas. Provas e ressalvas no [relatório estadual FED02](../../governance/RELATORIO_FED02_FPM_FUNDEB_CONCILIACAO_2026_11_09.md).
+
+### FED02 — Exceção de Guarulhos e ausência de 13 linhas ITR documentadas
+
+A leitura read-only do R2 estadual identificou **Guarulhos** como único desvio de R$0,0525 na hipótese `DEDU=(FPM+ITR)/4` para 09/2026; os **13 municípios sem linha ITR** e seus resíduos foram documentados. O controle é **empírico**, não equivalência de receita municipal nem execução G06-F4. [Relatório FED02](../../governance/RELATORIO_FED02_FPM_FUNDEB_CONCILIACAO_2026_11_09.md).

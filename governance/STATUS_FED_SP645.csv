@@ -1,5 +1,5 @@
 gate;estado;data_referencia;evidencia;pendencia
-FED00;in_progress;2026-11-09;Inventario 14 fontes 146 recursos CKAN; CSV STN validado com 126807 linhas nacionais 13889 SP e competencia setembro 2026;Homologar crosswalk STN-IBGE e conciliar valores decendiais
+FED00;in_progress;2026-11-09;Inventario 14 fontes 146 recursos CKAN; CSV STN validado com 126807 linhas nacionais 13889 SP e competencia setembro 2026;Crosswalk 645 chaves candidato R2 com SHA readback aprovado; homologar contra SQLite IBGE e conciliar valores decendiais
 FED01;not_started;2026-11-09;Schema SQLite 001 004 006 inspecionados;Projetar e auditar migrations federais incrementais
 FED02;not_started;2026-11-09;APIs 4 de 5 qa_pass com Selic anomalia temporal; STN um CSV nacional qa_pass e SHA certificado;Revalidar Selic e ampliar testes das fontes Transferegov
 FED03;not_started;2026-11-09;Bucket R2 canonico identificado pela documentacao;Carga historica estadual e readback SHA

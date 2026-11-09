@@ -1,5 +1,5 @@
 # RMSJRP — continuidade operacional do estudo fiscal
-**Atualizado:** 2026-11-09. **Estado:** Fase I e G04 concluídos quanto aos dados centrais. G05-A/B/C executados e auditados (diagnóstico, programas/ações e cartografia IBGE 2022); G05-D ainda pendente de verificação substantiva de projetos. Nenhum texto municipal ou cenário homologado.
+**Atualizado:** 2026-11-09. **Estado:** Fase I e G04 concluídos quanto aos dados centrais. G05-A/B/C executados e auditados (diagnóstico, programas/ações e cartografia IBGE 2022); G05-D com primeira verificação documental executada e dez chaves contábeis auditadas; vinculação projeto–contrato ainda parcialmente pendente. Nenhum texto municipal ou cenário homologado.
 
 ## Ponto de partida
 - Plano integral e sequência de gates: [PLANO_EXECUCAO_2026_11_09.md](PLANO_EXECUCAO_2026_11_09.md).
@@ -22,7 +22,7 @@
 | G02 | Filtro e QA DCA 2013–2025 | qa_pass |
 | G03 | TCESP 2023–2025, RREO/RGF/CAPAG | qa_pass — cobertura legal parcial documentada |
 | G04 | Indicadores, cálculos e reprodutibilidade | qa_pass — séries DCA; cautelas IPCA/população |
-| G05 | Diagnóstico territorial, tabelas e mapas | in_progress — A/B/C QA e R2 aprovados; D documental pendente |
+| G05 | Diagnóstico territorial, tabelas e mapas | in_progress — A/B/C aprovados; G05-D documentado parcialmente, 10/10 chaves QA, sem identificação causal |
 | G06 | Arcabouço e cenários 2027–2030 | not_started |
 | G07 | Cinco fichas-piloto e 32 fichas restantes | not_started |
 | G08 | Sínteses territoriais e revisão substantiva | not_started |
@@ -53,3 +53,12 @@ Sempre começar pela leitura do plano, deste README, dos registros de gate e do 
 - **G05-C**: IBGE malha municipal SP 2022, SIRGAS2000 EPSG:4674, 645 feições no estado, 37 feições selecionadas e válidas, sem simplificação geométrica. Dois mapas de investimentos (variação 2024–2025 e per capita 2025) + GeoJSON regional com readback R2. [run 42562450625](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42562450625), R2 `rmsjrp/g05/2026_11_09/cartografia/`. Origem oficial e SHA no relatório.
 - **G05-D pendente:** confrontar os movimentos principais a documentação de execução física, contratos, reclassificações e programas; somente depois incorporar interpretações individualizadas e homologar texto. Os mapas devem entrar nos pontos analíticos adequados, não em um atlas separado.
 - **Próxima ação exata:** usar `G05B_MAIORES_MOVIMENTOS.csv` e `G05B_TRANSICOES_PROGRAMA_ACAO_2023_2025.csv` já persistidos, levantar evidências para os programas SJR Prefeitura 9/SEMAE 31, Olímpia 45, Monte Aprazível 14, comparar mudanças de código/órgão e documentar o que permanece hipótese. Depois fechar G05-D com QA editorial e retomar G06.
+
+
+## G05-D — Diligência documental e crítica dos mecanismos — 09/11/2026
+**Status:** primeira rodada realizada; `partial_evidence`, ainda não homologação final de projetos. [Relatório de confronto documental](RELATORIO_G05D_DOCUMENTAL_2026_11_09.md) e [matriz de dez chaves](MATRIZ_EVIDENCIAS_G05D_2026_11_09.csv). [QA GitHub Actions 42563455585](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42563455585): `success`, dez de dez valores TCESP por chave/ano coincidentes em centavos; matriz SHA `04fdb0b0867e1e9386dcf50108c1cce1d1b3a8649fae2684b8693488b4ea6036`.
+- **São José do Rio Preto:** Prefeitura programa 9 −R$ 171,98 milhões nominais (2024–2025); ações 1003 e 1004 com quedas de R$ 72,42 e R$ 60,60 milhões; correspondência temática no PPA, porém não nos contratos individuais. SeMAE programa 31 −R$ 13,09 milhões; o parecer ARES-PCJ 34/2025 confirma investimentos físicos executados/em andamento, sem vinculação exata a cada liquidação TCESP.
+- **Olímpia:** programa 45 (Concessão Água e Esgoto) R$ 46,67 milhões liquidados em 2024 e sem lançamento na mesma chave em 2025. Contrato de concessão Sabesp nº 398/2023 confirmado; possível efeito extraordinário/codificação requer identificação de destino e contratos. Programa 31 aumentou R$ 7,72 milhões; isso não prova recodificação do programa 45.
+- **Monte Aprazível:** ação 1010 Pavimentação/Recapeamento −R$ 7,23 milhões nominais. Leis municipais 3.978 e 3.997/2024 confirmam créditos autorizados estaduais/federais para a mesma rubrica, mas não equivalem a liquidações nem explicam toda a queda.
+- **Restrições:** dados do TCESP por programa são nominais; totais regionais reais usam IPCA médio anual. Distinguir ausência de lançamento e zero. Não atribuir quedas à LC 200/2023. Crawl2AI falhou tecnicamente; leitura foi efetuada por busca/recuperação web alternativa. As peças PDF foram examinadas textualmente, sem prova visual por screenshot.
+**Próxima ação exata:** complementar G05-D com contratos/empenhos/medições dos programas prioritários, sobretudo Prefeitura SJR programa 9, SeMAE 31/1029, Olímpia 45/31 e Monte Aprazível 14/1010; vincular evidência de execução física a identificadores fiscais ou manter a conclusão limitada. Atualizar matriz, relatório e HANDOFF após cada lote, sem apagar a versão corrente. O G06 prospectivo não herda causalidade não demonstrada.

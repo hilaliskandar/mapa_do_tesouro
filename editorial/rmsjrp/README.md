@@ -175,3 +175,7 @@ A frente compartilhada estadual produziu [relatório FED00](../../governance/REL
 ### FED00-B — APIs federais e BCB integradas ao inventário estadual
 
 O FED00 estadual ampliou a matriz para [14 conjuntos](../../governance/MATRIZ_FONTES_FEDERAIS_SP645.csv), incorporando API SGS do Banco Central e ESTBAN com `CODMUN_IBGE`. Foram identificados ZIPs nacionais Transferegov específicos de **desembolsos** e **pagamentos**, úteis para investigar os sete registros de empenho e a proposta 398 de SJR, mas **nenhum desses arquivos foi baixado ou conciliado ainda**. Script de sondagem read-only em [`pipeline/acquire/probe_federal_sources.py`](../../pipeline/acquire/probe_federal_sources.py). G06-F4 e FED00 seguem abertos, sem inferência causal ou alteração da base regional.
+
+### FED00-C — Inventário operacional de fontes federais, sem sobrepor G06-F4
+
+O acervo estadual de metadados STN (146 recursos) foi preservado em [governance/STN_CKAN_RECURSOS_TRANSFERENCIAS_SP645_2026_11_09.csv](../../governance/STN_CKAN_RECURSOS_TRANSFERENCIAS_SP645_2026_11_09.csv); scripts e workflows read-only de API/CSV foram publicados. **Ainda não houve leitura homologada do CSV nem vínculo pago da proposta 398/SJR e dos sete empenhos G06-F3.** FED00 continua `in_progress` conforme [tracker](../../governance/STATUS_FED_SP645.csv); G06-F4 também permanece aberto. A próxima diligência é inspecionar os artefatos dos workflows e verificar as chaves de município/tempo no conteúdo real, preservando cautelas de causalidade e sem alterações de dados de produção.

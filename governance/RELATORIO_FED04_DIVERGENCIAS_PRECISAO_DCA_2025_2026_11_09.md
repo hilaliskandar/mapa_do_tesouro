@@ -42,3 +42,7 @@ A forte variação de presença da conta de complementação é **sinal para aud
 5. Manter `STATUS_FED_SP645.csv` como `in_progress`, sem migration, inserção em `observacao` nem deploy público.
 
 **Arquivo de auditoria gerado na sessão:** `FED04_DIVERGENCIAS_DCA_2025_AUDITORIA.csv`, 128 linhas, SHA-256 `6d9fb82db67414af04cb133afefc78abe39af6dcc7897b7e24845aa7e63e63a4`. A permanência desse CSV no GitHub/Drive ainda não foi comprovada; relatório e números devem permanecer rastreáveis às duas fontes originais.
+
+## 6. Teste adicional de reprodução exata do arredondamento
+
+Uma segunda bateria confrontou, para cada uma das 128 chaves divergentes, o valor do CSV anual com o valor do XLSX após arredondamento decimal do valor anual para **10 algarismos significativos, modo `ROUND_HALF_UP`**. Resultado: **128/128 igualdades exatas**. Controles alternativos: 10 algarismos significativos com `ROUND_HALF_EVEN` explicam 116/128, e truncamento `ROUND_DOWN`, 63/128. A regra `ROUND_HALF_UP` explica inclusive a diferença de R$0,27 do Fundeb recebido de São Paulo. A evidência permite **classificar as 128 diferenças como integralmente reproduzíveis por uma mesma transformação numérica**, mas a confirmação de que essa operação foi aplicada durante a geração/exportação original do XLSX depende dos metadados e do script gerador, não analisados nesta etapa. Não se pressupõe retificação de execução fiscal, e os valores precisos do CSV permanecem prioritários.

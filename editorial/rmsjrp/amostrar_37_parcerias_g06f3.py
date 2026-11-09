@@ -18,7 +18,7 @@ def download(name):
     return target
 qa=json.loads(download("QA_G06F2.json").read_text(encoding="utf8"))
 assert qa["status"]=="pass" and qa["qa_pass"]==74 and qa["registros_propostas_canonicas_com_geo"]==9338
-expected=next(a["sha256"] for a in qa["artifacts"] if a["name"]=="G06F2_PROPOSTAS_CANONICAS.csv")
+expected=next(a["sha256"] for a in qa["artifacts"] if a["file"]=="G06F2_PROPOSTAS_CANONICAS.csv")
 source=download("G06F2_PROPOSTAS_CANONICAS.csv")
 assert hashlib.sha256(source.read_bytes()).hexdigest()==expected
 with source.open(encoding="utf8",newline="") as f: allrows=list(csv.DictReader(f,delimiter=";"))

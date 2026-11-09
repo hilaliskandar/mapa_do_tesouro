@@ -53,3 +53,11 @@ Após incorporar o PR desta Fase I, começar G04 com exame interno das ausência
 - **São José do Rio Preto:** não foi identificada correspondência com contratos individuais das ações 1003/1004 ou SeMAE 1029. Não inferir causalidade ou confundir empenhos/contratos com liquidações.
 - **Método:** descoberta web e documentos oficiais priorizados; Crawl2AI falhou tecnicamente; screenshots de PDFs de diários também falharam. Excertos textuais e URLs registrados; não declarar renderização validada.
 - **Próxima ação exata:** recuperar JSON 2024/2025 de obras Olímpia, identificar códigos de contrato e comparar com TCESP; buscar empenhos e medições de Monte Aprazível 08/2024 e concorrência 01/2024; localizar pagamentos/liquidações por código de ação da Prefeitura Rio Preto 1003/1004 e SeMAE 1029. Atualizar relatório, matriz e README, conservando estado G05-D `in_progress` até evidência adicional.
+
+
+## Retomada após verificação documental — 09/11/2026
+- PR #219 verificado como incorporado à main (commit `fb97fca60a0b4702005ffe4a25720a98dfb48c21`); arquivos README, relatório, matriz de sete fontes e status recuperados.
+- Ver [`VERIFICACAO_CONSISTENCIA_G05D_2026_11_09.md`](VERIFICACAO_CONSISTENCIA_G05D_2026_11_09.md). URLs oficiais de obras Olímpia `.../obras/2024` e `.../obras/2025` respondem JSON, mas são listagens com projetos iniciados em outros anos e atualizados retrospectivamente; ausência de identificadores de empenho/ação TCESP. Usar apenas como fonte auxiliar de identificação de obras, não somar como despesa anual.
+- Contrato Olímpia 398/2023 e aditivo Monte Aprazível 08/2024 conferidos em páginas oficiais; não se demonstrou pareamento com liquidações.
+- Controle G01 corrigido: malha EPSG:4674 está auditada no G05-C; permanecem ressalvas sobre população 2025 e deflator IPCA.
+- **Estado fiel:** G05-A/B/C QA aprovado, G05-D `in_progress`. Ação: capturar dados oficiais de obras com hash, cruzar por contrato/empenho/medição e nunca converter valores de contrato em despesas liquidadas. Atualizar README e matriz ao concluir cada lote.

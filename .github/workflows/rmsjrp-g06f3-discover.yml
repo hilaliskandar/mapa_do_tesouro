@@ -1,0 +1,32 @@
+name: RMSJRP G06-F3 - verificar rotas de instrumentos e execucao
+on:
+  push:
+    branches: [analysis/rmsjrp-g06f3-instrumentos-2026-11-09]
+    paths:
+      - editorial/rmsjrp/discover_instrumentos_g06f3.py
+      - .github/workflows/rmsjrp-g06f3-discover.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Discover official schema/route contract for financial instruments
+        run: python3 editorial/rmsjrp/discover_instrumentos_g06f3.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g06f3-schema
+          path: |
+            build/rmsjrp-g06f3-discovery/G06F3_ROTAS_INSTRUMENTOS_FINANCEIRO.csv
+            build/rmsjrp-g06f3-discovery/QA_G06F3_ROUTES.json
+          retention-days: 30
+          if-no-files-found: warn

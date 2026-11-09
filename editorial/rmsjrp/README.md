@@ -207,3 +207,7 @@ A auditoria estadual de setembro/2026 identificou **27 pares de rubrica/item** e
 ### FED02 — Naturezas de receita 2026 e recortes da RMSJRP
 
 O [relatório FED02](../../governance/RELATORIO_FED02_CONCILIACAO_STN_SICONFI_EMENTARIO_2026_11_09.md) recuperou o Ementário 2026, preservou o XLSX no R2 e auditou as **27 categorias combinadas** do STN. O mapeamento aos indicadores DCA é **candidato e ainda não aprovado**: em particular, `FPM` mensal é distinto da cota adicional e `FUNDEB/DEDU` não representa receita autônoma de mesmo sinal; evitar somas de classes sobrepostas. O G06-F4 da RMSJRP continua exigindo documentos próprios de pagamento e conciliação municipal.
+
+### FED02 — FPM, ITR e Fundeb: resultado estadual aplicável à RMSJRP
+
+O [teste estadual 2026/09](../../governance/RELATORIO_FED02_FPM_FUNDEB_CONCILIACAO_2026_11_09.md) obteve 1.895/1.896 comparações município-decêndio em até R$0,05 para `FUNDEB/DEDU ≈ (FPM+ITR)/4`, mas a relação é **empírica, não código contábil homologado**. O [piloto da API RREO 2026](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42673859324) verificou São José do Rio Preto e Olímpia, além de Ribeirão Preto, com Anexos 01/03 do 4º bimestre disponíveis, 5º ainda sem registros nas consultas. Não comparar diretamente RREO até agosto a STN setembro; nenhuma conclusão de pagamentos G06-F4, receita municipal comprovada ou causalidade da LC 200/2023.

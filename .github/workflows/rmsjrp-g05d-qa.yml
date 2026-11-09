@@ -1,0 +1,36 @@
+name: RMSJRP G05D - validar matriz documental contra TCESP
+on:
+  push:
+    branches: [audit/rmsjrp-g05d-documentacao-2026-11-09]
+    paths:
+      - editorial/rmsjrp/qa_g05d_evidencias.py
+      - editorial/rmsjrp/MATRIZ_EVIDENCIAS_G05D_2026_11_09.csv
+      - .github/workflows/rmsjrp-g05d-qa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: .
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Crosscheck all 10 G05-D fiscal claims against R2 source
+        run: python3 editorial/rmsjrp/qa_g05d_evidencias.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g05d-qa-documental
+          path: build/rmsjrp-g05d/QA_G05D_CONTABIL.json
+          retention-days: 30
+          if-no-files-found: warn

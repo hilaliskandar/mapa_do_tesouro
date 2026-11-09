@@ -1,0 +1,32 @@
+name: RMSJRP G06F - piloto municipal em APIs oficiais
+on:
+  push:
+    branches: [analysis/rmsjrp-g06f-instrumentos-2026-11-09]
+    paths:
+      - editorial/rmsjrp/pilotar_transferegov_g06f.py
+      - .github/workflows/rmsjrp-g06f-pilot.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  piloto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Query five municipalities in four official modules
+        run: python3 editorial/rmsjrp/pilotar_transferegov_g06f.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g06f-piloto-oficial
+          path: |
+            build/rmsjrp-g06f-piloto/G06F_PILOTO_ENDPOINTS.csv
+            build/rmsjrp-g06f-piloto/QA_G06F_PILOTO.json
+          retention-days: 30
+          if-no-files-found: warn

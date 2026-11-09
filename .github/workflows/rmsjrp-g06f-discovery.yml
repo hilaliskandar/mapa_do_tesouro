@@ -1,0 +1,32 @@
+name: RMSJRP G06F - descoberta API Transferegov
+on:
+  push:
+    branches: [analysis/rmsjrp-g06f-instrumentos-2026-11-09]
+    paths:
+      - editorial/rmsjrp/discover_transferegov_g06f.py
+      - .github/workflows/rmsjrp-g06f-discovery.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  descobrir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect official API schemas; do not fabricate municipality data
+        run: python3 editorial/rmsjrp/discover_transferegov_g06f.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g06f-api-discovery
+          path: |
+            build/rmsjrp-g06f/ROTAS_OFICIAIS_G06F.csv
+            build/rmsjrp-g06f/QA_G06F_API_DESCOBERTA.json
+          retention-days: 30
+          if-no-files-found: warn

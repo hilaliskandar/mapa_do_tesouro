@@ -1,0 +1,61 @@
+name: RMSJRP G06F - persistir evidencias de APIs oficiais R2
+on:
+  push:
+    branches: [analysis/rmsjrp-g06f-instrumentos-2026-11-09]
+    paths:
+      - .github/workflows/rmsjrp-g06f-persist.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  persistir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONPATH: .
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover completed immutable discovery, pilot and 37-municipality artifacts
+        run: |
+          set -euo pipefail
+          gh run download 42629593944 --repo hilaliskandar/mapa_do_tesouro --name rmsjrp-g06f-api-discovery --dir build/rmsjrp-g06f-evidence/descoberta
+          gh run download 42630135250 --repo hilaliskandar/mapa_do_tesouro --name rmsjrp-g06f-piloto-oficial --dir build/rmsjrp-g06f-evidence/piloto
+          gh run download 42630345679 --repo hilaliskandar/mapa_do_tesouro --name rmsjrp-g06f-cobertura-37 --dir build/rmsjrp-g06f-evidence/cobertura_37
+          test -s build/rmsjrp-g06f-evidence/descoberta/QA_G06F_API_DESCOBERTA.json
+          test -s build/rmsjrp-g06f-evidence/piloto/QA_G06F_PILOTO.json
+          test -s build/rmsjrp-g06f-evidence/cobertura_37/QA_G06F_COBERTURA.json
+      - name: Validate recorded coverage and persist on R2 with readback
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          base=Path("build/rmsjrp-g06f-evidence")
+          d=json.loads((base/"descoberta/QA_G06F_API_DESCOBERTA.json").read_text())
+          p=json.loads((base/"piloto/QA_G06F_PILOTO.json").read_text())
+          c=json.loads((base/"cobertura_37/QA_G06F_COBERTURA.json").read_text())
+          assert d["status"]=="pass" and d["n_routes"]==76
+          assert p["status"]=="pass" and p["consultas"]==20 and p["consultas_http_200"]==15
+          assert c["status"]=="pass" and c["municipios"]==37 and c["consultas"]==74 and c["respostas_ok"]==74
+          print("G06-F three QA bundles validated: 76 routes, 20 pilot calls, 74 city calls")
+          PY
+          PREFIX="rmsjrp/g06/2026_11_09/instrumentos_api_v1"
+          find build/rmsjrp-g06f-evidence -type f \( -name '*.json' -o -name '*.csv' \) | sort | while IFS= read -r SRC; do
+            PART="${SRC#build/rmsjrp-g06f-evidence/}"
+            SHA="$(sha256sum "$SRC" | cut -d ' ' -f 1)"
+            MIME="text/csv"; case "$SRC" in *.json) MIME="application/json";; esac
+            python3 deployment/upload_r2_source.py --source "$SRC" --object-key "$PREFIX/$PART" --expected-sha256 "$SHA" --content-type "$MIME"
+            mkdir -p "build/rmsjrp-g06f-readback/$(dirname "$PART")"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$PART" --expected-sha256 "$SHA" --output "build/rmsjrp-g06f-readback/$PART"
+            echo "CHECKED $PART sha256=$SHA"
+          done

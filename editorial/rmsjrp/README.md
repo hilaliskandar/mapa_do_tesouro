@@ -211,3 +211,7 @@ O [relatório FED02](../../governance/RELATORIO_FED02_CONCILIACAO_STN_SICONFI_EM
 ### FED02 — FPM, ITR e Fundeb: resultado estadual aplicável à RMSJRP
 
 O [teste estadual 2026/09](../../governance/RELATORIO_FED02_FPM_FUNDEB_CONCILIACAO_2026_11_09.md) obteve 1.895/1.896 comparações município-decêndio em até R$0,05 para `FUNDEB/DEDU ≈ (FPM+ITR)/4`, mas a relação é **empírica, não código contábil homologado**. O [piloto da API RREO 2026](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/42673859324) verificou São José do Rio Preto e Olímpia, além de Ribeirão Preto, com Anexos 01/03 do 4º bimestre disponíveis, 5º ainda sem registros nas consultas. Não comparar diretamente RREO até agosto a STN setembro; nenhuma conclusão de pagamentos G06-F4, receita municipal comprovada ou causalidade da LC 200/2023.
+
+### FED02 — RREO entregue no 4º bimestre e 5º ainda não observado
+
+Consulta direta `SICONFI/extrato_entregas` de 09/11/2026: **São José do Rio Preto e Olímpia** apresentam RREO até o **4º bimestre de 2026**, status `HO`, e nenhum registro do 5º no extrato. **Não inferir atraso ou receita zero**, nem comparar STN setembro com RREO até agosto. As duas novas reexecuções de workflow falharam por erro interno GitHub **antes de jobs** e não foram homologadas. Provas e ressalvas no [relatório estadual FED02](../../governance/RELATORIO_FED02_FPM_FUNDEB_CONCILIACAO_2026_11_09.md).

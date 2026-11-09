@@ -1,0 +1,32 @@
+name: RMSJRP G06F - consultar 37 municipios API federal
+on:
+  push:
+    branches: [analysis/rmsjrp-g06f-instrumentos-2026-11-09]
+    paths:
+      - editorial/rmsjrp/consultar_37_transferegov_g06f.py
+      - .github/workflows/rmsjrp-g06f-37.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  consultas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Query 37 municipalities in parcerias and discricionarias
+        run: python3 editorial/rmsjrp/consultar_37_transferegov_g06f.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g06f-cobertura-37
+          path: |
+            build/rmsjrp-g06f-37/G06F_*.csv
+            build/rmsjrp-g06f-37/QA_G06F_COBERTURA.json
+          retention-days: 30
+          if-no-files-found: warn

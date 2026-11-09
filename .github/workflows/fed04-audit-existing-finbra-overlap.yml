@@ -44,6 +44,24 @@ jobs:
             --manifest governance/STATUS_FED_SP645.csv \
             --matrix build/fed04-overlap/MATRIZ_SOBREPOSICAO_FEDERAL_FINBRA_2025.csv \
             --qa build/fed04-overlap/QA_FED04_SOBREPOSICAO_2025.json
+      - name: Persist conceptual overlap audit as versioned QA candidate in existing R2
+        run: |
+          MATRIX_SHA="$(python3 -c 'import hashlib;print(hashlib.sha256(open("build/fed04-overlap/MATRIZ_SOBREPOSICAO_FEDERAL_FINBRA_2025.csv","rb").read()).hexdigest())')"
+          QA_SHA="$(python3 -c 'import hashlib;print(hashlib.sha256(open("build/fed04-overlap/QA_FED04_SOBREPOSICAO_2025.json","rb").read()).hexdigest())')"
+          python3 deployment/upload_r2_source.py \
+            --source build/fed04-overlap/MATRIZ_SOBREPOSICAO_FEDERAL_FINBRA_2025.csv \
+            --object-key sp_645/federal/governance/overlap_2025/candidates/MATRIZ_SOBREPOSICAO_FEDERAL_FINBRA_2025_${{ github.run_id }}.csv \
+            --expected-sha256 "$MATRIX_SHA" \
+            --content-type text/csv
+          python3 deployment/upload_r2_source.py \
+            --source build/fed04-overlap/QA_FED04_SOBREPOSICAO_2025.json \
+            --object-key sp_645/federal/governance/overlap_2025/candidates/QA_FED04_SOBREPOSICAO_2025_${{ github.run_id }}.json \
+            --expected-sha256 "$QA_SHA" \
+            --content-type application/json
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/governance/overlap_2025/candidates/MATRIZ_SOBREPOSICAO_FEDERAL_FINBRA_2025_${{ github.run_id }}.csv \
+            --output build/fed04-overlap/overlap_readback.csv \
+            --expected-sha256 "$MATRIX_SHA"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

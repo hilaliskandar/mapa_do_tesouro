@@ -1,0 +1,76 @@
+name: 'FED02 - arquivar historico nacional FPM ITR no R2 canonico'
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed02-stn-historical-fpm-itr-r2.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  archive-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download pinned STN national FPM/ITR source exactly once each
+        run: |
+          mkdir -p build/fed02-historical
+          python3 - <<'PY'
+          import hashlib,json,urllib.request
+          from pathlib import Path
+          from datetime import datetime,timezone
+          d=Path("build/fed02-historical")
+          specs=[
+          ("FPM","https://www.tesourotransparente.gov.br/ckan/dataset/3b5a779d-78f5-4602-a6b7-23ece6d60f27/resource/d69ff32a-6681-4114-81f0-233bb6b17f58/download/fpm-por-municipio.csv","a86cad831115e02518198f4873967785a82eb3cbae651ef8505aa498c2cab088",30493612),
+          ("ITR","https://www.tesourotransparente.gov.br/ckan/dataset/3b5a779d-78f5-4602-a6b7-23ece6d60f27/resource/f6ad4e51-fc7e-40bb-b35a-3686da7fde2d/download/itr-por-municipio.csv","9c93138d30b3c384ccb05ea91edbb8e6ee6f807f26ee2ce359e0a3e5b25f44ec",20858658)]
+          manifest={"archived_at_utc":datetime.now(timezone.utc).isoformat(),"status":"qa_pass_source_hash_only","sources":[],"scope":"national STN historical originals; no monetary reconciliation"}
+          for name,url,expected_sha,expected_bytes in specs:
+            with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"mapa-do-tesouro-FED02-archive/1.0"}),timeout=70) as r:
+              raw=r.read(35_000_001)
+            sha=hashlib.sha256(raw).hexdigest()
+            if len(raw)!=expected_bytes or sha!=expected_sha:raise RuntimeError(name+" source changed; quarantine")
+            (d/(name+".csv")).write_bytes(raw)
+            manifest["sources"].append({"name":name,"origin_url":url,"sha256":sha,"bytes":len(raw),"scope":"Brazil national data 1996-2026"})
+          (d/"QA_STN_HISTORICAL_1996_2026.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          PY
+      - name: Persist both originals in existing private R2 and read back hashes
+        run: |
+          python3 deployment/upload_r2_source.py \
+            --source build/fed02-historical/FPM.csv \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/FPM_NACIONAL_a86cad83.csv \
+            --expected-sha256 a86cad831115e02518198f4873967785a82eb3cbae651ef8505aa498c2cab088 \
+            --content-type text/csv
+          python3 deployment/upload_r2_source.py \
+            --source build/fed02-historical/ITR.csv \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/ITR_NACIONAL_9c93138d.csv \
+            --expected-sha256 9c93138d30b3c384ccb05ea91edbb8e6ee6f807f26ee2ce359e0a3e5b25f44ec \
+            --content-type text/csv
+          python3 deployment/upload_r2_source.py \
+            --source build/fed02-historical/QA_STN_HISTORICAL_1996_2026.json \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/QA_STN_HISTORICAL_${{ github.run_id }}.json \
+            --content-type application/json
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/FPM_NACIONAL_a86cad83.csv \
+            --output build/fed02-historical/fpm_readback.csv \
+            --expected-sha256 a86cad831115e02518198f4873967785a82eb3cbae651ef8505aa498c2cab088
+          python3 deployment/download_r2_source.py \
+            --object-key sp_645/federal/stn/historical/1996_2026/source/ITR_NACIONAL_9c93138d.csv \
+            --output build/fed02-historical/itr_readback.csv \
+            --expected-sha256 9c93138d30b3c384ccb05ea91edbb8e6ee6f807f26ee2ce359e0a3e5b25f44ec
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed02-historical-stn-source-qa-${{ github.run_id }}
+          path: build/fed02-historical/QA_STN_HISTORICAL_1996_2026.json
+          retention-days: 30
+          if-no-files-found: warn

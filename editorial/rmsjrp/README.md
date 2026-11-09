@@ -179,3 +179,7 @@ O FED00 estadual ampliou a matriz para [14 conjuntos](../../governance/MATRIZ_FO
 ### FED00-C — Inventário operacional de fontes federais, sem sobrepor G06-F4
 
 O acervo estadual de metadados STN (146 recursos) foi preservado em [governance/STN_CKAN_RECURSOS_TRANSFERENCIAS_SP645_2026_11_09.csv](../../governance/STN_CKAN_RECURSOS_TRANSFERENCIAS_SP645_2026_11_09.csv); scripts e workflows read-only de API/CSV foram publicados. **Ainda não houve leitura homologada do CSV nem vínculo pago da proposta 398/SJR e dos sete empenhos G06-F3.** FED00 continua `in_progress` conforme [tracker](../../governance/STATUS_FED_SP645.csv); G06-F4 também permanece aberto. A próxima diligência é inspecionar os artefatos dos workflows e verificar as chaves de município/tempo no conteúdo real, preservando cautelas de causalidade e sem alterações de dados de produção.
+
+### FED00-D — STN confirma presença nominal de todos os municípios paulistas
+
+O primeiro CSV nacional do Tesouro foi efetivamente baixado e auditado por Actions: **126.807 linhas nacionais, 13.889 paulistas, 645 nomes distintos SP**, competência comprovada **setembro/2026**, embora o recurso se chame `202610`. A conciliação oficial com os códigos IBGE foi adicionada ao workflow, mas ainda depende do QA das execuções de 09/11. Fonte e rastreabilidade: [relatório FED00](../../governance/RELATORIO_FED00_QA_WORKFLOWS_2026_11_09.md). O conjunto não demonstra pagamentos de convênios Transferegov nem conclusão do G06-F4; sem mudança do SQLite/R2 ou atribuição causal.

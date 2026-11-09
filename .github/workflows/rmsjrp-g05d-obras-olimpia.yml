@@ -1,0 +1,49 @@
+name: RMSJRP G05-D - inventario obras Olimpia 2024-2025
+on:
+  push:
+    branches: [audit/rmsjrp-g05d-inventario-obras-2026-11-09]
+    paths:
+      - editorial/rmsjrp/auditar_obras_olimpia_g05d.py
+      - .github/workflows/rmsjrp-g05d-obras-olimpia.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventariar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: .
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download and audit public works records, no fiscal interpretation
+        run: python3 editorial/rmsjrp/auditar_obras_olimpia_g05d.py
+      - name: Persist immutable evidence in R2 with SHA256 readback
+        run: |
+          set -euo pipefail
+          PREFIX="rmsjrp/g05d/2026_11_09/olimpia_obras"
+          for F in build/rmsjrp-g05d-olimpia/OBRAS_OLIMPIA_*.json build/rmsjrp-g05d-olimpia/OBRAS_OLIMPIA_*.csv build/rmsjrp-g05d-olimpia/QA_OBRAS_OLIMPIA.json; do
+            test -f "$F" || continue
+            SHA="$(sha256sum "$F" | cut -d ' ' -f 1)"
+            NAME="$(basename "$F")"
+            MIME="text/csv"; case "$F" in *.json) MIME=application/json;; esac
+            python3 deployment/upload_r2_source.py --source "$F" --object-key "$PREFIX/$NAME" --expected-sha256 "$SHA" --content-type "$MIME"
+            python3 deployment/download_r2_source.py --object-key "$PREFIX/$NAME" --output "build/rmsjrp-g05d-olimpia/readback-$NAME" --expected-sha256 "$SHA"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmsjrp-g05d-obras-olimpia
+          path: |
+            build/rmsjrp-g05d-olimpia/OBRAS_OLIMPIA_*.csv
+            build/rmsjrp-g05d-olimpia/QA_OBRAS_OLIMPIA.json
+          retention-days: 30
+          if-no-files-found: warn

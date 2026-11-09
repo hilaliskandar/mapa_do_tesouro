@@ -1,6 +1,6 @@
 gate;status;data_verificacao;resultado;pendencia
 G00;qa_pass;2026-11-09;Drive DCA GateC GateD e R2 DCA TCESP recuperados e QA por SHA;complementacao RREO RGF somente missing-only
-G01;in_progress;2026-11-09;37 municipios e quatro subregioes PDUI conciliados;geometria analitica EPSG4674 e IPCA medio anual exato no G04
+G01;in_progress;2026-11-09;37 municipios quatro subregioes e malha IBGE 2022 EPSG4674 verificadas no G05C;revisar denominador populacional 2025 repetido de 2024 e validacao final IPCA
 G02;qa_pass;2026-11-09;481 chaves unicas 774 valores 2025 paritarios e SHA DCA R2 confirmado;lacunas historicas declaradas
 G03;qa_pass;2026-11-09;111 TCESP liquidados e 111 confrontos DCA sem divergencias R2 readback;RREO RGF parciais e NA preservado
 G04;qa_pass;2026-11-09;481 municipais e 65 territoriais com serie real per capita e QA R2 readback;referencia IPCA set2026 e denominador pop2025 requer cautela

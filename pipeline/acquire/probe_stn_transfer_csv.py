@@ -13,6 +13,7 @@ import hashlib
 import io
 import json
 import re
+import time
 import unicodedata
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -29,14 +30,23 @@ MAX_CATALOG_BYTES = 2_000_000
 UA = "mapa-do-tesouro-FED00-STN-read-only/1.0"
 
 def fetch(url: str, limit: int) -> bytes:
-    req = Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
-    with urlopen(req, timeout=65) as response:
-        if response.status != 200:
-            raise RuntimeError(f"HTTP_{response.status}")
-        blob = response.read(limit + 1)
-    if len(blob) > limit:
-        raise RuntimeError(f"bounded_download_exceeded_{limit}")
-    return blob
+    last_error = None
+    for attempt in range(1, 4):
+        try:
+            req = Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+            with urlopen(req, timeout=35) as response:
+                if response.status != 200:
+                    raise RuntimeError(f"HTTP_{response.status}")
+                blob = response.read(limit + 1)
+            if len(blob) > limit:
+                raise RuntimeError(f"bounded_download_exceeded_{limit}")
+            return blob
+        except Exception as exc:
+            last_error = exc
+            if attempt == 3 or "bounded_download_exceeded" in str(exc):
+                break
+            time.sleep(attempt * 2)
+    raise RuntimeError(f"download_failed_after_3_attempts: {type(last_error).__name__}: {str(last_error)[:170]}")
 
 def decode_text(blob: bytes) -> tuple[str, str]:
     for encoding in ("utf-8-sig", "cp1252", "latin-1"):
@@ -161,12 +171,13 @@ def main() -> None:
     args = parser.parse_args()
     report = {"checked_at_utc": datetime.now(timezone.utc).isoformat(),
               "resource_id": args.resource_id, "catalog_url": API,
-              "status": "not_started",
+              "status": "not_started", "stage": "catalog",
               "restrictions": ["National dataset not filtered to SP645",
                                "No municipalities are inferred from source file name",
                                "No change to canonical SQLite R2 or production"]}
     try:
         catalog_raw = fetch(API, MAX_CATALOG_BYTES)
+        report["stage"] = "catalog_fetched"
         catalog = json.loads(catalog_raw.decode("utf-8-sig"))
         if catalog.get("success") is not True:
             raise RuntimeError("CKAN_catalog_failed")
@@ -178,14 +189,13 @@ def main() -> None:
         parsed = urlparse(url)
         if parsed.scheme != "https" or parsed.hostname != "www.tesourotransparente.gov.br":
             raise RuntimeError("unexpected_resource_host")
+        report["stage"] = "csv_download"
         blob = fetch(url, MAX_CSV_BYTES)
+        report["stage"] = "csv_fetched"
         content, encoding = decode_text(blob)
         stats = inspect_csv(content)
-        crosswalk = check_sp_ibge(stats["sp_municipality_names"], Path(args.output))
-        report.update({"status": "qa_pass" if stats["row_width_mismatches"] == 0 and
-                       stats["missing_uf_rows"] == 0 and
-                       stats["sp_rows"] > 0 and crosswalk["status"] == "qa_pass" else "partial",
-                       "catalog_sha256": hashlib.sha256(catalog_raw).hexdigest(),
+        report["stage"] = "csv_inspected"
+        report.update({"status": "partial", "catalog_sha256": hashlib.sha256(catalog_raw).hexdigest(),
                        "catalog_modified": catalog["result"].get("metadata_modified"),
                        "resource_name": resource.get("name"),
                        "resource_url": url, "resource_created": resource.get("created"),
@@ -193,8 +203,22 @@ def main() -> None:
                        "resource_size_declared": resource.get("size"),
                        "download_sha256": hashlib.sha256(blob).hexdigest(),
                        "download_bytes": len(blob), "encoding": encoding,
-                       "csv_evidence": stats, "ibge_crosswalk_qa": crosswalk,
+                       "csv_evidence": stats,
                        "caution": "File header and content month must be checked before assigning fiscal competence"})
+        report["stage"] = "ibge_api_crosswalk"
+        try:
+            crosswalk = check_sp_ibge(stats["sp_municipality_names"], Path(args.output))
+            report["ibge_crosswalk_qa"] = crosswalk
+            if stats["row_width_mismatches"] == 0 and stats["missing_uf_rows"] == 0 and stats["sp_rows"] > 0 and crosswalk["status"] == "qa_pass":
+                report["status"] = "qa_pass"
+                report["stage"] = "completed"
+            else:
+                report["status"] = "partial"
+                report["stage"] = "ibge_requires_review"
+        except Exception as exc:
+            report["status"] = "partial"
+            report["stage"] = "ibge_api_failed"
+            report["ibge_error"] = f"{type(exc).__name__}: {str(exc)[:350]}"
     except Exception as exc:
         report.update({"status": "failed_or_unavailable",
                        "error": f"{type(exc).__name__}: {str(exc)[:350]}"})

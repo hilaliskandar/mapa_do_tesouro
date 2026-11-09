@@ -199,3 +199,7 @@ O [run 42662690269](https://github.com/hilaliskandar/mapa_do_tesouro/actions/run
 ### FED00-M — Extrato estadual de transferências disponível para recortes regionais
 
 O extrato estadual STN de setembro/2026 foi normalizado em **13.889 linhas com 645 códigos IBGE**, preservado no [R2 canônico e homologado por readback](../../governance/RELATORIO_FED00_STN_NORMALIZACAO_SP645_2026_11_09.md), SHA `3b9b5bf22748579a0f90912c160159b8d50a7664294a750fc74b2f98a59657fb`. Os universos RMSJRP, RMRP e demais regiões poderão selecionar registros do mesmo acervo por código, sem consultas duplicadas. **Não equiparar este estágio a pagamento comprovado de convênios G06-F4 nem publicar somatórios como receitas.**
+
+### FED00-N — Regra de uso regional das transferências STN
+
+A auditoria estadual de setembro/2026 identificou **27 pares de rubrica/item** e [sinais distintos para Fundeb e ajustes](../../governance/RELATORIO_FED00_STN_CLASSIFICACAO_CONTABIL_2026_11_09.md). A fonte STN é **critério de caixa/SIAFI, unidade R$1**, e não prova execução de convênio nem receita declarada na DCA. Para RMSJRP, o extrato será filtrado pelos **37 códigos IBGE já homologados**, mantendo os três decêndios e o item de origem; nenhum total agregado será publicado sem homologação de deduções. Proposta de SQL complementar registrada, sem alteração da base.

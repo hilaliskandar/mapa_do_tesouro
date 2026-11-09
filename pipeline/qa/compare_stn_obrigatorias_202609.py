@@ -46,13 +46,20 @@ def main():
         with a.staging.open(encoding="utf-8",newline="") as f:
             for row in csv.DictReader(f,delimiter=";"):
                 if row["ano"]!="2026" or row["mes"]!="09":raise ValueError("non_september_stage")
-                if (row["transferencia"],row["item_transferencia"]) not in (("FPM","FPM"),("ITR","ITR")):continue
+                if (row["transferencia"],row["item_transferencia"]) not in (("FPM","FPM"),("FPM 1%","FPM 1%"),("ITR","ITR")):continue
                 code=row["codigo_ibge"]
                 names[code]=row["municipio_stn"]
                 item=row["transferencia"]
                 stage[code][item]+=sum(Decimal(row["decendio_"+str(i)+"_raw"]) for i in (1,2,3))
         name_index=defaultdict(list)
         for code,name in names.items():name_index[norm(name)].append(code)
+        # Historical municipal labels in STN do not necessarily coincide with
+        # contemporary names. These two aliases are checked by their actual
+        # SIAFI source COD_MUN and the fixed IBGE code, NOT fuzzy similarity.
+        aliases={
+            ("6401",norm("Embu")):("3515004",norm("Embu das Artes")),
+            ("6717",norm("Moji Mirim")):("3530805",norm("Mogi-Mirim"))
+        }
         qa["stn_stage_codes"]=len(names)
         stats={}
         for label,path in [("FPM",a.fpm),("ITR",a.itr)]:
@@ -74,6 +81,12 @@ def main():
                     value=br_decimal(row["2026"])
                     if value is None:counter["blank_or_placeholder_2026_cells"]+=1
                     possibilities=name_index.get(norm(row["Município"].strip()),[])
+                    alias=aliases.get((row["COD_MUN"].strip(),norm(row["Município"].strip())))
+                    if len(possibilities)==0 and alias:
+                        code_expected,norm_name=alias
+                        if code_expected in names and norm(names[code_expected])==norm_name:
+                            possibilities=[code_expected]
+                            counter["verified_historical_alias_rows"]+=1
                     if len(possibilities)!=1:
                         nonmatches.append({"cod_mun_literal":row["COD_MUN"],
                                            "municipio":row["Município"],
@@ -83,6 +96,10 @@ def main():
                     if value is None:
                         missing_amount.append(code);continue
                     actual=stage[code].get(label)
+                    if label=="FPM" and actual is not None:
+                        extra=stage[code].get("FPM 1%")
+                        if extra is None: raise ValueError("FPM_additional_1pct_missing_"+code)
+                        actual+=extra
                     if actual is None:
                         breakdown.append({"codigo_ibge":code,"name":row["Município"],"reason":"missing_in_stn_stage","historical_source":str(value)})
                         continue
@@ -106,6 +123,11 @@ def main():
                           "abs_difference_max_brl":str(max(diff_abs)) if diff_abs else None,
                           "mismatch_examples_or_source_absence":breakdown}
         qa.update({"status":"qa_pass_diagnostic_only","sources":stats,
+                   "comparison_definitions":{
+                       "FPM":"STN historical FPM year 2026 month 9 versus regular FPM plus FPM 1% decendial rows (EC 112/2021 September supplement)",
+                       "ITR":"STN historical ITR year 2026 month 9 versus STN ITR decendial rows",
+                       "municipality_join":"UF SP + normalized name; historical Embu and Moji Mirim only with specific literal COD_MUN/IBGE aliases"
+                   },
                    "limitations":["No COD_MUN(SIAFI) to IBGE conversion is performed; only exact normalized UF=SP municipality names",
                                   "Different official source datasets may define gross/net, adjustments or month differently",
                                   "No inference from blank cell to zero revenue",

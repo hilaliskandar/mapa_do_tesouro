@@ -120,6 +120,7 @@ def main():
     result={"origin":"FNDE Portaria MEC/MF 3 of 2025-04-28: 2024 Fundeb annual adjustment","sources":[inspect(k,v) for k,v in SOURCES.items()],"accounting_application":"not_homologated"}
     result["cross_year_qa"] = reconcile_with_2025_dca()
     (OUT/"QA_FED04_FNDE_2024_AJUSTES.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("CROSS_YEAR_RECONCILIATION: "+json.dumps(result["cross_year_qa"],ensure_ascii=False))\n    print(json.dumps({"sources":[{"label":x["label"],"status":x["status"],"sha256":x.get("sha256"),"sheets":x.get("worksheets")} for x in result["sources"]]},ensure_ascii=False))
+    print("CROSS_YEAR_RECONCILIATION: "+json.dumps(result["cross_year_qa"],ensure_ascii=False))
+    print(json.dumps({"sources":[{"label":x["label"],"status":x["status"],"sha256":x.get("sha256"),"sheets":x.get("worksheets")} for x in result["sources"]]},ensure_ascii=False))
 
 if __name__=="__main__":main()

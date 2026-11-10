@@ -1,0 +1,53 @@
+ano;conceito_candidato;cod_conta;coluna;municipios_com_receita;evidencia;estado_semantico;observacao
+2013;fpm_cota_regular_candidato;RO1.7.2.1.01.02.00;Receitas Realizadas;640;DCA_ANUAL_ORIGINAL;requer_qa_fpm_cota_mensal;Rubrica FPM geral antiga; verificar segregacao de cotas extraordinarias
+2013;itr_cota_parte_bruta;RO1.7.2.1.01.05.00;Receitas Realizadas;629;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2013;fundeb_distribuicao_bruta;RO1.7.2.4.01.00.00;Receitas Realizadas;626;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2013;fundeb_complementacao_uniao_bruta;RO1.7.2.4.02.00.00;Receitas Realizadas;14;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2014;fpm_cota_regular_candidato;RO1.7.2.1.01.02.00;Receitas Brutas Realizadas;626;DCA_ANUAL_ORIGINAL;requer_qa_fpm_cota_mensal;Rubrica FPM geral antiga; verificar segregacao de cotas extraordinarias
+2014;itr_cota_parte_bruta;RO1.7.2.1.01.05.00;Receitas Brutas Realizadas;609;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2014;fundeb_distribuicao_bruta;RO1.7.2.4.01.00.00;Receitas Brutas Realizadas;615;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2014;fundeb_complementacao_uniao_bruta;RO1.7.2.4.02.00.00;Receitas Brutas Realizadas;4;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2015;fpm_cota_regular_candidato;RO1.7.2.1.01.02.00;Receitas Brutas Realizadas;641;DCA_ANUAL_ORIGINAL;requer_qa_fpm_cota_mensal;Rubrica FPM geral antiga; verificar segregacao de cotas extraordinarias
+2015;itr_cota_parte_bruta;RO1.7.2.1.01.05.00;Receitas Brutas Realizadas;632;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2015;fundeb_distribuicao_bruta;RO1.7.2.4.01.00.00;Receitas Brutas Realizadas;635;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2015;fundeb_complementacao_uniao_bruta;RO1.7.2.4.02.00.00;Receitas Brutas Realizadas;6;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2016;fpm_cota_regular_candidato;RO1.7.2.1.01.02.00;Receitas Brutas Realizadas;642;DCA_ANUAL_ORIGINAL;requer_qa_fpm_cota_mensal;Rubrica FPM geral antiga; verificar segregacao de cotas extraordinarias
+2016;itr_cota_parte_bruta;RO1.7.2.1.01.05.00;Receitas Brutas Realizadas;622;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2016;fundeb_distribuicao_bruta;RO1.7.2.4.01.00.00;Receitas Brutas Realizadas;632;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2016;fundeb_complementacao_uniao_bruta;RO1.7.2.4.02.00.00;Receitas Brutas Realizadas;9;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2017;fpm_cota_regular_candidato;RO1.7.2.1.01.02.00;Receitas Brutas Realizadas;643;DCA_ANUAL_ORIGINAL;requer_qa_fpm_cota_mensal;Rubrica FPM geral antiga; verificar segregacao de cotas extraordinarias
+2017;itr_cota_parte_bruta;RO1.7.2.1.01.05.00;Receitas Brutas Realizadas;629;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2017;fundeb_distribuicao_bruta;RO1.7.2.4.01.00.00;Receitas Brutas Realizadas;638;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2017;fundeb_complementacao_uniao_bruta;RO1.7.2.4.02.00.00;Receitas Brutas Realizadas;4;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2018;fpm_cota_regular_candidato;RO1.7.1.8.01.2.0;Receitas Brutas Realizadas;643;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2018;itr_cota_parte_bruta;RO1.7.1.8.01.5.0;Receitas Brutas Realizadas;628;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2018;fundeb_distribuicao_bruta;RO1.7.5.8.01.0.0;Receitas Brutas Realizadas;640;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2018;fundeb_complementacao_uniao_bruta;RO1.7.1.8.09.0.0;Receitas Brutas Realizadas;;DCA_ANUAL_ORIGINAL;nao_detectado_nesta_fonte;Ausencia de linha nao equivale a ausencia de recurso
+2019;fpm_cota_regular_candidato;RO1.7.1.8.01.2.0;Receitas Brutas Realizadas;636;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2019;itr_cota_parte_bruta;RO1.7.1.8.01.5.0;Receitas Brutas Realizadas;622;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2019;fundeb_distribuicao_bruta;RO1.7.5.8.01.0.0;Receitas Brutas Realizadas;635;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2019;fundeb_complementacao_uniao_bruta;RO1.7.1.8.09.0.0;Receitas Brutas Realizadas;;DCA_ANUAL_ORIGINAL;nao_detectado_nesta_fonte;Ausencia de linha nao equivale a ausencia de recurso
+2020;fpm_cota_regular_candidato;RO1.7.1.8.01.2.0;Receitas Brutas Realizadas;644;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2020;itr_cota_parte_bruta;RO1.7.1.8.01.5.0;Receitas Brutas Realizadas;629;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2020;fundeb_distribuicao_bruta;RO1.7.5.8.01.0.0;Receitas Brutas Realizadas;645;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2020;fundeb_complementacao_uniao_bruta;RO1.7.1.8.09.0.0;Receitas Brutas Realizadas;1;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2021;fpm_cota_regular_candidato;RO1.7.1.8.01.2.0;Receitas Brutas Realizadas;644;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2021;itr_cota_parte_bruta;RO1.7.1.8.01.5.0;Receitas Brutas Realizadas;633;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;
+2021;fundeb_distribuicao_bruta;RO1.7.5.8.01.0.0;Receitas Brutas Realizadas;645;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2021;fundeb_complementacao_uniao_bruta;RO1.7.1.8.09.0.0;Receitas Brutas Realizadas;2;DCA_ANUAL_ORIGINAL;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2022;fpm_cota_regular_candidato;RO1.7.1.1.51.1.0;Receitas Brutas Realizadas;642;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;
+2022;itr_cota_parte_bruta;RO1.7.1.1.52.0.0;Receitas Brutas Realizadas;634;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;
+2022;fundeb_distribuicao_bruta;RO1.7.5.1.00.0.0;Receitas Brutas Realizadas;640;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2022;fundeb_complementacao_uniao_bruta;RO1.7.1.5.00.0.0;Receitas Brutas Realizadas;5;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2023;fpm_cota_regular_candidato;RO1.7.1.1.51.1.0;Receitas Brutas Realizadas;642;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;
+2023;itr_cota_parte_bruta;RO1.7.1.1.52.0.0;Receitas Brutas Realizadas;636;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;
+2023;fundeb_distribuicao_bruta;RO1.7.5.1.00.0.0;Receitas Brutas Realizadas;626;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2023;fundeb_complementacao_uniao_bruta;RO1.7.1.5.00.0.0;Receitas Brutas Realizadas;146;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2024;fpm_cota_regular_candidato;RO1.7.1.1.51.1.0;Receitas Brutas Realizadas;645;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;
+2024;itr_cota_parte_bruta;RO1.7.1.1.52.0.0;Receitas Brutas Realizadas;638;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;
+2024;fundeb_distribuicao_bruta;RO1.7.5.1.00.0.0;Receitas Brutas Realizadas;628;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2024;fundeb_complementacao_uniao_bruta;RO1.7.1.5.00.0.0;Receitas Brutas Realizadas;202;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo
+2025;fpm_cota_regular_candidato;RO1.7.1.1.51.1.0;Receitas Brutas Realizadas;641;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;
+2025;itr_cota_parte_bruta;RO1.7.1.1.52.0.0;Receitas Brutas Realizadas;631;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;
+2025;fundeb_distribuicao_bruta;RO1.7.5.1.00.0.0;Receitas Brutas Realizadas;621;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;Nao somar automaticamente com complementacao federal
+2025;fundeb_complementacao_uniao_bruta;RO1.7.1.5.00.0.0;Receitas Brutas Realizadas;451;XLSX_SUPLEMENTAR_2022_2025;codificacao_observada_pendente_homologacao;Distinguir complementacao de distribuicao do fundo

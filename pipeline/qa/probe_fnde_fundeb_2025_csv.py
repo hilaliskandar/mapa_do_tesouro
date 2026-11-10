@@ -82,6 +82,81 @@ def inspect(name: str, filename: str) -> dict:
     return out
 
 
+def _br_decimal(value: str):
+    from decimal import Decimal, InvalidOperation
+    value = str(value or "").strip().replace("R$", "").replace("\\xa0","")
+    if not value or value in ("-", "-   ", "—"):
+        return None
+    try:
+        return Decimal(value.replace(".", "").replace(",", "."))
+    except InvalidOperation:
+        return None
+
+
+def _sp_amounts(file: str, amount_col: int) -> dict:
+    """Read 2025 annex value for an IBGE7 code, ignoring repeated headers."""
+    url = BASE + FILES[file] + "/@@download/file"
+    with urlopen(Request(url, headers={"User-Agent": "Mozilla/5.0 (FED04 QA)"}), timeout=70) as conn:
+        raw = conn.read(12 * 1024 * 1024 + 1)
+    for enc in ("utf-8-sig", "windows-1252", "latin-1"):
+        try:
+            content = raw.decode(enc)
+            break
+        except UnicodeDecodeError:
+            pass
+    values = {}
+    repeats = []
+    for row in csv.reader(io.StringIO(content), delimiter=";"):
+        if not row or row[0].strip() != "SP":
+            continue
+        ids = [v.strip() for v in row[:4] if len(v.strip())==7 and v.strip().isdigit() and v.strip().startswith("35")]
+        if len(ids) != 1 or len(row) <= amount_col:
+            continue
+        code = ids[0]
+        value = _br_decimal(row[amount_col])
+        if value is None:
+            continue
+        if code in values:
+            repeats.append(code)
+        values[code] = value
+    return {"values": values, "duplicates": sorted(set(repeats))}
+
+
+def reconcile_annexes() -> dict:
+    """Internal coherence, not equality to DCA realized revenue."""
+    vaaf = _sp_amounts("vaaf_cronograma", 15)
+    vaat = _sp_amounts("vaat_complementacao", 5)
+    vaar = _sp_amounts("vaar_redes", 4)
+    vaar_schedule = _sp_amounts("vaar_cronograma", 17)
+    from decimal import Decimal
+    keys = set(vaar["values"]) | set(vaar_schedule["values"])
+    differences = []
+    for code in sorted(keys):
+        a=vaar["values"].get(code)
+        b=vaar_schedule["values"].get(code)
+        if a is None or b is None or abs(a-b) > Decimal("0.01"):
+            differences.append({"codigo_ibge":code,"vaar_previsao":str(a),"vaar_cronograma":str(b)})
+    return {
+        "scope": "FNDE Portaria MEC/MF 5/2026 annual adjustment for 2025",
+        "comparison": "VAAR official beneficiary annex vs VAAR official schedule",
+        "vaar_beneficiaries_sp_with_amount":len(vaar["values"]),
+        "vaar_schedule_sp_with_amount":len(vaar_schedule["values"]),
+        "vaar_amount_parity_count":len(keys)-len(differences),
+        "vaar_discrepancy_count":len(differences),
+        "vaar_discrepancies_sample":differences[:20],
+        "vaar_total_annex_brl":str(sum(vaar["values"].values(),Decimal(0))),
+        "vaar_total_schedule_brl":str(sum(vaar_schedule["values"].values(),Decimal(0))),
+        "vaat_sp_rows_with_value":len(vaat["values"]),
+        "vaat_sp_positive_values":sum(v>0 for v in vaat["values"].values()),
+        "vaat_total_brl":str(sum(vaat["values"].values(),Decimal(0))),
+        "vaaf_sp_rows_with_value_index15":len(vaaf["values"]),
+        "duplicates_by_annex": {name:len(res["duplicates"]) for name,res in [
+          ("vaaf",vaaf),("vaat",vaat),("vaar_beneficiaries",vaar),("vaar_schedule",vaar_schedule)
+        ]},
+        "warning": "Final schedule includes January 2026 and annual adjustments. Do not equate to DCA cash receipts in calendar 2025."
+    }
+
+
 def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     results = [inspect(k,v) for k,v in FILES.items()]

@@ -42,3 +42,20 @@ Logo o status adequado é `dca_2025_not_found_in_official_queries_msc_rreo_avail
 - Classificar Sarutaiá como DCA sem registro consultável no recorte, com MSC/RREO disponíveis, sem inferir receita zero.
 - Prosseguir à comparação RREO/MSC e à harmonização histórica 2013–2024.
 - **FED04 em andamento.** Nenhuma alteração no SQLite canônico, `observacao`, no R2 já homologado ou na publicação do painel.
+
+## Confronto adicional com RREO 6º bimestre de 2025 — resultado material
+
+Foi consultado o [RREO Anexo 01 de Rio das Pedras](https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2001&id_ente=3544004), com **323 linhas, `hasMore=false`**, e o [RREO Anexo 01 de Sarutaiá](https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2025&nr_periodo=6&co_tipo_demonstrativo=RREO&no_anexo=RREO-Anexo%2001&id_ente=3551207), com **273 linhas, `hasMore=false`**. A coluna `Até o Bimestre (c)` corresponde à execução acumulada; não confundir com `PREVISÃO ATUALIZADA (a)`.
+
+**Rio das Pedras: correspondências exatas de valores, com provável permuta ou mapeamento inadequado de estágio/coluna em parte do Anexo I-C.**
+
+| Rubrica | DCA `Receitas Brutas Realizadas` | RREO previsão atualizada | DCA `Deduções - FUNDEB` | RREO até 6º bimestre |
+|---|---:|---:|---:|---:|
+| Transferências da União | 50.388.000,00 | 50.388.000,00 | 54.424.556,31 | 54.424.556,31 |
+| Transferências de outras instituições públicas / rubrica DCA `Demais Transferências Correntes` | 34.100.000,00 | 34.100.000,00 | 34.349.762,31 | 34.349.762,31 |
+
+Os dois casos são congruentes com a relação observada nas 44 contas `Outras Deduções = Deduções FUNDEB - Brutas`, mas o padrão **não está demonstrado para todas as contas**. Há diferenças em agregados: por exemplo, receita corrente do RREO com previsão atualizada R$202.110.000,00 e realizada R$207.783.471,64, contra R$187.129.000,00 no campo DCA rotulado como bruta. Portanto, **não executar renomeação automática de colunas nem corrigir a DCA por inferência**. O nível de evidência é `hypothesis_supported_by_exact_rreo_crosscheck_not_root_cause_confirmed`.
+
+**Sarutaiá:** RREO Anexo 01 do 6º bimestre contém, na coluna `Até o Bimestre (c)`, receitas correntes de **R$33.509.813,28**, transferências correntes de **R$30.645.777,13**, transferências da União de **R$18.577.517,32** e receitas exceto intraorçamentárias de **R$35.323.180,09**. Esses valores **não são nova DCA** nem têm a mesma hierarquia e conceitos de todas as contas do Anexo I-C. O principal ganho é afastar a interpretação de ausência de receita: o ente apresentou um RREO de execução anual.
+
+**Próximo procedimento prioritário:** conferir as tabelas de fatos e regras do Anexo I-C 2025 contra as contas concretas de Rio das Pedras, validar o modelo correto de estágios e origem da anomalia; examinar outros demonstrativos somente se necessário. Para Sarutaiá, manter uma camada `fonte_alternativa=RREO` com metadados sem imputação na DCA. As publicações oficiais de documentação SICONFI incluem [tabelas de fatos](https://siconfi.tesouro.gov.br/siconfi/pages/public/conteudo/conteudo.jsf?id=46903) e [instruções de preenchimento](https://siconfi.tesouro.gov.br/siconfi/pages/public/conteudo/conteudo.jsf?id=42).

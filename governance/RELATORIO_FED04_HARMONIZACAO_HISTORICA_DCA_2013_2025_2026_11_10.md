@@ -61,3 +61,14 @@ Critérios de aprovação antes da promoção: (i) ementário por exercício; (i
 ## 6. O que foi efetivamente realizado
 
 **Concluído nesta etapa:** leitura de nove originais anuais 2013–2021 e quatro abas 2022–2025; identificação e contagem das rubricas selecionadas em 13 exercícios; crosswalk documental candidato com 52 posições; conferência do esquema e rotina real de carga do catálogo. **Não concluído:** revisão integral dos ementários oficiais, teste formal de equivalência de 2013–2017 FPM mensal, tratamento da complementação federal 2018–2019, validação de valores históricos por API, implantação na tabela `observacao` ou publicação de novas variáveis.
+
+
+## 7. Implementação isolada de controle de publicação — ramo de desenvolvimento
+
+Foi criada a branch **[`fed04-catalog-safety-20261110`](https://github.com/hilaliskandar/mapa_do_tesouro/tree/fed04-catalog-safety-20261110)**, sem alteração do carregador da branch principal.
+
+- [Carregador corrigido no ramo](https://github.com/hilaliskandar/mapa_do_tesouro/blob/fed04-catalog-safety-20261110/pipeline/build/load_catalog.py): flags explícitas `publicavel` e `ativo` passam a ser carregadas e respeitadas em `INSERT` e `ON CONFLICT`. Quando as flags não são fornecidas, novos registros mantêm o default histórico e registros existentes preservam os respectivos estados; flags inválidas são rejeitadas.
+- [Testes de regressão propostos](https://github.com/hilaliskandar/mapa_do_tesouro/blob/fed04-catalog-safety-20261110/tests/test_fed04_catalog_flags.py): verificam criação privada, conservação de flags após recarga sem opções, atualização explícita independente, rejeição de valores inválidos, idempotência e visibilidade real em `v_observacao_publicavel`.
+- Executado **smoke test local em SQLite temporário** para a mesma lógica de `ON CONFLICT`: cinco verificações concluídas (desativação explícita, preservação de estado, mudança seletiva, idempotência e defaults). **A suíte de regressão do repositório ainda não foi executada diretamente sobre a branch GitHub neste ambiente**; não declarar integração aprovada ou fazer merge/deploy sem esse teste.
+
+O catálogo candidato das quatro novas variáveis permanece fora dos catálogos operacionais; o controle de publicação fica em ramo separado. **A aprovação para promover a branch exige teste completo `pytest` em runner CI com schema real, comparação de observações publicáveis antes/depois e verificação de efeitos nos builds existentes.**

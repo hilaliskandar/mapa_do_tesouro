@@ -1,0 +1,21 @@
+codigo_ibge;municipio;dca_2025_brl;receita_bruta_tcesp_brl;deducoes_tcesp_brl;receita_liquida_tcesp_brl;diferenca_dca_menos_bruta_brl;diferenca_dca_menos_liquida_brl;concordancia;quantidade_lancamentos;fonte
+3502903;Araçoiaba da Serra;189532.64;189532.64;0.00;189532.64;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aracoiaba-da-serra-2025.zip
+3506508;Birigui;290362.19;290362.19;0.00;290362.19;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-birigui-2025.zip
+3506805;Bocaina;17916.42;17916.42;0.00;17916.42;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bocaina-2025.zip
+3508405;Cabreúva;136034.11;136034.11;0.00;136034.11;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cabreuva-2025.zip
+3510153;Canitar;90921.38;90921.38;0.00;90921.38;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-canitar-2025.zip
+3512407;Cordeirópolis;117567.60;117567.60;0.00;117567.60;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cordeiropolis-2025.zip
+3517109;Glicério;9139.03;9139.03;0.00;9139.03;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-glicerio-2025.zip
+3517703;Guará;125252.52;125252.52;0.00;125252.52;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guara-2025.zip
+3519709;Ibiúna;313984.29;320187.47;-6203.18;313984.29;-6203.18;0.00;DCA_IGUAL_LIQUIDA;3;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibiuna-2025.zip
+3520442;Ilha Solteira;40780.41;40780.41;0.00;40780.41;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ilha-solteira-2025.zip
+3523602;Itirapina;42305.98;42305.98;0.00;42305.98;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itirapina-2025.zip
+3524808;Jales;87420.05;87420.05;0.00;87420.05;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jales-2025.zip
+3530607;Mogi das Cruzes;1909360.94;1909360.94;0.00;1909360.94;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mogi-das-cruzes-2025.zip
+3535408;Panorama;27742.92;27742.92;0.00;27742.92;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-panorama-2025.zip
+3538105;Pindorama;72131.33;72131.33;-11877.77;60253.56;0.00;11877.77;DCA_IGUAL_BRUTA;4;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pindorama-2025.zip
+3546207;Santa Cruz da Conceição;5972.02;5972.02;0.00;5972.02;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-cruz-da-conceicao-2025.zip
+3549805;São José do Rio Preto;1131769.40;1131769.40;0.00;1131769.40;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-jose-do-rio-preto-2025.zip
+3552205;Sorocaba;2599269.81;2599269.81;-85122.48;2514147.33;0.00;85122.48;DCA_IGUAL_BRUTA;4;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sorocaba-2025.zip
+3554102;Taubaté;644565.81;644565.81;0.00;644565.81;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-taubate-2025.zip
+3556503;Várzea Paulista;418355.45;418355.45;0.00;418355.45;0.00;0.00;DCA_IGUAL_BRUTA;2;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-varzea-paulista-2025.zip

@@ -1,0 +1,57 @@
+# FED04: DESIGN PROPOSAL ONLY. NOT IN data/catalogs, NOT AUTO-LOADED.
+# pipeline/build/load_catalog.py currently ignores publicavel/ativo flags.
+# DO NOT load this file through load_catalog until the loader has verified
+# suppression semantics and an isolated build proves no public exposure.
+# Source: governance/RELATORIO_FED04_HARMONIZACAO_HISTORICA_DCA_2013_2025_2026_11_10.md
+version: 1
+gate: FED04
+estado: candidate_not_deployed
+fontes: []
+variaveis:
+  - variavel_id: dca_itr_cota_parte_bruta
+    nome: Cota-parte do ITR - receita bruta
+    grupo: transferencias
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Receita bruta da cota-parte municipal do Imposto Territorial Rural registrada na DCA, por exercício e conta harmonizada.
+    cautelas: Nao equivale ao imposto de competencia municipal classificado em RO1.1; nao subtrair deducao sem observar a fonte e a coluna; nao somar sobre a receita corrente existente.
+    publicavel: 0
+    ativo: 0
+  - variavel_id: dca_itr_deducao_fundeb
+    nome: Dedução Fundeb incidente sobre cota-parte do ITR
+    grupo: transferencias
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Valor informado na coluna especifica Deducoes - FUNDEB para a cota-parte ITR, quando disponivel.
+    cautelas: Deducoes da Receita de anos antigos nao equivalem automaticamente a Deducoes - FUNDEB; nao presumir 20 por cento nem imputar ausencias como zero; tratar natureza do sinal.
+    publicavel: 0
+    ativo: 0
+  - variavel_id: dca_fundeb_recebido_bruto
+    nome: Transferências recebidas do Fundeb - receita bruta
+    grupo: transferencias
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Receita bruta de transferencias distribuidas pelo Fundeb segundo rubrica DCA aplicavel ao exercicio.
+    cautelas: Nao adicionar automaticamente complementacao da Uniao sem verificar seu tratamento no demonstrativo; nao somar aos agregados de receita corrente.
+    publicavel: 0
+    ativo: 0
+  - variavel_id: dca_fundeb_complementacao_uniao_bruta
+    nome: Complementação da União ao Fundeb - receita bruta
+    grupo: transferencias
+    tipo: conta_oficial
+    unidade: BRL
+    fonte_preferencial_id: SICONFI_DCA
+    definicao: Conta de receita bruta da complementacao federal do Fundeb observada no exercicio, sem decomposicao automatica VAAT, VAAF ou VAAR.
+    cautelas: Identificacao de linha nao comprova elegibilidade de todo o universo; ausencia nao e zero; nao somar sem demonstrar ausencia de sobreposicao com Fundeb distribuido.
+    publicavel: 0
+    ativo: 0
+criterios_para_promocao:
+  - validar_ementario_por_exercicio
+  - validar_crosswalk_ano_codigo_coluna
+  - preservar_identidade_e_proveniencia
+  - impedir_duplicidade_com_agregados_e_stn
+  - confirmar_publicavel_zero_em_sqlite_isolado
+  - homologar_regressao_e_autorizacao_de_publicacao

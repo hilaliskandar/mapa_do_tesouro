@@ -148,6 +148,8 @@ def reconcile_annexes() -> dict:
         "vaar_total_schedule_brl":str(sum(vaar_schedule["values"].values(),Decimal(0))),
         "vaat_sp_rows_with_value":len(vaat["values"]),
         "vaat_sp_positive_values":sum(v>0 for v in vaat["values"].values()),
+        "vaat_sp_positive_ibge":sorted(k for k,v in vaat["values"].items() if v>0),
+        "vaar_sp_positive_ibge":sorted(k for k,v in vaar["values"].items() if v>0),
         "vaat_total_brl":str(sum(vaat["values"].values(),Decimal(0))),
         "vaaf_sp_rows_with_value_index15":len(vaaf["values"]),
         "duplicates_by_annex": {name:len(res["duplicates"]) for name,res in [

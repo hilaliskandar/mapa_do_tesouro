@@ -1,0 +1,36 @@
+name: FED04 - FNDE 2024 adjustment source QA
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "pipeline/qa/probe_fnde_2024_adjustments.py"
+      - ".github/workflows/fed04-fnde-2024-ajustes-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install official XLSX parser
+        run: python -m pip install --disable-pip-version-check openpyxl
+      - name: Inspect 2024 FNDE annual adjustment
+        run: python -m pipeline.qa.probe_fnde_2024_adjustments
+      - name: Retain only source identification and row-level QA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fed04-fnde-2024-adjustments-${{ github.run_id }}
+          path: build/fed04-fnde-2024/QA_FED04_FNDE_2024_AJUSTES.json
+          if-no-files-found: warn
+          retention-days: 30

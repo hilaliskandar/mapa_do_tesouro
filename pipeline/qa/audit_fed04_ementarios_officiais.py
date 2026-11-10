@@ -62,13 +62,14 @@ def retrieve(year: int, url: str) -> dict:
         if len(data) > 35 * 1024 * 1024:
             result["status"] = "too_large_limit_35mb"
             return result
-        if data[:4] == b"PK\\x03\\x04":
+        if data.startswith(b"PK"):
             # openpyxl reads only XLSX; preserve actual result type if zip not workbook
             result["source_type"] = "xlsx_or_zip"
             saved = OUT / f"ementario_{year}_{result['sha256'][:12]}.xlsx"
             saved.write_bytes(data)
             try:
-                with openpyxl.load_workbook(saved, read_only=True, data_only=True) as book:
+                book = openpyxl.load_workbook(saved, read_only=True, data_only=True)
+                try:
                     result["worksheets"] = book.sheetnames
                     for sheet in book:
                         sheet.reset_dimensions()
@@ -90,6 +91,8 @@ def retrieve(year: int, url: str) -> dict:
                                         })
                                     result["matching_counts"][concept] = result["matching_counts"].get(concept, 0) + 1
                         result.setdefault("sheet_rows_scanned", {})[sheet.title] = line_no
+                finally:
+                    book.close()
                 result["status"] = "xlsx_scanned"
             except Exception as exc:
                 result["status"] = "xlsx_parse_failed"

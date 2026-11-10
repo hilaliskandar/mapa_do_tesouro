@@ -1,0 +1,18 @@
+codigo_ibge;municipio;id_lancamento_tcesp;mes_competencia;codigo_natureza;modalidade;valor_receita_brl;fonte_recurso_tcesp;url_csv_origem;observacao_qa
+3521408;Iracemápolis;45864890;8;17155201;VAAR;15749.15;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-iracemapolis-2025.zip;
+3521408;Iracemápolis;46035295;10;17155301;ETI;41853.86;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-iracemapolis-2025.zip;
+3521408;Iracemápolis;46116213;11;17155301;ETI;20926.93;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-iracemapolis-2025.zip;
+3521408;Iracemápolis;46198586;12;17155301;ETI;20926.94;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-iracemapolis-2025.zip;
+3522307;Itapetininga;46036541;10;17155301;ETI;404886.51;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itapetininga-2025.zip;
+3522307;Itapetininga;46117362;11;17155301;ETI;202443.25;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itapetininga-2025.zip;
+3513504;Cubatão;46024240;10;17155301;ETI;226679.82;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cubatao-2025.zip;
+3513504;Cubatão;46190487;12;17155301;ETI;113339.93;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cubatao-2025.zip;
+3519501;Ibirarema;46085878;10;17155301;ETI;58292.10;02;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibirarema-2025.zip;Natureza federal 17155301, porém fonte contábil TCESP 02 estadual: exige esclarecimento
+3519501;Ibirarema;46235104;12;17155301;ETI;29146.07;02;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibirarema-2025.zip;Natureza federal 17155301, porém fonte contábil TCESP 02 estadual: exige esclarecimento
+3548104;Santo Antônio do Jardim;46072449;10;17155301;ETI;38786.18;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-antonio-do-jardim-2025.zip;
+3548104;Santo Antônio do Jardim;46225432;12;17155301;ETI;19393.09;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-antonio-do-jardim-2025.zip;
+3500600;Águas de São Pedro;46089830;11;17155301;ETI;16995.24;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aguas-de-sao-pedro-2025.zip;
+3500600;Águas de São Pedro;46178279;12;17155301;ETI;16995.24;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aguas-de-sao-pedro-2025.zip;
+3523701;Itirapuã;46162522;11;17155301;ETI;33438.02;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itirapua-2025.zip;Código de aplicação variável não informado no TCESP
+3547403;Santa Rita d'Oeste;46071035;10;17155301;ETI;2037.41;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-rita-d-oeste-2025.zip;
+3547403;Santa Rita d'Oeste;46246441;12;17155301;ETI;1018.71;05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-rita-d-oeste-2025.zip;

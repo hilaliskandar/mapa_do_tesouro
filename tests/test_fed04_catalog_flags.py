@@ -99,6 +99,21 @@ class CatalogVisibilityTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self._load(publicavel="false", ativo=0)
 
+    def test_all_four_candidate_variables_stay_private(self):
+        proposal = ROOT / "governance" / "proposals" / "FED04_VARIAVEIS_DCA_ITR_FUNDEB_CANDIDATAS.yml"
+        with sqlite3.connect(self.db) as con:
+            con.execute("INSERT INTO fonte(fonte_id,nome) VALUES('SICONFI_DCA','DCA')")
+        load_catalog(self.db, [proposal])
+        with sqlite3.connect(self.db) as con:
+            flags = con.execute(
+                "SELECT variavel_id,publicavel,ativo FROM variavel ORDER BY variavel_id"
+            ).fetchall()
+        self.assertEqual(len(flags), 4)
+        self.assertTrue(
+            all(publicavel == 0 and ativo == 0
+                for _, publicavel, ativo in flags)
+        )
+
     def test_repeated_load_is_idempotent(self):
         self._load(publicavel=0, ativo=0)
         self._load(publicavel=0, ativo=0)

@@ -84,6 +84,15 @@ def main():
         meta["dca_only_2025_matched_ids"]=unmatched
         meta["dca_only_2025_matched_value_brl"]=str(sum((Decimal(pending[i]["dca_complementacao_brl"]) for i in unmatched),Decimal(0)))
         results[name]={"metadata":meta,"values":values}
+    current_vaar={row["codigo_ibge"] for row in current if row["fnde_vaar_2025_positiva"]=="1"}
+    for content in results.values():
+        prior=set(content["values"])
+        content["metadata"]["relative_to_sixth_release_vaar"]={
+            "sixth_release_count":len(current_vaar),
+            "same_ibge_codes":prior==current_vaar,
+            "only_in_prior":sorted(prior-current_vaar),
+            "only_in_sixth":sorted(current_vaar-prior),
+        }
     union=set().union(*(set(x["values"]) for x in results.values()))
     discovered=set(pending)&union
     report={"scope":"FNDE VAAR earlier 2025 publications compared to 297 DCA-only municipalities","source_results":[x["metadata"] for x in results.values()],

@@ -1,0 +1,36 @@
+name: FED04 - verificar ementarios oficiais STN
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed04-ementarios-oficiais-qa.yml"
+      - "pipeline/qa/audit_fed04_ementarios_officiais.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ementarios:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install offline workbook parsing dependency
+        run: python -m pip install --disable-pip-version-check openpyxl
+      - name: Retrieve and audit official STN ementarios in temporary workspace
+        run: python -m pipeline.qa.audit_fed04_ementarios_officiais
+      - name: Upload evidence JSON only - do not distribute source binary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fed04-ementarios-official-qa-${{ github.run_id }}
+          path: build/fed04-ementarios/QA_FED04_EMENTARIOS_OFICIAIS.json
+          retention-days: 30
+          if-no-files-found: warn

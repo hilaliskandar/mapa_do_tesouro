@@ -1,0 +1,64 @@
+name: FED04 - real source SQLite candidate visibility QA
+
+on:
+  push:
+    branches:
+      - fed04-catalog-safety-20261110
+    paths:
+      - ".github/workflows/fed04-real-sqlite-visibility-qa.yml"
+      - "pipeline/qa/audit_fed04_real_db_visibility.py"
+      - "pipeline/build/load_catalog.py"
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed04-real-sqlite-visibility-qa.yml"
+      - "pipeline/qa/audit_fed04_real_db_visibility.py"
+      - "pipeline/build/load_catalog.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  isolate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install minimal importer dependencies
+        run: |
+          python -m pip install --disable-pip-version-check openpyxl pyyaml pytest
+      - name: Download pinned 2025 workbook from existing R2 - read only
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/site_inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx" \
+            --output "build/fed04-real-qa/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx" \
+            --expected-sha256 "ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566"
+      - name: Rebuild 2025 SQLite in isolated build directory
+        run: |
+          python -m pipeline.ingest.import_multifuentes \
+            build/fed04-real-qa/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --mapping data/mappings/base_multifuentes_sp645_2025.yml \
+            --database build/fed04-real-qa/isolated_2025.sqlite
+      - name: Check publication safety against actual imported 2025 observations
+        run: |
+          python -m pipeline.qa.audit_fed04_real_db_visibility \
+            --database build/fed04-real-qa/isolated_2025.sqlite \
+            --qa build/fed04-real-qa/QA_FED04_REAL_DB_VISIBILITY.json
+      - name: Upload QA summary only - no fiscal database or workbook
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fed04-real-db-visibility-${{ github.run_id }}
+          path: build/fed04-real-qa/QA_FED04_REAL_DB_VISIBILITY.json
+          if-no-files-found: warn
+          retention-days: 30

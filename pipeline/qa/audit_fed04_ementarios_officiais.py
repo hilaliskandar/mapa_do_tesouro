@@ -133,7 +133,14 @@ def main() -> None:
     )
     print(json.dumps({
         "results": [{"year": r["year"], "status": r["status"],
-                     "bytes": r.get("bytes"), "matches": r["matching_counts"],
+                     "bytes": r.get("bytes"), "sha256": r.get("sha256"),
+                     "final_url": r.get("final_url"),
+                     "matches": r["matching_counts"],
+                     "sample": [
+                         {"concept": m["concept"], "sheet": m["sheet"],
+                          "row": m["row_number"], "cells": m["cells"][:5]}
+                         for m in r["matches"][:24]
+                     ],
                      "error": r.get("error")} for r in rows]
     }, ensure_ascii=False))
 

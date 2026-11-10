@@ -1,0 +1,7 @@
+codigo_ibge;municipio;mes;codigo_natureza_iris;modalidade;indicador_deducao;valor_arrecadado_brl;url_fonte
+3550308;São Paulo;1;17155201;VAAR;total;81406237.19;https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2025.zip
+3550308;São Paulo;4;17155201;VAAR;total;4055655.67;https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2025.zip
+3550308;São Paulo;4;17155201;VAAR;dedutora;-648058.98;https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2025.zip
+3550308;São Paulo;10;17155301;ETI;total;15783392.56;https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2025.zip
+3550308;São Paulo;11;17155301;ETI;total;7891696.28;https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2025.zip
+3550308;São Paulo;12;17155301;ETI;total;7891696.28;https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2025.zip

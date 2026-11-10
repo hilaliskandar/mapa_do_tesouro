@@ -56,11 +56,30 @@ class CatalogVisibilityTests(unittest.TestCase):
         self._load(publicavel=0, ativo=0)
         self.assertEqual(self._flags()[:2], (0, 0))
         with sqlite3.connect(self.db) as con:
+            con.execute(
+                "INSERT INTO municipio(codigo_ibge,nome,uf) "
+                "VALUES('3500105','Adamantina','SP')"
+            )
+            con.execute(
+                "INSERT INTO observacao(codigo_ibge,ano,variavel_id,fonte_id,"
+                "valor_num,status) VALUES('3500105',2025,"
+                "'dca_itr_cota_parte_bruta','SICONFI_DCA',100.0,'observado')"
+            )
             visible = con.execute(
                 "SELECT COUNT(*) FROM v_observacao_publicavel "
                 "WHERE variavel_id='dca_itr_cota_parte_bruta'"
             ).fetchone()[0]
-        self.assertEqual(visible, 0)
+            self.assertEqual(visible, 0)
+            con.execute(
+                "UPDATE variavel SET publicavel=1 "
+                "WHERE variavel_id='dca_itr_cota_parte_bruta'"
+            )
+            self.assertEqual(
+                con.execute(
+                    "SELECT COUNT(*) FROM v_observacao_publicavel "
+                    "WHERE variavel_id='dca_itr_cota_parte_bruta'"
+                ).fetchone()[0], 1
+            )
 
     def test_omitted_flags_keep_backward_compatible_defaults(self):
         self._load()

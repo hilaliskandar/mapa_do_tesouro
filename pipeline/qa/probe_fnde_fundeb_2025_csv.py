@@ -68,6 +68,7 @@ def inspect(name: str, filename: str) -> dict:
         out["delimiter"] = repr(sep)
         records = list(csv.reader(io.StringIO(text), delimiter=sep))
         out["parsed_rows"] = len(records)
+        out["nonempty_row_samples"] = [r[:18] for r in records if sum(bool(str(x).strip()) for x in r) >= 3][:9]
         # Avoid interpreting schedule as execution. Sample SP rows only for schema discovery.
         sp_rows = [r for r in records if any(str(x).strip().upper() in ("SP","SÃO PAULO","SAO PAULO") for x in r[:8])]
         out["sp_exact_token_rows"] = len(sp_rows)

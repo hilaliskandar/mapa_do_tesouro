@@ -160,7 +160,9 @@ def reconcile_annexes() -> dict:
 def main() -> None:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     results = [inspect(k,v) for k,v in FILES.items()]
-    OUT.write_text(json.dumps({"release":"2025 annual-adjustment sixth publication", "not_actual_execution":True, "results":results},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    reconciliation = reconcile_annexes()
+    OUT.write_text(json.dumps({"release":"2025 annual-adjustment sixth publication", "not_actual_execution":True, "results":results, "reconciliation":reconciliation},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    print("RECONCILIATION: "+json.dumps(reconciliation,ensure_ascii=False))
     print(json.dumps(results,ensure_ascii=False))
 
 if __name__ == "__main__":

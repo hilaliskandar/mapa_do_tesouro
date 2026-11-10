@@ -8,6 +8,12 @@ on:
       - ".github/workflows/fed04-real-sqlite-visibility-qa.yml"
       - "pipeline/qa/audit_fed04_real_db_visibility.py"
       - "pipeline/build/load_catalog.py"
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/fed04-real-sqlite-visibility-qa.yml"
+      - "pipeline/qa/audit_fed04_real_db_visibility.py"
+      - "pipeline/build/load_catalog.py"
   workflow_dispatch:
 
 permissions:

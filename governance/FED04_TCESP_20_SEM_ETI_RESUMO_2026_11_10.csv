@@ -1,0 +1,21 @@
+codigo_ibge;municipio;dca_brl;tcesp_soma_1715_brl;diferenca_dca_tcesp_brl;quantidade_lancamentos;contas_tcesp;fonte_url;estado
+3502903;Araçoiaba da Serra;189532.64;189532.64;0.00;2;17155201:189532.64;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aracoiaba-da-serra-2025.zip;CONCILIADO_TCESP_DCA
+3506508;Birigui;290362.19;290362.19;0.00;2;17155201:290362.19;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-birigui-2025.zip;CONCILIADO_TCESP_DCA
+3506805;Bocaina;17916.42;17916.42;0.00;2;17155201:17916.42;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bocaina-2025.zip;CONCILIADO_TCESP_DCA
+3508405;Cabreúva;136034.11;136034.11;0.00;2;17155201:136034.11;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cabreuva-2025.zip;CONCILIADO_TCESP_DCA
+3510153;Canitar;90921.38;90921.38;0.00;2;17155001:90921.38;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-canitar-2025.zip;CONCILIADO_TCESP_DCA
+3512407;Cordeirópolis;117567.60;117567.60;0.00;2;17155201:117567.60;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cordeiropolis-2025.zip;CONCILIADO_TCESP_DCA
+3517109;Glicério;9139.03;9139.03;0.00;2;17155201:9139.03;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-glicerio-2025.zip;CONCILIADO_TCESP_DCA
+3517703;Guará;125252.52;125252.52;0.00;2;17155201:125252.52;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guara-2025.zip;CONCILIADO_TCESP_DCA
+3519709;Ibiúna;313984.29;313984.29;0.00;3;17155201:313984.29;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibiuna-2025.zip;CONCILIADO_TCESP_DCA
+3520442;Ilha Solteira;40780.41;40780.41;0.00;2;17155201:40780.41;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ilha-solteira-2025.zip;CONCILIADO_TCESP_DCA
+3523602;Itirapina;42305.98;42305.98;0.00;2;17155201:42305.98;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itirapina-2025.zip;CONCILIADO_TCESP_DCA
+3524808;Jales;87420.05;87420.05;0.00;2;17155201:87420.05;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jales-2025.zip;CONCILIADO_TCESP_DCA
+3530607;Mogi das Cruzes;1909360.94;1909360.94;0.00;2;17155201:1909360.94;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mogi-das-cruzes-2025.zip;CONCILIADO_TCESP_DCA
+3535408;Panorama;27742.92;27742.92;0.00;2;17155201:27742.92;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-panorama-2025.zip;CONCILIADO_TCESP_DCA
+3538105;Pindorama;72131.33;60253.56;11877.77;4;17155201:60253.56;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pindorama-2025.zip;DIVERGENTE_TCESP_DCA
+3546207;Santa Cruz da Conceição;5972.02;5972.02;0.00;2;17155201:5972.02;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-cruz-da-conceicao-2025.zip;CONCILIADO_TCESP_DCA
+3549805;São José do Rio Preto;1131769.40;1131769.40;0.00;2;17155201:1131769.40;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-jose-do-rio-preto-2025.zip;CONCILIADO_TCESP_DCA
+3552205;Sorocaba;2599269.81;2514147.33;85122.48;4;17155201:2514147.33;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sorocaba-2025.zip;DIVERGENTE_TCESP_DCA
+3554102;Taubaté;644565.81;644565.81;0.00;2;17155201:644565.81;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-taubate-2025.zip;CONCILIADO_TCESP_DCA
+3556503;Várzea Paulista;418355.45;418355.45;0.00;2;17155201:418355.45;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-varzea-paulista-2025.zip;CONCILIADO_TCESP_DCA

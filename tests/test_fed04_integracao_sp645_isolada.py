@@ -28,6 +28,8 @@ def test_fed04_candidates_not_exposed_in_sp645_synthetic_build(tmp_path):
     with sqlite3.connect(database) as con:
         for schema in sorted((ROOT / "data/schema").glob("[0-9][0-9][0-9]_*.sql")):
             con.executescript(schema.read_text(encoding="utf-8"))
+        con.execute("INSERT INTO fonte(fonte_id,nome,orgao) "
+                    "VALUES ('SICONFI_DCA','SICONFI DCA','STN')")
         con.execute("INSERT INTO universo(universo_id,nome,tipo) "
                     "VALUES ('SP_645','SP synthetic QA','analitico')")
         con.execute("INSERT INTO variavel(variavel_id,nome,grupo,tipo,unidade,definicao) "

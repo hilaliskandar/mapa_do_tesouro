@@ -1,0 +1,16 @@
+codigo_ibge;municipio;ano;conta_pai_fpm_receita_bruta_brl;contas_filhas_identificadas;diferenca_centavos;estado;url_fonte
+3509502;Campinas;2022;125606217.24;2;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&no_anexo=DCA-Anexo%20I-C&id_ente=3509502
+3509502;Campinas;2023;126427329.64;2;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&no_anexo=DCA-Anexo%20I-C&id_ente=3509502
+3509502;Campinas;2025;157245669.87;1;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&no_anexo=DCA-Anexo%20I-C&id_ente=3509502
+3543402;Ribeirão Preto;2022;119821017.35;3;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&no_anexo=DCA-Anexo%20I-C&id_ente=3543402
+3543402;Ribeirão Preto;2023;123497204.54;2;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&no_anexo=DCA-Anexo%20I-C&id_ente=3543402
+3543402;Ribeirão Preto;2025;157236125.96;2;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&no_anexo=DCA-Anexo%20I-C&id_ente=3543402
+3548906;São Carlos;2022;119821017.35;3;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&no_anexo=DCA-Anexo%20I-C&id_ente=3548906
+3548906;São Carlos;2023;123497204.55;2;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&no_anexo=DCA-Anexo%20I-C&id_ente=3548906
+3548906;São Carlos;2025;157245670.33;2;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&no_anexo=DCA-Anexo%20I-C&id_ente=3548906
+3534401;Osasco;2022;119821017.35;3;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&no_anexo=DCA-Anexo%20I-C&id_ente=3534401
+3534401;Osasco;2023;123497204.54;2;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&no_anexo=DCA-Anexo%20I-C&id_ente=3534401
+3534401;Osasco;2025;157245670.33;2;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&no_anexo=DCA-Anexo%20I-C&id_ente=3534401
+3544004;Rio das Pedras;2022;35662476.89;1;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2022&no_anexo=DCA-Anexo%20I-C&id_ente=3544004
+3544004;Rio das Pedras;2023;40057604.42;1;0;qa_pass_pai_igual_soma_filhas;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2023&no_anexo=DCA-Anexo%20I-C&id_ente=3544004
+3544004;Rio das Pedras;2025;;0;;conta_ausente_2025_declaracao_anomala;https://apidatalake.tesouro.gov.br/ords/siconfi/tt/dca?an_exercicio=2025&no_anexo=DCA-Anexo%20I-C&id_ente=3544004

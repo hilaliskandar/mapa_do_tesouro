@@ -16,8 +16,10 @@ FRONTEND = ROOT / "app" / "static"
 FILES = (
     "investimentos-rmrp-preview.html",
     "obrasgov-rmrp-preview.html",
+    "especiais-rmrp-preview.html",
     "data/api/v3/investimentos/rmrp/preview-amostras.json",
     "data/api/v3/investimentos/rmrp/obrasgov-triagem-espacial.json",
+    "data/api/v3/investimentos/rmrp/especiais-planos-etapas-preview.json",
 )
 
 
@@ -30,6 +32,9 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
 
     proposals = json.loads((source / FILES[2]).read_text(encoding="utf-8"))
     obras = json.loads((source / FILES[3]).read_text(encoding="utf-8"))
+    especiais = json.loads((source / FILES[5]).read_text(encoding="utf-8"))
+    if especiais["meta"]["situacao"] != "consulta_exploratoria_sem_homologacao_credito" or len(especiais["planos"]) != 284:
+        raise RuntimeError("284 planos Especiais com QA esperada não encontrados")
     if proposals["meta"]["status"] != "preview_qa_nao_publicavel":
         raise RuntimeError("Propostas sem marcador de prévia")
     if obras["meta"]["qa_status"] != "triagem_espacial_nao_validacao_financeira":
@@ -37,7 +42,8 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
 
     codes = {m["codigo_ibge"] for m in proposals["municipios"]}
     geocodes = {m["codigo_ibge"] for m in obras["municipios"]}
-    if len(codes) != 34 or codes != geocodes:
+    special_codes = {m["codigo_ibge"] for m in especiais["municipios"]}
+    if len(codes) != 34 or codes != geocodes or codes != special_codes:
         raise RuntimeError("Os 34 municípios da RMRP não coincidem entre as bases")
     if len(proposals["propostas_amostrais"]) != 200:
         raise RuntimeError("Amostra Transferegov alterada sem revisão")
@@ -71,6 +77,7 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
         "municipios": len(codes),
         "transferegov_amostra": len(proposals["propostas_amostrais"]),
         "obrasgov_triagem": len(obras["items"]),
+        "especiais_planos": len(especiais["planos"]),
         "estado_espacial": counts,
         "files_copied": list(FILES),
     }

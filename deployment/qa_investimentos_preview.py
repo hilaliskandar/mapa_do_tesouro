@@ -23,12 +23,24 @@ def fetch(remote: str, path: str) -> bytes:
 def validate(read):
     html = read("obrasgov-rmrp-preview.html").decode("utf-8")
     html2 = read("investimentos-rmrp-preview.html").decode("utf-8")
+    html3 = read("especiais-rmrp-preview.html").decode("utf-8")
     if "não homologada" not in html.lower() or "não homologada" not in html2.lower():
         raise RuntimeError("Aviso de não homologação ausente")
+    if "não homologada" not in html3.lower() or "especiais-planos-etapas-preview.json" not in html3:
+        raise RuntimeError("Falta aviso/arquivo na consulta de Especiais")
     if "obrasgov-triagem-espacial.json" not in html:
         raise RuntimeError("HTML não aponta para conjunto espacial")
     proposals = json.loads(read("data/api/v3/investimentos/rmrp/preview-amostras.json"))
     obras = json.loads(read("data/api/v3/investimentos/rmrp/obrasgov-triagem-espacial.json"))
+    especiais = json.loads(read("data/api/v3/investimentos/rmrp/especiais-planos-etapas-preview.json"))
+    if especiais["meta"]["situacao"] != "consulta_exploratoria_sem_homologacao_credito":
+        raise RuntimeError("Especiais promovidas indevidamente")
+    if len(especiais["planos"]) != 284 or len(especiais["municipios"]) != 34:
+        raise RuntimeError("Contagens Especiais inesperadas")
+    if len({x["id_plano_acao"] for x in especiais["planos"]}) != 284:
+        raise RuntimeError("Planos Especiais duplicados")
+    if sum(x["numero_ordens_bancarias"] > 0 for x in especiais["planos"]) != 242:
+        raise RuntimeError("Cobertura de OB em Especiais alterada")
     if proposals["meta"]["status"] != "preview_qa_nao_publicavel":
         raise RuntimeError("Propostas incorretamente promovidas")
     if obras["meta"]["qa_status"] != "triagem_espacial_nao_validacao_financeira":
@@ -51,7 +63,8 @@ def validate(read):
     }:
         raise RuntimeError("Divergência na QA espacial do JSON")
     return {"qa": "pass", "municipios": 34, "propostas_amostrais": 200,
-            "projetos_obrasgov": 224, "contagens": counts}
+            "projetos_obrasgov": 224, "planos_especiais": 284,
+            "planos_com_ob": 242, "contagens": counts}
 
 
 def main():

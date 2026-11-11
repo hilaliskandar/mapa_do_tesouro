@@ -104,7 +104,14 @@ def run(roster, output, limit_pages=0, delay=0.1):
                 path = folder / f"page-{page:05d}.json.gz"
                 # A página é guardada inteira, permitindo uma futura normalização reprodutível.
                 try:
-                    obj, raw = fetch_json(url)
+                    reused = path.exists()
+                    if reused:
+                        raw = gzip.decompress(path.read_bytes())
+                        obj = json.loads(raw)
+                        if not isinstance(obj.get("data"), list):
+                            raise ValueError("Arquivo de checkpoint não possui lista data")
+                    else:
+                        obj, raw = fetch_json(url)
                     if obj.get("page_number") != page:
                         raise ValueError(f"Pagina retornada inconsistente: {obj.get('page_number')} != {page}")
                     if declared is None:
@@ -124,11 +131,14 @@ def run(roster, output, limit_pages=0, delay=0.1):
                         municipal_code = item.get(parameter)
                         if str(municipal_code) != code:
                             raise ValueError(f"Municipio de retorno incorreto: {municipal_code} em {code}")
-                    atomic_write(path, gzip.compress(raw, compresslevel=6, mtime=0))
+                    if not reused:
+                        atomic_write(path, gzip.compress(raw, compresslevel=6, mtime=0))
                     count += len(data)
                     manifest["sources"].append({
                         "module": module, "codigo_ibge": code, "page": page, "url": url,
-                        "count": len(data), "sha256": sha256(path), "bytes_gzip": path.stat().st_size,
+                        "count": len(data), "sha256": sha256(path),
+                        "sha256_raw": hashlib.sha256(raw).hexdigest(),
+                        "checkpoint_reused": reused, "bytes_gzip": path.stat().st_size,
                         "total_items_declared": declared, "total_pages_declared": pages,
                         "artifact": str(path.relative_to(output))
                     })
@@ -144,16 +154,17 @@ def run(roster, output, limit_pages=0, delay=0.1):
             manifest.setdefault("coverage", []).append({
                 "codigo_ibge": code, "municipio": city["municipio"], "module": module,
                 "expected": declared, "retrieved": count, "duplicate_ids": duplicate_ids,
-                "all_pages": bool(pages is not None and page >= pages and not errors
-                                  or pages is not None and page >= pages and count == declared
-                                  and not duplicate_ids),
+                "all_pages": bool(pages is not None and page >= pages
+                                  and count == declared and not duplicate_ids
+                                  and not any(e["module"] == module and e["codigo_ibge"] == code
+                                              for e in errors)),
                 "page_count": pages
             })
             print(f"{module} {code}: {count}/{declared} itens, {page}/{pages} paginas", flush=True)
 
     # O QA opera sobre cada chave API e não deduplica indevidamente entre módulos.
-    complete = not errors and not limit_pages and all(
-        entry["expected"] == entry["retrieved"] and not entry["duplicate_ids"]
+    complete = not errors and not limit_pages and len(manifest["coverage"]) == 68 and all(
+        entry["all_pages"] and entry["expected"] == entry["retrieved"]
         for entry in manifest["coverage"]
     )
     manifest["errors"] = errors
@@ -168,7 +179,9 @@ def run(roster, output, limit_pages=0, delay=0.1):
         writer.writeheader()
         for x in manifest["coverage"]:
             writer.writerow({**x, "duplicate_ids": "|".join(x["duplicate_ids"])})
-    return 0 if complete or limit_pages else 2
+    return 0 if complete or (
+        limit_pages and not errors and len(manifest["coverage"]) == 68
+    ) else 2
 
 
 def main():

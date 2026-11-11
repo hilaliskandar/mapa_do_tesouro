@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transferências Especiais RMRP — planos e execução documental</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#233044;background:#f3f6f9}body{margin:auto;max-width:1240px;padding:24px 18px}
+h1{font-size:1.8rem}p{line-height:1.5}a{color:#125899}.panel{background:#fff;padding:16px;border-radius:9px;border:1px solid #dce3ec;margin:15px 0}
+.caution{background:#fff6dc;border:1px solid #d5bb67;border-radius:7px;padding:14px}.control{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+label{font-weight:600;font-size:.86rem;display:flex;flex-direction:column;gap:5px}select,input{font:inherit;padding:8px;border:1px solid #9baaba;border-radius:5px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{text-align:left;padding:9px;border-bottom:1px solid #e5eaf0;vertical-align:top}
+tr:nth-child(2n){background:#f6f8fb}.scroll{overflow:auto}.muted{color:#4c5d70;font-size:.87rem}.num{font-variant-numeric:tabular-nums;text-align:right}
+</style></head><body>
+<p><a href="./obrasgov-rmrp-preview.html">Obrasgov RMRP</a> · <a href="./investimentos-rmrp-preview.html">Transferegov Parcerias</a></p>
+<h1>Transferências Especiais — carteira documental RMRP</h1>
+<p class="caution"><strong>Prévia exploratória, não homologada.</strong> São 284 planos dos 34 municípios da RMRP. Valor previsto, empenho, documento hábil e ordem bancária representam estágios diferentes da mesma operação; não devem ser somados. “OB enviada” não é comprovação independente de crédito recebido nem execução municipal.</p>
+<section class="panel control">
+<label>Município<select id="municipio"><option value="">Todos os 34</option></select></label>
+<label>Exercício do plano<select id="ano"><option value="">Todos</option></select></label>
+<label>Categoria<select id="categoria"><option value="">Ambas</option></select></label>
+<label>Etapa documental<select id="etapa"><option value="">Todas</option><option value="OB_ENVIADA_NAO_CREDITO_CONFIRMADO">OB enviada ao banco</option><option value="DH_SEM_OB_RETORNADA">DH sem OB retornada</option><option value="EMPENHO_SEM_DH_RETORNADO">Empenho sem DH retornado</option></select></label>
+<label>Busca<select id="busca" type="search" placeholder="Município ou nº do plano"></label>
+</section>
+<section class="panel">
+<p id="status" role="status" aria-live="polite">Carregando consulta...</p>
+<p id="resumo" class="muted"></p>
+<div class="scroll"><table><thead><tr><th>Município / ano</th><th>Plano e categoria</th><th>Estado do plano</th><th class="num">Investimento planejado</th><th class="num">Valor empenhado</th><th class="num">Documentos hábeis</th><th>Etapa mais avançada</th><th>Origem</th></tr></thead><tbody id="linhas"></tbody></table></div>
+<p class="muted">Não é possível inferir crédito, saldo financeiro disponível ou aplicação de recursos a partir da existência da ordem bancária. A cobertura dos lançamentos por beneficiário está separada por ausência de vínculo comprovado ao plano.</p>
+</section>
+<script>
+"use strict";
+const el=id=>document.getElementById(id),format=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
+let base=null;
+const textCell=(tr,t)=>{const td=document.createElement("td");td.textContent=t;tr.appendChild(td);return td};
+function render(){
+ const ibge=el("municipio").value,ano=el("ano").value,cat=el("categoria").value,etapa=el("etapa").value,term=el("busca").value.toLocaleLowerCase("pt-BR");
+ const rows=base.planos.filter(x=>(!ibge||x.codigo_ibge===ibge)&&(!ano||String(x.ano)===ano)&&(!cat||x.categoria===cat)&&(!etapa||x.etapa_observada===etapa)&&(!term||(x.municipio+" "+x.id_plano_acao).toLocaleLowerCase("pt-BR").includes(term)));
+ el("resumo").textContent=rows.length.toLocaleString("pt-BR")+" planos selecionados; "+rows.filter(x=>x.numero_ordens_bancarias>0).length+" com OB registrada, "+rows.filter(x=>x.numero_documentos_habeis>0&&!x.numero_ordens_bancarias).length+" com DH sem OB e "+rows.filter(x=>!x.numero_documentos_habeis).length+" sem DH retornado. Nenhuma soma desses valores equivale a investimento executado.";
+ const tbody=el("linhas");tbody.replaceChildren();
+ for(const x of rows){const tr=document.createElement("tr");textCell(tr,x.municipio+" / "+x.ano);
+ textCell(tr,x.id_plano_acao+" / "+x.categoria);textCell(tr,x.estado_plano);
+ for(const key of ["valor_investimento_planejado_centavos","valor_empenho_centavos","valor_documentos_habeis_centavos"]){const v=textCell(tr,x[key]===null?"Não informado":format.format(x[key]/100));v.className="num"}
+ const state=x.etapa_observada==="OB_ENVIADA_NAO_CREDITO_CONFIRMADO"?"OB enviada (crédito não confirmado)":x.etapa_observada==="DH_SEM_OB_RETORNADA"?"DH sem OB retornada":"Empenho sem DH retornado";
+ textCell(tr,state);const td=document.createElement("td"),link=document.createElement("a");link.textContent="API federal";link.href=x.url_fonte;link.target="_blank";link.rel="noopener noreferrer";td.appendChild(link);tr.appendChild(td);tbody.appendChild(tr)}
+ el("status").textContent="Consulta concluída — carteira documental não homologada financeiramente.";
+}
+(async()=>{try{const r=await fetch("./data/api/v3/investimentos/rmrp/especiais-planos-etapas-preview.json",{cache:"no-cache"});if(!r.ok)throw Error("HTTP "+r.status);base=await r.json();if(base.meta.situacao!=="consulta_exploratoria_sem_homologacao_credito"||base.planos.length!==284)throw Error("QA de origem da prévia não reconhecido");for(const city of base.municipios.sort((a,b)=>a.municipio.localeCompare(b.municipio,"pt-BR"))){const o=document.createElement("option");o.value=city.codigo_ibge;o.textContent=city.municipio;el("municipio").appendChild(o)}
+ for(const year of [...new Set(base.planos.map(x=>x.ano))].sort((a,b)=>a-b)){const o=document.createElement("option");o.value=String(year);o.textContent=String(year);el("ano").appendChild(o)}
+ for(const category of [...new Set(base.planos.map(x=>x.categoria))].sort()){const o=document.createElement("option");o.value=category;o.textContent=category;el("categoria").appendChild(o)}
+ for(const id of ["municipio","ano","categoria","etapa","busca"])el(id).addEventListener(id==="busca"?"input":"change",render);render()
+}catch(e){el("status").textContent="Falha de carregamento ou QA: "+e.message}})();
+</script></body></html>

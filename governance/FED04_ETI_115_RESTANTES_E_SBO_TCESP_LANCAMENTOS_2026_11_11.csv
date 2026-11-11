@@ -1,0 +1,298 @@
+codigo_ibge;municipio;id_tcesp;mes;natureza;valor_centavos;fonte_recursos;url_origem
+3551702;Sertãozinho;46077434;10;17155301;10154278;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sertaozinho-2025.zip
+3551702;Sertãozinho;46154064;11;17155301;5077139;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sertaozinho-2025.zip
+3551702;Sertãozinho;46229170;12;17155301;5077140;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sertaozinho-2025.zip
+3553401;Tanabi;46156417;11;17155301;15108988;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-tanabi-2025.zip
+3553401;Tanabi;46230919;12;17155301;5036331;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-tanabi-2025.zip
+3544301;Roseira;46067626;10;17155301;9719784;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-roseira-2025.zip
+3544301;Roseira;46165423;11;17155301;4859892;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-roseira-2025.zip
+3544301;Roseira;46247704;12;17155301;4859892;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-roseira-2025.zip
+3532207;Narandiba;46050766;10;17155301;9579613;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-narandiba-2025.zip
+3532207;Narandiba;46130544;11;17155301;4789806;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-narandiba-2025.zip
+3532207;Narandiba;46243028;12;17155301;4789807;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-narandiba-2025.zip
+3512209;Conchal;46248728;12;17155301;18982894;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-conchal-2025.zip
+3525102;Jardinópolis;46041478;10;17155301;9325372;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jardinopolis-2025.zip
+3525102;Jardinópolis;46121869;11;17155301;4662686;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jardinopolis-2025.zip
+3525102;Jardinópolis;46203698;12;17155301;4662686;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jardinopolis-2025.zip
+3524303;Jaboticabal;46040455;10;17155301;9091056;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jaboticabal-2025.zip
+3524303;Jaboticabal;46120877;11;17155301;4545528;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jaboticabal-2025.zip
+3524303;Jaboticabal;46201757;12;17155301;4545528;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jaboticabal-2025.zip
+3552106;Socorro;46077933;10;17155301;9069203;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-socorro-2025.zip
+3552106;Socorro;46154452;11;17155301;4534601;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-socorro-2025.zip
+3552106;Socorro;46229596;12;17155301;4534603;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-socorro-2025.zip
+3532900;Nova Europa;46051664;10;17155301;9048406;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-europa-2025.zip
+3532900;Nova Europa;46162752;11;17155301;4524203;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-europa-2025.zip
+3532900;Nova Europa;46250941;12;17155301;4524204;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-europa-2025.zip
+3555604;Uchoa;46159000;11;17155301;13500006;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-uchoa-2025.zip
+3555604;Uchoa;46233055;12;17155301;4500002;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-uchoa-2025.zip
+3544202;Riolândia;46067282;10;17155301;8968370;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-riolandia-2025.zip
+3544202;Riolândia;46143975;11;17155301;4484185;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-riolandia-2025.zip
+3544202;Riolândia;46222341;12;17155301;4484186;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-riolandia-2025.zip
+3505609;Barrinha;46012439;10;17155301;8648719;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-barrinha-2025.zip
+3505609;Barrinha;46163414;11;17155301;4324359;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-barrinha-2025.zip
+3505609;Barrinha;46245833;12;17155301;4324361;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-barrinha-2025.zip
+3514106;Dois Córregos;46107104;11;17155301;12845631;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dois-corregos-2025.zip
+3514106;Dois Córregos;46191072;12;17155301;4281878;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dois-corregos-2025.zip
+3529203;Martinópolis;46126676;11;17155301;12741265;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-martinopolis-2025.zip
+3529203;Martinópolis;46242844;12;17155301;-12741265;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-martinopolis-2025.zip
+3529203;Martinópolis;46242907;12;17155301;16988355;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-martinopolis-2025.zip
+3528007;Macatuba;46045353;10;17155301;8413837;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-macatuba-2025.zip
+3528007;Macatuba;46164452;11;17155301;4206918;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-macatuba-2025.zip
+3528007;Macatuba;46206350;12;17155301;4206919;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-macatuba-2025.zip
+3521903;Itajobi;46116775;11;17155301;12320640;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itajobi-2025.zip
+3521903;Itajobi;46199136;12;17155301;4106882;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itajobi-2025.zip
+3532009;Morungaba;46050457;10;17155301;8166827;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-morungaba-2025.zip
+3532009;Morungaba;46130252;11;17155301;4083413;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-morungaba-2025.zip
+3532009;Morungaba;46210343;12;17155301;4083415;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-morungaba-2025.zip
+3517406;Guaíra;46111449;11;17155301;11921934;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guaira-2025.zip
+3517406;Guaíra;46194370;12;17155301;3973980;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guaira-2025.zip
+3518503;Guareí;46112262;11;17155301;3882596;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guarei-2025.zip
+3518503;Guareí;46195093;12;17155301;11647791;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guarei-2025.zip
+3511904;Clementina;46022393;10;17155301;7745395;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-clementina-2025.zip
+3511904;Clementina;46104679;11;17155301;3872697;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-clementina-2025.zip
+3511904;Clementina;46241068;12;17155301;3872699;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-clementina-2025.zip
+3514601;Dumont;46025411;10;17155301;7734492;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dumont-2025.zip
+3514601;Dumont;46107573;11;17155301;3867246;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dumont-2025.zip
+3514601;Dumont;46252589;12;17155301;3867247;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dumont-2025.zip
+3542909;Ribeirão Bonito;46141991;11;17155301;8093041;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ribeirao-bonito-2025.zip
+3542909;Ribeirão Bonito;46141992;11;17155301;3468447;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ribeirao-bonito-2025.zip
+3542909;Ribeirão Bonito;46241552;12;17155301;2697682;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ribeirao-bonito-2025.zip
+3542909;Ribeirão Bonito;46241553;12;17155301;1156150;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ribeirao-bonito-2025.zip
+3522703;Itápolis;46118667;11;17155301;7606905;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itapolis-2025.zip
+3522703;Itápolis;46200442;12;17155301;7606907;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itapolis-2025.zip
+3515400;Fartura;46192133;12;17155301;15138381;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-fartura-2025.zip
+3532801;Nova Aliança;46210806;12;17155301;14915868;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-alianca-2025.zip
+3532306;Natividade da Serra;46050859;10;17155301;7356356;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-natividade-da-serra-2025.zip
+3532306;Natividade da Serra;46130638;11;17155301;3678178;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-natividade-da-serra-2025.zip
+3532306;Natividade da Serra;46210490;12;17155301;3678180;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-natividade-da-serra-2025.zip
+3514304;Dourado;46025150;10;17155301;7322452;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dourado-2025.zip
+3514304;Dourado;46107312;11;17155301;3661226;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dourado-2025.zip
+3514304;Dourado;46238414;12;17155301;3661227;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dourado-2025.zip
+3508801;Cafelândia;46018030;10;17155301;7261915;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cafelandia-2025.zip
+3508801;Cafelândia;46100390;11;17155301;3630957;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cafelandia-2025.zip
+3508801;Cafelândia;46186293;12;17155301;3630958;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cafelandia-2025.zip
+3511409;Cerqueira César;46021822;10;17155301;7124445;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cerqueira-cesar-2025.zip
+3511409;Cerqueira César;46104146;11;17155301;3562222;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cerqueira-cesar-2025.zip
+3511409;Cerqueira César;46169743;12;17155301;3562223;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cerqueira-cesar-2025.zip
+3557303;Estiva Gerbi;46026647;10;17155301;6886644;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-estiva-gerbi-2025.zip
+3557303;Estiva Gerbi;46108666;11;17155301;-6886644;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-estiva-gerbi-2025.zip
+3557303;Estiva Gerbi;46108767;11;17155301;10329966;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-estiva-gerbi-2025.zip
+3557303;Estiva Gerbi;46241187;12;17155301;3443324;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-estiva-gerbi-2025.zip
+3535606;Paraibuna;46133747;11;17155301;10134919;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-paraibuna-2025.zip
+3535606;Paraibuna;46213264;12;17155301;3378309;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-paraibuna-2025.zip
+3541703;Quatá;46064000;10;17155301;6755883;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-quata-2025.zip
+3541703;Quatá;46140910;11;17155301;3377941;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-quata-2025.zip
+3541703;Quatá;46219696;12;17155301;3377943;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-quata-2025.zip
+3545407;Salto Grande;46069008;10;17155301;6730567;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-salto-grande-2025.zip
+3545407;Salto Grande;46145591;11;17155301;3365283;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-salto-grande-2025.zip
+3545407;Salto Grande;46237787;12;17155301;3365285;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-salto-grande-2025.zip
+3520400;Ilhabela;46197979;12;17155301;12953133;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ilhabela-2025.zip
+3500808;Alfredo Marcondes;46006165;10;17155301;6399263;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-alfredo-marcondes-2025.zip
+3500808;Alfredo Marcondes;46090080;11;17155301;3199631;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-alfredo-marcondes-2025.zip
+3500808;Alfredo Marcondes;46178466;12;17155301;3199633;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-alfredo-marcondes-2025.zip
+3529500;Mendonça;46127265;11;17155301;9425086;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mendonca-2025.zip
+3529500;Mendonça;46208171;12;17155301;3141697;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mendonca-2025.zip
+3527108;Lins;46124803;11;17155301;9417303;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-lins-2025.zip
+3527108;Lins;46205957;12;17155301;3139101;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-lins-2025.zip
+3541604;Promissão;46140766;11;17155301;9236998;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-promissao-2025.zip
+3541604;Promissão;46237637;12;17155301;3079001;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-promissao-2025.zip
+3519402;Ibirá;46032918;10;17155301;6116557;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibira-2025.zip
+3519402;Ibirá;46114037;11;17155301;3058278;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibira-2025.zip
+3519402;Ibirá;46196968;12;17155301;3058280;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibira-2025.zip
+3517208;Guaiçara;46111195;11;17155301;9139038;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guaicara-2025.zip
+3517208;Guaiçara;46194201;12;17155301;3046348;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guaicara-2025.zip
+3553906;Tarabai;46080771;10;17155301;6050203;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-tarabai-2025.zip
+3553906;Tarabai;46156989;11;17155301;3025101;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-tarabai-2025.zip
+3553906;Tarabai;46231304;12;17155301;3025104;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-tarabai-2025.zip
+3510104;Cândido Rodrigues;46102567;11;17155301;8959029;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-candido-rodrigues-2025.zip
+3510104;Cândido Rodrigues;46169428;12;17155301;2986344;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-candido-rodrigues-2025.zip
+3507407;Borborema;46098065;11;17155301;8839116;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-borborema-2025.zip
+3507407;Borborema;46185146;12;17155301;2946372;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-borborema-2025.zip
+3538600;Piracaia;46215797;12;17155301;11556608;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piracaia-2025.zip
+3533700;Ocauçu;46174083;12;17155301;11211203;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ocaucu-2025.zip
+3533254;Novais;46052174;10;17155301;5495182;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-novais-2025.zip
+3533254;Novais;46162856;11;17155301;2747591;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-novais-2025.zip
+3533254;Novais;46211617;12;17155301;2747591;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-novais-2025.zip
+3500402;Águas da Prata;46257862;10;17155301;5392421;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aguas-da-prata-2025.zip
+3500402;Águas da Prata;47153271;11;17155301;2696210;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aguas-da-prata-2025.zip
+3500402;Águas da Prata;47153385;12;17155301;2696212;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aguas-da-prata-2025.zip
+3520707;Indiaporã;46034572;10;17155301;5382132;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-indiapora-2025.zip
+3520707;Indiaporã;46115621;11;17155301;2691066;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-indiapora-2025.zip
+3520707;Indiaporã;46198084;12;17155301;2691066;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-indiapora-2025.zip
+3516002;Flórida Paulista;46027849;10;17155301;5230475;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-florida-paulista-2025.zip
+3516002;Flórida Paulista;46109890;11;17155301;2615237;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-florida-paulista-2025.zip
+3516002;Flórida Paulista;46192835;12;17155301;2615238;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-florida-paulista-2025.zip
+3535705;Paraíso;46133828;11;17155301;8590986;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-paraiso-2025.zip
+3535705;Paraíso;46213332;12;17155301;1717568;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-paraiso-2025.zip
+3514924;Elisiário;46025761;10;17155301;4993448;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-elisiario-2025.zip
+3514924;Elisiário;46107904;11;17155301;2496724;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-elisiario-2025.zip
+3514924;Elisiário;46170360;12;17155301;2496725;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-elisiario-2025.zip
+3530102;Mirandópolis;46252292;10;17155301;4889099;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mirandopolis-2025.zip
+3530102;Mirandópolis;46252833;11;17155301;2444549;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mirandopolis-2025.zip
+3530102;Mirandópolis;46742047;12;17155301;2444551;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mirandopolis-2025.zip
+3544707;Sagres;46144592;11;17155301;7311009;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sagres-2025.zip
+3544707;Sagres;46222614;12;17155301;2437004;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sagres-2025.zip
+3517000;Getulina;46029222;10;17155301;4762252;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-getulina-2025.zip
+3517000;Getulina;46111024;11;17155301;2381126;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-getulina-2025.zip
+3517000;Getulina;46252730;12;17155301;2381127;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-getulina-2025.zip
+3501905;Amparo;46007512;10;17155301;4691144;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-amparo-2025.zip
+3501905;Amparo;46179644;11;17155301;2345572;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-amparo-2025.zip
+3501905;Amparo;46242207;12;17155301;2345574;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-amparo-2025.zip
+3542107;Rafard;46064348;10;17155301;4669113;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-rafard-2025.zip
+3542107;Rafard;46141227;11;17155301;2334556;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-rafard-2025.zip
+3542107;Rafard;46220031;12;17155301;2334559;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-rafard-2025.zip
+3550506;São Pedro do Turvo;46076079;10;17155301;4657651;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-pedro-do-turvo-2025.zip
+3550506;São Pedro do Turvo;46152731;11;17155301;2328825;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-pedro-do-turvo-2025.zip
+3550506;São Pedro do Turvo;46228055;12;17155301;2328827;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-pedro-do-turvo-2025.zip
+3536406;Paulicéia;46055084;10;17155301;4603673;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pauliceia-2025.zip
+3536406;Paulicéia;46134650;11;17155301;2301836;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pauliceia-2025.zip
+3536406;Paulicéia;46253844;12;17155301;2301837;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pauliceia-2025.zip
+3510005;Cândido Mota;46102459;11;17155301;6800394;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-candido-mota-2025.zip
+3510005;Cândido Mota;46169333;12;17155301;2266799;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-candido-mota-2025.zip
+3536000;Parapuã;46134120;11;17155301;6642189;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-parapua-2025.zip
+3536000;Parapuã;46213530;12;17155301;2214063;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-parapua-2025.zip
+3506409;Bilac;46014468;10;17155301;4378095;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bilac-2025.zip
+3506409;Bilac;46096937;11;17155301;2189047;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bilac-2025.zip
+3506409;Bilac;46184526;12;17155301;2189048;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bilac-2025.zip
+3512704;Corumbataí;46023275;10;17155301;4251092;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-corumbatai-2025.zip
+3512704;Corumbataí;46105561;11;17155301;2125546;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-corumbatai-2025.zip
+3512704;Corumbataí;46170179;12;17155301;2125547;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-corumbatai-2025.zip
+3542305;Redenção da Serra;46141392;11;17155301;6356748;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-redencao-da-serra-2025.zip
+3542305;Redenção da Serra;46220144;12;17155301;-6356748;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-redencao-da-serra-2025.zip
+3542305;Redenção da Serra;46220193;12;17155301;8475665;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-redencao-da-serra-2025.zip
+3541802;Queiroz;46064100;10;17155301;4152483;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-queiroz-2025.zip
+3541802;Queiroz;46141007;11;17155301;2076241;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-queiroz-2025.zip
+3541802;Queiroz;46219795;12;17155301;2076244;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-queiroz-2025.zip
+3553203;Taiúva;46156238;11;17155301;6186592;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-taiuva-2025.zip
+3553203;Taiúva;46247272;12;17155301;2062199;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-taiuva-2025.zip
+3534906;Pacaembu;46053694;10;17155301;4064374;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pacaembu-2025.zip
+3534906;Pacaembu;46133300;11;17155301;2032187;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pacaembu-2025.zip
+3534906;Pacaembu;46213017;12;17155301;2032189;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pacaembu-2025.zip
+3536604;Paulo de Faria;46055419;10;17155301;4020007;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-paulo-de-faria-2025.zip
+3536604;Paulo de Faria;46134968;11;17155301;2010003;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-paulo-de-faria-2025.zip
+3536604;Paulo de Faria;46249040;12;17155301;2010004;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-paulo-de-faria-2025.zip
+3525805;Júlio Mesquita;46248381;12;17155101;7936943;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-julio-mesquita-2025.zip
+3514502;Duartina;46025340;10;17155301;3896922;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-duartina-2025.zip
+3514502;Duartina;46107507;11;17155301;1948461;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-duartina-2025.zip
+3514502;Duartina;46170286;12;17155301;1948463;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-duartina-2025.zip
+3533502;Novo Horizonte;46131966;11;17155301;5661063;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-novo-horizonte-2025.zip
+3533502;Novo Horizonte;46211800;12;17155301;1887022;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-novo-horizonte-2025.zip
+3524907;Jambeiro;46041227;10;17155301;3722198;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jambeiro-2025.zip
+3524907;Jambeiro;46121618;11;17155301;1861099;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jambeiro-2025.zip
+3524907;Jambeiro;46243732;12;17155301;1861099;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jambeiro-2025.zip
+3538303;Piquerobi;46058498;10;17155301;3708643;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piquerobi-2025.zip
+3538303;Piquerobi;46136602;11;17155301;1854321;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piquerobi-2025.zip
+3538303;Piquerobi;46215446;12;17155301;1854323;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piquerobi-2025.zip
+3533106;Nova Guataporanga;46051738;10;17155301;3561558;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-guataporanga-2025.zip
+3533106;Nova Guataporanga;46131451;11;17155301;1780779;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-guataporanga-2025.zip
+3533106;Nova Guataporanga;46241310;12;17155301;1780780;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-guataporanga-2025.zip
+3502002;Analândia;46091385;11;17155301;5303875;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-analandia-2025.zip
+3502002;Analândia;46166685;12;17155301;1767960;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-analandia-2025.zip
+3540705;Porto Ferreira;46062328;10;17155301;3524746;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-porto-ferreira-2025.zip
+3540705;Porto Ferreira;46139267;11;17155301;1762373;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-porto-ferreira-2025.zip
+3540705;Porto Ferreira;46218006;12;17155301;1762373;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-porto-ferreira-2025.zip
+3531209;Monte Alegre do Sul;46049582;10;17155301;3417824;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-monte-alegre-do-sul-2025.zip
+3531209;Monte Alegre do Sul;46129429;11;17155301;1708912;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-monte-alegre-do-sul-2025.zip
+3531209;Monte Alegre do Sul;46209807;12;17155301;1708913;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-monte-alegre-do-sul-2025.zip
+3514205;Dolcinópolis;46025038;10;17155301;3391872;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dolcinopolis-2025.zip
+3514205;Dolcinópolis;46107201;11;17155301;1695936;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dolcinopolis-2025.zip
+3514205;Dolcinópolis;46191177;12;17155301;1695937;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-dolcinopolis-2025.zip
+3537701;Piacatu;46057794;10;17155301;3367130;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piacatu-2025.zip
+3537701;Piacatu;46135943;11;17155301;1683565;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piacatu-2025.zip
+3537701;Piacatu;46214839;12;17155301;1683566;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piacatu-2025.zip
+3537800;Piedade;46136039;11;17155301;5037699;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piedade-2025.zip
+3537800;Piedade;46214938;12;17155301;1679233;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piedade-2025.zip
+3548054;Santo Antônio do Aracanguá;46072272;10;17155301;3212866;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-antonio-do-aracangua-2025.zip
+3548054;Santo Antônio do Aracanguá;46148786;11;17155301;1606433;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-antonio-do-aracangua-2025.zip
+3548054;Santo Antônio do Aracanguá;46225254;12;17155301;1606434;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-antonio-do-aracangua-2025.zip
+3534609;Osvaldo Cruz;46086283;10;17155301;3160972;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-osvaldo-cruz-2025.zip
+3534609;Osvaldo Cruz;46161454;11;17155301;1580486;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-osvaldo-cruz-2025.zip
+3534609;Osvaldo Cruz;46235470;12;17155301;1580487;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-osvaldo-cruz-2025.zip
+3547700;Santo Anastácio;46071555;10;17155301;3088201;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-anastacio-2025.zip
+3547700;Santo Anastácio;46148018;11;17155301;1544100;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-anastacio-2025.zip
+3547700;Santo Anastácio;46251045;12;17155301;1544102;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-anastacio-2025.zip
+3508702;Caconde;46017891;10;17155301;768030;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caconde-2025.zip
+3508702;Caconde;46017894;10;17155301;307212;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caconde-2025.zip
+3508702;Caconde;46017897;10;17155301;460818;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caconde-2025.zip
+3508702;Caconde;46017902;10;17155301;1536059;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caconde-2025.zip
+3508702;Caconde;46406720;12;17155301;768030;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caconde-2025.zip
+3508702;Caconde;46406724;12;17155301;307211;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caconde-2025.zip
+3508702;Caconde;46406727;12;17155301;460818;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caconde-2025.zip
+3508702;Caconde;46406732;12;17155301;1536061;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caconde-2025.zip
+3541059;Pratânia;46140242;11;17155301;4579570;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pratania-2025.zip
+3541059;Pratânia;46219105;12;17155301;1526525;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pratania-2025.zip
+3544509;Rubinéia;46067770;10;17155301;3019047;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-rubineia-2025.zip
+3544509;Rubinéia;46144374;11;17155301;1509523;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-rubineia-2025.zip
+3544509;Rubinéia;46222544;12;17155301;1509524;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-rubineia-2025.zip
+3502309;Anhembi;46284234;12;17155301;5971922;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-anhembi-2025.zip
+3555802;Urânia;46083279;10;17155301;2886084;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-urania-2025.zip
+3555802;Urânia;46159109;11;17155301;1443042;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-urania-2025.zip
+3555802;Urânia;46240853;12;17155301;1443042;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-urania-2025.zip
+3544806;Sales;46144673;11;17155301;4143564;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sales-2025.zip
+3544806;Sales;46236593;12;17155301;1381190;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sales-2025.zip
+3545506;Sandovalina;46069106;10;17155301;2636948;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sandovalina-2025.zip
+3545506;Sandovalina;46145672;11;17155301;1318474;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sandovalina-2025.zip
+3545506;Sandovalina;46249184;12;17155301;1318474;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sandovalina-2025.zip
+3541208;Presidente Bernardes;46063456;10;17155301;2590626;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-presidente-bernardes-2025.zip
+3541208;Presidente Bernardes;46140389;11;17155301;1295313;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-presidente-bernardes-2025.zip
+3541208;Presidente Bernardes;46219273;12;17155301;1295314;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-presidente-bernardes-2025.zip
+3519303;Ibaté;46170703;11;17155301;3828948;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibate-2025.zip
+3519303;Ibaté;46246155;12;17155301;1276316;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibate-2025.zip
+3539400;Piratininga;46059755;10;17155301;2536714;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piratininga-2025.zip
+3539400;Piratininga;46137813;11;17155301;1268357;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piratininga-2025.zip
+3539400;Piratininga;46216640;12;17155301;1268358;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piratininga-2025.zip
+3506201;Bento de Abreu;46096487;11;17155301;3623403;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bento-de-abreu-2025.zip
+3506201;Bento de Abreu;46167552;12;17155301;1207802;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bento-de-abreu-2025.zip
+3509452;Campina do Monte Alegre;46019032;10;17155301;2348346;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-campina-do-monte-alegre-2025.zip
+3509452;Campina do Monte Alegre;46101305;11;17155301;1174173;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-campina-do-monte-alegre-2025.zip
+3509452;Campina do Monte Alegre;46186988;12;17155301;1174173;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-campina-do-monte-alegre-2025.zip
+3512308;Conchas;46189186;12;17155201;4605558;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-conchas-2025.zip
+3516507;Gabriel Monteiro;46028633;10;17155301;2249006;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-gabriel-monteiro-2025.zip
+3516507;Gabriel Monteiro;46110453;11;17155301;1124503;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-gabriel-monteiro-2025.zip
+3516507;Gabriel Monteiro;46193660;12;17155301;1124504;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-gabriel-monteiro-2025.zip
+3503356;Arco-Íris;46163334;11;17155301;1083848;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-arco-iris-2025.zip
+3503356;Arco-Íris;46166749;12;17155301;3251545;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-arco-iris-2025.zip
+3501400;Álvaro de Carvalho;46090675;11;17155301;3238282;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-alvaro-de-carvalho-2025.zip
+3501400;Álvaro de Carvalho;46245749;12;17155301;1079429;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-alvaro-de-carvalho-2025.zip
+3548807;São Caetano do Sul;46150178;11;17155301;3238282;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-caetano-do-sul-2025.zip
+3548807;São Caetano do Sul;46226512;12;17155301;1079429;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-caetano-do-sul-2025.zip
+3557154;Zacarias;46160713;11;17155301;3238282;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-zacarias-2025.zip
+3557154;Zacarias;46234801;12;17155301;1079429;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-zacarias-2025.zip
+3509304;Cajobi;46101040;11;17155301;3080320;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cajobi-2025.zip
+3509304;Cajobi;46186717;12;17155301;1026425;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cajobi-2025.zip
+3549201;São João das Duas Pontes;46074133;10;17155301;1923357;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-joao-das-duas-pontes-2025.zip
+3549201;São João das Duas Pontes;46150692;11;17155301;961678;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-joao-das-duas-pontes-2025.zip
+3549201;São João das Duas Pontes;46226734;12;17155301;961681;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-joao-das-duas-pontes-2025.zip
+3504206;Auriflama;46010782;10;17155301;1660177;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-auriflama-2025.zip
+3504206;Auriflama;46094036;11;17155301;-1660177;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-auriflama-2025.zip
+3504206;Auriflama;46094132;11;17155301;2490265;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-auriflama-2025.zip
+3504206;Auriflama;46182046;12;17155301;830089;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-auriflama-2025.zip
+3532868;Nova Castilho;46051532;10;17155301;1439237;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-castilho-2025.zip
+3532868;Nova Castilho;46131376;11;17155301;719618;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-castilho-2025.zip
+3532868;Nova Castilho;46211165;12;17155301;719619;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-castilho-2025.zip
+3551801;Sete Barras;46229328;12;17155301;2108422;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sete-barras-2025.zip
+3505401;Barra do Turvo;46012211;10;17155301;1026742;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-barra-do-turvo-2025.zip
+3505401;Barra do Turvo;46095424;11;17155301;513371;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-barra-do-turvo-2025.zip
+3505401;Barra do Turvo;46183169;12;17155301;513371;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-barra-do-turvo-2025.zip
+3548401;Santópolis do Aguapeí;46072637;10;17155301;442795;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santopolis-do-aguapei-2025.zip
+3548401;Santópolis do Aguapeí;46149189;11;17155301;221397;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santopolis-do-aguapei-2025.zip
+3548401;Santópolis do Aguapeí;46176009;12;17155301;221399;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santopolis-do-aguapei-2025.zip
+3512506;Coroados;46023096;10;17155301;334191;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-coroados-2025.zip
+3512506;Coroados;46105375;11;17155301;167095;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-coroados-2025.zip
+3512506;Coroados;46189365;12;17155301;167096;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-coroados-2025.zip
+3533205;Nova Independência;46131557;11;17155301;496863;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-independencia-2025.zip
+3533205;Nova Independência;46211269;12;17155301;165622;02 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-nova-independencia-2025.zip
+3511300;Cedral;46104008;11;17155301;421195;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cedral-2025.zip
+3511300;Cedral;46188525;12;17155301;140400;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cedral-2025.zip
+3547205;Santana da Ponte Pensa;46071358;10;17155301;219918;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santana-da-ponte-pensa-2025.zip
+3547205;Santana da Ponte Pensa;46147848;11;17155301;109959;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santana-da-ponte-pensa-2025.zip
+3547205;Santana da Ponte Pensa;46175155;12;17155301;109961;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santana-da-ponte-pensa-2025.zip
+3511201;Catiguá;46021592;10;17155301;144214;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-catigua-2025.zip
+3511201;Catiguá;46103912;11;17155301;72107;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-catigua-2025.zip
+3511201;Catiguá;46244136;12;17155301;72108;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-catigua-2025.zip
+3504701;Balbinos;46011250;10;17155301;71961;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-balbinos-2025.zip
+3504701;Balbinos;46094574;11;17155301;35980;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-balbinos-2025.zip
+3504701;Balbinos;46182439;12;17155301;35983;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-balbinos-2025.zip
+3545803;Santa Bárbara d'Oeste;46069400;10;17155301;26047106;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-barbara-d-oeste-2025.zip
+3545803;Santa Bárbara d'Oeste;46145957;11;17155301;13023553;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-barbara-d-oeste-2025.zip
+3545803;Santa Bárbara d'Oeste;46223545;12;17155301;13023555;05 ;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-barbara-d-oeste-2025.zip

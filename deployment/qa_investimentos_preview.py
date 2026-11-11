@@ -24,15 +24,25 @@ def validate(read):
     html = read("obrasgov-rmrp-preview.html").decode("utf-8")
     html2 = read("investimentos-rmrp-preview.html").decode("utf-8")
     html3 = read("especiais-rmrp-preview.html").decode("utf-8")
+    html4 = read("movimentacoes-especiais-rmrp-preview.html").decode("utf-8")
     if "não homologada" not in html.lower() or "não homologada" not in html2.lower():
         raise RuntimeError("Aviso de não homologação ausente")
     if "não homologada" not in html3.lower() or "especiais-planos-etapas-preview.json" not in html3:
         raise RuntimeError("Falta aviso/arquivo na consulta de Especiais")
+    if "não homologada" not in html4.lower() or "especiais-movimentacoes-resumo-preview.json" not in html4:
+        raise RuntimeError("Falta aviso/arquivo na consulta de movimentações")
     if "obrasgov-triagem-espacial.json" not in html:
         raise RuntimeError("HTML não aponta para conjunto espacial")
     proposals = json.loads(read("data/api/v3/investimentos/rmrp/preview-amostras.json"))
     obras = json.loads(read("data/api/v3/investimentos/rmrp/obrasgov-triagem-espacial.json"))
     especiais = json.loads(read("data/api/v3/investimentos/rmrp/especiais-planos-etapas-preview.json"))
+    movimento = json.loads(read("data/api/v3/investimentos/rmrp/especiais-movimentacoes-resumo-preview.json"))
+    if movimento["metadata"]["qa_status"] != "triagem_nao_conciliada_por_plano":
+        raise RuntimeError("Movimentações financeiras indevidamente homologadas")
+    if movimento["totals"]["lancamentos"] != 2385 or len({v["codigo_ibge"] for v in movimento["categorias"]}) != 34:
+        raise RuntimeError("Cobertura de movimentações da RMRP inconsistente")
+    if sum(v["lancamentos"] for v in movimento["categorias"]) != 2385:
+        raise RuntimeError("Soma de movimentos por grupo diferente da origem")
     if especiais["meta"]["situacao"] != "consulta_exploratoria_sem_homologacao_credito":
         raise RuntimeError("Especiais promovidas indevidamente")
     if len(especiais["planos"]) != 284 or len(especiais["municipios"]) != 34:
@@ -64,7 +74,7 @@ def validate(read):
         raise RuntimeError("Divergência na QA espacial do JSON")
     return {"qa": "pass", "municipios": 34, "propostas_amostrais": 200,
             "projetos_obrasgov": 224, "planos_especiais": 284,
-            "planos_com_ob": 242, "contagens": counts}
+            "planos_com_ob": 242, "movimentacoes": 2385, "contagens": counts}
 
 
 def main():

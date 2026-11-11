@@ -5,6 +5,7 @@ on:
       - 'pipeline/acquire/collect_obrasgov_sp_rmrp.py'
       - 'pipeline/acquire/test_collect_obrasgov_sp_rmrp.py'
       - 'pipeline/acquire/collect_investimentos_rmrp.py'
+      - 'pipeline/acquire/test_collect_investimentos_rmrp.py'
       - '.github/workflows/inv-rmrp-qa-coletores.yml'
   workflow_dispatch:
 jobs:
@@ -23,5 +24,6 @@ jobs:
           python -m py_compile pipeline/acquire/collect_obrasgov_sp_rmrp.py
           python -m py_compile pipeline/acquire/collect_investimentos_rmrp.py
           python -m py_compile pipeline/acquire/test_collect_obrasgov_sp_rmrp.py
+          python -m py_compile pipeline/acquire/test_collect_investimentos_rmrp.py
       - name: Testes sem chamadas à API
-        run: python -m unittest discover -s pipeline/acquire -p 'test_collect_obrasgov_sp_rmrp.py' -v
+        run: python -m unittest discover -s pipeline/acquire -p 'test_collect_*.py' -v

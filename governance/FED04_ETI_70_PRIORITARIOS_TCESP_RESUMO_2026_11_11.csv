@@ -1,0 +1,71 @@
+codigo_ibge;municipio;dca_2025_brl;receita_bruta_tcesp_brl;deducoes_tcesp_brl;receita_liquida_tcesp_brl;numero_lancamentos;delta_dca_bruta_brl;delta_dca_liquida_brl;classe_qa;url_fonte
+3549904;São José dos Campos;3304327.61;3304327.61;0.00;3304327.61;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-jose-dos-campos-2025.zip
+3551009;São Vicente;3271812.78;3271812.78;0.00;3271812.78;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-vicente-2025.zip
+3552809;Taboão da Serra;2670875.53;2670875.53;0.00;2670875.53;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-taboao-da-serra-2025.zip
+3516200;Franca;2577016.74;2577016.74;0.00;2577016.74;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-franca-2025.zip
+3516408;Franco da Rocha;2389643.17;2389643.17;0.00;2389643.17;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-franco-da-rocha-2025.zip
+3515004;Embu das Artes;2265628.90;2265628.90;0.00;2265628.90;1;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-embu-das-artes-2025.zip
+3541000;Praia Grande;1861363.29;1861363.29;0.00;1861363.29;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-praia-grande-2025.zip
+3510500;Caraguatatuba;1745520.08;1745520.08;0.00;1745520.08;1;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-caraguatatuba-2025.zip
+3524402;Jacareí;1731254.16;1731254.16;0.00;1731254.16;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jacarei-2025.zip
+3530706;Mogi Guaçu;1617746.78;1617746.78;0.00;1617746.78;1;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mogi-guacu-2025.zip
+3509502;Campinas;1594674.60;1594674.60;0.00;1594674.60;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-campinas-2025.zip
+3531803;Monte Mor;1461545.05;2557783.75;-1096238.70;1461545.05;5;-1096238.70;0.00;DCA_LIQUIDA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-monte-mor-2025.zip
+3555406;Ubatuba;1254283.38;1881425.07;-627141.69;1254283.38;4;-627141.69;0.00;DCA_LIQUIDA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ubatuba-2025.zip
+3554003;Tatuí;1193304.33;1193304.33;0.00;1193304.33;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-tatui-2025.zip
+3507001;Boituva;1155374.34;1155374.34;0.00;1155374.34;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-boituva-2025.zip
+3529401;Mauá;1127449.91;1127449.91;0.00;1127449.91;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-maua-2025.zip
+3552403;Sumaré;934884.37;934884.37;0.00;934884.37;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sumare-2025.zip
+3541406;Presidente Prudente;891681.86;891681.86;0.00;891681.86;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-presidente-prudente-2025.zip
+3512803;Cosmópolis;875690.83;875690.83;0.00;875690.83;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cosmopolis-2025.zip
+3527207;Lorena;832313.05;832313.05;0.00;832313.05;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-lorena-2025.zip
+3551504;Serrana;829114.91;829114.91;0.00;829114.91;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-serrana-2025.zip
+3504503;Avaré;759432.57;759432.57;0.00;759432.57;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-avare-2025.zip
+3507506;Botucatu;747791.76;747791.76;0.00;747791.76;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-botucatu-2025.zip
+3513405;Cruzeiro;716891.96;716891.96;0.00;716891.96;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-cruzeiro-2025.zip
+3526704;Leme;699395.95;699395.95;0.00;699395.95;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-leme-2025.zip
+3531100;Mongaguá;660124.43;660124.43;0.00;660124.43;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-mongagua-2025.zip
+3526803;Lençóis Paulista;630302.68;630302.68;0.00;630302.68;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-lencois-paulista-2025.zip
+3556206;Valinhos;542592.35;542592.35;0.00;542592.35;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-valinhos-2025.zip
+3503901;Arujá;531132.45;531132.45;0.00;531132.45;1;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aruja-2025.zip
+3545803;Santa Bárbara d'Oeste;520942.14;;;;;;;FONTE_INDISPONIVEL;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-barbara-doeste-2025.zip
+3545308;Salto de Pirapora;500691.31;500691.31;0.00;500691.31;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-salto-de-pirapora-2025.zip
+3542602;Registro;462022.03;462022.03;0.00;462022.03;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-registro-2025.zip
+3517505;Guapiaçu;458831.34;802954.84;-344123.50;458831.34;6;-344123.50;0.00;DCA_LIQUIDA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-guapiacu-2025.zip
+3522208;Itapecerica da Serra;451354.39;451354.39;0.00;451354.39;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itapecerica-da-serra-2025.zip
+3502507;Aparecida;441333.06;441333.06;0.00;441333.06;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aparecida-2025.zip
+3556404;Vargem Grande do Sul;440258.80;440258.80;0.00;440258.80;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-vargem-grande-do-sul-2025.zip
+3519600;Ibitinga;429355.43;429355.43;0.00;429355.43;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ibitinga-2025.zip
+3513702;Descalvado;408562.48;408562.48;0.00;408562.48;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-descalvado-2025.zip
+3538204;Pinhalzinho;405577.27;405577.27;0.00;405577.27;1;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pinhalzinho-2025.zip
+3534302;Orlândia;399827.45;399827.45;0.00;399827.45;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-orlandia-2025.zip
+3550209;São Miguel Arcanjo;389476.49;389476.49;0.00;389476.49;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-miguel-arcanjo-2025.zip
+3537602;Peruíbe;369028.04;369028.04;0.00;369028.04;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-peruibe-2025.zip
+3506359;Bertioga;367005.44;367005.44;0.00;367005.44;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bertioga-2025.zip
+3543303;Ribeirão Pires;350200.68;350200.68;0.00;350200.68;1;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-ribeirao-pires-2025.zip
+3502101;Andradina;328864.28;328864.28;0.00;328864.28;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-andradina-2025.zip
+3526407;Laranjal Paulista;309031.58;309031.58;0.00;309031.58;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-laranjal-paulista-2025.zip
+3515509;Fernandópolis;295435.64;295435.64;0.00;295435.64;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-fernandopolis-2025.zip
+3533908;Olímpia;293959.96;293959.96;0.00;293959.96;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-olimpia-2025.zip
+3534401;Osasco;287847.40;287847.40;0.00;287847.40;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-osasco-2025.zip
+3506003;Bauru;269813.38;269813.38;0.00;269813.38;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-bauru-2025.zip
+3505708;Barueri;269713.01;269713.01;0.00;269713.01;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-barueri-2025.zip
+3509700;Campos do Jordão;259770.48;259770.48;0.00;259770.48;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-campos-do-jordao-2025.zip
+3522604;Itapira;255246.48;255246.48;0.00;255246.48;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-itapira-2025.zip
+3540754;Potim;254676.01;254676.01;0.00;254676.01;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-potim-2025.zip
+3552700;Tabatinga;254007.23;254007.23;0.00;254007.23;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-tabatinga-2025.zip
+3552601;Tabapuã;253288.22;253288.22;0.00;253288.22;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-tabapua-2025.zip
+3546405;Santa Cruz do Rio Pardo;245744.93;245744.93;0.00;245744.93;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-cruz-do-rio-pardo-2025.zip
+3546009;Santa Branca;240172.74;240172.74;0.00;240172.74;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santa-branca-2025.zip
+3549953;São Lourenço da Serra;239270.44;239270.44;0.00;239270.44;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-sao-lourenco-da-serra-2025.zip
+3548005;Santo Antônio de Posse;237265.06;237265.06;0.00;237265.06;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-santo-antonio-de-posse-2025.zip
+3501152;Alumínio;235331.37;235331.37;0.00;235331.37;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-aluminio-2025.zip
+3525706;José Bonifácio;232269.44;232269.44;0.00;232269.44;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jose-bonifacio-2025.zip
+3525904;Jundiaí;231717.16;231717.16;0.00;231717.16;1;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jundiai-2025.zip
+3504008;Assis;228182.16;228182.16;0.00;228182.16;1;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-assis-2025.zip
+3513900;Divinolândia;221744.47;221744.47;0.00;221744.47;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-divinolandia-2025.zip
+3536703;Pederneiras;221618.51;221618.51;0.00;221618.51;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-pederneiras-2025.zip
+3527603;Luís Antônio;221039.71;221039.71;0.00;221039.71;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-luis-antonio-2025.zip
+3538808;Piraju;218839.30;218839.30;0.00;218839.30;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-piraju-2025.zip
+3524600;Jacupiranga;212085.03;212085.03;0.00;212085.03;2;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-jacupiranga-2025.zip
+3501608;Americana;205810.89;205810.89;0.00;205810.89;3;0.00;0.00;DCA_BRUTA_TCESP_EXATA;https://transparencia.tce.sp.gov.br/sites/default/files/csv/receitas-americana-2025.zip

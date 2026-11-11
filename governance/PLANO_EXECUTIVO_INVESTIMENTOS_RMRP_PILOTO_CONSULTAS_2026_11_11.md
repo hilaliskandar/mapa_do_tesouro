@@ -9,7 +9,7 @@
 
 A RMRP oferece **34 municípios** e indicadores fiscais já disponíveis. O lote 37 contém **34/34 valores de investimentos municipais liquidados em 2025** e **33/34 transferências de capital**, com lacuna em **Santa Cruz da Esperança**, que não deve virar zero. Existem extrações TCESP 2023–2025 com 102 pares município-ano e auditoria 101/102 de investimentos liquidados; **Guatapará/2023** permanece como exceção de **R$10.176,00** na confrontação histórica. Estes controles permitem regressão, sem confundir recursos transferidos com gasto investido.
 
-As quatro sub-regiões devem ser derivadas dos metadados territoriais existentes; **não criar municípios duplicados**. O piloto começa com códigos IBGE7 recuperados por correspondência validada com `municipio` e `universo_municipio`. A lista de 34 localidades e respectivos agrupamentos foi copiada de modo rastreável para [`INV_RMRP_34_MUNICIPIOS_PILOTO.csv`](INV_RMRP_34_MUNICIPIOS_PILOTO.csv); a coluna IBGE do checklist é propositalmente não preenchida e deve ser validada no cadastro canônico antes da ingestão, sem reconciliar por nome aproximado silenciosamente.
+As quatro sub-regiões devem ser derivadas dos metadados territoriais existentes; **não criar municípios duplicados**. O piloto começa com códigos IBGE7 recuperados por correspondência validada com `municipio` e `universo_municipio`. A lista de 34 localidades e respectivos agrupamentos foi copiada de modo rastreável para [`INV_RMRP_34_MUNICIPIOS_PILOTO.csv`](INV_RMRP_34_MUNICIPIOS_PILOTO.csv); a primeira versão do checklist preservava a coluna IBGE em branco até a conferência oficial. A [segunda versão com 34 códigos IBGE7 conferidos contra a API do IBGE para os 645 municípios paulistas](INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv) está pronta, com 34 correspondências nominais únicas; resta validar 34/34 chaves no cadastro SQLite canônico antes da ingestão. Não foi usada correspondência aproximada nem atribuição presumida.
 
 ## 2. Delimitação do produto
 
@@ -131,7 +131,7 @@ Não colocar URLs internas R2 e segredos nesses arquivos. Identificadores de pro
 
 ## 8. Próxima operação exata
 
-1. Validar automaticamente os 34 nomes da RMRP contra `municipio` canônico e as sub-regiões, gerando manifestos com IBGE7; rejeitar ambiguidades.
+1. **Concluir o QA SQLite** dos 34 municípios com IBGE7 já identificados na API oficial do IBGE e comparar os agrupamentos sub-regionais com o cadastro do projeto; rejeitar divergências.
 2. Enumerar Obrasgov `uf_principal=SP` página 1..N, 200 registros/página, com retries e checkpoint; filtrar por geometria municipal RMRP para gerar `obrasgov_rmrp_snapshot.csv` e lista de IDs.
 3. Consultar Transferegov `/parcerias/proposta?cd_ibge_recebedor=...` e `/discricionarias/propostas?cod_munic_ibge=...`, além de Especiais, com paginação completa; **classificar Custeio vs Investimento**.
 4. Identificar e baixar arquivos de convênios/liberações estaduais, preservando número jurídico, datas, estorno e valor, e arquivo CGU de pagamentos quando tiver chave de vínculo.

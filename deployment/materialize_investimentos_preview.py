@@ -17,9 +17,11 @@ FILES = (
     "investimentos-rmrp-preview.html",
     "obrasgov-rmrp-preview.html",
     "especiais-rmrp-preview.html",
+    "movimentacoes-especiais-rmrp-preview.html",
     "data/api/v3/investimentos/rmrp/preview-amostras.json",
     "data/api/v3/investimentos/rmrp/obrasgov-triagem-espacial.json",
     "data/api/v3/investimentos/rmrp/especiais-planos-etapas-preview.json",
+    "data/api/v3/investimentos/rmrp/especiais-movimentacoes-resumo-preview.json",
 )
 
 
@@ -30,9 +32,16 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
     if missing:
         raise RuntimeError(f"Arquivos INV-RMRP ausentes: {missing}")
 
-    proposals = json.loads((source / FILES[3]).read_text(encoding="utf-8"))
-    obras = json.loads((source / FILES[4]).read_text(encoding="utf-8"))
-    especiais = json.loads((source / FILES[5]).read_text(encoding="utf-8"))
+    proposals = json.loads((source / FILES[4]).read_text(encoding="utf-8"))
+    obras = json.loads((source / FILES[5]).read_text(encoding="utf-8"))
+    especiais = json.loads((source / FILES[6]).read_text(encoding="utf-8"))
+    movimentacoes = json.loads((source / FILES[7]).read_text(encoding="utf-8"))
+    if movimentacoes["metadata"]["qa_status"] != "triagem_nao_conciliada_por_plano":
+        raise RuntimeError("Movimentações financeiras indevidamente homologadas")
+    if movimentacoes["totals"]["lancamentos"] != 2385:
+        raise RuntimeError("Esperados 2385 lançamentos na consulta de movimentações")
+    if sum(r["lancamentos"] for r in movimentacoes["categorias"]) != 2385:
+        raise RuntimeError("Inconsistência nas agregações dos lançamentos")
     if especiais["meta"]["situacao"] != "consulta_exploratoria_sem_homologacao_credito" or len(especiais["planos"]) != 284:
         raise RuntimeError("284 planos Especiais com QA esperada não encontrados")
     if proposals["meta"]["status"] != "preview_qa_nao_publicavel":
@@ -43,7 +52,8 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
     codes = {m["codigo_ibge"] for m in proposals["municipios"]}
     geocodes = {m["codigo_ibge"] for m in obras["municipios"]}
     special_codes = {m["codigo_ibge"] for m in especiais["municipios"]}
-    if len(codes) != 34 or codes != geocodes or codes != special_codes:
+    movement_codes = {m["codigo_ibge"] for m in movimentacoes["categorias"]}
+    if len(codes) != 34 or codes != geocodes or codes != special_codes or codes != movement_codes:
         raise RuntimeError("Os 34 municípios da RMRP não coincidem entre as bases")
     if len(proposals["propostas_amostrais"]) != 200:
         raise RuntimeError("Amostra Transferegov alterada sem revisão")
@@ -78,6 +88,7 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
         "transferegov_amostra": len(proposals["propostas_amostrais"]),
         "obrasgov_triagem": len(obras["items"]),
         "especiais_planos": len(especiais["planos"]),
+        "especiais_movimentacoes": movimentacoes["totals"]["lancamentos"],
         "estado_espacial": counts,
         "files_copied": list(FILES),
     }

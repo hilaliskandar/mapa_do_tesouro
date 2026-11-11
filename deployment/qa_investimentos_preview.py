@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import time
 from pathlib import Path
 from urllib.request import Request, urlopen
 
@@ -65,6 +66,20 @@ def main():
     else:
         def reader(p):
             return fetch(a.url, p)
+        last_error = None
+        # Cloudflare Pages alias pode servir release anterior por alguns segundos
+        # após o deploy; esperar o conjunto novo sem confundir 200 HTML com QA aprovado.
+        for attempt in range(12):
+            try:
+                result = validate(reader)
+                print(json.dumps(result, ensure_ascii=False))
+                return
+            except (RuntimeError, ValueError, KeyError, OSError, json.JSONDecodeError) as exc:
+                last_error = exc
+                if attempt < 11:
+                    print(f"Prévia remota ainda não propagada, tentativa {attempt+1}/12: {exc}")
+                    time.sleep(5)
+        raise SystemExit(f"QA remota falhou após 12 tentativas: {last_error}")
     print(json.dumps(validate(reader), ensure_ascii=False))
 
 

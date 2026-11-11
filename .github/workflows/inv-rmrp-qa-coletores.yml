@@ -6,6 +6,8 @@ on:
       - 'pipeline/acquire/test_collect_obrasgov_sp_rmrp.py'
       - 'pipeline/acquire/collect_investimentos_rmrp.py'
       - 'pipeline/acquire/test_collect_investimentos_rmrp.py'
+      - 'pipeline/acquire/collect_especiais_movimentacoes_rmrp.py'
+      - 'pipeline/acquire/test_collect_especiais_movimentacoes_rmrp.py'
       - 'pipeline/build/territorializar_obrasgov_rmrp.py'
       - 'pipeline/build/test_territorializar_obrasgov_rmrp.py'
       - 'pipeline/build/import_inv_rmrp_obrasgov_dev.py'
@@ -32,6 +34,8 @@ jobs:
           python -m py_compile pipeline/acquire/collect_investimentos_rmrp.py
           python -m py_compile pipeline/acquire/test_collect_obrasgov_sp_rmrp.py
           python -m py_compile pipeline/acquire/test_collect_investimentos_rmrp.py
+          python -m py_compile pipeline/acquire/collect_especiais_movimentacoes_rmrp.py
+          python -m py_compile pipeline/acquire/test_collect_especiais_movimentacoes_rmrp.py
           python -m py_compile pipeline/build/territorializar_obrasgov_rmrp.py
           python -m py_compile pipeline/build/test_territorializar_obrasgov_rmrp.py
           python -m py_compile pipeline/build/import_inv_rmrp_obrasgov_dev.py

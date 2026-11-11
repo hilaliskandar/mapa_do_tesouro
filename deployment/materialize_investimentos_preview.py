@@ -30,8 +30,8 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
     if missing:
         raise RuntimeError(f"Arquivos INV-RMRP ausentes: {missing}")
 
-    proposals = json.loads((source / FILES[2]).read_text(encoding="utf-8"))
-    obras = json.loads((source / FILES[3]).read_text(encoding="utf-8"))
+    proposals = json.loads((source / FILES[3]).read_text(encoding="utf-8"))
+    obras = json.loads((source / FILES[4]).read_text(encoding="utf-8"))
     especiais = json.loads((source / FILES[5]).read_text(encoding="utf-8"))
     if especiais["meta"]["situacao"] != "consulta_exploratoria_sem_homologacao_credito" or len(especiais["planos"]) != 284:
         raise RuntimeError("284 planos Especiais com QA esperada não encontrados")

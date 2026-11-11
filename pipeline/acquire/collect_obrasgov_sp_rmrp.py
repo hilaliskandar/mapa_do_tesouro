@@ -162,7 +162,17 @@ def run(output, max_pages, pause):
                     raise ValueError("A contagem da origem mudou; usar novo diretório de snapshot")
             put_atomic(output / "pages" / f"page-{page:05d}.json.gz",
                        gzip.compress(payload, compresslevel=6, mtime=0))
-            seen = inspect(output)
+            new_path = output / "pages" / f"page-{page:05d}.json.gz"
+            compressed = new_path.read_bytes()
+            seen[page] = {
+                "page": page,
+                "raw_sha256": digest(payload),
+                "gz_sha256": digest(compressed),
+                "rows": len(row["data"]),
+                "total_items": row["total_items"],
+                "total_pages": row["total_pages"],
+                "file": str(new_path.relative_to(output)),
+            }
         except Exception as exc:
             failures.append({"page": page, "error": str(exc)})
             break
@@ -179,7 +189,7 @@ def run(output, max_pages, pause):
     if seen:
         index, duplicate_ids = extract_index(output, seen)
     state["duplicate_project_ids"] = duplicate_ids
-    state["unique_project_ids"] = len(index) - len(duplicate_ids)
+    state["unique_project_ids"] = len({r["id_projeto_investimento"] for r in index})
     # Não considerar aquisição truncada completa nem amostra temporalmente estável.
     state["complete"] = state["complete"] and not max_pages and not failures and not duplicate_ids
     state["status"] = "snapshot_capturado_sem_homologacao_territorial" if state["complete"] else "incompleto"

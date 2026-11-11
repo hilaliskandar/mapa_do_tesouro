@@ -27,5 +27,12 @@
     "Status da OB: enviada para pagamento, não comprovadamente creditada",
     "Sem DH não significa ausência de receita municipal",
     "Não contém despesa final municipal de investimento"
-  ]
+  ],
+  "qa_plano_empenho": {
+    "planos_com_igualdade_valor_previsto_total_e_empenho": 284,
+    "divergencias": 0,
+    "valor_previsto_total_centavos": 9630332506,
+    "valor_empenhado_total_centavos": 9630332506,
+    "conclusao": "Equivalencia monetaria de cadastro para os 284 planos; nao prova execucao nem pagamento"
+  }
 }

@@ -110,8 +110,8 @@ def save(path, value):
 
 
 def run(beneficiaries, out, limit=0, pause=0.25):
-    if out.exists() and any(out.iterdir()) and not (out / "manifest.json").exists():
-        raise ValueError("Saída ocupada sem manifesto anterior; usar nova pasta")
+    # Se houve interrupção antes do manifesto, refazer a captura em nova execução.
+    # Nenhuma execução incompleta é considerada snapshot homologado.
     result = []
     errors = []
     seen_ids = set()
@@ -140,7 +140,7 @@ def run(beneficiaries, out, limit=0, pause=0.25):
                 if pause:
                     time.sleep(pause)
             except Exception as exc:
-                error = f"{type(exc).__name__}: {exc}"
+                error = f"{type(exc).__name__}: {exc}".replace(cnpj, "[CNPJ_SUPRIMIDO]")
                 errors.append({"codigo_ibge": code, "pagina": page, "erro": error})
                 break
         all_pages = bool(total is not None and fetched == pages and len(sanitized) == total and error is None)

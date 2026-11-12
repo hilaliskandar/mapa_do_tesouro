@@ -1,0 +1,60 @@
+{
+  "investigation_date": "2026-11-12",
+  "municipio": "Serrana",
+  "projeto_obrasgov": "30461.35-22",
+  "funding_reference_obrasgov": {
+    "empenho": "2023NE002700",
+    "repasse_associado_no_extrato_federal": "952816/2023"
+  },
+  "chronology": [
+    {
+      "date": "2024-05-14",
+      "document": "Aviso Concorrência 008/2024, Processo 078/2024",
+      "agreement": "952819/2023",
+      "outcome": "Aberta",
+      "source": "https://www.serrana.sp.gov.br/media/uploads/diario_oficial/diario_oficial_1624.pdf"
+    },
+    {
+      "date": "2024-06-25",
+      "document": "Decisão da Concorrência 008/2024",
+      "agreement": "952819/2023",
+      "outcome": "Deserta (publicação 12/07/2024)",
+      "source": "https://www.serrana.sp.gov.br/media/uploads/diario_oficial/diario_oficial_1661.pdf"
+    },
+    {
+      "date": "2024-07-17",
+      "document": "Aviso Concorrência 014/2024, Processo 135/2024",
+      "agreement": "952819/2023",
+      "outcome": "Nova licitação objeto equivalente (publicação 19/07/2024)",
+      "source": "https://www.serrana.sp.gov.br/media/uploads/diario_oficial/diario_oficial_1666.pdf"
+    },
+    {
+      "date": "2024-08-29",
+      "document": "Contrato 117/2024, Concorrência 014/2024, Processo 135/2024",
+      "agreement": "952819/2023",
+      "outcome": "Contrato DGB Engenharia R$ 962.088,57 (publicação 05/09/2024)",
+      "source": "https://www.serrana.sp.gov.br/media/uploads/diario_oficial/diario_oficial_1701.pdf"
+    },
+    {
+      "date": "2025-05-05",
+      "document": "Primeiro aditamento Contrato 117/2024",
+      "agreement": "952816/2023",
+      "outcome": "Aditivo R$ 195.019,05, novo contrato R$ 1.157.107,62 (publicação 15/05/2025)",
+      "source": "https://www.serrana.sp.gov.br/media/uploads/diario_oficial/diario_oficial_1858.pdf"
+    }
+  ],
+  "status": "CONTRADICAO_DOCUMENTAL_REQUER_RETIFICACAO_OU_CONTRATO_ASSINADO",
+  "notes": [
+    "Os dois números são instrumentos federais existentes; não assumir simples erro de digitação.",
+    "O empenho federal 2023NE002700 aparece associado a 952816/2023 no extrato de dezembro de 2023.",
+    "Documentos técnicos da Concorrência 008/2024 não devem ser usados como se fossem anexos do Processo 135/2024 sem prova de reaproveitamento formal.",
+    "A associação entre Obrasgov 30461.35-22 e Contrato 117/2024 é hipótese; não homologar."
+  ],
+  "siafem_relation": "NAO_COMPROVADA",
+  "request_docs": [
+    "Contrato 117/2024 assinado",
+    "Termo de referência e projeto básico do Processo 135/2024",
+    "Instrumento de repasse utilizado na medição de maio de 2025",
+    "Eventual errata/retificação do número de repasse"
+  ]
+}

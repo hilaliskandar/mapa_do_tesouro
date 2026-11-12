@@ -22,6 +22,8 @@ FILES = (
     "data/api/v3/investimentos/rmrp/obrasgov-triagem-espacial.json",
     "data/api/v3/investimentos/rmrp/especiais-planos-etapas-preview.json",
     "data/api/v3/investimentos/rmrp/especiais-movimentacoes-resumo-preview.json",
+    "siafem-investimentos-rmrp-preview.html",
+    "data/api/v3/investimentos/rmrp/siafem-sp-investimentos-anual-preview.json",
 )
 
 
@@ -38,6 +40,15 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
     movimentacoes = json.loads((source / FILES[7]).read_text(encoding="utf-8"))
     if movimentacoes["metadata"]["qa_status"] != "triagem_nao_conciliada_por_plano":
         raise RuntimeError("Movimentações financeiras indevidamente homologadas")
+    siafem = json.loads((source / FILES[9]).read_text(encoding="utf-8"))
+    if siafem["metadata"]["qa_status"] != "preview_transferencias_estaduais_em_revisao_nao_execucao_municipal":
+        raise RuntimeError("SIAFEM foi promovido indevidamente a execução municipal")
+    if (len(siafem["municipios"]), len(siafem["municipio_ano"]), len(siafem["convenio_ano"])) != (34, 238, 889):
+        raise RuntimeError("SIAFEM cobertura por município e ano divergente")
+    if sum(x["valor_centavos"] for x in siafem["convenio_ano"]) != 30552102920:
+        raise RuntimeError("SIAFEM: soma convênio-ano divergente")
+    if sum(x["pagamentos"] for x in siafem["convenio_ano"]) != 1017:
+        raise RuntimeError("SIAFEM: contagem de pagamentos divergente")
     if movimentacoes["totals"]["lancamentos"] != 2385:
         raise RuntimeError("Esperados 2385 lançamentos na consulta de movimentações")
     if sum(r["lancamentos"] for r in movimentacoes["categorias"]) != 2385:
@@ -53,7 +64,8 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
     geocodes = {m["codigo_ibge"] for m in obras["municipios"]}
     special_codes = {m["codigo_ibge"] for m in especiais["municipios"]}
     movement_codes = {m["codigo_ibge"] for m in movimentacoes["categorias"]}
-    if len(codes) != 34 or codes != geocodes or codes != special_codes or codes != movement_codes:
+    siafem_codes = {m["codigo_ibge"] for m in siafem["municipios"]}
+    if len(codes) != 34 or codes != geocodes or codes != special_codes or codes != movement_codes or codes != siafem_codes:
         raise RuntimeError("Os 34 municípios da RMRP não coincidem entre as bases")
     if len(proposals["propostas_amostrais"]) != 200:
         raise RuntimeError("Amostra Transferegov alterada sem revisão")
@@ -89,6 +101,8 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
         "obrasgov_triagem": len(obras["items"]),
         "especiais_planos": len(especiais["planos"]),
         "especiais_movimentacoes": movimentacoes["totals"]["lancamentos"],
+        "siafem_convenio_ano": len(siafem["convenio_ano"]),
+        "siafem_valor_centavos": siafem["totals"]["valor_centavos"],
         "estado_espacial": counts,
         "files_copied": list(FILES),
     }

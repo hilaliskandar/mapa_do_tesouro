@@ -1,0 +1,124 @@
+{
+  "source": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx",
+  "source_updated": "2026-11-12",
+  "filters": "Prefeituras; Investimento; LiberacaoInicio 01/01/ANO; LiberacaoFim 31/12/ANO (2026 12/11/2026)",
+  "query_count": 238,
+  "municipalities": 34,
+  "contract_year_records": 889,
+  "payments": 1017,
+  "total_exact_centavos": 30552102920,
+  "yearly": [
+    {
+      "ano": 2020,
+      "valor_liberado_estornado_exato_centavos": 3301604280,
+      "quantidade_pagamentos": 205,
+      "convenios_ano": 148
+    },
+    {
+      "ano": 2021,
+      "valor_liberado_estornado_exato_centavos": 2560263607,
+      "quantidade_pagamentos": 113,
+      "convenios_ano": 99
+    },
+    {
+      "ano": 2022,
+      "valor_liberado_estornado_exato_centavos": 7248554118,
+      "quantidade_pagamentos": 234,
+      "convenios_ano": 213
+    },
+    {
+      "ano": 2023,
+      "valor_liberado_estornado_exato_centavos": 6214677220,
+      "quantidade_pagamentos": 174,
+      "convenios_ano": 159
+    },
+    {
+      "ano": 2024,
+      "valor_liberado_estornado_exato_centavos": 5735262211,
+      "quantidade_pagamentos": 150,
+      "convenios_ano": 137
+    },
+    {
+      "ano": 2025,
+      "valor_liberado_estornado_exato_centavos": 3593297666,
+      "quantidade_pagamentos": 90,
+      "convenios_ano": 83
+    },
+    {
+      "ano": 2026,
+      "valor_liberado_estornado_exato_centavos": 1898443818,
+      "quantidade_pagamentos": 51,
+      "convenios_ano": 50
+    }
+  ],
+  "negative_contract_year_lines": [
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": 2020,
+      "id": "1801011231/20",
+      "valor_centavos": -6952609
+    }
+  ],
+  "five_http500_contracts_recovered_through_annual_search": [
+    {
+      "municipio": "Altinópolis",
+      "id": "5128032684769\\19",
+      "ano": 2020,
+      "quantidade": 1,
+      "valor_centavos": 19834648
+    },
+    {
+      "municipio": "Batatais",
+      "id": "5128032447861\\19",
+      "ano": 2021,
+      "quantidade": 1,
+      "valor_centavos": 33400000
+    },
+    {
+      "municipio": "Batatais",
+      "id": "5128032447861\\19",
+      "ano": 2022,
+      "quantidade": 1,
+      "valor_centavos": 5100000
+    },
+    {
+      "municipio": "Cássia dos Coqueiros",
+      "id": "51010936677718 A",
+      "ano": 2020,
+      "quantidade": 1,
+      "valor_centavos": 5500267
+    },
+    {
+      "municipio": "Guariba",
+      "id": "5128031465476\\19",
+      "ano": 2020,
+      "quantidade": 1,
+      "valor_centavos": 10465006
+    },
+    {
+      "municipio": "Guariba",
+      "id": "5128031465476\\19",
+      "ano": 2021,
+      "quantidade": 1,
+      "valor_centavos": 24050007
+    },
+    {
+      "municipio": "Monte Alto",
+      "id": "512803165957\\18C",
+      "ano": 2020,
+      "quantidade": 1,
+      "valor_centavos": 13600000
+    }
+  ],
+  "validation": {
+    "year_municipality_to_contract_year_diff": 0,
+    "yearly_total_to_previous_municipality_2020plus_diff_centavos": 0,
+    "payment_count_to_previous_aggregate_diff": 0
+  },
+  "warnings": [
+    "Valores por convenio/ano representam liberacoes e estornos liquidos, nao despesas municipais executadas",
+    "Valor total de convenio exibido na linha de consulta anual nao pode ser somado em anos repetidos",
+    "Nao somar transferencias com despesas municipais nem com valores previstos de instrumentos"
+  ]
+}

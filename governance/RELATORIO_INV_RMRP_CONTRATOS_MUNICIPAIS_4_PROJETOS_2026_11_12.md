@@ -1,3 +1,6 @@
+
+> **Nota de retificação (12/11/2026):** a seção 7, após leitura dos documentos assinados do processo 135/2024, substitui conclusões anteriores sobre suposta divergência entre contrato assinado 117/2024 e aditivo. Ambos apontam 952816/2023; cadastro e resumos apontam 952819/2023.
+
 # INV-RMRP — Confronto de contratos municipais e instrumentos federais para quatro projetos Obrasgov
 
 **Data da verificação:** 12/11/2026. **Projeto:** mapa_do_tesouro, PR nº 233 (draft). **Unidade de análise:** quatro projetos Obrasgov vinculados, por similaridade de objeto, a dez convênios SIAFEM municipais candidatos. **Nenhum vínculo financeiro estadual foi homologado.**
@@ -74,3 +77,26 @@ A leitura integral do anexo **confirma a associação da Concorrência Eletrôni
 ## 6. Retificação expressa da conclusão anterior sobre Serrana
 
 A verificação dos Diários Oficiais nº **1.666** e **1.701** demonstrou que o aviso da Concorrência nº **014/2024** e o Contrato nº **117/2024** publicado originalmente mencionam **952819/2023**, ao passo que o aditivo de 2025 menciona **952816/2023**. Assim, **qualquer afirmação anterior de que o Contrato 117/2024 estava documentalmente confirmado como execução do repasse 952816/2023 deve ser considerada superada**. Este estudo só homologa o vínculo federal do **Projeto Básico da Concorrência 004/2025 de Sertãozinho** ao repasse 953043/2023; para Serrana, o vínculo entre contrato municipal e projeto Obrasgov permanece em revisão. Não há qualquer vínculo SIAFEM estadual homologado.
+
+
+## 7. Retificação definitiva após leitura do contrato assinado e edital integral de Serrana
+
+**12/11/2026 — esta seção substitui quaisquer conclusões precedentes que afirmem que o Contrato 117/2024 assinado teria originalmente citado 952819/2023.** O portal oficial da Prefeitura de Serrana disponibiliza o acervo específico da Concorrência 014/2024 em **https://www.serrana.sp.gov.br/licitacoes/1594**, com o contrato assinado, aditivo, edital, aviso, minuta, anexos, atas e homologação. Todos os PDFs primários foram obtidos efetivamente por navegação e a camada textual foi lida diretamente com PDF.js. O Crawl2AI apresentou erro interno para URLs pesquisados e o navegador de consulta textual público não abriu os PDFs; o navegador Browserless obteve os arquivos em HTTP 200.
+
+**Cinco documentos integrais do próprio processo 135/2024 indicam inequivocamente 952816/2023, não 952819/2023:**
+
+| Documento oficial | Página de referência | Repasse encontrado | SHA-256 do arquivo |
+|---|---:|---|---|
+| Aviso de licitação PDF | 1 | 952816/2023 | `eb3c91961851c518d0fbfbba295140adabceb615ec10f7693dae51209fc6bc9d` |
+| Edital nº 042/2024, Concorrência 014/2024 | 1, 2 | 952816/2023 | `294040b5db56c694dee16f54238c8d56382d1150296edbda642cb24be16a34c9` |
+| Anexo II, minuta contratual | 1, 2, 8 | 952816/2023 | `3eeb77ee3e1ef0c1fa4197523e7b30b86697d9f7be888bc7b5ab3b054c04ed3e` |
+| Contrato nº 117/2024 **assinado**, DGB Engenharia | 1, 2, 10 | 952816/2023 | `fe09a75265b7338aa5301c349bb9e91be7bc746240e47143d616dc2364a84824` |
+| Primeiro termo aditivo do Contrato 117/2024 | 1, 5 | 952816/2023 | `55418d284de30b3942d84e8e486e6de66aa28e2b9e850338aebb60abf24c5133` |
+
+No Contrato nº 117/2024 assinado, a cláusula de custeio (página 10) informa **R$ 960.019,00 de recursos federais e R$ 2.069,57 de recursos próprios**, totalizando **R$ 962.088,57**, mesmo valor contratado. O aditivo aumentou o contrato em **R$ 195.019,05**, para **R$ 1.157.107,62**. A entidade contratada é DGB Engenharia e Construções Ltda. O PDF de 15 páginas tem assinatura digital identificável da contratada e demais assinaturas; não se presumiu validade criptográfica da assinatura sem certificação externa.
+
+**Origem da divergência:** o **cadastro eletrônico da Concorrência 014/2024** (https://www.serrana.sp.gov.br/licitacoes/1594) e o resumo do Diário Oficial inicial apresentam **952819/2023**. A Concorrência anterior 008/2024 (https://www.serrana.sp.gov.br/licitacoes/1541) também apresenta 952819/2023 e havia sido declarada deserta. Não se demonstrou nos documentos integrais da Concorrência 014 que o repasse 952819 fosse a fonte do Contrato 117/2024. A fonte técnica e jurídica prioritária é o **documento assinado**, e não o cadastro resumido: assim, o erro analítico anterior foi retificado.
+
+O **Anexo I técnico próprio do Processo 135/2024** (https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/3_-_anexo_i.pdf) tem 34 páginas e 17.704.759 bytes, hash `39aa80b7f09f8971ae0d5806bc5e8e64d88c33f529b5f86d812d92525cf7b415`, **sem camada textual pesquisável**; ruas/trechos e outros aspectos técnicos ainda exigem leitura das plantas ou extração especializada. **Não foi utilizado o Anexo I da Concorrência 008 como substituto.**
+
+**Situação corrigida:** o Contrato nº 117/2024 está documentalmente associado ao **repasse federal 952816/2023**. Esse número também foi identificado no registro federal relativo ao projeto Obrasgov 30461.35-22; a associação financeira federal agora é fortemente respaldada por identificador comum, mas a **identidade dos trechos da obra e a execução física/financeira final ainda exigem análise do Anexo I e das medições**. O financiamento estadual SIAFEM permanece **não comprovado** e nenhum valor foi somado ao total estadual.

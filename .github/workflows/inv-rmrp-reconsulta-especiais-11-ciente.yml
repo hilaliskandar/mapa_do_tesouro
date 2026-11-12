@@ -1,5 +1,10 @@
 name: INV RMRP - Reconsulta documental TE 11 CIENTE
 on:
+  pull_request:
+    paths:
+      - 'pipeline/acquire/reconsultar_especiais_11_ciente_rmrp.py'
+      - 'governance/INV_RMRP_ESPECIAIS_42_PENDENCIAS_DOCUMENTAIS_FILA_2026_11_11.csv'
+      - '.github/workflows/inv-rmrp-reconsulta-especiais-11-ciente.yml'
   workflow_dispatch:
 jobs:
   reconsulta:

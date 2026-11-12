@@ -17,6 +17,7 @@ META = GOV / "INV_RMRP_SIAFEM_752_CONVENIOS_METADADOS_OBJETOS_ORGAOS_2026_11_12.
 ANNUAL = GOV / "INV_RMRP_SIAFEM_889_CONVENIO_ANO_EXATO_2026_11_12.csv"
 COVERAGE = GOV / "INV_RMRP_SIAFEM_CROSSWALK_COBERTURA_34_MUNICIPIOS_2026_11_12.json"
 EVIDENCE = GOV / "INV_RMRP_SERRANA_CROSSWALK_100540_101375_SIAFEM_510101_2026_11_12.json"
+PRADOPOLIS = GOV / "INV_RMRP_PRADOPOLIS_100556_2024_SIAFEM_DIVERGENCIA_2026_11_12.json"
 
 
 def read(path):
@@ -90,6 +91,24 @@ def main():
     assert evidence["summary"]["confirmed_exact_number_crosswalks"] == 0
     assert evidence["summary"]["not_additive_to_existing_siafem_30552102920"] is True
 
+    # Controle negativo: mesma data de celebracao e objeto tematico NAO
+    # homologam instrumentos quando valores/identificadores divergem.
+    negative = json.loads(PRADOPOLIS.read_text(encoding="utf-8"))
+    assert negative["codigo_ibge"] == "3540903"
+    assert negative["status"] == "CANDIDATO_DATA_OBJETO_COM_VALOR_DIVERGENTE_SEM_CROSSWALK"
+    official = negative["official_public_document"]
+    internal = negative["internal_siafem_examined"]
+    assert official["convenio_publico"] == "100556/2024"
+    assert internal["id"] == "51010120240425077"
+    assert (negative["codigo_ibge"], internal["id"]) in keys
+    assert official["assinatura"] == internal["data_celebracao"] == "2024-04-12"
+    assert official["valor_estadual_previsto_ate_centavos"] == 99753327
+    assert internal["valor_convenio_centavos"] == 49876664
+    assert official["valor_estadual_previsto_ate_centavos"] != internal["valor_convenio_centavos"]
+    assert negative["differences"]["valor_termo_publico_menos_valor_ficha_centavos"] == 49876663
+    assert negative["differences"]["numero_publico_no_cadastro_siafem"] is False
+    assert by_key[(negative["codigo_ibge"], internal["id"])] == 49500000
+
     queue = []
     for m in coverage["municipalities"]:
         queue.append({
@@ -112,6 +131,7 @@ def main():
                                    "correspondencias_compostas_alta_confianca":1,
                                    "candidatos_fortes":1,
                                    "instrumentos_sem_dossie_individual_homologado":750,
+                                   "controle_negativo_valor_divergente":1,
                                    "valor_dos_2_ja_incluido_no_total_centavos":93758062},
         "fila_municipal":queue,
         "regras":[
@@ -131,7 +151,7 @@ def main():
     args.output.write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(json.dumps({"status":result["status"],"municipios":34,
                       "instrumentos":752,"alta_confianca":1,"candidato":1,
-                      "chaves_literais":0},ensure_ascii=False))
+                      "chaves_literais":0,"controle_negativo_pradopolis":1},ensure_ascii=False))
 
 
 if __name__=="__main__":

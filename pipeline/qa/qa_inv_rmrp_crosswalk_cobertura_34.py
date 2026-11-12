@@ -18,6 +18,7 @@ ANNUAL = GOV / "INV_RMRP_SIAFEM_889_CONVENIO_ANO_EXATO_2026_11_12.csv"
 COVERAGE = GOV / "INV_RMRP_SIAFEM_CROSSWALK_COBERTURA_34_MUNICIPIOS_2026_11_12.json"
 EVIDENCE = GOV / "INV_RMRP_SERRANA_CROSSWALK_100540_101375_SIAFEM_510101_2026_11_12.json"
 PRADOPOLIS = GOV / "INV_RMRP_PRADOPOLIS_100556_2024_SIAFEM_DIVERGENCIA_2026_11_12.json"
+RIBEIRAO = GOV / "INV_RMRP_RIBEIRAO_PRETO_101849_2023_SIAFEM_51010120231186228_2026_11_12.json"
 
 
 def read(path):
@@ -109,6 +110,33 @@ def main():
     assert negative["differences"]["numero_publico_no_cadastro_siafem"] is False
     assert by_key[(negative["codigo_ibge"], internal["id"])] == 49500000
 
+    # Controle positivo composto com divergencia temporal: tres valores
+    # independentes reconciliam, mas ainda nao ha chave literal.
+    rib = json.loads(RIBEIRAO.read_text(encoding="utf-8"))
+    assert rib["codigo_ibge"] == "3543402"
+    assert rib["public_instrument"] == "101849/2023"
+    assert rib["internal_siafem"] == "51010120231186228"
+    assert (rib["codigo_ibge"], rib["internal_siafem"]) in keys
+    assert rib["status"] == (
+        "CORRESPONDENCIA_COMPOSTA_ALTA_CONFIANCA_COM_DIVERGENCIA_DATA_2_DIAS_SEM_CHAVE_LITERAL"
+    )
+    s = rib["evidence_siafem"]
+    official = rib["evidence_public_state"]
+    municipal = rib["evidence_local_budget"]
+    assert official["state_commitment_cents"] == s["state_commitment_cents"] == 40000000
+    assert municipal["municipal_budget_cents"] == s["municipal_contribution_cents"] == 41061292
+    assert municipal["project_budget_cents"] == s["total_cents"] == 81061292
+    assert s["state_commitment_cents"] + s["municipal_contribution_cents"] == s["total_cents"]
+    assert rib["conflict"]["days_difference"] == 2
+    assert rib["controls"]["signed_date_matches"] is False
+    assert rib["controls"]["exact_identifier_matches"] is False
+    assert by_key[(rib["codigo_ibge"], rib["internal_siafem"])] == 40000000
+    assert coverage["totals"]["composite_high_confidence"] == 2
+    assert coverage["totals"]["strong_candidate"] == 1
+    assert coverage["totals"]["negative_controls"] == 1
+    assert coverage["totals"]["literal_number_confirmed"] == 0
+    assert coverage["totals"]["instruments_without_documented_crosswalk_assessment"] == 748
+
     queue = []
     for m in coverage["municipalities"]:
         queue.append({
@@ -128,9 +156,10 @@ def main():
                          "linhas_convenio_ano":889,
                          "total_liberado_centavos":overall},
         "crosswalk_publico_interno":{"chaves_literais_comprovadas":0,
-                                   "correspondencias_compostas_alta_confianca":1,
+                                   "correspondencias_compostas_alta_confianca":2,
                                    "candidatos_fortes":1,
-                                   "instrumentos_sem_dossie_individual_homologado":750,
+                                   "instrumentos_sem_dossie_individual_homologado":749,
+                                   "instrumentos_sem_dossie_de_crosswalk_ou_negativo":748,
                                    "controle_negativo_valor_divergente":1,
                                    "valor_dos_2_ja_incluido_no_total_centavos":93758062},
         "fila_municipal":queue,

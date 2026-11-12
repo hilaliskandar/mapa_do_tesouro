@@ -27,7 +27,7 @@ def beneficiaries(path):
 
 def example(cnpj, page):
     record = {
-        "id_lancamento_gestao_financeira": f"{cnpj}-{page}",
+        "id_lancamento_gestao_financeira": f"synthetic-id-{cnpj[-4:]}-{page}",
         "origem_solicitacao_gestao_financeira": "TE",
         "descricao_gestao_financeira": "APL FUNDO" if page == 2 else "CRED TED",
         "data_lancamento_gestao_financeira": "2025-04-10",

@@ -1485,3 +1485,13 @@ Foi criada a [quarta consulta experimental da RMRP](app/static/movimentacoes-esp
 - **Descontinuar uso monetário das tabelas provisórias** `INV_RMRP_SIAFEM_MUNICIPIO_ANO_AGREGADO_PROVISORIO_2026_11_12.json` e `INV_RMRP_SIAFEM_ANO_EXATO_PARCIAL_2026_11_12.csv`: preservadas como histórico, substituídas pela apuração integral. Tabela de 1.010 eventos continua útil para datas/itens, mas valores visuais sem centavos NÃO são oficiais para totalização; coluna de valor exato repetido foi removida da tabela de eventos para impedir dupla contagem.
 - **Regra analítica:** 305,52 milhões são recursos financeiros estaduais liberados/estornados classificados como investimento, não a despesa final municipal, o investimento territorial total ou o valor contratado. Não somar contrato + transferência + execução municipal. Não somar valor contratual exibido em diferentes anos.
 - **Estado:** PR #233 isolada, sem merge nem alterações ao SQLite/R2/D1 produtivos; a série está pronta para integração em cópia local do banco canônico e posterior QA. PR #232/FED04 preservadas.
+
+
+### INV-RMRP — Staging SQLite SIAFEM anual exato (12/11/2026)
+
+- Implementado [importador de dados estaduais em SQLite isolado](pipeline/build/import_inv_rmrp_siafem_dev.py) e [teste sintético offline](pipeline/build/test_inv_rmrp_siafem_dev.py), sem abertura da origem em modo escrita, sem sobrescrita de destino, com rollback e `foreign_key_check` e `integrity_check`.
+- **QA sintético aprovado:** [workflow 43219431660](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43219431660) terminou `success`; também [QA da série anual 43219431478](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43219431478) `success`.
+- Modelo de desenvolvimento: 34 prefeituras (`inv_ator`), 752 instrumentos (`inv_instrumento`), 889 relações convênio×ano em tabela específica `inv_siafem_convenio_ano`; R$ 305.521.029,20 e 1.017 pagamentos como contagem da origem. **Zero** linhas de pagamento individual criadas em `inv_evento_financeiro`. Dados classificados `em_revisao`, sem conciliação documental com projetos Obrasgov e sem investimento executado confirmado.
+- Fonte exata: `governance/INV_RMRP_SIAFEM_34_MUNICIPIOS_2020_2026_ANUAL_EXATO_2026_11_12.csv` (238 município-ano) e `governance/INV_RMRP_SIAFEM_889_CONVENIO_ANO_EXATO_2026_11_12.csv` (889 convênio-ano).
+- **Gate ainda aberto:** a origem da execução do QA foi uma **SQLite sintética**, e não o snapshot real da base canônica em R2. Antes de promover ou publicar, realizar importação em cópia real e QA de regressão. [Relatório técnico](governance/RELATORIO_INV_RMRP_IMPORTACAO_SIAFEM_SQLITE_STAGING_QA_2026_11_12.md). PR #233 permanece isolada, sem merge, sem alteração de produção; FED04/PR #232 preservada.
+

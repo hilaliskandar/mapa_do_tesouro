@@ -1,0 +1,2045 @@
+{
+  "source": "SIAFEM-SP",
+  "time_filter": "liberacao a partir de 01/01/2020 (reaplicar sobre eventos)",
+  "part": 2,
+  "events": [
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "2901182105332067",
+      "esperados": 1,
+      "valor_resumo": "98.710,69",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2021",
+          "98.711"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "2901182171773/19",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2020",
+          "200.000"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/12/2019",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "2901183093763/19",
+      "esperados": 3,
+      "valor_resumo": "439.933,87",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2020",
+          "283.110"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2020",
+          "57.364"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/04/2020",
+          "99.460"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "51010120240530457",
+      "esperados": 1,
+      "valor_resumo": "452.955,48",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/07/2024",
+          "452.955"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "51010120240546484",
+      "esperados": 1,
+      "valor_resumo": "650.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/07/2024",
+          "650.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "510109694224/21A",
+      "esperados": 3,
+      "valor_resumo": "882.152,62",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/01/2023",
+          "283.562"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "318.644"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/12/2021",
+          "279.947"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "08035807259/13",
+      "esperados": 1,
+      "valor_resumo": "242.873,84",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/05/2021",
+          "242.874"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/03/2018",
+          "242.874"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2017",
+          "242.874"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2016",
+          "323.832"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2016",
+          "323.832"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "03/07/2014",
+          "242.874"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "13022320240625819",
+      "esperados": 1,
+      "valor_resumo": "90.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/07/2024",
+          "90.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011800402/21",
+      "esperados": 3,
+      "valor_resumo": "934.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/10/2022",
+          "434.500"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2022",
+          "200.000"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/12/2021",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011800680/20",
+      "esperados": 3,
+      "valor_resumo": "600.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/10/2021",
+          "100.000"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/12/2020",
+          "200.000"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/07/2020",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011800732/20",
+      "esperados": 3,
+      "valor_resumo": "1.580.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/08/2021",
+          "1.080.000"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/02/2021",
+          "200.000"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/10/2020",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "2901181614978/18",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/01/2020",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011820220162415",
+      "esperados": 1,
+      "valor_resumo": "224.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/10/2022",
+          "224.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011820220175961",
+      "esperados": 2,
+      "valor_resumo": "850.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/03/2024",
+          "425.000"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/10/2022",
+          "425.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011820220531798",
+      "esperados": 1,
+      "valor_resumo": "1.140.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "1.140.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011820220547653",
+      "esperados": 2,
+      "valor_resumo": "1.000.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/04/2023",
+          "500.000"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011820221438411",
+      "esperados": 1,
+      "valor_resumo": "381.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/04/2023",
+          "381.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011820-3518372",
+      "esperados": 1,
+      "valor_resumo": "180.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/10/2021",
+          "180.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "29011820-5618219",
+      "esperados": 1,
+      "valor_resumo": "170.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/12/2021",
+          "170.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "2901182112225058",
+      "esperados": 2,
+      "valor_resumo": "450.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "150.000"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/03/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "290118561218/18",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/01/2020",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "290118622309/18",
+      "esperados": 1,
+      "valor_resumo": "696.020,85",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/02/2021",
+          "696.021"
+        ],
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/07/2018",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "35010120250420913",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/08/2025",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "3501012894693/20",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2020",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "51010120231171305",
+      "esperados": 1,
+      "valor_resumo": "1.330.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/09/2023",
+          "1.330.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "51010120240585796",
+      "esperados": 1,
+      "valor_resumo": "1.880.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/10/2024",
+          "1.880.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "51010120250337334",
+      "esperados": 1,
+      "valor_resumo": "1.257.343,28",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/03/2025",
+          "1.257.343"
+        ]
+      ]
+    },
+    {
+      "ibge": "3513108",
+      "municipio": "Cravinhos",
+      "id": "51010120251344834",
+      "esperados": 1,
+      "valor_resumo": "2.250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/05/2026",
+          "2.250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "17003020240419875",
+      "esperados": 1,
+      "valor_resumo": "750.302,60",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/10/2025",
+          "750.303"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "29011820220098191",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/08/2022",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "29011820220099062",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/07/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "29011820220124942",
+      "esperados": 1,
+      "valor_resumo": "384.037,35",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "384.037"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "29011820220147321",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/07/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "29011820220159545",
+      "esperados": 1,
+      "valor_resumo": "436.267,95",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2022",
+          "436.268"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "29011820221350456",
+      "esperados": 1,
+      "valor_resumo": "315.276,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2023",
+          "315.277"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "29011820221350483",
+      "esperados": 1,
+      "valor_resumo": "197.087,80",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/07/2023",
+          "197.088"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "2901182856223/19",
+      "esperados": 2,
+      "valor_resumo": "194.055,91",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/07/2021",
+          "134.056"
+        ],
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2020",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "51010120240546493",
+      "esperados": 1,
+      "valor_resumo": "439.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/04/2025",
+          "439.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id": "51010936677718 A",
+      "esperados": 1,
+      "valor_resumo": "55.002,67",
+      "status": "erro",
+      "error": "Error: HTTP_500"
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "1700301330921/17",
+      "esperados": 3,
+      "valor_resumo": "687.236,37",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/07/2021",
+          "151.702"
+        ],
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/04/2021",
+          "398.087"
+        ],
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/01/2020",
+          "137.448"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "18010120220399013",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/07/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "29011800599/21",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/01/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "2901181533175/18",
+      "esperados": 1,
+      "valor_resumo": "59.657,20",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2020",
+          "59.657"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "29011820220724758",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/03/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "29011820220724811",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/03/2023",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "29011820221414544",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/10/2023",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "29011820-5618220",
+      "esperados": 1,
+      "valor_resumo": "122.772,34",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/08/2021",
+          "122.772"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "2901182383190/19",
+      "esperados": 2,
+      "valor_resumo": "256.571,50",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/10/2020",
+          "196.572"
+        ],
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/06/2020",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "290118503961/18",
+      "esperados": 1,
+      "valor_resumo": "319.816,48",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/04/2021",
+          "319.816"
+        ],
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/01/2019",
+          "80.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "41010120220270922",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/02/2023",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "51010100232/2024N",
+      "esperados": 1,
+      "valor_resumo": "525.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/10/2025",
+          "525.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "51010120231759804",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/07/2024",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "51010120240425068",
+      "esperados": 1,
+      "valor_resumo": "450.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/07/2024",
+          "450.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3514601",
+      "municipio": "Dumont",
+      "id": "510101425068/24",
+      "esperados": 1,
+      "valor_resumo": "525.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/06/2025",
+          "525.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "09020519036-2021",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/01/2022",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "12010120-000006",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "1301752021/13812",
+      "esperados": 1,
+      "valor_resumo": "40.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/01/2022",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "17003020240450661",
+      "esperados": 1,
+      "valor_resumo": "921.774,97",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/11/2025",
+          "921.775"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "25010120221180973",
+      "esperados": 1,
+      "valor_resumo": "467.018,03",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/07/2023",
+          "467.018"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "29011800339/21",
+      "esperados": 1,
+      "valor_resumo": "329.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2022",
+          "329.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "29011800352/21",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/11/2021",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "29011801149/21",
+      "esperados": 3,
+      "valor_resumo": "790.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/04/2024",
+          "290.000"
+        ],
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/09/2023",
+          "200.000"
+        ],
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/03/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "2901181956536/19",
+      "esperados": 1,
+      "valor_resumo": "107.999,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2020",
+          "108.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "29011820220421713",
+      "esperados": 1,
+      "valor_resumo": "163.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/11/2022",
+          "163.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "29011820221282955",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/03/2023",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "29011820221310414",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/03/2023",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "29011820221414571",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/03/2023",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "29011820221414606",
+      "esperados": 1,
+      "valor_resumo": "334.085,59",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/03/2023",
+          "334.086"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "2901182106133746",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "2901182669187/19",
+      "esperados": 3,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/04/2022",
+          "100.000"
+        ],
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/07/2021",
+          "100.000"
+        ],
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2020",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "2901182739674/19",
+      "esperados": 2,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/12/2020",
+          "280.000"
+        ],
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2020",
+          "70.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240002464",
+      "esperados": 1,
+      "valor_resumo": "495.044,57",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "04/07/2024",
+          "495.045"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240005931",
+      "esperados": 1,
+      "valor_resumo": "239.414,11",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "04/07/2024",
+          "239.414"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240335121",
+      "esperados": 1,
+      "valor_resumo": "107.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/04/2024",
+          "107.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240380556",
+      "esperados": 2,
+      "valor_resumo": "678.021,02",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "06/03/2025",
+          "278.021"
+        ],
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/07/2024",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240530368",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/07/2024",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240547301",
+      "esperados": 1,
+      "valor_resumo": "909.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2024",
+          "909.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240547463",
+      "esperados": 1,
+      "valor_resumo": "805.132,51",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2024",
+          "805.133"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240802842",
+      "esperados": 1,
+      "valor_resumo": "142.326,79",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2024",
+          "142.327"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010120240849591",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/08/2024",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "51010920220543832",
+      "esperados": 1,
+      "valor_resumo": "346.198,78",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/12/2022",
+          "346.199"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "id": "5128031465476\\19",
+      "esperados": 2,
+      "valor_resumo": "345.150,13",
+      "status": "erro",
+      "error": "Error: HTTP_500"
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "0803583291000011A",
+      "esperados": 1,
+      "valor_resumo": "222.022,27",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/09/2020",
+          "222.022"
+        ],
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/12/2018",
+          "159.958"
+        ],
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2015",
+          "187.746"
+        ],
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/12/2014",
+          "250.327"
+        ],
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/11/2013",
+          "250.327"
+        ],
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/07/2012",
+          "187.746"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "0803583291000011B",
+      "esperados": 1,
+      "valor_resumo": "125.163,67",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/09/2020",
+          "125.164"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "25010120221170431",
+      "esperados": 1,
+      "valor_resumo": "340.104,19",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/03/2023",
+          "340.104"
+        ]
+      ]
+    }
+  ]
+}

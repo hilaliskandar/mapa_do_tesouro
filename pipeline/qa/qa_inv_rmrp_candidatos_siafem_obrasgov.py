@@ -16,6 +16,7 @@ OBRAS = ROOT / "app/static/data/api/v3/investimentos/rmrp/obrasgov-triagem-espac
 ANUAL = G / "INV_RMRP_SIAFEM_889_CONVENIO_ANO_EXATO_2026_11_12.csv"
 DETALHES = G / "INV_RMRP_OBRASGOV_4_PROJETOS_CANDIDATOS_DETALHE_API_2026_11_12.json"
 MUNICIPAIS = G / "INV_RMRP_OBRASGOV_4_PROJETOS_DOCUMENTOS_MUNICIPAIS_FEDERAIS_2026_11_12.csv"
+SERRANA_CONFLITO = G / "INV_RMRP_SERRANA_117_2024_CONFLITO_REPASSES_952819_952816_2026_11_12.json"
 PB_STZ = G / "INV_RMRP_SERTAOZINHO_004_2025_953043_PROJETO_BASICO_EVIDENCIA_2026_11_12.json"
 ESTADOS = {
     "CANDIDATO_SEM_CHAVE_DOCUMENTAL": 10,
@@ -83,7 +84,14 @@ def main():
     assert pb["qa"]["state_siafem_link"] == "nao_comprovado"
     serrana = next(x for x in municipal if x["municipio"] == "Serrana")
     assert "952819" in serrana["nota"] and "952816" in serrana["nota"]
-    assert "CONCORRENCIA_008_DE_952816_CONCORRENCIA_014" in serrana["revisao_documental"]
+    assert serrana["revisao_documental"] == "CONTRADICAO_NUMEROS_952819_952816_NO_MESMO_CONTRATO_117_2024"
+    assert serrana["status_vinculo_federal"] == "DIVERGENCIA_INSTRUMENTO_ORIGINAL_952819_ADITIVO_952816_NAO_HOMOLOGADO"
+    record = json.loads(SERRANA_CONFLITO.read_text(encoding="utf-8"))
+    evidence = {e["document"]: e["agreement"] for e in record["chronology"]}
+    assert evidence["Contrato 117/2024, Concorrência 014/2024, Processo 135/2024"] == "952819/2023"
+    assert evidence["Primeiro aditamento Contrato 117/2024"] == "952816/2023"
+    assert record["status"] == "CONTRADICAO_DOCUMENTAL_REQUER_RETIFICACAO_OU_CONTRATO_ASSINADO"
+    assert record["siafem_relation"] == "NAO_COMPROVADA"
     assert all(m["status_vinculo_siafem"] == "NAO_HOMOLOGADO" for m in municipal)
     n_details = 0
     seen, states = set(), {x: 0 for x in ESTADOS}

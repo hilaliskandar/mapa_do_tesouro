@@ -1,0 +1,24 @@
+name: INV RMRP - QA vinculos documentais SIAFEM e Obrasgov
+on:
+  pull_request:
+    paths:
+      - "pipeline/qa/qa_inv_rmrp_vinculos_documentais.py"
+      - "governance/INV_RMRP_SIAFEM_OBRASGOV_55_PROJETOS_ESTADUAIS_TRIAGEM_2026_11_12.csv"
+      - "governance/INV_RMRP_VINCULOS_DOCUMENTAIS_TRIAGEM_QA_2026_11_12.json"
+      - ".github/workflows/inv-rmrp-vinculos-documentais-qa.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verificar sintaxe
+        run: python -m py_compile pipeline/qa/qa_inv_rmrp_vinculos_documentais.py
+      - name: Validar IDs literais, territorializacao e proibir ligações por proximidade
+        run: python pipeline/qa/qa_inv_rmrp_vinculos_documentais.py

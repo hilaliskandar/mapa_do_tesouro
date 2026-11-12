@@ -18,6 +18,7 @@ DETALHES = G / "INV_RMRP_OBRASGOV_4_PROJETOS_CANDIDATOS_DETALHE_API_2026_11_12.j
 MUNICIPAIS = G / "INV_RMRP_OBRASGOV_4_PROJETOS_DOCUMENTOS_MUNICIPAIS_FEDERAIS_2026_11_12.csv"
 SERRANA_CONFLITO = G / "INV_RMRP_SERRANA_117_2024_CONFLITO_REPASSES_952819_952816_2026_11_12.json"
 SERRANA_CONTRATOS = G / "INV_RMRP_SERRANA_CONTRATOS_117_078_126_FEDERAIS_ESTADUAIS_2026_11_12.json"
+SERRANA_CROSSWALK = G / "INV_RMRP_SERRANA_CROSSWALK_100540_101375_SIAFEM_510101_2026_11_12.json"
 PB_STZ = G / "INV_RMRP_SERTAOZINHO_004_2025_953043_PROJETO_BASICO_EVIDENCIA_2026_11_12.json"
 ESTADOS = {
     "CANDIDATO_SEM_CHAVE_DOCUMENTAL": 10,
@@ -110,6 +111,54 @@ def main():
     assert por_contrato["126/2024"]["contract_amount_centavos"] == 25862491
     assert contratos["cross_source_control"]["matching_to_siafem_752_by_exact_public_id"] == 0
     assert contratos["cross_source_control"]["confirmed_siafem_transfer_to_contract"] == 0
+    cross = json.loads(SERRANA_CROSSWALK.read_text(encoding="utf-8"))
+    assert cross["geo"]["ibge7"] == "3551504"
+    assert len(cross["entries"]) == 2
+    by_public = {e["public_instrument"]: e for e in cross["entries"]}
+    assert set(by_public) == {"100540/2024", "101375/2024"}
+    assert cross["summary"]["confirmed_exact_number_crosswalks"] == 0
+    assert cross["summary"]["composite_high_confidence"] == 1
+    assert cross["summary"]["strong_candidates"] == 1
+    assert cross["summary"]["not_additive_to_existing_siafem_30552102920"] is True
+    assert cross["summary"]["spend_paid_to_contractor_unknown"] is True
+
+    annual_by_id = {}
+    for r in ano:
+        if r["codigo_ibge"] != "3551504":
+            continue
+        key = r["numero_convenio_siafem"]
+        annual_by_id[key] = annual_by_id.get(key, 0) + int(
+            r["valor_liberado_estornado_ano_centavos"]
+        )
+    assert len(annual_by_id) == 35
+    expected = {
+        "100540/2024": ("078/2024", "51010120240419991", 67895571),
+        "101375/2024": ("126/2024", "51010120240581081", 25862491),
+    }
+    for public, (contract, number, cents) in expected.items():
+        item = by_public[public]
+        assert item["municipal_contract"] == contract
+        assert item["siafem_number"] == number
+        assert item["siafem_liberado_total_centavos"] == cents
+        assert item["municipal_contract_cents"] == cents
+        assert annual_by_id[number] == cents
+        assert sum(r["cents"] for r in item["siafem_liberacoes"]) == cents
+        assert sum(1 for value in annual_by_id.values() if value == cents) == 1
+        assert item["siafem_url"].startswith(
+            "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/"
+        )
+    assert by_public["101375/2024"]["term_total_centavos"] == (
+        by_public["101375/2024"]["term_estadual_centavos"] +
+        by_public["101375/2024"]["term_contrapartida_centavos"]
+    ) == 30350156
+    assert by_public["101375/2024"]["siafem_total_cents"] == 30350156
+    assert by_public["101375/2024"]["siafem_saldo_a_liberar_centavos"] == (
+        30000000 - 25862491
+    )
+    assert cross["summary"]["liberacoes_combinadas_centavos"] == (
+        67895571 + 25862491
+    )
+
     assert all(m["status_vinculo_siafem"] == "NAO_HOMOLOGADO" for m in municipal)
     n_details = 0
     seen, states = set(), {x: 0 for x in ESTADOS}

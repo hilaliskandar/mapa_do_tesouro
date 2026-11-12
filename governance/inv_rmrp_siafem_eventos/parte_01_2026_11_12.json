@@ -1,0 +1,2315 @@
+{
+  "source": "SIAFEM-SP",
+  "time_filter": "liberacao a partir de 01/01/2020 (reaplicar sobre eventos)",
+  "part": 1,
+  "events": [
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "13010111442/2020",
+      "esperados": 1,
+      "valor_resumo": "40.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2020",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "1700301313178/17",
+      "esperados": 4,
+      "valor_resumo": "574.858,77",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/04/2022",
+          "43.693"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/12/2021",
+          "51.384"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "214.677"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/06/2020",
+          "265.105"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/12/2019",
+          "50.633"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/10/2019",
+          "94.157"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "26013620260415858",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2026",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "29011800066/21",
+      "esperados": 2,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/10/2021",
+          "100.000"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/08/2021",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "2901182503463/19",
+      "esperados": 3,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/10/2020",
+          "160.000"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2020",
+          "160.000"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2020",
+          "80.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "2901183115569/19",
+      "esperados": 2,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2020",
+          "160.000"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/02/2020",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "35003320250512283",
+      "esperados": 1,
+      "valor_resumo": "89.913,60",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/05/2025",
+          "89.914"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "35010120250421171",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2025",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "35010120260420565",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2026",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "4101014332/2020",
+      "esperados": 1,
+      "valor_resumo": "40.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/02/2022",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "5001022018PR484",
+      "esperados": 2,
+      "valor_resumo": "186.158,63",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/09/2020",
+          "90.180"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/04/2020",
+          "95.979"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/11/2019",
+          "47.989"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "5001022021PR008",
+      "esperados": 2,
+      "valor_resumo": "615.073,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/04/2023",
+          "307.537"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/05/2022",
+          "307.537"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "50010220221179758",
+      "esperados": 1,
+      "valor_resumo": "307.536,98",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/03/2023",
+          "307.537"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "50010220231691216",
+      "esperados": 1,
+      "valor_resumo": "285.540,81",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/04/2024",
+          "285.541"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "5001022257950/19",
+      "esperados": 3,
+      "valor_resumo": "327.007,73",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/10/2020",
+          "118.243"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/06/2020",
+          "139.177"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2020",
+          "69.588"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "51010120240002642",
+      "esperados": 1,
+      "valor_resumo": "294.979,55",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/04/2024",
+          "294.980"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "51010120240002651",
+      "esperados": 2,
+      "valor_resumo": "439.988,83",
+      "status": "ok",
+      "eventos": [
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/12/2024",
+          "89.989"
+        ],
+        [
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/04/2024",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id": "5128032684769\\19",
+      "esperados": 1,
+      "valor_resumo": "198.346,48",
+      "status": "erro",
+      "error": "Error: HTTP_500"
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "09019620231755771",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2026",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "09020520220504718",
+      "esperados": 1,
+      "valor_resumo": "70.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/06/2022",
+          "70.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "26010158100/21",
+      "esperados": 3,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/12/2023",
+          "105.000"
+        ],
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/11/2023",
+          "101.000"
+        ],
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/12/2022",
+          "94.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "29011800231/22",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/03/2023",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "2901182007831/19",
+      "esperados": 2,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2021",
+          "400.000"
+        ],
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/10/2020",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "29011820220211583",
+      "esperados": 1,
+      "valor_resumo": "180.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "180.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "29011820220532605",
+      "esperados": 2,
+      "valor_resumo": "825.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/11/2023",
+          "412.500"
+        ],
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "412.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "29011820-9018338",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/11/2021",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "290118554690/18",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "51010120240527961",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/07/2025",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "id": "51010120240546691",
+      "esperados": 1,
+      "valor_resumo": "988.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/07/2025",
+          "988.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "08010117798/20",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/11/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "18010120230970915",
+      "esperados": 1,
+      "valor_resumo": "70.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/12/2023",
+          "70.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "18010120251365736",
+      "esperados": 1,
+      "valor_resumo": "253.255,81",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/04/2026",
+          "253.256"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "29011800772/20",
+      "esperados": 2,
+      "valor_resumo": "461.878,48",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/09/2021",
+          "161.878"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/06/2021",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "29011820220499501",
+      "esperados": 1,
+      "valor_resumo": "244.444,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/12/2022",
+          "244.444"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "29011820221442496",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/07/2023",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "2901182103022047",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "2901182114225083",
+      "esperados": 2,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2024",
+          "200.000"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/02/2024",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "2901182921676/19",
+      "esperados": 2,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2021",
+          "280.000"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2020",
+          "70.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "2901183280989/19",
+      "esperados": 2,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2021",
+          "280.000"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2020",
+          "70.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "2901183355861/19",
+      "esperados": 2,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "160.000"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2020",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "3501012842594/19",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/06/2020",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "4101010334-2019",
+      "esperados": 2,
+      "valor_resumo": "0,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/03/2021",
+          "30.000"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2021",
+          "-30.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "4101014319/2020",
+      "esperados": 1,
+      "valor_resumo": "40.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/12/2021",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "5001022016PR061",
+      "esperados": 4,
+      "valor_resumo": "1.763.408,78",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/06/2021",
+          "570.749"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "06/11/2020",
+          "404.328"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/06/2020",
+          "387.196"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/01/2020",
+          "401.136"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/10/2019",
+          "414.812"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "5001022017PR432",
+      "esperados": 2,
+      "valor_resumo": "305.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/06/2021",
+          "112.074"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2021",
+          "192.926"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/12/2019",
+          "91.713"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/07/2019",
+          "399.914"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "04/01/2019",
+          "397.852"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/10/2018",
+          "409.888"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "5001022018PR063",
+      "esperados": 3,
+      "valor_resumo": "1.312.419,34",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/10/2021",
+          "323.614"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/01/2021",
+          "329.606"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2020",
+          "659.199"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/12/2019",
+          "570.507"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/09/2019",
+          "580.441"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/03/2019",
+          "617.337"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "5001022021PR0259",
+      "esperados": 3,
+      "valor_resumo": "2.943.042,66",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/03/2025",
+          "1.076.867"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2024",
+          "979.443"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/05/2023",
+          "886.733"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "50010220221420102",
+      "esperados": 3,
+      "valor_resumo": "2.908.040,92",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/10/2024",
+          "1.135.034"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2024",
+          "892.786"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/08/2023",
+          "880.221"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "5001023148192/19",
+      "esperados": 3,
+      "valor_resumo": "885.363,82",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/08/2023",
+          "303.994"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2023",
+          "304.105"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/11/2022",
+          "277.265"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "51010120240335102",
+      "esperados": 2,
+      "valor_resumo": "1.000.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/09/2025",
+          "500.000"
+        ],
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/04/2024",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "51010120240528898",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/11/2024",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "51010120240547178",
+      "esperados": 1,
+      "valor_resumo": "527.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/04/2025",
+          "527.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "51010120241079419",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/10/2024",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "51010120250289569",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/03/2025",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "5128032447861\\19",
+      "esperados": 2,
+      "valor_resumo": "385.000,00",
+      "status": "erro",
+      "error": "Error: HTTP_500"
+    },
+    {
+      "ibge": "3505906",
+      "municipio": "Batatais",
+      "id": "5128032447861-19",
+      "esperados": 1,
+      "valor_resumo": "273.147,07",
+      "status": "ok",
+      "eventos": [
+        [
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/12/2021",
+          "273.147"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "08035804875/13",
+      "esperados": 1,
+      "valor_resumo": "242.873,84",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2020",
+          "242.874"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/08/2018",
+          "242.874"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/11/2017",
+          "242.874"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "02/06/2017",
+          "323.832"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2017",
+          "323.832"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "03/07/2014",
+          "242.874"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "29011800737/20",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/10/2020",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "29011820220120121",
+      "esperados": 3,
+      "valor_resumo": "1.195.296,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/06/2025",
+          "415.296"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/12/2022",
+          "420.000"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/06/2022",
+          "360.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "29011820220516361",
+      "esperados": 1,
+      "valor_resumo": "417.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/09/2022",
+          "417.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "29011820220533925",
+      "esperados": 1,
+      "valor_resumo": "140.709,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/09/2022",
+          "140.710"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "29011820221438303",
+      "esperados": 1,
+      "valor_resumo": "217.607,83",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/06/2023",
+          "217.608"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "29011820221453794",
+      "esperados": 1,
+      "valor_resumo": "209.044,15",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2023",
+          "209.044"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "29011820-7517977",
+      "esperados": 1,
+      "valor_resumo": "163.712,50",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/02/2022",
+          "163.713"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "2901183405524/19",
+      "esperados": 3,
+      "valor_resumo": "355.065,43",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/10/2022",
+          "55.665"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/02/2021",
+          "199.600"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2020",
+          "99.800"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "290118525367/18",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/01/2021",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "290118525497/18",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/08/2021",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "4100300430-2018",
+      "esperados": 2,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44409201",
+          "OUTRAS DESPESAS DE EXERCICIOS ANTERIORES",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "02/04/2024",
+          "107.478"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44409201",
+          "OUTRAS DESPESAS DE EXERCICIOS ANTERIORES",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/09/2020",
+          "92.522"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "4101014725/2020",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/03/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "5001022017PR315",
+      "esperados": 1,
+      "valor_resumo": "101.140,84",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/02/2020",
+          "101.141"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/10/2018",
+          "241.033"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/10/2018",
+          "-241.033"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "5001022021PR0325",
+      "esperados": 1,
+      "valor_resumo": "253.965,52",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/03/2023",
+          "253.966"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "5001022021PR043",
+      "esperados": 1,
+      "valor_resumo": "361.108,44",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/06/2022",
+          "361.108"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "5001022260428/19",
+      "esperados": 1,
+      "valor_resumo": "178.152,07",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2020",
+          "178.152"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "5001022260562/19",
+      "esperados": 2,
+      "valor_resumo": "86.372,36",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/08/2021",
+          "43.186"
+        ],
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "43.186"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "51010120240370783",
+      "esperados": 1,
+      "valor_resumo": "140.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/01/2025",
+          "140.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "51010120240374405",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/01/2025",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3507803",
+      "municipio": "Brodowski",
+      "id": "51010120240530401",
+      "esperados": 1,
+      "valor_resumo": "176.399,95",
+      "status": "ok",
+      "eventos": [
+        [
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/01/2025",
+          "176.400"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "09020520448-2021",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "03/06/2022",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "17003020240416784",
+      "esperados": 1,
+      "valor_resumo": "775.311,44",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/10/2025",
+          "775.311"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "29011800346/20",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/12/2020",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "29011801680/21",
+      "esperados": 3,
+      "valor_resumo": "835.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/10/2024",
+          "335.000"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/07/2024",
+          "200.000"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "2901181997564/19",
+      "esperados": 1,
+      "valor_resumo": "240.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2020",
+          "240.000"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/12/2019",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "29011820220524471",
+      "esperados": 2,
+      "valor_resumo": "424.104,53",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/03/2023",
+          "124.105"
+        ],
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "29011820221296923",
+      "esperados": 1,
+      "valor_resumo": "173.404,26",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2023",
+          "173.404"
+        ]
+      ]
+    },
+    {
+      "ibge": "3509403",
+      "municipio": "Cajuru",
+      "id": "29011820221296932",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "150.000"
+        ]
+      ]
+    }
+  ]
+}

@@ -42,8 +42,21 @@ def main():
     assert coverage["totals"]["convenios"] == 752
     assert coverage["totals"]["details"] == 747
     assert coverage["totals"]["errors"] == 5
+    totals_by_mun = Counter()
+    payments_by_mun = Counter()
+    for item in annual:
+        totals_by_mun[item["codigo_ibge"]] += int(item["valor_liberado_estornado_ano_centavos"])
+        payments_by_mun[item["codigo_ibge"]] += int(item["pagamentos_ano"])
+    assert sum(totals_by_mun.values()) == coverage["totals"]["amount_cents"] == 30552102920
+    assert sum(payments_by_mun.values()) == coverage["totals"]["payments"] == 1017
+    assert coverage["municipalities"] == sorted(
+        coverage["municipalities"],
+        key=lambda row: -row["siafem_liberacoes_2020_2026_centavos"]
+    )
     for row in coverage["municipalities"]:
         code = row["ibge7"]
+        assert row["siafem_liberacoes_2020_2026_centavos"] == totals_by_mun[code]
+        assert row["siafem_pagamentos_contabilizados"] == payments_by_mun[code]
         assert row["total"] == by_mun[code]
         assert row["detalhes_recuperados"] == with_obj[code]
         assert row["excecoes"] == by_mun[code] - with_obj[code]
@@ -78,10 +91,11 @@ def main():
     assert evidence["summary"]["not_additive_to_existing_siafem_30552102920"] is True
 
     queue = []
-    for m in sorted(coverage["municipalities"], key=lambda r: (-r["total"], r["ibge7"])):
+    for m in coverage["municipalities"]:
         queue.append({
             "codigo_ibge":m["ibge7"], "municipio":m["municipio"],
             "instrumentos_siafem":m["total"],
+            "valor_liberado_estornado_centavos":m["siafem_liberacoes_2020_2026_centavos"],
             "metadados_com_objeto":m["detalhes_recuperados"],
             "detalhes_indisponiveis":m["excecoes"],
             "contratos_estado_examinados_neste_crosswalk":2 if m["ibge7"] == "3551504" else 0,

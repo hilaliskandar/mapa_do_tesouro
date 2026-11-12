@@ -1,0 +1,24 @@
+name: INV RMRP - QA staging SQLite SIAFEM
+on:
+  pull_request:
+    paths:
+      - "pipeline/build/import_inv_rmrp_siafem_dev.py"
+      - "pipeline/build/test_inv_rmrp_siafem_dev.py"
+      - "governance/INV_RMRP_SIAFEM_*"
+      - ".github/workflows/inv-rmrp-siafem-staging-qa.yml"
+  workflow_dispatch:
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sintaxe
+        run: python -m py_compile pipeline/build/import_inv_rmrp_siafem_dev.py pipeline/build/test_inv_rmrp_siafem_dev.py
+      - name: Testar importação em banco sintético isolado
+        run: python pipeline/build/test_inv_rmrp_siafem_dev.py

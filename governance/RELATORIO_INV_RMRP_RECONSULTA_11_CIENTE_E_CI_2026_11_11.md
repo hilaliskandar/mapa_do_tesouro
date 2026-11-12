@@ -12,7 +12,7 @@ O inventário comparativo por plano está em [CSV de reconsulta dos 11 CIENTE](I
 
 O workflow `43132157723` do Pages Preview teve resultado geral `failure` porque o job `rmj-browser-qa` falhou em **Install Chromium for QA**. Seu job separado `build-deploy-qa` **passou**: deploy Cloudflare no alias `pr-233`, QA local e remoto das quatro interfaces, incluindo 2.385 movimentações e 778 agrupamentos. A quarta prévia é [movimentacoes-especiais-rmrp-preview.html](https://pr-233.finbra-tic-tim-referencia.pages.dev/movimentacoes-especiais-rmrp-preview.html), classificada como **experimental, sem conciliação por plano**.
 
-O workflow `43132157708` de QA offline de coletores falhou no teste `test_complete_34_and_no_personal_data_in_outputs`: o fixture colocava o CNPJ **fictício** dentro do campo sintético `id_lancamento_gestao_financeira` e o teste, corretamente, proibia essa sequência nas saídas. A correção altera apenas o ID sintético para não conter o CNPJ; não elimina nem relaxa os assertions de privacidade. Commit `204285a5664927b4d435fe2cfdaf25ddfa3ad5c8`; **nova execução de QA ainda precisa ser comprovada**.
+O workflow `43132157708` de QA offline de coletores falhou no teste `test_complete_34_and_no_personal_data_in_outputs`: o fixture colocava o CNPJ **fictício** dentro do campo sintético `id_lancamento_gestao_financeira` e o teste, corretamente, proibia essa sequência nas saídas. A correção altera apenas o ID sintético para não conter o CNPJ; não elimina nem relaxa os assertions de privacidade. Commit `204285a5664927b4d435fe2cfdaf25ddfa3ad5c8`; **correção homologada** no [workflow 43133147509](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43133147509), concluído com `success`.
 
 ## Próximos procedimentos
 

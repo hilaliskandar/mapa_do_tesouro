@@ -84,13 +84,17 @@ def main():
     assert pb["qa"]["state_siafem_link"] == "nao_comprovado"
     serrana = next(x for x in municipal if x["municipio"] == "Serrana")
     assert "952819" in serrana["nota"] and "952816" in serrana["nota"]
-    assert serrana["revisao_documental"] == "CONTRADICAO_NUMEROS_952819_952816_NO_MESMO_CONTRATO_117_2024"
-    assert serrana["status_vinculo_federal"] == "DIVERGENCIA_INSTRUMENTO_ORIGINAL_952819_ADITIVO_952816_NAO_HOMOLOGADO"
+    assert serrana["revisao_documental"] == "DOCUMENTOS_INTEGRAIS_EDITAL_CONTRATO_ADITIVO_952816_CADASTRO_952819"
+    assert serrana["status_vinculo_federal"] == "CONTRATO_ASSINADO_117_VINCULADO_A_952816_REGISTRO_PUBLICO_DIVERGENTE"
     record = json.loads(SERRANA_CONFLITO.read_text(encoding="utf-8"))
-    evidence = {e["document"]: e["agreement"] for e in record["chronology"]}
-    assert evidence["Contrato 117/2024, Concorrência 014/2024, Processo 135/2024"] == "952819/2023"
-    assert evidence["Primeiro aditamento Contrato 117/2024"] == "952816/2023"
-    assert record["status"] == "CONTRADICAO_DOCUMENTAL_REQUER_RETIFICACAO_OU_CONTRATO_ASSINADO"
+    evidence = {e["type"]: e for e in record["original_documents"]}
+    required = {"aviso_pdf", "edital_042_2024", "minuta_anexo_ii",
+                "contrato_assinado_117_2024", "aditivo_2025"}
+    assert all(evidence[k]["agreement"] == "952816/2023" for k in required)
+    assert evidence["contrato_assinado_117_2024"]["amount_brl"] == "962088.57"
+    assert evidence["contrato_assinado_117_2024"]["federal_brl"] == "960019.00"
+    assert evidence["contrato_assinado_117_2024"]["municipal_brl"] == "2069.57"
+    assert record["status"] == "DIVERGENCIA_CADASTRO_E_EXTRATOS_VERSUS_DOCUMENTOS_ORIGINAIS_952816"
     assert record["siafem_relation"] == "NAO_COMPROVADA"
     assert all(m["status_vinculo_siafem"] == "NAO_HOMOLOGADO" for m in municipal)
     n_details = 0

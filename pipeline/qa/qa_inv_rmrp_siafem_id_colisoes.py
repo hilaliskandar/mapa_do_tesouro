@@ -63,6 +63,21 @@ def main():
     assert d["decision"]["financial_total_remains_source_gross"]
     assert d["members"][0]["http"] == 200 and d["members"][1]["http"] == 500
     assert d["amounts"]["source_rmrp_total_centavos"] == 30552102920
+    public = d["public_instrument"]
+    assert public["convenio_publico"] == "101/2019"
+    assert public["administrative_process"] == "DETRAN 2447861/2019"
+    assert public["state_total_foreseen_centavos"] == 68930177
+    assert public["signed"] == "2019-12-18"
+    assert d["amounts"]["difference_original_public_value_vs_sum_siafem_centavos"] == (
+        public["state_total_foreseen_centavos"] - sum(amounts.values())
+    ) == 3115470
+    assert d["decision"]["possible_shared_legal_instrument"]
+    assert d["decision"]["exact_crosswalk_documented"] is False
+    assert d["decision"]["accounting_duplicate_proved"] is False
+    assert d["decision"]["new_classification"] == (
+        "PROVAVEL_MESMO_PROCESSO_DETRAN_2447861_MAS_LANCAMENTOS_DISTINTOS_NAO_CONCILIADOS"
+    )
+
     print(json.dumps({
         "status": "QA_PASS_SIAFEM_ID_COLLISION_UNRESOLVED",
         "unique_raw_ids": 752,

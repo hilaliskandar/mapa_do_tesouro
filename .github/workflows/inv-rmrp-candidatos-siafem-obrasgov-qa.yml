@@ -4,6 +4,7 @@ on:
     paths:
       - "pipeline/qa/qa_inv_rmrp_candidatos_siafem_obrasgov.py"
       - "governance/INV_RMRP_SIAFEM_OBRASGOV_17_PARES_CANDIDATOS_NAO_HOMOLOGADOS_2026_11_12.csv"
+      - "governance/INV_RMRP_OBRASGOV_4_PROJETOS_DOCUMENTOS_MUNICIPAIS_FEDERAIS_2026_11_12.csv"
       - "governance/INV_RMRP_SIAFEM_752_CONVENIOS_METADADOS_OBJETOS_ORGAOS_2026_11_12.csv"
       - ".github/workflows/inv-rmrp-candidatos-siafem-obrasgov-qa.yml"
   workflow_dispatch:

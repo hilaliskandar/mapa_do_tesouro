@@ -1,0 +1,370 @@
+{
+  "fonte": "SIAFEM/SP Convenio.aspx",
+  "lote": 8,
+  "registros": [
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901182767866/19",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "290118568857/18",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022017PR411",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022018PR136",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022018PR137",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022018PR402",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001023418013/19",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001023418066/19",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011800366/21",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820-9018341",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901182232536/19",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "250101SH-1200361",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901181915129252",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901182006419500",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820220235843",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820220487161",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820220524443",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022021PR0121",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022021PR0335",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001032021/00027",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "25010120221394399",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2801062023280019",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221371993",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221372589",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221373381",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221391969",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221408565",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221443448",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221443457",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "50010220221341582",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120231185507",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221408485",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "50010220231684089",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120231758807",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120231758816",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120240335078",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120240517956",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "17003020240437481",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120251090017",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011801163/21",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "2901182105622496",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "2901182117021781",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011801089/21",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011820220529978",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011820220529987",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011820220544437",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011820220595919",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "2901182320142/19",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "41000200257-21",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "51010120240370925",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "51010120240406831",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "35003420250556681",
+      "status": "ERRO",
+      "erro": "TypeError: Failed to fetch"
+    }
+  ]
+}

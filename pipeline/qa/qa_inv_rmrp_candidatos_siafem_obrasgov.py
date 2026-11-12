@@ -16,6 +16,7 @@ OBRAS = ROOT / "app/static/data/api/v3/investimentos/rmrp/obrasgov-triagem-espac
 ANUAL = G / "INV_RMRP_SIAFEM_889_CONVENIO_ANO_EXATO_2026_11_12.csv"
 DETALHES = G / "INV_RMRP_OBRASGOV_4_PROJETOS_CANDIDATOS_DETALHE_API_2026_11_12.json"
 MUNICIPAIS = G / "INV_RMRP_OBRASGOV_4_PROJETOS_DOCUMENTOS_MUNICIPAIS_FEDERAIS_2026_11_12.csv"
+PB_STZ = G / "INV_RMRP_SERTAOZINHO_004_2025_953043_PROJETO_BASICO_EVIDENCIA_2026_11_12.json"
 ESTADOS = {
     "CANDIDATO_SEM_CHAVE_DOCUMENTAL": 10,
     "LOCALIZACOES_DISTINTAS": 1,
@@ -64,6 +65,26 @@ def main():
         assert m["fonte_1"].startswith("https://") and m["fonte_2"].startswith("https://")
         assert "NAO" in m["status_vinculo_siafem"]
     assert all(m["executor"].startswith("Município de ") for m in municipal)
+    pb = json.loads(PB_STZ.read_text(encoding="utf-8"))
+    stz = next(x for x in municipal if x["municipio"] == "Sertãozinho")
+    assert pb["obrasgov_project_id"] == stz["id_projeto_obrasgov"]
+    assert pb["project_basic"]["federal_transfer_agreement"] == stz["instrumento_federal"]
+    assert stz["status_vinculo_federal"] == "CONFIRMADO_PROJETO_BASICO_MUNICIPAL_953043_2023"
+    assert pb["project_basic"]["sha256"] == stz["projeto_basico_sha256"]
+    assert pb["archive"]["size_bytes"] == 2888706
+    assert len(pb["project_basic"]["streets"]) == 6
+    assert pb["project_basic"]["budget_cents"] == (
+        pb["project_basic"]["federal_cents"] +
+        pb["project_basic"]["municipal_contribution_cents"]
+    )
+    assert stz["orcamento_projeto_centavos"] == "64204659"
+    assert stz["recurso_federal_centavos"] == "57800300"
+    assert stz["contrapartida_municipal_centavos"] == "6404359"
+    assert pb["qa"]["state_siafem_link"] == "nao_comprovado"
+    serrana = next(x for x in municipal if x["municipio"] == "Serrana")
+    assert "952819" in serrana["nota"] and "952816" in serrana["nota"]
+    assert "CONCORRENCIA_008_DE_952816_CONCORRENCIA_014" in serrana["revisao_documental"]
+    assert all(m["status_vinculo_siafem"] == "NAO_HOMOLOGADO" for m in municipal)
     n_details = 0
     seen, states = set(), {x: 0 for x in ESTADOS}
     for r in cand:

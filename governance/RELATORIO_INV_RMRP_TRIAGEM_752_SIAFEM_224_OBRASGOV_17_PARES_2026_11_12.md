@@ -52,3 +52,23 @@ A matriz financeira SIAFEM **não** foi alterada: permanecem 752 convênios, 889
 5. Manter a quinta página SIAFEM em prévia isolada e usar a presente auditoria como gate de não dupla contagem.
 
 **Governança:** PR nº 233 permanece em draft, sem merge, sem alteração do R2/D1/SQLite produtivo; PR nº 232/FED04 preservada.
+
+
+## 6. Complemento — consulta à API vigente do Obrasgov e distinção de papéis institucionais
+
+A triagem anterior utilizava `organizacao_resp` da amostra Obrasgov, cujo valor para os projetos selecionados era `MINISTERIO DA ECONOMIA`. Essa coluna representa a **organização responsável pelo cadastro do projeto**, não necessariamente a entidade executora. Foi feita consulta direcionada ao **novo portal oficial da API** em https://api-publica.obrasgov.gestao.gov.br/obras/docs, mediante endpoints `/projeto-investimento`, `/contrato` e `/empenho`, cada um filtrado por `id_projeto_investimento`. A documentação indica que a API atual substitui a anterior, descontinuada em agosto de 2026.
+
+Os dez pares classificados como `CANDIDATO_SEM_CHAVE_DOCUMENTAL` referem-se a quatro projetos distintos. A API retornou dados individualizados:
+
+| Projeto | Município executor identificado na API | Repassador | Empenho federal | Contratos retornados |
+|---|---|---|---|---:|
+| 30964.35-52 | Município de Guariba | Ministério das Cidades | 2023NE002773 | 0 |
+| 30692.35-17 | Município de Santa Rita do Passa Quatro | Ministério das Cidades | 2023NE002685 | 0 |
+| 30461.35-22 | Município de Serrana | Ministério das Cidades | 2023NE002700 | 0 |
+| 31536.35-60 | Município de Sertãozinho | Ministério das Cidades | nenhum retornado | 0 |
+
+Para os quatro projetos, `investimentos_previstos` apresenta fonte **Federal**, e o sistema de origem dos dados é Transferegov.br. A identificação do executor como ente municipal **corrige qualquer possível leitura de que todos os projetos Obrasgov com organização responsável federal sejam executados diretamente por órgãos federais**. É possível que um projeto tenha financiamento compartilhado, mas nenhum dos campos obtidos fornece referência inequívoca aos números de convênios estaduais SIAFEM dos candidatos. O empenho federal não é número de convênio estadual, e a ausência de contrato no endpoint Obrasgov não comprova a inexistência de contratos em bases municipais.
+
+**Conclusão corrigida:** os dez pares permanecem `CANDIDATO_SEM_CHAVE_DOCUMENTAL`, agora com prova da execução municipal e da origem federal informada na API, **não** da transferência estadual correspondente. Zero vínculos homologados. Para verificar eventual cofinanciamento, é necessário documento de projeto, termo de convênio estadual, plano de trabalho, processo ou contrato municipal com identificação do mesmo objeto e trecho e do mesmo instrumento.
+
+**Artefatos:** `governance/INV_RMRP_OBRASGOV_4_PROJETOS_CANDIDATOS_DETALHE_API_2026_11_12.json` registra respostas oficiais, URLs exatas e data da consulta; matriz dos 17 pares ampliada com executor, repassador, empenho federal, contratos consultados e estado de validação, sem qualquer atribuição do valor SIAFEM ao Obrasgov. O validador `pipeline/qa/qa_inv_rmrp_candidatos_siafem_obrasgov.py` passou a exigir essas informações.

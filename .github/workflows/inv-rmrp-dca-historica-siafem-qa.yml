@@ -1,0 +1,49 @@
+name: INV RMRP - QA historico DCA x SIAFEM
+on:
+  pull_request:
+    paths:
+      - "pipeline/qa/qa_inv_rmrp_dca_historica_siafem.py"
+      - "governance/INV_RMRP_SIAFEM_34_MUNICIPIOS_2020_2026_ANUAL_EXATO_2026_11_12.csv"
+      - "governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv"
+      - ".github/workflows/inv-rmrp-dca-historica-siafem-qa.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa-dca-historica:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verificar sintaxe QA
+        run: python -m py_compile pipeline/qa/qa_inv_rmrp_dca_historica_siafem.py
+      - name: Baixar CSV historico oficial versionado somente leitura e verificar SHA
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key sp_645/dca/2013_2025/normalized.csv \
+            --output build/inv-rmrp-historical-qa/dca_sp645_2013_2025.csv \
+            --expected-sha256 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5
+      - name: Validar cobertura municipal e temporal sem agregar fluxos distintos
+        run: |
+          python pipeline/qa/qa_inv_rmrp_dca_historica_siafem.py \
+            --dca build/inv-rmrp-historical-qa/dca_sp645_2013_2025.csv \
+            --siafem governance/INV_RMRP_SIAFEM_34_MUNICIPIOS_2020_2026_ANUAL_EXATO_2026_11_12.csv \
+            --roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
+            --qa build/inv-rmrp-historical-qa/QA_DCA_HISTORICA_SIAFEM_RMRP.json
+      - name: Guardar apenas resultados QA sem snapshot privado
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-dca-historica-siafem-qa-${{ github.run_id }}
+          path: build/inv-rmrp-historical-qa/QA_DCA_HISTORICA_SIAFEM_RMRP.json
+          if-no-files-found: warn
+          retention-days: 14

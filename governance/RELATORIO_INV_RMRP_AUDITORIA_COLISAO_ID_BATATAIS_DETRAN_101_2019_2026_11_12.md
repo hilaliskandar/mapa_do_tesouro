@@ -57,3 +57,9 @@ Distinções essenciais:
 O teste exige 752 chaves brutas, 889 registros instrumento–ano, exatamente uma colisão conservadora de pontuação, **R$ 273.147,07 e R$ 385.000,00** nos registros respectivos, valor público **R$ 689.301,77**, diferença de **R$ 31.154,70**, sem fusão ou dedução e total estadual preservado.
 
 **Governança:** a auditoria não altera R2, SQLite, D1 ou site produtivo; PR #233 draft; PR #232/FED04 não modificada.
+
+## 5. Segundo termo aditivo de abril de 2022
+
+A pesquisa encontrou transcrição do **segundo termo de aditamento do Convênio DETRAN-SP nº 101/2019, Processo nº 2447861/2019**, assinado em **13/04/2022** e publicado em **14/04/2022**. O ato prorrogou o prazo de execução de **18/12/2021 para 17/06/2022** e remeteu a **novo cronograma físico-financeiro**, com ratificação das demais cláusulas. Fonte: [reprodução da página 6, Executivo I de 14/04/2022](https://www.escavador.com/diarios/5500486/DOESP/executivo-i/2022-04-14?page=6). O PDF primário da edição ainda não foi capturado nesta rodada; a referência é reprodução do diário oficial, não o anexo integral.
+
+A prorrogação dá contexto à presença de lançamento SIAFEM em **2022** para a grafia com barra invertida, mas **não prova a identidade nem individualização das três transferências**, e tampouco a execução física. O novo cronograma anexado ao aditivo ainda precisa ser recuperado. Não converter a existência de aditivo em aumento do valor pactuado: o extrato de abril apenas prorroga a vigência.

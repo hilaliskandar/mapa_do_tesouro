@@ -31,9 +31,10 @@
     {
       "date": "2024-08-29",
       "document": "Contrato 117/2024, Concorrência 014/2024, Processo 135/2024",
-      "agreement": "952819/2023",
-      "outcome": "Contrato DGB Engenharia R$ 962.088,57 (publicação 05/09/2024)",
-      "source": "https://www.serrana.sp.gov.br/media/uploads/diario_oficial/diario_oficial_1701.pdf"
+      "agreement": "952819/2023 na publicação resumida do Diário; 952816/2023 no contrato assinado em PDF",
+      "outcome": "Contrato assinado pela DGB Engenharia no valor R$ 962.088,57; a cláusula de recursos menciona União R$ 960.019,00 e contrapartida municipal R$ 2.069,57; publicação resumida apresenta número divergente",
+      "source": "https://www.serrana.sp.gov.br/media/uploads/diario_oficial/diario_oficial_1701.pdf",
+      "primary_contract_url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/117_-_2024_-_dgb.pdf"
     },
     {
       "date": "2025-05-05",
@@ -43,18 +44,70 @@
       "source": "https://www.serrana.sp.gov.br/media/uploads/diario_oficial/diario_oficial_1858.pdf"
     }
   ],
-  "status": "CONTRADICAO_DOCUMENTAL_REQUER_RETIFICACAO_OU_CONTRATO_ASSINADO",
+  "status": "DIVERGENCIA_CADASTRO_E_EXTRATOS_VERSUS_DOCUMENTOS_ORIGINAIS_952816",
   "notes": [
-    "Os dois números são instrumentos federais existentes; não assumir simples erro de digitação.",
-    "O empenho federal 2023NE002700 aparece associado a 952816/2023 no extrato de dezembro de 2023.",
-    "Documentos técnicos da Concorrência 008/2024 não devem ser usados como se fossem anexos do Processo 135/2024 sem prova de reaproveitamento formal.",
-    "A associação entre Obrasgov 30461.35-22 e Contrato 117/2024 é hipótese; não homologar."
+    "Número 952819/2023 no índice da Concorrência 014/2024 e nos resumos publicados, mas documentos integrais dessa mesma Concorrência e Contrato 117/2024 assinado indicam 952816/2023.",
+    "A Concorrência 008/2024, declarada deserta, menciona 952819/2023. Não atribuir seus anexos automaticamente à Concorrência 014/2024.",
+    "O empenho federal 2023NE002700 do projeto Obrasgov está associado a 952816/2023 em evidência federal já coletada; confirmar modalidade de execução e escopo via planos e medições antes de homologar identidade de obra.",
+    "Anexo I de 34 páginas consta somente como imagens sem camada textual: ainda é necessário interpretar plantas e memorial e conferir ruas e trechos.",
+    "Não existe vínculo com convênio estadual SIAFEM comprovado."
   ],
   "siafem_relation": "NAO_COMPROVADA",
   "request_docs": [
-    "Contrato 117/2024 assinado",
-    "Termo de referência e projeto básico do Processo 135/2024",
-    "Instrumento de repasse utilizado na medição de maio de 2025",
-    "Eventual errata/retificação do número de repasse"
+    "Rastreamento da retificação do cadastro e Diário Oficial referente à referência 952819/2023",
+    "Leitura técnica das plantas e memorial escaneados do Anexo I da Concorrência 014/2024",
+    "Medições e relatórios de execução do Contrato 117/2024",
+    "Conferência do escopo Obrasgov 30461.35-22 e contratos federais do projeto"
+  ],
+  "revised_conclusion": "Edital 042/2024, aviso em PDF, minuta contratual Anexo II, Contrato 117/2024 assinado e primeiro aditivo citam 952816/2023. O cadastro da Concorrência 014 e algumas publicações resumidas citam 952819/2023. Não há contradição entre contrato assinado e aditivo; divergência permanece entre publicação/cadastro e documentos integrais.",
+  "official_procurement": "https://www.serrana.sp.gov.br/licitacoes/1594",
+  "original_documents": [
+    {
+      "type": "aviso_pdf",
+      "agreement": "952816/2023",
+      "url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/aviso-.pdf",
+      "sha256": "eb3c91961851c518d0fbfbba295140adabceb615ec10f7693dae51209fc6bc9d"
+    },
+    {
+      "type": "edital_042_2024",
+      "agreement": "952816/2023",
+      "url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/edital-.pdf",
+      "sha256": "294040b5db56c694dee16f54238c8d56382d1150296edbda642cb24be16a34c9"
+    },
+    {
+      "type": "minuta_anexo_ii",
+      "agreement": "952816/2023",
+      "url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/4_-_anexo_ii.pdf",
+      "sha256": "3eeb77ee3e1ef0c1fa4197523e7b30b86697d9f7be888bc7b5ab3b054c04ed3e"
+    },
+    {
+      "type": "contrato_assinado_117_2024",
+      "agreement": "952816/2023",
+      "url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/117_-_2024_-_dgb.pdf",
+      "sha256": "fe09a75265b7338aa5301c349bb9e91be7bc746240e47143d616dc2364a84824",
+      "pages": [
+        1,
+        2,
+        10
+      ],
+      "amount_brl": "962088.57",
+      "federal_brl": "960019.00",
+      "municipal_brl": "2069.57"
+    },
+    {
+      "type": "aditivo_2025",
+      "agreement": "952816/2023",
+      "url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/1%C2%BA_termo_aditivo_-_valor_-_dgb-.pdf",
+      "sha256": "55418d284de30b3942d84e8e486e6de66aa28e2b9e850338aebb60abf24c5133",
+      "new_amount_brl": "1157107.62"
+    },
+    {
+      "type": "anexo_i_tecnico",
+      "agreement": "nao extraivel do texto",
+      "url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/3_-_anexo_i.pdf",
+      "sha256": "39aa80b7f09f8971ae0d5806bc5e8e64d88c33f529b5f86d812d92525cf7b415",
+      "pages": 34,
+      "ocr_required": true
+    }
   ]
 }

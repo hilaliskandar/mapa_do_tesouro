@@ -15,6 +15,7 @@ CAND = G / "INV_RMRP_SIAFEM_OBRASGOV_17_PARES_CANDIDATOS_NAO_HOMOLOGADOS_2026_11
 OBRAS = ROOT / "app/static/data/api/v3/investimentos/rmrp/obrasgov-triagem-espacial.json"
 ANUAL = G / "INV_RMRP_SIAFEM_889_CONVENIO_ANO_EXATO_2026_11_12.csv"
 DETALHES = G / "INV_RMRP_OBRASGOV_4_PROJETOS_CANDIDATOS_DETALHE_API_2026_11_12.json"
+MUNICIPAIS = G / "INV_RMRP_OBRASGOV_4_PROJETOS_DOCUMENTOS_MUNICIPAIS_FEDERAIS_2026_11_12.csv"
 ESTADOS = {
     "CANDIDATO_SEM_CHAVE_DOCUMENTAL": 10,
     "LOCALIZACOES_DISTINTAS": 1,
@@ -47,6 +48,22 @@ def main():
 
     details = {x["id"]: x for x in json.loads(DETALHES.read_text(encoding="utf-8"))}
     assert len(details) == 4
+    municipal = read(MUNICIPAIS)
+    assert len(municipal) == 4
+    assert {r["id_projeto_obrasgov"] for r in municipal} == set(details)
+    expected_federal = {
+        "30964.35-52": "953042/2023",
+        "30461.35-22": "952816/2023",
+        "31536.35-60": "953043/2023",
+        "30692.35-17": "",
+    }
+    for m in municipal:
+        oid = m["id_projeto_obrasgov"]
+        assert m["instrumento_federal"] == expected_federal[oid]
+        assert m["status_vinculo_siafem"] == "NAO_HOMOLOGADO"
+        assert m["fonte_1"].startswith("https://") and m["fonte_2"].startswith("https://")
+        assert "NAO" in m["status_vinculo_siafem"]
+    assert all(m["executor"].startswith("Município de ") for m in municipal)
     n_details = 0
     seen, states = set(), {x: 0 for x in ESTADOS}
     for r in cand:

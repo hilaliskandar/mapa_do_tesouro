@@ -602,9 +602,11 @@
     "payments": 1017,
     "negative_controls": 1,
     "literal_number_confirmed": 0,
-    "instruments_without_documented_crosswalk_assessment": 748
+    "instruments_without_documented_crosswalk_assessment": 748,
+    "possible_legal_instrument_alias_collision_groups": 1,
+    "legal_unique_instrument_count_homologated": false
   },
-  "scoping": "Cobre 34 municípios e 752 convênios SIAFEM, mas apenas 2 contratos municipais estaduais detalhados. Nenhuma inferência de que municípios sem documentos tenham zero obras/contratos.",
+  "scoping": "Cobre 34 municípios e 752 convênios SIAFEM, mas apenas 2 contratos municipais estaduais detalhados. Nenhuma inferência de que municípios sem documentos tenham zero obras/contratos. Atenção: 752 são chaves brutas SIAFEM; 1 grupo de dois identificadores diverge apenas no separador e aparenta se referir a mesmo processo DETRAN 2447861/2019. Não afirmar 752 instrumentos jurídicos distintos até conciliação.",
   "next": "Prosseguir pesquisa de IDs nos contratos e termos completos. Caso Ribeirão Preto 101849 SIAFEM apresenta contrapartida idêntica e valor total igual mas data de celebração com divergência de dois dias; nunca homologar por data/valor sozinho.",
   "governance": "Sem qualquer alteração da base financeira ou de totais; valores de instrumentos já integrantes do agregado.",
   "ranking_method": "Priorização de busca por volume agregado SIAFEM e quantidade de instrumentos; não representa ranking de obras, execução municipal ou necessidade social.",
@@ -632,6 +634,23 @@
       "public_number": "101849/2023",
       "internal_id": "51010120231186228",
       "class": "ALTA_CONFIANCA_COMPOSTA_DIVERGENCIA_DATA_2_DIAS"
+    }
+  ],
+  "alias_audits": [
+    {
+      "municipio": "Batatais",
+      "ibge7": "3505906",
+      "raw_ids": [
+        "5128032447861-19",
+        "5128032447861\\19"
+      ],
+      "public_convenio": "DETRAN 101/2019",
+      "process": "DETRAN 2447861/2019",
+      "gross_payments_of_both_ids_centavos": 65814707,
+      "official_initial_agreement_centavos": 68930177,
+      "unreconciled_gap_centavos": 3115470,
+      "classification": "PROVAVEL_MESMO_PROCESSO_JURIDICO_SEM_DUPLICACAO_CONTABIL_PROVADA",
+      "dossier": "governance/INV_RMRP_BATATAIS_COLISAO_IDS_SIAFEM_5128032447861_2026_11_12.json"
     }
   ]
 }

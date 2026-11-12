@@ -1,0 +1,29 @@
+name: INV RMRP - Reconsulta documental TE 11 CIENTE
+on:
+  workflow_dispatch:
+jobs:
+  reconsulta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verificar sintaxe
+        run: python -m py_compile pipeline/acquire/reconsultar_especiais_11_ciente_rmrp.py
+      - name: Consultar apenas IDs oficiais, sem publicar
+        run: |
+          python pipeline/acquire/reconsultar_especiais_11_ciente_rmrp.py \
+            --queue governance/INV_RMRP_ESPECIAIS_42_PENDENCIAS_DOCUMENTAIS_FILA_2026_11_11.csv \
+            --out inv-rmrp-reconsulta/resultado.json
+      - name: Persistir resultado temporário, inclusive falhas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-especiais-11-ciente-${{ github.run_id }}
+          path: inv-rmrp-reconsulta/
+          if-no-files-found: warn
+          retention-days: 14

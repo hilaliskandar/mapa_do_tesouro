@@ -31,12 +31,26 @@ def validate(read):
         raise RuntimeError("Falta aviso/arquivo na consulta de Especiais")
     if "não homologada" not in html4.lower() or "especiais-movimentacoes-resumo-preview.json" not in html4:
         raise RuntimeError("Falta aviso/arquivo na consulta de movimentações")
+    html5 = read("siafem-investimentos-rmrp-preview.html").decode("utf-8")
+    if "não homologada" not in html5.lower() or "siafem-sp-investimentos-anual-preview.json" not in html5:
+        raise RuntimeError("Prévia SIAFEM sem advertência ou fonte esperada")
     if "obrasgov-triagem-espacial.json" not in html:
         raise RuntimeError("HTML não aponta para conjunto espacial")
     proposals = json.loads(read("data/api/v3/investimentos/rmrp/preview-amostras.json"))
     obras = json.loads(read("data/api/v3/investimentos/rmrp/obrasgov-triagem-espacial.json"))
     especiais = json.loads(read("data/api/v3/investimentos/rmrp/especiais-planos-etapas-preview.json"))
     movimento = json.loads(read("data/api/v3/investimentos/rmrp/especiais-movimentacoes-resumo-preview.json"))
+    siafem = json.loads(read("data/api/v3/investimentos/rmrp/siafem-sp-investimentos-anual-preview.json"))
+    if siafem["metadata"]["qa_status"] != "preview_transferencias_estaduais_em_revisao_nao_execucao_municipal":
+        raise RuntimeError("SIAFEM indevidamente apresentado como execução municipal")
+    if (len(siafem["municipios"]), len(siafem["municipio_ano"]), len(siafem["convenio_ano"])) != (34, 238, 889):
+        raise RuntimeError("SIAFEM universo distinto da série exata")
+    if sum(x["valor_centavos"] for x in siafem["convenio_ano"]) != 30552102920:
+        raise RuntimeError("SIAFEM convênio-ano não concilia com total oficial")
+    if sum(x["pagamentos"] for x in siafem["convenio_ano"]) != 1017:
+        raise RuntimeError("SIAFEM pagamentos divergentes")
+    if {x["codigo_ibge"] for x in siafem["municipios"]} != {x["codigo_ibge"] for x in especiais["municipios"]}:
+        raise RuntimeError("SIAFEM cadastro territorial inconsistente")
     if movimento["metadata"]["qa_status"] != "triagem_nao_conciliada_por_plano":
         raise RuntimeError("Movimentações financeiras indevidamente homologadas")
     if movimento["totals"]["lancamentos"] != 2385 or len({v["codigo_ibge"] for v in movimento["categorias"]}) != 34:
@@ -74,7 +88,9 @@ def validate(read):
         raise RuntimeError("Divergência na QA espacial do JSON")
     return {"qa": "pass", "municipios": 34, "propostas_amostrais": 200,
             "projetos_obrasgov": 224, "planos_especiais": 284,
-            "planos_com_ob": 242, "movimentacoes": 2385, "contagens": counts}
+            "planos_com_ob": 242, "movimentacoes": 2385,
+            "siafem_convenio_ano": 889, "siafem_valor_centavos": 30552102920,
+            "contagens": counts}
 
 
 def main():

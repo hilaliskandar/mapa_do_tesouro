@@ -1,0 +1,72 @@
+name: INV RMRP - QA DCA historica em SQLite isolado
+on:
+  pull_request:
+    paths:
+      - "pipeline/build/import_inv_rmrp_dca_historica_contexto_dev.py"
+      - "pipeline/build/import_inv_rmrp_siafem_dev.py"
+      - "pipeline/qa/qa_siafem_rmrp_sqlite_real_2025.py"
+      - ".github/workflows/inv-rmrp-dca-historica-sqlite-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar dependencias para reconstruir dados fiscais reais
+        run: pip install openpyxl pyyaml
+      - name: Recuperar fontes imutaveis do R2 com SHA256
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key sp_645/site_inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --output build/inv-rmrp-dca-real/input_2025.xlsx \
+            --expected-sha256 ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566
+          python deployment/download_r2_source.py \
+            --object-key sp_645/dca/2013_2025/normalized.csv \
+            --output build/inv-rmrp-dca-real/dca_2013_2025.csv \
+            --expected-sha256 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5
+      - name: Reconstruir base fiscal real 2025 descartavel
+        run: |
+          python -m pipeline.ingest.import_multifuentes \
+            build/inv-rmrp-dca-real/input_2025.xlsx \
+            --mapping data/mappings/base_multifuentes_sp645_2025.yml \
+            --database build/inv-rmrp-dca-real/canonico_2025.sqlite
+      - name: Preparar staging SIAFEM apenas em copia
+        run: |
+          python pipeline/build/import_inv_rmrp_siafem_dev.py \
+            --source-db build/inv-rmrp-dca-real/canonico_2025.sqlite \
+            --output-db build/inv-rmrp-dca-real/staging_siafem.sqlite \
+            --repo-root .
+      - name: Adicionar contexto DCA historico em terceira copia
+        run: |
+          python pipeline/build/import_inv_rmrp_dca_historica_contexto_dev.py \
+            --source-db build/inv-rmrp-dca-real/staging_siafem.sqlite \
+            --output-db build/inv-rmrp-dca-real/staging_siafem_dca_historica.sqlite \
+            --dca build/inv-rmrp-dca-real/dca_2013_2025.csv \
+            --roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv
+      - name: Regressao imutabilidade fiscal 2025 e integridade na copia com historico
+        run: |
+          python pipeline/qa/qa_siafem_rmrp_sqlite_real_2025.py \
+            --original build/inv-rmrp-dca-real/canonico_2025.sqlite \
+            --staging build/inv-rmrp-dca-real/staging_siafem_dca_historica.sqlite \
+            --qa build/inv-rmrp-dca-real/QA_STAGING_HISTORICO_CONTEXTUAL.json
+      - name: Arquivar somente JSON QA sem CSV R2 ou SQLite
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-staging-dca-historica-qa-${{ github.run_id }}
+          path: build/inv-rmrp-dca-real/QA_STAGING_HISTORICO_CONTEXTUAL.json
+          if-no-files-found: warn
+          retention-days: 14

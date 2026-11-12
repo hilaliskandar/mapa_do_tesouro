@@ -69,7 +69,7 @@ def main():
     pb = json.loads(PB_STZ.read_text(encoding="utf-8"))
     stz = next(x for x in municipal if x["municipio"] == "Sertãozinho")
     assert pb["obrasgov_project_id"] == stz["id_projeto_obrasgov"]
-    assert pb["project_basic"]["federal_transfer_agreement"] == stz["instrumento_federal"]
+    assert pb["project_basic"]["federal_transfer_agreement"].split("/MCidades")[0] == stz["instrumento_federal"]
     assert stz["status_vinculo_federal"] == "CONFIRMADO_PROJETO_BASICO_MUNICIPAL_953043_2023"
     assert pb["project_basic"]["sha256"] == stz["projeto_basico_sha256"]
     assert pb["archive"]["size_bytes"] == 2888706

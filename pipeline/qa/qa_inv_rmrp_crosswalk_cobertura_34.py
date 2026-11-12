@@ -41,6 +41,15 @@ def main():
     with_obj = Counter(r["codigo_ibge"] for r in metadata if r["estado_extracao"] == "OK")
     assert sum(with_obj.values()) == 747
     assert len(coverage["municipalities"]) == 34
+    assert coverage["totals"]["possible_legal_instrument_alias_collision_groups"] == 1
+    assert coverage["totals"]["legal_unique_instrument_count_homologated"] is False
+    assert len(coverage["alias_audits"]) == 1
+    alias = coverage["alias_audits"][0]
+    assert alias["ibge7"] == "3505906"
+    assert alias["public_convenio"] == "DETRAN 101/2019"
+    assert alias["gross_payments_of_both_ids_centavos"] == 65814707
+    assert alias["unreconciled_gap_centavos"] == 3115470
+
     assert coverage["totals"]["convenios"] == 752
     assert coverage["totals"]["details"] == 747
     assert coverage["totals"]["errors"] == 5

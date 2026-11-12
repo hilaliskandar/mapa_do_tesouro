@@ -5,6 +5,7 @@ on:
       - "pipeline/qa/qa_inv_rmrp_crosswalk_cobertura_34.py"
       - "governance/INV_RMRP_SIAFEM_CROSSWALK_COBERTURA_34_MUNICIPIOS_2026_11_12.json"
       - "governance/INV_RMRP_SERRANA_CROSSWALK_100540_101375_SIAFEM_510101_2026_11_12.json"
+      - "governance/INV_RMRP_PRADOPOLIS_100556_2024_SIAFEM_DIVERGENCIA_2026_11_12.json"
       - ".github/workflows/inv-rmrp-crosswalk-34-qa.yml"
   workflow_dispatch:
 permissions:

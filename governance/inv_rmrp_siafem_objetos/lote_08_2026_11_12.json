@@ -6,365 +6,625 @@
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "2901182767866/19",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PM DE TAMBAU . RECAPEAMENTO ASFÁLTICO EM VIAS DO MUNICÍPIO.",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "100.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=2901182767866%2F19"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "290118568857/18",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PAVIMENTACAO ASFALTICA DAS VIAS:AVENIDA GARCÊS",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "175.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=290118568857%2F18"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001022017PR411",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "CONV.212/2017- REVITALIZACAO E AMPLIACAO DO TERMINAL TURISTICO-2017PR411",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "ENCERRADO",
+      "valor_convenio_texto": "673.795,64",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001022017PR411"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001022018PR136",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "IMPLANTACAO DE EQUIPAMENTOS TURISTICOS NO CENTRO DE LAZER DO TRABALHADOR - CELTRA",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "ENCERRADO",
+      "valor_convenio_texto": "88.666,89",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001022018PR136"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001022018PR137",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "IMPLANTACAO DEPORTAL NAS PRINCIPAIS ENTRADAS NO MUNICIPIO - CONVENIO 190/2018",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "ENCERRADO",
+      "valor_convenio_texto": "294.383,14",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001022018PR137"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001022018PR402",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "REVITALIZACAO DO PARQUE DO CENTRO DE LAZER DO TRABALHADOR - CELTRA",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "ENCERRADO",
+      "valor_convenio_texto": "211.731,56",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001022018PR402"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001023418013/19",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "REVITALIZACAO DO TERMINAL TURISTICO PARTE 2 - CONVENIO 395/2019",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "ENCERRADO",
+      "valor_convenio_texto": "126.974,59",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001023418013%2F19"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001023418066/19",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "CONSTRUCAO DO PORTAL DE ENTRADA DA CIDADE CONVENIO 404/2019",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "150.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001023418066%2F19"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011800366/21",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "REFORMA E AMPLIAçãO DO CENTRO DE SA?DE DR. WILSON MARTINS LARA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "500.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011800366%2F21"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820-9018341",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "E.I - PM TAMBAU - INFRAESTRUTURA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "230.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820-9018341"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "2901182232536/19",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "OBRAS DE RECAPEAMENTO ASFALTICO E IMPLANTAçãO DE GUIAS/SARJETAS. VIAS A SEREM BENEFIACIADAS: AV. ANGELINA LEPRI BIASOLI",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "100.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=2901182232536%2F19"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "250101SH-1200361",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "CONVENIO PROGRAMA DE MELHORIAS PEM PM",
+      "orgao_concedente": "SECRETARIA DE DESENV.URBANO E HABITACAO",
+      "orgao_codigo": "25",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "137.720,65",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=250101SH-1200361"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "2901181915129252",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "P.M TAMBAU - INFRAESTRUTURA - DEMANDA PARLAMENTAR",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "250.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=2901181915129252"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "2901182006419500",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "OBRAS DE INFRAESTRUTURA URBANA - DEMANDA PARLAMENTAR 020.064.19500 - MARCOS ZERBINI",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "200.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=2901182006419500"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820220235843",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "CASA DA JUVENTUDE",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "790.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820220235843"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820220487161",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "REFORMA DO TERMINAL RODOVIARIO DO MUNICIPIO DE TAMBAU/SP",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "300.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820220487161"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820220524443",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "RECAPEAMENTO ASFALTICO.",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "500.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820220524443"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001022021PR0121",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "RECUPERACAO DA CASA DO MAQUINISTA - CONV.198/2021",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "ENCERRADO",
+      "valor_convenio_texto": "328.427,38",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001022021PR0121"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001022021PR0335",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "IMPLANTACAO DE ALAMEDA TURISTICA - CONV.199/2021",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "ENCERRADO",
+      "valor_convenio_texto": "194.857,41",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001022021PR0335"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "5001032021/00027",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "EMENDA PARLAMENTAR 2021.178.31048 - VIA SACRA NA RUA",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "170.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5001032021%2F00027"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "25010120221394399",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PARA EXECUCAO DE OBRAS DE INFRAESTRUTURA",
+      "orgao_concedente": "SECRETARIA DE DESENV.URBANO E HABITACAO",
+      "orgao_codigo": "25",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "250.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=25010120221394399"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "2801062023280019",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "CONSTRUCAO DE TRAVESSIA EM ADUELAS EM CONCRETO ARMADO NA RUA MON SENHOR JOAO CORREA DE CARVALHO, SOBRE O RIO TAMBAÚ.",
+      "orgao_concedente": "CASA CIVIL",
+      "orgao_codigo": "28",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "474.118,79",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=2801062023280019"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820221371993",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "P.M TAMBAU INFRAESTRUTURA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "700.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820221371993"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820221372589",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "P.M TAMBAU INFRAESTRUTURA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "700.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820221372589"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820221373381",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "P.M TAMBAU PRACA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "600.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820221373381"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820221391969",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PM TAMBAU CALCADAS ACESSIVEIS",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "250.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820221391969"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820221408565",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PM TAMBAU INFRAESTRUTURA URBANA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "100.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820221408565"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820221443448",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "IMPLANTACAO DE GALERIAS FASE 1",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "400.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820221443448"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820221443457",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "IMPLANTACAO DE GALERIAS FASE 2",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "500.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820221443457"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "50010220221341582",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "REFORMA DA PRACA SANTO ANTONIO",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "615.073,96",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=50010220221341582"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "51010120231185507",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PRACA CONSTRUCAOREFORMA N.",
+      "orgao_concedente": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+      "orgao_codigo": "51",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "250.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120231185507"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "29011820221408485",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PM TAMBAU INFRAESTRUTURA URBANA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "500.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820221408485"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "50010220231684089",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "SINALIZACAO DE ORIENTACAO TURISTICA CONV. 158/2023",
+      "orgao_concedente": "SECRETARIA DE TURISMO E VIAGENS",
+      "orgao_codigo": "50",
+      "situacao": "ENCERRADO",
+      "valor_convenio_texto": "198.895,88",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=50010220231684089"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "51010120231758807",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PAVIMENTACAO, RECAPEAMENTO, GUIAS E SARJETAS N.",
+      "orgao_concedente": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+      "orgao_codigo": "51",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "299.406,71",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120231758807"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "51010120231758816",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "SISTEMA DE LAZER CONSTRUCAOREFORMA N.",
+      "orgao_concedente": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+      "orgao_codigo": "51",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "437.700,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120231758816"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "51010120240335078",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PAVIMENTACAO, RECAPEAMENTO, GUIAS E SARJETAS N.",
+      "orgao_concedente": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+      "orgao_codigo": "51",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "138.362,07",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120240335078"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "51010120240517956",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PRACA CONSTRUCAOREFORMA N.",
+      "orgao_concedente": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+      "orgao_codigo": "51",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "268.069,11",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120240517956"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "17003020240437481",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "CONVENIO FID - PREFEITURA DE TAMBAU PROJETO: REFORMA DO PACO MUNICIPAL PREFEITO EDMUNDO PIERUZZI",
+      "orgao_concedente": "SEC.DA JUSTICA E CIDADANIA",
+      "orgao_codigo": "17",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "1.000.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=17003020240437481"
     },
     {
       "ibge": "3553302",
       "municipio": "Tambaú",
       "id": "51010120251090017",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "DM 65346 ILUMINACAO PúBLICA CONSTRUCAOREFORMA N.",
+      "orgao_concedente": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+      "orgao_codigo": "51",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "500.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120251090017"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "29011801163/21",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "AQUISICAO DE CAMINHAO - CAMINHAO TANQUE",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "300.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011801163%2F21"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "2901182105622496",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "P.M TAQUARAL - INFRAESTRUTURA - EMENDA IMPOSITIVA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "266.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=2901182105622496"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "2901182117021781",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "P.M TAQUARAL - INFRAESTRUTURA - EMENDA IMPOSITIVA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "150.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=2901182117021781"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "29011801089/21",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "OBRAS PARA A REFORMA DE PRACA",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "100.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011801089%2F21"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "29011820220529978",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "CONSTRUCAO DE 02 SALAS DE AULAS",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "331.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820220529978"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "29011820220529987",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "EXECUCAO RECAPEAMENTO ASFALTICO - RUA DO CAFEZAL, RUA SANTA IZABEL",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "600.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820220529987"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "29011820220544437",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "CALCADAS ACESSIVEIS",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "250.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820220544437"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "29011820220595919",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "REFORMA DO ESTADIO MUNICIPAL",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "400.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=29011820220595919"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "2901182320142/19",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "P.M. DE TAQUARAL - TéRMINO DA CONSTRUçãO DO SALãO DE EVENTOS",
+      "orgao_concedente": "SECRETARIA DE COMUNICACAO",
+      "orgao_codigo": "29",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "130.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=2901182320142%2F19"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "41000200257-21",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "DEMANDA SEM PAPEL 019044 - CONSTRUCAO DE COMPLEXO POLIESPORTIVO",
+      "orgao_concedente": "SECRETARIA DE ESPORTES",
+      "orgao_codigo": "41",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "200.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=41000200257-21"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "51010120240370925",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "OBRAS DE INFRAESTRUTURA URBANA DM 65095",
+      "orgao_concedente": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+      "orgao_codigo": "51",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "288.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120240370925"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "51010120240406831",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "PISTA DE CAMINHADA CONSTRUCAOREFORMA N.",
+      "orgao_concedente": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+      "orgao_codigo": "51",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "150.000,00",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120240406831"
     },
     {
       "ibge": "3553658",
       "municipio": "Taquaral",
       "id": "35003420250556681",
-      "status": "ERRO",
-      "erro": "TypeError: Failed to fetch"
+      "status": "OK",
+      "objeto": "QUALIFICAR OS ADOLESCENTES E JOVENS DE 14 A 17 ANOS E 11 MESES PREPARANDO-OS PARA O MERCADO DE TRABALHO",
+      "orgao_concedente": "SECRETARIA DE DESENVOLVIMENTO SOCIAL",
+      "orgao_codigo": "35",
+      "situacao": "EM EXECUÇÃO",
+      "valor_convenio_texto": "5.899,46",
+      "fonte_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=35003420250556681"
     }
   ]
 }

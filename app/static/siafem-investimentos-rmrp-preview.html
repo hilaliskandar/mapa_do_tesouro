@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transferências estaduais de investimento — RMRP | SIAFEM/SP</title>
+<style>
+:root{font:16px system-ui,sans-serif;color:#243447;background:#f3f6fa}body{max-width:1240px;margin:auto;padding:24px 18px}h1{font-size:1.8rem;line-height:1.3}a{color:#15548b}p{line-height:1.5}
+.panel{background:white;border:1px solid #dce4ec;padding:17px;border-radius:9px;margin:16px 0}.warning{background:#fff6de;border:1px solid #ceb77a;padding:14px;border-radius:8px}
+.control{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+label{display:flex;flex-direction:column;gap:5px;font-size:.91rem;font-weight:600}
+select,input{font:inherit;padding:9px;border:1px solid #a5b2bf;border-radius:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:11px}.metric{background:#f6f8fb;padding:13px;border-radius:6px}.metric span{color:#4e5f73;font-size:.85rem}.metric strong{display:block;margin-top:4px;font-size:1.26rem;font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;font-size:.88rem}th,td{padding:9px;text-align:left;border-bottom:1px solid #e0e6ef}thead{background:#e9eff7}tr:nth-child(even){background:#f7f9fc}
+.num{text-align:right;font-variant-numeric:tabular-nums}.scroll{overflow:auto;max-height:620px}.muted{color:#54647a;font-size:.87rem}
+</style></head><body>
+<p><a href="./especiais-rmrp-preview.html">Transferências especiais federais</a> · <a href="./movimentacoes-especiais-rmrp-preview.html">Contas de transferências especiais</a> · <a href="./obrasgov-rmrp-preview.html">Obrasgov</a></p>
+<h1>Transferências estaduais de investimento para prefeituras da RMRP</h1>
+<p class="warning"><strong>Prévia analítica, não homologada para publicação na plataforma principal.</strong> Os valores representam liberações e estornos informados pelo SIAFEM/SP, classificados como investimento e destinados às prefeituras. <strong>Não representam despesa municipal executada, obra concluída ou investimento territorial total.</strong> Valores de convênios e de transferências não devem ser somados à despesa municipal posterior. Em 2026, a série termina em 12/11.</p>
+<section class="panel control" aria-label="Filtros">
+<label>Sub-região<select id="sub"><option value="">Todas</option></select></label>
+<label>Município<select id="municipio"><option value="">Todos os 34</option></select></label>
+<label>Ano da liberação<select id="ano"><option value="">2020 a 2026</option></select></label>
+<label>Número do convênio<input id="busca" type="search" placeholder="Ex.: 2025, número SIAFEM"></label>
+</section>
+<section class="panel">
+<p id="status" role="status" aria-live="polite">Carregando registros oficiais...</p>
+<div class="stats">
+<div class="metric"><span>Valor liberado/estornado no filtro</span><strong id="valor">—</strong></div>
+<div class="metric"><span>Pagamentos informados</span><strong id="pagamentos">—</strong></div>
+<div class="metric"><span>Convênios distintos no filtro</span><strong id="convenios">—</strong></div>
+<div class="metric"><span>Municípios representados</span><strong id="municipios">—</strong></div>
+</div>
+<p class="muted" id="referencia"></p>
+</section>
+<section class="panel">
+<h2>Instrumentos por município e ano</h2>
+<p class="muted">Uma linha por convênio e ano de liberação. O valor corresponde ao movimento daquele ano, não ao valor integral contratado. Um mesmo convênio pode aparecer em mais de um ano.</p>
+<div class="scroll"><table><thead><tr><th>Município</th><th>Ano</th><th>Número do convênio</th><th class="num">Pagamentos</th><th class="num">Liberado/estornado</th><th>Origem</th></tr></thead><tbody id="linhas"></tbody></table></div>
+<p class="muted">Fonte: Secretaria da Fazenda e Planejamento do Estado de São Paulo — Transferências Voluntárias, SIAFEM/SP. Consulta realizada em 12/11/2026; seleção: beneficiário Prefeitura, natureza Investimento, ano da liberação. A soma por ano preserva estornos negativos.</p>
+</section>
+<script>
+"use strict";
+const el=id=>document.getElementById(id);
+const fmt=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
+const qty=new Intl.NumberFormat("pt-BR");
+const SOURCE="https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx";
+let data=null;
+const make=(parent,tag,value)=>{const e=document.createElement(tag);e.textContent=value;parent.appendChild(e);return e};
+function render(){
+if(!data)return;
+const ibge=el("municipio").value,sub=el("sub").value,ano=el("ano").value,term=el("busca").value.trim().toUpperCase();
+const mun=new Map(data.municipios.map(m=>[m.codigo_ibge,m]));
+const rows=data.convenio_ano.filter(r=>{const m=mun.get(r.codigo_ibge);return (!ibge||ibge===r.codigo_ibge)&&(!sub||sub===m.sub_regiao)&&(!ano||Number(ano)===r.ano)&&(!term||r.numero_convenio.toUpperCase().includes(term))});
+const total=rows.reduce((s,x)=>s+x.valor_centavos,0),n=rows.reduce((s,x)=>s+x.pagamentos,0);
+el("valor").textContent=fmt.format(total/100);el("pagamentos").textContent=qty.format(n);
+el("convenios").textContent=qty.format(new Set(rows.map(x=>x.codigo_ibge+"|"+x.numero_convenio)).size);
+el("municipios").textContent=qty.format(new Set(rows.map(x=>x.codigo_ibge)).size);
+el("referencia").textContent=qty.format(rows.length)+" registros convênio–ano selecionados. A contagem de pagamentos é fornecida pelo SIAFEM e não equivale ao número de linhas.";
+const body=el("linhas");body.replaceChildren();
+for(const r of rows.slice(0,900)){const tr=document.createElement("tr");make(tr,"td",mun.get(r.codigo_ibge)?.municipio||r.codigo_ibge);make(tr,"td",String(r.ano));make(tr,"td",r.numero_convenio);make(tr,"td",qty.format(r.pagamentos)).className="num";make(tr,"td",fmt.format(r.valor_centavos/100)).className="num";
+const td=document.createElement("td"),a=document.createElement("a");a.href=SOURCE;a.target="_blank";a.rel="noopener noreferrer";a.textContent="SIAFEM/SP";td.appendChild(a);tr.appendChild(td);body.appendChild(tr)}
+el("status").textContent="Consulta concluída — base anual exata e prévia não homologada como execução municipal.";
+}
+(async()=>{try{
+const r=await fetch("./data/api/v3/investimentos/rmrp/siafem-sp-investimentos-anual-preview.json",{cache:"no-cache"});
+if(!r.ok)throw Error("HTTP "+r.status);data=await r.json();
+if(data.metadata.qa_status!=="preview_transferencias_estaduais_em_revisao_nao_execucao_municipal"||data.municipios.length!==34||data.municipio_ano.length!==238||data.convenio_ano.length!==889||data.totals.valor_centavos!==30552102920||data.totals.pagamentos!==1017)throw Error("QA de fonte incompatível");
+if(data.convenio_ano.reduce((s,x)=>s+x.valor_centavos,0)!==data.totals.valor_centavos)throw Error("Soma de convênios-ano incorreta");
+for(const m of data.municipios){const o=make(el("municipio"),"option",m.municipio);o.value=m.codigo_ibge}
+for(const name of [...new Set(data.municipios.map(x=>x.sub_regiao))].sort()){const o=make(el("sub"),"option",name);o.value=name}
+for(const y of data.anos){const o=make(el("ano"),"option",String(y.ano));o.value=String(y.ano)}
+for(const name of ["sub","municipio","ano","busca"])el(name).addEventListener(name==="busca"?"input":"change",render);render();
+}catch(e){el("status").textContent="Falha de carregamento ou controle de qualidade: "+e.message}})();
+</script></body></html>

@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - "pipeline/qa/qa_inv_rmrp_dca_historica_siafem.py"
+      - "pipeline/qa/qa_inv_rmrp_dca_siafem_parallel.py"
+      - "governance/INV_RMRP_SIAFEM_DCA_PAINEL_PARALELO_2020_2026_NAO_ADITIVO_2026_11_12.csv"
       - "governance/INV_RMRP_SIAFEM_34_MUNICIPIOS_2020_2026_ANUAL_EXATO_2026_11_12.csv"
       - "governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv"
       - ".github/workflows/inv-rmrp-dca-historica-siafem-qa.yml"
@@ -39,6 +41,13 @@ jobs:
             --siafem governance/INV_RMRP_SIAFEM_34_MUNICIPIOS_2020_2026_ANUAL_EXATO_2026_11_12.csv \
             --roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
             --qa build/inv-rmrp-historical-qa/QA_DCA_HISTORICA_SIAFEM_RMRP.json
+      - name: Reproduzir e validar matriz paralela sem somar fluxos fiscais
+        run: |
+          python pipeline/qa/qa_inv_rmrp_dca_siafem_parallel.py \
+            --dca build/inv-rmrp-historical-qa/dca_sp645_2013_2025.csv \
+            --roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
+            --siafem governance/INV_RMRP_SIAFEM_34_MUNICIPIOS_2020_2026_ANUAL_EXATO_2026_11_12.csv \
+            --matrix governance/INV_RMRP_SIAFEM_DCA_PAINEL_PARALELO_2020_2026_NAO_ADITIVO_2026_11_12.csv
       - name: Guardar apenas resultados QA sem snapshot privado
         if: always()
         uses: actions/upload-artifact@v4

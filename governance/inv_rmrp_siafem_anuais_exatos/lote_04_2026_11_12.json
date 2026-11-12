@@ -1,0 +1,2581 @@
+{
+  "fonte": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx",
+  "atualizacao_fonte": "2026-11-12",
+  "filtros": {
+    "Beneficiado": "Prefeituras",
+    "Tipo": "Investimento",
+    "LiberacaoInicio": "01/01/AAAA",
+    "LiberacaoFim": "31/12/AAAA (2026:12/11/2026)"
+  },
+  "consultas": [
+    {
+      "municipio": "Ribeirão Preto",
+      "codigo_ibge": "3543402",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.704.391,28",
+        "6",
+        "2.075.830,41",
+        "69.526,09"
+      ],
+      "records": [
+        [
+          "08035806286/13",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "1.631.695,63",
+          "2",
+          "1.142.186,94",
+          "0,00"
+        ],
+        [
+          "08035806286/13A",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "163.169,56",
+          "1",
+          "163.169,56",
+          "0,00"
+        ],
+        [
+          "1801011231/20",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "69.526,09",
+          "1",
+          "-69.526,09",
+          "69.526,09"
+        ],
+        [
+          "2901181559167/18",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "640.000,00",
+          "1",
+          "640.000,00",
+          "0,00"
+        ],
+        [
+          "2901182262207/19",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Ribeirão Preto",
+      "codigo_ibge": "3543402",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.011.221,72",
+        "5",
+        "1.624.280,44",
+        "69.526,09"
+      ],
+      "records": [
+        [
+          "08035806286/13",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "1.631.695,63",
+          "1",
+          "244.754,35",
+          "0,00"
+        ],
+        [
+          "18010100044/21",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "1.200.000,00",
+          "1",
+          "1.200.000,00",
+          "0,00"
+        ],
+        [
+          "1801011231/20",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "69.526,09",
+          "1",
+          "69.526,09",
+          "69.526,09"
+        ],
+        [
+          "2901182058/18",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "60.000,00",
+          "1",
+          "60.000,00",
+          "0,00"
+        ],
+        [
+          "3501011891569/19",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "50.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Ribeirão Preto",
+      "codigo_ibge": "3543402",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "11.122.736,21",
+        "10",
+        "11.122.736,21",
+        "0,00"
+      ],
+      "records": [
+        [
+          "18010100058/21DM",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011800849-20",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "82.736,21",
+          "1",
+          "82.736,21",
+          "0,00"
+        ],
+        [
+          "29011820220130001",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "9.000.000,00",
+          "1",
+          "9.000.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220137092",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820-2918117",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011820-5618221",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "29011820-5618222",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "280.000,00",
+          "1",
+          "280.000,00",
+          "0,00"
+        ],
+        [
+          "4101012019/00129",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "120.000,00",
+          "1",
+          "120.000,00",
+          "0,00"
+        ],
+        [
+          "4101012019/00220",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "240.000,00",
+          "1",
+          "240.000,00",
+          "0,00"
+        ],
+        [
+          "4101012020/00116",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Ribeirão Preto",
+      "codigo_ibge": "3543402",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "10.323.630,00",
+        "11",
+        "10.248.293,94",
+        "75.336,06"
+      ],
+      "records": [
+        [
+          "2901181903225450",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220121388",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220410111",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "622.000,00",
+          "2",
+          "622.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220441609",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "301.630,00",
+          "1",
+          "301.630,00",
+          "0,00"
+        ],
+        [
+          "29011820221414876",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "500.000,00",
+          "1",
+          "424.663,94",
+          "75.336,06"
+        ],
+        [
+          "29011820221414901",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "3501012019/443",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "41010120220268236",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "41010120221346945",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "50.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ],
+        [
+          "51010120231589357",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "7.500.000,00",
+          "1",
+          "7.500.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Ribeirão Preto",
+      "codigo_ibge": "3543402",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.085.636,07",
+        "5",
+        "1.926.946,11",
+        "58.689,96"
+      ],
+      "records": [
+        [
+          "09019620240660406",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "800.000,00",
+          "1",
+          "800.000,00",
+          "0,00"
+        ],
+        [
+          "18010120240413129",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "92.864,96",
+          "1",
+          "92.864,96",
+          "0,00"
+        ],
+        [
+          "18010120240414654",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "492.771,11",
+          "1",
+          "492.771,11",
+          "0,00"
+        ],
+        [
+          "29011820-0561822",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "300.000,00",
+          "1",
+          "241.310,04",
+          "58.689,96"
+        ],
+        [
+          "51010120240945881",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "400.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Ribeirão Preto",
+      "codigo_ibge": "3543402",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.865.500,69",
+        "7",
+        "3.527.230,58",
+        "38.270,11"
+      ],
+      "records": [
+        [
+          "29011820220121145",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "51010120231186228",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240530377",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "300.000,00",
+          "1",
+          "261.729,89",
+          "38.270,11"
+        ],
+        [
+          "51010120240542921",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240546761",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "2.165.500,69",
+          "2",
+          "2.165.500,69",
+          "0,00"
+        ],
+        [
+          "51010120240945881",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "400.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Ribeirão Preto",
+      "codigo_ibge": "3543402",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "442.429,48",
+        "3",
+        "442.429,48",
+        "0,00"
+      ],
+      "records": [
+        [
+          "18010120250916023",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "91.315,00",
+          "1",
+          "91.315,00",
+          "0,00"
+        ],
+        [
+          "18010120251387644",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "253.255,81",
+          "1",
+          "253.255,81",
+          "0,00"
+        ],
+        [
+          "18010120260422581",
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "97.858,67",
+          "1",
+          "97.858,67",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Sales Oliveira",
+      "codigo_ibge": "3544905",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.626.585,47",
+        "3",
+        "419.410,19",
+        "925.462,05"
+      ],
+      "records": [
+        [
+          "08035805818/13",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "1.421.230,97",
+          "1",
+          "213.184,64",
+          "0,00"
+        ],
+        [
+          "1700301330157/17",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "1.136.172,07",
+          "1",
+          "137.043,12",
+          "925.462,05"
+        ],
+        [
+          "2901182195078/19",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "69.182,43",
+          "1",
+          "69.182,43",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Sales Oliveira",
+      "codigo_ibge": "3544905",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.926.172,07",
+        "4",
+        "696.288,26",
+        "925.462,05"
+      ],
+      "records": [
+        [
+          "1700301330157/17",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "1.136.172,07",
+          "1",
+          "26.288,26",
+          "925.462,05"
+        ],
+        [
+          "2901182101721856",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "290118681559/18",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "600.000,00",
+          "1",
+          "480.000,00",
+          "0,00"
+        ],
+        [
+          "4101014320/2020",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "40.000,00",
+          "1",
+          "40.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Sales Oliveira",
+      "codigo_ibge": "3544905",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.846.171,80",
+        "6",
+        "605.225,65",
+        "1.043.691,57"
+      ],
+      "records": [
+        [
+          "1301752021/13656",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "60.000,00",
+          "1",
+          "60.000,00",
+          "0,00"
+        ],
+        [
+          "1700301330157/17",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "1.136.172,07",
+          "1",
+          "13.455,44",
+          "925.462,05"
+        ],
+        [
+          "29011820220159492",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "2901182102924769",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "499.999,73",
+          "2",
+          "392.350,21",
+          "107.649,52"
+        ],
+        [
+          "50010120220537254",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "50.000,00",
+          "1",
+          "39.420,00",
+          "10.580,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Sales Oliveira",
+      "codigo_ibge": "3544905",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.084.849,14",
+        "6",
+        "1.961.799,82",
+        "925.462,05"
+      ],
+      "records": [
+        [
+          "1700301330157/17",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "1.136.172,07",
+          "1",
+          "13.122,75",
+          "925.462,05"
+        ],
+        [
+          "29011820220094315",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221375419",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221376327",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "450.000,00",
+          "1",
+          "450.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221390021",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221390068",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "448.677,07",
+          "1",
+          "448.677,07",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Sales Oliveira",
+      "codigo_ibge": "3544905",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.710.600,00",
+        "4",
+        "1.181.420,84",
+        "406.479,16"
+      ],
+      "records": [
+        [
+          "41010120221132869",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240001959",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "722.700,00",
+          "1",
+          "300.000,00",
+          "300.000,00"
+        ],
+        [
+          "51010120240002526",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "500.000,00",
+          "1",
+          "393.520,84",
+          "106.479,16"
+        ],
+        [
+          "51010120240547365",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "387.900,00",
+          "1",
+          "387.900,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Sales Oliveira",
+      "codigo_ibge": "3544905",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.858.872,07",
+        "2",
+        "143.500,45",
+        "1.225.462,05"
+      ],
+      "records": [
+        [
+          "1700301330157/17",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "1.136.172,07",
+          "1",
+          "20.800,45",
+          "925.462,05"
+        ],
+        [
+          "51010120240001959",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "722.700,00",
+          "1",
+          "122.700,00",
+          "300.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Sales Oliveira",
+      "codigo_ibge": "3544905",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "500.000,00",
+        "1",
+        "464.867,94",
+        "35.132,06"
+      ],
+      "records": [
+        [
+          "09019620241356662",
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "500.000,00",
+          "1",
+          "464.867,94",
+          "35.132,06"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Cruz da Esperança",
+      "codigo_ibge": "3546256",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "600.000,00",
+        "3",
+        "400.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182669070/19",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "400.000,00",
+          "2",
+          "240.000,00",
+          "0,00"
+        ],
+        [
+          "290118646650/18",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "200.000,00",
+          "1",
+          "160.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Cruz da Esperança",
+      "codigo_ibge": "3546256",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "400.000,00",
+        "1",
+        "160.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182669070/19",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "400.000,00",
+          "1",
+          "160.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Cruz da Esperança",
+      "codigo_ibge": "3546256",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "460.000,00",
+        "2",
+        "360.000,00",
+        "1.803,21"
+      ],
+      "records": [
+        [
+          "1301752021/14009",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "60.000,00",
+          "1",
+          "60.000,00",
+          "0,00"
+        ],
+        [
+          "29011801626/21",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "400.000,00",
+          "1",
+          "300.000,00",
+          "1.803,21"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Cruz da Esperança",
+      "codigo_ibge": "3546256",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.000.000,00",
+        "3",
+        "698.196,79",
+        "1.803,21"
+      ],
+      "records": [
+        [
+          "29011801626/21",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "400.000,00",
+          "1",
+          "98.196,79",
+          "1.803,21"
+        ],
+        [
+          "29011820220606333",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221378751",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Cruz da Esperança",
+      "codigo_ibge": "3546256",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "375.000,00",
+        "2",
+        "375.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010120240350771",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240542761",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "275.000,00",
+          "1",
+          "275.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Cruz da Esperança",
+      "codigo_ibge": "3546256",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "949.532,13",
+        "1",
+        "674.071,14",
+        "275.460,99"
+      ],
+      "records": [
+        [
+          "17003020240439116",
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "949.532,13",
+          "1",
+          "674.071,14",
+          "275.460,99"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Cruz da Esperança",
+      "codigo_ibge": "3546256",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Santa Rita do Passa Quatro",
+      "codigo_ibge": "3547502",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "9.099.237,53",
+        "21",
+        "4.524.613,55",
+        "2.222.982,54"
+      ],
+      "records": [
+        [
+          "1700301318247/17",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "1.000.000,00",
+          "5",
+          "800.000,00",
+          "200.000,00"
+        ],
+        [
+          "2901182269745/19",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "50.000,00",
+          "1",
+          "44.685,90",
+          "5.314,10"
+        ],
+        [
+          "2901182269866/19",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "203.970,00",
+          "2",
+          "184.037,60",
+          "19.932,40"
+        ],
+        [
+          "2901182790059/19",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "320.000,00",
+          "1",
+          "320.000,00",
+          "0,00"
+        ],
+        [
+          "2901183131278/19",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "94.108,18",
+          "1",
+          "94.108,18",
+          "0,00"
+        ],
+        [
+          "2901183354726/19",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "80.688,83",
+          "1",
+          "80.688,83",
+          "0,00"
+        ],
+        [
+          "2901183414566/19",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "350.000,00",
+          "1",
+          "350.000,00",
+          "0,00"
+        ],
+        [
+          "5001022017PR0067",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "3.126.029,28",
+          "2",
+          "1.128.404,29",
+          "1.833.396,92"
+        ],
+        [
+          "5001022017PR067",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "525.974,43",
+          "1",
+          "525.974,43",
+          "0,00"
+        ],
+        [
+          "5001022018PR051",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "717.387,62",
+          "1",
+          "51.404,86",
+          "0,00"
+        ],
+        [
+          "5001022018PR112",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "1.897.341,24",
+          "1",
+          "375.910,63",
+          "0,00"
+        ],
+        [
+          "5001022693413/19",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "733.737,95",
+          "4",
+          "569.398,83",
+          "164.339,12"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rita do Passa Quatro",
+      "codigo_ibge": "3547502",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Santa Rita do Passa Quatro",
+      "codigo_ibge": "3547502",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.257.264,21",
+        "4",
+        "1.567.133,06",
+        "0,00"
+      ],
+      "records": [
+        [
+          "1301752021/14245",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "60.000,00",
+          "1",
+          "60.000,00",
+          "0,00"
+        ],
+        [
+          "2901182110631860",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "5001022021PR0256",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "1.707.495,23",
+          "1",
+          "512.248,57",
+          "0,00"
+        ],
+        [
+          "5001022021PR0343",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "989.768,98",
+          "1",
+          "494.884,49",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rita do Passa Quatro",
+      "codigo_ibge": "3547502",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "7.343.468,51",
+        "8",
+        "3.564.669,09",
+        "300.000,00"
+      ],
+      "records": [
+        [
+          "29011820220085138",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220472561",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220543421",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "600.000,00",
+          "1",
+          "300.000,00",
+          "300.000,00"
+        ],
+        [
+          "29011820221447723",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "469.000,00",
+          "1",
+          "469.000,00",
+          "0,00"
+        ],
+        [
+          "2901182102321961",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "5001022021PR0256",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "1.707.495,23",
+          "1",
+          "597.623,33",
+          "0,00"
+        ],
+        [
+          "5001022021PR0343",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "989.768,98",
+          "1",
+          "494.884,49",
+          "0,00"
+        ],
+        [
+          "50010220221343237",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "2.677.204,30",
+          "1",
+          "803.161,27",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rita do Passa Quatro",
+      "codigo_ibge": "3547502",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "12.667.617,51",
+        "9",
+        "6.058.100,85",
+        "2.649.034,26"
+      ],
+      "records": [
+        [
+          "250101SH-1219359",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "5001022021PR0256",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "1.707.495,23",
+          "1",
+          "597.623,33",
+          "0,00"
+        ],
+        [
+          "50010220221343237",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "2.677.204,30",
+          "1",
+          "937.021,50",
+          "0,00"
+        ],
+        [
+          "50010220231688301",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "878.934,26",
+          "1",
+          "439.467,13",
+          "149.034,26"
+        ],
+        [
+          "50010220231689826",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "801.316,76",
+          "1",
+          "400.658,38",
+          "0,00"
+        ],
+        [
+          "50010220231689951",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "838.672,90",
+          "1",
+          "419.336,45",
+          "0,00"
+        ],
+        [
+          "50010220231690971",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "148.994,06",
+          "1",
+          "148.994,06",
+          "0,00"
+        ],
+        [
+          "51010120240530626",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "315.000,00",
+          "1",
+          "315.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240547392",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "5.000.000,00",
+          "1",
+          "2.500.000,00",
+          "2.500.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rita do Passa Quatro",
+      "codigo_ibge": "3547502",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.768.055,36",
+        "4",
+        "1.331.239,14",
+        "149.034,26"
+      ],
+      "records": [
+        [
+          "10010320250013461",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "249.131,44",
+          "1",
+          "220.811,44",
+          "0,00"
+        ],
+        [
+          "50010220231688301",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "878.934,26",
+          "1",
+          "290.432,87",
+          "149.034,26"
+        ],
+        [
+          "50010220231689826",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "801.316,76",
+          "1",
+          "400.658,38",
+          "0,00"
+        ],
+        [
+          "50010220231689951",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "838.672,90",
+          "1",
+          "419.336,45",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rita do Passa Quatro",
+      "codigo_ibge": "3547502",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.077.204,30",
+        "2",
+        "1.257.384,12",
+        "79.637,41"
+      ],
+      "records": [
+        [
+          "50010220221343237",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "2.677.204,30",
+          "1",
+          "937.021,53",
+          "0,00"
+        ],
+        [
+          "51010120251239688",
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "400.000,00",
+          "1",
+          "320.362,59",
+          "79.637,41"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rosa de Viterbo",
+      "codigo_ibge": "3547601",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "658.162,99",
+        "3",
+        "538.162,99",
+        "0,00"
+      ],
+      "records": [
+        [
+          "1301012020/11427",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "50.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ],
+        [
+          "2901181519055/18",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "50.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ],
+        [
+          "290118622360/18",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "558.162,99",
+          "1",
+          "438.162,99",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rosa de Viterbo",
+      "codigo_ibge": "3547601",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Santa Rosa de Viterbo",
+      "codigo_ibge": "3547601",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "4.713.291,48",
+        "13",
+        "3.372.452,71",
+        "797.480,72"
+      ],
+      "records": [
+        [
+          "250101SH1232187",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011800273/20",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "75.000,00",
+          "1",
+          "75.000,00",
+          "0,00"
+        ],
+        [
+          "29011800855/21",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "470.000,00",
+          "1",
+          "300.000,00",
+          "44.141,95"
+        ],
+        [
+          "29011820-1418364",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220235665",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "383.291,48",
+          "1",
+          "383.291,48",
+          "0,00"
+        ],
+        [
+          "29011820220274851",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220391786",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "835.000,00",
+          "1",
+          "417.500,00",
+          "0,00"
+        ],
+        [
+          "29011820220525422",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "550.000,00",
+          "1",
+          "275.000,00",
+          "275.000,00"
+        ],
+        [
+          "29011820220527786",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "500.000,00",
+          "1",
+          "384.530,16",
+          "115.469,84"
+        ],
+        [
+          "29011820220534056",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "700.000,00",
+          "1",
+          "350.000,00",
+          "350.000,00"
+        ],
+        [
+          "29011820-7518277",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "200.000,00",
+          "1",
+          "198.492,14",
+          "1.507,86"
+        ],
+        [
+          "2901182116125504",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "250.000,00",
+          "1",
+          "238.638,93",
+          "11.361,07"
+        ],
+        [
+          "4101011834229/19",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rosa de Viterbo",
+      "codigo_ibge": "3547601",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "666.976,92",
+        "2",
+        "322.834,97",
+        "44.141,95"
+      ],
+      "records": [
+        [
+          "25010120221397265",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "196.976,92",
+          "1",
+          "196.976,92",
+          "0,00"
+        ],
+        [
+          "29011800855/21",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "470.000,00",
+          "1",
+          "125.858,05",
+          "44.141,95"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rosa de Viterbo",
+      "codigo_ibge": "3547601",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.331.358,34",
+        "6",
+        "1.306.358,34",
+        "0,00"
+      ],
+      "records": [
+        [
+          "13010120240252501",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "30.000,00",
+          "1",
+          "5.000,00",
+          "0,00"
+        ],
+        [
+          "13010120240688131",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240374666",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "606.568,03",
+          "2",
+          "606.568,03",
+          "0,00"
+        ],
+        [
+          "51010120241165464",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "319.790,31",
+          "1",
+          "319.790,31",
+          "0,00"
+        ],
+        [
+          "51010120241318189",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "275.000,00",
+          "1",
+          "275.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rosa de Viterbo",
+      "codigo_ibge": "3547601",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.835.000,00",
+        "2",
+        "1.185.901,68",
+        "231.598,32"
+      ],
+      "records": [
+        [
+          "17003020240443585",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "1.000.000,00",
+          "1",
+          "768.401,68",
+          "231.598,32"
+        ],
+        [
+          "29011820220391786",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "835.000,00",
+          "1",
+          "417.500,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santa Rosa de Viterbo",
+      "codigo_ibge": "3547601",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "570.000,00",
+        "3",
+        "435.900,00",
+        "94.100,00"
+      ],
+      "records": [
+        [
+          "13022520260406909",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "70.000,00",
+          "2",
+          "30.000,00",
+          "0,00"
+        ],
+        [
+          "51010120251091838",
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "500.000,00",
+          "1",
+          "405.900,00",
+          "94.100,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santo Antônio da Alegria",
+      "codigo_ibge": "3547908",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.172.692,41",
+        "7",
+        "641.319,25",
+        "0,00"
+      ],
+      "records": [
+        [
+          "13010111449/2020",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "40.000,00",
+          "1",
+          "40.000,00",
+          "0,00"
+        ],
+        [
+          "2901183655149/19",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "236.637,91",
+          "2",
+          "236.637,91",
+          "0,00"
+        ],
+        [
+          "5001022018PR165",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "208.173,55",
+          "2",
+          "208.173,55",
+          "0,00"
+        ],
+        [
+          "5001022018PR166",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "386.608,04",
+          "1",
+          "77.321,61",
+          "0,00"
+        ],
+        [
+          "5001022342652/19",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "301.272,91",
+          "1",
+          "79.186,18",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santo Antônio da Alegria",
+      "codigo_ibge": "3547908",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "386.608,04",
+        "2",
+        "160.310,32",
+        "0,00"
+      ],
+      "records": [
+        [
+          "5001022018PR166",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "386.608,04",
+          "2",
+          "160.310,32",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santo Antônio da Alegria",
+      "codigo_ibge": "3547908",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.662.954,91",
+        "8",
+        "2.146.136,80",
+        "0,00"
+      ],
+      "records": [
+        [
+          "1301752021/15586",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "60.000,00",
+          "1",
+          "60.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220084159",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220547341",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "2901182102924767",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "500.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "5001022018PR166",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "386.608,04",
+          "1",
+          "148.976,11",
+          "0,00"
+        ],
+        [
+          "5001022021PR0112",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "361.108,44",
+          "1",
+          "361.108,44",
+          "0,00"
+        ],
+        [
+          "5001022021PR0306",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "253.965,52",
+          "1",
+          "253.965,52",
+          "0,00"
+        ],
+        [
+          "5001022342652/19",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "301.272,91",
+          "1",
+          "222.086,73",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santo Antônio da Alegria",
+      "codigo_ibge": "3547908",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.710.120,42",
+        "5",
+        "1.098.278,36",
+        "4.305,08"
+      ],
+      "records": [
+        [
+          "29011820221205876",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "245.046,46",
+          "1",
+          "240.741,38",
+          "4.305,08"
+        ],
+        [
+          "29011820221414938",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221414956",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "2901182102924767",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "500.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "50010220221343442",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "615.073,96",
+          "1",
+          "307.536,98",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santo Antônio da Alegria",
+      "codigo_ibge": "3547908",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.836.893,18",
+        "7",
+        "2.050.256,20",
+        "479.100,00"
+      ],
+      "records": [
+        [
+          "50010220221343442",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "615.073,96",
+          "1",
+          "307.536,98",
+          "0,00"
+        ],
+        [
+          "50010220231678761",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "421.819,22",
+          "2",
+          "421.819,22",
+          "0,00"
+        ],
+        [
+          "51010120231154117",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "300.000,00",
+          "1",
+          "148.900,00",
+          "151.100,00"
+        ],
+        [
+          "51010120240002419",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240585802",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "500.000,00",
+          "1",
+          "360.000,00",
+          "140.000,00"
+        ],
+        [
+          "51010120240585867",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "600.000,00",
+          "1",
+          "412.000,00",
+          "188.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santo Antônio da Alegria",
+      "codigo_ibge": "3547908",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "600.000,00",
+        "2",
+        "464.372,39",
+        "135.627,61"
+      ],
+      "records": [
+        [
+          "51010120241376692",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "300.000,00",
+          "1",
+          "164.372,39",
+          "135.627,61"
+        ],
+        [
+          "51010120250297856",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Santo Antônio da Alegria",
+      "codigo_ibge": "3547908",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.700.000,00",
+        "3",
+        "1.513.117,85",
+        "186.882,15"
+      ],
+      "records": [
+        [
+          "17003020240427741",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "1.000.000,00",
+          "1",
+          "829.710,00",
+          "170.290,00"
+        ],
+        [
+          "51010120251320289",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "51010120260436397",
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "300.000,00",
+          "1",
+          "283.407,85",
+          "16.592,15"
+        ]
+      ]
+    },
+    {
+      "municipio": "Serra Azul",
+      "codigo_ibge": "3551405",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "505.378,97",
+        "4",
+        "505.378,97",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182313951/19",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "2901182776893/19",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "333.600,00",
+          "2",
+          "333.600,00",
+          "0,00"
+        ],
+        [
+          "5101091603308/19",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "21.778,97",
+          "1",
+          "21.778,97",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Serra Azul",
+      "codigo_ibge": "3551405",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "40.000,00",
+        "1",
+        "40.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "41010100012/21",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "40.000,00",
+          "1",
+          "40.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Serra Azul",
+      "codigo_ibge": "3551405",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "550.000,00",
+        "2",
+        "527.976,82",
+        "22.023,18"
+      ],
+      "records": [
+        [
+          "29011800410/22",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "400.000,00",
+          "1",
+          "377.976,82",
+          "22.023,18"
+        ],
+        [
+          "2901182108122942",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Serra Azul",
+      "codigo_ibge": "3551405",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.350.000,00",
+        "4",
+        "907.761,27",
+        "442.238,73"
+      ],
+      "records": [
+        [
+          "29011820221261211",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "600.000,00",
+          "1",
+          "300.000,00",
+          "300.000,00"
+        ],
+        [
+          "29011820221415013",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221415031",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "200.000,00",
+          "1",
+          "132.487,89",
+          "67.512,11"
+        ],
+        [
+          "29011820221415041",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "250.000,00",
+          "1",
+          "175.273,38",
+          "74.726,62"
+        ]
+      ]
+    },
+    {
+      "municipio": "Serra Azul",
+      "codigo_ibge": "3551405",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Serra Azul",
+      "codigo_ibge": "3551405",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "900.000,00",
+        "2",
+        "759.640,59",
+        "140.359,41"
+      ],
+      "records": [
+        [
+          "51010120240679604",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "400.000,00",
+          "1",
+          "324.640,59",
+          "75.359,41"
+        ],
+        [
+          "51010120240679669",
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "500.000,00",
+          "1",
+          "435.000,00",
+          "65.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Serra Azul",
+      "codigo_ibge": "3551405",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    }
+  ]
+}

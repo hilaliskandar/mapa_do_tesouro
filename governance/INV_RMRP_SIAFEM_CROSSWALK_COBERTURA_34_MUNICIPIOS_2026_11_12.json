@@ -1,0 +1,258 @@
+{
+  "reference_date": "2026-11-12",
+  "status": "INVENTARIO_ESTADUAL_SIAFEM_SEM_CROSSWALK_GERAL_HOMOLOGADO",
+  "source": "governance/INV_RMRP_SIAFEM_752_CONVENIOS_METADADOS_OBJETOS_ORGAOS_2026_11_12.csv",
+  "municipalities": [
+    {
+      "ibge7": "3501004",
+      "municipio": "Altinópolis",
+      "total": 18,
+      "detalhes_recuperados": 17,
+      "excecoes": 1
+    },
+    {
+      "ibge7": "3505609",
+      "municipio": "Barrinha",
+      "total": 11,
+      "detalhes_recuperados": 11,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3505906",
+      "municipio": "Batatais",
+      "total": 27,
+      "detalhes_recuperados": 26,
+      "excecoes": 1
+    },
+    {
+      "ibge7": "3507803",
+      "municipio": "Brodowski",
+      "total": 21,
+      "detalhes_recuperados": 21,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3509403",
+      "municipio": "Cajuru",
+      "total": 14,
+      "detalhes_recuperados": 14,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "total": 11,
+      "detalhes_recuperados": 10,
+      "excecoes": 1
+    },
+    {
+      "ibge7": "3513108",
+      "municipio": "Cravinhos",
+      "total": 22,
+      "detalhes_recuperados": 22,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3514601",
+      "municipio": "Dumont",
+      "total": 15,
+      "detalhes_recuperados": 15,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3518602",
+      "municipio": "Guariba",
+      "total": 28,
+      "detalhes_recuperados": 27,
+      "excecoes": 1
+    },
+    {
+      "ibge7": "3518859",
+      "municipio": "Guatapará",
+      "total": 12,
+      "detalhes_recuperados": 12,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3524303",
+      "municipio": "Jaboticabal",
+      "total": 28,
+      "detalhes_recuperados": 28,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3525102",
+      "municipio": "Jardinópolis",
+      "total": 6,
+      "detalhes_recuperados": 6,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3527603",
+      "municipio": "Luís Antônio",
+      "total": 18,
+      "detalhes_recuperados": 18,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3530508",
+      "municipio": "Mococa",
+      "total": 13,
+      "detalhes_recuperados": 13,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3531308",
+      "municipio": "Monte Alto",
+      "total": 44,
+      "detalhes_recuperados": 43,
+      "excecoes": 1
+    },
+    {
+      "ibge7": "3531902",
+      "municipio": "Morro Agudo",
+      "total": 20,
+      "detalhes_recuperados": 20,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3533601",
+      "municipio": "Nuporanga",
+      "total": 30,
+      "detalhes_recuperados": 30,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3534302",
+      "municipio": "Orlândia",
+      "total": 22,
+      "detalhes_recuperados": 22,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3539509",
+      "municipio": "Pitangueiras",
+      "total": 24,
+      "detalhes_recuperados": 24,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3540200",
+      "municipio": "Pontal",
+      "total": 11,
+      "detalhes_recuperados": 11,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3540903",
+      "municipio": "Pradópolis",
+      "total": 32,
+      "detalhes_recuperados": 32,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3543402",
+      "municipio": "Ribeirão Preto",
+      "total": 41,
+      "detalhes_recuperados": 41,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3544905",
+      "municipio": "Sales Oliveira",
+      "total": 20,
+      "detalhes_recuperados": 20,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "total": 9,
+      "detalhes_recuperados": 9,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "total": 31,
+      "detalhes_recuperados": 31,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "total": 25,
+      "detalhes_recuperados": 25,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "total": 25,
+      "detalhes_recuperados": 25,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3550902",
+      "municipio": "São Simão",
+      "total": 18,
+      "detalhes_recuperados": 18,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3551405",
+      "municipio": "Serra Azul",
+      "total": 12,
+      "detalhes_recuperados": 12,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3551504",
+      "municipio": "Serrana",
+      "total": 35,
+      "detalhes_recuperados": 35,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3551702",
+      "municipio": "Sertãozinho",
+      "total": 39,
+      "detalhes_recuperados": 39,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3553203",
+      "municipio": "Taiúva",
+      "total": 16,
+      "detalhes_recuperados": 16,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3553302",
+      "municipio": "Tambaú",
+      "total": 41,
+      "detalhes_recuperados": 41,
+      "excecoes": 0
+    },
+    {
+      "ibge7": "3553658",
+      "municipio": "Taquaral",
+      "total": 13,
+      "detalhes_recuperados": 13,
+      "excecoes": 0
+    }
+  ],
+  "totals": {
+    "municipalities": 34,
+    "convenios": 752,
+    "details": 747,
+    "errors": 5,
+    "manual_contracts_examined": 2,
+    "composite_high_confidence": 1,
+    "strong_candidate": 1,
+    "exact_crosswalks": 0
+  },
+  "scoping": "Cobre 34 municípios e 752 convênios SIAFEM, mas apenas 2 contratos municipais estaduais detalhados. Nenhuma inferência de que municípios sem documentos tenham zero obras/contratos.",
+  "next": "Recuperar convênios municipais públicos e contratos por município, registrando identificadores e número de demanda/código único; não inferir duplicidade por valor.",
+  "governance": "Sem qualquer alteração da base financeira ou de totais; valores de instrumentos já integrantes do agregado."
+}

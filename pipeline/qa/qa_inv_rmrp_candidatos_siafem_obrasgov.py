@@ -17,6 +17,7 @@ ANUAL = G / "INV_RMRP_SIAFEM_889_CONVENIO_ANO_EXATO_2026_11_12.csv"
 DETALHES = G / "INV_RMRP_OBRASGOV_4_PROJETOS_CANDIDATOS_DETALHE_API_2026_11_12.json"
 MUNICIPAIS = G / "INV_RMRP_OBRASGOV_4_PROJETOS_DOCUMENTOS_MUNICIPAIS_FEDERAIS_2026_11_12.csv"
 SERRANA_CONFLITO = G / "INV_RMRP_SERRANA_117_2024_CONFLITO_REPASSES_952819_952816_2026_11_12.json"
+SERRANA_CONTRATOS = G / "INV_RMRP_SERRANA_CONTRATOS_117_078_126_FEDERAIS_ESTADUAIS_2026_11_12.json"
 PB_STZ = G / "INV_RMRP_SERTAOZINHO_004_2025_953043_PROJETO_BASICO_EVIDENCIA_2026_11_12.json"
 ESTADOS = {
     "CANDIDATO_SEM_CHAVE_DOCUMENTAL": 10,
@@ -96,6 +97,19 @@ def main():
     assert evidence["contrato_assinado_117_2024"]["municipal_brl"] == "2069.57"
     assert record["status"] == "DIVERGENCIA_CADASTRO_E_EXTRATOS_VERSUS_DOCUMENTOS_ORIGINAIS_952816"
     assert record["siafem_relation"] == "NAO_COMPROVADA"
+    contratos = json.loads(SERRANA_CONTRATOS.read_text(encoding="utf-8"))
+    por_contrato = {c["municipal_contract"]: c for c in contratos["records"]}
+    assert set(por_contrato) == {"117/2024", "078/2024", "126/2024"}
+    assert por_contrato["117/2024"]["federal_agreement"] == "952816/2023"
+    assert por_contrato["117/2024"]["contract_amount_centavos"] == 96208857
+    assert (por_contrato["117/2024"]["source_federal_amount_centavos"] +
+            por_contrato["117/2024"]["source_municipal_amount_centavos"] == 96208857)
+    assert por_contrato["078/2024"]["state_agreement"] == "100540/2024"
+    assert por_contrato["078/2024"]["contract_amount_centavos"] == 67895571
+    assert por_contrato["126/2024"]["state_agreement"] == "101375/2024"
+    assert por_contrato["126/2024"]["contract_amount_centavos"] == 25862491
+    assert contratos["cross_source_control"]["matching_to_siafem_752_by_exact_public_id"] == 0
+    assert contratos["cross_source_control"]["confirmed_siafem_transfer_to_contract"] == 0
     assert all(m["status_vinculo_siafem"] == "NAO_HOMOLOGADO" for m in municipal)
     n_details = 0
     seen, states = set(), {x: 0 for x in ESTADOS}

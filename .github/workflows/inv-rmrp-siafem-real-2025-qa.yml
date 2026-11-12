@@ -1,0 +1,62 @@
+name: INV RMRP - QA SIAFEM sobre SQLite real 2025 reconstruido
+on:
+  pull_request:
+    paths:
+      - "pipeline/build/import_inv_rmrp_siafem_dev.py"
+      - "pipeline/qa/qa_siafem_rmrp_sqlite_real_2025.py"
+      - "governance/INV_RMRP_SIAFEM_*"
+      - ".github/workflows/inv-rmrp-siafem-real-2025-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qa-real:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar dependencias do materializador real (sem publicacao)
+        run: pip install openpyxl pyyaml
+      - name: Baixar planilha canonica 2025 imutavel e validar SHA-256
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key sp_645/site_inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --output build/inv-rmrp-siafem-real/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --expected-sha256 ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566
+      - name: Reconstruir SQLite fiscal real de 2025 apenas em disco temporario
+        run: |
+          python -m pipeline.ingest.import_multifuentes \
+            build/inv-rmrp-siafem-real/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --mapping data/mappings/base_multifuentes_sp645_2025.yml \
+            --database build/inv-rmrp-siafem-real/canonico_2025_reconstruido.sqlite
+      - name: Importar SIAFEM somente em copia nova do SQLite
+        run: |
+          python pipeline/build/import_inv_rmrp_siafem_dev.py \
+            --source-db build/inv-rmrp-siafem-real/canonico_2025_reconstruido.sqlite \
+            --output-db build/inv-rmrp-siafem-real/siafem_isolado_qa.sqlite \
+            --repo-root .
+      - name: Validar integridade e regressao fiscal antes e depois
+        run: |
+          python pipeline/qa/qa_siafem_rmrp_sqlite_real_2025.py \
+            --original build/inv-rmrp-siafem-real/canonico_2025_reconstruido.sqlite \
+            --staging build/inv-rmrp-siafem-real/siafem_isolado_qa.sqlite \
+            --qa build/inv-rmrp-siafem-real/qa_siafem_real_2025.json
+      - name: Arquivar SOMENTE resumo QA (sem SQLite, sem planilhas privadas)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-siafem-real2025-qa-${{ github.run_id }}
+          path: build/inv-rmrp-siafem-real/qa_siafem_real_2025.json
+          if-no-files-found: warn
+          retention-days: 14

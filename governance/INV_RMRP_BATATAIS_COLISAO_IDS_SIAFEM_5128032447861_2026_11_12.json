@@ -68,7 +68,7 @@
     "exact_crosswalk_documented": false,
     "accounting_duplicate_proved": false,
     "new_classification": "PROVAVEL_MESMO_PROCESSO_DETRAN_2447861_MAS_LANCAMENTOS_DISTINTOS_NAO_CONCILIADOS",
-    "note": "A sequência 2447861/2019 do processo DETRAN aparece nas duas grafias SIAFEM. Soma de 3 lançamentos: 65814707 centavos vs 68930177 previstos no termo, diferença de 3115470. Não declarar duplicação financeira nem remover 38500000 centavos."
+    "note": "A sequência 2447861/2019 do processo DETRAN aparece nas duas grafias SIAFEM. Soma de 3 lançamentos: 65814707 centavos vs 68930177 previstos no termo, diferença de 3115470. Não declarar duplicação financeira nem remover 38500000 centavos. O segundo aditivo de abril de 2022 prorrogou o instrumento 101/2019 até 17/06/2022 e remete a novo cronograma físico-financeiro, sem demonstrar composição exata dos pagamentos."
   },
   "next_evidence": [
     "Recuperar plano de trabalho e execução do Convênio DETRAN 101/2019, Processo 2447861/2019, inclusive eventuais aditivos e demonstrativo que associe cada identificador financeiro.",
@@ -94,5 +94,18 @@
     "installment_rule_original": "01 parcela prevista no extrato original",
     "doc_status": "Texto oficial do PDF verificado em edição digital; screenshot de página indisponível por erro de cache",
     "caveat": "A previsão de uma parcela no termo não equivale à contagem de lançamentos SIAFEM em anos posteriores; buscar alterações posteriores e ordens de pagamento."
-  }
+  },
+  "amendments": [
+    {
+      "type": "Segundo termo de aditamento",
+      "public_instrument": "101/2019",
+      "process": "DETRAN-SP 2447861/2019",
+      "signed": "2022-04-13",
+      "publication": "2022-04-14",
+      "change": "Prorroga prazo de vigência e execução de 18/12/2021 para 17/06/2022 e remete a novo cronograma físico-financeiro",
+      "source_reproduction": "https://www.escavador.com/diarios/5500486/DOESP/executivo-i/2022-04-14?page=6",
+      "source_status": "Transcrição de Diário Oficial disponível em repositório secundário; localização de PDF primário específico ainda pendente",
+      "note": "Prorrogação permite interpretar lançamentos em 2022 em quadro temporal mais amplo, mas não confirma vínculo contábil nem altera valor de convênio por si só."
+    }
+  ]
 }

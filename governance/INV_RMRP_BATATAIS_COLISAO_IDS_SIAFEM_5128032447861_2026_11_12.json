@@ -1,0 +1,74 @@
+{
+  "audit_date": "2026-11-12",
+  "scope": "SIAFEM investimentos estaduais RMRP 34 municipios, 752 ids, 889 convenio-ano",
+  "municipio": "Batatais",
+  "ibge7": "3505906",
+  "issue": "POSSIVEL_COLISAO_DE_ID_POR_SEPARADOR_SEM_CONCILIACAO_FINANCEIRA",
+  "normalization": "remover exclusivamente pontuacao/separadores da chave do mesmo municipio para detecao, nunca para merge",
+  "normalized_group": "3505906|512803244786119",
+  "members": [
+    {
+      "id": "5128032447861-19",
+      "source_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5128032447861-19",
+      "http": 200,
+      "detail_status": "DISPONIVEL",
+      "object": "PROGRAMA RESPEITO A VIDA.",
+      "convenente": "PREFEITURA MUNICIPAL BATATAIS",
+      "signed": "2019-12-18",
+      "convenio_cents": 27345175,
+      "total_liberado_centavos": 27314707,
+      "annual": [
+        {
+          "year": 2021,
+          "cents": 27314707
+        }
+      ],
+      "detail_last_release": "2021-12-17",
+      "source_verified_at": "2026-11-12"
+    },
+    {
+      "id": "5128032447861\\19",
+      "source_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=5128032447861%5C19",
+      "http": 500,
+      "detail_status": "ERRO_APLICACAO",
+      "object": null,
+      "signed": null,
+      "total_liberado_centavos": 38500000,
+      "annual": [
+        {
+          "year": 2021,
+          "cents": 33400000
+        },
+        {
+          "year": 2022,
+          "cents": 5100000
+        }
+      ],
+      "source_verified_at": "2026-11-12"
+    }
+  ],
+  "amounts": {
+    "accessible_id_cents": 27314707,
+    "unavailable_id_cents": 38500000,
+    "group_aggregate_cents": 65814707,
+    "source_rmrp_total_centavos": 30552102920,
+    "amount_under_review_cents": 38500000
+  },
+  "decision": {
+    "id_unique_after_punctuation_normalization": false,
+    "cannot_prove_identical_contracts": true,
+    "cannot_prove_distinct_contracts": true,
+    "no_merge": true,
+    "no_deduction": true,
+    "financial_total_remains_source_gross": true,
+    "create_quality_flag": true,
+    "finance_confidence": "VALOR_SIAFEM_EXTRAIDO_COM_ID_POTENCIALMENTE_COLIDENTE_NAO_RECONCILIADO"
+  },
+  "next_evidence": [
+    "Consultar instrumento físico e histórico de empenhos/detalhamento de ambos os IDs na secretaria concedente e no DETRAN-SP",
+    "Revisar histórico da migração de identificadores SIAFEM, sobretudo barras invertidas",
+    "Confrontar lançamentos por data exata, número de pagamento, processo administrativo, beneficiário e objeto para decidir duplicação sem usar somente separador",
+    "Reconciliar manualmente eventual ajuste ao montante histórico somente após prova, com nova versão de fonte e QA"
+  ],
+  "not_counted_twice_notice": "Nao somar os R$ 658.147,07 do grupo ao total de R$ 305.521.029,20, em que ja constam. Nenhum valor retirado nesta auditoria."
+}

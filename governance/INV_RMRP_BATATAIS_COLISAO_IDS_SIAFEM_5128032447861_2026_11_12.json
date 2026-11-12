@@ -52,7 +52,8 @@
     "unavailable_id_cents": 38500000,
     "group_aggregate_cents": 65814707,
     "source_rmrp_total_centavos": 30552102920,
-    "amount_under_review_cents": 38500000
+    "amount_under_review_cents": 38500000,
+    "difference_original_public_value_vs_sum_siafem_centavos": 3115470
   },
   "decision": {
     "id_unique_after_punctuation_normalization": false,
@@ -62,13 +63,36 @@
     "no_deduction": true,
     "financial_total_remains_source_gross": true,
     "create_quality_flag": true,
-    "finance_confidence": "VALOR_SIAFEM_EXTRAIDO_COM_ID_POTENCIALMENTE_COLIDENTE_NAO_RECONCILIADO"
+    "finance_confidence": "VALOR_SIAFEM_EXTRAIDO_COM_ID_POTENCIALMENTE_COLIDENTE_NAO_RECONCILIADO",
+    "possible_shared_legal_instrument": true,
+    "exact_crosswalk_documented": false,
+    "accounting_duplicate_proved": false,
+    "new_classification": "PROVAVEL_MESMO_PROCESSO_DETRAN_2447861_MAS_LANCAMENTOS_DISTINTOS_NAO_CONCILIADOS",
+    "note": "A sequência 2447861/2019 do processo DETRAN aparece nas duas grafias SIAFEM. Soma de 3 lançamentos: 65814707 centavos vs 68930177 previstos no termo, diferença de 3115470. Não declarar duplicação financeira nem remover 38500000 centavos."
   },
   "next_evidence": [
+    "Recuperar plano de trabalho e execução do Convênio DETRAN 101/2019, Processo 2447861/2019, inclusive eventuais aditivos e demonstrativo que associe cada identificador financeiro.",
     "Consultar instrumento físico e histórico de empenhos/detalhamento de ambos os IDs na secretaria concedente e no DETRAN-SP",
     "Revisar histórico da migração de identificadores SIAFEM, sobretudo barras invertidas",
     "Confrontar lançamentos por data exata, número de pagamento, processo administrativo, beneficiário e objeto para decidir duplicação sem usar somente separador",
     "Reconciliar manualmente eventual ajuste ao montante histórico somente após prova, com nova versão de fonte e QA"
   ],
-  "not_counted_twice_notice": "Nao somar os R$ 658.147,07 do grupo ao total de R$ 305.521.029,20, em que ja constam. Nenhum valor retirado nesta auditoria."
+  "not_counted_twice_notice": "O valor total bruto da RMRP permanece R$ 305.521.029,20; os R$ 658.147,07 desta família já estão contidos na série, sem inclusão nem subtração. Duas chaves brutas possivelmente referem ao mesmo instrumento legal, mas seus lançamentos não foram demonstrados duplicados.",
+  "public_instrument": {
+    "source": "https://www.imprensaoficial.com.br/Certificacao/GatewayCertificaPDF.aspx?notarizacaoID=48a00f3a-e29f-4a4e-8750-0b093218f072",
+    "publication_date": "2019-12-27",
+    "section": "Diário Oficial Poder Executivo Seção I",
+    "volume": "129",
+    "issue": "244",
+    "page": "5",
+    "convenio_publico": "101/2019",
+    "administrative_process": "DETRAN 2447861/2019",
+    "signed": "2019-12-18",
+    "beneficiary": "Município de Batatais",
+    "object": "Execução de ações do Programa Respeito à Vida",
+    "state_total_foreseen_centavos": 68930177,
+    "installment_rule_original": "01 parcela prevista no extrato original",
+    "doc_status": "Texto oficial do PDF verificado em edição digital; screenshot de página indisponível por erro de cache",
+    "caveat": "A previsão de uma parcela no termo não equivale à contagem de lançamentos SIAFEM em anos posteriores; buscar alterações posteriores e ordens de pagamento."
+  }
 }

@@ -12,7 +12,7 @@ permissions:
 jobs:
   smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - name: Python version
@@ -20,7 +20,7 @@ jobs:
       - name: Download national CSV ZIP and inspect coverage for RMRP
         run: |
           python pipeline/acquire/inv_rmrp_transferegov_zip.py \
-            --sets siconv_proposta \
+            --sets siconv_plano_aplicacao_detalhado \
             --out-dir "${RUNNER_TEMP}/inv_rmrp_transferegov"
       - name: Audit result summary without assuming investments
         if: always()

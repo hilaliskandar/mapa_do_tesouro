@@ -89,3 +89,19 @@ A pesquisa por documentos específicos de Serrana, Batatais, Ribeirão Preto e P
 **Decisão técnica:** territorializar primeiro propostas por `COD_MUNIC_IBGE`, depois vincular `siconv_convenio` por `ID_PROPOSTA`, e `siconv_desembolso` e `siconv_emenda` exclusivamente por IDs oficiais de proposta ou número de convênio (se presentes no respectivo layout). Registrar separadamente **município do proponente** e **município de execução**; não presumir coincidência. Campo `ITEM_INVESTIMENTO` não substitui uma auditoria contábil da parcela de capital.
 
 **Implementação de junção (ainda sujeita a homologação):** [coletor crosswalk](../pipeline/acquire/inv_rmrp_transferegov_join.py) commit `fa76f2fb`, [workflow isolado](../.github/workflows/inv-rmrp-transferegov-join.yml) commit `ca7e53d4`. O crosswalk não gera totais financeiros e falha diante de chaves conflitantes. A execução deve ser inspecionada antes de afirmar resultados.
+
+## Cruzamento oficial de quatro conjuntos — 13/11/2026
+**Execução:** [GitHub Actions 43411132741](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43411132741), `success`. A ingestão ocorreu **somente em diretório temporário no runner**, com manifesto e CSVs RMRP arquivados como artefato do Actions, sem alterar R2/SQLite/D1 ou APIs de produção.
+
+| Arquivo oficial | Registros nacionais | Registros vinculados RMRP | Chave de ligação | Cobertura entre 34 proponentes |
+|---|---:|---:|---|---:|
+| siconv_proposta | 1.160.558 | 6.410 | COD_MUNIC_IBGE | 34/34 |
+| siconv_convenio | 288.852 | 1.793 | ID_PROPOSTA | 34/34 |
+| siconv_desembolso | 386.864 | 2.537 | NR_CONVENIO validado na camada de convênios | 34/34 |
+| siconv_emenda | 298.538 | 1.240 | ID_PROPOSTA | 34/34 |
+
+**Controle de duplicidades:** na amostra de 6.410 propostas vinculadas há 6.410 `ID_PROPOSTA` distintos e zero conflitos de IBGE na chave de proposta. Isto não certifica unicidade jurídica das demais classes, mas demonstra ligação por chave administrativa, em vez de inferência por nome, município ou valores. `siconv_desembolso` tem colunas `ID_DESEMBOLSO`, `NR_CONVENIO`, `DATA_DESEMBOLSO`, `ANO_DESEMBOLSO`, `VL_DESEMBOLSADO`. `siconv_emenda` contém `ID_PROPOSTA`, `NR_EMENDA`, `VALOR_REPASSE_PROPOSTA_EMENDA` e `VALOR_REPASSE_EMENDA`.
+
+**Interpretação:** os 1.793 são linhas na tabela de convênios associadas a proponentes dos 34 municípios; os 2.537 são eventos de desembolso e os 1.240 são linhas de emendas, não totais monetários nem investimentos realizados. A seleção é pelo **município do proponente**. Projetos estaduais, consórcios sediados fora da RMRP ou execução física no território podem exigir territorialização adicional e não estão incluídos automaticamente. Desembolsos precisam ser associados às parcelas de capital dos planos de aplicação antes de qualquer total de investimento.
+
+**Próximo gate:** sondagem do layout do arquivo nacional `siconv_plano_aplicacao_detalhado` e teste de junção com `ID_PROPOSTA` ou `NR_CONVENIO`, verificando classificadores oficiais de natureza da despesa/itens. Não derivar investimento apenas da palavra `ITEM_INVESTIMENTO` e não inferir parcela de capital proporcional quando houver mistura custeio/capital.

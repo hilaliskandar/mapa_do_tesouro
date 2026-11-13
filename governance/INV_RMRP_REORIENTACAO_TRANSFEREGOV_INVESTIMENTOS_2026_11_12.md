@@ -119,3 +119,18 @@ A pesquisa por documentos específicos de Serrana, Batatais, Ribeirão Preto e P
 - Código de seleção: [`pipeline/acquire/inv_rmrp_transferegov_plano.py`](../pipeline/acquire/inv_rmrp_transferegov_plano.py). Workflow: [`inv-rmrp-transferegov-plano.yml`](../.github/workflows/inv-rmrp-transferegov-plano.yml). Os resultados estão apenas no artefato temporário de Actions; ainda falta um snapshot durável aprovado em R2 com manifesto e readback, além da conciliação de valores.
 
 **Próximo gate técnico:** inspecionar a distribuição `SIT_ITEM` e a validade dos 43 indeterminados, verificar dicionário oficial de `COD_NATUREZA_DESPESA`, identificar itens com divergência territorial e apurar valores **somente depois** de homologar escopo de planos e campos. Reconciliar eventual parcela de capital com movimentos de desembolso em nível de instrumento, sem rateios arbitrários nem dupla contagem.
+
+## Refinamento da classificação GND e estado dos itens — 13/11/2026
+A execução [43411817563](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43411817563) concluiu `success` a reclassificação dos mesmos **28.456 itens** do Plano de Aplicação para os 34 municípios proponentes:
+- **16.156** itens `candidato_investimento_gnd4` (código `44...`, grupo Investimentos);
+- **287** itens `capital_inversao_financeira_gnd5` (`45...`);
+- **50** itens `capital_amortizacao_divida_gnd6` (`46...`);
+- **11.920** itens de despesa corrente (`3...`);
+- **43** indeterminados, **todos com código `99999999`**.
+A soma dos três grupos de capital (16.156+287+50) corresponde aos **16.493** anteriormente classificados como `candidato_capital`. **NÃO divulgar os 16.493 como investimentos**, pois 337 itens pertencem a outros GNDs de capital; mesmo os 16.156 do GND 4 representam natureza planejada, não execução financeira comprovada.
+
+**`SIT_ITEM` observado:** `APROVADO` **15.342** itens; `EM_COMPLEMENTACAO` **217**; campo vazio **12.897**. A classificação de natureza deve ser cruzada com a situação administrativa antes de aprovar qualquer valor. Campo vazio **não** é aprovado por presunção. Não foram detectados IDs de item duplicados ou vazios no recorte.
+
+**Territorialização:** 166 itens pertencem a propostas vinculadas a proponentes RMRP, mas registram localização do item fora do estado de São Paulo. Exemplo verificável: proposta `771446` do proponente Ribeirão Preto possui itens localizados em Palmas/TO, Marabá/PA, Campo Grande/MS, Parecis/RO, Barra do Garças/MT e Salvador/BA. **Não atribuir automaticamente esses itens como investimentos fisicamente realizados na RMRP.** A localização dentro de SP, por si, também não comprova estar dentro dos 34 municípios; validar `MUNICIPIO` com código territorial.
+
+**Próximo controle exigido:** definir coorte com GND 4 e situação aprovada, homologar categoria com classificação oficial, tratar os 43 códigos `99999999`, resolver localização física dos itens (inclusive os 166 externos a SP) e identificar eventual gasto territorial realizado diretamente por outro ente. Somente então poderão ser tabulados valores de aplicação *prevista*, separados de pagamentos federais efetivos e de investimentos liquidados no orçamento municipal. Preservar origem e SHA-256 dos arquivos; não produzir soma inferencial de `VALOR_TOTAL_ITEM` e `VL_DESEMBOLSADO`.

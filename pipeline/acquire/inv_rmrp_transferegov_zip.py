@@ -10,6 +10,7 @@ import argparse
 import csv
 import hashlib
 import io
+import itertools
 import json
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -77,7 +78,7 @@ def main():
                     delimiter = ";" if head.count(";")>=head.count(",") else ","
                     stream = io.TextIOWrapper(source, encoding=encoding, errors="replace", newline="")
                     # Reconstruir o primeiro registro, preservando eventuais quebras de linha.
-                    reader = csv.DictReader(io.StringIO(head + stream.read()), delimiter=delimiter)
+                    reader = csv.DictReader(itertools.chain([head], stream), delimiter=delimiter)
                     cols = reader.fieldnames or []
                     key = next((c for c in cols if c.strip().upper() in IBGE_COLS), None)
                     # A existencia de campo territorial nao prova que esteja preenchido com IBGE7.

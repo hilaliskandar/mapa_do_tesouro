@@ -15,8 +15,16 @@ def category(v):
     norm="".join(c for c in (v or "") if c.isdigit())
     # Nomenclatura brasileira de natureza da despesa: categoria economica 3 = corrente,
     # 4 = capital. So triagem quando estrutura de codigo identificavel.
-    if len(norm)>=6 and norm[0] in ("3","4"):
-        return "candidato_capital" if norm[0]=="4" else "candidato_corrente"
+    if len(norm)>=6 and norm[:2]=="44":
+        return "candidato_investimento_gnd4"
+    if len(norm)>=6 and norm[:2]=="45":
+        return "capital_inversao_financeira_gnd5"
+    if len(norm)>=6 and norm[:2]=="46":
+        return "capital_amortizacao_divida_gnd6"
+    if len(norm)>=6 and norm[0]=="4":
+        return "capital_outro_ou_inconsistente"
+    if len(norm)>=6 and norm[0]=="3":
+        return "candidato_corrente"
     return "indeterminado"
 
 def main():
@@ -45,7 +53,7 @@ def main():
                 proponent[key]=ib;proposals[ib]+=1
         assert sum(proposals.values())>=6410, "new source coverage below reference smoke"
         municipal=defaultdict(Counter); codes=Counter();categories=Counter(); loc_uf=Counter()
-        count_national=count_selected=0;unique_item=set();duplicate_item=0;blank_item=0
+        count_national=count_selected=0;unique_item=set();duplicate_item=0;blank_item=0;statuses=Counter();unknown_codes=Counter();foreign_examples=[]
         with (out/"plano_rmrp_itens_nao_homologados.csv").open("w",encoding="utf-8",newline="") as dest:
             for h,reader in rows(ds["siconv_plano_aplicacao_detalhado"]["path"],ds["siconv_plano_aplicacao_detalhado"]["csv_member"]):
                 required={"ID_PROPOSTA","ID_ITEM_PAD","COD_NATUREZA_DESPESA","NATUREZA_DESPESA","VALOR_TOTAL_ITEM","SIGLA","MUNICIPIO"}
@@ -60,6 +68,10 @@ def main():
                     writer.writerow({"__ibge7_proponente":ib,"__classificacao_provisoria":cat,**row})
                     count_selected+=1;categories[cat]+=1;municipal[ib][cat]+=1
                     codes[(row.get("COD_NATUREZA_DESPESA") or "").strip()]+=1
+                    statuses[(row.get("SIT_ITEM") or "").strip()]+=1
+                    if cat=="indeterminado":unknown_codes[(row.get("COD_NATUREZA_DESPESA") or "").strip()]+=1
+                    if (row.get("SIGLA") or "").strip().upper()!="SP" and len(foreign_examples)<20:
+                        foreign_examples.append({"ibge_proponente":ib,"id_proposta":code,"uf_item":row.get("SIGLA"),"municipio_item":row.get("MUNICIPIO"),"id_item":row.get("ID_ITEM_PAD")})
                     loc_uf[(row.get("SIGLA") or "").strip().upper()]+=1
                     item=(row.get("ID_ITEM_PAD") or "").strip()
                     if not item:blank_item+=1
@@ -69,11 +81,12 @@ def main():
             "national_plan_items":count_national,"rmrp_proponent_proposals":len(proponent),
             "linked_plan_items":count_selected,"proponent_municipalities_with_any_item":sum(bool(x) for x in municipal.values()),
             "category_counts":dict(categories),"top_nature_codes":codes.most_common(50),
+            "item_status_counts":dict(statuses),"unknown_nature_codes":dict(unknown_codes),"foreign_item_examples":foreign_examples,
             "item_location_uf_counts":dict(loc_uf),"duplicate_ID_ITEM_PAD_rows":duplicate_item,
             "blank_ID_ITEM_PAD_rows":blank_item,
             "municipalities":{ib:{"name":names[ib],"proposals":proposals[ib],"plan_items":dict(municipal[ib])} for ib in names}
         }
-        manifest["cautions"]=["Classificacao provisoria somente por prefixo de codigo de natureza da despesa.",
+        manifest["cautions"]=["Classificacao provisoria por categoria economica e grupo de natureza da despesa (GND 4, 5, 6).",
             "Nao somar VALOR_TOTAL_ITEM sem auditar duplicidades, situacao e revisoes.",
             "Nao equiparar planejado a empenhado, desembolsado, aplicado ou liquidado.",
             "SIGLA/MUNICIPIO identifica local indicado no item, pode divergir do proponente.",

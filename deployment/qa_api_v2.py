@@ -69,7 +69,7 @@ def validate_v2(site):
         # New private SP645 builds contain the complete 16-RA + 43-RG catalogue,
         # not an arbitrary subset. The contract is derived from the IBGE7 source
         # and retains exact per-region member counts.
-        from deployment.qa_sp645_pages import expected_administrative_universes
+        from qa_sp645_pages import expected_administrative_universes
         expected.update(expected_administrative_universes())
     if groups != expected:
         raise ValueError(f"Wrong regional universe composition: {groups}")

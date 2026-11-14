@@ -54,3 +54,14 @@ A coincidência com a matriz preliminar de EL2026 representa **concordância ent
 ## Histórico de resolução de bloqueios
 
 As tentativas anteriores de baixar o CSV municipal do repositório Seade sofreram `timeout`; as tentativas de usar o repositório privado EL2026 em runner externo geraram 404. A fonte direta pública SEMIL resolveu o impasse de correspondência municipal sem depender desses servidores, fornecendo 645 registros completos. A captura de geometria municipal do IBGE deixa de ser necessária **para identificar os vínculos municipais RA/RG** nesta fotografia; continua útil como fonte independente para QA geométrico e eventual cartografia.
+
+
+## Confirmação automatizada e quadros de consulta — fechamento complementar
+
+O workflow [43628653845](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43628653845) concluiu **SUCCESS**, inclusive nas etapas de auditoria determinística e de upload do manifesto QA. Foram confirmados o grão de 645 IBGE7 únicos, 16 RA, 43 RG, RG→RA sem conflito, 10 RM/AU em composição 2025, 255 municípios em RM/AU, 390 externos e RMRP 34/34.
+
+- [Resumo de 69 unidades territoriais](RESUMO_TERRITORIOS_SP645_RA_RG_RM_AU_2026_11_14.csv): 16 RA + 43 RG + 9 RM + 1 AU, com contagem de municípios e RA-pai das RG.
+- [28 interseções não vazias RM/AU × RA × RG](INTERSECCOES_RM_AU_RA_RG_SP645_2026_11_14.csv): contagem por pertencimento municipal único para análises comparativas, sem duplicação.
+- A consulta independente ao serviço público `returnCountOnly=true` retornou **645**, exatamente o número de atributos recuperados, sem sinal de transferência parcial. O `maxRecordCount` declarado no endpoint é **2000**.
+
+**Situação:** a identidade e composição da fotografia consultada estão verificadas. Permanecem como gates específicos a conciliação temporal de atos de regionalização (especialmente para séries antigas) e a carga ao SQLite fiscal canônico com readback e promoção supervisionada. A presente edição não alterou valores de investimento nem bases publicadas.

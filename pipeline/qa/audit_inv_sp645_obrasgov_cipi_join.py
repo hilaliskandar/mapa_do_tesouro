@@ -9,6 +9,8 @@ import argparse,csv,hashlib,io,json,zipfile
 from collections import Counter,defaultdict
 from datetime import datetime,timezone
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'acquire'))
 from inv_sp645_transferegov_new_source_layout import acquire
 
 SETS=("siconv_contrato_cipi","siconv_dados_obrasgov_geral","siconv_coordenadas_obra")

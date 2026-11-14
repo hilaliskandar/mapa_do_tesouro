@@ -94,3 +94,27 @@ A análise dos arquivos pequenos também demonstra que `siconv_pagamento_tributo
 - `VL_PAGO` — mera classificação léxica do sinal/zero: **7.549.033 não negativos diferentes de zero; 26.451 zeros textuais; 28 negativos textuais**. **Não é valor de pagamento líquido**, nem classifica estorno: exige verificação documental e situação financeira. O algoritmo de sinais não substitui conversão de moeda com Decimal e precisão de centavos.
 - Nenhum vazio nas colunas `NR_MOV_FIN`, `NR_CONVENIO`, `TP_MOV_FINANCEIRA`, `VL_PAGO`, `DATA_PAG` e `ID_DL` neste arquivo nacional, segundo o inventário de valores textuais vazios.
 - **Limite:** este resultado não verifica unicidade global de `NR_MOV_FIN`, cardinalidade com OBTV, ocorrência de cancelamentos fora da série de pagamento, nem execução de capital. Não produzir soma de dinheiro sem classificação e prova documental.
+
+
+## Continuidade operacional — segundo ciclo em 14/11/2026
+
+**CGU:** a página oficial https://portaldatransparencia.gov.br/download-de-dados/convenios foi recuperada pelo Crawl2AI e confirma geração de dois conjuntos distintos `Convenios` e `Convenios_OrdensBancarias`, com estrutura/dicionário de dados associado. A seleção por competência ocorre por interface dinâmica; o crawler não extraiu nesta consulta os próprios arquivos ou competências completas. **Não declarar importação de ordens bancárias**. Uso previsto: conciliação da ocorrência de transferências com as etapas Transferegov por chaves documentais; jamais soma automática.
+
+**Obrasgov e especiais:** nesta rodada os endereços gerais https://api-publica.obrasgov.gestao.gov.br/obras e https://api-publica.transferegov.gestao.gov.br/especiais falharam no mecanismo de extração Crawl2AI. Os arquivos Transferegov `siconv_contrato_cipi` e `siconv_dados_obrasgov_geral` tiveram captura e auditoria efetivas via ZIP, **mas não demonstram a cobertura integral da API Obrasgov**. Registrar status como `extração de API pendente`, não como inexistência de registros.
+
+**Nova operação em execução:** auditoria nacional de cardinalidade pagamento/OBTV, código `pipeline/acquire/inv_sp645_payment_obtv_cardinality.py` e workflow `.github/workflows/inv-sp645-payment-obtv-cardinality.yml`, [run 43630776308](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630776308). A rotina baixa uma vez por dataset `siconv_pagamento` e `siconv_obtv_convenente` no runner isolado, valida CRC integral e utiliza SQLite **temporário** para examinar `NR_MOV_FIN`: cardinalidade de cada lado, chaves repetidas, conflitos entre convênios e documentos, matches e expansão potencial de join. Os identificadores pessoais, documentos, dados bancários e valores individuais **não são exportados**; o SQLite temporário e os ZIPs são descartados. Só o manifesto agregado é arquivado. **Status inicial: workflow acionado, resultado sujeito a confirmação de conclusão e QA.**
+
+As duas fontes são eventos relacionados, nunca devem ser somadas como dinheiro distinto. Se `NR_MOV_FIN` tiver duplicatas ou colisões, nenhuma junção 1:1 será promovida sem prova adicional de chave composta.
+
+**Qualidade e repetibilidade:** a nova rotina faz download temporário com retry limitado, hash SHA-256, controle de domínio e checagem de cardinalidade. Continua pendente um **snapshot bruto durável em R2 privado** e readback; o artefato de CI contém apenas metadados, não o dado nacional persistido. A obtenção de todas as linhas nacionais repetidamente em testes distintos não deve ser naturalizada como estratégia final: consolidar cache/versionamento privado após validação técnica e autorização da gravação.
+
+### Dependência funcional de 72 universos
+
+A validação do build SP645 com RA/RG descobriu que o verificador legado da API v2 exigia somente os 13 universos antigos. A alteração no verificador agora valida a composição completa **72**, derivando as contagens RA/RG da dimensão SEMIL por IBGE7, sem permitir seleção parcial. Outra falha de import de módulo em execução por script (`deployment`) foi corrigida em `deployment/qa_api_v2.py`. Um novo build privado foi iniciado [run 43630697231](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630697231); aprovação depende de conclusão de todas as verificações, sem implantação pública.
+
+### Gates vigentes
+
+- **Confirmados:** layout de pagamentos/OBTV/DL, ausência de chave PAD no arquivo itens-DL, cardinalidade nacional CIPI↔Obrasgov geral, domínio de tipos e sinais de pagamento, 645 códigos IBGE e novos universos.
+- **Em execução:** cardinalidade real pagamento↔OBTV, build privado completo dos 72 universos.
+- **Pendentes:** ligação paga↔GND4 comprovada; município de execução comprovado; classificação de estornos e retenções; captura API Obrasgov completa; conciliação CGU por ordens bancárias; SP645 monetário por estágio; persistência imutável e readback em R2 privado.
+- **Bloqueados para promoção:** soma de investimentos federais pagos, agregados financeiros por RA/RG/RM/AU e atualização dos dados exibidos ao público.

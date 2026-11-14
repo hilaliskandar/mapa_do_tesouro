@@ -1,0 +1,101 @@
+{
+  "audit_date": "2026-11-12",
+  "geo": {
+    "municipio": "Serrana",
+    "ibge7": "3551504",
+    "municipal_cnpj": "44229813000123"
+  },
+  "classification": "CROSSWALK_DOCUMENTAL_COMPOSTO_NAO_CHAVE_LITERAL",
+  "source_series": "governance/INV_RMRP_SIAFEM_889_CONVENIO_ANO_EXATO_2026_11_12.csv",
+  "source_municipal_contracts": "governance/INV_RMRP_SERRANA_CONTRATOS_117_078_126_FEDERAIS_ESTADUAIS_2026_11_12.json",
+  "entries": [
+    {
+      "public_instrument": "100540/2024",
+      "municipal_contract": "078/2024",
+      "procurement": "007/2024",
+      "siafem_number": "51010120240419991",
+      "status": "CANDIDATO_FORTE_AINDA_SEM_TERMO_ESTADUAL_COM_CHAVE_CRUZADA",
+      "evidence": [
+        "mesmo municipio e CNPJ beneficiario",
+        "mesmo orgao concedente estadual",
+        "objeto de recapeamento compativel",
+        "valor contratado R$ 678.955,71 exatamente igual à soma das duas liberações SIAFEM",
+        "única correspondência desse valor entre os 35 instrumentos SIAFEM de Serrana"
+      ],
+      "municipal_contract_cents": 67895571,
+      "siafem_value_convenio_cents": 67895571,
+      "siafem_liberacoes": [
+        {
+          "date": "2024-08-23",
+          "cents": 47497726
+        },
+        {
+          "date": "2025-04-30",
+          "cents": 20397845
+        }
+      ],
+      "siafem_liberado_total_centavos": 67895571,
+      "siafem_last_updated": "2026-11-12",
+      "siafem_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120240419991",
+      "municipal_contract_url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_007_2024/078_-_2024_-_jtr_-_assinado.pdf",
+      "pending": "Obter termo estadual 100540/2024 com data, valor, demanda 062650, instrumento financeiro do SIAFEM ou documento de correspondência explícita"
+    },
+    {
+      "public_instrument": "101375/2024",
+      "municipal_contract": "126/2024",
+      "procurement": "015/2024",
+      "siafem_number": "51010120240581081",
+      "status": "CORRESPONDENCIA_DOCUMENTAL_COMPOSTA_ALTA_CONFIANCA_SEM_CHAVE_LITERAL",
+      "evidence": [
+        "termo estadual original 101375/2024 assinado em 2024-05-28 e SIAFEM cadastrado em 2024-05-28",
+        "mesmo municipio, CNPJ e concedente",
+        "termo estadual soma R$ 300.000,00 do Estado e R$ 3.501,56 municipais e SIAFEM mostra Valor Convenio R$ 300.000,00, contrapartida R$ 3.501,56, total R$ 303.501,56",
+        "liberação de R$ 258.624,91 em 2025-01-10 coincide com contrato municipal 126/2024",
+        "única correspondência desse valor entre 35 instrumentos SIAFEM de Serrana"
+      ],
+      "municipal_contract_cents": 25862491,
+      "term_estadual_centavos": 30000000,
+      "term_contrapartida_centavos": 350156,
+      "term_total_centavos": 30350156,
+      "term_date": "2024-05-28",
+      "streets": [
+        "Rua Estrela Matutina",
+        "Rua Luiz Borges",
+        "Rua Francisco Joaquim Rizzotti"
+      ],
+      "siafem_value_convenio_cents": 30000000,
+      "siafem_contrapartida_centavos": 350156,
+      "siafem_total_cents": 30350156,
+      "siafem_liberacoes": [
+        {
+          "date": "2025-01-10",
+          "cents": 25862491
+        }
+      ],
+      "siafem_liberado_total_centavos": 25862491,
+      "siafem_saldo_a_liberar_centavos": 4137509,
+      "siafem_last_updated": "2026-11-12",
+      "siafem_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120240581081",
+      "term_estadual_url": "https://sapl.serrana.sp.leg.br/media/sapl/public/documentoacessorio/2024/1714/termo_de_convenio.pdf",
+      "term_estadual_sha256": "76c21571b2108c69ebe3d53c57d966e9b08f3a03c552044d7822f668a626483f",
+      "municipal_contract_url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorrencia_015_2024/126-2024_-_contrato_recape_-_jtr.pdf",
+      "pending": "Obter número de ligação documental interna entre SGRITER2024101463DM e identificação SIAFEM 51010120240581081, para homologação de chave cruzada"
+    }
+  ],
+  "summary": {
+    "candidate_instruments": 2,
+    "liberacoes_combinadas_centavos": 93758062,
+    "confirmed_exact_number_crosswalks": 0,
+    "composite_high_confidence": 1,
+    "strong_candidates": 1,
+    "spend_paid_to_contractor_unknown": true,
+    "state_cash_transferred_to_municipality": true,
+    "not_additive_to_existing_siafem_30552102920": true
+  },
+  "restrictions": [
+    "Os R$ 937.580,62 integram as liberações já contidas na série SIAFEM de R$ 305.521.029,20: não adicionar novamente.",
+    "Liberação estadual ao município não significa medição, liquidação ou pagamento ao empreiteiro.",
+    "R$ 258.624,91 contratados no município coincidem com liberação de mesma quantia, sem demonstrar a conta específica do pagamento da empreiteira.",
+    "Para 100540 não foi recuperado o termo estadual completo: valor e datas SIAFEM são evidências de um candidato, não prova de identidade por número de documento."
+  ]
+}

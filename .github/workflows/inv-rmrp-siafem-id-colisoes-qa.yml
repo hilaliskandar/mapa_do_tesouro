@@ -1,0 +1,25 @@
+name: INV RMRP - QA colisao IDs SIAFEM
+on:
+  pull_request:
+    paths:
+      - "pipeline/qa/qa_inv_rmrp_siafem_id_colisoes.py"
+      - "governance/INV_RMRP_BATATAIS_COLISAO_IDS_SIAFEM_5128032447861_2026_11_12.json"
+      - ".github/workflows/inv-rmrp-siafem-id-colisoes-qa.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verificar sintaxe
+        run: python -m py_compile pipeline/qa/qa_inv_rmrp_siafem_id_colisoes.py
+      - name: Checar colisao de IDs e impedir deducao ou fusao silenciosa
+        run: python pipeline/qa/qa_inv_rmrp_siafem_id_colisoes.py

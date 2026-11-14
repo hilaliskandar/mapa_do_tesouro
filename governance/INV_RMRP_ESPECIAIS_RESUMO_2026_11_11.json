@@ -1,0 +1,41 @@
+{
+  "data_extracao": "2026-11-11",
+  "fonte": "https://api-publica.transferegov.gestao.gov.br/especiais/planos-acao-especiais",
+  "filtro": "id_beneficiario de 34 municipios RMRP identificados em beneficiarios-especiais SP",
+  "escopo": "planos_de_acao_cadastrados_nao_pagamentos",
+  "municipios": 34,
+  "planos": 284,
+  "total_investimento_planejado_centavos": 9304632506,
+  "total_custeio_planejado_centavos": 325700000,
+  "contagem_situacao": {
+    "CIENTE": 253,
+    "IMPEDIDO": 25,
+    "Plano de Trabalho em Elaboração/Aguardando Envio para Análise": 4,
+    "Impedido por Rejeição do Plano de Trabalho": 2
+  },
+  "contagem_categoria": {
+    "INVESTIMENTO": 270,
+    "CUSTEIO": 14
+  },
+  "contagem_ano": {
+    "2020": 18,
+    "2021": 23,
+    "2022": 49,
+    "2023": 60,
+    "2024": 45,
+    "2025": 56,
+    "2026": 33
+  },
+  "qa": {
+    "duplicados": 0,
+    "municipios_incompletos": [],
+    "sem_pagamentos_consultados": true,
+    "projetos_nao_territorializados": true
+  },
+  "limites": [
+    "Somatório de valores por plano não é investimento executado ou pagamento",
+    "Planos com status impedido/cancelado ainda compõem inventário documental",
+    "Custeio e investimento mantidos separados",
+    "Relação com Obrasgov não comprovada"
+  ]
+}

@@ -1,0 +1,54 @@
+name: INV RMRP - aquisição Transferegov em staging
+on:
+  workflow_dispatch:
+    inputs:
+      limit_pages:
+        description: '0 para aquisição integral; 1 para smoke test incompleto'
+        required: false
+        default: '1'
+        type: choice
+        options:
+          - '1'
+          - '0'
+jobs:
+  acquire-rmrp:
+    name: Capturar 34 municípios sem publicar
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Aquisição somente-leitura
+        run: |
+          python pipeline/acquire/collect_investimentos_rmrp.py \
+            --roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
+            --output inv_rmrp_snapshot \
+            --limit-pages "${{ inputs.limit_pages }}"
+      - name: QA local
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,pathlib,sys
+          p=pathlib.Path('inv_rmrp_snapshot/manifest.json')
+          if not p.exists():
+              sys.exit('Manifesto ausente; captura falhou antes da emissão')
+          x=json.loads(p.read_text())
+          print({'qa_status':x['qa_status'],'complete':x['snapshot_complete'],
+                 'coverage':len(x.get('coverage',[])),'errors':len(x.get('errors',[]))})
+          assert len(x.get('coverage',[]))==68
+          if '${{ inputs.limit_pages }}' == '0':
+              assert x['snapshot_complete'] is True
+          PY
+      - name: Guardar artefatos temporários sem publicar
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-transferegov-${{ github.run_id }}
+          path: inv_rmrp_snapshot/
+          if-no-files-found: warn
+          retention-days: 14

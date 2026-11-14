@@ -110,11 +110,19 @@ jobs:
             --output build/site \
             --app-version "${{ steps.version.outputs.value }}"
 
+      - name: Include INV-RMRP explorer only in PR 233 preview
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 233 }}
+        run: python deployment/materialize_investimentos_preview.py --site build/site
+
       - name: Validate candidate locally
         run: |
           python deployment/qa_pages.py \
             --site build/site \
             --expected-app-version "${{ steps.version.outputs.value }}"
+
+      - name: Validate INV-RMRP preview locally
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 233 }}
+        run: python deployment/qa_investimentos_preview.py --site build/site
 
       - name: Upload candidate artifact
         uses: actions/upload-artifact@v4
@@ -146,6 +154,14 @@ jobs:
             --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" \
             --expected-app-version "${{ steps.version.outputs.value }}"
 
+      - name: Validate INV-RMRP preview remotely
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 233 }}
+        env:
+          DEPLOY_ALIAS: ${{ steps.target.outputs.alias }}
+        run: |
+          python deployment/qa_investimentos_preview.py \
+            --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+
       - name: Publish preview URL
         shell: bash
         env:
@@ -156,7 +172,7 @@ jobs:
 
   rmj-browser-qa:
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 18
     permissions:
       contents: read

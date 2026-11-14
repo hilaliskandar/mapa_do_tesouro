@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Investimentos públicos na RMRP — prévia exploratória</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#233044;background:#f2f5f8}
+body{max-width:1200px;margin:0 auto;padding:24px 18px}h1{font-size:1.8rem;margin-bottom:8px}
+p{line-height:1.55}.note{color:#43566a}.panel{background:white;border:1px solid #dce3ec;border-radius:9px;padding:17px;margin-top:18px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:13px}
+label{font-weight:600;font-size:14px;display:flex;flex-direction:column;gap:6px}
+select,input{font:inherit;padding:9px;border-radius:5px;border:1px solid #9dadbe;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{padding:10px;text-align:left;border-bottom:1px solid #e1e6eb;vertical-align:top}tr:nth-child(even){background:#f7f9fb}
+.scroll{overflow-x:auto}.muted{font-size:13px;color:#526176}.flag{background:#fff8dc;border:1px solid #dfc781;padding:12px;border-radius:6px}#status{font-weight:600}
+a{color:#13559c}thead{background:#edf2f6}
+</style></head><body>
+<p><a href="./index.html">Voltar ao painel fiscal</a></p>
+<h1>Investimentos públicos — piloto RMRP</h1>
+<p class="flag"><strong>Prévia exploratória não homologada.</strong> Os dados abaixo são uma seleção de propostas do Transferegov, não uma lista de obras executadas. O município exibido é o do recebedor, não necessariamente o local de realização. Valores de propostas não são transferências ou pagamentos.</p>
+<div class="panel controls">
+<label>Município<select id="municipio"><option value="">Todos (34)</option></select></label>
+<label>Sub-região<select id="subregiao"><option value="">Todas</option></select></label>
+<label>Módulo<select id="modulo"><option value="">Todos</option><option value="parcerias">Parcerias</option><option value="discricionarias">Discricionárias/Legais</option></select></label>
+<label>Objeto ou categoria<input id="busca" type="search" placeholder="Ex.: pavimentação, saúde"></label>
+</div>
+<section class="panel">
+<p id="status" role="status" aria-live="polite">Carregando amostra...</p>
+<p id="coverage" class="note"></p>
+<p id="resultado" class="note"></p>
+<div class="scroll"><table><thead><tr><th>Município recebedor</th><th>Módulo / ID</th><th>Objeto (extrato)</th><th>Categoria declarada</th><th>Valor planejado (R$)</th><th>Origem</th></tr></thead><tbody id="linhas"></tbody></table></div>
+<p class="muted">São apresentados até 200 exemplos selecionados pela triagem de palavras-chave, e não um censo dos 7.153 registros. O campo financeiro é planejamento, quando disponível. A consulta não agrega valores monetários da amostra.</p>
+</section>
+<script>
+"use strict";
+const $$=s=>document.querySelector(s),money=new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+let db=null;
+const addText=(parent,tag,value)=>{const el=document.createElement(tag);el.textContent=value==null?"Não informado":String(value);parent.appendChild(el);return el};
+function refresh(){
+ if(!db)return;
+ const m=$$("#municipio").value,s=$$("#subregiao").value,mod=$$("#modulo").value,term=$$("#busca").value.toLocaleLowerCase("pt-BR").trim();
+ const validCities=new Set(db.municipios.filter(x=>(!m||x.codigo_ibge===m)&&(!s||x.sub_regiao===s)).map(x=>x.codigo_ibge));
+ const all=db.contagens.filter(x=>validCities.has(x.codigo_ibge)&&(!mod||x.modulo===mod));
+ const total=all.reduce((a,x)=>a+x.total_propostas_api,0),rows=db.propostas_amostrais.filter(x=>validCities.has(x.codigo_ibge_recebedor)&&(!mod||x.modulo===mod)&&(!term||(x.objeto_resumido+" "+x.categoria_origem+" "+x.nome_municipio_recebedor).toLocaleLowerCase("pt-BR").includes(term)));
+ $$("#coverage").textContent=total.toLocaleString("pt-BR")+" propostas informadas pela API para os filtros de município e módulo, antes da triagem textual e sem deduplicação entre módulos.";
+ $$("#resultado").textContent=rows.length.toLocaleString("pt-BR")+" registros exemplificativos visíveis. Esta amostra não representa o total de instrumentos ou investimentos.";
+ const tbody=$$("#linhas");tbody.replaceChildren();
+ for(const x of rows){const tr=document.createElement("tr");addText(tr,"td",x.nome_municipio_recebedor);addText(tr,"td",x.modulo+" / "+x.id_proposta);addText(tr,"td",x.objeto_resumido);addText(tr,"td",x.categoria_origem||"Não informada");addText(tr,"td",x.valor_planejado_centavos===null?"Não informado":money.format(x.valor_planejado_centavos/100));const cell=document.createElement("td"),link=document.createElement("a");link.textContent="API oficial";link.href=x.fonte_api;link.target="_blank";link.rel="noopener noreferrer";cell.appendChild(link);tr.appendChild(cell);tbody.appendChild(tr);}
+ $$("#status").textContent="Consulta exploratória concluída. Dados de candidatos não homologados.";
+}
+(async()=>{try{const r=await fetch("./data/api/v3/investimentos/rmrp/preview-amostras.json",{cache:"no-cache"});if(!r.ok)throw Error("HTTP "+r.status);db=await r.json();if(db.meta.status!=="preview_qa_nao_publicavel")throw Error("Estado inesperado");
+ const city=$$("#municipio"),sub=$$("#subregiao");for(const x of db.municipios){let o=document.createElement("option");o.value=x.codigo_ibge;o.textContent=x.nome+" ("+x.codigo_ibge+")";city.appendChild(o);}
+ for(const name of [...new Set(db.municipios.map(x=>x.sub_regiao))].sort()){let o=document.createElement("option");o.value=name;o.textContent=name;sub.appendChild(o)}
+ for(const id of ["municipio","subregiao","modulo","busca"])$$("#"+id).addEventListener(id==="busca"?"input":"change",refresh);refresh();
+}catch(err){$$("#status").textContent="Não foi possível carregar a prévia: "+err.message;}})();
+</script></body></html>

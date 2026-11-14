@@ -1,0 +1,1156 @@
+{
+  "metadata": {
+    "rank_start": 209,
+    "rank_end": 234,
+    "source": "Transferegov Especiais API",
+    "bank_credit_verified": false
+  },
+  "items": [
+    {
+      "plan": "82458",
+      "ibge": "3551504",
+      "municipio": "Serrana",
+      "declared": "198000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 52747,
+          "numero": "2025NE005605",
+          "valor": 198000,
+          "dt": "2025-10-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 66204,
+          "emp": 52747,
+          "numero": "2025TF006169",
+          "valor": 198000,
+          "dt": "2025-10-20",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 44393,
+          "dh": 66204,
+          "numero_op": "2025OP005642",
+          "numero_ob": "2025OB005641",
+          "dt_ob": "2025-10-21",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "87773",
+      "ibge": "3551504",
+      "municipio": "Serrana",
+      "declared": "198000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 58070,
+          "numero": "2025NE009782",
+          "valor": 198000,
+          "dt": "2025-12-15",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 70257,
+          "emp": 58070,
+          "numero": "2025TF009838",
+          "valor": 198000,
+          "dt": "2025-12-17",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 48515,
+          "dh": 70257,
+          "numero_op": "2025OP009792",
+          "numero_ob": "2025OB009798",
+          "dt_ob": "2025-12-18",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "82457",
+      "ibge": "3551504",
+      "municipio": "Serrana",
+      "declared": "198000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "IMPEDIDO",
+      "empenhos": [
+        {
+          "id": 52746,
+          "numero": null,
+          "valor": 198000,
+          "dt": "2025-07-29",
+          "situacao": 1,
+          "gnd": 4
+        }
+      ],
+      "documentos": [],
+      "ordens": [],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 0,
+      "totalDocs": 0
+    },
+    {
+      "plan": "84508",
+      "ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "declared": "198000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 54755,
+          "numero": "2025NE004932",
+          "valor": 198000,
+          "dt": "2025-09-26",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 65504,
+          "emp": 54755,
+          "numero": "2025TF005054",
+          "valor": 198000,
+          "dt": "2025-09-26",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 43698,
+          "dh": 65504,
+          "numero_op": "2025OP004938",
+          "numero_ob": "2025OB004937",
+          "dt_ob": "2025-10-01",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "82459",
+      "ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "declared": "198000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "Impedido por Rejeição do Plano de Trabalho",
+      "empenhos": [
+        {
+          "id": 52748,
+          "numero": null,
+          "valor": 198000,
+          "dt": "2025-07-29",
+          "situacao": 1,
+          "gnd": 4
+        }
+      ],
+      "documentos": [],
+      "ordens": [],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 0,
+      "totalDocs": 0
+    },
+    {
+      "plan": "87774",
+      "ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "declared": "198000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 58071,
+          "numero": "2025NE009786",
+          "valor": 198000,
+          "dt": "2025-12-15",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 70251,
+          "emp": 58071,
+          "numero": "2025TF009832",
+          "valor": 198000,
+          "dt": "2025-12-17",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 48514,
+          "dh": 70251,
+          "numero_op": "2025OP009791",
+          "numero_ob": "2025OB009797",
+          "dt_ob": "2025-12-18",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "10331",
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "declared": "180000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 11341,
+          "numero": "2021NE001168",
+          "valor": 180000,
+          "dt": "2021-07-09",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 24043,
+          "emp": 11341,
+          "numero": "2021TF000610",
+          "valor": 180000,
+          "dt": "2021-07-30",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 2468,
+          "dh": 24043,
+          "numero_op": "2021OP000626",
+          "numero_ob": "2021OB800629",
+          "dt_ob": "2021-08-02",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "15888",
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "declared": "180000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 17386,
+          "numero": "2022NE001927",
+          "valor": 180000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 29863,
+          "emp": 17386,
+          "numero": "2023TF001142",
+          "valor": 180000,
+          "dt": "2023-03-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 11852,
+          "dh": 29863,
+          "numero_op": "2023OP001011",
+          "numero_ob": "2023OB801011",
+          "dt_ob": "2023-03-29",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "21961",
+      "ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "declared": "180000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 14876,
+          "numero": "2022NE008148",
+          "valor": 180000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 36123,
+          "emp": 14876,
+          "numero": "2023TF005062",
+          "valor": 180000,
+          "dt": "2023-03-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 15755,
+          "dh": 36123,
+          "numero_op": "2023OP005071",
+          "numero_ob": "2023OB805058",
+          "dt_ob": "2023-03-29",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "3647",
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "declared": "170000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 4749,
+          "numero": "2020NE800786",
+          "valor": 170000,
+          "dt": "2020-05-18",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 21998,
+          "emp": 4749,
+          "numero": "2020TF000968",
+          "valor": 170000,
+          "dt": "2020-06-25",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 757,
+          "dh": 21998,
+          "numero_op": "2020OP000966",
+          "numero_ob": "2020OB800970",
+          "dt_ob": "2020-06-26",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "3501",
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "declared": "170000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 4534,
+          "numero": "2020NE800783",
+          "valor": 170000,
+          "dt": "2020-05-18",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 22000,
+          "emp": 4534,
+          "numero": "2020TF000970",
+          "valor": 170000,
+          "dt": "2020-06-25",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 756,
+          "dh": 22000,
+          "numero_op": "2020OP000968",
+          "numero_ob": "2020OB800975",
+          "dt_ob": "2020-06-26",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "38823",
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "declared": "167404.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 32406,
+          "numero": "2023NE007883",
+          "valor": 167404,
+          "dt": "2023-07-06",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 45612,
+          "emp": 32406,
+          "numero": "2023TF014692",
+          "valor": 167404,
+          "dt": "2023-12-05",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 25468,
+          "dh": 45612,
+          "numero_op": "2023OP014894",
+          "numero_ob": "2023OB814908",
+          "dt_ob": "2023-12-11",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "18595",
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 19994,
+          "numero": "2022NE002685",
+          "valor": 150000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 30621,
+          "emp": 19994,
+          "numero": "2023TF001551",
+          "valor": 150000,
+          "dt": "2023-03-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 12277,
+          "dh": 30621,
+          "numero_op": "2023OP001402",
+          "numero_ob": "2023OB801402",
+          "dt_ob": "2023-03-29",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "21974",
+      "ibge": "3505609",
+      "municipio": "Barrinha",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 14889,
+          "numero": "2022NE008140",
+          "valor": 150000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 36115,
+          "emp": 14889,
+          "numero": "2023TF005055",
+          "valor": 150000,
+          "dt": "2023-03-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 15761,
+          "dh": 36115,
+          "numero_op": "2023OP005064",
+          "numero_ob": "2023OB805044",
+          "dt_ob": "2023-03-29",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "71109",
+      "ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 41349,
+          "numero": "2024NE001555",
+          "valor": 150000,
+          "dt": "2024-06-26",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 49263,
+          "emp": 41349,
+          "numero": "2024TF000922",
+          "valor": 150000,
+          "dt": "2024-06-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 27860,
+          "dh": 49263,
+          "numero_op": "2024OP005709",
+          "numero_ob": "2024OB005708",
+          "dt_ob": "2024-07-03",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "14851",
+      "ibge": "3518602",
+      "municipio": "Guariba",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 16595,
+          "numero": "2022NE003099",
+          "valor": 150000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 37062,
+          "emp": 16595,
+          "numero": "2023TF001782",
+          "valor": 97000,
+          "dt": "2023-03-28",
+          "situacao": "Enviado com Sucesso"
+        },
+        {
+          "id": 31042,
+          "emp": 16595,
+          "numero": "2022TF001776",
+          "valor": 53000,
+          "dt": "2022-06-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 12494,
+          "dh": 37062,
+          "numero_op": "2023OP001602",
+          "numero_ob": "2023OB801602",
+          "dt_ob": "2023-03-29",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        },
+        {
+          "id": 8368,
+          "dh": 31042,
+          "numero_op": "2022OP001753",
+          "numero_ob": "2022OB801753",
+          "dt_ob": "2022-07-01",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 2,
+      "pagesOrdens": 2,
+      "totalOrdens": 2
+    },
+    {
+      "plan": "12073",
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 12985,
+          "numero": "2021NE001743",
+          "valor": 150000,
+          "dt": "2021-07-09",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 24660,
+          "emp": 12985,
+          "numero": "2021TF001279",
+          "valor": 150000,
+          "dt": "2021-07-30",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 3364,
+          "dh": 24660,
+          "numero_op": "2021OP001292",
+          "numero_ob": "2021OB801295",
+          "dt_ob": "2021-08-02",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "3653",
+      "ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 4368,
+          "numero": "2020NE800767",
+          "valor": 150000,
+          "dt": "2020-05-18",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 21884,
+          "emp": 4368,
+          "numero": "2020TF000867",
+          "valor": 150000,
+          "dt": "2020-06-25",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 767,
+          "dh": 21884,
+          "numero_op": "2020OP000865",
+          "numero_ob": "2020OB800876",
+          "dt_ob": "2020-06-26",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "71941",
+      "ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 42181,
+          "numero": "2024NE003713",
+          "valor": 150000,
+          "dt": "2024-06-26",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 51541,
+          "emp": 42181,
+          "numero": "2024TF002046",
+          "valor": 150000,
+          "dt": "2024-06-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 28773,
+          "dh": 51541,
+          "numero_op": "2024OP001495",
+          "numero_ob": "2024OB001496",
+          "dt_ob": "2024-07-03",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "13523",
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 14393,
+          "numero": "2021NE000563",
+          "valor": 150000,
+          "dt": "2021-07-08",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 23491,
+          "emp": 14393,
+          "numero": "2021TF001933",
+          "valor": 150000,
+          "dt": "2021-07-30",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 4107,
+          "dh": 23491,
+          "numero_op": "2021OP001943",
+          "numero_ob": "2021OB801946",
+          "dt_ob": "2021-08-02",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "67947",
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 38591,
+          "numero": "2024NE009212",
+          "valor": 150000,
+          "dt": "2024-06-26",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 57600,
+          "emp": 38591,
+          "numero": "2024TF010896",
+          "valor": 150000,
+          "dt": "2024-12-11",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 34148,
+          "dh": 57600,
+          "numero_op": "2024OP007619",
+          "numero_ob": "2024OB007621",
+          "dt_ob": "2024-12-12",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "3593",
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 3591,
+          "numero": "2020NE801312",
+          "valor": 150000,
+          "dt": "2020-05-18",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 21925,
+          "emp": 3591,
+          "numero": "2020TF000906",
+          "valor": 150000,
+          "dt": "2020-06-25",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 1312,
+          "dh": 21925,
+          "numero_op": "2020OP000904",
+          "numero_ob": "2020OB800859",
+          "dt_ob": "2020-06-26",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "14865",
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 16604,
+          "numero": "2022NE003083",
+          "valor": 150000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 31026,
+          "emp": 16604,
+          "numero": "2022TF001769",
+          "valor": 150000,
+          "dt": "2022-06-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 8357,
+          "dh": 31026,
+          "numero_op": "2022OP001746",
+          "numero_ob": "2022OB801746",
+          "dt_ob": "2022-07-01",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "21475",
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 22874,
+          "numero": "2022NE007328",
+          "valor": 150000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 35303,
+          "emp": 22874,
+          "numero": "2022TF003778",
+          "valor": 150000,
+          "dt": "2022-06-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 10314,
+          "dh": 35303,
+          "numero_op": "2022OP003777",
+          "numero_ob": "2022OB803787",
+          "dt_ob": "2022-07-01",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "21941",
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 23340,
+          "numero": "2022NE008130",
+          "valor": 150000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 36105,
+          "emp": 23340,
+          "numero": "2023TF005047",
+          "valor": 150000,
+          "dt": "2023-03-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 15741,
+          "dh": 36105,
+          "numero_op": "2023OP005056",
+          "numero_ob": "2023OB805028",
+          "dt_ob": "2023-03-29",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    },
+    {
+      "plan": "21971",
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "declared": "150000.00",
+      "category": "INVESTIMENTO",
+      "statusPlan": "CIENTE",
+      "empenhos": [
+        {
+          "id": 14886,
+          "numero": "2022NE008143",
+          "valor": 150000,
+          "dt": "2022-05-17",
+          "situacao": 4,
+          "gnd": 4
+        }
+      ],
+      "documentos": [
+        {
+          "id": 36118,
+          "emp": 14886,
+          "numero": "2023TF005058",
+          "valor": 150000,
+          "dt": "2023-03-28",
+          "situacao": "Enviado com Sucesso"
+        }
+      ],
+      "ordens": [
+        {
+          "id": 15759,
+          "dh": 36118,
+          "numero_op": "2023OP005067",
+          "numero_ob": "2023OB805050",
+          "dt_ob": "2023-03-29",
+          "situacao": "OB Enviada à instituição bancária para pagamento"
+        }
+      ],
+      "errors": [],
+      "pagesEmp": 1,
+      "totalEmp": 1,
+      "pagesDocs": 1,
+      "totalDocs": 1,
+      "pagesOrdens": 1,
+      "totalOrdens": 1
+    }
+  ]
+}

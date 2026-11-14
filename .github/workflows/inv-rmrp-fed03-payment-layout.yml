@@ -1,0 +1,36 @@
+name: INV RMRP - FED03 layouts pagamentos OBTV
+on:
+  push:
+    branches:
+      - investimentos-territoriais-sp645-20261111
+    paths:
+      - pipeline/acquire/inv_rmrp_fed03_payment_layout.py
+      - .github/workflows/inv-rmrp-fed03-payment-layout.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-payments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify syntax
+        run: python3 -m py_compile pipeline/acquire/inv_rmrp_fed03_payment_layout.py
+      - name: Inspect original national payment and OBTV datasets
+        run: |
+          python3 pipeline/acquire/inv_rmrp_fed03_payment_layout.py \
+            --out-dir "${RUNNER_TEMP}/fed03_layout"
+      - name: Upload metadata only, never payment microdata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-fed03-layouts
+          path: ${{ runner.temp }}/fed03_layout/manifest_fed03_layout.json
+          retention-days: 30
+          if-no-files-found: warn

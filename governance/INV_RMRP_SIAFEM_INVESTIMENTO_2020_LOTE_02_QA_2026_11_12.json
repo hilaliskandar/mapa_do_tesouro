@@ -1,0 +1,266 @@
+{
+  "source": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx",
+  "updated": "2026-11-12",
+  "filters": {
+    "tipo": "Investimento",
+    "beneficiado": "Prefeituras",
+    "liberacao_inicio": "01/01/2020"
+  },
+  "municipios": [
+    {
+      "nome": "Orlândia",
+      "ibge": "3534302",
+      "registros": 22,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "9.720.319,10",
+        "32",
+        "6.909.485,87",
+        "393.940,83"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Pitangueiras",
+      "ibge": "3539509",
+      "registros": 24,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "9.654.645,46",
+        "27",
+        "9.418.527,96",
+        "236.117,50"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Pontal",
+      "ibge": "3540200",
+      "registros": 11,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "7.729.849,62",
+        "14",
+        "5.645.522,24",
+        "275.133,72"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Pradópolis",
+      "ibge": "3540903",
+      "registros": 32,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "22.534.425,32",
+        "51",
+        "20.063.468,96",
+        "980.932,12"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Ribeirão Preto",
+      "ibge": "3543402",
+      "registros": 41,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "31.454.323,73",
+        "47",
+        "30.967.747,17",
+        "241.822,22"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Sales Oliveira",
+      "ibge": "3544905",
+      "registros": 20,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "8.285.862,27",
+        "26",
+        "5.472.513,15",
+        "1.485.302,79"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Santa Cruz da Esperança",
+      "ibge": "3546256",
+      "registros": 9,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "2.984.532,13",
+        "12",
+        "2.667.267,93",
+        "277.264,20"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Santa Rita do Passa Quatro",
+      "ibge": "3547502",
+      "registros": 31,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "25.934.755,46",
+        "48",
+        "18.303.139,81",
+        "5.251.654,21"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Santa Rosa de Viterbo",
+      "ibge": "3547601",
+      "registros": 25,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "8.469.789,73",
+        "29",
+        "7.161.610,69",
+        "1.123.179,04"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Santo Antônio da Alegria",
+      "ibge": "3547908",
+      "registros": 25,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "8.879.706,01",
+        "34",
+        "8.073.791,17",
+        "805.914,84"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Serra Azul",
+      "ibge": "3551405",
+      "registros": 12,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "3.345.378,97",
+        "13",
+        "2.740.757,65",
+        "604.621,32"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Serrana",
+      "ibge": "3551504",
+      "registros": 35,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "16.867.669,10",
+        "47",
+        "14.997.041,10",
+        "1.623.435,69"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Sertãozinho",
+      "ibge": "3551702",
+      "registros": 39,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "20.212.485,06",
+        "55",
+        "16.865.491,90",
+        "977.400,59"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "São Simão",
+      "ibge": "3550902",
+      "registros": 18,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "6.214.984,59",
+        "28",
+        "4.918.838,30",
+        "665.177,02"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Taiúva",
+      "ibge": "3553203",
+      "registros": 16,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "4.632.532,02",
+        "25",
+        "2.594.526,67",
+        "533.364,68"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Tambaú",
+      "ibge": "3553302",
+      "registros": 41,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "14.253.183,78",
+        "51",
+        "12.082.933,87",
+        "1.977.736,87"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Taquaral",
+      "ibge": "3553658",
+      "registros": 13,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "3.170.899,46",
+        "14",
+        "3.084.005,57",
+        "86.893,89"
+      ],
+      "erro": null
+    }
+  ]
+}

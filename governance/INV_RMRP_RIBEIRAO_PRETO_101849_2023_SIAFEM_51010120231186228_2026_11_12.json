@@ -1,0 +1,60 @@
+{
+  "reference_date": "2026-11-12",
+  "municipio": "Ribeirão Preto",
+  "codigo_ibge": "3543402",
+  "public_instrument": "101849/2023",
+  "public_process": "SGRI-PRC-2023-00461-DM",
+  "internal_siafem": "51010120231186228",
+  "status": "CORRESPONDENCIA_COMPOSTA_ALTA_CONFIANCA_COM_DIVERGENCIA_DATA_2_DIAS_SEM_CHAVE_LITERAL",
+  "evidence_public_state": {
+    "source": "https://www.imprensaoficial.com.br/Certificacao/GatewayCertificaPDF.aspx?notarizacaoID=a39072cf-8827-4b26-bc65-f393bd00e5f3",
+    "date_published": "2023-07-17",
+    "source_page": "Caderno Executivo seção I, volume 133, nº 34, página 1",
+    "date_signed": "2023-07-14",
+    "object": "Construção de praça no Complexo Ribeirão Verde",
+    "state_commitment_cents": 40000000
+  },
+  "evidence_local_budget": {
+    "source": "https://pt.scribd.com/document/721868543/Diario-Oficial-2024-03-01",
+    "source_notice": "Reprodução de Diário Oficial municipal nº 11.860 de 01/03/2024, Lei Municipal 14.909 de 27/02/2024; recaptura no portal municipal oficial pendente",
+    "state_budget_cents": 40000000,
+    "municipal_budget_cents": 41061292,
+    "project_budget_cents": 81061292,
+    "legal_number": "Lei 14909/2024",
+    "note": "Autorização orçamentária não comprova liquidação nem efetiva obra realizada"
+  },
+  "evidence_siafem": {
+    "source": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120231186228",
+    "date_registered": "2023-07-12",
+    "date_published": "2023-07-13",
+    "state_commitment_cents": 40000000,
+    "municipal_contribution_cents": 41061292,
+    "total_cents": 81061292,
+    "liberado_centavos": 40000000,
+    "last_disbursement": "2025-12-12",
+    "object": "PRACA CONSTRUCAOREFORMA N.",
+    "public_number_in_siafem_page": false
+  },
+  "conflict": {
+    "field": "date_signed",
+    "state_publication": "2023-07-14",
+    "siafem": "2023-07-12",
+    "days_difference": 2,
+    "requires_source_recheck": true
+  },
+  "controls": {
+    "same_municipio": true,
+    "same_orgao": true,
+    "same_instrument_type": true,
+    "state_commitment_matches": true,
+    "municipal_contribution_matches": true,
+    "total_matches": true,
+    "object_compatible": true,
+    "signed_date_matches": false,
+    "exact_identifier_matches": false,
+    "state_cash_already_in_siafem_total": true,
+    "contractor_paid_proved": false,
+    "physical_execution_proved": false
+  },
+  "decision": "Par de alta confiança documental composta; número interno ↔ número público ainda não homologado por chave literal. Divergência de data de dois dias impede classificar como identificação inequívoca até recuperar termo assinado, SP Sem Papel ou Código Único."
+}

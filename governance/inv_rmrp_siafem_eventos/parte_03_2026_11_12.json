@@ -1,0 +1,1927 @@
+{
+  "source": "SIAFEM-SP",
+  "time_filter": "liberacao a partir de 01/01/2020 (reaplicar sobre eventos)",
+  "part": 3,
+  "events": [
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "29011800213/20",
+      "esperados": 1,
+      "valor_resumo": "199.943,80",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2020",
+          "199.944"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "29011801589/21",
+      "esperados": 2,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/08/2022",
+          "100.000"
+        ],
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "29011820220147651",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "29011820220522645",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/11/2022",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "2901182110631837",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/03/2022",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "2901182113232334",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "2901182661962/19",
+      "esperados": 1,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/05/2020",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "4101012021/00215",
+      "esperados": 1,
+      "valor_resumo": "80.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/11/2022",
+          "80.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3518859",
+      "municipio": "Guatapará",
+      "id": "51010120231760574",
+      "esperados": 2,
+      "valor_resumo": "593.640,38",
+      "status": "ok",
+      "eventos": [
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2025",
+          "293.640"
+        ],
+        [
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/03/2024",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "1301752021/15501",
+      "esperados": 1,
+      "valor_resumo": "60.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/02/2022",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "18010120260424146",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "02/07/2026",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "25010120221180392",
+      "esperados": 1,
+      "valor_resumo": "269.738,90",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/02/2024",
+          "269.739"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "29011820-2018067",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/07/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "29011820220511919",
+      "esperados": 1,
+      "valor_resumo": "600.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2022",
+          "600.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "29011820220516381",
+      "esperados": 2,
+      "valor_resumo": "762.708,66",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/08/2024",
+          "362.709"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "29011820220528783",
+      "esperados": 2,
+      "valor_resumo": "1.500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2024",
+          "450.000"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/12/2022",
+          "1.050.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "29011820220727197",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/01/2024",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "29011820221351865",
+      "esperados": 2,
+      "valor_resumo": "546.522,14",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2024",
+          "196.522"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2023",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "29011820221351874",
+      "esperados": 1,
+      "valor_resumo": "123.960,89",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/12/2023",
+          "123.961"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "29011820221351883",
+      "esperados": 1,
+      "valor_resumo": "355.804,01",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/12/2023",
+          "355.804"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "2901182100623707",
+      "esperados": 2,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/02/2025",
+          "200.000"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "2901182103333485",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/12/2023",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "2901182219564/19",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2021",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "290118557299/18",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/07/2020",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "290118557827/18",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/07/2020",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "290118709704-18",
+      "esperados": 1,
+      "valor_resumo": "800.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/11/2020",
+          "800.000"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/01/2019",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "3500331717264/19",
+      "esperados": 1,
+      "valor_resumo": "44.920,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/09/2023",
+          "44.920"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "07/10/2019",
+          "44.920"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "41010120250656597",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/07/2025",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "41010120250777494",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/08/2025",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "5001023164111/19",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/08/2020",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "51010120230626572",
+      "esperados": 3,
+      "valor_resumo": "1.398.301,25",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/10/2024",
+          "598.301"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/06/2023",
+          "100.000"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/05/2023",
+          "700.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "51010120231767601",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/10/2025",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "51010120240382588",
+      "esperados": 2,
+      "valor_resumo": "874.223,65",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/10/2025",
+          "464.225"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/08/2025",
+          "409.999"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "51010120240530608",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/10/2026",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "51010120240547525",
+      "esperados": 1,
+      "valor_resumo": "700.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2026",
+          "700.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "51010120240547543",
+      "esperados": 1,
+      "valor_resumo": "1.123.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/08/2025",
+          "1.123.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "id": "51010120240769158",
+      "esperados": 2,
+      "valor_resumo": "2.000.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/12/2024",
+          "1.225.000"
+        ],
+        [
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2024",
+          "775.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "id": "29011800380/21",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/03/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "id": "2901182105622493",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/03/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "id": "2901182220737/19",
+      "esperados": 3,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/03/2022",
+          "120.000"
+        ],
+        [
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/12/2020",
+          "120.000"
+        ],
+        [
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "id": "35003420220109795",
+      "esperados": 1,
+      "valor_resumo": "21.947,47",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/03/2022",
+          "21.947"
+        ]
+      ]
+    },
+    {
+      "ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "id": "41010120231079952",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/09/2023",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "id": "51010120240852871",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/08/2024",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "09019620231747189",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "02/04/2026",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "09020518799-2021",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/01/2022",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "29011820220176054",
+      "esperados": 1,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "29011820220207473",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/06/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "29011820220228025",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "29011820220429515",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "29011820220440291",
+      "esperados": 1,
+      "valor_resumo": "363.190,94",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2022",
+          "363.191"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "29011820220525351",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/05/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "29011820221248532",
+      "esperados": 1,
+      "valor_resumo": "405.134,48",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/06/2023",
+          "405.134"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "2901182111032741",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "290118622270/18",
+      "esperados": 1,
+      "valor_resumo": "480.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/01/2020",
+          "480.000"
+        ],
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/07/2018",
+          "120.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "41010120230765834",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/08/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "51010120240370872",
+      "esperados": 1,
+      "valor_resumo": "375.451,24",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/07/2024",
+          "375.451"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "51010120240370891",
+      "esperados": 1,
+      "valor_resumo": "252.700,84",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "04/07/2024",
+          "252.701"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "51010120240380663",
+      "esperados": 1,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "04/07/2024",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "51010120240679972",
+      "esperados": 1,
+      "valor_resumo": "252.141,74",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/11/2024",
+          "252.142"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "51010120240701035",
+      "esperados": 1,
+      "valor_resumo": "170.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/07/2024",
+          "170.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "id": "51010120250376717",
+      "esperados": 1,
+      "valor_resumo": "79.999,99",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/04/2025",
+          "80.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "08036420260173585",
+      "esperados": 1,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2026",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "09020520220416203",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/05/2022",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "1201012021-00072",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/07/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "12010120220460239",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2024",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "1301012021/09549",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/11/2021",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "18010120260422640",
+      "esperados": 1,
+      "valor_resumo": "130.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/10/2026",
+          "130.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "29011801583/21",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/09/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "29011820220334126",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2022",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "29011820220402281",
+      "esperados": 2,
+      "valor_resumo": "669.469,10",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/08/2023",
+          "319.469"
+        ],
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/09/2022",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "29011820220479161",
+      "esperados": 1,
+      "valor_resumo": "450.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2026",
+          "450.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "51010120240004692",
+      "esperados": 2,
+      "valor_resumo": "600.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/10/2025",
+          "300.000"
+        ],
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2025",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "51010120240119968",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/02/2024",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3530508",
+      "municipio": "Mococa",
+      "id": "51010120240374423",
+      "esperados": 2,
+      "valor_resumo": "645.032,02",
+      "status": "ok",
+      "eventos": [
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/12/2025",
+          "285.032"
+        ],
+        [
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/03/2025",
+          "360.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "13010120230498937",
+      "esperados": 1,
+      "valor_resumo": "60.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/06/2023",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "13010120240132914",
+      "esperados": 1,
+      "valor_resumo": "70.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/06/2024",
+          "70.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "13022520251024245",
+      "esperados": 1,
+      "valor_resumo": "10.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "33403001",
+          "TRANSF.PARA MATERIAL DE CONSUMO",
+          "CUSTEIO",
+          "PREFEITURAS",
+          "26/09/2025",
+          "40.000"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/09/2025",
+          "10.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "13022520260214285",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2026",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "1700301334243*17",
+      "esperados": 4,
+      "valor_resumo": "256.750,95",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/02/2022",
+          "25.633"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2020",
+          "94.701"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/10/2020",
+          "81.850"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/04/2020",
+          "54.566"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "18010100026/21DM",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/01/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "18010100033/21DM",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/01/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "18010120230969487",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/10/2023",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "18010120230995834",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/11/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "18010120250940753",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/06/2026",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "18010120260428254",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/10/2026",
+          "300.000"
+        ]
+      ]
+    }
+  ]
+}

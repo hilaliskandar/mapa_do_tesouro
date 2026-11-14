@@ -1,0 +1,1757 @@
+{
+  "source": "SIAFEM-SP",
+  "time_filter": "liberacao a partir de 01/01/2020 (reaplicar sobre eventos)",
+  "part": 9,
+  "events": [
+    {
+      "ibge": "3550902",
+      "municipio": "São Simão",
+      "id": "5001022753279/19",
+      "esperados": 4,
+      "valor_resumo": "395.930,91",
+      "status": "ok",
+      "eventos": [
+        [
+          "45369220000125",
+          "PREFEITURA MUNICIPAL SAO SIMAO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/10/2020",
+          "166.052"
+        ],
+        [
+          "45369220000125",
+          "PREFEITURA MUNICIPAL SAO SIMAO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/08/2020",
+          "72.506"
+        ],
+        [
+          "45369220000125",
+          "PREFEITURA MUNICIPAL SAO SIMAO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/07/2020",
+          "69.977"
+        ],
+        [
+          "45369220000125",
+          "PREFEITURA MUNICIPAL SAO SIMAO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2020",
+          "87.395"
+        ]
+      ]
+    },
+    {
+      "ibge": "3550902",
+      "municipio": "São Simão",
+      "id": "51010120240001977",
+      "esperados": 1,
+      "valor_resumo": "353.575,69",
+      "status": "ok",
+      "eventos": [
+        [
+          "45369220000125",
+          "PREFEITURA MUNICIPAL SAO SIMAO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2024",
+          "353.576"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "08010143131/21",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "08035804299/13",
+      "esperados": 1,
+      "valor_resumo": "244.754,35",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2020",
+          "244.754"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/07/2018",
+          "244.754"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/07/2016",
+          "244.754"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2015",
+          "326.339"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/12/2014",
+          "326.339"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/11/2013",
+          "244.754"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "13010120240252592",
+      "esperados": 1,
+      "valor_resumo": "10.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "33403001",
+          "TRANSF.PARA MATERIAL DE CONSUMO",
+          "CUSTEIO",
+          "PREFEITURAS",
+          "11/07/2024",
+          "20.000"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/07/2024",
+          "10.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "13022320240677486",
+      "esperados": 1,
+      "valor_resumo": "90.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2024",
+          "90.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "1700301317429/17",
+      "esperados": 8,
+      "valor_resumo": "397.196,15",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/11/2025",
+          "125.580"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "06/06/2025",
+          "64.980"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/02/2025",
+          "28.985"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/09/2024",
+          "34.915"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/08/2024",
+          "19.041"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/04/2024",
+          "28.331"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/12/2023",
+          "45.796"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/11/2023",
+          "49.569"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/10/2019",
+          "97.699"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "18010120240678591",
+      "esperados": 1,
+      "valor_resumo": "120.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/11/2024",
+          "120.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "29011801635/21",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/06/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "2901181459145/18",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/01/2020",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "2901182920202/19",
+      "esperados": 1,
+      "valor_resumo": "137.453,78",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2020",
+          "137.454"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "2901183031234/19",
+      "esperados": 3,
+      "valor_resumo": "129.128,91",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/12/2020",
+          "40.213"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2020",
+          "60.915"
+        ],
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2020",
+          "28.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "2901183031318/19",
+      "esperados": 1,
+      "valor_resumo": "46.813,78",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/09/2020",
+          "46.814"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "290118580840/18",
+      "esperados": 1,
+      "valor_resumo": "73.475,07",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/01/2020",
+          "73.475"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "51010120240528913",
+      "esperados": 1,
+      "valor_resumo": "104.951,23",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/12/2025",
+          "104.951"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "51010120240913073",
+      "esperados": 1,
+      "valor_resumo": "149.250,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/09/2024",
+          "149.250"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "51010120240913144",
+      "esperados": 1,
+      "valor_resumo": "133.503,40",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/09/2024",
+          "133.503"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553203",
+      "municipio": "Taiúva",
+      "id": "51010120240913191",
+      "esperados": 1,
+      "valor_resumo": "358.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45339611000105",
+          "PREFEITURA MUNICIPAL TAIUVA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/09/2024",
+          "358.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "17003020240437481",
+      "esperados": 1,
+      "valor_resumo": "837.127,93",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/10/2025",
+          "837.128"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "25010120221394399",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/07/2023",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "250101SH-1200361",
+      "esperados": 1,
+      "valor_resumo": "137.720,65",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/11/2022",
+          "137.721"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2621012768005/19",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/11/2020",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2801062023280019",
+      "esperados": 1,
+      "valor_resumo": "474.118,79",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/11/2023",
+          "474.119"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011800366/21",
+      "esperados": 2,
+      "valor_resumo": "489.379,93",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/09/2024",
+          "189.380"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/12/2021",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901181915129252",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/11/2022",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901182006419500",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820220235843",
+      "esperados": 2,
+      "valor_resumo": "708.547,26",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2025",
+          "313.547"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/08/2022",
+          "395.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820220487161",
+      "esperados": 1,
+      "valor_resumo": "243.925,87",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "243.926"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820220524443",
+      "esperados": 1,
+      "valor_resumo": "424.032,26",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/12/2022",
+          "424.032"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221371993",
+      "esperados": 2,
+      "valor_resumo": "533.241,40",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/11/2023",
+          "183.241"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/06/2023",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221372589",
+      "esperados": 1,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/08/2023",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221373381",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/05/2023",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221391969",
+      "esperados": 1,
+      "valor_resumo": "229.956,74",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/07/2023",
+          "229.957"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221408485",
+      "esperados": 1,
+      "valor_resumo": "350.155,50",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/06/2024",
+          "350.156"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221408565",
+      "esperados": 1,
+      "valor_resumo": "85.888,07",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2023",
+          "85.888"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221443448",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/08/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820221443457",
+      "esperados": 1,
+      "valor_resumo": "465.515,67",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/12/2023",
+          "465.516"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "29011820-9018341",
+      "esperados": 1,
+      "valor_resumo": "226.962,78",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/09/2021",
+          "226.963"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901182232536/19",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/02/2021",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901182587714/19",
+      "esperados": 2,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/11/2020",
+          "320.000"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2020",
+          "80.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "2901182767866/19",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/07/2020",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "290118568857/18",
+      "esperados": 1,
+      "valor_resumo": "101.569,28",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/12/2020",
+          "101.569"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022017PR411",
+      "esperados": 1,
+      "valor_resumo": "96.256,52",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/01/2020",
+          "96.257"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/06/2019",
+          "192.513"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022018PR136",
+      "esperados": 2,
+      "valor_resumo": "88.666,89",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/10/2020",
+          "70.673"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2020",
+          "17.994"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022018PR137",
+      "esperados": 3,
+      "valor_resumo": "294.383,14",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "06/11/2020",
+          "78.139"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "157.367"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/02/2020",
+          "58.877"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022018PR402",
+      "esperados": 3,
+      "valor_resumo": "211.731,56",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/01/2021",
+          "168.273"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/09/2020",
+          "1.112"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2020",
+          "42.346"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022021PR0121",
+      "esperados": 1,
+      "valor_resumo": "328.427,38",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/05/2022",
+          "328.427"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001022021PR0335",
+      "esperados": 1,
+      "valor_resumo": "194.857,41",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/06/2022",
+          "194.857"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "50010220221341582",
+      "esperados": 2,
+      "valor_resumo": "615.073,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/02/2024",
+          "307.537"
+        ],
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/06/2023",
+          "307.537"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "50010220231684089",
+      "esperados": 1,
+      "valor_resumo": "198.895,88",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/11/2024",
+          "198.896"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001023418013/19",
+      "esperados": 1,
+      "valor_resumo": "126.974,59",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2020",
+          "126.975"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001023418066/19",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2020",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "5001032021/00027",
+      "esperados": 1,
+      "valor_resumo": "170.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/06/2022",
+          "170.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120231185507",
+      "esperados": 1,
+      "valor_resumo": "214.486,52",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2023",
+          "214.487"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120231758807",
+      "esperados": 1,
+      "valor_resumo": "299.406,71",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/11/2024",
+          "299.407"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120231758816",
+      "esperados": 1,
+      "valor_resumo": "437.700,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/11/2024",
+          "437.700"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120240335078",
+      "esperados": 1,
+      "valor_resumo": "138.362,07",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/04/2024",
+          "138.362"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120240517956",
+      "esperados": 1,
+      "valor_resumo": "268.069,11",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/05/2024",
+          "268.069"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553302",
+      "municipio": "Tambaú",
+      "id": "51010120251090017",
+      "esperados": 1,
+      "valor_resumo": "441.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46373445000118",
+          "PREFEITURA MUNICIPAL TAMBAU",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/10/2026",
+          "441.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011801089/21",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/02/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011801163/21",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2021",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011820220529978",
+      "esperados": 1,
+      "valor_resumo": "297.836,68",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/08/2022",
+          "297.837"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011820220529987",
+      "esperados": 2,
+      "valor_resumo": "595.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/11/2023",
+          "295.000"
+        ],
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/08/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011820220544437",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/08/2022",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "29011820220595919",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/08/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "2901182105622496",
+      "esperados": 1,
+      "valor_resumo": "239.676,25",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/12/2021",
+          "239.676"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "2901182117021781",
+      "esperados": 1,
+      "valor_resumo": "149.706,18",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/12/2021",
+          "149.706"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "2901182320142/19",
+      "esperados": 1,
+      "valor_resumo": "107.887,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2022",
+          "107.887"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "35003420250556681",
+      "esperados": 1,
+      "valor_resumo": "5.899,46",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2025",
+          "5.899"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "41000200257-21",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/01/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "51010120240370925",
+      "esperados": 1,
+      "valor_resumo": "288.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/07/2024",
+          "288.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3553658",
+      "municipio": "Taquaral",
+      "id": "51010120240406831",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01610390000184",
+          "PREF. MUNICIPAL DE TAQUARAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/07/2024",
+          "150.000"
+        ]
+      ]
+    }
+  ]
+}

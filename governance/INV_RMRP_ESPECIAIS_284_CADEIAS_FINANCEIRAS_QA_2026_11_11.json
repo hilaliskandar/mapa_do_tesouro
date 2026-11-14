@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-11",
+  "source": "Transferegov Especiais API",
+  "universe": "RMRP_34",
+  "stats": {
+    "municipios": 34,
+    "planos": 284,
+    "planos_unicos": 284,
+    "valor_investimento_planejado_centavos": 9304632506,
+    "valor_custeio_planejado_centavos": 325700000,
+    "valor_empenhos_centavos": 9630332506,
+    "valor_documentos_habeis_centavos": 8545182506,
+    "diferenca_centavos": 1085150000,
+    "empenhos": 284,
+    "documentos_habeis": 257,
+    "ordens_bancarias": 246,
+    "planos_com_ob": 242,
+    "planos_com_dh_sem_ob": 10,
+    "planos_sem_dh": 32,
+    "divergencia_com_dh": 0,
+    "erros": 0
+  },
+  "method": "284 planos, junção exata id_plano_acao→id_empenho→id_dh→id_op_ob, atualização por lotes; valor em centavos",
+  "limits": [
+    "Não são comprovantes de crédito bancário",
+    "Valores de plano, empenho e DH não são aditivos",
+    "Status da OB: enviada para pagamento, não comprovadamente creditada",
+    "Sem DH não significa ausência de receita municipal",
+    "Não contém despesa final municipal de investimento"
+  ],
+  "qa_plano_empenho": {
+    "planos_com_igualdade_valor_previsto_total_e_empenho": 284,
+    "divergencias": 0,
+    "valor_previsto_total_centavos": 9630332506,
+    "valor_empenhado_total_centavos": 9630332506,
+    "conclusao": "Equivalencia monetaria de cadastro para os 284 planos; nao prova execucao nem pagamento"
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Movimentações de contas — Transferências Especiais da RMRP</title>
+<style>
+:root{font-family:system-ui,sans-serif;background:#f3f6f9;color:#223248}body{max-width:1240px;margin:auto;padding:22px 18px}h1{font-size:1.75rem}
+p{line-height:1.5}.panel{background:#fff;padding:17px;border:1px solid #dce3ec;border-radius:9px;margin:16px 0}
+.warning{background:#fff8dc;border:1px solid #d5bf78;border-radius:7px;padding:14px}
+.control{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+label{display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600}select,input{font:inherit;padding:8px;border-radius:5px;border:1px solid #9aaabd}
+table{border-collapse:collapse;width:100%;font-size:.89rem}th,td{text-align:left;padding:9px;border-bottom:1px solid #e3e8ef}
+tr:nth-child(even){background:#f6f8fa}.num{text-align:right;font-variant-numeric:tabular-nums}.scroll{overflow-x:auto}
+.muted{color:#526174;font-size:.86rem}a{color:#125793}
+</style></head><body>
+<p><a href="./especiais-rmrp-preview.html">Planos e ordens bancárias</a> · <a href="./obrasgov-rmrp-preview.html">Carteira Obrasgov</a></p>
+<h1>Movimentação financeira das Transferências Especiais — RMRP</h1>
+<p class="warning"><strong>Consulta exploratória, não homologada.</strong> Esta tabela apresenta operações de contas vinculadas a transferências especiais, agrupadas por município, ano, crédito/débito e descrição. Créditos incluem resgates de aplicações financeiras e transferências internas; débitos incluem aplicações e transferências. <strong>Os totais não são investimentos executados nem repasses federais individualmente comprovados.</strong></p>
+<section class="panel control">
+<label>Município<select id="municipio"><option value="">Todos os 34</option></select></label>
+<label>Ano do lançamento<select id="ano"><option value="">Todos</option></select></label>
+<label>Tipo<select id="tipo"><option value="">Créditos e débitos</option><option value="C">Crédito contábil</option><option value="D">Débito contábil</option></select></label>
+<label>Descrição da operação<input id="busca" type="search" placeholder="Ex.: aplicação, TED, resgate"></label>
+</section>
+<section class="panel">
+<p id="status" aria-live="polite" role="status">Carregando registros...</p><p id="contagem" class="muted"></p>
+<div class="scroll"><table><thead><tr><th>Município</th><th>Ano</th><th>Tipo</th><th>Descrição da fonte</th><th class="num">Lançamentos</th><th class="num">Valor movimentado</th></tr></thead><tbody id="linhas"></tbody></table></div>
+<p class="muted">Os valores não são aditivos entre categorias de movimentação, especialmente resgates e aplicações. Não é possível atribuir uma operação a um plano individual sem chave documental. Fonte: API pública do Transferegov — gestão financeira de transferências especiais; consulta de 11/11/2026.</p>
+</section>
+<script>
+"use strict";
+let data=null;
+const el=id=>document.getElementById(id);
+const currency=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
+const nfmt=new Intl.NumberFormat("pt-BR");
+function td(tr,text,number=false){const e=document.createElement("td");e.textContent=text;if(number)e.className="num";tr.appendChild(e)}
+function render(){if(!data)return;const ibge=el("municipio").value,year=el("ano").value,kind=el("tipo").value,term=el("busca").value.trim().toLocaleLowerCase("pt-BR");
+ const rows=data.categorias.filter(x=>(!ibge||x.codigo_ibge===ibge)&&(!year||x.ano===year)&&(!kind||x.tipo===kind)&&(!term||x.descricao_original_normalizada.includes(term)));
+ const events=rows.reduce((a,x)=>a+x.lancamentos,0);
+ el("contagem").textContent=nfmt.format(events)+" lançamentos classificados em "+nfmt.format(rows.length)+" agrupamentos. Valores exibidos exclusivamente por grupo, sem total financeiro consolidado.";
+ const body=el("linhas");body.replaceChildren();
+ for(const x of rows){const tr=document.createElement("tr");td(tr,x.municipio);td(tr,x.ano);td(tr,x.tipo==="C"?"Crédito":"Débito");td(tr,x.descricao_original_normalizada);td(tr,nfmt.format(x.lancamentos),true);td(tr,currency.format(x.valor_total_centavos/100),true);body.appendChild(tr)}
+ el("status").textContent="Consulta concluída — operações bancárias não conciliadas individualmente com planos.";
+}
+(async()=>{try{const r=await fetch("./data/api/v3/investimentos/rmrp/especiais-movimentacoes-resumo-preview.json",{cache:"no-cache"});if(!r.ok)throw Error("HTTP "+r.status);data=await r.json();if(data.metadata.qa_status!=="triagem_nao_conciliada_por_plano"||data.totals.municipios!==34||data.totals.lancamentos!==2385)throw Error("Metadados de QA incompatíveis");
+ const cities=[...new Map(data.categorias.map(x=>[x.codigo_ibge,x.municipio])).entries()].sort((a,b)=>a[1].localeCompare(b[1],"pt-BR"));
+ for(const [code,name]of cities){const o=document.createElement("option");o.value=code;o.textContent=name;el("municipio").appendChild(o)}
+ for(const y of [...new Set(data.categorias.map(x=>x.ano))].sort()){const o=document.createElement("option");o.value=y;o.textContent=y;el("ano").appendChild(o)}
+ for(const id of ["municipio","ano","tipo","busca"])el(id).addEventListener(id==="busca"?"input":"change",render);render();
+}catch(err){el("status").textContent="Falha na consulta: "+err.message}})();
+</script></body></html>

@@ -1,0 +1,1997 @@
+{
+  "source": "SIAFEM-SP",
+  "time_filter": "liberacao a partir de 01/01/2020 (reaplicar sobre eventos)",
+  "part": 6,
+  "events": [
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "51010120241177723",
+      "esperados": 1,
+      "valor_resumo": "382.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/11/2024",
+          "382.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "51010120251140084",
+      "esperados": 1,
+      "valor_resumo": "527.422,99",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/10/2025",
+          "527.423"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "08035806286/13",
+      "esperados": 3,
+      "valor_resumo": "1.386.941,29",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2021",
+          "244.754"
+        ],
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/10/2020",
+          "244.754"
+        ],
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/08/2020",
+          "897.433"
+        ],
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/01/2014",
+          "244.754"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "08035806286/13A",
+      "esperados": 1,
+      "valor_resumo": "163.169,56",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/10/2020",
+          "163.170"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "09019620240660406",
+      "esperados": 1,
+      "valor_resumo": "800.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/06/2024",
+          "800.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "18010100044/21",
+      "esperados": 1,
+      "valor_resumo": "1.200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/11/2021",
+          "1.200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "18010100058/21DM",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/02/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "1801011231/20",
+      "esperados": 2,
+      "valor_resumo": "0,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/01/2021",
+          "69.526"
+        ],
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/12/2020",
+          "-69.526"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "18010120240413129",
+      "esperados": 1,
+      "valor_resumo": "92.864,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2024",
+          "92.865"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "18010120240414654",
+      "esperados": 1,
+      "valor_resumo": "492.771,11",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/06/2024",
+          "492.771"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "18010120250916023",
+      "esperados": 1,
+      "valor_resumo": "91.315,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "07/05/2026",
+          "91.315"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "18010120251387644",
+      "esperados": 1,
+      "valor_resumo": "253.255,81",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/04/2026",
+          "253.256"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "18010120260422581",
+      "esperados": 1,
+      "valor_resumo": "97.858,67",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "02/07/2026",
+          "97.859"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011800849-20",
+      "esperados": 1,
+      "valor_resumo": "82.736,21",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/03/2022",
+          "82.736"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "2901181559167/18",
+      "esperados": 1,
+      "valor_resumo": "640.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2020",
+          "640.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "2901181903225450",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/07/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820-0561822",
+      "esperados": 1,
+      "valor_resumo": "241.310,04",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/05/2024",
+          "241.310"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820220121145",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/07/2025",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820220121388",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/03/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820220130001",
+      "esperados": 1,
+      "valor_resumo": "9.000.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2022",
+          "9.000.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820220137092",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/07/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820220410111",
+      "esperados": 2,
+      "valor_resumo": "622.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/11/2023",
+          "311.000"
+        ],
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/08/2023",
+          "311.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820220441609",
+      "esperados": 1,
+      "valor_resumo": "301.630,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/03/2023",
+          "301.630"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820221414876",
+      "esperados": 1,
+      "valor_resumo": "424.663,94",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/07/2023",
+          "424.664"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820221414901",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2023",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820-2918117",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/04/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820-5618221",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "29011820-5618222",
+      "esperados": 1,
+      "valor_resumo": "280.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2022",
+          "280.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "2901182058/18",
+      "esperados": 1,
+      "valor_resumo": "60.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/05/2021",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "2901182262207/19",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2020",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "3501011891569/19",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/05/2021",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "3501012019/443",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "4101012019/00129",
+      "esperados": 1,
+      "valor_resumo": "120.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/02/2022",
+          "120.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "4101012019/00220",
+      "esperados": 1,
+      "valor_resumo": "240.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/01/2022",
+          "240.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "4101012020/00116",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/02/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "41010120220268236",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/02/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "41010120221346945",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/02/2023",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "51010120231186228",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/12/2025",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "51010120231589357",
+      "esperados": 1,
+      "valor_resumo": "7.500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2023",
+          "7.500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "51010120240530377",
+      "esperados": 1,
+      "valor_resumo": "261.729,89",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/01/2025",
+          "261.730"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "51010120240542921",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/02/2025",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "51010120240546761",
+      "esperados": 2,
+      "valor_resumo": "2.165.500,69",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/06/2025",
+          "665.501"
+        ],
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/01/2025",
+          "1.500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "id": "51010120240945881",
+      "esperados": 2,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/06/2025",
+          "100.000"
+        ],
+        [
+          "56024581000156",
+          "PREFEITURA MUNICIPAL RIBEIRAO PRETO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/10/2024",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "08035805818/13",
+      "esperados": 1,
+      "valor_resumo": "213.184,64",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2020",
+          "213.185"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/08/2016",
+          "213.185"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2016",
+          "213.185"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/09/2015",
+          "284.246"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/04/2015",
+          "284.246"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/04/2014",
+          "213.185"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "09019620241356662",
+      "esperados": 1,
+      "valor_resumo": "464.867,94",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2026",
+          "464.868"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "1301752021/13656",
+      "esperados": 1,
+      "valor_resumo": "60.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/01/2022",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "1700301330157/17",
+      "esperados": 5,
+      "valor_resumo": "210.710,02",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/11/2025",
+          "20.800"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/12/2023",
+          "13.123"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/12/2022",
+          "13.455"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/02/2021",
+          "26.288"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "03/04/2020",
+          "137.043"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "29011820220094315",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/09/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "29011820220159492",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/11/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "29011820221375419",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/11/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "29011820221376327",
+      "esperados": 1,
+      "valor_resumo": "450.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/06/2023",
+          "450.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "29011820221390021",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/11/2023",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "29011820221390068",
+      "esperados": 1,
+      "valor_resumo": "448.677,07",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/11/2023",
+          "448.677"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "2901182101721856",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/11/2021",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "2901182102924769",
+      "esperados": 2,
+      "valor_resumo": "392.350,21",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/10/2022",
+          "92.350"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/01/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "2901182195078/19",
+      "esperados": 1,
+      "valor_resumo": "69.182,43",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/08/2020",
+          "69.182"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "290118681559/18",
+      "esperados": 1,
+      "valor_resumo": "480.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/04/2021",
+          "480.000"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/01/2019",
+          "120.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "41010120221132869",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/04/2024",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "4101014320/2020",
+      "esperados": 1,
+      "valor_resumo": "40.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/12/2021",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "50010120220537254",
+      "esperados": 1,
+      "valor_resumo": "39.420,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2022",
+          "39.420"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "51010120240001959",
+      "esperados": 2,
+      "valor_resumo": "422.700,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/05/2025",
+          "122.700"
+        ],
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/07/2024",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "51010120240002526",
+      "esperados": 1,
+      "valor_resumo": "393.520,84",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2024",
+          "393.521"
+        ]
+      ]
+    },
+    {
+      "ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "id": "51010120240547365",
+      "esperados": 1,
+      "valor_resumo": "387.900,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46756029000107",
+          "PREFEITURA MUNICIPAL SALES OLIVEIRA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/07/2024",
+          "387.900"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "1301752021/14009",
+      "esperados": 1,
+      "valor_resumo": "60.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/01/2022",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "17003020240439116",
+      "esperados": 1,
+      "valor_resumo": "674.071,14",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/08/2025",
+          "674.071"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "29011801626/21",
+      "esperados": 2,
+      "valor_resumo": "398.196,79",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/04/2023",
+          "98.197"
+        ],
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/09/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "29011820220606333",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/03/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "29011820221378751",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/08/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "2901182669070/19",
+      "esperados": 3,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/02/2021",
+          "160.000"
+        ],
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/11/2020",
+          "160.000"
+        ],
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/07/2020",
+          "80.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "290118646650/18",
+      "esperados": 1,
+      "valor_resumo": "160.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/08/2020",
+          "160.000"
+        ],
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/01/2019",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "51010120240350771",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/04/2024",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "id": "51010120240542761",
+      "esperados": 1,
+      "valor_resumo": "275.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "01611007000102",
+          "PREFEITURA MUNICIPAL SANTA CRUZ DA ESPERANCA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/07/2024",
+          "275.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "10010320250013461",
+      "esperados": 1,
+      "valor_resumo": "220.811,44",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "33403901",
+          "TRANSFERENCIAS PARA SERVICOS",
+          "CUSTEIO",
+          "PREFEITURAS",
+          "10/01/2025",
+          "28.320"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/01/2025",
+          "220.811"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "1301752021/14245",
+      "esperados": 1,
+      "valor_resumo": "60.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/01/2022",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "1700301318247/17",
+      "esperados": 5,
+      "valor_resumo": "800.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/12/2020",
+          "266.628"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/10/2020",
+          "224.010"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/09/2020",
+          "309.362"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "03/06/2020",
+          "200.000"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2020",
+          "-200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "250101SH-1219359",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2024",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "29011820220085138",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/10/2023",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "29011820220472561",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/11/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "29011820220543421",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/12/2023",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "29011820221447723",
+      "esperados": 1,
+      "valor_resumo": "469.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/12/2023",
+          "469.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "2901182102321961",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/08/2023",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "2901182110631860",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/10/2022",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "2901182269745/19",
+      "esperados": 1,
+      "valor_resumo": "44.685,90",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/12/2020",
+          "44.686"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "2901182269866/19",
+      "esperados": 2,
+      "valor_resumo": "184.037,60",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/10/2020",
+          "143.244"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/08/2020",
+          "40.794"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "2901182790059/19",
+      "esperados": 1,
+      "valor_resumo": "320.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2020",
+          "320.000"
+        ]
+      ]
+    }
+  ]
+}

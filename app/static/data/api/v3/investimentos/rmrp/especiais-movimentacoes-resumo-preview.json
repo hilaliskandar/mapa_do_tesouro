@@ -1,0 +1,7026 @@
+{
+  "metadata": {
+    "universe": "RMRP_34",
+    "retrieved_at": "2026-11-11",
+    "source": "Transferegov gestao-financeira-lancamentos-especiais",
+    "data_version": "rmrp-extratos-v1",
+    "qa_status": "triagem_nao_conciliada_por_plano",
+    "disclosure": "Apenas resumo por IBGE, ano, tipo e descricao; não exibe pessoas, instituições bancárias, números de contas ou lançamentos individuais",
+    "notes": [
+      "Créditos contábeis incluem resgates de aplicações e transferências internas. Valores não equivalem a recursos federais recebidos sem vinculação documental.",
+      "Débitos contábeis incluem aplicações financeiras e transferências internas. Valores não equivalem a investimentos efetivamente executados.",
+      "Não somar crédito + débito nem compará-los diretamente a gastos anuais municipais sem identificar movimentos de caixa.",
+      "Não foi realizada conciliação determinística de IDs de ordens bancárias com extratos."
+    ]
+  },
+  "totals": {
+    "municipios": 34,
+    "lancamentos": 2385,
+    "creditos_contabeis": 924,
+    "debitos_contabeis": 1461
+  },
+  "categorias": [
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 20199914
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 1,
+      "valor_total_centavos": 20199914
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 45000000
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 2845974
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 2,
+      "valor_total_centavos": 238288
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 233225
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 6,
+      "valor_total_centavos": 35313315
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 233225
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 10,
+      "valor_total_centavos": 11000
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 10,
+      "valor_total_centavos": 11511421
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 3,
+      "valor_total_centavos": 26636868
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 1,
+      "valor_total_centavos": 200145
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferncia enviada",
+      "lancamentos": 2,
+      "valor_total_centavos": 38143
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 12000
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 4,
+      "valor_total_centavos": 7007571
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 13100
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 2,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 1643645
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 5283656
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 78070
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 7999300
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 7999300
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 9,
+      "valor_total_centavos": 105006600
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 13,
+      "valor_total_centavos": 88488351
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 70000000
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 5,
+      "valor_total_centavos": 35006600
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 13,
+      "valor_total_centavos": 14300
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 13,
+      "valor_total_centavos": 84456451
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 3952000
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 2,
+      "valor_total_centavos": 65600
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 360006600
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 6,
+      "valor_total_centavos": 53500
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 6,
+      "valor_total_centavos": 38804143
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "ap cdb flx",
+      "lancamentos": 1,
+      "valor_total_centavos": 360000000
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 8,
+      "valor_total_centavos": 60100
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 5,
+      "valor_total_centavos": 5500
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 5,
+      "valor_total_centavos": 38433927
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 2,
+      "valor_total_centavos": 364716
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rg cdb flx",
+      "lancamentos": 1,
+      "valor_total_centavos": 395819770
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 395819770
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 3,
+      "valor_total_centavos": 9502200
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 75000000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 4,
+      "valor_total_centavos": 62865039
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 11429071
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 14349639
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 9501300
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 11429071
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 75000000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 3,
+      "valor_total_centavos": 3300
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 48513000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 2,
+      "valor_total_centavos": 65000000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 4,
+      "valor_total_centavos": 32736839
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 2,
+      "valor_total_centavos": 65000000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 1,
+      "valor_total_centavos": 69543
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 5,
+      "valor_total_centavos": 32667296
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 39600000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 7806400
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 6,
+      "valor_total_centavos": 39821447
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 1335406
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 39600000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 7805200
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 3,
+      "valor_total_centavos": 246433
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "movimento do dia",
+      "lancamentos": 1,
+      "valor_total_centavos": 1308
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 4,
+      "valor_total_centavos": 39293361
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 10,
+      "valor_total_centavos": 1615751
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 119400000
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 2,
+      "valor_total_centavos": 29654279
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 1308
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 3,
+      "valor_total_centavos": 119401308
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "movimento do dia",
+      "lancamentos": 1,
+      "valor_total_centavos": 1308
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 2,
+      "valor_total_centavos": 28123875
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 2,
+      "valor_total_centavos": 1529096
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 85000000
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 55000000
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "devol ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 4500000
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 12,
+      "valor_total_centavos": 50076576
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 12,
+      "valor_total_centavos": 14400
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 12,
+      "valor_total_centavos": 54562176
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 5830175
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 4,
+      "valor_total_centavos": 4800
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 4,
+      "valor_total_centavos": 5825375
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 31865568
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 31865368
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 30000200
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 37238920
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 37237720
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 45000000
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 45000000
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 100000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 100000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 29279568
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 6,
+      "valor_total_centavos": 100000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 59279368
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 200
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 12,
+      "valor_total_centavos": 6060827
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 6,
+      "valor_total_centavos": 93939173
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 140000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 4,
+      "valor_total_centavos": 120000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 3,
+      "valor_total_centavos": 140000000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "deb.autor.",
+      "lancamentos": 4,
+      "valor_total_centavos": 2145000
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 7,
+      "valor_total_centavos": 59685463
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 58169537
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 24968200
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 24968200
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred.autor",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 3,
+      "valor_total_centavos": 27293017
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 2124
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 200
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 4,
+      "valor_total_centavos": 27290693
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 59400000
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 2,
+      "valor_total_centavos": 37000000
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 2,
+      "valor_total_centavos": 59400000
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 2,
+      "valor_total_centavos": 1720500
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 2,
+      "valor_total_centavos": 33762500
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 4,
+      "valor_total_centavos": 1517000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 6,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 4,
+      "valor_total_centavos": 981492
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 8,
+      "valor_total_centavos": 18840054
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 4,
+      "valor_total_centavos": 178454
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 65300000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 65300000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 4,
+      "valor_total_centavos": 79700000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 26337407
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 5,
+      "valor_total_centavos": 53666851
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 29700000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 4,
+      "valor_total_centavos": 4400
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 6,
+      "valor_total_centavos": 74143239
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 17,
+      "valor_total_centavos": 5856619
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 160000000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 122823965
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 4,
+      "valor_total_centavos": 20412104
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 3,
+      "valor_total_centavos": 160000000
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 4,
+      "valor_total_centavos": 4800
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 4,
+      "valor_total_centavos": 132404617
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 2,
+      "valor_total_centavos": 8972630
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 5,
+      "valor_total_centavos": 1854022
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 8180876
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 3,
+      "valor_total_centavos": 16998585
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 13395612
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 2,
+      "valor_total_centavos": 11170275
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 4,
+      "valor_total_centavos": 612374
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 13000000
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 2,
+      "valor_total_centavos": 13000000
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 13000000
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 2,
+      "valor_total_centavos": 13000000
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 8900000
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 7515638
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 1,
+      "valor_total_centavos": 1739909
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 8900000
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 2,
+      "valor_total_centavos": 9255547
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 1,
+      "valor_total_centavos": 28488980
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 1,
+      "valor_total_centavos": 28488980
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 17000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 17000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 17079981
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 17079981
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 100
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 100
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 72000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 2,
+      "valor_total_centavos": 42000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 72000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 42000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred.autor",
+      "lancamentos": 2,
+      "valor_total_centavos": 2400
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "devol ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 6560889
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 13,
+      "valor_total_centavos": 28705517
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 11,
+      "valor_total_centavos": 58045215
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 177817
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 23407699
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 2400
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 177817
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 7,
+      "valor_total_centavos": 8300
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 13,
+      "valor_total_centavos": 28705517
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 10,
+      "valor_total_centavos": 57990696
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "pag boleto",
+      "lancamentos": 9,
+      "valor_total_centavos": 1988457
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "pg org gov",
+      "lancamentos": 1,
+      "valor_total_centavos": 1209827
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 6,
+      "valor_total_centavos": 5772904
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 7280638
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 6,
+      "valor_total_centavos": 5772904
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 7162442
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "pag boleto",
+      "lancamentos": 1,
+      "valor_total_centavos": 118196
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 714501
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 2,
+      "valor_total_centavos": 714501
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplic retr",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 3,
+      "valor_total_centavos": 6380
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 3,
+      "valor_total_centavos": 16669961
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 4,
+      "valor_total_centavos": 2979785
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 3,
+      "valor_total_centavos": 13632030
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted eletronico",
+      "lancamentos": 4,
+      "valor_total_centavos": 4180
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted pessoal",
+      "lancamentos": 2,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 6,
+      "valor_total_centavos": 4925516
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "pag boleto",
+      "lancamentos": 1,
+      "valor_total_centavos": 1090000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 8000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 8000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 2,
+      "valor_total_centavos": 3300
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 2,
+      "valor_total_centavos": 10375227
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 8410457
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 3,
+      "valor_total_centavos": 33745403
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 11136082
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 1300
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 9,
+      "valor_total_centavos": 9900
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 9,
+      "valor_total_centavos": 17976648
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 1,
+      "valor_total_centavos": 8410457
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 2,
+      "valor_total_centavos": 6600
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "dep cheque caixa agencia",
+      "lancamentos": 2,
+      "valor_total_centavos": 915417
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "depsito bloquead.20dias teis",
+      "lancamentos": 2,
+      "valor_total_centavos": 915417
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 1338000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferncia recebida",
+      "lancamentos": 2,
+      "valor_total_centavos": 915417
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 6600
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 2,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "debito bloq. judicial",
+      "lancamentos": 2,
+      "valor_total_centavos": 915417
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 1273776
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "movimento do dia",
+      "lancamentos": 2,
+      "valor_total_centavos": 915417
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 64224
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "dep cheque caixa agencia",
+      "lancamentos": 1,
+      "valor_total_centavos": 273805
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "deposito bloquead.20dias uteis",
+      "lancamentos": 1,
+      "valor_total_centavos": 273805
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 99500000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 16180397
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 273805
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 2,
+      "valor_total_centavos": 99500000
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "debito bloq. judicial",
+      "lancamentos": 1,
+      "valor_total_centavos": 273805
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "movimento do dia",
+      "lancamentos": 1,
+      "valor_total_centavos": 273805
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 1,
+      "valor_total_centavos": 16180397
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 150000000
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 50795136
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 110794936
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 40000000
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 50000200
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 44054935
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 4,
+      "valor_total_centavos": 37974818
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 5,
+      "valor_total_centavos": 5900
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 5,
+      "valor_total_centavos": 82023853
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 4,
+      "valor_total_centavos": 17474279
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 3,
+      "valor_total_centavos": 3600
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 17119518
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "pg prefeit",
+      "lancamentos": 2,
+      "valor_total_centavos": 351161
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 160000000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 10744000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 160000000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 10744000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 95198900
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred.autor",
+      "lancamentos": 1,
+      "valor_total_centavos": 3278
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 8,
+      "valor_total_centavos": 180468726
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 85202178
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted eletronico",
+      "lancamentos": 3,
+      "valor_total_centavos": 3278
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 5,
+      "valor_total_centavos": 27253786
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 2,
+      "valor_total_centavos": 21428711
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 6,
+      "valor_total_centavos": 131782951
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 20158500
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 10498711
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "devol ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 529299
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 9,
+      "valor_total_centavos": 34649589
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 20158500
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 10498711
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 7,
+      "valor_total_centavos": 16732035
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 3,
+      "valor_total_centavos": 17670000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "pg org gov",
+      "lancamentos": 2,
+      "valor_total_centavos": 776853
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 8600000
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 8600000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 37000000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 37000000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 37103493
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 17177992
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted eletronico",
+      "lancamentos": 1,
+      "valor_total_centavos": 209
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 19706114
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 219178
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 80000000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 4,
+      "valor_total_centavos": 59983659
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 700000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 40026823
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 4,
+      "valor_total_centavos": 100000200
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 4,
+      "valor_total_centavos": 4400
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 5,
+      "valor_total_centavos": 20649836
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 40000000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 930000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 3,
+      "valor_total_centavos": 23799938
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 829110
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 40000000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 3,
+      "valor_total_centavos": 3300
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 21881107
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 918840
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 13,
+      "valor_total_centavos": 1097433
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 2,
+      "valor_total_centavos": 9260302
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 4587284
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 4673018
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 99500000
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 99500000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 25001200
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "devol ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 3519215
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "dp dinh ag",
+      "lancamentos": 1,
+      "valor_total_centavos": 300
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 7,
+      "valor_total_centavos": 20534227
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 4474022
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplic retr",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted eletronico",
+      "lancamentos": 5,
+      "valor_total_centavos": 1500
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted pessoal",
+      "lancamentos": 1,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 6,
+      "valor_total_centavos": 27376125
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 10,
+      "valor_total_centavos": 1150111
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 33000300
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 33000000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 300
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 2090
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 11392090
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 2090
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted eletronico",
+      "lancamentos": 2,
+      "valor_total_centavos": 2090
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 11390000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 4,
+      "valor_total_centavos": 11000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "devol ted",
+      "lancamentos": 4,
+      "valor_total_centavos": 19959069
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 7,
+      "valor_total_centavos": 15874633
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 4,
+      "valor_total_centavos": 3920100
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 3300
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted eletronico",
+      "lancamentos": 3,
+      "valor_total_centavos": 3300
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 11,
+      "valor_total_centavos": 12100
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 14,
+      "valor_total_centavos": 39745002
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 5,
+      "valor_total_centavos": 14500
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 8,
+      "valor_total_centavos": 17031980
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 4,
+      "valor_total_centavos": 11200
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 9,
+      "valor_total_centavos": 10100
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 9,
+      "valor_total_centavos": 16817057
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 208123
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 27101217
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 1,
+      "valor_total_centavos": 26754909
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 1,
+      "valor_total_centavos": 346308
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 508131
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 1,
+      "valor_total_centavos": 508131
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 30624986
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 30624986
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 2,
+      "valor_total_centavos": 34373926
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 1,
+      "valor_total_centavos": 33042320
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferncia enviada",
+      "lancamentos": 2,
+      "valor_total_centavos": 1331606
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 35011516
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 4,
+      "valor_total_centavos": 8418940
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 35015891
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 35015891
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 5,
+      "valor_total_centavos": 8130870
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 299586
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 11,
+      "valor_total_centavos": 28417123
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 1802338
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 10,
+      "valor_total_centavos": 25620979
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "pag gps",
+      "lancamentos": 6,
+      "valor_total_centavos": 619292
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 6,
+      "valor_total_centavos": 374514
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 35916
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 35916
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 49000000
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 2,
+      "valor_total_centavos": 25271253
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 1271053
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 3,
+      "valor_total_centavos": 49000200
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 23673601
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 326399
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 13
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 4,
+      "valor_total_centavos": 19791253
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 13
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 13
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 12617998
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 2,
+      "valor_total_centavos": 6935760
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 4,
+      "valor_total_centavos": 237508
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 63169900
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 33169900
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 23297139
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 56070200
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 23297139
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 56069000
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 37000000
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 37000000
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 14,
+      "valor_total_centavos": 21639847
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 8,
+      "valor_total_centavos": 20925728
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "pag gps",
+      "lancamentos": 7,
+      "valor_total_centavos": 714119
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 51740400
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 12541100
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 51740400
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 12540000
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 44354500
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 4,
+      "valor_total_centavos": 49851125
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 3,
+      "valor_total_centavos": 40000000
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 4,
+      "valor_total_centavos": 4800
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 4,
+      "valor_total_centavos": 50030193
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 4,
+      "valor_total_centavos": 4171832
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 21465226
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 21465026
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 200
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 2,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 20005062
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferido para poupana",
+      "lancamentos": 1,
+      "valor_total_centavos": 20005062
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 4,
+      "valor_total_centavos": 150000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate poupana",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 100000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 127000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "es cx prog",
+      "lancamentos": 1,
+      "valor_total_centavos": 682800
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 1546119
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 127000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "deb fornec",
+      "lancamentos": 2,
+      "valor_total_centavos": 2228919
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 10,
+      "valor_total_centavos": 334503502
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "es cx prog",
+      "lancamentos": 1,
+      "valor_total_centavos": 288377
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate poupana",
+      "lancamentos": 1,
+      "valor_total_centavos": 9243000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 36,
+      "valor_total_centavos": 98608247
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 130000000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 5,
+      "valor_total_centavos": 204503502
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "deb fornec",
+      "lancamentos": 46,
+      "valor_total_centavos": 85098877
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 13749500
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 48247
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferncia enviada",
+      "lancamentos": 1,
+      "valor_total_centavos": 9243000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 7,
+      "valor_total_centavos": 372037081
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 369000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 38,
+      "valor_total_centavos": 201787662
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 5,
+      "valor_total_centavos": 331194170
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 40842911
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "deb fornec",
+      "lancamentos": 58,
+      "valor_total_centavos": 143982662
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 57475912
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 698088
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 4,
+      "valor_total_centavos": 158400000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 3,
+      "valor_total_centavos": 118965830
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 300000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao em bb fix",
+      "lancamentos": 3,
+      "valor_total_centavos": 118965830
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 4,
+      "valor_total_centavos": 158400000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "deb fornec",
+      "lancamentos": 1,
+      "valor_total_centavos": 300000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 29850000
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 7,
+      "valor_total_centavos": 20889338
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 30007479
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao em bb fix",
+      "lancamentos": 2,
+      "valor_total_centavos": 59857479
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 7,
+      "valor_total_centavos": 20889338
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 32000000
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 32000000
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 2,
+      "valor_total_centavos": 17521330
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 2,
+      "valor_total_centavos": 2300
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 17389550
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 129480
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 2,
+      "valor_total_centavos": 29776090
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 1200
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 2,
+      "valor_total_centavos": 2400
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 28195683
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 2,
+      "valor_total_centavos": 1578007
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 5,
+      "valor_total_centavos": 80000000
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 2,
+      "valor_total_centavos": 55000000
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 9,
+      "valor_total_centavos": 32446918
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 17023
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 5,
+      "valor_total_centavos": 135017023
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 8,
+      "valor_total_centavos": 22258706
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferncia enviada",
+      "lancamentos": 11,
+      "valor_total_centavos": 10188212
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 11,
+      "valor_total_centavos": 68893143
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 4,
+      "valor_total_centavos": 17009493
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "ted devolvida",
+      "lancamentos": 1,
+      "valor_total_centavos": 1469217
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 18,
+      "valor_total_centavos": 82672642
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 9,
+      "valor_total_centavos": 3649631
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferncia enviada",
+      "lancamentos": 5,
+      "valor_total_centavos": 1049580
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 8,
+      "valor_total_centavos": 27738063
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 6,
+      "valor_total_centavos": 17659077
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 8,
+      "valor_total_centavos": 10078986
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 92393000
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 3,
+      "valor_total_centavos": 17018724
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 18997724
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 84393000
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 200
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 2,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 6018600
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 80000000
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 3,
+      "valor_total_centavos": 3983600
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 8001100
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 3,
+      "valor_total_centavos": 80000000
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "deb. conv.",
+      "lancamentos": 1,
+      "valor_total_centavos": 1045600
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 3,
+      "valor_total_centavos": 3300
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 10935800
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "deb. conv.",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 3,
+      "valor_total_centavos": 24564038
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "inss arrecadacao",
+      "lancamentos": 3,
+      "valor_total_centavos": 270204
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 4,
+      "valor_total_centavos": 24115299
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 3,
+      "valor_total_centavos": 178535
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 603670
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 15000000
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 603670
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 12350881
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 2,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 11830037
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 2,
+      "valor_total_centavos": 518644
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 2,
+      "valor_total_centavos": 10450
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 9,
+      "valor_total_centavos": 37033600
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 8360
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 15,
+      "valor_total_centavos": 15895
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 15,
+      "valor_total_centavos": 35453542
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "pag gps",
+      "lancamentos": 7,
+      "valor_total_centavos": 1566253
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 5385
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 5385
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "c val fin",
+      "lancamentos": 1,
+      "valor_total_centavos": 3244160
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 10010500
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 5,
+      "valor_total_centavos": 20638404
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 10500
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 15,
+      "valor_total_centavos": 17700
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 15,
+      "valor_total_centavos": 19894704
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "pg org gov",
+      "lancamentos": 4,
+      "valor_total_centavos": 726000
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "dp dinh ag",
+      "lancamentos": 1,
+      "valor_total_centavos": 608280
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 3299761
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 3852440
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 3299761
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "est db ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 624636
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 6,
+      "valor_total_centavos": 35797880
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 50624636
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 8,
+      "valor_total_centavos": 35797880
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 45000000
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 13932478
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 20000000
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 13347314
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 1,
+      "valor_total_centavos": 585164
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 55000000
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 6407353
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 13,
+      "valor_total_centavos": 77195930
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 2,
+      "valor_total_centavos": 55000000
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 16,
+      "valor_total_centavos": 80665092
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 11,
+      "valor_total_centavos": 2938191
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 4,
+      "valor_total_centavos": 7608979
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 7456799
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 3,
+      "valor_total_centavos": 152180
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 40000000
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 5,
+      "valor_total_centavos": 29902125
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 40000000
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 5,
+      "valor_total_centavos": 5000
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 5,
+      "valor_total_centavos": 28467662
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "pag gps",
+      "lancamentos": 5,
+      "valor_total_centavos": 880831
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "pg prefeit",
+      "lancamentos": 5,
+      "valor_total_centavos": 548632
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 10156099
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 10156099
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 30000000
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 4,
+      "valor_total_centavos": 40261586
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 3,
+      "valor_total_centavos": 46279013
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 400
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 1,
+      "valor_total_centavos": 1100
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 23981073
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 35000000
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "es pr empr",
+      "lancamentos": 1,
+      "valor_total_centavos": 6360336
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 6360336
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 3478691
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 3,
+      "valor_total_centavos": 41360336
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "deb.autor.",
+      "lancamentos": 1,
+      "valor_total_centavos": 6360336
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 2,
+      "valor_total_centavos": 2200
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 3476491
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 2,
+      "valor_total_centavos": 19680000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 3,
+      "valor_total_centavos": 49789034
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 50000000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 6,
+      "valor_total_centavos": 6490
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 19680000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 6,
+      "valor_total_centavos": 49782544
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 5,
+      "valor_total_centavos": 163936500
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate",
+      "lancamentos": 1,
+      "valor_total_centavos": 30706543
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 18,
+      "valor_total_centavos": 53324045
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 92396
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 30706543
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 3,
+      "valor_total_centavos": 163936500
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 10,
+      "valor_total_centavos": 48898149
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 5,
+      "valor_total_centavos": 728855
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 15,
+      "valor_total_centavos": 3789437
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 55000000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 3589388
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 22,
+      "valor_total_centavos": 115763257
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 6,
+      "valor_total_centavos": 28059040
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "ted transferencia eletr.dispon",
+      "lancamentos": 1,
+      "valor_total_centavos": 460491
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 3,
+      "valor_total_centavos": 615568
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 55000000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 7,
+      "valor_total_centavos": 8300
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 14,
+      "valor_total_centavos": 106834398
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 7,
+      "valor_total_centavos": 31362677
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 8,
+      "valor_total_centavos": 5489092
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 3,
+      "valor_total_centavos": 277451
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 19,
+      "valor_total_centavos": 4515826
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 5,
+      "valor_total_centavos": 9814986
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 4,
+      "valor_total_centavos": 6770596
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 274199
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 4,
+      "valor_total_centavos": 4800
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 3,
+      "valor_total_centavos": 9280903
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 4,
+      "valor_total_centavos": 6684607
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 2,
+      "valor_total_centavos": 677595
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 4,
+      "valor_total_centavos": 81189
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 2,
+      "valor_total_centavos": 130687
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem banc cancelada",
+      "lancamentos": 1,
+      "valor_total_centavos": 30045172
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 1,
+      "valor_total_centavos": 39800000
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 5,
+      "valor_total_centavos": 76045424
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 11990
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 2,
+      "valor_total_centavos": 69845172
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 3,
+      "valor_total_centavos": 43679285
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "impostos",
+      "lancamentos": 2,
+      "valor_total_centavos": 484990
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 1,
+      "valor_total_centavos": 30045172
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 3,
+      "valor_total_centavos": 1847967
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2020",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 2,
+      "valor_total_centavos": 68000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2020",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 68000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 100000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "resg autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 68318692
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 5,
+      "valor_total_centavos": 54117412
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 100000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 68318692
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 7,
+      "valor_total_centavos": 54117412
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 6,
+      "valor_total_centavos": 113694394
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 6,
+      "valor_total_centavos": 107314667
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "tev mesm t",
+      "lancamentos": 5,
+      "valor_total_centavos": 6379727
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 18000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 5,
+      "valor_total_centavos": 127000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 18000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 3,
+      "valor_total_centavos": 127000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 124000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 10,
+      "valor_total_centavos": 17453189
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 3,
+      "valor_total_centavos": 44049904
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 32000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao",
+      "lancamentos": 2,
+      "valor_total_centavos": 92000000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 7,
+      "valor_total_centavos": 17287363
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 2,
+      "valor_total_centavos": 43161000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "pag boleto",
+      "lancamentos": 1,
+      "valor_total_centavos": 888904
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 3,
+      "valor_total_centavos": 165826
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 3,
+      "valor_total_centavos": 1565500
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 2998000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 1548220
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio tev",
+      "lancamentos": 1,
+      "valor_total_centavos": 2998000
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 1,
+      "valor_total_centavos": 17280
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 6,
+      "valor_total_centavos": 27581346
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "emissao de ordem bancaria",
+      "lancamentos": 4,
+      "valor_total_centavos": 25810399
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 2,
+      "valor_total_centavos": 1770947
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 6,
+      "valor_total_centavos": 24004800
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "doc/ted internet",
+      "lancamentos": 4,
+      "valor_total_centavos": 4800
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 10,
+      "valor_total_centavos": 24000000
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancaria",
+      "lancamentos": 2,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicacao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "depsito online",
+      "lancamentos": 1,
+      "valor_total_centavos": 10
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 7,
+      "valor_total_centavos": 24059234
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 2,
+      "valor_total_centavos": 990
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 10
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 8,
+      "valor_total_centavos": 23575643
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 8,
+      "valor_total_centavos": 484581
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "estorno de debito",
+      "lancamentos": 1,
+      "valor_total_centavos": 1944091
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 5090045
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 3,
+      "valor_total_centavos": 11405359
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate bb fix",
+      "lancamentos": 4,
+      "valor_total_centavos": 5592391
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 1277029
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "estorno resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 1983969
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 3,
+      "valor_total_centavos": 6731344
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 4,
+      "valor_total_centavos": 5188243
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferncia enviada",
+      "lancamentos": 5,
+      "valor_total_centavos": 11405359
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "cred ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 150000000
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2024",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 3,
+      "valor_total_centavos": 6373729
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "apl autom",
+      "lancamentos": 1,
+      "valor_total_centavos": 150000000
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 4,
+      "valor_total_centavos": 5408438
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2024",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferncia enviada",
+      "lancamentos": 3,
+      "valor_total_centavos": 965291
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "devol ted",
+      "lancamentos": 1,
+      "valor_total_centavos": 35422961
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2025",
+      "tipo": "C",
+      "descricao_original_normalizada": "rsg fundo",
+      "lancamentos": 1,
+      "valor_total_centavos": 36610986
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2025",
+      "tipo": "D",
+      "descricao_original_normalizada": "envio ted",
+      "lancamentos": 3,
+      "valor_total_centavos": 72033947
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 4991453
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "transferencia recebida",
+      "lancamentos": 1,
+      "valor_total_centavos": 1733690
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferencia enviada",
+      "lancamentos": 3,
+      "valor_total_centavos": 6725143
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2021",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 13000000
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2021",
+      "tipo": "D",
+      "descricao_original_normalizada": "aplicao em bb fix",
+      "lancamentos": 1,
+      "valor_total_centavos": 13000000
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2022",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2022",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 25000000
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "ordem bancria",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2023",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automtico",
+      "lancamentos": 1,
+      "valor_total_centavos": 13245438
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "bb-aplic c.prz-apl.aut",
+      "lancamentos": 1,
+      "valor_total_centavos": 10000000
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2023",
+      "tipo": "D",
+      "descricao_original_normalizada": "transferncia enviada",
+      "lancamentos": 1,
+      "valor_total_centavos": 13245438
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2026",
+      "tipo": "C",
+      "descricao_original_normalizada": "resgate automatico",
+      "lancamentos": 1,
+      "valor_total_centavos": 17487063
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": "2026",
+      "tipo": "D",
+      "descricao_original_normalizada": "ted transf.eletr.disponivel",
+      "lancamentos": 2,
+      "valor_total_centavos": 17487063
+    }
+  ]
+}

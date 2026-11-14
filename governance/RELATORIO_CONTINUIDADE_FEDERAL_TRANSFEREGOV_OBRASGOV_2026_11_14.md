@@ -83,3 +83,14 @@ A análise dos arquivos pequenos também demonstra que `siconv_pagamento_tributo
 **Cuidado:** a tabela geral nacional `siconv_dados_obrasgov_geral` é apenas o conjunto correspondente disponível no Transferegov. Não afirmar que cobre todos os projetos do portal Obrasgov ou todas as obras federais. Contrato CIPI→projeto é uma relação N:1; projeto→coordenadas não foi unido no presente teste porque a tabela de coordenadas se relaciona pela `ID_PROPOSTA`, não pela chave CIPI. Um convênio ou proposta pode ter várias localizações.
 
 **Próxima operação:** vincular os IDs documentais dos instrumentos e das propostas a proponentes paulistas por IBGE7, segregar valores de contrato de pagamentos, conferir geolocalizações e coordenadas externas. Este QA demonstra viabilidade de junção, não o volume de investimento executado.
+
+
+## Domínio nacional de movimentações financeiras — execução completa
+
+[Run 43630172358](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630172358) concluído com `SUCCESS`. Arquivo nacional `siconv_pagamento.zip` adquirido sob código `pipeline/acquire/inv_sp645_payment_type_domain.py` em runner temporário, ZIP CRC verificado, leitor integral de linhas e metadados de contagem sem beneficiários, sem valores individuais e sem totais monetários.
+
+- **7.575.512 linhas nacionais examinadas**, conciliando o total anteriormente observado no FED03.
+- `TP_MOV_FINANCEIRA`: **`PAGAMENTO A FAVORECIDO COM OBTV` 5.734.760** e **`PAGAMENTO A FAVORECIDO` 1.840.752**, sem outros códigos/denominações na extração.
+- `VL_PAGO` — mera classificação léxica do sinal/zero: **7.549.033 não negativos diferentes de zero; 26.451 zeros textuais; 28 negativos textuais**. **Não é valor de pagamento líquido**, nem classifica estorno: exige verificação documental e situação financeira. O algoritmo de sinais não substitui conversão de moeda com Decimal e precisão de centavos.
+- Nenhum vazio nas colunas `NR_MOV_FIN`, `NR_CONVENIO`, `TP_MOV_FINANCEIRA`, `VL_PAGO`, `DATA_PAG` e `ID_DL` neste arquivo nacional, segundo o inventário de valores textuais vazios.
+- **Limite:** este resultado não verifica unicidade global de `NR_MOV_FIN`, cardinalidade com OBTV, ocorrência de cancelamentos fora da série de pagamento, nem execução de capital. Não produzir soma de dinheiro sem classificação e prova documental.

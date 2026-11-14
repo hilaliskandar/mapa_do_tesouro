@@ -35,3 +35,16 @@ B) Para reutilizar os ZIPs arquivados, foi criada **branch experimental isolada*
 ## Verificação geoespacial local adicional
 
 Os dois ZIPs enviados foram abertos diretamente por GeoPandas/Shapely; `len(RA)=16`, `len(RG)=43`, geometrias válidas e EPSG:4674. A área da diferença simétrica entre a união geométrica das 16 RA e a união das 43 RG foi `0.0` em graus quadrados do CRS de origem; para cada RG, a interseção de área significativa (limiar `1e-6` da área da RG) ocorreu com exatamente uma RA. Logo, **RG→RA foi confirmado por geometria dos anexos**, independentemente de qualquer ponto eleitoral. Esse resultado não substitui a atribuição individual de cada município IBGE, que continua aguardando a malha municipal oficial de 2025.
+
+
+## Resultado reproduzido localmente sem dependência de downloads externos
+
+A partir dos **dois ZIPs anexados pelo usuário e montados no ambiente local**, executou-se geopandas/Shapely diretamente, sem TSE, zonas eleitorais ou locais de votação. A contagem das feições foi 16 RA e 43 RG, ambas em EPSG:4674, sem geometrias inválidas. A união espacial e a interseção de cada RG com cada RA evidenciaram **43/43 RGs com uma única RA e proporção de interseção de 1,0** na precisão decimal registrada, nenhum vínculo ambíguo. O produto CSV de 43 vínculos foi incorporado no commit `7173afcb04ecf2d6082cd9c296538878b643002e`:
+
+`governance/DIM_HIERARQUIA_SEADE_RG_RA_GEOMETRIA_2026_11_14.csv`
+
+**Nota de tipologia:** O rótulo de RA código 10 fornecido pelo Seade é `RM de São Paulo`, embora figure como uma das **16 feições do conjunto de RA**. Manter o rótulo literal da fonte, sem criar correspondência automática entre essa feição administrativa e a RM metropolitana da dimensão 2025.
+
+O teste de malha municipal IBGE 2025 no container foi impedido por erro de resolução DNS de `geoftp.ibge.gov.br`; o navegador terceirizado encontrou limite de cota, e a leitura direta do CSV Seade foi impedida por falhas de rede. Portanto, **não houve homologação 645→RA/RG**. Não reaproveitar vínculo eleitoral como substituto.
+
+A hierarquia RG→RA já constitui dimensão regional rastreável para filtros, mas os **agregados municipais dependem da tabela municipal IBGE7**. O procedimento deve concluir a ingestão da malha ou tabela do Seade antes de materializar fatos fiscais por RA/RG.

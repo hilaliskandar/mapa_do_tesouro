@@ -1,5 +1,8 @@
 # Finanças municipais da RMRP — README operacional
 
+> **Adendo metodológico de 14/11/2026 — INVESTIMENTOS FEDERAIS E ESTADUAIS.** Antes de retomar FED03, Obrasgov ou novas aquisições, consultar [procedimento revisto](../../governance/PROCEDIMENTO_REVISTO_INVESTIMENTOS_FEDERAIS_ESTADUAIS_RMRP_2026_11_14.md) e a [auditoria documental](../../governance/AUDITORIA_DOCUMENTAL_APIS_TRANSFEREGOV_OBRASGOV_SIAFEM_2026_11_14.md). A correção oficial `siconv_obtv_convenente` foi verificada (run 43618166707), assim como os esquemas `siconv_dl` e `siconv_empenho_desembolso`. Os 28.503 registros de pagamento vinculados a 1.286 convênios são **linhas de movimentação**, NÃO valores líquidos ou investimentos executados. O próximo gate é inspecionar `siconv_itens_dl`, verificar cardinalidade `ID_DL`/`NR_MOV_FIN` e o domínio `TP_MOV_FINANCEIRA` antes de qualquer classificação monetária. **Não retomar a coleta ou promover indicadores automaticamente com esta atualização de README.** A persistência externa (Drive/R2) permanece sujeita a confirmação de upload e readback. A seção editorial abaixo continua vigente para outros produtos.
+
+
 **Atualizado em 06/11/2026, após recuperação da G29.** Documento de continuidade e trilha de auditoria. A referência de procedimentos detalhados é o [README nativo do projeto no Google Drive](https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit).
 
 ## Regra obrigatória de persistência

@@ -75,3 +75,17 @@ Para integração definitiva, **não usar `municipios_ra_rg_v10.csv` como fonte 
 A dimensão RM/AU 2025 já utiliza diretamente `COD_IBGE` e o modelo resultante conserva unicamente `codigo_ibge` como chave de agregação. O campo `codigo_tse` no CSV candidato é atributo de rastreabilidade do cruzamento de origem e **deve ser removido da dimensão canônica financeira quando houver fonte RA/RG municipal homologada**.
 
 **Errata conceitual:** a restrição de homologação RA/RG diz respeito ao **método de atribuição no arquivo candidato específico**, não à identidade IBGE dos 645 municípios nem à composição por zonas eleitorais. Essa distinção deve constar do README e do procedimento de expansão estadual.
+
+
+## Fonte municipal oficial Seade identificada — atualização de 14/11/2026
+
+Foi localizada **fonte independente dos pontos e zonas eleitorais**, no catálogo do Seade:
+
+- Dataset municipal: https://repositorio.seade.gov.br/dataset/nomes-codigos-municipios-esp
+- Recurso municipal: https://repositorio.seade.gov.br/dataset/nomes-codigos-municipios-esp/resource/1871ac05-7b7f-4c13-9b4a-23c7d41fd988
+- CSV oficial: https://repositorio.seade.gov.br/dataset/1617c335-f5ab-426c-b175-280d4e41ec1c/resource/1871ac05-7b7f-4c13-9b4a-23c7d41fd988/download/codigos_municipios_regioes.csv
+- Dicionário oficial: https://repositorio.seade.gov.br/dataset/nomes-codigos-municipios-esp/resource/af9d7eae-d979-45cf-916f-b61fdfa6ee86
+
+O recurso é descrito pelo próprio Seade como contendo **códigos, nomes, agregações regionais e área dos municípios do Estado de São Paulo**, com data de atualização do CSV 04/05/2026. A existência no catálogo **não certifica ainda o conteúdo e os campos RA/RG**, pois o download direto do CSV falhou na sessão de consulta. A sondagem foi implementada em `pipeline/qa/probe_seade_sp645_regionalizacao_municipal.py`, executada por `.github/workflows/inv-sp645-seade-regionalizacao-municipal.yml`; verificar conclusão e manifesto antes de declarar captura.
+
+**Regra corretiva vinculante:** substituir a dimensão RA/RG importada do diagnóstico por uma correspondência **direta de código IBGE para RA/RG do CSV municipal oficial do Seade**, após inspeção do dicionário, 645 códigos e cardinalidade. O arquivo candidato `INV_SP645_CROSSWALK_RA_RG_RM_AU_EL2026_CANDIDATO_2026_11_14.csv` continua servindo **somente para comparação ou regressão**, não como cadastro RA/RG aprovado. Não usar código TSE, locais ou zonas eleitorais para inferir a RA/RG do município. Manter a dimensão RM/AU IBGE7 2025 separada e preservar o ano de referência.

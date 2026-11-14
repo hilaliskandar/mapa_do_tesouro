@@ -29,6 +29,7 @@ PUBLICATION_VARIABLES_CATALOG = ROOT / "data" / "catalogs" / "publication_variab
 UNIVERSE_CATALOGS = (
     ROOT / "data" / "catalogs" / "project_universes_sp.yml",
     ROOT / "data" / "catalogs" / "territorial_universes_sp_2025.yml",
+    ROOT / "data" / "catalogs" / "administrative_universes_sp_2026.yml",
     ROOT / "data" / "catalogs" / "analytical_universes_sp.yml",
 )
 

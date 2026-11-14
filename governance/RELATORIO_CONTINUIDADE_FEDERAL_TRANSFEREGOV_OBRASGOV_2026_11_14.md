@@ -58,3 +58,28 @@ A rotina de auditoria `pipeline/acquire/inv_sp645_transferegov_new_source_layout
 A análise dos arquivos pequenos também demonstra que `siconv_pagamento_tributo` e `siconv_ingresso_contrapartida` têm `NR_CONVENIO`, **não têm `NR_MOV_FIN` ou `ID_DL`**, impossibilitando atribuição direta a movimento individual pela chave disponível. `siconv_coordenadas_obra` oferece `ID_PROPOSTA`; `siconv_contrato_cipi` oferece `ID_CONTRATO` e `ID_PROJETO_INVESTIMENTO`, e `siconv_dados_obrasgov_geral` usa `id_projeto_investimento` e `nr_instrumento`, aptos a testes de cardinalidade posteriores.
 
 **Situação de contagens:** esta coleta foi schema+amostra de 1.000 registros por arquivo + CRC integral. A contagem total de linhas nacionais desses novos arquivos **não foi calculada**, e não deve ser inferida de seu tamanho.
+
+
+## Auditoria de cardinalidade nacional Obrasgov/CIPI — executada
+
+[Workflow 43630077789](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630077789), `SUCCESS`; relatório agregador de chaves no artefato `inv-sp645-obrasgov-cipi-cardinality` ID `14127537342`. Código `pipeline/qa/audit_inv_sp645_obrasgov_cipi_join.py`. Foram baixados e verificados com CRC três arquivos nacionais, contados os vínculos sem imprimir identificadores ou nomes. Valores **não** foram somados.
+
+| Controle da fonte | Resultado |
+|---|---:|
+| `siconv_dados_obrasgov_geral`, linhas / projetos únicos | 48.086 / 48.086 |
+| Projetos repetidos na tabela geral | 0 |
+| Números de instrumento distintos na tabela geral | 48.086 |
+| `siconv_contrato_cipi`, linhas | 39.099 |
+| Projetos distintos nessa tabela de contratos | 27.458 |
+| Contratos com ID de projeto ausente | 0 |
+| Linhas de contratos com ID de projeto encontrado na tabela geral | **39.099** |
+| Projetos com múltiplos registros de contratos | **3.715** |
+| Cardinalidade resultante de join pela chave de projeto, em linhas | 39.099 (sem fan-out adicional, pois tabela geral tem projeto único) |
+| `siconv_coordenadas_obra`, linhas | 132.102 |
+| Propostas distintas com coordenadas | 61.819 |
+| Propostas com duas ou mais linhas de coordenadas | **10.343** |
+| Linhas sem `ID_PROPOSTA` | 0 |
+
+**Cuidado:** a tabela geral nacional `siconv_dados_obrasgov_geral` é apenas o conjunto correspondente disponível no Transferegov. Não afirmar que cobre todos os projetos do portal Obrasgov ou todas as obras federais. Contrato CIPI→projeto é uma relação N:1; projeto→coordenadas não foi unido no presente teste porque a tabela de coordenadas se relaciona pela `ID_PROPOSTA`, não pela chave CIPI. Um convênio ou proposta pode ter várias localizações.
+
+**Próxima operação:** vincular os IDs documentais dos instrumentos e das propostas a proponentes paulistas por IBGE7, segregar valores de contrato de pagamentos, conferir geolocalizações e coordenadas externas. Este QA demonstra viabilidade de junção, não o volume de investimento executado.

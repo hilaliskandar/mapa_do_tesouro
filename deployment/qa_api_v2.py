@@ -61,7 +61,17 @@ def validate_v2(site):
         if ficha["municipality"]["codigo_ibge"] != code:
             raise ValueError(f"Wrong municipality content: {code}")
     groups = {x["universo_id"]: x["member_count"] for x in universes}
-    if groups != EXPECTED_UNIVERSE_MEMBERS:
+    expected = dict(EXPECTED_UNIVERSE_MEMBERS)
+    administrative_ids = {
+        k for k in groups if k.startswith(("RA_SEADE_", "RG_SEADE_"))
+    }
+    if administrative_ids:
+        # New private SP645 builds contain the complete 16-RA + 43-RG catalogue,
+        # not an arbitrary subset. The contract is derived from the IBGE7 source
+        # and retains exact per-region member counts.
+        from deployment.qa_sp645_pages import expected_administrative_universes
+        expected.update(expected_administrative_universes())
+    if groups != expected:
         raise ValueError(f"Wrong regional universe composition: {groups}")
     for universe_id, size in groups.items():
         folder = root / "universes" / universe_id

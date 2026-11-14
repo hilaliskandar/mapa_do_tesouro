@@ -122,3 +122,33 @@ A validação do build SP645 com RA/RG descobriu que o verificador legado da API
 ## Gate técnico territorial encerrado — 14/11/2026
 
 O build privado SP645 com os **72 universos e dados fiscais reais** terminou com `SUCCESS` no [run 43630697231](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630697231). A validação `deployment/qa_sp645_pages.py --site build/site-sp645` e `deployment/qa_api_v2.py --site build/site-sp645` foi concluída. Contagens do manifesto real: 72 seleções, 16 RA, 43 RG, 645 municípios nas RA, 645 nas RG, `SP_645` como padrão. **A aprovação é do build privado; não significa divulgação dos valores federais de investimento ou implantação pública.** Fonte IBGE7 permanece SEMIL/Seade, sem vínculo com zonas eleitorais.
+
+
+## Gate R2 de cardinalidade pagamento–OBTV confirmado — execução 43630776308
+
+[GitHub Actions 43630776308](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630776308), **SUCCESS**, análise nacional com SQLite temporário, ZIPs originais com SHA-256/CRC, descarte de microdados ao término e manifesto agregado em artefato; script `pipeline/acquire/inv_sp645_payment_obtv_cardinality.py`.
+
+| Métrica | Contagem |
+|---|---:|
+| Linhas nacionais `siconv_pagamento` | 7.575.512 |
+| `NR_MOV_FIN` distintos nos pagamentos | **7.575.512** |
+| `NR_MOV_FIN` repetidos na tabela de pagamentos | **0** |
+| Pagamentos com tipo rotulado `COM OBTV` | 5.734.760 |
+| Linhas nacionais `siconv_obtv_convenente` | 3.113.841 |
+| `NR_MOV_FIN` distintos na tabela OBTV | **367.022** |
+| IDs `NR_MOV_FIN` da OBTV repetidos nessa tabela | **63.364** |
+| IDs distintos da OBTV encontrados na tabela de pagamentos | **367.022** |
+| Linhas OBTV com correspondência a pagamento | **3.113.841** |
+| Linhas OBTV sem correspondência à tabela de pagamentos | **0** |
+| Combinações OBTV ↔ pagamentos `SEM OBTV` | **0** |
+| IDs de pagamento com colisão de convênio ou `ID_DL` | **0** |
+
+**Implicação metodológica P0:** a correspondência `NR_MOV_FIN` é **um pagamento→muitas linhas OBTV** em parte do corpus, não 1:1. Existem apenas **367.022 movimentações de pagamento** representadas pelas 3.113.841 linhas OBTV. **A multiplicação de linhas de um join não pode multiplicar o valor `VL_PAGO`**, que permanece associado a uma única movimentação; o campo `VL_PAGO_OBTV_CONV` possui unidade e semântica distintas, sujeitas a conciliação de retenções/parcelas. **Não somar as duas fontes** como se fossem despesas independentes.
+
+A distinção dos **5.734.760** pagamentos rotulados `COM OBTV` frente às **367.022** movimentações que aparecem no arquivo `siconv_obtv_convenente` exige investigação de cobertura/modalidade, não supor inconsistência ou ausência de pagamento. `siconv_obtv_convenente` descreve módulo específico da OBTV do convenente, não inventário completo de pagamentos OBTV.
+
+**Regra de agregação futura:** preservar uma tabela de eventos pagos por `NR_MOV_FIN`, em seu grão único, e uma tabela filha dos eventos OBTV com cardinalidade 1:N. A materialização unificada deve fornecer métricas de origem separadas, e eventual reconciliação de valores em inteiros de centavos, sem fan-out de pagamentos. A classificação GND4 ainda requer suporte documental independente.
+
+### Coleta subsequente iniciada
+
+Foi acionada a rotina `pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py`, workflow [43630964784](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630964784), para cruzar os ZIPs nacionais de propostas, convênios, coordenadas e pontes CIPI/Obrasgov com a **dimensão IBGE7 SP645**, derivando contagens de cobertura por RA, RG e RM/AU **exclusivamente pelo município proponente**. Ela não classifica localização física nem publica valores monetários. Registrar como resultado pendente até conferir conclusão e manifesto QA.

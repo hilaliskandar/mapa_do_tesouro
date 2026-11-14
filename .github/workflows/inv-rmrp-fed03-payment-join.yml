@@ -1,0 +1,51 @@
+name: INV RMRP - FED03 join de pagamentos por convenio
+on:
+  push:
+    branches:
+      - investimentos-territoriais-sp645-20261111
+    paths:
+      - pipeline/acquire/inv_rmrp_fed03_payment_join.py
+      - .github/workflows/inv-rmrp-fed03-payment-join.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  join-payment-records:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify syntax
+        run: python3 -m py_compile pipeline/acquire/inv_rmrp_fed03_payment_join.py
+      - name: Join national sources by original convenio id
+        run: |
+          python3 pipeline/acquire/inv_rmrp_fed03_payment_join.py \
+            --out-dir "${RUNNER_TEMP}/fed03_payment_join"
+      - name: Check QA
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import os,json
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"fed03_payment_join/manifest_fed03_payment_join.json"
+          assert p.exists(),"manifest missing"
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["status"]=="proponent_payment_rows_linked_nonmonetary",x.get("errors")
+          assert x["qa"]["reconciled_payment_rows"]==x["qa"]["rmrp_linked_payment_rows"]
+          print(json.dumps(x["qa"],ensure_ascii=False))
+          PY
+      - name: Retain municipal aggregates and source manifest only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-fed03-payment-join
+          path: |
+            ${{ runner.temp }}/fed03_payment_join/manifest_fed03_payment_join.json
+            ${{ runner.temp }}/fed03_payment_join/pagamentos_contagem_municipio_proponente.csv
+          retention-days: 30
+          if-no-files-found: warn

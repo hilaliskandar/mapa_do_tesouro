@@ -51,6 +51,8 @@ def page_metadata(obj):
 def sha(data):return hashlib.sha256(data).hexdigest()
 cities=list(csv.DictReader(CATALOG.open(encoding="utf-8",newline=""),delimiter=";"))
 assert len(cities)==34 and len({x["codigo_ibge"] for x in cities})==34
+CITY_LIMIT=int(os.getenv("INV_CITY_LIMIT","0"))
+if CITY_LIMIT>0:cities=cities[:CITY_LIMIT]
 manifest={"created_at":datetime.now(timezone.utc).isoformat(),"scope":"RMRP 34 cities, proposal records only, no payments inferred","modules":[],"consultations":[],"files":[],"limitations":[]}
 for mod,path,filter_name in MODULES:
     try:

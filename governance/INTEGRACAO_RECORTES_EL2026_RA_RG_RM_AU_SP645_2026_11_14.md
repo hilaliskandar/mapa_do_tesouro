@@ -38,7 +38,7 @@ Foi feita associação exata `municipio_tse` → `CD_MUNICIPIO_TSE` → `CD_MUNI
 - CSV de 645 linhas: `governance/INV_SP645_CROSSWALK_RA_RG_RM_AU_EL2026_CANDIDATO_2026_11_14.csv`
 - Script de QA: `pipeline/qa/audit_inv_sp645_el2026_territories.py`
 - Workflow: `.github/workflows/inv-sp645-qa-territorios-el2026.yml`
-- Execução iniciada [43621768319](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43621768319), **resultado pendente na primeira consulta**.
+- Execução iniciada [43621768319](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43621768319), **concluída com SUCCESS**: controles de código, pertencimento RG→RA, unicidade RM/AU, 645 municípios e RMRP34 aprovados; ainda não homologa vigência normativa ou geometria.
 
 O CSV carrega somente códigos e nomes regionais, sem dados eleitorais ou valores financeiros. Possui campo `ra_rg_status=RA_RG_SEADE_2021_PROXY_NAO_HOMOLOGADO` para impedir utilização silenciosa como regionalização juridicamente vigente. O script verifica grãos, chaves, cardinalidade, pertencimento único RG→RA, RM/AU sem duplicidade e identidade RMRP34, produzindo JSON auditável.
 

@@ -12,6 +12,7 @@ from pathlib import Path
 from inv_rmrp_transferegov_join import download,rows
 
 SETS=("siconv_pagamento","siconv_obtv")
+OPTIONAL_SETS={"siconv_obtv"}
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--out-dir",required=True)
@@ -36,10 +37,10 @@ def main():
             item["candidate_join_columns"]=[x for x in heads if any(k in x.upper() for k in ("PROPOSTA","CONVENIO","OBTV","DESEMBOLSO","PAGAMENTO","ITEM_PAD","EMPENHO","DOCUMENTO_HABIL"))]
             item["status"]="schema_and_rows_confirmed"
         except Exception as exc:
-            item["status"]="blocked";item["error"]=repr(exc)
+            item["status"]="optional_unavailable" if name in OPTIONAL_SETS else "blocked";item["error"]=repr(exc)
         persist()
-        print(json.dumps({"dataset":name,"status":item["status"],"national_rows":item.get("national_rows"),"candidate_join_columns":item.get("candidate_join_columns"),"error":item.get("error")},ensure_ascii=False),flush=True)
-    report["status"]="schema_probe_completed" if all(x["status"]=="schema_and_rows_confirmed" for x in results) else "partial_or_blocked"
+        print(json.dumps({"dataset":name,"status":item["status"],"national_rows":item.get("national_rows"),"candidate_join_columns":item.get("candidate_join_columns"),"columns":item.get("columns"),"error":item.get("error")},ensure_ascii=False),flush=True)
+    report["status"]="payment_schema_verified_obtv_optional_unavailable" if results[0]["status"]=="schema_and_rows_confirmed" and all(x["status"] in ("schema_and_rows_confirmed","optional_unavailable") for x in results) else "blocked_payment_source"
     persist()
-    if report["status"]!="schema_probe_completed":raise SystemExit(2)
+    if report["status"]=="blocked_payment_source":raise SystemExit(2)
 if __name__=="__main__":main()

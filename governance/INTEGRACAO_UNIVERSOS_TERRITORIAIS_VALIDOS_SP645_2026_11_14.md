@@ -46,3 +46,7 @@ O catálogo RA/RG tem referência de **consulta 2026-11-14**; não comprova vig�
 ## Resultado funcional esperado
 
 O usuário escolhe, por exemplo, `Regiões Administrativas — Seade → RA de Ribeirão Preto`, ou `Regiões de Governo — Seade → RG de Ribeirão Preto`, ou `Regiões Metropolitanas → Região Metropolitana de Ribeirão Preto`. Os três recortes são independentes, com municípios e estatísticas próprias, mas usam a mesma base fiscal IBGE7. Variações de indicadores entre universos refletem mudança de grupo de comparação, não mudança de observações municipais.
+
+## Verificação posterior de build integral — 14/11/2026
+
+O build privado real [GitHub Actions 43630697231](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630697231) concluiu **SUCCESS**. A etapa `Validate all 72 selectable regions and municipal maps` terminou sem erro, assim como a auditoria da API v2, dos indicadores fiscais canônicos e dos arquivos estáticos. O manifesto `build/qa_ra_rg_private_real_build.json` informou `QA_PASS_PRIVATE_REAL_FINANCIAL_BUILD`: **72 universos; 16 RA; 43 RG; 645 municípios em cada uma das duas classificações; default SP_645**. O build foi gerado como **artefato privado**, sem implantação no site público, sem merge em main e sem gravação na base R2 de produção. O contrato de QA da API v2 foi atualizado para aceitar **somente a composição completa** de novas RA/RG, preservando os checks dos universos legados.

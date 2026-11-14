@@ -118,3 +118,7 @@ A validação do build SP645 com RA/RG descobriu que o verificador legado da API
 - **Em execução:** cardinalidade real pagamento↔OBTV, build privado completo dos 72 universos.
 - **Pendentes:** ligação paga↔GND4 comprovada; município de execução comprovado; classificação de estornos e retenções; captura API Obrasgov completa; conciliação CGU por ordens bancárias; SP645 monetário por estágio; persistência imutável e readback em R2 privado.
 - **Bloqueados para promoção:** soma de investimentos federais pagos, agregados financeiros por RA/RG/RM/AU e atualização dos dados exibidos ao público.
+
+## Gate técnico territorial encerrado — 14/11/2026
+
+O build privado SP645 com os **72 universos e dados fiscais reais** terminou com `SUCCESS` no [run 43630697231](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630697231). A validação `deployment/qa_sp645_pages.py --site build/site-sp645` e `deployment/qa_api_v2.py --site build/site-sp645` foi concluída. Contagens do manifesto real: 72 seleções, 16 RA, 43 RG, 645 municípios nas RA, 645 nas RG, `SP_645` como padrão. **A aprovação é do build privado; não significa divulgação dos valores federais de investimento ou implantação pública.** Fonte IBGE7 permanece SEMIL/Seade, sem vínculo com zonas eleitorais.

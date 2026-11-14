@@ -22,3 +22,26 @@ As quatro classes de observação são: (1) proposta com GND4 aprovado **e** des
 A execução deve passar por: 34 códigos IBGE distintos na referência; propostas territorializadas por IBGE/UF; chaves de convênio não conflitantes; unicidade de IDs de itens e de eventos; 6.410 propostas RMRP e 7.917 itens GND4 aprovados consistentes com a última fotografia oficial (se a fonte mudar, o job deve falhar para exigir revisão); soma dos eventos por proposta igual ao número selecionado de eventos; sem geração de qualquer valor monetário presumido.
 
 Após examinar o resultado do job, registrar contagem de propostas em cada categoria, instrumentos com despesas de natureza mista, diferenças de localização física, recuperação dos eventuais pagamentos a favorecido e validação dos fluxos que efetivamente representam investimento. Persistência R2 e readback continuam pendentes, sem alegação de execução.
+
+## Resultado da execução concluída — 14/11/2026
+
+A execução [GitHub Actions 43610314591](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43610314591) foi concluída com `success`. Etapas de download, conciliação, QA e arquivamento aprovadas. Artefato `14119707951`, `inv-rmrp-fed02-crosswalk`, digest `sha256:4681e3fbc61e9d11cd7bfaec9733c3ee3a96e1ba71a8044fea196478b07e6fb6` (digest informado pelo GitHub para ZIP de artefato; não para cada CSV de origem).
+
+| População auditada | Registros |
+|---|---:|
+| Propostas nacionais | 1.160.558 |
+| Propostas de proponentes RMRP | 6.410 |
+| Linhas nacionais de convênios | 288.852 |
+| Linhas de convênios vinculadas RMRP | 1.793 |
+| Itens PAD nacionais | 4.917.545 |
+| Itens PAD de propostas RMRP | 28.456 |
+| Itens GND4 aprovados no recorte | 7.917 |
+| Eventos nacionais de desembolso | 386.864 |
+| Eventos de desembolso vinculados aos convênios do recorte | 2.537 |
+
+**Classificação por proposta, somando exatamente 6.410:** 1.113 com GND4 aprovado e pelo menos um evento de desembolso do convênio; 337 com GND4 aprovado, sem desembolso encontrado; 233 com desembolso, sem GND4 aprovado; 4.727 sem nenhuma das duas condições observadas. As somas de itens e eventos reconciliaram integralmente com seus totais selecionados. O dataset registra 7.891 itens aprovados com município indicado correspondente à RMRP e sete itens com município de destino RMRP diverso do proponente.
+
+**Limite essencial:** 'GND4 aprovado e desembolso observado no mesmo instrumento' significa coexistência documental, **não vinculação de cada pagamento a cada item de capital**. O conjunto tampouco demonstra quitação ao favorecido, liquidação municipal ou execução territorial. O número 1.113 não é quantidade de obras. Os totais financeiros ainda não foram apurados nem homologados.
+
+**Próximo gate FED03:** inspecionar `siconv_pagamento` e `siconv_obtv` pelo download nacional integral, determinar chaves efetivas, cruzar instrumento/pagamento e identificar despesas classificáveis de capital com comprovante de ligação direta. Quando a fonte não permitir atribuir o pagamento ao item de capital, manter o pagamento como fluxo financeiro não classificado, sem rateio proporcional. Persistir snapshots com SHA256 e readback no R2 privado antes de considerar disponibilidade permanente. Separar novamente esfera de proponente e município de execução.
+

@@ -30,3 +30,8 @@ B) Para reutilizar os ZIPs arquivados, foi criada **branch experimental isolada*
 6. Manter flag `candidato_espacial` até verificar vigência institucional de 2026. Nenhum valor monetário nem tabela de produção deve ser modificado por esta operação.
 
 **Ponto conceitual:** o fato de um ZIP Seade conter regiões espacialmente representadas não o torna uma tabela de municípios. Para formar uma composição por município é necessária uma segunda origem com identificador IBGE municipal (malha municipal ou tabela tabular oficial), com junção auditável.
+
+
+## Verificação geoespacial local adicional
+
+Os dois ZIPs enviados foram abertos diretamente por GeoPandas/Shapely; `len(RA)=16`, `len(RG)=43`, geometrias válidas e EPSG:4674. A área da diferença simétrica entre a união geométrica das 16 RA e a união das 43 RG foi `0.0` em graus quadrados do CRS de origem; para cada RG, a interseção de área significativa (limiar `1e-6` da área da RG) ocorreu com exatamente uma RA. Logo, **RG→RA foi confirmado por geometria dos anexos**, independentemente de qualquer ponto eleitoral. Esse resultado não substitui a atribuição individual de cada município IBGE, que continua aguardando a malha municipal oficial de 2025.

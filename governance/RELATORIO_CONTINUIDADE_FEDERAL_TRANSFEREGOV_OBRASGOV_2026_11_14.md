@@ -45,3 +45,16 @@ A rotina de auditoria `pipeline/acquire/inv_sp645_transferegov_new_source_layout
 - Não presumir geolocalização física de investimento a partir de sede do fornecedor.
 - Não produzir total de investimento executado usando GND4 aprovado do PAD como substituto de pagamento.
 - Os workflows são isolados, conservam apenas relatórios sem nomes, CNPJ ou linhas de pagamento, e não promovem a base canônica.
+
+
+## Fechamento da inspeção do `siconv_itens_dl`
+
+**Run [43629868488](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43629868488): SUCCESS**, com CRC do ZIP nacional verificado e inspeção estrita de cabeçalho/amostra; manifesto de metadados arquivado. Cabeçalho real:
+
+`ID_ITEM_DL;NOME_ITEM_DL;QTD_ITEM_DL;UNIDADE_ITEM_DL;VALOR_TOTAL_ITEM_DL;DESCRICAO_ITEM_DL;ID_DL`.
+
+**Conclusão documental P0:** a chave `ID_DL` existe no item e na tabela de DL; **`ID_ITEM_PAD` não consta do CSV `siconv_itens_dl`**. A cadeia `pagamento → DL → item da DL` tem chave candidata, mas a cadeia `item da DL → item PAD GND4` **NÃO tem chave direta documentada neste esquema**. A presença do nome/descrição não autoriza equiparar os itens por correspondência textual ou valor idêntico. Os valores `VALOR_TOTAL_ITEM_DL` não são ainda comprovadamente pagamentos líquidos; retenções/tributos e status da DL precisam ser auditados.
+
+A análise dos arquivos pequenos também demonstra que `siconv_pagamento_tributo` e `siconv_ingresso_contrapartida` têm `NR_CONVENIO`, **não têm `NR_MOV_FIN` ou `ID_DL`**, impossibilitando atribuição direta a movimento individual pela chave disponível. `siconv_coordenadas_obra` oferece `ID_PROPOSTA`; `siconv_contrato_cipi` oferece `ID_CONTRATO` e `ID_PROJETO_INVESTIMENTO`, e `siconv_dados_obrasgov_geral` usa `id_projeto_investimento` e `nr_instrumento`, aptos a testes de cardinalidade posteriores.
+
+**Situação de contagens:** esta coleta foi schema+amostra de 1.000 registros por arquivo + CRC integral. A contagem total de linhas nacionais desses novos arquivos **não foi calculada**, e não deve ser inferida de seu tamanho.

@@ -1,0 +1,54 @@
+name: INV RMRP - FED02 cruzamento PAD desembolso
+on:
+  push:
+    branches:
+      - investimentos-territoriais-sp645-20261111
+    paths:
+      - pipeline/acquire/inv_rmrp_fed02_crosswalk.py
+      - .github/workflows/inv-rmrp-fed02-crosswalk.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  federal-crosswalk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check script syntax
+        run: python3 -m py_compile pipeline/acquire/inv_rmrp_fed02_crosswalk.py
+      - name: Download official datasets and reconcile source IDs
+        run: |
+          python3 pipeline/acquire/inv_rmrp_fed02_crosswalk.py \
+            --out-dir "${RUNNER_TEMP}/inv_rmrp_fed02"
+      - name: Check manifest and QA
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import os,json
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"inv_rmrp_fed02/manifest_fed02.json"
+          assert p.exists(),"FED02 missing manifest"
+          x=json.loads(p.read_text(encoding="utf-8"))
+          assert x["status"]=="joined_pilot_non_monetary_not_homologated",x.get("errors")
+          q=x["qa"]
+          assert q["gnd4_approved_items"]==7917
+          assert q["linked_rmrp_proposals"]==6410
+          assert q["linked_disbursement_rows"]==q["sum_disbursements"]
+          print(json.dumps(q,ensure_ascii=False))
+          PY
+      - name: Archive QA and proposed instrument links only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-fed02-crosswalk
+          path: |
+            ${{ runner.temp }}/inv_rmrp_fed02/manifest_fed02.json
+            ${{ runner.temp }}/inv_rmrp_fed02/matriz_proposta_conv_pad_desembolso_nao_monetaria.csv
+          retention-days: 30
+          if-no-files-found: warn

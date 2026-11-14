@@ -27,3 +27,14 @@ Não converter correspondência por nome em geolocalização homologada, pois a 
 4. Validar natureza GND4, validade documental dos itens e eventos efetivos de desembolso no nível de instrumento; segregar financiamento e execução física.
 5. Não alterar painel, SQLite canônico ou produção antes de concluir QA.
 
+
+
+## Execução de territorialização por nome — 14/11/2026
+
+GitHub Actions [43560489903](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43560489903): `success`; artefato `14099754349` (`inv-rmrp-transferegov-plano`), checksum do ZIP de artefato `sha256:5d7548abb11719a1844c37f1e56df17f508dcfd099c84b7370b5ae7a63ee77b3`.
+
+O log contém cruzamento oficial das 28.456 linhas e, **dentro dos 7.917 itens candidatos GND4 com SIT_ITEM=APROVADO**, identificou: **7.891 com correspondência nominal em um dos 34 municípios da RMRP**, **20 com município informado de SP sem correspondência com o cadastro RMRP** e **seis com UF diversa de SP**. A soma (7.891 + 20 + 6) reconcilia os 7.917 itens. Correspondência por nome não é homologação geoespacial, nem pagamento.
+
+Em 14/11 foi acrescentada a rotina de `gnd4_approved_territorial_exceptions_all` para enumerar os 26 itens sem correspondência, preservar `ID_ITEM_PAD` e `ID_PROPOSTA`, bem como `gnd4_approved_other_rmrp_destination_count` para separar propostas com destino indicado em município da RMRP **diferente do proponente**. Commit `9cbb63e277bb9eb25b151e72d692cfa82fabcd76`; a nova execução [43561970362](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43561970362) encontrava-se em fila na consulta inicial. **Não atribuir valores derivados dessa nova rotina sem resultado e QA concluídos.**
+
+Próximo gate: conferir enumeração e vínculos cruzados no novo log, verificar município de aplicação em fonte oficial por chave, cruzar sem arbitrariedade com número de convênio, `ID_PROPOSTA` e eventos de desembolso e persistir snapshots no R2 com readback. A metodologia continua limitada ao município proponente quando o dado territorial de execução não está validado.

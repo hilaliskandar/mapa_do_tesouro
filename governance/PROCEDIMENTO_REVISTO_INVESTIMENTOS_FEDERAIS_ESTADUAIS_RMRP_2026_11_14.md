@@ -113,3 +113,9 @@ Antes de qualquer soma de `VL_PAGO`:
 - https://portaldatransparencia.gov.br/download-de-dados/convenios
 
 **Não comprovado nesta revisão:** consulta íntegra de `siconv_itens_dl`, significado efetivo de todos os códigos `TP_MOV_FINANCEIRA`, montantes líquidos de investimento pagos e persistência R2 com readback. Não informar esses elementos como concluídos.
+
+## 10. Atualização da cardinalidade observada em 14/11/2026
+
+A ligação nacional foi efetivamente verificada no [run 43630776308](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630776308): `NR_MOV_FIN` é único na tabela de pagamentos (7.575.512 IDs em 7.575.512 linhas), **mas não é único na tabela `siconv_obtv_convenente`** (3.113.841 linhas em 367.022 IDs, 63.364 IDs repetidos). Os **367.022 IDs** encontram-se na tabela de pagamentos, sem correspondências com pagamentos de tipo `SEM OBTV`. O elo operacional é **pagamento 1:N linhas OBTV**; realizar `JOIN` direto e somar `VL_PAGO` multiplica indevidamente o valor pago. Assim, o modelo deve preservar o grão de `NR_MOV_FIN` no fato do pagamento, com outra tabela filha para eventos OBTV, mantendo chaves, tipos, parcelas, retornos e eventuais retenções em trilhas próprias. A lacuna entre 5.734.760 movimentações rotuladas `COM OBTV` e 367.022 chaves presentes no módulo OBTV do convenente **não permite inferir perda de registros**, pois os arquivos têm coberturas de modalidades distintas.
+
+O cruzamento `NR_CONVENIO` → pagamento → `ID_DL` → itens de DL já tem chaves documentais candidatas; não há `ID_ITEM_PAD` na tabela nacional de itens DL, portanto a natureza GND4 ainda não é comprovada. **Gate R2 de cardinalidade: aprovado no nível das chaves nacionais; gate R3 monetário e R4 de natureza de investimento continuam pendentes.**

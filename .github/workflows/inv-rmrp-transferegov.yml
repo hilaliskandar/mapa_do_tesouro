@@ -1,0 +1,60 @@
+name: INV RMRP - Transferegov read-only pilot
+on:
+  workflow_dispatch:
+    inputs:
+      city_limit:
+        description: "Numero de municipios (2 piloto; 34 universo inteiro)"
+        required: true
+        default: "2"
+        type: choice
+        options: ["2", "34"]
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Syntax check
+        run: python3 -m py_compile pipeline/acquire/collect_inv_rmrp_transferegov.py
+      - name: Collect public proposals and raw evidence
+        id: acquisition
+        continue-on-error: true
+        env:
+          INV_CITY_LIMIT: ${{ inputs.city_limit }}
+          INV_MAX_PAGES: "250"
+          INV_OUTPUT: build/inv-rmrp-transferegov
+        run: python3 pipeline/acquire/collect_inv_rmrp_transferegov.py
+      - name: Validate evidence and report scope
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("build/inv-rmrp-transferegov/manifest.json")
+          if not p.exists():
+              print("BLOCKED: no manifest; check acquisition logs")
+              raise SystemExit(2)
+          obj=json.loads(p.read_text(encoding="utf-8"))
+          s=obj["statistics"]
+          assert s["consultations"]<=s["planned_queries"]
+          assert s["municipalities"] in (2,34)
+          assert len({x["ibge7"] for x in obj["consultations"]})<=s["municipalities"]
+          assert all(x["status"] in ("complete_empty_terminal_page","complete_by_reported_total_pages","complete_by_next_flag","first_page_only_pagination_unavailable","partial_repeated_page","partial_max_pages_reached","failed_or_partial") for x in obj["consultations"])
+          print(json.dumps(s,ensure_ascii=False))
+          if not s["complete"]:
+              print("WARNING: no complete paginated coverage demonstrated")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: inv-rmrp-transferegov-raw-${{ inputs.city_limit }}
+          path: build/inv-rmrp-transferegov/
+          retention-days: 30
+          if-no-files-found: warn

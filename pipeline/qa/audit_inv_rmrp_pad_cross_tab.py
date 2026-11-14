@@ -52,7 +52,7 @@ def main():
         roster_by_name[name]=code
     required={"__ibge7_proponente","ID_PROPOSTA","ID_ITEM_PAD","COD_NATUREZA_DESPESA","SIT_ITEM","SIGLA","MUNICIPIO"}
     cross=Counter(); municipalities=defaultdict(Counter); unknown=Counter()
-    locations=Counter(); destination=Counter(); destination_by_proponent=Counter(); exceptional=[]; ids=set(); n=0; missing_id=0; duplicate=0
+    locations=Counter(); destination=Counter(); destination_by_proponent=Counter(); destination_exception_rows=[]; cross_municipal=Counter(); exceptional=[]; ids=set(); n=0; missing_id=0; duplicate=0
     with input_path.open(encoding="utf-8-sig",newline="") as f:
         reader=csv.DictReader(f,delimiter=";")
         assert required.issubset(set(reader.fieldnames or [])),str(required-set(reader.fieldnames or []))
@@ -77,6 +77,9 @@ def main():
                 destination[dest_type]+=1
                 if destination_code:
                     destination_by_proponent[(ib,destination_code)]+=1
+                    if destination_code!=ib:cross_municipal[(ib,destination_code)]+=1
+                else:
+                    destination_exception_rows.append({"ibge7_proponente":ib,"id_proposta":row["ID_PROPOSTA"],"id_item_pad":ident,"natureza":row["COD_NATUREZA_DESPESA"],"situacao":row["SIT_ITEM"],"uf_item":uf,"municipio_item":row["MUNICIPIO"],"motivo":dest_type})
             cross[(cat,st,loc)]+=1
             municipalities[ib][(cat,st,loc)]+=1
             locations[(uf or "(vazio)")]+=1
@@ -96,6 +99,8 @@ def main():
         raise RuntimeError("destination reconciliation mismatch")
     if sum(destination_by_proponent.values()) != destination.get("municipio_item_corresponde_rmrp_por_nome", 0):
         raise RuntimeError("municipal candidate crosswalk mismatch")
+    if len(destination_exception_rows)!=candidate-destination.get("municipio_item_corresponde_rmrp_por_nome",0):
+        raise RuntimeError("exception count mismatch")
     report={"generated_at_utc":datetime.now(timezone.utc).isoformat(),
       "qa_status":"preliminary_cross_tab_not_homologated",
       "source_file":str(input_path),"source_sha256":hashlib.sha256(raw).hexdigest(),
@@ -106,6 +111,9 @@ def main():
       "cross_tab":[{"natureza":a,"situacao":b,"localizacao":c,"itens":v} for (a,b,c),v in sorted(cross.items())],
       "item_uf_counts":dict(sorted(locations.items())),
       "gnd4_approved_destination_match":dict(sorted(destination.items())),
+      "gnd4_approved_territorial_exceptions_all":destination_exception_rows,
+      "gnd4_approved_other_rmrp_destination_count":sum(cross_municipal.values()),
+      "gnd4_approved_other_rmrp_destination_pairs":[{"ibge7_proponente":p,"ibge7_municipio_item":d,"itens":q} for (p,d),q in sorted(cross_municipal.items())],
       "gnd4_approved_proponent_to_named_destination":[{"ibge7_proponente":p,"ibge7_municipio_item":d,"itens":q} for (p,d),q in sorted(destination_by_proponent.items())],
       "territorial_method":"Exact normalized municipality name match with the 34 IBGE-coded roster, after requiring item UF=SP; this is a candidate linkage, not a confirmed execution geocode.",
       "unknown_nature_codes":dict(sorted(unknown.items())),
@@ -119,6 +127,6 @@ def main():
         "Proponent territory does not establish implementation territory."]}
     target=Path(args.output);target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps({**{k:report[k] for k in ("qa_status","rows_checked","unique_item_ids","proponent_municipalities","gnd4_approved_items_candidate","gnd4_approved_and_item_uf_sp_not_geocoded")},"gnd4_approved_destination_match":report["gnd4_approved_destination_match"],"gnd4_approved_top_crosswalk":sorted(report["gnd4_approved_proponent_to_named_destination"],key=lambda r:-r["itens"])[:15]},ensure_ascii=False))
+    print(json.dumps({**{k:report[k] for k in ("qa_status","rows_checked","unique_item_ids","proponent_municipalities","gnd4_approved_items_candidate","gnd4_approved_and_item_uf_sp_not_geocoded")},"gnd4_approved_destination_match":report["gnd4_approved_destination_match"],"gnd4_approved_other_rmrp_destination_count":report["gnd4_approved_other_rmrp_destination_count"],"gnd4_approved_territorial_exceptions_all":report["gnd4_approved_territorial_exceptions_all"],"gnd4_approved_top_crosswalk":sorted(report["gnd4_approved_proponent_to_named_destination"],key=lambda r:-r["itens"])[:15]},ensure_ascii=False))
 
 if __name__=="__main__":main()

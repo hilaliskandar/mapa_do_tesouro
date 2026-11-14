@@ -152,3 +152,34 @@ A distinção dos **5.734.760** pagamentos rotulados `COM OBTV` frente às **367
 ### Coleta subsequente iniciada
 
 Foi acionada a rotina `pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py`, workflow [43630964784](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630964784), para cruzar os ZIPs nacionais de propostas, convênios, coordenadas e pontes CIPI/Obrasgov com a **dimensão IBGE7 SP645**, derivando contagens de cobertura por RA, RG e RM/AU **exclusivamente pelo município proponente**. Ela não classifica localização física nem publica valores monetários. Registrar como resultado pendente até conferir conclusão e manifesto QA.
+
+
+## Fechamento da cobertura documental territorial SP645 — 14/11/2026
+
+[Run 43630964784](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630964784), `SUCCESS`. Cinco arquivos nacionais da plataforma Transferegov foram lidos: `siconv_proposta`, `siconv_convenio`, `siconv_coordenadas_obra`, `siconv_dados_obrasgov_geral` e `siconv_contrato_cipi`. As chaves empregadas foram `ID_PROPOSTA`→`NR_CONVENIO`→`nr_instrumento`→`id_projeto_investimento` e `ID_PROPOSTA`→coordenadas, respeitando a natureza e o grão de cada conjunto. O **único papel territorial comprovado neste cruzamento é o município proponente IBGE7**, extraído da proposta com UF SP; não localização física da obra.
+
+| Universo e fato documental | Estado SP645 por proponente | RMRP34 por proponente |
+|---|---:|---:|
+| Propostas distintas | **134.452** | **6.410** |
+| Convênios distintos ligados a propostas | **34.447** | **1.793** |
+| Linhas de coordenadas vinculadas à proposta | **10.567** | **441** |
+| Projetos Obrasgov ligados por número exato de instrumento e ID CIPI | **4.212** | **218** |
+| Linhas de contratos CIPI ligadas aos projetos do passo anterior | **3.730** | **150** |
+
+A seleção nacional de propostas continha 1.160.558 linhas, e a de convênios 288.852. Os 134.452 registros paulistas correspondem a municípios proponentes, não à totalidade das intervenções federais fisicamente localizadas em SP. Os dados de coordenadas somam 10.567 registros relacionados a **5.169 propostas paulistas distintas**, mas o fato de haver lat/long preenchidas não garante geocodificação válida ou localização dentro do município proponente. O recorte de 4.212 projetos deriva de correspondência **exata de identificadores de instrumento** nessa série; exclui modalidades ou projetos não representados nesse encadeamento documental. **Não foram somados valores monetários**.
+
+A classificação regional foi derivada de **645 códigos IBGE7 oficiais**, com composição alternativa de 16 RA, 43 RG, 9 RM e uma AU. As 69 linhas de contagem regional e metadados SHA-256 dos cinco ZIPs estão **persistidas em arquivo versionado permanente**:
+
+[governance/INV_SP645_COBERTURA_REGIONAL_TRANSFEREGOV_OBRASGOV_2026_11_14.json](INV_SP645_COBERTURA_REGIONAL_TRANSFEREGOV_OBRASGOV_2026_11_14.json)
+
+O arquivo foi recuperado do artefato agregado do workflow original `14127424244`, validado novamente e gravado na branch por [run 43631104395](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43631104395), concluído com `SUCCESS`, sem baixar novamente os grandes ZIPs nem persistir dados pessoais. Esse resultado evita a perda documental após o vencimento do artefato de CI.
+
+**Regra analítica:** universos RA e RG cobrem cada um os 645 municípios, mas são classificações alternativas; as contagens por RA não se somam às contagens por RG ou RM/AU. A RMRP aparece como recorte entre as 10 RM/AU, com seus **34 municípios e 218 projetos candidatos** vinculados por proponente, sem caráter de investimento executado.
+
+### Próximos testes concretos
+
+1. Criar uma amostra auditável de projetos RMRP com `ID_PROPOSTA`, `NR_CONVENIO` e `id_projeto_investimento` **em staging privado**, conferindo objetos, valores por etapa e a localização física documental; não expor microdados indiscriminadamente no repositório.
+2. Relacionar, sem multiplicação, os pagamentos únicos `NR_MOV_FIN` aos contratos/objetos e `ID_DL`; utilizar OBTV como relação 1:N e manter registros sem conclusão como `nao_classificado`.
+3. Consultar Obrasgov por projeto CIPI para obter município executor, obra, estágio, percentual físico, fonte orçamentária e eventual multiplicidade territorial.
+4. Conciliar CGU (ordens bancárias) e dados estaduais SIAFEM no mesmo instrumento, com proveniência separada e sem soma de fontes de observação redundantes.
+5. Criar snapshot privado versionado das fontes nacionais com SHA-256 e **readback R2**, desde que o workflow tenha credenciais e autorização adequadas. Os resultados preservados em GitHub são **agregados**, não substituem os ZIPs nacionais.

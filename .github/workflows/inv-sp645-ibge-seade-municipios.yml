@@ -1,0 +1,37 @@
+name: INV SP645 - IBGE municipal x Seade RA RG
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/qa/crosswalk_sp645_ibge_municipio_seade_regions.py
+      - .github/workflows/inv-sp645-ibge-seade-municipios.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  crosswalk-municipal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install geospatial dependencies
+        run: pip install geopandas==1.1.1 shapely==2.1.2 pyogrio==0.11.1 pyproj==3.7.2
+      - name: Audit municipal IBGE vs Seade regions
+        run: |
+          python -m py_compile pipeline/qa/crosswalk_sp645_ibge_municipio_seade_regions.py
+          python pipeline/qa/crosswalk_sp645_ibge_municipio_seade_regions.py --out-dir "${RUNNER_TEMP}/regionalizacao_municipal"
+      - name: Store QA results for review, do not commit or publish
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-ibge-municipios-seade-candidato
+          path: |
+            ${{ runner.temp }}/regionalizacao_municipal/manifest_regionalizacao_ibge_seade.json
+            ${{ runner.temp }}/regionalizacao_municipal/dim_sp645_ibge2025_seade2021_ra_rg_candidata.csv
+          retention-days: 30
+          if-no-files-found: warn

@@ -10,6 +10,7 @@ on:
       - "pipeline/build/build_sp645_private_site.py"
       - "pipeline/build/export_state_api_v2.py"
       - "pipeline/build/export_regional_api_v2.py"
+      - "deployment/qa_api_v2.py"
       - "pipeline/qa/audit_api_readiness_v2.py"
       - "pipeline/qa/audit_percentage_import_scale.py"
       - "pipeline/qa/audit_derived_ratio_parity.py"

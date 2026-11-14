@@ -8,6 +8,7 @@ on:
       - deployment/qa_sp645_pages.py
       - app/static/app.js
       - tests/test_administrative_universes_sp645.py
+      - tests/test_sp645_ra_rg_static_selection.py
       - .github/workflows/inv-sp645-universe-integration.yml
   workflow_dispatch:
 permissions:
@@ -27,6 +28,6 @@ jobs:
         run: pip install -e . --no-deps && pip install pytest pyyaml
       - name: Audit 59 municipal administrative selections in SQLite and selector
         run: |
-          python -m pytest tests/test_administrative_universes_sp645.py tests/test_frontend_universe_selector.py tests/test_territorial_universes.py tests/test_analytical_universes.py -q
+          python -m pytest tests/test_administrative_universes_sp645.py tests/test_sp645_ra_rg_static_selection.py tests/test_frontend_universe_selector.py tests/test_territorial_universes.py tests/test_analytical_universes.py -q
       - name: Syntax check frontend
         run: node --check app/static/app.js

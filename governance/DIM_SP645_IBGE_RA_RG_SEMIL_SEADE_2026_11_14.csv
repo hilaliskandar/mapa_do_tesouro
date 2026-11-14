@@ -1,4 +1,4 @@
-codigo_ibge;municipio_semi;ra_codigo;ra_nome;rg_codigo;rg_nome;status_fonte
+codigo_ibge;municipio_semil;ra_codigo;ra_nome;rg_codigo;rg_nome;status_fonte
 3500105;Adamantina;9;RA de Presidente Prudente;1;RG de Adamantina;FONTE_ESTADUAL_MUNICIPAL_DIRETA
 3500204;Adolfo;14;RA de São José do Rio Preto;37;RG de São José do Rio Preto;FONTE_ESTADUAL_MUNICIPAL_DIRETA
 3500303;Aguaí;4;RA de Campinas;39;RG de São João da Boa Vista;FONTE_ESTADUAL_MUNICIPAL_DIRETA

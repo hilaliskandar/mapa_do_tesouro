@@ -1,5 +1,8 @@
 # Finanças municipais da RMRP — README operacional
 
+> **Cardinalidade nacional pagamento–OBTV confirmada — 14/11/2026:** [execução 43630776308](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630776308), SUCCESS: 7.575.512 identificadores `NR_MOV_FIN` únicos em `siconv_pagamento`; 3.113.841 linhas de `siconv_obtv_convenente` correspondentes a somente **367.022 IDs** de pagamento, 63.364 IDs repetidos na OBTV. Todas as linhas OBTV encontram pagamento correspondente, mas a relação é **1:N**; jamais replicar `VL_PAGO` a cada linha filha ou somar valores da fonte OBTV como pagamentos independentes. A auditoria posterior de propostas/convênios/Obrasgov territorializados por **município proponente IBGE7** foi iniciada na [execução 43630964784](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630964784); não atribuir os registros ao local físico da obra antes de validação. Histórico, metodologia e gates: [relatório atualizado](../../governance/RELATORIO_CONTINUIDADE_FEDERAL_TRANSFEREGOV_OBRASGOV_2026_11_14.md).
+
+
 
 > **Gate territorial encerrado 14/11/2026:** o build privado com **72 universos e dados fiscais reais** passou no [GitHub Actions 43630697231](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630697231), inclusive API v2, site estático e controle de cobertura: 16 RA e 43 RG, cada tipologia cobrindo exatamente 645 municípios IBGE; seletor padrão `SP_645`. O artefato de teste não foi promovido à produção, e essa aprovação territorial **não** equivale à homologação de pagamentos federais de investimento.
 

@@ -1,0 +1,54 @@
+name: INV SP645 - preservar resumo regional de pesquisa
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/inv-sp645-persist-regional-qa.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  preserve-audited-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Retrieve previously audited aggregate-only workflow artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/qa_source
+          gh run download 43630964784 -n inv-sp645-proponent-regional-coverage -D build/qa_source
+      - name: Validate exact SP645/RA/RG/RM AU coverage and persist JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("build/qa_source/manifest_sp645_proponent_obra_links.json").read_text(encoding="utf-8"))
+          assert r["status"]=="proponent_regional_coverage_candidate_counts_qa_pass"
+          counts=r["counts"]
+          assert counts["proposals"]["sp_proponent_unique"]==134452
+          assert counts["proposals"]["rmrp_proponent_unique"]==6410
+          assert counts["convenios"]["rmrp_proponent_unique"]==1793
+          regions=r["regional_coverage"]
+          assert len(regions)==69
+          for typ,ct,total in [("RA",16,645),("RG",43,645),("RM_AU",10,255)]:
+              rows=[x for x in regions if x["dimension"]==typ]
+              assert len(rows)==ct
+              assert sum(x["municipios"] for x in rows)==total
+          assert r["not_location_of_work"] is True and r["no_monetary_values"] is True
+          r["evidence_run"]="https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630964784"
+          r["evidence_artifact_id"]="14127424244"
+          dest=Path("governance/INV_SP645_COBERTURA_REGIONAL_TRANSFEREGOV_OBRASGOV_2026_11_14.json")
+          dest.write_text(json.dumps(r,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print({"status":"QA_PASS_DOCUMENT_PERSISTENCE", "regions":len(regions), "sha_sources":len(r["sources"])})
+          PY
+      - name: Version audited regional summary, never source ZIPs or identifiers
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add governance/INV_SP645_COBERTURA_REGIONAL_TRANSFEREGOV_OBRASGOV_2026_11_14.json
+          git diff --cached --quiet || (git commit -m "data: persistir QA agregado SP645 RA RG RM AU de propostas e projetos por proponente" && git push)

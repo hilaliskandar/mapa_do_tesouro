@@ -1,5 +1,11 @@
 name: INV RMRP - Transferegov read-only pilot
 on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/inv-rmrp-transferegov.yml
+      - pipeline/acquire/collect_inv_rmrp_transferegov.py
+      - governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv
   workflow_dispatch:
     inputs:
       city_limit:
@@ -27,7 +33,7 @@ jobs:
         id: acquisition
         continue-on-error: true
         env:
-          INV_CITY_LIMIT: ${{ inputs.city_limit }}
+          INV_CITY_LIMIT: ${{ inputs.city_limit || '2' }}
           INV_MAX_PAGES: "250"
           INV_OUTPUT: build/inv-rmrp-transferegov
         run: python3 pipeline/acquire/collect_inv_rmrp_transferegov.py
@@ -54,7 +60,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: inv-rmrp-transferegov-raw-${{ inputs.city_limit }}
+          name: inv-rmrp-transferegov-raw-${{ inputs.city_limit || '2' }}
           path: build/inv-rmrp-transferegov/
           retention-days: 30
           if-no-files-found: warn

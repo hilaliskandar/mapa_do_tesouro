@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install test dependencies
-        run: pip install -e . --no-deps && pip install pytest pyyaml
+        run: pip install -e . --no-deps && pip install pytest pyyaml openpyxl
       - name: Audit 59 municipal administrative selections in SQLite and selector
         run: |
           python -m pytest tests/test_administrative_universes_sp645.py tests/test_sp645_ra_rg_static_selection.py tests/test_frontend_universe_selector.py tests/test_territorial_universes.py tests/test_analytical_universes.py -q

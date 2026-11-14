@@ -92,6 +92,10 @@ def main():
     if sum(cross.values())!=n:raise RuntimeError("cross total mismatch")
     candidate=sum(v for (cat,st,loc),v in cross.items() if cat=="gnd4_investimento_planejado" and st=="aprovado")
     approved_in_sp=sum(v for (cat,st,loc),v in cross.items() if cat=="gnd4_investimento_planejado" and st=="aprovado" and loc=="item_uf_sp_municipio_nao_validado")
+    if sum(destination.values()) != candidate:
+        raise RuntimeError("destination reconciliation mismatch")
+    if sum(destination_by_proponent.values()) != destination.get("municipio_item_corresponde_rmrp_por_nome", 0):
+        raise RuntimeError("municipal candidate crosswalk mismatch")
     report={"generated_at_utc":datetime.now(timezone.utc).isoformat(),
       "qa_status":"preliminary_cross_tab_not_homologated",
       "source_file":str(input_path),"source_sha256":hashlib.sha256(raw).hexdigest(),
@@ -115,6 +119,6 @@ def main():
         "Proponent territory does not establish implementation territory."]}
     target=Path(args.output);target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print(json.dumps({k:report[k] for k in ("qa_status","rows_checked","unique_item_ids","proponent_municipalities","gnd4_approved_items_candidate","gnd4_approved_and_item_uf_sp_not_geocoded")},ensure_ascii=False))
+    print(json.dumps({**{k:report[k] for k in ("qa_status","rows_checked","unique_item_ids","proponent_municipalities","gnd4_approved_items_candidate","gnd4_approved_and_item_uf_sp_not_geocoded")},"gnd4_approved_destination_match":report["gnd4_approved_destination_match"],"gnd4_approved_top_crosswalk":sorted(report["gnd4_approved_proponent_to_named_destination"],key=lambda r:-r["itens"])[:15]},ensure_ascii=False))
 
 if __name__=="__main__":main()

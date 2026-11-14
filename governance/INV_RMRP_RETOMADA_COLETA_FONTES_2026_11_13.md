@@ -25,3 +25,18 @@ O portal oficial comunica que a API Discricionárias/Legais disponibilizou a pri
 As tentativas diretas desta sessão de consultar os endereços de API pelo conector Crawl2AI falharam com erro interno; a sessão de execução local também não resolveu DNS público. Verificou-se apenas informação publicada em páginas governamentais via pesquisa web, sem recuperação de novo lote de registros. Não registrar estes testes como captura de dados.
 
 Próximo gate: executar os coletores existentes em runner com conectividade externa, iniciar por um conjunto pequeno com comprovante de paginação e hashes, expandir para todo o estado onde houver download integral, filtrar RMRP por IBGE7 e documentar cobertura real por módulo. Não alterar produção nem afirmar carga homologada sem evidência do run.
+
+## Adendo de reconciliação com resultados anteriores (14/11/2026)
+
+A leitura integral de `governance/INV_RMRP_REORIENTACAO_TRANSFEREGOV_INVESTIMENTOS_2026_11_12.md` identificou que o gate INV-FED00 e as junções dos arquivos nacionais **já avançaram substancialmente em 13/11**, superando a descrição preliminar acima. NÃO reiniciar essas aquisições sem justificativa.
+
+- Run 43409135374: 288.852 linhas nacionais Convênio, 386.864 Desembolso e 298.538 Emenda.
+- Run 43410911718: 1.160.558 propostas nacionais; 6.410 vinculadas a proponentes RMRP (34/34).
+- Run 43411132741: junções oficiais RMRP por chaves administrativas: 1.793 linhas de convênio, 2.537 eventos de desembolso e 1.240 linhas de emenda.
+- Run 43411550312: 4.917.545 itens nacionais PAD, 28.456 vinculados às propostas dos proponentes RMRP.
+- Run 43411817563: 16.156 candidatos GND4, 287 GND5, 50 GND6, 11.920 correntes e 43 natureza indeterminada; SIT_ITEM aprovado 15.342, em complementação 217, vazio 12.897. Estes totais de GND e situação são distribuições marginais, NÃO uma contagem cruzada GND4 + aprovado.
+- SIAFEM, 2020-12/11/2026: 238 combinações município-ano auditadas, 1.017 pagamentos e R$305.521.029,20 de liberações líquidas classificadas na consulta como investimento; não equivalem à execução municipal.
+
+O novo arquivo `pipeline/acquire/collect_inv_rmrp_transferegov.py` e workflow `inv-rmrp-transferegov.yml` são somente instrumentos complementares de sondagem dos endpoints ainda não cobertos pelos downloads nacionais. **Não substituem** `inv_rmrp_transferegov_zip.py`, `inv_rmrp_transferegov_join.py`, `inv_rmrp_transferegov_plano.py` e os workflows existentes.
+
+**Gate prioritário efetivo:** persistir no R2 os snapshots nacionais e filtrados com hashes e readback; produzir matriz cruzada GND4 × SIT_ITEM × localização e validar a situação jurídica dos itens; resolver 43 indeterminados e 166 registros de localização fora de SP; preservar município do proponente distinto do município executor; realizar conciliação por instrumento com os 2.537 desembolsos sem rateio por percentual presumido. Em seguida processar arquivo nacional de pagamentos/OBTV, quando disponível e contratualmente vinculado. Não criar agregados monetários de investimento executado a partir de valores de planos.

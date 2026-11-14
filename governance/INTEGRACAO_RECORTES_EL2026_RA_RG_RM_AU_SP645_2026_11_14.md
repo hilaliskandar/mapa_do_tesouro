@@ -62,3 +62,16 @@ As somas de indicadores **municipais comprovadamente territoriais** podem ser ag
 5. **P2:** persistir versão homologada no R2, com readback e versões; não mesclar o resultado candidato ao SQLite/D1 de produção.
 
 **Decisão:** recortes são estruturalmente reutilizáveis **já**, sob indicação de status e ano de referência; homologação normativa e operacional de agregados financeiros ainda pendentes.
+
+
+## Esclarecimento corretivo — 14/11/2026
+
+**A unidade territorial do painel EL2026 para Estado, RA, RG, RM/AU e município é o MUNICÍPIO por código IBGE7.** A agregação das 645 unidades municipais deve preceder qualquer decomposição eleitoral. **Zona eleitoral, local de votação e seção são componentes exclusivamente eleitorais** e não compõem o universo fiscal de investimentos.
+
+A auditoria anterior cruzou um cadastro municipal **IBGE7** (via `dim_municipio_tse_ibge_sp_2026.csv`, necessário somente porque a versão de diagnóstico RA/RG estava indexada por município TSE) com `municipios_ra_rg_v10.csv`. O script desse último arquivo documenta que a **atribuição RA/RG específica dessa versão candidata** foi inferida por localização dos **locais de votação**, e portanto não é certificação do vínculo administrativo municipal. Isso não significa que a regionalização municipal da plataforma, o cadastro de 645 municípios ou o modelo fiscal sejam derivados de zonas eleitorais.
+
+Para integração definitiva, **não usar `municipios_ra_rg_v10.csv` como fonte canônica de RA/RG municipal**. Reutilizar somente como candidato/conferência; reconstruir RA/RG por composição municipal oficial do Seade ou interseção homologada da malha IBGE com regiões Seade, com verificação de vigência, sem passagem por pontos, zonas ou seções eleitorais.
+
+A dimensão RM/AU 2025 já utiliza diretamente `COD_IBGE` e o modelo resultante conserva unicamente `codigo_ibge` como chave de agregação. O campo `codigo_tse` no CSV candidato é atributo de rastreabilidade do cruzamento de origem e **deve ser removido da dimensão canônica financeira quando houver fonte RA/RG municipal homologada**.
+
+**Errata conceitual:** a restrição de homologação RA/RG diz respeito ao **método de atribuição no arquivo candidato específico**, não à identidade IBGE dos 645 municípios nem à composição por zonas eleitorais. Essa distinção deve constar do README e do procedimento de expansão estadual.

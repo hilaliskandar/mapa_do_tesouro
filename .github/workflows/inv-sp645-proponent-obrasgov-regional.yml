@@ -1,0 +1,35 @@
+name: INV SP645 - cobertura regional de propostas e obras
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py
+      - .github/workflows/inv-sp645-proponent-obrasgov-regional.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate collector
+        run: python -m py_compile pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py
+      - name: Count SP645/RMRP and RA RG RM AU documentary coverage by proponent
+        run: |
+          python pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py \
+            --out-dir "${RUNNER_TEMP}/sp645_proponent_obras"
+      - name: Preserve aggregate-only report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-proponent-regional-coverage
+          path: ${{ runner.temp }}/sp645_proponent_obras/manifest_sp645_proponent_obra_links.json
+          retention-days: 30
+          if-no-files-found: warn

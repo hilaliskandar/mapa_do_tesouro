@@ -4,7 +4,7 @@
 Never equates planned values to payments; refuses to make monetary totals.
 """
 from __future__ import annotations
-import argparse, csv, hashlib, json
+import argparse, csv, hashlib, json, unicodedata
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -26,19 +26,33 @@ def status(value):
     if not norm:return "vazio_nao_homologado"
     return "outro:"+norm
 
+def canonical_name(value):
+    s=unicodedata.normalize("NFKD", (value or "").strip().upper())
+    return " ".join("".join(c for c in s if not unicodedata.combining(c)).split())
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--input",required=True)
     p.add_argument("--manifest",required=True)
     p.add_argument("--output",required=True)
+    p.add_argument("--roster",default="governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv")
     args=p.parse_args()
     input_path=Path(args.input); raw=input_path.read_bytes()
     prior=json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     if prior.get("status")!="preliminar_plano_classificado_nao_homologado":
         raise RuntimeError("source manifest not qualified for preliminary audit")
+    with Path(args.roster).open(encoding="utf-8-sig",newline="") as roster_file:
+        roster=list(csv.DictReader(roster_file,delimiter=";"))
+    if len(roster)!=34:raise RuntimeError("RMRP roster expected 34")
+    roster_by_name={}
+    for municipality in roster:
+        name=canonical_name(municipality["municipio"])
+        code=municipality["codigo_ibge"]
+        if name in roster_by_name or len(code)!=7:raise RuntimeError("ambiguous roster")
+        roster_by_name[name]=code
     required={"__ibge7_proponente","ID_PROPOSTA","ID_ITEM_PAD","COD_NATUREZA_DESPESA","SIT_ITEM","SIGLA","MUNICIPIO"}
     cross=Counter(); municipalities=defaultdict(Counter); unknown=Counter()
-    locations=Counter(); exceptional=[]; ids=set(); n=0; missing_id=0; duplicate=0
+    locations=Counter(); destination=Counter(); destination_by_proponent=Counter(); exceptional=[]; ids=set(); n=0; missing_id=0; duplicate=0
     with input_path.open(encoding="utf-8-sig",newline="") as f:
         reader=csv.DictReader(f,delimiter=";")
         assert required.issubset(set(reader.fieldnames or [])),str(required-set(reader.fieldnames or []))
@@ -54,6 +68,15 @@ def main():
             st=status(row["SIT_ITEM"])
             uf=(row["SIGLA"] or "").strip().upper()
             loc="item_uf_sp_municipio_nao_validado" if uf=="SP" else ("item_uf_ausente" if not uf else "item_uf_fora_sp")
+            destination_code=roster_by_name.get(canonical_name(row["MUNICIPIO"])) if uf=="SP" else None
+            if uf!="SP":dest_type="fora_sp"
+            elif destination_code:dest_type="municipio_item_corresponde_rmrp_por_nome"
+            elif (row["MUNICIPIO"] or "").strip():dest_type="municipio_item_sp_sem_correspondencia_rmrp"
+            else:dest_type="municipio_item_nao_informado"
+            if cat=="gnd4_investimento_planejado" and st=="aprovado":
+                destination[dest_type]+=1
+                if destination_code:
+                    destination_by_proponent[(ib,destination_code)]+=1
             cross[(cat,st,loc)]+=1
             municipalities[ib][(cat,st,loc)]+=1
             locations[(uf or "(vazio)")]+=1
@@ -78,12 +101,16 @@ def main():
       "gnd4_approved_and_item_uf_sp_not_geocoded":approved_in_sp,
       "cross_tab":[{"natureza":a,"situacao":b,"localizacao":c,"itens":v} for (a,b,c),v in sorted(cross.items())],
       "item_uf_counts":dict(sorted(locations.items())),
+      "gnd4_approved_destination_match":dict(sorted(destination.items())),
+      "gnd4_approved_proponent_to_named_destination":[{"ibge7_proponente":p,"ibge7_municipio_item":d,"itens":q} for (p,d),q in sorted(destination_by_proponent.items())],
+      "territorial_method":"Exact normalized municipality name match with the 34 IBGE-coded roster, after requiring item UF=SP; this is a candidate linkage, not a confirmed execution geocode.",
       "unknown_nature_codes":dict(sorted(unknown.items())),
       "by_proponent":[{"ibge7":ib,"cross_tab":[{"natureza":a,"situacao":b,"localizacao":c,"itens":v} for (a,b,c),v in sorted(counter.items())]} for ib,counter in sorted(municipalities.items())],
       "exception_samples":exceptional,
       "restrictions":["This is a cross-tab of planned PAD items, NOT verified investment execution.",
         "SIT_ITEM approved is administrative status, not proof of payment.",
         "UF=SP does not establish an investment within the 34 RMRP municipalities.",
+        "Municipality name matches are provisional until matched to official source identifiers and territorial evidence.",
         "No totals of planned, committed, disbursed or executed monetary values.",
         "Proponent territory does not establish implementation territory."]}
     target=Path(args.output);target.parent.mkdir(parents=True,exist_ok=True)

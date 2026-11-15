@@ -136,3 +136,27 @@ Não colocar URLs internas R2 e segredos nesses arquivos. Identificadores de pro
 3. Consultar Transferegov `/parcerias/proposta?cd_ibge_recebedor=...` e `/discricionarias/propostas?cod_munic_ibge=...`, além de Especiais, com paginação completa; **classificar Custeio vs Investimento**.
 4. Identificar e baixar arquivos de convênios/liberações estaduais, preservando número jurídico, datas, estorno e valor, e arquivo CGU de pagamentos quando tiver chave de vínculo.
 5. Validar SQL de proposta contra cópia de SQLite do repositório e geração de JSON static-first, incluindo teste automatizado para impedir publicação de evento sem `qa_status=homologado`.
+
+
+## Atualização operacional de 15/11/2026 — pós-aquisição e integração controlada
+
+**Escopo:** piloto RMRP34, quatro sub-regiões, expansão futura SP645. **Base confirmada:** Drive privado com `RMRP_Transferegov_Aquisicao_2026-11-15.zip` (ID `11iALaLrY5lnsghUsnbPr34mcNTfD5E6E`, 2.977.843 bytes) e `RMRP_Obrasgov_2026-11-15.zip` (ID `1CuZfRUTv1Oa_Z9pHkctq48-q2KuCaIS1`, 82.065 bytes), pasta `186Cxxs2wZas55LlEPPoD-G2_nJfGmfU9`. Metadados e estado não compartilhado conferidos em 15/11. O relato da execução anterior registra readback de hashes; esta atualização **não** equivale à inspeção de todas as linhas dos ZIPs.
+
+**Coleta confirmada:** Transferegov 34 municípios, 68 pares município–módulo, 80 páginas, 743 propostas Parcerias, 6.410 propostas Discricionárias; recortes nacionais com 1.793 convênios, 2.537 linhas de desembolso e 1.240 registros de emendas. Obrasgov 218/218 candidatos selecionados por município proponente (91 concluídos, 77 cadastrados, 42 em execução, 6 cancelados, 2 inacabados), nenhuma geometria retornada e zero linhas atuais nas rotas de contrato/empenho; registrar divergência com três linhas de empenho observadas em quatro projetos na captura anterior de 12/11. Nenhum zero de resposta implica ausência de gasto em outras fontes. A seleção de 218 **não** é o universo das obras fisicamente na RMRP.
+
+### Gates ordenados e critérios de aceite
+
+| Gate | Prioridade | Trabalho | Aceite verificável |
+|---|---|---|---|
+| G-FED-01 | P0 | Readback dos ZIPs privados; inventário de membros, esquemas, chaves, datas, SHA-256 e número de linhas por arquivo; comparar manifestos com logs da aquisição | Zero corrupção e 34/34 municípios; divergências descritas, sem eliminar registros |
+| G-FED-02 | P0 | Normalizar proposta, convênio, parceria, instrumento, projeto e movimentação; testar cardinalidades com chaves oficiais, em SQLite isolado | 0 chaves sintéticas sem origem; relatório de joins 1:1/1:N, órfãos e duplicados |
+| G-FED-03 | P0 | Confrontar `NR_MOV_FIN` com OBTV, DL, itens DL, eventos e ordens bancárias CGU; identificar estornos, retenções, competência, moeda e estágio | Um `VL_PAGO` por movimento, sem multiplicação por OBTV; não confundir PAD GND4 aprovado com pagamento de investimento |
+| G-FED-04 | P0/P1 | Vincular 441 linhas de coordenadas das propostas, 150 registros CIPI do recorte e projetos Obrasgov; validar por geometria municipal, fonte e precisão; buscar inventário paginado SP | `municipio_proponente`, `municipio_beneficiario` e `municipio_execucao` em papéis distintos; sem imputação por sede/centroide |
+| G-FED-05 | P1 | Complementar transferências especiais (beneficiário→plano→empenho→ordem), parcerias (proposta→parceria→empenho→documento), CGU ordens bancárias; registrar cobertura por modalidade | Documento/ID de cada aresta, ausência ≠ zero, valores por estágio sem soma cruzada |
+| G-FED-06 | P1 | Persistir cópia canônica imutável no R2 privado, por fonte/snapshot, e manifesto no Drive/README; derivar RMRP e SP645 sem downloads redundantes | Upload e readback, SHA-256, permissões, retenção e versão confirmados |
+| G-FED-07 | P2 | Aplicar SQL proposto em SQLite de desenvolvimento; alimentar JSON `/data/api/v3/investimentos/rmrp/` e visualização privada | FK/unique, 50 testes de consulta, 34 municípios, quatro sub-regiões e controle de não duplicidade |
+| G-FED-08 | P2 | Homologar prévia e planejar incremental com retificações retroativas; nenhuma promoção pública automática | Manifesto QA aprovado, métricas reconciliadas, documentação de limitações e autorização de publicação |
+
+**Regra de publicação progressiva:** permitir carteira de projetos, objetos, vínculos e status **documentados**, inclusive valores previstos ou contratados rotulados corretamente. Bloquear os agregados de `investimento federal pago/executado` ou mapas físicos sem vínculo comprovado. Valores planejados, empenhados, desembolsados, pagos ao favorecido e investimentos municipais liquidados são medidas distintas e não aditivas. A relação nacional pagamento→OBTV já demonstrou 1:N (`NR_MOV_FIN` único em pagamentos e repetido no detalhamento). `siconv_itens_dl` contém `ID_DL`, mas **não** `ID_ITEM_PAD`; ligação de item pago→GND4 exige documento adicional.
+
+**Execução:** começar por G-FED-01 com os pacotes existentes; não repetir 80 páginas/218 consultas. Em G-FED-04, considerar a cobertura independente de obras cuja entidade proponente não seja município da RMRP. Manter tabelas fiscais e site produtivo intocados até homologação. O backlog de 11/11 preserva estados históricos; este adendo prevalece em caso de status divergente.

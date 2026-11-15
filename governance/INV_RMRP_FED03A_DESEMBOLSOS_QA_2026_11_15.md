@@ -15,7 +15,7 @@ Recorte recente por ano de desembolso, em valores nominais brutos:
 - 2025: 122 linhas, R$ 85.961.124,04;
 - 2026: 160 linhas, R$ 121.801.512,03 (snapshot, não exercício encerrado).
 
-**Persistência:** [Drive privado — pacote FED03A](https://drive.google.com/file/d/13w1UsPy7rjPsEFFYqOxSQZSPL4xq5yTt/view), ID `13w1UsPy7rjPsEFFYqOxSQZSPL4xq5yTt`; 866.587 bytes, pasta `186Cxxs2wZas55LlEPPoD-G2_nJfGmfU9`, leitura de metadados confirmou `shared=false`. SHA256 ZIP local `1be587513fe1f7097e7ed42fe892f601a79435e99fb08d0427872f3cac326942`; SHA256 SQLite local `aa04125f573bf237db350c91a2836aef2b31871c4859048026ad6c3bd67893d4`. Readback de hash do ZIP remoto ainda pendente.
+**Persistência:** [Drive privado — pacote FED03A](https://drive.google.com/file/d/13w1UsPy7rjPsEFFYqOxSQZSPL4xq5yTt/view), ID `13w1UsPy7rjPsEFFYqOxSQZSPL4xq5yTt`; 866.587 bytes, pasta `186Cxxs2wZas55LlEPPoD-G2_nJfGmfU9`, leitura de metadados confirmou `shared=false`. SHA256 ZIP local `1be587513fe1f7097e7ed42fe892f601a79435e99fb08d0427872f3cac326942`; SHA256 SQLite local `aa04125f573bf237db350c91a2836aef2b31871c4859048026ad6c3bd67893d4`. Readback do ZIP remoto executado após upload: SHA256 idêntico ao original local (`1be587513fe1f7097e7ed42fe892f601a79435e99fb08d0427872f3cac326942`) e CRC de todos os membros aprovado.
 
 ## Próxima operação FED03B
 1. Obter na fonte nacional oficial, preferencialmente de snapshot privado já preservado, `siconv_pagamento`, `siconv_obtv_convenente`, `siconv_dl`, `siconv_itens_dl` e, quando possível, ordens bancárias CGU.

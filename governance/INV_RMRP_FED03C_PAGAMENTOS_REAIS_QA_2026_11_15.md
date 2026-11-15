@@ -39,3 +39,17 @@ Os pagamentos selecionados pertencem a **1.286 convênios distintos**; há **28.
 3. **Natureza de despesa efetivamente paga** não está homologada. O catálogo de PAD aprovado com GND4 não basta para inferir GND4 pago sem ponte por item e documento.
 4. Para localização física, FED04B possui coordenadas **candidatas** associadas a 218 projetos, porém requer interseção e validação documental com municípios IBGE EPSG:4674 e inspeção de seis registros anômalos.
 5. Os indicadores de investimentos da API v3 continuam nulos/não homologados; `public_release_authorized=false` e a base produtiva não foi alterada.
+
+
+### Encerramento da persistência dos sete ZIPs oficiais — 15/11/2026
+
+Após dividir a verificação em **quatro operações independentes**, cada fonte financeira foi recuperada do Drive e seu SHA-256 integral calculado por streaming, retornando **igualdade com o hash da origem**: 
+
+| Fonte | Arquivo Drive | Bytes após download | SHA-256 conferido |
+|---|---|---:|---|
+| `siconv_pagamento.zip` | [Arquivo](https://drive.google.com/file/d/1mfk_Xd3J9-lQ5B5gelb9XhgH4mRD4TSK/view) | 374.662.483 | `bf5125e6aaf1105269947b1f905ff910113574dac6edb4335ebde3ec31cd8bc7` |
+| `siconv_obtv_convenente.zip` | [Arquivo](https://drive.google.com/file/d/1SoGpUlkcFBxc46bVjjg9SsGgAE4r6peA/view) | 58.726.469 | `c44f9597b73bf0e01136411326a33857f7235e932182a3f70385d6710f5ad74b` |
+| `siconv_dl.zip` | [Arquivo](https://drive.google.com/file/d/1mQFm981kWQknunL-DeldIKYCj5vRMQEH/view) | 216.458.339 | `637b6da28bbe87a50306eb431c3a23979e8fe52ed34d3ecc516615999041ea64` |
+| `siconv_itens_dl.zip` | [Arquivo](https://drive.google.com/file/d/1Io7ZUfE268rS-CwSEMgfrmyrlV1oe2UQ/view) | 548.549.412 | `717a743a96b116ad8e92888c0426aa3b4b333b079af91aeff4d2a0e4aa7b3566` |
+
+Todos os quatro estão na pasta privada `186Cxxs2wZas55LlEPPoD-G2_nJfGmfU9`, `shared=false`, tamanhos verificados; ZIPs já tinham CRC da origem `OK`. Os três ZIPs territoriais também tinham readback SHA-256 e CRC aprovados. **GATE DE AQUISIÇÃO E PERSISTÊNCIA DOS 7 ZIPs: CONCLUÍDO.** Isto não altera os gates de classificação de investimentos pagos, estornos e localização física.

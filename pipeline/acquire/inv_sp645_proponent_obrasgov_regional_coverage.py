@@ -6,7 +6,7 @@ and id_projeto_investimento; the output has only aggregate counts and hashes.
 A city of proponent is NEVER asserted as physical place of investment.
 """
 from __future__ import annotations
-import argparse,csv,hashlib,io,json,sys,zipfile
+import argparse,csv,hashlib,io,json,sys,zipfile,time,urllib.parse,urllib.request,urllib.error
 from collections import Counter,defaultdict
 from datetime import datetime,timezone
 from pathlib import Path
@@ -48,10 +48,38 @@ def read(path:Path,required:set[str]):
             stream.detach()
         if archive.testzip() is not None:raise RuntimeError("ZIP CRC failure")
 
+OBRASGOV_API="https://api-publica.obrasgov.gestao.gov.br/obras"
+def fetch_obrasgov(endpoint, project_id, timeout=40):
+    query=urllib.parse.urlencode({"id_projeto_investimento":project_id,
+           "pagina":1,"tamanho_da_pagina":50})
+    url=OBRASGOV_API+"/"+endpoint+"?"+query
+    for attempt in range(3):
+        try:
+            req=urllib.request.Request(url,headers={
+                "User-Agent":"SP645-investimentos-auditoria-publica/1.0",
+                "Accept":"application/json"})
+            with urllib.request.urlopen(req,timeout=timeout) as response:
+                data=response.read(2_500_001)
+                if len(data)>2_500_000:raise RuntimeError("Unbounded Obrasgov response")
+            obj=json.loads(data)
+            if not isinstance(obj,dict) or not isinstance(obj.get("data"),list):
+                raise RuntimeError("Obrasgov unexpected response schema")
+            if obj.get("total_pages",0)>1:
+                raise RuntimeError("More than one result page; cannot claim complete coverage")
+            return obj
+        except urllib.error.HTTPError as e:
+            if e.code not in (429,500,502,503,504):raise
+        except (TimeoutError,urllib.error.URLError):
+            pass
+        if attempt<2:time.sleep(1.5*(attempt+1))
+    raise RuntimeError("Obrasgov API unavailable after bounded retries")
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--out-dir",required=True)
     parser.add_argument("--timeout",type=int,default=650)
+    parser.add_argument("--api-sample",type=int,default=0,help="Maximum RMRP-linked projects to independently verify against public Obrasgov API")
     args=parser.parse_args()
     out=Path(args.out_dir);out.mkdir(parents=True,exist_ok=True)
     with DIM.open(encoding="utf-8",newline="") as f:dim=list(csv.DictReader(f,delimiter=";"))
@@ -185,6 +213,56 @@ def main():
             raise RuntimeError("RG region coverage is not 645")
         if sum(x["municipios"] for x in report["regional_coverage"] if x["dimension"]=="RM_AU")!=255:
             raise RuntimeError("RM/AU region coverage not 255")
+        if args.api_sample:
+            if args.api_sample<1 or args.api_sample>218:
+                raise ValueError("--api-sample must be between 1 and 218")
+            candidates=sorted(k for k,v in project_to_city.items() if v in rmrp)
+            if len(candidates)!=218:
+                raise RuntimeError("RMRP project candidate baseline changed; review before API probing")
+            selection=candidates[:args.api_sample]
+            audit={"candidate_projects_rmrp":len(candidates),
+               "projects_attempted":len(selection),"source_api":OBRASGOV_API,
+               "status_counts":{},"uf_principal_counts":{},
+               "geometry_rows":0,"geometry_coded_municipality_rows":0,
+               "geometry_same_as_proponent_ibge":0,
+               "geometry_different_from_proponent_ibge":0,
+               "geometry_missing_cod_ibge":0,"api_missing_project":0,
+               "api_errors":0,"geometry_errors":0,"sample_is_not_random":True}
+            for project_id in selection:
+                ib=project_to_city[project_id]
+                try:
+                    entry=fetch_obrasgov("projeto-investimento",project_id)
+                    items=[v for v in entry["data"] if str(v.get("id_projeto_investimento"))==project_id]
+                    if len(items)!=1:
+                        audit["api_missing_project"]+=1
+                    else:
+                        record=items[0]
+                        key=str(record.get("situacao") or "NAO_INFORMADO")
+                        audit["status_counts"][key]=audit["status_counts"].get(key,0)+1
+                        uf=str(record.get("uf_principal") or "NAO_INFORMADO")
+                        audit["uf_principal_counts"][uf]=audit["uf_principal_counts"].get(uf,0)+1
+                except Exception:
+                    audit["api_errors"]+=1
+                try:
+                    georesult=fetch_obrasgov("geometria",project_id)
+                    for geoentry in georesult["data"]:
+                        audit["geometry_rows"]+=1
+                        loc=str(geoentry.get("cod_ibge") or "").strip()
+                        if not loc:
+                            audit["geometry_missing_cod_ibge"]+=1
+                        else:
+                            audit["geometry_coded_municipality_rows"]+=1
+                            if loc==ib:audit["geometry_same_as_proponent_ibge"]+=1
+                            else:audit["geometry_different_from_proponent_ibge"]+=1
+                except Exception:
+                    audit["geometry_errors"]+=1
+                time.sleep(0.18)
+            if audit["api_errors"]>int(len(selection)*0.25):
+                raise RuntimeError("Obrasgov API error rate exceeds 25 percent")
+            if sum(audit["status_counts"].values())+audit["api_missing_project"]+audit["api_errors"]!=len(selection):
+                raise RuntimeError("API sample status conservation failure")
+            report["obrasgov_public_api_sample"]=audit
+            save()
         report["warnings"]=[
            "All municipal and RA/RG/RM/AU counts refer to the MUNICIPAL PROPONENT, never geographic investment location",
            "Exact instrument number match is a candidate link; IDs and collisions audited, but it is not monetary spending",

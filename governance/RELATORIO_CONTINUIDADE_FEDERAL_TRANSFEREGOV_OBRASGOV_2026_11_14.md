@@ -201,3 +201,18 @@ Foi implementada inspeção opcional de amostra de até 218 projetos diretamente
 A execução amostral de **40 projetos** foi iniciada no [run 43661453030](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43661453030). **Resultado de situação/geometria deve ser declarado somente após a conclusão do job e verificação do log e do manifesto**. A amostra corresponde aos primeiros 40 identificadores em ordem determinística, não é amostragem probabilística, não fundamenta estimativa de incidência populacional para os 218 projetos.
 
 **Gates seguintes:** revisão integral e versionada dos IDs dos 218 projetos em staging privado, cobertura de localização física (sem converter municípios de proponentes em sítio da obra), verificação de execução física e despesas por projeto, reconciliação de ordens bancárias CGU e desembolsos com status documental. Não agregar pagamentos a despesas de capital sem chave/semântica comprovada.
+
+## Auditoria Obrasgov RMRP — amostra de 40 concluída e exame integral em execução
+
+A execução [43661453030](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43661453030) terminou **SUCCESS** e consultou diretamente a API oficial do Obrasgov por `id_projeto_investimento`, para os primeiros 40 projetos em ordem determinística dentre os 218 associados a proponentes da RMRP. O produto com os agregados e sua procedência foi validado e persistido pelo workflow [43661590440](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43661590440), em `governance/INV_RMRP_OBRASGOV_API_AMOSTRA_40_2026_11_14.json`.
+
+- Correspondências da API de projetos: **40/40**, com **0 erros** e **0 IDs ausentes**.
+- Situação declarada: **21 Concluída, 16 Cadastrada, 2 Inacabada e 1 Em execução**; a UF principal foi SP nos 40.
+- A consulta de `/obras/geometria` dos 40 IDs retornou **0 linhas de geometria**, com **0 erros de API**. Isso **não significa ausência física de obra ou falta absoluta de coordenadas em outra fonte**; há 441 registros de coordenadas das propostas RMRP no módulo específico `siconv_coordenadas_obra`, que não foram individualmente confrontados nesta amostra.
+- A amostra corresponde aos **primeiros 40 IDs em ordem lexicográfica**, portanto **não é aleatória**. Não extrapolar proporções de situação aos 218 projetos nem às 21.068 entradas de `uf_principal=SP` da API.
+
+A consulta à nova API `/obras/projeto-investimento?uf_principal=SP&pagina=1&tamanho_da_pagina=1` retornou **21.068 projetos** para a UF principal SP (consulta em 14/11/2026, fonte com atualização declarada 13/11/2026). A série tem abrangência e definições diferentes dos 4.212 projetos identificados pela cadeia documental de convênios de proponentes paulistas.
+
+**A próxima verificação já foi iniciada** em [run 43661628931](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43661628931), que amplia a consulta da API para **os 218 IDs vinculados à RMRP**, preservando apenas agregados de situação, UF principal e presença de geometria. O resultado completo não deve ser divulgado como concluído sem auditoria da execução e persistência do manifesto.
+
+O novo endpoint do Obrasgov confirma que a ausência de geometria nessa rota não invalida a análise documental de projetos e contratos. Para efetiva territorialização física, a alternativa técnica é avaliar as coordenadas das propostas (incluindo suas multiplicidades), `/obras/geometria` quando presente, e registros identificados por outro campo administrativo de local de execução, com QA de limites e CRS.

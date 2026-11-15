@@ -183,3 +183,21 @@ O arquivo foi recuperado do artefato agregado do workflow original `14127424244`
 3. Consultar Obrasgov por projeto CIPI para obter município executor, obra, estágio, percentual físico, fonte orçamentária e eventual multiplicidade territorial.
 4. Conciliar CGU (ordens bancárias) e dados estaduais SIAFEM no mesmo instrumento, com proveniência separada e sem soma de fontes de observação redundantes.
 5. Criar snapshot privado versionado das fontes nacionais com SHA-256 e **readback R2**, desde que o workflow tenha credenciais e autorização adequadas. Os resultados preservados em GitHub são **agregados**, não substituem os ZIPs nacionais.
+
+
+## Retomada em 14/11/2026 — consulta direta à API Obrasgov e amostra de projetos RMRP
+
+A documentação oficial da nova API foi recuperada diretamente de `https://api-publica.obrasgov.gestao.gov.br/obras/openapi.json` (OpenAPI 3.1). Foram identificados, sem suposição de rotas, os endpoints públicos:
+
+- `/obras/data-atualizacao` (última atualização);
+- `/obras/projeto-investimento` (inclui `id_projeto_investimento`, `uf_principal`, `pagina` e `tamanho_da_pagina`);
+- `/obras/geometria` (aceita identificador do projeto e código IBGE);
+- `/obras/execucao-fisica`, `/obras/empenho`, `/obras/contrato`, `/obras/historico-situacao-cancelada-paralisada` e `/obras/estudo-viabilidade`.
+
+Consulta pública a `/obras/data-atualizacao` retornou `2026-11-13T00:00:00`, data declarada **pelo sistema**, distinta da data da consulta e do arquivo Transferegov de novembro. O filtro real de um projeto por `id_projeto_investimento` retornou resposta JSON paginada com campos de nome, situação, espécie, UF, organização responsável e datas; o endpoint de geometria pode retornar conjunto vazio mesmo para projeto existente. Portanto, **ausência de geometria não é prova de ausência física da obra**.
+
+Foi implementada inspeção opcional de amostra de até 218 projetos diretamente ligados por `nr_instrumento` aos municípios proponentes da RMRP no script `pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py` (opção `--api-sample`). A rotina consulta separadamente `projeto-investimento` e `geometria`, confere o mesmo ID do projeto e conta situação, UF principal, presença de geometria e código IBGE da geometria comparado ao IBGE do proponente. Não armazena nomes ou identificadores dos projetos em manifesto público nem confunde localização do projeto com proponente. Solicitações paginadas usam limite de resposta, timeouts e backoff controlado.
+
+A execução amostral de **40 projetos** foi iniciada no [run 43661453030](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43661453030). **Resultado de situação/geometria deve ser declarado somente após a conclusão do job e verificação do log e do manifesto**. A amostra corresponde aos primeiros 40 identificadores em ordem determinística, não é amostragem probabilística, não fundamenta estimativa de incidência populacional para os 218 projetos.
+
+**Gates seguintes:** revisão integral e versionada dos IDs dos 218 projetos em staging privado, cobertura de localização física (sem converter municípios de proponentes em sítio da obra), verificação de execução física e despesas por projeto, reconciliação de ordens bancárias CGU e desembolsos com status documental. Não agregar pagamentos a despesas de capital sem chave/semântica comprovada.

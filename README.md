@@ -1,5 +1,8 @@
 # Finanças Municipais SP
 
+**Pesquisa federal de investimentos — atualização de 14/11/2026.** A trilha SP645/RMRP de Transferegov e Obrasgov permanece em desenvolvimento. A nova API oficial Obrasgov (OpenAPI 3.1) declara atualização em 13/11/2026 e retornou **21.068 projetos com UF principal SP**; esse total não equivale aos **4.212 projetos ligados a proponentes paulistas**, nem aos **218 ligados a proponentes da RMRP**, recuperados pela cadeia documental Transferegov. Há auditoria de situação e geometria de 40 projetos da RMRP em [run 43661453030](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43661453030); seus resultados dependem de confirmação do job. **Leia antes de interpretar valores:** [relatório federal de continuidade](governance/RELATORIO_CONTINUIDADE_FEDERAL_TRANSFEREGOV_OBRASGOV_2026_11_14.md), [procedimento de conciliação](governance/PROCEDIMENTO_REVISTO_INVESTIMENTOS_FEDERAIS_ESTADUAIS_RMRP_2026_11_14.md) e [README operacional da RMRP](editorial/rmrp/README.md). Nenhuma publicação de gasto federal homologado foi realizada.
+
+
 **Guia canônico da RMJ:** [documentação operacional, metodologia, evidências e publicação](editorial/rmj/README.md). O boletim da RMJ é publicado separadamente em https://financas-rmj.pages.dev/; não se confunde com o portal estadual.
 
 Plataforma auditável para ingestão, harmonização, análise e visualização territorial de finanças municipais, com base principal no FINBRA/Siconfi e integração progressiva de DCA, RREO, RGF, CAPAG, população e demais fontes oficiais.

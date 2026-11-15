@@ -20,3 +20,8 @@ Cópia do `RMRP_FED03_STAGING_2026-11-15.sqlite` recebeu `parcerias_categoria_pr
 
 ## Próximo gate documental
 Capturar e correlacionar `siconv_pagamento`, `siconv_obtv_convenente`, `siconv_dl`, `siconv_itens_dl` e ordens bancárias CGU, preservando cardinalidade `NR_MOV_FIN` 1:N com OBTV e vedando somas após fan-out. Qualquer classificação monetária como investimento pago exige suporte para o item de despesa e natureza GND4; a falta de `ID_ITEM_PAD` em `siconv_itens_dl` continua impedindo vínculo direto. Prosseguir também no vínculo de propostas/instrumentos e localização física, sem fundir homônimos ou valores iguais.
+
+## Persistência em Drive
+
+> **FED03B — pacote privado persistido e verificado:** [ZIP SQLite + QA + script](https://drive.google.com/file/d/1q_Oxx_MOtHEyfpQE6-fwbt2H6kSIucSg/view), ID `1q_Oxx_MOtHEyfpQE6-fwbt2H6kSIucSg`, 879.987 bytes, pasta privada `186Cxxs2wZas55LlEPPoD-G2_nJfGmfU9`, `shared=false`, readback de metadados confirmado; SHA-256 do ZIP de origem local `819756d2ae67856d8027c2386a45dc874c9b176f565446b7736fe9e4b9c2b5f1`. Não houve comparação SHA-256 por redownload do ZIP remoto. Nenhuma promoção à base produtiva.
+

@@ -24,7 +24,7 @@ Os valores mantêm inteiros de centavos, exclusivamente no estágio de desembols
 
 ## Persistência
 
-[Pacote privado FED05 — ZIP contendo JSON, QA e script reprodutível](https://drive.google.com/file/d/1RVeCJwRJmaHuZBFrV4b6qIehcLfVYTzb/view), ID `1RVeCJwRJmaHuZBFrV4b6qIehcLfVYTzb`, 446.529 bytes, pasta `186Cxxs2wZas55LlEPPoD-G2_nJfGmfU9`, verificação de metadados `shared=false` e pasta de destino correta. SHA256 do ZIP original local: `3fb737777f2e5a0b7695f9d7700e47c49ec32e46b085688a4322659d51830ffa`. Readback do hash do conteúdo remoto não concluído neste registro.
+[Pacote privado FED05 — ZIP contendo JSON, QA e script reprodutível](https://drive.google.com/file/d/1RVeCJwRJmaHuZBFrV4b6qIehcLfVYTzb/view), ID `1RVeCJwRJmaHuZBFrV4b6qIehcLfVYTzb`, 446.529 bytes, pasta `186Cxxs2wZas55LlEPPoD-G2_nJfGmfU9`, verificação de metadados `shared=false` e pasta de destino correta. SHA256 do ZIP original local: `3fb737777f2e5a0b7695f9d7700e47c49ec32e46b085688a4322659d51830ffa`. O arquivo foi recuperado do Drive após upload: SHA256 remoto idêntico ao original local (`3fb737777f2e5a0b7695f9d7700e47c49ec32e46b085688a4322659d51830ffa`) e teste CRC integral do ZIP aprovado.
 
 ## Próximos gates
 

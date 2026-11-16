@@ -1,1 +1,11 @@
 fonte_id;modalidade;ibge7;ano;consulta_status;registros;ultima_observacao;ultima_coleta;motivo_lacuna
+SP_SEFAZ;investimento;3500105;2025;sucesso_com_registros;4;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;
+SP_SEFAZ;investimento;3500204;2025;sucesso_com_registros;1;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;
+SP_SEFAZ;investimento;3500303;2025;sucesso_com_registros;3;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;
+SP_SEFAZ;investimento;3500402;2025;sucesso_com_registros;2;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;
+SP_SEFAZ;investimento;3500501;2025;sucesso_com_registros;4;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;
+SP_SEFAZ;investimento;3500550;2025;sucesso_com_registros;1;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;
+SP_SEFAZ;investimento;3500600;2025;sucesso_com_registros;4;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;
+SP_SEFAZ;investimento;3500709;2025;sucesso_com_registros;4;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;
+SP_SEFAZ;investimento;3500758;2025;erro;;sem_linha_financeira_e_sem_totalizador_nao_assumir_zero;2026-11-16;ausencia_indeterminada
+SP_SEFAZ;investimento;3500808;2025;sucesso_com_registros;2;linhas_convênio_ano_com_totalizador_conciliado;2026-11-16;

@@ -9,7 +9,7 @@ import argparse
 import json
 import re
 from collections import Counter
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 import requests
 from bs4 import BeautifulSoup
 
@@ -42,6 +42,7 @@ def main():
     ap.add_argument("--municipio-code", default="0582", help="código próprio do sistema; 0582 é Ribeirão Preto")
     ap.add_argument("--date-from", default="01/01/2025")
     ap.add_argument("--date-to", default="31/01/2025")
+    ap.add_argument("--probe-detail",action="store_true",help="testa um detalhe de convenio sem divulgar identificadores")
     a = ap.parse_args()
     session = requests.Session()
     session.headers.update({"User-Agent":"Mozilla/5.0 (compatible; pesquisa-publica-mapa-do-tesouro/1.0)"})
@@ -112,6 +113,33 @@ def main():
                             target=pieces[1].split("?",1)[0].split("#",1)[0][:180]
                             break
             detail_link_patterns.append({"href_path_or_function":href_path[:180],"target_path_without_params":target,"onclick_function":fn.group(0) if fn else None})
+    detail_probe={"attempted":False}
+    if a.probe_detail and grid:
+        for a_tag in grid.select("a[href]"):
+            link=(a_tag.get("href") or "")
+            if "Open2(" not in link:continue
+            target_url=None
+            expression=link.split("Open2(",1)[1]
+            for quote in ("'", '"'):
+                if quote in expression:
+                    parts=expression.split(quote)
+                    if len(parts)>2 and parts[1]:
+                        target_url=urljoin(reply.url,parts[1])
+                        break
+            if not target_url:continue
+            parsed=urlparse(target_url)
+            if parsed.hostname not in ("www.fazenda.sp.gov.br","fazenda.sp.gov.br") or not parsed.path.endswith("/Convenio.aspx"):
+                raise RuntimeError("destino de detalhe nao permitido")
+            detail=session.get(target_url,timeout=45,headers={"Referer":reply.url})
+            detail.raise_for_status()
+            doc_detail=BeautifulSoup(detail.text,"html.parser")
+            detail_tables=doc_detail.find_all("table")
+            detail_probe={"attempted":True,"http_status":detail.status_code,
+                "path":parsed.path,"response_bytes":len(detail.content),
+                "table_count":len(detail_tables),
+                "table_rows_over_two":[{"id":t.get("id",""),"rows":len(t.find_all("tr"))} for t in detail_tables if len(t.find_all("tr"))>=3][:15],
+                "contains_form_state":bool(doc_detail.select_one('input[name="__VIEWSTATE"]'))}
+            break
     text=doc.get_text(" ",strip=True)
     alerts=[s for s in ("Nenhum registro","Nenhuma informação","VALIDAÇÃO","Erro ao","Resultado","Total de Registros") if s.casefold() in text.casefold()]
     print(json.dumps({
@@ -124,6 +152,7 @@ def main():
         "grdTransferencia_row_structure":grid_rows[:15],
         "grdTransferencia_header_labels":grid_header_labels,
         "detail_link_patterns":detail_link_patterns,
+        "detail_probe":detail_probe,
         "alerts_keywords":alerts,
         "returned_webforms_state":bool(doc.select_one('input[name="__VIEWSTATE"]')),
         "qa":"protocolo_testado_sem_persistencia_de_linhas"

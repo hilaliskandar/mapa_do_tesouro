@@ -1,0 +1,75 @@
+name: SP645 - SIAFEM piloto parcelas RMRP em R2 privado
+on:
+  workflow_dispatch:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/sp645-siafem-pilot-r2.yml
+      - pipeline/coleta/collect_sp_siafem_pilot.py
+permissions:
+  contents: read
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests beautifulsoup4
+      - name: Obter uma competencia SIAFEM e seus detalhes
+        run: |
+          python -m pipeline.coleta.collect_sp_siafem_pilot --acquire \
+            --municipio-code 0582 --date-from 01/01/2025 --date-to 31/01/2025 \
+            --outdir "$RUNNER_TEMP/siafem-pilot"
+      - name: Determinar nomes imutaveis e validar QA estrutural
+        id: meta
+        run: |
+          python - <<'PY'
+          import glob,json,os,hashlib
+          base=os.environ["RUNNER_TEMP"]+"/siafem-pilot/"
+          files=glob.glob(base+"*.qa.json")
+          assert len(files)==1,files
+          qa=json.load(open(files[0],encoding="utf-8"))
+          source=files[0].removesuffix(".qa.json")+".json"
+          sha=hashlib.sha256(open(source,"rb").read()).hexdigest()
+          assert sha==qa["download_sha256"]
+          assert qa["instrument_count"]>0
+          assert qa["movement_row_count"]>=0
+          assert qa["qa_status"]=="estrutura_piloto_nao_homologada"
+          prefix="sp_645/estadual/siafem/pilotos/ribeirao_preto/2025_01/"+sha
+          with open(os.environ["GITHUB_OUTPUT"],"a",encoding="utf-8") as f:
+              f.write(f"prefix={prefix}\nsource={source}\nqa={files[0]}\nsha={sha}\n")
+          print("PILOT_QA",json.dumps({**qa,"bucket":"financas-municipais-sp-canonico","prefix":prefix},ensure_ascii=False))
+          PY
+      - name: Preservar dados brutos e QA no bucket privado existente
+        env:
+          PREFIX: ${{ steps.meta.outputs.prefix }}
+          SOURCE: ${{ steps.meta.outputs.source }}
+          QA: ${{ steps.meta.outputs.qa }}
+          SHA: ${{ steps.meta.outputs.sha }}
+        run: |
+          python deployment/upload_r2_source.py \
+            --source "$SOURCE" --object-key "$PREFIX/raw.json" \
+            --content-type application/json --expected-sha256 "$SHA"
+          python deployment/upload_r2_source.py \
+            --source "$QA" --object-key "$PREFIX/qa.json" \
+            --content-type application/json
+          python deployment/download_r2_source.py \
+            --object-key "$PREFIX/raw.json" \
+            --output "$RUNNER_TEMP/siafem-readback.json" --expected-sha256 "$SHA"
+          python - <<'PY'
+          import json,os
+          data=json.load(open(os.environ["RUNNER_TEMP"]+"/siafem-readback.json",encoding="utf-8"))
+          assert len(data["instruments"])==data["instrument_count"]
+          assert len(data["movement_rows"])==data["movement_row_count"]
+          print("SIAFEM_R2_READBACK_PASS",data["instrument_count"],data["movement_row_count"])
+          PY
+      # Não gerar artefato público ou atualizar base de produção.

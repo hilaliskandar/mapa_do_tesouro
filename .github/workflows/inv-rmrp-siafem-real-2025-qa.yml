@@ -1,5 +1,9 @@
 name: INV RMRP - QA SIAFEM sobre SQLite real 2025 reconstruido
 on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - ".github/workflows/inv-rmrp-siafem-real-2025-qa.yml"
   pull_request:
     paths:
       - "pipeline/build/import_inv_rmrp_siafem_dev.py"

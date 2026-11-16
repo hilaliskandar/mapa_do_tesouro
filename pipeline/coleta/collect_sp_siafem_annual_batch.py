@@ -146,6 +146,6 @@ def main():
         "qa_status":"pilot_regional_expansion_not_financial_homologation"}
     (out/"qa.json").write_text(json.dumps(qa,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(qa,ensure_ascii=False))
-    if failures:raise SystemExit(3)
+    if not data:raise SystemExit(3)  # lote sem nenhuma consulta validada
 if __name__=="__main__":
     main()

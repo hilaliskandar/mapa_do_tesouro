@@ -8,6 +8,7 @@ on:
     paths:
       - .github/workflows/sp645-convenios-auditoria.yml
       - pipeline/coleta/collect_sp_convenios_oficial.py
+      - pipeline/coleta/stage_sp_convenios.py
 
 permissions:
   contents: read
@@ -81,6 +82,11 @@ jobs:
                   if any(values):print('DICT_ROW:',number,repr(values[:12]))
                   if number>=40:break
           PY
+      - name: Gerar staging SQLite temporario sem inferir valores financeiros
+        run: |
+          python pipeline/coleta/stage_sp_convenios.py \
+            --zip "$(find "$RUNNER_TEMP/sp_convenios" -maxdepth 1 -name '*.zip' -print -quit)" \
+            --db "$RUNNER_TEMP/sp_convenios/staging.sqlite"
       - name: Publicar apenas metadados nao sensiveis no log
         if: always()
         run: |

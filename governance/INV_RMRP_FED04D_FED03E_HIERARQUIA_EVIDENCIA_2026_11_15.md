@@ -29,7 +29,7 @@ Dos **34 pagamentos** vinculados a documentos de liquidação com status diferen
 - **26 movimentos possuem valor zero**, todos ligados a documentos `Inativo`;
 - **8 movimentos apresentam valor positivo**, sendo 6 vinculados a DL `Em Elaboração` e 2 a DL `Inativo`, somando **27.212.091 centavos (R$ 272.120,91)**.
 
-**Controle aritmético obrigatório:** os valores das duas classes somam `2.087.716 + 25.124.375 = 27.212.091 centavos`, isto é, **R$ 272.120,91**. O valor a utilizar é **R$ 272.120,91**. Trata-se de movimentos com status documental a verificar, não de prejuízo nem de pagamento indevido comprovado.
+A soma corresponde a R$ 272.120,91 em movimentos com status documental a verificar, não a prejuízo nem a pagamento indevido comprovado.
 
 A classificação observada nos dois recortes elimina a falsa equivalência entre `DL Inativo` e pagamento necessariamente irregular: 26 dos 28 movimentos associados a DL inativo têm valor zero. Os oito casos com valor positivo foram segregados em planilha privada de triagem para revisão documental e cronológica.
 

@@ -1,0 +1,49 @@
+name: SP645 - auditar ZIP oficial de convenios (sem publicacao)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - investimentos-territoriais-sp645-20261111
+    paths:
+      - .github/workflows/sp645-convenios-auditoria.yml
+      - pipeline/coleta/collect_sp_convenios_oficial.py
+
+permissions:
+  contents: read
+
+jobs:
+  auditar-convenios:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout do codigo
+        uses: actions/checkout@v4
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Adquirir ZIP oficial e verificar integridade
+        run: |
+          python pipeline/coleta/collect_sp_convenios_oficial.py --download --outdir "$RUNNER_TEMP/sp_convenios"
+      - name: Publicar apenas metadados nao sensiveis no log
+        if: always()
+        run: |
+          python - <<'PY'
+          import glob,json,os
+          paths=glob.glob(os.path.join(os.environ['RUNNER_TEMP'],'sp_convenios','*.manifest.json'))
+          if not paths:
+              print('SEM_MANIFESTO: a aquisição não produziu arquivo verificável')
+              raise SystemExit(0)
+          for p in paths:
+              v=json.load(open(p,encoding='utf8'))
+              print('FONTE:',v.get('fonte_id'))
+              print('HTTP:',v.get('http_status'))
+              print('BYTES:',v.get('bytes'))
+              print('SHA256:',v.get('sha256'))
+              print('QA:',v.get('qa_status'))
+              print('MEMBROS_ZIP:',len(v.get('zip_members',[])))
+              print('ERROS:',v.get('errors',[]))
+          PY
+      # Não publicar o ZIP nem os microdados como artefato de um repositório.
+      # A persistência canônica privada no R2 requer workflow separado e homologação.

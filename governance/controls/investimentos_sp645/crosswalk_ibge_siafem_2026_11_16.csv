@@ -375,7 +375,7 @@ codigo_ibge;municipio;codigo_siafem;nome_siafem;estado
 3533106;Nova Guataporanga;0479;NOVA GUATAPORANGA;exato
 3533205;Nova Independência;0480;NOVA INDEPENDENCIA;exato
 3533254;Novais;0753;NOVAIS;exato
-3533304;Nova Luzitânia;;;ausente
+3533304;Nova Luzitânia;0481;NOVA LUSITANIA;alias_documentado
 3533403;Nova Odessa;0482;NOVA ODESSA;exato
 3533502;Novo Horizonte;0483;NOVO HORIZONTE;exato
 3533601;Nuporanga;0484;NUPORANGA;exato
@@ -504,7 +504,7 @@ codigo_ibge;municipio;codigo_siafem;nome_siafem;estado
 3544806;Sales;0596;SALES;exato
 3544905;Sales Oliveira;0597;SALES OLIVEIRA;exato
 3545001;Salesópolis;0598;SALESOPOLIS;exato
-3545100;Salmourão;;;ausente
+3545100;Salmourão;0599;SALMORAO;alias_documentado
 3545159;Saltinho;0759;SALTINHO;exato
 3545209;Salto;0600;SALTO;exato
 3545308;Salto de Pirapora;0602;SALTO DE PIRAPORA;exato
@@ -577,14 +577,14 @@ codigo_ibge;municipio;codigo_siafem;nome_siafem;estado
 3551603;Serra Negra;0662;SERRA NEGRA;exato
 3551702;Sertãozinho;0664;SERTAOZINHO;exato
 3551801;Sete Barras;0665;SETE BARRAS;exato
-3551900;Severínia;;;ausente
+3551900;Severínia;0666;SEVERINEA;alias_documentado
 3552007;Silveiras;0667;SILVEIRAS;exato
 3552106;Socorro;0668;SOCORRO;exato
 3552205;Sorocaba;0669;SOROCABA;exato
-3552304;Sud Mennucci;;;ausente
+3552304;Sud Mennucci;0670;SUD MENUCCI;alias_documentado
 3552403;Sumaré;0671;SUMARE;exato
 3552502;Suzano;0672;SUZANO;exato
-3552551;Suzanápolis;;;ausente
+3552551;Suzanápolis;0762;SUZANOPOLIS;alias_documentado
 3552601;Tabapuã;0673;TABAPUA;exato
 3552700;Tabatinga;0674;TABATINGA;exato
 3552809;Taboão da Serra;0675;TABOAO DA SERRA;exato

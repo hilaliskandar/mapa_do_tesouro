@@ -49,3 +49,8 @@ A cópia do SQLite recebeu `municipio_sp_ibge2024_fed04c` (645 registros) e `coo
 4. **Publicação bloqueada:** `public_release_authorized=false`; nenhuma escrita na base fiscal canônica ou no site público.
 
 Os três ZIPs novos da execução foram preservados na pasta privada `186Cxxs2wZas55LlEPPoD-G2_nJfGmfU9`, com metadados de acesso privado e hash integral conferido após download.
+
+
+## Cadastro privado de exceções para revisão individual
+
+O processamento derivou três tabelas de pendências, **sem avaliação de irregularidade**: 60 coordenadas não situadas no município proponente (49 em outro município da RMRP, 5 em outro município paulista, 4 fora de SP e 2 `0,0`); 34 pagamentos com DL não classificados como `Ativo` (28 `Inativo`, 6 `Em Elaboração`); e 33 pagamentos com valor zero. IDs de propostas e movimentos constam apenas no [ZIP privado de pendências](https://drive.google.com/file/d/1pTuNem2AVlZwteSO4Yrfmb4SBn8NrTyn/view), **não** neste repositório. O pacote de 2.936 bytes, SHA-256 `85d938aabf1bb00c562ed946d93b1ed15944f942c0a8c40a46147ec520dcc3ed`, teve upload e readback SHA-256/CRC aprovados; `shared=false`. As listas de pagamentos podem apresentar sobreposição; não somar os quantitativos como casos únicos sem deduplicação por movimento.

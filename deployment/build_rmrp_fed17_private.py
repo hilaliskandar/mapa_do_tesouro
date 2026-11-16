@@ -87,7 +87,7 @@ def build(src,dst,zipout):
   p=api/"projetos"/(project+".json")
   j=load(p)
   assert j["id_origem"]==project
-  assert j["instrumentos_vinculados"][0]["nr_instrumento"]==record["instrumento"]
+  assert j["instrumentos_vinculados"][0]["numero"]==record["instrumento"]
   assert j["valores_investimento_pago_centavos"] is None
   assert j["localizacao_fisica"]["pontos"]==[]
   j["evidencia_contratual_fed17"]={**record,

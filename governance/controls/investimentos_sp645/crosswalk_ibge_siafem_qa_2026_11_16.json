@@ -1,0 +1,20 @@
+{
+  "source_url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx",
+  "roster": "governance/DIM_SP645_IBGE_RA_RG_RM_AU_CONSOLIDADA_2026_11_14.csv",
+  "municipios_ibge": 645,
+  "source_options": 648,
+  "mapped": 640,
+  "statuses": {
+    "exato": 639,
+    "alias_documentado": 1,
+    "ausente": 5
+  },
+  "unmapped_ibge7": [
+    "3533304",
+    "3545100",
+    "3551900",
+    "3552304",
+    "3552551"
+  ],
+  "status": "crosswalk_apenas_correspondencia_exata_sem_fuzzy"
+}

@@ -44,7 +44,7 @@ jobs:
                       data=list(csv.reader(io.StringIO(txt,newline=''), delimiter=delimiter))
                       if not data: raise RuntimeError('CSV vazio')
                       first=data[0]
-                      no_header=bool(first and re.fullmatch(r'(19|20)\\d{2}',first[0].strip()))
+                      no_header=bool(first and re.fullmatch(r'(19|20)\d{2}',first[0].strip()))
                       rows=data if no_header else data[1:]
                       widths=Counter(len(x) for x in rows)
                       years=Counter(x[0].strip() if x else '<vazio>' for x in rows)

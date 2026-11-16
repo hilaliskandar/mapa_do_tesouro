@@ -1,6 +1,15 @@
 name: SP645 - primeiro lote anual SIAFEM fora RMRP em R2 privado
 on:
   workflow_dispatch:
+    inputs:
+      offset:
+        description: "Deslocamento no cadastro dos 611 municipios fora da RMRP"
+        required: true
+        default: "5"
+      year:
+        description: "Exercicio da data de liberacao"
+        required: true
+        default: "2025"
   push:
     branches: [investimentos-territoriais-sp645-20261111]
     paths:
@@ -12,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
+      BATCH_OFFSET: ${{ inputs.offset || '5' }}
+      BATCH_YEAR: ${{ inputs.year || '2025' }}
       CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
@@ -40,7 +51,7 @@ jobs:
           assert sha==qa['snapshot_sha256']
           assert qa['municipalities_requested']==5
           assert qa['municipalities_with_verified_table']+qa['municipalities_without_valid_result']==5
-          prefix='sp_645/estadual/siafem/batches/2025/piloto_extra_rmrp_05/'+sha
+          prefix=f'sp_645/estadual/siafem/batches/{qa["year"]}/piloto_extra_rmrp_offset_{qa["offset"]}_len5/'+sha
           with open(os.environ['GITHUB_OUTPUT'],'a') as f:
               f.write(f'prefix={prefix}\nsha={sha}\n')
           print('SIAFEM_BATCH_QA',json.dumps(qa,ensure_ascii=False))

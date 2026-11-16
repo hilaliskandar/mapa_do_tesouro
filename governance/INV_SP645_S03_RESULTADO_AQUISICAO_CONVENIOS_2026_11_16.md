@@ -25,3 +25,11 @@ Próximos passos:
 6. Só depois produzir agregado anual e integração privada com FINBRA/TCESP, sem somar origem e aplicação, ou considerar valores celebrados como pagos.
 
 **Status: `qa_status=validado_estrutura`, `qa_financeiro=pendente`, `persistencia_privada=pendente`, `public_release_authorized=false`.**
+
+## Atualização — dicionário e staging confirmados
+
+A execução [43907596415](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43907596415) recuperou com **HTTP 200** o dicionário oficial XLSX de 14.383 bytes. A planilha `Dicionário_convênios` descreve, entre outros, `Número do Convênio`, `CNPJ do Beneficiário`, `Objeto`, `Valor Total do Convênio` (previsto) e `Valor Concedido` (efetivamente repassado). Como a planilha descreve **mais campos do que as dez posições do arquivo ZIP**, os títulos não devem ser aplicados posicionalmente sem verificação adicional.
+
+Criado [`pipeline/coleta/stage_sp_convenios.py`](../pipeline/coleta/stage_sp_convenios.py), que importa o ZIP em SQLite de desenvolvimento sob o grão `(source_sha256,row_num)`, com `year` e `col_01` a `col_10` brutas. O teste local sintético foi executado duas vezes com o mesmo ZIP e não duplicou linhas. A execução real [43907818400](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43907818400) concluiu com **3.618 registros** e anos **2023: 323, 2024: 938, 2025: 1.912, 2026: 445**, preservando `financial_schema_homologated=false` e `physical_location_homologated=false`.
+
+**Restrição importante:** o SQLite gerado e o ZIP continuam nos diretórios **temporários** do runner de CI, sem persistência em R2. Logo, o estágio foi **testado com dados reais**, mas ainda não foi incorporado ao banco canônico privado nem à plataforma. A aprovação da estrutura não implica aprovação da semântica financeira.

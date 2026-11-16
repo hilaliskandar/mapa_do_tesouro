@@ -1,1 +1,2 @@
 run_id;endpoint_id;inicio_utc;fim_utc;status;paginas_esperadas;paginas_recebidas;linhas_recebidas;duplicatas;erros;artefato_manifesto
+GH-43906787228;SP_CONV_ZIP;2026-11-16T16:22:42Z;2026-11-16T16:22:43Z;validado_estrutura_arquivo_temporario;1;1;;;0;github_actions_run_43906787228_logs_sha256_1cca0556f08a1378bae52465796188788a5b3bb21e1b26c30c8c5c7d9a6b2b8f

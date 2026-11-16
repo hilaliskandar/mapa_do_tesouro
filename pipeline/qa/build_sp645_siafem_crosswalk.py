@@ -21,7 +21,13 @@ def normalize(s):
     return " ".join(s.split())
 
 KNOWN_ALIASES={
-    "BRODOWSKI":"BRODOSQUI",  # ver RELATORIO_INV_RMRP_SIAFEM_SERIE_ANUAL_EXATA_2020_2026_2026_11_12.md
+    # Grafias literais do seletor SIAFEM inspecionadas via Crawl2AI em 16/11/2026.
+    "BRODOWSKI":"BRODOSQUI",  # também documentado no relatório SIAFEM de 12/11
+    "NOVA LUZITANIA":"NOVA LUSITANIA",
+    "SALMOURAO":"SALMORAO",
+    "SEVERINIA":"SEVERINEA",
+    "SUD MENNUCCI":"SUD MENUCCI",
+    "SUZANAPOLIS":"SUZANOPOLIS",
 }
 
 def run(roster_path:Path,output:Path,qa_path:Path):

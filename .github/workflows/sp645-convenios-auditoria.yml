@@ -26,45 +26,39 @@ jobs:
       - name: Adquirir ZIP oficial e verificar integridade
         run: |
           python pipeline/coleta/collect_sp_convenios_oficial.py --download --outdir "$RUNNER_TEMP/sp_convenios"
-      - name: Inspecionar campos e cobertura temporal sem divulgar linhas individuais
+      - name: Diagnosticar CSV sem cabecalho e distribuir por ano
         run: |
           python - <<'PY'
-          import csv, glob, io, os, re, zipfile
+          import csv,glob,io,os,re,zipfile,json
           from collections import Counter
-          names=glob.glob(os.path.join(os.environ['RUNNER_TEMP'],'sp_convenios','*.zip'))
-          for name in names:
-              with zipfile.ZipFile(name) as z:
-                  for member in z.namelist():
-                      if not member.lower().endswith(('.csv','.txt')):
-                          continue
-                      raw=z.read(member)
-                      candidates=['utf-8-sig','utf-8','cp1252','latin-1']
-                      text=None
-                      for enc in candidates:
-                          try:
-                              text=raw.decode(enc)
-                              break
+          for path in glob.glob(os.path.join(os.environ['RUNNER_TEMP'],'sp_convenios','*.zip')):
+              with zipfile.ZipFile(path) as z:
+                  for filename in z.namelist():
+                      if not filename.lower().endswith('.csv'): continue
+                      raw=z.read(filename)
+                      enc=None
+                      for candidate in ('utf-8-sig','utf-8','cp1252','latin-1'):
+                          try: txt=raw.decode(candidate);enc=candidate;break
                           except UnicodeDecodeError: pass
-                      if text is None: raise RuntimeError('encoding nao identificado')
-                      sample=text[:16000]
-                      try: delimiter=csv.Sniffer().sniff(sample,delimiters=';,|\\t').delimiter
-                      except csv.Error: delimiter=';'
-                      rows=csv.DictReader(io.StringIO(text),delimiter=delimiter)
-                      cols=rows.fieldnames or []
-                      total=0
-                      dates=Counter()
-                      for row in rows:
-                          total+=1
-                          for key,value in row.items():
-                              if not key or value is None:continue
-                              if re.search(r'ano|celebra|data',key,re.IGNORECASE):
-                                  m=re.search(r'\\b(?:19|20)\\d{2}\\b',str(value))
-                                  if m: dates[(key,m.group(0))]+=1
-                      print('CSV_MEMBER:',member)
+                      delimiter=';'
+                      data=list(csv.reader(io.StringIO(txt,newline=''), delimiter=delimiter))
+                      if not data: raise RuntimeError('CSV vazio')
+                      first=data[0]
+                      no_header=bool(first and re.fullmatch(r'(19|20)\\d{2}',first[0].strip()))
+                      rows=data if no_header else data[1:]
+                      widths=Counter(len(x) for x in rows)
+                      years=Counter(x[0].strip() if x else '<vazio>' for x in rows)
+                      kinds=Counter(x[1].strip() if len(x)>1 else '<vazio>' for x in rows)
+                      beneficiaries=len({x[4].strip() for x in rows if len(x)>4 and x[4].strip()})
+                      print('CSV_MEMBER:',filename)
                       print('CSV_ENCODING:',enc,'CSV_DELIMITER:',repr(delimiter))
-                      print('CSV_FIELDS:',repr(cols))
-                      print('CSV_ROWS:',total)
-                      print('CSV_DATE_HITS:',dates.most_common(30))
+                      print('CSV_NO_HEADER:',no_header)
+                      print('CSV_COLUMNS_FIRST_ROW:',len(first))
+                      print('CSV_ROWS_CORRECTED:',len(rows))
+                      print('CSV_WIDTHS:',json.dumps(widths,ensure_ascii=False))
+                      print('CSV_YEAR_COUNTS:',json.dumps(dict(sorted(years.items())),ensure_ascii=False))
+                      print('CSV_KIND_COUNTS:',json.dumps(kinds,ensure_ascii=False))
+                      print('CSV_DISTINCT_BENEFICIARY_TEXT_COUNT:',beneficiaries)
           PY
       - name: Publicar apenas metadados nao sensiveis no log
         if: always()

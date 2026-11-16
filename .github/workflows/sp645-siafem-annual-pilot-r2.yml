@@ -36,7 +36,7 @@ jobs:
       - run: pip install --quiet requests beautifulsoup4
       - name: Consultar cinco municipios nao incluidos na RMRP
         run: |
-          python -m pipeline.coleta.collect_sp_siafem_annual_batch --acquire --year 2025 --limit 5 \
+          python -m pipeline.coleta.collect_sp_siafem_annual_batch --acquire --year "$BATCH_YEAR" --offset "$BATCH_OFFSET" --limit 5 \
             --crosswalk governance/controls/investimentos_sp645/crosswalk_ibge_siafem_2026_11_16.csv \
             --existing-roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
             --outdir "$RUNNER_TEMP/sp_siafem_annual"

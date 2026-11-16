@@ -101,17 +101,18 @@ def main():
     p.add_argument("--existing-roster",type=Path,required=True)
     p.add_argument("--year",type=int,default=2025)
     p.add_argument("--limit",type=int,default=5)
+    p.add_argument("--offset",type=int,default=0)
     p.add_argument("--outdir",type=Path,required=True)
     p.add_argument("--acquire",action="store_true")
     a=p.parse_args()
     if not a.acquire:p.error("usar --acquire")
-    if not 1<=a.limit<=10 or not 2020<=a.year<=2026:p.error("lote fora dos limites do piloto")
+    if not 1<=a.limit<=25 or a.offset<0 or not 2020<=a.year<=2026:p.error("lote fora dos limites do piloto")
     with a.crosswalk.open(encoding="utf-8-sig",newline="") as f:
         mapped=list(csv.DictReader(f,delimiter=";"))
     with a.existing_roster.open(encoding="utf-8-sig",newline="") as f:
         prior={r["codigo_ibge"] for r in csv.DictReader(f,delimiter=";")}
     chosen=[x for x in mapped if x["codigo_ibge"] not in prior and x["codigo_siafem"]]
-    chosen=sorted(chosen,key=lambda x:x["codigo_ibge"])[:a.limit]
+    chosen=sorted(chosen,key=lambda x:x["codigo_ibge"])[a.offset:a.offset+a.limit]
     if len(chosen)!=a.limit:raise ValueError("cadastro de novos municipios incompleto")
     s=requests.Session()
     s.headers.update({"User-Agent":"Mozilla/5.0 (levantamento publico SP645/1.0)"})
@@ -135,6 +136,8 @@ def main():
     file=out/"raw.json";file.write_bytes(raw)
     sha=hashlib.sha256(raw).hexdigest()
     qa={"source":"SP_SEFAZ","snapshot_sha256":sha,"bytes":len(raw),"year":a.year,
+        "offset":a.offset,"requested_ibge7":[r["codigo_ibge"] for r in chosen],
+        "verified_ibge7":[r["codigo_ibge"] for r in data],
         "municipalities_requested":len(chosen),"municipalities_with_verified_table":len(data),
         "municipalities_without_valid_result":len(failures),
         "queries_with_footer_reconciliation":sum(bool(x["footer_checks"]) for x in data),

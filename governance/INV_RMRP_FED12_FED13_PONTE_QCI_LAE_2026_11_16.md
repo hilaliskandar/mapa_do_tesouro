@@ -74,3 +74,7 @@ O [materializador `deployment/build_rmrp_fed13_private.py`](../deployment/build_
 5. Testar build privado real do Cloudflare Pages e regressão visual/TCESP antes de qualquer release.
 
 **Gate:** `public_release_authorized=false`. Não houve alteração no ambiente público, nem homologação indevida de localização ou investimento efetivamente pago.
+
+## Regresso da plataforma após FED13
+
+Em 16/11/2026 foi executada novamente a suíte integrada de **12 arquivos de testes** do projeto, abrangendo overlay privado, Pages, frontend, geração estática, API v2, TCESP e indicadores SP645: **33 testes aprovados, 0 falhas**, fornecendo a variável privada de fixture `RMRP_FED07_SOURCE_ZIP` (sem ela, três testes são ignorados pelo runner). A comparação byte a byte confirmou **6/6 endpoints JSON antigos preservados**, **19 fichas de projeto enriquecidas**, **18 pontes QCI verificadas**, **0 pontos físicos publicados** e **0 valores de capital pago não nulos** nas 218 fichas. Esses testes não substituem QA visual e deploy restrito de Cloudflare Pages.

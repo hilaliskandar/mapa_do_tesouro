@@ -93,6 +93,16 @@ def main():
                 "numeric_like_cells":sum(bool(re.fullmatch(r"[R$\\s\\d.,()\\-]+",x)) for x in row_text if x),
                 "link_cells":sum(bool(x.find("a")) for x in cells)
             })
+    detail_link_patterns=[]
+    if grid:
+        for anchor in grid.select("a[href],a[onclick]")[:5]:
+            href=(anchor.get("href") or "").strip()
+            onclick=(anchor.get("onclick") or "").strip()
+            href_path=href.split("?",1)[0]
+            if href_path.lower().startswith("javascript:"):
+                href_path=href_path.split("(",1)[0]
+            fn=re.match(r"[a-zA-Z_$][a-zA-Z0-9_.$]*",onclick)
+            detail_link_patterns.append({"href_path_or_function":href_path[:180],"onclick_function":fn.group(0) if fn else None})
     text=doc.get_text(" ",strip=True)
     alerts=[s for s in ("Nenhum registro","Nenhuma informação","VALIDAÇÃO","Erro ao","Resultado","Total de Registros") if s.casefold() in text.casefold()]
     print(json.dumps({
@@ -104,6 +114,7 @@ def main():
         "table_summary":candidates[:12],
         "grdTransferencia_row_structure":grid_rows[:15],
         "grdTransferencia_header_labels":grid_header_labels,
+        "detail_link_patterns":detail_link_patterns,
         "alerts_keywords":alerts,
         "returned_webforms_state":bool(doc.select_one('input[name="__VIEWSTATE"]')),
         "qa":"protocolo_testado_sem_persistencia_de_linhas"

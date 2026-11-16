@@ -1,0 +1,7 @@
+id;fonte_id;escopo;criticidade;tipo;descricao;evidencia;acao;bloqueia_campo;status
+S00-001;BR_TFG_DL;RMRP34;P0;manifestos;Conferir pacotes de 15-11 e arquivos FED posteriores com hashes e conteudo;README FED01-FED21 e Drive privado;Confrontar acervo Drive R2 e relatorios de QA;inventario_de_versoes;aberto
+S01-001;SP_CONV;SP645;P0;endpoint;Exportar CSV e identificar requisicao real schema filtros e periodo;Pagina oficial consultada em 16-11 mostra Exportar CSV e dicionario XLSX;Inspecionar rede/HTML e testar download com QA;ingestao_estadual;aberto
+S01-002;SP_SEFAZ;SP645;P0;endpoint;Identificar exportacao em lote API ou metodo reproduzivel da consulta Sefaz;Pagina acessivel mas texto extraido insuficiente em 16-11;Inspecionar ASPX com ferramenta apropriada e registrar parametros e restricoes;ingestao_estadual;aberto
+S02-001;BR_TFG_ESP;SP645;P0;cobertura;Verificar cadeia completa beneficiario plano empenho pagamento com IDs oficiais;Plano 16-11 e historico FED;Catalogar rotas e obter snapshots sem dupla contagem;pagamentos_especiais;aberto
+S04-001;BR_OBRAS;SP645;P1;cobertura;218 projetos por proponente nao representam obras fisicamente em RMRP;README FED14 FED15;Completar snapshot SP e documentar criterio territorial;indicador_de_cobertura_territorial;aberto
+E01-001;BR_OBRAS;19_projetos;P3;casos_individuais;Manter 19 divergencias em fila propria sem bloquear aquisicao sistêmica;README FED16-FED21;Retomar por risco de indicador ou relevancia comprovada;localizacao_fisica_especifica;aberto

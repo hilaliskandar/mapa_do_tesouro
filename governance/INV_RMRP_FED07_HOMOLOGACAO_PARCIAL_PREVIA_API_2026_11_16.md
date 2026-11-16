@@ -53,3 +53,19 @@ O `manifest.json` recebeu novos hashes das fontes, contagens, cobertura e razõe
 4. **Deploy:** nenhuma gravação no build produtivo ou D1, e nenhum gate `public_release_authorized` foi alterado. É necessária publicação controlada de prévia e aceite final por responsável de projeto.
 
 **Encaminhamento:** priorizar integração estática de informações cadastrais, dimensões oficiais e indicadores de cobertura, preservando como `null` todo valor de capital pago sem lastro; somente promover frontend e produção após regressão e revisão de conteúdo.
+
+
+## Incorporação aditiva na prévia da plataforma e testes de regressão
+
+A arquitetura atual do repositório já contém `deployment/materialize_investimentos_preview.py` e seis JSON de outras prévias em `app/static/data/api/v3/investimentos/rmrp/`. Por isso, o FED07 foi **acrescentado**, não substituído, em uma cópia isolada de `app/static`:
+
+- A contagem correta dos JSON do próprio FED07 é **279**, não 280: 1 manifesto, 1 índice municipal, 34 fichas municipais, 19 anos, 218 projetos, 1 pendências, 1 índice sub-regional e 4 fichas de sub-região. Essa divergência de **um arquivo** em inventários anteriores foi identificada durante teste e corrigida no gate. Os seis JSON de outras prévias preexistentes foram preservados, resultando em **285 JSON** na pasta API v3 da cópia integrada.
+- Foi criada a rotina de overlay [`deployment/materialize_rmrp_fed07_private.py`](../deployment/materialize_rmrp_fed07_private.py), que exige `index.html` e o marcador `.rmrp-fed07-private-preview`, recusa escrita na árvore do repositório ou em diretórios públicos e **bloqueia sobrescritas**. O marcador foi exigido apenas na execução privada; o pacote distribuído não contém credencial de autenticação nem foi publicado em Cloudflare Pages.
+- A suíte específica [`tests/test_fed07_private_overlay.py`](../tests/test_fed07_private_overlay.py) foi integrada às quatro suítes existentes `test_pages_deployment_contract.py`, `test_frontend_contract.py`, `test_build_static_site.py` e `test_export_regional_api_v2.py`, totalizando **20 testes aprovados**, sem falhas (com `PYTHONPATH=.`). O validador de conteúdo FED07 passou novamente em **1.603 verificações** sobre a árvore integrada.
+- **O overlay preserva os seis endpoints antigos; não executa nem substitui o materializador público de investimentos**, não modifica produção e não transfere automaticamente o pacote para um build Cloudflare Pages.
+
+### Entrega integrada
+
+[**RMRP_FED07_SITE_PREVIA_PRIVADA_2026-11-16.zip**](https://drive.google.com/file/d/1whZO3RZABn9aIS3SrF5_8DqGdyBSwTZT/view), ID `1whZO3RZABn9aIS3SrF5_8DqGdyBSwTZT`, com `index.html` e recursos de frontend já existentes mais **285 endpoints JSON** no diretório da API v3; **296 membros** ao todo, tamanho **788.460 bytes**, SHA-256 `60b7ef5b23aa048b407939ce3678a559e84c4806cbc06e1bb1699f2625d45e4d`. Drive em pasta privada, `shared=false`; readback SHA-256/CRC íntegro. A distribuição é um **artefato técnico local para teste**, não uma URL de implantação web nem comprovação de responsividade/browser QA.
+
+**Gate de implantação pública:** permanece **bloqueado**, especialmente para dados financeiros de capital e pinos de obra. Antes de implantar a camada cadastral sem valores, executar teste de build Pages restrito completo, controle de cache e navegação efetiva, revisão de regressão TCESP/Guatapará, verificação de conteúdo e aprovação responsável da release. O usuário solicitou prosseguir na homologação, não há evidência suficiente para declarar publicada a plataforma.

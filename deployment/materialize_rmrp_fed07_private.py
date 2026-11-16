@@ -51,9 +51,17 @@ def materialize(site: Path, source_zip: Path, repo_root: Path | None = None) -> 
                 raise RuntimeError("Unexpected publication authorization")
             target = site / PREFIX
             if target.exists():
-                raise RuntimeError("Destination already exists; refuse overwrite")
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copytree(tmp / PREFIX, target)
+                colliding = [f.relative_to(tmp / PREFIX) for f in (tmp / PREFIX).rglob("*.json")
+                             if (target / f.relative_to(tmp / PREFIX)).exists()]
+                if colliding:
+                    raise RuntimeError(f"Destination contains FED07 file(s); refuse overwrite: {colliding[:3]}")
+                for file in (tmp / PREFIX).rglob("*.json"):
+                    dest = target / file.relative_to(tmp / PREFIX)
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(file, dest)
+            else:
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copytree(tmp / PREFIX, target)
     h = hashlib.sha256()
     with source_zip.open("rb") as f:
         for b in iter(lambda: f.read(1024 * 1024), b""):

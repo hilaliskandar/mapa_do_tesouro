@@ -35,11 +35,21 @@ class TestFed07Preview(unittest.TestCase):
         self.assertEqual(report["qa"]["projetos"], 218)
         self.assertGreaterEqual(report["qa"]["technical_checks_passed"], 1603)
 
+    def test_preserves_other_rmrp_previews(self):
+        self.require_private_artifact()
+        preexisting = self.site / "data/api/v3/investimentos/rmrp/preview-amostras.json"
+        preexisting.parent.mkdir(parents=True, exist_ok=True)
+        preexisting.write_text('{"source":"other-preview"}', encoding="utf-8")
+        (self.site / ".rmrp-fed07-private-preview").write_text("private")
+        result = materialize(self.site, self.zip_path, self.repo)
+        self.assertEqual(result["json_count"], 279)
+        self.assertEqual(preexisting.read_text(), '{"source":"other-preview"}')
+
     def test_no_overwrite(self):
         self.require_private_artifact()
         (self.site / ".rmrp-fed07-private-preview").write_text("private")
         materialize(self.site, self.zip_path, self.repo)
-        with self.assertRaisesRegex(RuntimeError, "Destination already exists"):
+        with self.assertRaisesRegex(RuntimeError, "Destination contains FED07 file"):
             materialize(self.site, self.zip_path, self.repo)
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,7 @@
+endpoint_id;fonte_id;url_template;filtros;paginacao;tamanho_pagina;auth;limite;schema_version;ultima_verificacao;estado
+SP_CONV_PAGE;SP_CONV;https://www.transparencia.sp.gov.br/Convenios;orgao_unidade_beneficiario_cnpj_tipo_ano;nao_verificada;;nao_identificada;;nao_verificada;2026-11-16;pagina_crawled_exportar_csv_visivel
+SP_CONV_CSV;SP_CONV;URL_DA_EXPORTACAO_A_IDENTIFICAR;filtros_do_formulario;nao_verificada;;nao_identificada;;nao_verificada;2026-11-16;endpoint_download_pendente
+SP_SEFAZ_PAGE;SP_SEFAZ;https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx;mapa_regiao_administrativa_orgao;nao_verificada;;nao_identificada;;nao_verificada;2026-11-16;pagina_acessivel_conteudo_extracao_incompleto
+BR_OBRAS_PROJ;BR_OBRAS;https://api-publica.obrasgov.gestao.gov.br/obras/projeto-investimento?uf_principal=SP&pagina={pagina}&tamanho_da_pagina=200;uf_principal;pagina;200;nao_identificada;;verificar_openapi_atual;2026-11-16;historico_FED_coleta_parcial
+BR_TFG_DL_API;BR_TFG_DL;discricionarias/propostas?cod_munic_ibge={ibge7};municipio;pagina;validar;validar;;verificar_openapi_atual;2026-11-16;historico_FED_coleta_regional
+BR_TFG_PAR_API;BR_TFG_PAR;parcerias/proposta?cd_ibge_recebedor={ibge7};municipio;pagina;200;validar;;verificar_openapi_atual;2026-11-16;historico_FED_coleta_regional

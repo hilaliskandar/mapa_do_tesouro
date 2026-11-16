@@ -50,3 +50,20 @@ O [QA 43920272152](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs
 - Próximo gate recomendável: reaproveitar o crosswalk municipal e os scripts QA 2020–2026, verificar se o SQLite isolado já incorpora SIAFEM na prévia, e preparar aquisição incremental SP645 com metodologia regional previamente validada.
 
 **Não se alterou a produção, nem se deu por homologado valor individual arredondado.**
+
+## 5. Teste de importação em SQLite fiscal real — executado em 16/11
+
+A execução [GitHub Actions 43920767531](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43920767531) releu o arquivo fiscal canônico 2025 de R2 por SHA-256, reconstruiu um SQLite isolado e executou o importador SIAFEM pré-existente em **uma cópia nova do banco**, seguido de QA de integridade e regressão fiscal. Todos os passos concluíram com sucesso. A saída do importador registrou `source_unchanged=true`, `instruments=752`, `instrument_year_rows=889`, `municipalities=34`, `payments_count=1017`, `amount_cents=30552102920` e `financial_event_rows_added=0`. Ou seja, trata-se de **agregados de convênio-ano**, não de eventos individuais inventados nem novo total financeiro. Produção preservada.
+
+## 6. Cadastro IBGE7 x código interno SIAFEM para SP645 — concluído
+
+O [script de crosswalk](../pipeline/qa/build_sp645_siafem_crosswalk.py) confrontou a dimensão oficial de municípios `DIM_SP645_IBGE_RA_RG_RM_AU_CONSOLIDADA_2026_11_14.csv` com as opções do campo `Municipio` da página oficial SIAFEM recuperada pelo Crawl2AI. Resultado [GitHub Actions 43921159164](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43921159164):
+
+- **645 códigos IBGE7 distintos**; **648 opções não vazias** no seletor (não equivalem a 648 municípios paulistas).
+- **639 associações exatas** de nome normalizado e **6 aliases literais inspecionados na própria fonte**. `unmapped_ibge7=[]`.
+- Aliases documentados: Brodowski/BRODOSQUI, Nova Luzitânia/NOVA LUSITANIA, Salmourão/SALMORAO, Severínia/SEVERINEA, Sud Mennucci/SUD MENUCCI e Suzanápolis/SUZANOPOLIS.
+- [CSV com 645 códigos](controls/investimentos_sp645/crosswalk_ibge_siafem_2026_11_16.csv) e [QA estruturado](controls/investimentos_sp645/crosswalk_ibge_siafem_qa_2026_11_16.json) gravados na branch de desenvolvimento, **sem fuzzy matching**, com código IBGE e código local distintos.
+
+**Importância:** resolve a dependência territorial para iniciar aquisição SIAFEM por município/ano para os 611 municípios externos à RMRP, mas **a correspondência territorial não significa que essas consultas financeiras já tenham sido executadas**. O próximo lote será particionado por município/ano com checkpoint, CSV/manifesto privado e QA de fonte. Não repetir as 238 consultas regionais do dia 12/11.
+
+**Status de entrega desta etapa:** fonte SP_CONV preservada no R2; SIAFEM RMRP34 série exata já existente e integrada em cópia SQLite; microdados do piloto mensal guardados no R2, com problema de janela temporal documentado; crosswalk 645/645 obtido. Dados financeiros SP645 fora da RMRP ainda não adquiridos.

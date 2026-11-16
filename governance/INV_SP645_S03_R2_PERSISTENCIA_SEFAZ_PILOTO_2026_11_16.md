@@ -59,3 +59,11 @@ O script [`pipeline/coleta/probe_sp_siafem_webforms.py`](../pipeline/coleta/prob
 5. Manter o acervo privado intacto; criar agregados aptos à prévia apenas após QA financeiro.
 
 **Estado final:** `SP_CONV`: `snapshot_persistido=true`, `qa_estrutura=validado`, `qa_financeiro=pendente`; `SP_SEFAZ`: `protocolo_post_validado=true`, `dataset_parcelas_pendente=true`. `public_release_authorized=false`.
+
+## 5. Detalhamento de convênio SIAFEM — acesso validado
+
+A tabela agregada `grdTransferencia` foi inspecionada em [43915476064](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43915476064). Seus sete cabeçalhos são: **Detalhe do Convênio**, **CNPJ Município/Entidade**, **Razão Social**, **Valor Convênio**, **Quantidade de Pagamentos**, **Valor Liberado/Estornado** e **Valor Saldo Convênio**. Portanto, a tabela contém **montantes agregados por instrumento**, não as linhas de pagamento individual. A execução piloto retornou quatro linhas HTML, das quais uma é cabeçalho e uma é totalização sem CNPJ/razão social. A linha totalizadora possui link malformado para detalhe, que provocou HTTP 500 no teste [43915996753](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43915996753); o coletor foi corrigido para **descartar a linha totalizadora** e consultar apenas instrumentos com CNPJ e razão social preenchidos.
+
+A função JavaScript `Open2` e o caminho `Convenio.aspx` foram confirmados no código de página oficial. Após correção, [43916098920](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43916098920) validou **GET HTTP 200 em uma ficha real de convênio**, com 15.312 bytes e cinco tabelas HTML, mantendo mesma sessão e sem divulgar identificadores. **Ainda não foi concluída extração das parcelas de pagamento e seus estágios**, que deve ser testada na estrutura interna da ficha antes da varredura municipal/anual.
+
+**Próximo gate específico:** mapear campos e possíveis links de parcelas na ficha `Convenio.aspx`, distinguir valor do instrumento, quantidade de pagamentos, valor liberado/estornado e saldo, e salvar extrato bruto privado com chaves oficiais. Nunca somar os valores do totalizador aos instrumentos nem confundir linhas de convênio com número de pagamentos.

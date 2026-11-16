@@ -43,3 +43,7 @@ Atualizados os controles `fontes.csv`, `endpoints.csv` e `pendencias.csv` no dir
 Próximo gate: identificação comprovada do mecanismo de exportação e primeiro CSV estadual armazenado, com SHA-256, contagem de linhas, schema, município/ano e arquivo de origem. Se não houver extração confiável, registrar impedimento explícito e priorizar fonte alternativa de dados abertos, sem produzir resultados fictícios.
 
 `public_release_authorized=false`; SQLite/Pages públicos inalterados.
+
+## 5. Restrição operacional adicional
+
+Foi tentada inspeção em navegador remoto pelo Browserless para detectar a requisição do botão `btnExportarCsv`; o serviço respondeu **HTTP 401 por limite de unidades do plano gratuito** antes de executar a sessão. Portanto, **nenhuma requisição de exportação foi observada** nessa tentativa, e não houve download. Encaminhamento: preferir executor remoto alternativo disponível ou instrumento de navegação com sessão e inspeção HTTP, sem solicitar alteração do plano como condição da pesquisa. Este bloqueio do Browserless não é evidência de indisponibilidade da fonte oficial.

@@ -140,10 +140,25 @@ def main():
             detail.raise_for_status()
             doc_detail=BeautifulSoup(detail.text,"html.parser")
             detail_tables=doc_detail.find_all("table")
+            detail_rows=[]
+            for index,table in enumerate(detail_tables):
+                trs=table.find_all("tr")
+                if len(trs)<2:continue
+                first=trs[0].find_all(["th","td"],recursive=False)
+                values=[v.get_text(" ",strip=True) for v in first]
+                detail_rows.append({
+                    "table_index":index,
+                    "table_id":table.get("id",""),
+                    "n_rows":len(trs),
+                    "first_row_cells":len(first),
+                    "first_row_labels":[re.sub(r"\\d","X",v[:65]) if any(z in v.lower() for z in ("pagamento","libera","empenho","valor","data","saldo","total","convênio","convenio")) else "<masked>" for v in values[:15]],
+                    "row_cell_counts":[len(tr.find_all(["th","td"],recursive=False)) for tr in trs[:12]]
+                })
             detail_probe={"attempted":True,"http_status":detail.status_code,
                 "path":parsed.path,"response_bytes":len(detail.content),
                 "table_count":len(detail_tables),
                 "table_rows_over_two":[{"id":t.get("id",""),"rows":len(t.find_all("tr"))} for t in detail_tables if len(t.find_all("tr"))>=3][:15],
+                "table_shapes":detail_rows,
                 "contains_form_state":bool(doc_detail.select_one('input[name="__VIEWSTATE"]'))}
             break
     text=doc.get_text(" ",strip=True)

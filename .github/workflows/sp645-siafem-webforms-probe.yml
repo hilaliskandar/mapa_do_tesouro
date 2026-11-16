@@ -29,5 +29,6 @@ jobs:
           python pipeline/coleta/probe_sp_siafem_webforms.py \
             --municipio-code 0582 \
             --date-from 01/01/2025 \
-            --date-to 31/01/2025
+            --date-to 31/01/2025 \
+            --probe-detail
       # A pesquisa não salva dados financeiros nem altera o site ou a API.

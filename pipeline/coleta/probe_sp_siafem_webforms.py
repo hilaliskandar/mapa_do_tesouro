@@ -75,6 +75,21 @@ def main():
         if len(rs)>=3:
             heads=[x.get_text(" ",strip=True)[:80] for x in tab.select("th")[:15]]
             candidates.append({"id":tab.get("id",""),"rows":len(rs),"headers":heads})
+    grid=doc.find("table", {"id":"grdTransferencia"})
+    grid_rows=[]
+    if grid:
+        for i,tr in enumerate(grid.find_all("tr")):
+            cells=tr.find_all(["th","td"],recursive=False)
+            row_text=[c.get_text(" ",strip=True) for c in cells]
+            grid_rows.append({
+                "row_index":i,
+                "cells":len(cells),
+                "tag_types":[x.name for x in cells],
+                "cell_lengths":[len(x) for x in row_text],
+                "date_like_cells":sum(bool(re.search(r"\\b\\d{2}/\\d{2}/\\d{4}\\b",x)) for x in row_text),
+                "numeric_like_cells":sum(bool(re.fullmatch(r"[R$\\s\\d.,()\\-]+",x)) for x in row_text if x),
+                "link_cells":sum(bool(x.find("a")) for x in cells)
+            })
     text=doc.get_text(" ",strip=True)
     alerts=[s for s in ("Nenhum registro","Nenhuma informação","VALIDAÇÃO","Erro ao","Resultado","Total de Registros") if s.casefold() in text.casefold()]
     print(json.dumps({
@@ -84,6 +99,7 @@ def main():
         "response_bytes":len(reply.content),
         "response_title":doc.title.get_text(" ",strip=True) if doc.title else None,
         "table_summary":candidates[:12],
+        "grdTransferencia_row_structure":grid_rows[:15],
         "alerts_keywords":alerts,
         "returned_webforms_state":bool(doc.select_one('input[name="__VIEWSTATE"]')),
         "qa":"protocolo_testado_sem_persistencia_de_linhas"

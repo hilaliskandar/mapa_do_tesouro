@@ -102,7 +102,11 @@ def main():
             if href_path.lower().startswith("javascript:"):
                 href_path=href_path.split("(",1)[0]
             fn=re.match(r"[a-zA-Z_$][a-zA-Z0-9_.$]*",onclick)
-            detail_link_patterns.append({"href_path_or_function":href_path[:180],"onclick_function":fn.group(0) if fn else None})
+            target=None
+            m=re.search(r"Open2\\s*\\(\\s*['\\\"]([^'\\\"]+)",href,re.I)
+            if m:
+                target=m.group(1).split("?",1)[0].split("#",1)[0][:180]
+            detail_link_patterns.append({"href_path_or_function":href_path[:180],"target_path_without_params":target,"onclick_function":fn.group(0) if fn else None})
     text=doc.get_text(" ",strip=True)
     alerts=[s for s in ("Nenhum registro","Nenhuma informação","VALIDAÇÃO","Erro ao","Resultado","Total de Registros") if s.casefold() in text.casefold()]
     print(json.dumps({

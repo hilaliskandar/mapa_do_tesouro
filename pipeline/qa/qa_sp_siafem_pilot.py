@@ -22,14 +22,17 @@ def parse_money(value: str) -> str|None:
     t=t.replace(".","").replace(",",".")
     return t if re.fullmatch(r"-?\d+(?:\.\d{1,2})?",t) else None
 
-def date_status(value: str) -> str:
+def parse_date(value: str) -> datetime|None:
     s=value.strip()
     for fmt in ("%d/%m/%Y","%Y-%m-%d","%d/%m/%y"):
         try:
-            datetime.strptime(s,fmt)
-            return "valid"
+            return datetime.strptime(s,fmt)
         except ValueError:pass
-    return "empty" if not s else "unrecognized"
+    return None
+
+def date_status(value: str) -> str:
+    s=value.strip()
+    return "valid" if parse_date(s) is not None else ("empty" if not s else "unrecognized")
 
 def profile(data: dict) -> dict:
     instruments=data["instruments"]
@@ -44,6 +47,7 @@ def profile(data: dict) -> dict:
     qtys=[count_integer(x["raw_fields"][4]) for x in instruments]
     quantity_matches=[actual[x["instrument_source_key"]]==qtys[i] if qtys[i] is not None else False for i,x in enumerate(instruments)]
     dates=[]
+    parsed_dates=[]
     monies=[]
     for m in payments:
         hdr=m["source_headers"]
@@ -54,7 +58,14 @@ def profile(data: dict) -> dict:
             raise ValueError("coluna financeira mudou")
         date_col=next((i for i,x in enumerate(hdr) if x.strip().lower()=="data"),None)
         dates.append(date_status(values[date_col]) if date_col is not None else "header_missing")
+        parsed_dates.append(parse_date(values[date_col]) if date_col is not None else None)
         monies.append(parse_money(values[-1]))
+    period_start=parse_date(data["query"]["liberacao_inicio"])
+    period_end=parse_date(data["query"]["liberacao_fim"])
+    if period_start is None or period_end is None:
+        raise ValueError("periodo da consulta inesperado")
+    within=[d for d in parsed_dates if d is not None and period_start<=d<=period_end]
+    observed=[d for d in parsed_dates if d is not None]
     summary={
         "source_id":"SP_SEFAZ","municipality_internal_code":data["query"]["municipio_code"],
         "period": [data["query"]["liberacao_inicio"],data["query"]["liberacao_fim"]],
@@ -62,6 +73,10 @@ def profile(data: dict) -> dict:
         "declared_payment_quantities_parseable":sum(x is not None for x in qtys),
         "instruments_with_matching_payment_count":sum(quantity_matches),
         "date_status_counts":dict(Counter(dates)),
+        "movement_dates_within_selected_period":len(within),
+        "movement_dates_outside_selected_period":len(observed)-len(within),
+        "movement_date_min":min(observed).strftime("%Y-%m-%d") if observed else None,
+        "movement_date_max":max(observed).strftime("%Y-%m-%d") if observed else None,
         "monetary_value_parseable":sum(x is not None for x in monies),
         "negative_monetary_values":sum(bool(x is not None and x.startswith("-")) for x in monies),
         "zero_monetary_values":sum(x in ("0","0.0","0.00") for x in monies),

@@ -60,6 +60,27 @@ jobs:
                       print('CSV_KIND_COUNTS:',json.dumps(kinds,ensure_ascii=False))
                       print('CSV_DISTINCT_BENEFICIARY_TEXT_COUNT:',beneficiaries)
           PY
+      - name: Conferir dicionario oficial XLSX do portal
+        run: |
+          python -m pip install --quiet openpyxl
+          python - <<'PY'
+          import io
+          import urllib.request
+          import openpyxl
+          url='https://www.transparencia.sp.gov.br/Dicionarios/Dicion%C3%A1rio%20de%20dados_conv%C3%AAnios.xlsx'
+          request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+          with urllib.request.urlopen(request,timeout=60) as response:
+              raw=response.read(10_000_000)
+              print('DICT_HTTP:',response.status,'DICT_BYTES:',len(raw),'DICT_CONTENT_TYPE:',response.headers.get('Content-Type'))
+          wb=openpyxl.load_workbook(io.BytesIO(raw),read_only=True,data_only=True)
+          for ws in wb.worksheets:
+              ws.reset_dimensions()
+              print('DICT_SHEET:',ws.title)
+              for number,row in enumerate(ws.iter_rows(values_only=True),1):
+                  values=[str(v).strip()[:180] if v is not None else '' for v in row]
+                  if any(values):print('DICT_ROW:',number,repr(values[:12]))
+                  if number>=40:break
+          PY
       - name: Publicar apenas metadados nao sensiveis no log
         if: always()
         run: |

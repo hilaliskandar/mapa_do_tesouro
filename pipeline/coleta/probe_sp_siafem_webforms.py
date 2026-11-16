@@ -77,10 +77,13 @@ def main():
             candidates.append({"id":tab.get("id",""),"rows":len(rs),"headers":heads})
     grid=doc.find("table", {"id":"grdTransferencia"})
     grid_rows=[]
+    grid_header_labels=[]
     if grid:
         for i,tr in enumerate(grid.find_all("tr")):
             cells=tr.find_all(["th","td"],recursive=False)
             row_text=[c.get_text(" ",strip=True) for c in cells]
+            if i==0:
+                grid_header_labels=row_text
             grid_rows.append({
                 "row_index":i,
                 "cells":len(cells),
@@ -100,6 +103,7 @@ def main():
         "response_title":doc.title.get_text(" ",strip=True) if doc.title else None,
         "table_summary":candidates[:12],
         "grdTransferencia_row_structure":grid_rows[:15],
+        "grdTransferencia_header_labels":grid_header_labels,
         "alerts_keywords":alerts,
         "returned_webforms_state":bool(doc.select_one('input[name="__VIEWSTATE"]')),
         "qa":"protocolo_testado_sem_persistencia_de_linhas"

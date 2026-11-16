@@ -115,7 +115,13 @@ def main():
             detail_link_patterns.append({"href_path_or_function":href_path[:180],"target_path_without_params":target,"onclick_function":fn.group(0) if fn else None})
     detail_probe={"attempted":False}
     if a.probe_detail and grid:
-        for a_tag in grid.select("a[href]"):
+        for table_row in grid.find_all("tr")[1:]:
+            cells=table_row.find_all(["td","th"],recursive=False)
+            if len(cells)<3 or not cells[1].get_text(" ",strip=True) or not cells[2].get_text(" ",strip=True):
+                continue  # ignora linha de totalização sem CNPJ/razão social
+            a_tag=table_row.select_one("a[href]")
+            if a_tag is None:
+                continue
             link=(a_tag.get("href") or "")
             if "Open2(" not in link:continue
             target_url=None

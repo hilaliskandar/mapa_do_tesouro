@@ -1,0 +1,21 @@
+ibge7;id_plano_acao;ano_plano;id_empenho;data_emissao;categoria_despesa;valor_empenho_centavos;situacao_empenho;estado;url_fonte
+3530508;91032;2026;58985;2026-06-19;CUSTEIO;19900000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=91032&pagina=1&tamanho_da_pagina=200
+3530508;93854;2026;60428;2026-06-19;CUSTEIO;39800000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=93854&pagina=1&tamanho_da_pagina=200
+3531308;3501;2020;4534;2020-05-18;INVESTIMENTO;17000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=3501&pagina=1&tamanho_da_pagina=200
+3531308;3588;2020;3912;2020-05-18;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=3588&pagina=1&tamanho_da_pagina=200
+3531308;18103;2022;19502;2022-05-17;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=18103&pagina=1&tamanho_da_pagina=200
+3531308;20750;2022;22149;2022-05-17;INVESTIMENTO;5000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=20750&pagina=1&tamanho_da_pagina=200
+3531308;38818;2023;32401;2023-07-05;INVESTIMENTO;40000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=38818&pagina=1&tamanho_da_pagina=200
+3531308;41894;2023;33206;2023-12-13;INVESTIMENTO;35000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=41894&pagina=1&tamanho_da_pagina=200
+3531308;71085;2024;41325;2024-06-26;INVESTIMENTO;40000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=71085&pagina=1&tamanho_da_pagina=200
+3531308;79068;2025;49906;2025-07-29;INVESTIMENTO;59400000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=79068&pagina=1&tamanho_da_pagina=200
+3531308;88326;2025;58207;2025-12-01;INVESTIMENTO;59400000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=88326&pagina=1&tamanho_da_pagina=200
+3531308;97083;2026;67313;2026-05-08;INVESTIMENTO;99500000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=97083&pagina=1&tamanho_da_pagina=200
+3501004;34505;2023;28084;2023-07-05;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=34505&pagina=1&tamanho_da_pagina=200
+3501004;36790;2023;30370;2023-07-05;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=36790&pagina=1&tamanho_da_pagina=200
+3501004;41891;2023;33203;2023-12-13;INVESTIMENTO;5000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=41891&pagina=1&tamanho_da_pagina=200
+3501004;3326;2020;4287;2020-05-18;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=3326&pagina=1&tamanho_da_pagina=200
+3501004;87769;2025;58066;2025-12-01;INVESTIMENTO;39600000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=87769&pagina=1&tamanho_da_pagina=200
+3501004;82449;2025;52738;2025-07-29;INVESTIMENTO;39600000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=82449&pagina=1&tamanho_da_pagina=200
+3501004;94619;2026;64850;2026-06-19;INVESTIMENTO;39800000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=94619&pagina=1&tamanho_da_pagina=200
+3551702;4122;2020;5041;2020-05-18;CUSTEIO;18000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=4122&pagina=1&tamanho_da_pagina=200

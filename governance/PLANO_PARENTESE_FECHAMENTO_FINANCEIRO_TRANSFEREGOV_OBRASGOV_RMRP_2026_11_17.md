@@ -12,6 +12,14 @@ Foram recuperados e validados por SHA-256/CRC os **dois pacotes SQLite reais** F
 
 [Relatório F01/F02, SQL, números e restrições](INV_RMRP_F01_F02_MATRIZ_FINANCEIRA_REAL_2026_11_17.md). [Pacote privado Drive](https://drive.google.com/file/d/1fM3fw-jnWEAE5EpUoJk7JTMJAkmzA4YL/view), 10.976 bytes, SHA-256 `5bf3385d7e170cd4e7b7911e933eb97c3be08db4aa677d0c8d1a4502aa3e4913`. **F01/F02 parciais**, pendentes duas exceções, conciliação líquida de estornos/devoluções, natureza efetivamente paga e modalidades F03. `public_release_authorized=false`.
 
+## Repriorização de 17/11/2026 — aquisição antes de reconciliação
+
+A orientação vigente suspende **temporariamente as reconciliações F01/F02**, sem desconsiderar o que foi apurado ou excluir exceções. **Priorizar exclusivamente recuperação e compilação dos dados oficiais ainda ausentes**: (a) valores financeiros das Transferências Especiais e de Gestão de Parcerias no Transferegov; (b) campos de valor de projetos Obrasgov e registros CIPI existentes; (c) completar recortes por município, exercício e modalidade. Não é necessário detalhar localização/execução física.
+
+**Execução inicial efetivada:** compilados do SQLite privado 150 registros de contrato CIPI (134 chaves distintas, R$ 201.335.149,95 de valor global, sem inferir pagamento) e 257 empenhos CIPI (R$ 147.402.874,08, não aditivos), distribuídos por 218 projetos e municípios proponentes. As 743 propostas de Parcerias foram classificadas, **sem valores monetários disponíveis na tabela atual**. Ver [relatório F03/F04](INV_RMRP_F03_F04_COMPILACAO_VALORES_EXISTENTES_SEM_RECONCILIACAO_2026_11_17.md). A execução local das APIs federais encontrou falha DNS e Browserless esgotou cotas; **nenhuma aquisição remota inédita foi confirmada**. Brutos existentes preservados em Drive; artefato ZIP novo gerado localmente, ainda não enviado para Drive/R2.
+
+**Gate de interpretação:** valor do contrato, empenho, desembolso e pagamento são estágios separados e não devem ser somados. Dados sem totalizador, campos ausentes ou endpoints vazios permanecem `null`/pendentes, nunca zero presumido. Suspensão de reconciliação não autoriza chamar esses valores de investimento executado. A expansão estadual SIAFEM externa permanece suspensa no offset 420; `public_release_authorized=false`.
+
 ## 1. Objetivo e limite do parêntese
 
 Suspender **novos disparos manuais** de lotes SIAFEM da expansão estadual fora da RMRP para priorizar o fechamento da **coleta, conciliação e classificação monetária** das fontes federais **Transferegov e Obrasgov**, usando a RMRP (34 municípios, quatro sub-regiões) como piloto de integração à série FINBRA/SICONFI, TCESP e SIAFEM-SP. Sem necessidade de investigar contratos, endereços, geometrias, status físico, fotos, medições ou cada obra individual.

@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-11",
+  "operation": "INV00_public_api_scout_read_only",
+  "validated": [
+    {
+      "module": "transferegov_parcerias",
+      "openapi": "https://api-publica.transferegov.gestao.gov.br/parcerias/openapi.json",
+      "status": 200,
+      "paths": 18
+    },
+    {
+      "module": "transferegov_especiais",
+      "openapi": "https://api-publica.transferegov.gestao.gov.br/especiais/openapi.json",
+      "status": 200,
+      "paths": 24
+    },
+    {
+      "module": "transferegov_discricionarias",
+      "openapi": "https://api-publica.transferegov.gestao.gov.br/discricionarias/openapi.json",
+      "status": 200,
+      "paths": 13
+    },
+    {
+      "module": "obrasgov",
+      "openapi": "https://api-publica.obrasgov.gestao.gov.br/obras/openapi.json",
+      "status": 200,
+      "paths": 8
+    }
+  ],
+  "obrasgov_sample": {
+    "url": "https://api-publica.obrasgov.gestao.gov.br/obras/projeto-investimento?uf_principal=SP&pagina=1&tamanho_da_pagina=5",
+    "status": 200,
+    "source_total_items": 20942,
+    "source_total_pages": 4189,
+    "page": 1,
+    "size": 5,
+    "records": 5,
+    "ids": [
+      "90697.35-39",
+      "13148.35-25",
+      "102443.35-00",
+      "130316.35-00",
+      "35007.35-90"
+    ],
+    "geolocation_present_records": 5,
+    "planned_value_present_records": 5,
+    "population_complete": false
+  },
+  "transferegov_control": {
+    "url": "https://api-publica.transferegov.gestao.gov.br/parcerias/proposta?id_proposta=75094&pagina=1&tamanho_da_pagina=5",
+    "status": 200,
+    "id_proposta": 75094,
+    "municipio_ibge": 3549805,
+    "category": "Custeio",
+    "subcategory": "Serviços",
+    "planning_amount_brl": 2000000,
+    "investment_eligible": false,
+    "payment_confirmed": false
+  },
+  "limits": [
+    "Read only bounded sample",
+    "No enumeration statewide completed",
+    "No hash of complete downloads",
+    "No payment event acquired",
+    "No canonical SQLite or R2 mutation",
+    "OpenAPI availability is not data completeness"
+  ],
+  "qa_status": "partial_pass_inv00"
+}

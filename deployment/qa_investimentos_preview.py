@@ -1,0 +1,126 @@
+"""QA isolado de prévia RMRP: HTML/JSON acessíveis, estados candidatos preservados."""
+from __future__ import annotations
+
+import argparse
+import json
+import time
+from pathlib import Path
+from urllib.request import Request, urlopen
+
+
+def fetch(remote: str, path: str) -> bytes:
+    req = Request(remote.rstrip("/") + "/" + path,
+                  headers={"User-Agent": "MapaDoTesouro-PreviewQA/1"})
+    with urlopen(req, timeout=40) as res:
+        content_type = res.headers.get("Content-Type", "")
+        if res.status != 200:
+            raise RuntimeError(f"HTTP {res.status} em {path}")
+        if path.endswith(".json") and "json" not in content_type:
+            raise RuntimeError(f"JSON não servido como JSON em {path}: {content_type}")
+        return res.read()
+
+
+def validate(read):
+    html = read("obrasgov-rmrp-preview.html").decode("utf-8")
+    html2 = read("investimentos-rmrp-preview.html").decode("utf-8")
+    html3 = read("especiais-rmrp-preview.html").decode("utf-8")
+    html4 = read("movimentacoes-especiais-rmrp-preview.html").decode("utf-8")
+    if "não homologada" not in html.lower() or "não homologada" not in html2.lower():
+        raise RuntimeError("Aviso de não homologação ausente")
+    if "não homologada" not in html3.lower() or "especiais-planos-etapas-preview.json" not in html3:
+        raise RuntimeError("Falta aviso/arquivo na consulta de Especiais")
+    if "não homologada" not in html4.lower() or "especiais-movimentacoes-resumo-preview.json" not in html4:
+        raise RuntimeError("Falta aviso/arquivo na consulta de movimentações")
+    html5 = read("siafem-investimentos-rmrp-preview.html").decode("utf-8")
+    if "não homologada" not in html5.lower() or "siafem-sp-investimentos-anual-preview.json" not in html5:
+        raise RuntimeError("Prévia SIAFEM sem advertência ou fonte esperada")
+    if "obrasgov-triagem-espacial.json" not in html:
+        raise RuntimeError("HTML não aponta para conjunto espacial")
+    proposals = json.loads(read("data/api/v3/investimentos/rmrp/preview-amostras.json"))
+    obras = json.loads(read("data/api/v3/investimentos/rmrp/obrasgov-triagem-espacial.json"))
+    especiais = json.loads(read("data/api/v3/investimentos/rmrp/especiais-planos-etapas-preview.json"))
+    movimento = json.loads(read("data/api/v3/investimentos/rmrp/especiais-movimentacoes-resumo-preview.json"))
+    siafem = json.loads(read("data/api/v3/investimentos/rmrp/siafem-sp-investimentos-anual-preview.json"))
+    if siafem["metadata"]["qa_status"] != "preview_transferencias_estaduais_em_revisao_nao_execucao_municipal":
+        raise RuntimeError("SIAFEM indevidamente apresentado como execução municipal")
+    if (len(siafem["municipios"]), len(siafem["municipio_ano"]), len(siafem["convenio_ano"])) != (34, 238, 889):
+        raise RuntimeError("SIAFEM universo distinto da série exata")
+    if sum(x["valor_centavos"] for x in siafem["convenio_ano"]) != 30552102920:
+        raise RuntimeError("SIAFEM convênio-ano não concilia com total oficial")
+    if sum(x["pagamentos"] for x in siafem["convenio_ano"]) != 1017:
+        raise RuntimeError("SIAFEM pagamentos divergentes")
+    if {x["codigo_ibge"] for x in siafem["municipios"]} != {x["codigo_ibge"] for x in especiais["municipios"]}:
+        raise RuntimeError("SIAFEM cadastro territorial inconsistente")
+    if movimento["metadata"]["qa_status"] != "triagem_nao_conciliada_por_plano":
+        raise RuntimeError("Movimentações financeiras indevidamente homologadas")
+    if movimento["totals"]["lancamentos"] != 2385 or len({v["codigo_ibge"] for v in movimento["categorias"]}) != 34:
+        raise RuntimeError("Cobertura de movimentações da RMRP inconsistente")
+    if sum(v["lancamentos"] for v in movimento["categorias"]) != 2385:
+        raise RuntimeError("Soma de movimentos por grupo diferente da origem")
+    if especiais["meta"]["situacao"] != "consulta_exploratoria_sem_homologacao_credito":
+        raise RuntimeError("Especiais promovidas indevidamente")
+    if len(especiais["planos"]) != 284 or len(especiais["municipios"]) != 34:
+        raise RuntimeError("Contagens Especiais inesperadas")
+    if len({x["id_plano_acao"] for x in especiais["planos"]}) != 284:
+        raise RuntimeError("Planos Especiais duplicados")
+    if sum(x["numero_ordens_bancarias"] > 0 for x in especiais["planos"]) != 242:
+        raise RuntimeError("Cobertura de OB em Especiais alterada")
+    if proposals["meta"]["status"] != "preview_qa_nao_publicavel":
+        raise RuntimeError("Propostas incorretamente promovidas")
+    if obras["meta"]["qa_status"] != "triagem_espacial_nao_validacao_financeira":
+        raise RuntimeError("Obras incorretamente promovidas")
+    if len(proposals["municipios"]) != 34 or len(proposals["propostas_amostrais"]) != 200:
+        raise RuntimeError("Contagens da amostra Transferegov inesperadas")
+    if len(obras["items"]) != 224:
+        raise RuntimeError("Contagem de projetos Obrasgov inesperada")
+    if len({i["id"] for i in obras["items"]}) != 224:
+        raise RuntimeError("ID Obrasgov repetido")
+    if len({m["codigo_ibge"] for m in obras["municipios"]}) != 34:
+        raise RuntimeError("Municípios do Obrasgov não são 34 códigos únicos")
+    counts = {}
+    for x in obras["items"]:
+        counts[x["estado_geo"]] = counts.get(x["estado_geo"], 0) + 1
+    if counts != {
+        "SEM_PONTO": 32, "FORA_DAS_MALHAS_RMRP": 61,
+        "MUNICIPIO_CONFIRMADO_POR_POLIGONO": 130,
+        "MULTIPLOS_MUNICIPIOS_POR_PONTOS": 1
+    }:
+        raise RuntimeError("Divergência na QA espacial do JSON")
+    return {"qa": "pass", "municipios": 34, "propostas_amostrais": 200,
+            "projetos_obrasgov": 224, "planos_especiais": 284,
+            "planos_com_ob": 242, "movimentacoes": 2385,
+            "siafem_convenio_ano": 889, "siafem_valor_centavos": 30552102920,
+            "contagens": counts}
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--site", type=Path)
+    group.add_argument("--url")
+    a = parser.parse_args()
+    if a.site:
+        def reader(p):
+            return (a.site / p).read_bytes()
+    else:
+        def reader(p):
+            return fetch(a.url, p)
+        last_error = None
+        # Cloudflare Pages alias pode servir release anterior por alguns segundos
+        # após o deploy; esperar o conjunto novo sem confundir 200 HTML com QA aprovado.
+        for attempt in range(12):
+            try:
+                result = validate(reader)
+                print(json.dumps(result, ensure_ascii=False))
+                return
+            except (RuntimeError, ValueError, KeyError, OSError, json.JSONDecodeError) as exc:
+                last_error = exc
+                if attempt < 11:
+                    print(f"Prévia remota ainda não propagada, tentativa {attempt+1}/12: {exc}")
+                    time.sleep(5)
+        raise SystemExit(f"QA remota falhou após 12 tentativas: {last_error}")
+    print(json.dumps(validate(reader), ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

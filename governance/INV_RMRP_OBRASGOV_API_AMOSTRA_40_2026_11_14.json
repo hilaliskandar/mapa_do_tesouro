@@ -1,0 +1,43 @@
+{
+  "status": "QA_PASS_OFFICIAL_API_SAMPLE_NOT_FULL_218",
+  "run_id": 43661453030,
+  "artifact_id": 14139919271,
+  "audit_timestamp_utc": "2026-11-15T01:06:14.945645+00:00",
+  "source_version_date": "2026-11-13T00:00:00",
+  "source": {
+    "url": "https://api-publica.obrasgov.gestao.gov.br/obras/openapi.json",
+    "filter": "id_projeto_investimento",
+    "sample_rule": "First 40 project IDs sorted lexicographically; NONPROBABILISTIC"
+  },
+  "population_project_proponent_rmrp": 218,
+  "results": {
+    "candidate_projects_rmrp": 218,
+    "projects_attempted": 40,
+    "source_api": "https://api-publica.obrasgov.gestao.gov.br/obras",
+    "status_counts": {
+      "Cadastrada": 16,
+      "Concluída": 21,
+      "Inacabada": 2,
+      "Em execução": 1
+    },
+    "uf_principal_counts": {
+      "SP": 40
+    },
+    "geometry_rows": 0,
+    "geometry_coded_municipality_rows": 0,
+    "geometry_same_as_proponent_ibge": 0,
+    "geometry_different_from_proponent_ibge": 0,
+    "geometry_missing_cod_ibge": 0,
+    "api_missing_project": 0,
+    "api_errors": 0,
+    "geometry_errors": 0,
+    "sample_is_not_random": true
+  },
+  "limitations": [
+    "Proponent municipality is not physical work site",
+    "Sample of 40 cannot estimate rates for all 218 projects",
+    "Empty geometry does not imply no physical project",
+    "No payment/investment value is classified or summed",
+    "No individual project identifiers or personal data in output"
+  ]
+}

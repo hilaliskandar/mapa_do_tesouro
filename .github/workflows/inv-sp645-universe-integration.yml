@@ -1,0 +1,33 @@
+name: INV SP645 - Integracao seletores RA RG
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - data/catalogs/administrative_universes_sp_2026.yml
+      - pipeline/build/build_sp645_private_site.py
+      - deployment/qa_sp645_pages.py
+      - app/static/app.js
+      - tests/test_administrative_universes_sp645.py
+      - tests/test_sp645_ra_rg_static_selection.py
+      - .github/workflows/inv-sp645-universe-integration.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-regional-universes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install test dependencies
+        run: pip install -e . --no-deps && pip install pytest pyyaml openpyxl
+      - name: Audit 59 municipal administrative selections in SQLite and selector
+        run: |
+          python -m pytest tests/test_administrative_universes_sp645.py tests/test_sp645_ra_rg_static_selection.py tests/test_frontend_universe_selector.py tests/test_territorial_universes.py tests/test_analytical_universes.py -q
+      - name: Syntax check frontend
+        run: node --check app/static/app.js

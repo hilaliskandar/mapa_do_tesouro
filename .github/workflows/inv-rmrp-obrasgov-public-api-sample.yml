@@ -1,0 +1,35 @@
+name: INV RMRP - amostra Obrasgov API localizacao e situacao
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/inv-rmrp-obrasgov-public-api-sample.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  obrasgov-sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check collector syntax
+        run: python -m py_compile pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py
+      - name: Independently review 40 RMRP-linked Obrasgov projects (metadata only)
+        run: |
+          python pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py \
+            --out-dir "${RUNNER_TEMP}/obrasgov_rmrp_sample" \
+            --api-sample 40
+      - name: Archive safe aggregated evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-obrasgov-api-project-sample
+          path: ${{ runner.temp }}/obrasgov_rmrp_sample/manifest_sp645_proponent_obra_links.json
+          retention-days: 30
+          if-no-files-found: warn

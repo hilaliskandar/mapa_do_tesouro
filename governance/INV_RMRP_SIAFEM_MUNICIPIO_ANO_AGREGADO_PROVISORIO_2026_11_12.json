@@ -1,0 +1,1694 @@
+{
+  "status": "SERIE_PARCIAL_VALORES_VISUAIS_SEM_CENTAVOS",
+  "missing_contracts": 5,
+  "yearMunicipality": [
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": 2020,
+      "lancamentos": 13,
+      "valor_exibido_centavos_aproximados": 163294900,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": 2021,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 45138400,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": 2022,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 39123000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": 2023,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 61507400,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": 2024,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 102051000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 38991400,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "ano": 2026,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 45000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": 2020,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 15000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": 2021,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 55000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": 2022,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 75650000,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": 2023,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 111850000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 123800000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 50000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": 2020,
+      "lancamentos": 9,
+      "valor_exibido_centavos_aproximados": 239185900,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": 2021,
+      "lancamentos": 13,
+      "valor_exibido_centavos_aproximados": 286399400,
+      "convenios": 9
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": 2022,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 87170900,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": 2023,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 259505300,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": 2024,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 500726300,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": 2025,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 260436700,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 25325600,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": 2020,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 105767500,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": 2021,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 54278600,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": 2022,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 201869600,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": 2023,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 68061800,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": 2024,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 10747800,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "ano": 2025,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 113169600,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": 2020,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 102993400,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": 2021,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 37865800,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": 2022,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 116864400,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": 2023,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 73107100,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": 2024,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 163795500,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "ano": 2025,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 77531100,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": 2020,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 6000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": 2021,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 13405600,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": 2022,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 107030500,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": 2023,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 51236500,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 118930300,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": 2020,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 120000000,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": 2021,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 296889500,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": 2022,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 208400000,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": 2023,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 350100000,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": 2024,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 239500000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 150734300,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 225000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": 2020,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 45367700,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": 2021,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 99237700,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": 2022,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 50000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": 2023,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 65000000,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": 2024,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 95000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 105000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": 2020,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 50800000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": 2021,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 25000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": 2022,
+      "lancamentos": 9,
+      "valor_exibido_centavos_aproximados": 167869900,
+      "convenios": 9
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": 2023,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 190110400,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": 2024,
+      "lancamentos": 10,
+      "valor_exibido_centavos_aproximados": 398791900,
+      "convenios": 10
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 119979600,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": 2020,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 89713000,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": 2022,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 138000000,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": 2023,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 34010400,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": 2024,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 30000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "ano": 2025,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 29364000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": 2020,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 135000000,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": 2021,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 20000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": 2022,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 261000000,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": 2023,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 177468500,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": 2024,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 412727100,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": 2025,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 299722400,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "ano": 2026,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 145000000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": 2020,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 18000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": 2022,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 74194700,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": 2023,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 5000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "ano": 2024,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 10000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": 2020,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 48000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": 2022,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 256319100,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": 2023,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 80513400,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": 2024,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 140029400,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": 2025,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 8000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 20000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": 2021,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 10000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": 2022,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 130000000,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": 2023,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 31946900,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": 2024,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 30000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": 2025,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 124503200,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "ano": 2026,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 93000000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": 2020,
+      "lancamentos": 12,
+      "valor_exibido_centavos_aproximados": 164202300,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": 2021,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 99895600,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": 2022,
+      "lancamentos": 11,
+      "valor_exibido_centavos_aproximados": 304866700,
+      "convenios": 11
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": 2023,
+      "lancamentos": 14,
+      "valor_exibido_centavos_aproximados": 396917900,
+      "convenios": 13
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": 2024,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 204160800,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": 2025,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 43427600,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "ano": 2026,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 160577700,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": 2020,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 16600000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": 2021,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 30000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": 2022,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 144629400,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": 2023,
+      "lancamentos": 10,
+      "valor_exibido_centavos_aproximados": 175272400,
+      "convenios": 9
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": 2024,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 72000000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 66020700,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "ano": 2026,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 106648300,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": 2020,
+      "lancamentos": 13,
+      "valor_exibido_centavos_aproximados": 172443100,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": 2021,
+      "lancamentos": 10,
+      "valor_exibido_centavos_aproximados": 164573600,
+      "convenios": 9
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": 2022,
+      "lancamentos": 11,
+      "valor_exibido_centavos_aproximados": 248031700,
+      "convenios": 9
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": 2023,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 200482900,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": 2024,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 272200300,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 166512000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "ano": 2026,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 171918700,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": 2020,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 15129700,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": 2021,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 62154500,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": 2022,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 155302000,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": 2023,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 151194300,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": 2024,
+      "lancamentos": 9,
+      "valor_exibido_centavos_aproximados": 223572900,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "ano": 2025,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 83595200,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": 2020,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 11227800,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": 2021,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 15000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": 2022,
+      "lancamentos": 10,
+      "valor_exibido_centavos_aproximados": 346402200,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": 2023,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 251231600,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": 2024,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 305092100,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "ano": 2025,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 12899000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": 2020,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 105185500,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": 2021,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 15968800,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": 2022,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 173397900,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": 2023,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 210000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 60000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": 2020,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 154977400,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": 2021,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 204113600,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": 2022,
+      "lancamentos": 17,
+      "valor_exibido_centavos_aproximados": 693000800,
+      "convenios": 10
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": 2023,
+      "lancamentos": 12,
+      "valor_exibido_centavos_aproximados": 498922700,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": 2024,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 244029900,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": 2025,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 147950000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 63352500,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": 2020,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 207583100,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": 2021,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 162428000,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": 2022,
+      "lancamentos": 10,
+      "valor_exibido_centavos_aproximados": 1112273600,
+      "convenios": 10
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": 2023,
+      "lancamentos": 11,
+      "valor_exibido_centavos_aproximados": 1024829400,
+      "convenios": 10
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": 2024,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 192694600,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": 2025,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 352723100,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "ano": 2026,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 44243000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": 2020,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 41941000,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": 2021,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 69628800,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": 2022,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 60522500,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": 2023,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 196180000,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": 2024,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 118142100,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 14350000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 46486800,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": 2020,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 40000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": 2021,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 16000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": 2022,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 36000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": 2023,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 69819700,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": 2024,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 37500000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "ano": 2025,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 67407100,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": 2020,
+      "lancamentos": 21,
+      "valor_exibido_centavos_aproximados": 452461400,
+      "convenios": 12
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": 2022,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 156713300,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": 2023,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 356466800,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": 2024,
+      "lancamentos": 9,
+      "valor_exibido_centavos_aproximados": 605810000,
+      "convenios": 9
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": 2025,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 133123800,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "ano": 2026,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 125738500,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": 2020,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 53816300,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": 2022,
+      "lancamentos": 13,
+      "valor_exibido_centavos_aproximados": 337245200,
+      "convenios": 13
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": 2023,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 32283500,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": 2024,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 130635800,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 118590200,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "ano": 2026,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 43590000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": 2020,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 64131900,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": 2021,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 16031000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": 2022,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 214613700,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": 2023,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 109827800,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": 2024,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 205025600,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 46437200,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "ano": 2026,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 151311800,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": 2020,
+      "lancamentos": 11,
+      "valor_exibido_centavos_aproximados": 83039400,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": 2021,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 29238900,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": 2022,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 68306800,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": 2023,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 176278700,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": 2024,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 94665400,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": 2025,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 20445600,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 19909000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": 2020,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 50537900,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": 2021,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 4000000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": 2022,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 52797700,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": 2023,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 90776100,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 75964100,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": 2020,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 104730100,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": 2021,
+      "lancamentos": 10,
+      "valor_exibido_centavos_aproximados": 196383800,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": 2022,
+      "lancamentos": 12,
+      "valor_exibido_centavos_aproximados": 285135900,
+      "convenios": 11
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": 2023,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 86979900,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": 2024,
+      "lancamentos": 5,
+      "valor_exibido_centavos_aproximados": 439247700,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": 2025,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 269400400,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "ano": 2026,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 117826500,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": 2020,
+      "lancamentos": 10,
+      "valor_exibido_centavos_aproximados": 146781400,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": 2021,
+      "lancamentos": 12,
+      "valor_exibido_centavos_aproximados": 325719900,
+      "convenios": 11
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": 2022,
+      "lancamentos": 12,
+      "valor_exibido_centavos_aproximados": 490753700,
+      "convenios": 9
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": 2023,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 227685000,
+      "convenios": 5
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": 2024,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 100061500,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": 2025,
+      "lancamentos": 6,
+      "valor_exibido_centavos_aproximados": 256181900,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "ano": 2026,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 139365700,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": 2020,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 73162500,
+      "convenios": 6
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": 2022,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 50000000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": 2023,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 9536500,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": 2024,
+      "lancamentos": 9,
+      "valor_exibido_centavos_aproximados": 94304000,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "ano": 2025,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 32449600,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": 2020,
+      "lancamentos": 15,
+      "valor_exibido_centavos_aproximados": 155130900,
+      "convenios": 10
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": 2021,
+      "lancamentos": 4,
+      "valor_exibido_centavos_aproximados": 79523600,
+      "convenios": 4
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": 2022,
+      "lancamentos": 9,
+      "valor_exibido_centavos_aproximados": 234396300,
+      "convenios": 9
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": 2023,
+      "lancamentos": 12,
+      "valor_exibido_centavos_aproximados": 361074500,
+      "convenios": 11
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": 2024,
+      "lancamentos": 8,
+      "valor_exibido_centavos_aproximados": 218950700,
+      "convenios": 8
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": 2025,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 115067500,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "ano": 2026,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 44150000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": 2021,
+      "lancamentos": 3,
+      "valor_exibido_centavos_aproximados": 68938200,
+      "convenios": 3
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": 2022,
+      "lancamentos": 7,
+      "valor_exibido_centavos_aproximados": 165572400,
+      "convenios": 7
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": 2023,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 29500000,
+      "convenios": 1
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": 2024,
+      "lancamentos": 2,
+      "valor_exibido_centavos_aproximados": 43800000,
+      "convenios": 2
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "ano": 2025,
+      "lancamentos": 1,
+      "valor_exibido_centavos_aproximados": 589900,
+      "convenios": 1
+    }
+  ]
+}

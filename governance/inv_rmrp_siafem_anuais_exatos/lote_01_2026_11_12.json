@@ -1,0 +1,2293 @@
+{
+  "fonte": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx",
+  "atualizacao_fonte": "2026-11-12",
+  "filtros": {
+    "Beneficiado": "Prefeituras",
+    "Tipo": "Investimento",
+    "LiberacaoInicio": "01/01/AAAA",
+    "LiberacaoFim": "31/12/AAAA (2026:12/11/2026)"
+  },
+  "consultas": [
+    {
+      "municipio": "Altinópolis",
+      "codigo_ibge": "3501004",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.253.564,56",
+        "14",
+        "1.831.294,63",
+        "134.413,90"
+      ],
+      "records": [
+        [
+          "13010111442/2020",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "40.000,00",
+          "1",
+          "40.000,00",
+          "0,00"
+        ],
+        [
+          "1700301313178/17",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "765.690,62",
+          "2",
+          "479.781,79",
+          "46.042,23"
+        ],
+        [
+          "2901182503463/19",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "400.000,00",
+          "3",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "2901183115569/19",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "200.000,00",
+          "2",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "5001022018PR484",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "234.148,06",
+          "2",
+          "186.158,63",
+          "0,00"
+        ],
+        [
+          "5001022257950/19",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "327.007,73",
+          "3",
+          "327.007,73",
+          "0,00"
+        ],
+        [
+          "5128032684769\\19",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "286.718,15",
+          "1",
+          "198.346,48",
+          "88.371,67"
+        ]
+      ]
+    },
+    {
+      "municipio": "Altinópolis",
+      "codigo_ibge": "3501004",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.165.690,62",
+        "3",
+        "451.384,47",
+        "46.042,23"
+      ],
+      "records": [
+        [
+          "1700301313178/17",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "765.690,62",
+          "1",
+          "51.384,47",
+          "46.042,23"
+        ],
+        [
+          "29011800066/21",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "400.000,00",
+          "2",
+          "400.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Altinópolis",
+      "codigo_ibge": "3501004",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.420.764,58",
+        "3",
+        "391.229,49",
+        "46.042,23"
+      ],
+      "records": [
+        [
+          "1700301313178/17",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "765.690,62",
+          "1",
+          "43.692,51",
+          "46.042,23"
+        ],
+        [
+          "4101014332/2020",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "40.000,00",
+          "1",
+          "40.000,00",
+          "0,00"
+        ],
+        [
+          "5001022021PR008",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "615.073,96",
+          "1",
+          "307.536,98",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Altinópolis",
+      "codigo_ibge": "3501004",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.230.147,92",
+        "2",
+        "615.073,96",
+        "307.536,98"
+      ],
+      "records": [
+        [
+          "5001022021PR008",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "615.073,96",
+          "1",
+          "307.536,98",
+          "0,00"
+        ],
+        [
+          "50010220221179758",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "615.073,96",
+          "1",
+          "307.536,98",
+          "307.536,98"
+        ]
+      ]
+    },
+    {
+      "municipio": "Altinópolis",
+      "codigo_ibge": "3501004",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.511.070,46",
+        "4",
+        "1.020.509,19",
+        "490.561,27"
+      ],
+      "records": [
+        [
+          "50010220231691216",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "571.081,63",
+          "1",
+          "285.540,81",
+          "285.540,82"
+        ],
+        [
+          "51010120240002642",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "500.000,00",
+          "1",
+          "294.979,55",
+          "205.020,45"
+        ],
+        [
+          "51010120240002651",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "439.988,83",
+          "2",
+          "439.988,83",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Altinópolis",
+      "codigo_ibge": "3501004",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "389.913,60",
+        "2",
+        "389.913,60",
+        "0,00"
+      ],
+      "records": [
+        [
+          "35003320250512283",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "89.913,60",
+          "1",
+          "89.913,60",
+          "0,00"
+        ],
+        [
+          "35010120250421171",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Altinópolis",
+      "codigo_ibge": "3501004",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "450.000,00",
+        "2",
+        "450.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "26013620260415858",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "35010120260420565",
+          "45298569000113",
+          "PREFEITURA MUNICIPAL ALTINOPOLIS",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Barrinha",
+      "codigo_ibge": "3505609",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "550.000,00",
+        "2",
+        "150.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182007831/19",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "500.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "290118554690/18",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "50.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Barrinha",
+      "codigo_ibge": "3505609",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "650.000,00",
+        "2",
+        "550.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182007831/19",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "500.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820-9018338",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Barrinha",
+      "codigo_ibge": "3505609",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.375.000,00",
+        "4",
+        "756.500,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "09020520220504718",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "70.000,00",
+          "1",
+          "70.000,00",
+          "0,00"
+        ],
+        [
+          "26010158100/21",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "300.000,00",
+          "1",
+          "94.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220211583",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "180.000,00",
+          "1",
+          "180.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220532605",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "825.000,00",
+          "1",
+          "412.500,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Barrinha",
+      "codigo_ibge": "3505609",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.625.000,00",
+        "4",
+        "1.118.500,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "26010158100/21",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "300.000,00",
+          "2",
+          "206.000,00",
+          "0,00"
+        ],
+        [
+          "29011800231/22",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220532605",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "825.000,00",
+          "1",
+          "412.500,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Barrinha",
+      "codigo_ibge": "3505609",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Barrinha",
+      "codigo_ibge": "3505609",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.250.000,00",
+        "2",
+        "1.238.000,00",
+        "12.000,00"
+      ],
+      "records": [
+        [
+          "51010120240527961",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240546691",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "1.000.000,00",
+          "1",
+          "988.000,00",
+          "12.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Barrinha",
+      "codigo_ibge": "3505609",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "500.000,00",
+        "1",
+        "500.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "09019620231755771",
+          "45370087000127",
+          "PREFEITURA MUNICIPAL BARRINHA",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Batatais",
+      "codigo_ibge": "3505906",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "6.358.924,69",
+        "9",
+        "2.391.858,82",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182921676/19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "350.000,00",
+          "1",
+          "70.000,00",
+          "0,00"
+        ],
+        [
+          "2901183280989/19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "350.000,00",
+          "1",
+          "70.000,00",
+          "0,00"
+        ],
+        [
+          "2901183355861/19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "200.000,00",
+          "2",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "3501012842594/19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "5001022016PR061",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "2.178.221,02",
+          "3",
+          "1.192.659,48",
+          "0,00"
+        ],
+        [
+          "5001022018PR063",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "3.080.703,67",
+          "1",
+          "659.199,34",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Batatais",
+      "codigo_ibge": "3505906",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "10.763.954,86",
+        "14",
+        "3.197.994,85",
+        "2.040.637,31"
+      ],
+      "records": [
+        [
+          "29011800772/20",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "461.878,48",
+          "2",
+          "461.878,48",
+          "0,00"
+        ],
+        [
+          "2901182921676/19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "350.000,00",
+          "1",
+          "280.000,00",
+          "0,00"
+        ],
+        [
+          "2901183280989/19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "350.000,00",
+          "1",
+          "280.000,00",
+          "0,00"
+        ],
+        [
+          "4101010334-2019",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "30.000,00",
+          "2",
+          "0,00",
+          "30.000,00"
+        ],
+        [
+          "4101014319/2020",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "40.000,00",
+          "1",
+          "40.000,00",
+          "0,00"
+        ],
+        [
+          "5001022016PR061",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "2.178.221,02",
+          "1",
+          "570.749,30",
+          "0,00"
+        ],
+        [
+          "5001022017PR432",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "3.583.849,92",
+          "2",
+          "305.000,00",
+          "1.979.482,61"
+        ],
+        [
+          "5001022018PR063",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "3.080.703,67",
+          "2",
+          "653.220,00",
+          "0,00"
+        ],
+        [
+          "5128032447861\\19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "415.850,02",
+          "1",
+          "334.000,00",
+          "30.850,02"
+        ],
+        [
+          "5128032447861-19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "273.451,75",
+          "1",
+          "273.147,07",
+          "304,68"
+        ]
+      ]
+    },
+    {
+      "municipio": "Batatais",
+      "codigo_ibge": "3505906",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.901.213,84",
+        "5",
+        "922.709,07",
+        "36.406,02"
+      ],
+      "records": [
+        [
+          "08010117798/20",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220499501",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "250.000,00",
+          "1",
+          "244.444,00",
+          "5.556,00"
+        ],
+        [
+          "2901182103022047",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "5001023148192/19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "885.363,82",
+          "1",
+          "277.265,07",
+          "0,00"
+        ],
+        [
+          "5128032447861\\19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "415.850,02",
+          "1",
+          "51.000,00",
+          "30.850,02"
+        ]
+      ]
+    },
+    {
+      "municipio": "Batatais",
+      "codigo_ibge": "3505906",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "6.956.447,40",
+        "6",
+        "2.595.052,75",
+        "0,00"
+      ],
+      "records": [
+        [
+          "18010120230970915",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "70.000,00",
+          "1",
+          "70.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221442496",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "5001022021PR0259",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "2.943.042,66",
+          "1",
+          "886.733,18",
+          "0,00"
+        ],
+        [
+          "50010220221420102",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "2.908.040,92",
+          "1",
+          "880.220,82",
+          "0,00"
+        ],
+        [
+          "5001023148192/19",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "885.363,82",
+          "2",
+          "608.098,75",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Batatais",
+      "codigo_ibge": "3505906",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "8.351.083,58",
+        "8",
+        "5.007.262,85",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182114225083",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "500.000,00",
+          "2",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "5001022021PR0259",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "2.943.042,66",
+          "1",
+          "979.442,75",
+          "0,00"
+        ],
+        [
+          "50010220221420102",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "2.908.040,92",
+          "2",
+          "2.027.820,10",
+          "0,00"
+        ],
+        [
+          "51010120240335102",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "1.000.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240528898",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "51010120241079419",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Batatais",
+      "codigo_ibge": "3505906",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "5.143.042,66",
+        "4",
+        "2.604.366,73",
+        "172.500,00"
+      ],
+      "records": [
+        [
+          "5001022021PR0259",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "2.943.042,66",
+          "1",
+          "1.076.866,73",
+          "0,00"
+        ],
+        [
+          "51010120240335102",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "1.000.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240547178",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "700.000,00",
+          "1",
+          "527.500,00",
+          "172.500,00"
+        ],
+        [
+          "51010120250289569",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Batatais",
+      "codigo_ibge": "3505906",
+      "sub_regiao": "Sub-região de Batatais",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "253.255,81",
+        "1",
+        "253.255,81",
+        "0,00"
+      ],
+      "records": [
+        [
+          "18010120251365736",
+          "45299104000187",
+          "PREFEITURA MUNICIPAL BATATAIS",
+          "253.255,81",
+          "1",
+          "253.255,81",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Brodowski",
+      "codigo_ibge": "3507803",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.574.088,42",
+        "7",
+        "1.057.674,86",
+        "734.198,75"
+      ],
+      "records": [
+        [
+          "08035804875/13",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "1.619.158,97",
+          "1",
+          "242.873,84",
+          "0,00"
+        ],
+        [
+          "29011800737/20",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "2901183405524/19",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "499.000,00",
+          "1",
+          "99.800,00",
+          "143.934,57"
+        ],
+        [
+          "4100300430-2018",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "200.000,00",
+          "1",
+          "92.521,93",
+          "0,00"
+        ],
+        [
+          "5001022017PR315",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "691.405,02",
+          "1",
+          "101.140,84",
+          "590.264,18"
+        ],
+        [
+          "5001022260428/19",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "178.152,07",
+          "1",
+          "178.152,07",
+          "0,00"
+        ],
+        [
+          "5001022260562/19",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "86.372,36",
+          "1",
+          "43.186,18",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Brodowski",
+      "codigo_ibge": "3507803",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "885.372,36",
+        "4",
+        "542.786,18",
+        "143.934,57"
+      ],
+      "records": [
+        [
+          "2901183405524/19",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "499.000,00",
+          "1",
+          "199.600,00",
+          "143.934,57"
+        ],
+        [
+          "290118525367/18",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "290118525497/18",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "5001022260562/19",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "86.372,36",
+          "1",
+          "43.186,18",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Brodowski",
+      "codigo_ibge": "3507803",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.335.818,40",
+        "8",
+        "2.018.696,33",
+        "602.426,07"
+      ],
+      "records": [
+        [
+          "29011820220120121",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "1.200.000,00",
+          "2",
+          "780.000,00",
+          "4.704,00"
+        ],
+        [
+          "29011820220516361",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "835.000,00",
+          "1",
+          "417.500,00",
+          "417.500,00"
+        ],
+        [
+          "29011820220533925",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "140.709,96",
+          "1",
+          "140.709,96",
+          "0,00"
+        ],
+        [
+          "29011820-7517977",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "200.000,00",
+          "1",
+          "163.712,50",
+          "36.287,50"
+        ],
+        [
+          "2901183405524/19",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "499.000,00",
+          "1",
+          "55.665,43",
+          "143.934,57"
+        ],
+        [
+          "4101014725/2020",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "5001022021PR043",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "361.108,44",
+          "1",
+          "361.108,44",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Brodowski",
+      "codigo_ibge": "3507803",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "753.965,52",
+        "3",
+        "680.617,50",
+        "73.348,02"
+      ],
+      "records": [
+        [
+          "29011820221438303",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "250.000,00",
+          "1",
+          "217.607,83",
+          "32.392,17"
+        ],
+        [
+          "29011820221453794",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "250.000,00",
+          "1",
+          "209.044,15",
+          "40.955,85"
+        ],
+        [
+          "5001022021PR0325",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "253.965,52",
+          "1",
+          "253.965,52",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Brodowski",
+      "codigo_ibge": "3507803",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "200.000,00",
+        "1",
+        "107.478,07",
+        "0,00"
+      ],
+      "records": [
+        [
+          "4100300430-2018",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "200.000,00",
+          "1",
+          "107.478,07",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Brodowski",
+      "codigo_ibge": "3507803",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.500.000,00",
+        "4",
+        "1.131.695,95",
+        "588.304,05"
+      ],
+      "records": [
+        [
+          "29011820220120121",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "1.200.000,00",
+          "1",
+          "415.296,00",
+          "4.704,00"
+        ],
+        [
+          "51010120240370783",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "200.000,00",
+          "1",
+          "140.000,00",
+          "60.000,00"
+        ],
+        [
+          "51010120240374405",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "800.000,00",
+          "1",
+          "400.000,00",
+          "400.000,00"
+        ],
+        [
+          "51010120240530401",
+          "45301652000102",
+          "PREFEITURA MUNICIPAL BRODOWSKI",
+          "300.000,00",
+          "1",
+          "176.399,95",
+          "123.600,05"
+        ]
+      ]
+    },
+    {
+      "municipio": "Brodowski",
+      "codigo_ibge": "3507803",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Cajuru",
+      "codigo_ibge": "3509403",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.139.933,87",
+        "6",
+        "1.029.933,87",
+        "0,00"
+      ],
+      "records": [
+        [
+          "29011800346/20",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "2901181997564/19",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "300.000,00",
+          "1",
+          "240.000,00",
+          "0,00"
+        ],
+        [
+          "2901182171773/19",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "250.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "2901183093763/19",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "439.933,87",
+          "3",
+          "439.933,87",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cajuru",
+      "codigo_ibge": "3509403",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "982.152,62",
+        "2",
+        "378.657,75",
+        "1.289,31"
+      ],
+      "records": [
+        [
+          "2901182105332067",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "100.000,00",
+          "1",
+          "98.710,69",
+          "1.289,31"
+        ],
+        [
+          "510109694224/21A",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "882.152,62",
+          "1",
+          "279.947,06",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cajuru",
+      "codigo_ibge": "3509403",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.567.152,62",
+        "4",
+        "1.168.643,91",
+        "175.895,47"
+      ],
+      "records": [
+        [
+          "09020520448-2021",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "29011801680/21",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "835.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220524471",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "600.000,00",
+          "1",
+          "300.000,00",
+          "175.895,47"
+        ],
+        [
+          "510109694224/21A",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "882.152,62",
+          "1",
+          "318.643,91",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cajuru",
+      "codigo_ibge": "3509403",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.882.152,62",
+        "4",
+        "731.070,44",
+        "252.491,21"
+      ],
+      "records": [
+        [
+          "29011820220524471",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "600.000,00",
+          "1",
+          "124.104,53",
+          "175.895,47"
+        ],
+        [
+          "29011820221296923",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "250.000,00",
+          "1",
+          "173.404,26",
+          "76.595,74"
+        ],
+        [
+          "29011820221296932",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "510109694224/21A",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "882.152,62",
+          "1",
+          "283.561,65",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cajuru",
+      "codigo_ibge": "3509403",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.937.955,48",
+        "4",
+        "1.637.955,48",
+        "0,00"
+      ],
+      "records": [
+        [
+          "29011801680/21",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "835.000,00",
+          "2",
+          "535.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240530457",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "452.955,48",
+          "1",
+          "452.955,48",
+          "0,00"
+        ],
+        [
+          "51010120240546484",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "650.000,00",
+          "1",
+          "650.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cajuru",
+      "codigo_ibge": "3509403",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "999.999,45",
+        "1",
+        "775.311,44",
+        "224.688,01"
+      ],
+      "records": [
+        [
+          "17003020240416784",
+          "45227337000174",
+          "PREFEITURA MUNICIPAL CAJURU",
+          "999.999,45",
+          "1",
+          "775.311,44",
+          "224.688,01"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cajuru",
+      "codigo_ibge": "3509403",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Cravinhos",
+      "codigo_ibge": "3513108",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.580.000,00",
+        "6",
+        "1.200.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "29011800680/20",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "600.000,00",
+          "2",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "29011800732/20",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "1.580.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "2901181614978/18",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "290118561218/18",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "3501012894693/20",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cravinhos",
+      "codigo_ibge": "3513108",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "5.979.679,82",
+        "8",
+        "2.968.894,69",
+        "0,00"
+      ],
+      "records": [
+        [
+          "08035807259/13",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "1.619.158,97",
+          "1",
+          "242.873,84",
+          "0,00"
+        ],
+        [
+          "29011800402/21",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "934.500,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "29011800680/20",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "600.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "29011800732/20",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "1.580.000,00",
+          "2",
+          "1.280.000,00",
+          "0,00"
+        ],
+        [
+          "29011820-3518372",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "180.000,00",
+          "1",
+          "180.000,00",
+          "0,00"
+        ],
+        [
+          "29011820-5618219",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "170.000,00",
+          "1",
+          "170.000,00",
+          "0,00"
+        ],
+        [
+          "290118622309/18",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "896.020,85",
+          "1",
+          "696.020,85",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cravinhos",
+      "codigo_ibge": "3513108",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.459.000,00",
+        "6",
+        "2.084.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "29011800402/21",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "934.500,00",
+          "2",
+          "634.500,00",
+          "0,00"
+        ],
+        [
+          "29011820220162415",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "224.500,00",
+          "1",
+          "224.500,00",
+          "0,00"
+        ],
+        [
+          "29011820220175961",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "850.000,00",
+          "1",
+          "425.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220547653",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "1.000.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "2901182112225058",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "450.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cravinhos",
+      "codigo_ibge": "3513108",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "4.420.000,00",
+        "5",
+        "3.501.000,00",
+        "119.000,00"
+      ],
+      "records": [
+        [
+          "29011820220531798",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "1.140.000,00",
+          "1",
+          "1.140.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220547653",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "1.000.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221438411",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "500.000,00",
+          "1",
+          "381.000,00",
+          "119.000,00"
+        ],
+        [
+          "2901182112225058",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "450.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "51010120231171305",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "1.330.000,00",
+          "1",
+          "1.330.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cravinhos",
+      "codigo_ibge": "3513108",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.940.000,00",
+        "3",
+        "2.395.000,00",
+        "120.000,00"
+      ],
+      "records": [
+        [
+          "13022320240625819",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "90.000,00",
+          "1",
+          "90.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220175961",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "850.000,00",
+          "1",
+          "425.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240585796",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "2.000.000,00",
+          "1",
+          "1.880.000,00",
+          "120.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cravinhos",
+      "codigo_ibge": "3513108",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.507.343,28",
+        "2",
+        "1.507.343,28",
+        "0,00"
+      ],
+      "records": [
+        [
+          "35010120250420913",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "51010120250337334",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "1.257.343,28",
+          "1",
+          "1.257.343,28",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cravinhos",
+      "codigo_ibge": "3513108",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.250.000,00",
+        "1",
+        "2.250.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010120251344834",
+          "45228319000107",
+          "PREFEITURA MUNICIPAL CRAVINHOS",
+          "2.250.000,00",
+          "1",
+          "2.250.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cássia dos Coqueiros",
+      "codigo_ibge": "3510906",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "249.058,58",
+        "2",
+        "115.002,67",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182856223/19",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "194.055,91",
+          "1",
+          "60.000,00",
+          "0,00"
+        ],
+        [
+          "51010936677718 A",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "55.002,67",
+          "1",
+          "55.002,67",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cássia dos Coqueiros",
+      "codigo_ibge": "3510906",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "194.055,91",
+        "1",
+        "134.055,91",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182856223/19",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "194.055,91",
+          "1",
+          "134.055,91",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cássia dos Coqueiros",
+      "codigo_ibge": "3510906",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.150.000,00",
+        "5",
+        "1.070.305,30",
+        "79.694,70"
+      ],
+      "records": [
+        [
+          "29011820220098191",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "50.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220099062",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220124942",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "400.000,00",
+          "1",
+          "384.037,35",
+          "15.962,65"
+        ],
+        [
+          "29011820220147321",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220159545",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "500.000,00",
+          "1",
+          "436.267,95",
+          "63.732,05"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cássia dos Coqueiros",
+      "codigo_ibge": "3510906",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "650.000,00",
+        "2",
+        "512.364,76",
+        "137.635,24"
+      ],
+      "records": [
+        [
+          "29011820221350456",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "400.000,00",
+          "1",
+          "315.276,96",
+          "84.723,04"
+        ],
+        [
+          "29011820221350483",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "250.000,00",
+          "1",
+          "197.087,80",
+          "52.912,20"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cássia dos Coqueiros",
+      "codigo_ibge": "3510906",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Cássia dos Coqueiros",
+      "codigo_ibge": "3510906",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.500.000,00",
+        "2",
+        "1.189.302,60",
+        "310.697,40"
+      ],
+      "records": [
+        [
+          "17003020240419875",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "1.000.000,00",
+          "1",
+          "750.302,60",
+          "249.697,40"
+        ],
+        [
+          "51010120240546493",
+          "44229805000187",
+          "PREFEITURA MUNICIPAL CASSIA DOS COQUEIROS",
+          "500.000,00",
+          "1",
+          "439.000,00",
+          "61.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Cássia dos Coqueiros",
+      "codigo_ibge": "3510906",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    }
+  ]
+}

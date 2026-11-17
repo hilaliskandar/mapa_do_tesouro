@@ -1,0 +1,477 @@
+{
+  "meta": {
+    "asOf": "2026-11-11",
+    "source": "https://api-publica.transferegov.gestao.gov.br/especiais/beneficiarios-especiais",
+    "query": "uf_beneficiario=SP",
+    "pages": [
+      {
+        "page": 1,
+        "got": 200,
+        "total": 628
+      },
+      {
+        "page": 2,
+        "got": 200,
+        "total": 628
+      },
+      {
+        "page": 3,
+        "got": 200,
+        "total": 628
+      },
+      {
+        "page": 4,
+        "got": 28,
+        "total": 628
+      }
+    ],
+    "totalRecordsAllSP": 628,
+    "universe": "RMRP_34",
+    "method": "correspondencia do nome oficial de MUNICIPIO ou PREFEITURA MUNICIPAL apos normalizacao e confronto IBGE7 do roster; nao se confundem CNPJ beneficiario e local fisico de obra",
+    "qa": "identificacao_nominal_candidata_nao_homologada_financeiramente"
+  },
+  "items": [
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "sub_regiao": "Sub-região de Batatais",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3329,
+          "id_ente": 189,
+          "cnpj": "45298569000113",
+          "nome": "MUNICIPIO DE ALTINOPOLIS"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7890,
+          "id_ente": 562,
+          "cnpj": "45370087000127",
+          "nome": "MUNICIPIO DE BARRINHA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "sub_regiao": "Sub-região de Batatais",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7206,
+          "id_ente": 576,
+          "cnpj": "45299104000187",
+          "nome": "MUNICIPIO DE BATATAIS"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 10150,
+          "id_ente": 781,
+          "cnpj": "45301652000102",
+          "nome": "BRODOWSKI"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "sub_regiao": "Sub-região de Mococa",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 8910,
+          "id_ente": 890,
+          "cnpj": "45227337000174",
+          "nome": "MUNICIPIO DE CAJURU"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7932,
+          "id_ente": 1390,
+          "cnpj": "45228319000107",
+          "nome": "MUNICIPIO DE CRAVINHOS"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "sub_regiao": "Sub-região de Mococa",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 9759,
+          "id_ente": 1140,
+          "cnpj": "44229805000187",
+          "nome": "CÁSSIA DOS COQUEIROS"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 8996,
+          "id_ente": 1563,
+          "cnpj": "46940888000143",
+          "nome": "MUNICIPIO DE DUMONT"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3374,
+          "id_ente": 5195,
+          "cnpj": "48664304000180",
+          "nome": "MUNICIPIO DE GUARIBA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3467,
+          "id_ente": 1930,
+          "cnpj": "68319748000195",
+          "nome": "MUNICIPIO DE GUATAPARA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3385,
+          "id_ente": 2316,
+          "cnpj": "50387844000105",
+          "nome": "MUNICIPIO DE JABOTICABAL"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3389,
+          "id_ente": 2391,
+          "cnpj": "44229821000170",
+          "nome": "MUNICIPIO DE JARDINOPOLIS"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 8918,
+          "id_ente": 2628,
+          "cnpj": "45368016000190",
+          "nome": "MUNICIPIO DE LUIS ANTONIO"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "sub_regiao": "Sub-região de Mococa",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7278,
+          "id_ente": 2898,
+          "cnpj": "44763928000101",
+          "nome": "MUNICIPIO DE MOCOCA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3404,
+          "id_ente": 2932,
+          "cnpj": "51816247000111",
+          "nome": "MUNICIPIO DE MONTE ALTO"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "sub_regiao": "Sub-região de Batatais",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3407,
+          "id_ente": 2972,
+          "cnpj": "45345899000112",
+          "nome": "MUNICIPIO DE MORRO AGUDO"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "sub_regiao": "Sub-região de Batatais",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 9891,
+          "id_ente": 5710,
+          "cnpj": "46754388000117",
+          "nome": "NUPORANGA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "sub_regiao": "Sub-região de Batatais",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7938,
+          "id_ente": 3226,
+          "cnpj": "45351749000111",
+          "nome": "MUNICIPIO DE ORLANDIA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3420,
+          "id_ente": 3588,
+          "cnpj": "45370707000128",
+          "nome": "MUNICIPIO DE PITANGUEIRAS"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 10000,
+          "id_ente": 3627,
+          "cnpj": "45352267000186",
+          "nome": "PONTAL"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7311,
+          "id_ente": 3706,
+          "cnpj": "48664296000171",
+          "nome": "MUNICIPIO DE PRADOPOLIS"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3428,
+          "id_ente": 3867,
+          "cnpj": "56024581000156",
+          "nome": "MUNICIPIO DE RIBEIRAO PRETO"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "sub_regiao": "Sub-região de Batatais",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7325,
+          "id_ente": 3978,
+          "cnpj": "46756029000107",
+          "nome": "MUNICIPIO DE SALES OLIVEIRA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "sub_regiao": "Sub-região de Mococa",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 2793,
+          "id_ente": 4042,
+          "cnpj": "01611007000102",
+          "nome": "MUNICIPIO DE SANTA CRUZ DA ESPERANCA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 8932,
+          "id_ente": 4152,
+          "cnpj": "45749819000194",
+          "nome": "MUNICIPIO DE SANTA RITA DO PASSA QUATRO"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "sub_regiao": "Sub-região de Mococa",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3437,
+          "id_ente": 4161,
+          "cnpj": "45368545000193",
+          "nome": "MUNICIPIO DE SANTA ROSA DE VITERBO"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "sub_regiao": "Sub-região de Batatais",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7333,
+          "id_ente": 5582,
+          "cnpj": "45302130000117",
+          "nome": "MUNICIPIO DE SANTO ANTONIO DA ALEGRIA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3450,
+          "id_ente": 4594,
+          "cnpj": "44229839000171",
+          "nome": "MUNICIPIO DE SERRA AZUL"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3451,
+          "id_ente": 5248,
+          "cnpj": "44229813000123",
+          "nome": "MUNICIPIO DE SERRANA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 3453,
+          "id_ente": 4630,
+          "cnpj": "45371820000128",
+          "nome": "MUNICIPIO DE SERTAOZINHO"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7344,
+          "id_ente": 4522,
+          "cnpj": "45369220000125",
+          "nome": "MUNICIPIO DE SAO SIMAO"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 10013,
+          "id_ente": 4723,
+          "cnpj": "45339611000105",
+          "nome": "TAIÚVA"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "sub_regiao": "Sub-região de Mococa",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 7351,
+          "id_ente": 4727,
+          "cnpj": "46373445000118",
+          "nome": "MUNICIPIO DE TAMBAU"
+        }
+      ]
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "beneficiarios": [
+        {
+          "id_beneficiario": 5962,
+          "id_ente": 4754,
+          "cnpj": "01610390000184",
+          "nome": "MUNICIPIO DE TAQUARAL"
+        }
+      ]
+    }
+  ]
+}

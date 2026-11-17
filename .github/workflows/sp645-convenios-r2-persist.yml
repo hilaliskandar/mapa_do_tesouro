@@ -1,0 +1,99 @@
+name: SP645 - preservar ZIP e staging convenios SP no R2 privado
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/sp645-convenios-r2-persist.yml
+
+permissions:
+  contents: read
+
+jobs:
+  persist-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Baixar e verificar ZIP oficial
+        run: |
+          python pipeline/coleta/collect_sp_convenios_oficial.py --download --outdir "$RUNNER_TEMP/sp_convenios"
+      - name: Gerar staging isolado sem inferencia financeira
+        run: |
+          python pipeline/coleta/stage_sp_convenios.py \
+            --zip "$(find "$RUNNER_TEMP/sp_convenios" -name '*.zip' -print -quit)" \
+            --db "$RUNNER_TEMP/sp_convenios/staging.sqlite"
+      - name: Validar estrutura e congelar chaves por SHA-256
+        id: hashes
+        run: |
+          python - <<'PY'
+          import glob,hashlib,json,os
+          p=glob.glob(os.path.join(os.environ['RUNNER_TEMP'],'sp_convenios','*.zip'))
+          assert len(p)==1
+          raw=open(p[0],'rb').read()
+          digest=hashlib.sha256(raw).hexdigest()
+          manifest=json.load(open(p[0].replace('.zip','.manifest.json'),encoding='utf-8'))
+          assert manifest['qa_status']=='validado_estrutura'
+          assert manifest['sha256']==digest
+          sq=os.path.join(os.environ['RUNNER_TEMP'],'sp_convenios','staging.sqlite')
+          dbhash=hashlib.sha256(open(sq,'rb').read()).hexdigest()
+          prefix=f'sp_645/estadual/convenios/snapshots/{digest}'
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as output:
+              output.write(f'prefix={prefix}\n')
+              output.write(f'zip_sha={digest}\n')
+              output.write(f'db_sha={dbhash}\n')
+          print(json.dumps({'zip_sha256':digest,'staging_sha256':dbhash,'zip_bytes':len(raw),'qa':'validado_estrutura'},ensure_ascii=False))
+          PY
+      - name: Persistir bruto, SQLite de staging e manifesto no R2 privado existente
+        env:
+          PREFIX: ${{ steps.hashes.outputs.prefix }}
+          ZIP_SHA: ${{ steps.hashes.outputs.zip_sha }}
+          DB_SHA: ${{ steps.hashes.outputs.db_sha }}
+        run: |
+          python deployment/upload_r2_source.py \
+            --source "$(find "$RUNNER_TEMP/sp_convenios" -name '*.zip' -print -quit)" \
+            --object-key "$PREFIX/convenio.zip" \
+            --content-type application/zip \
+            --expected-sha256 "$ZIP_SHA"
+          python deployment/upload_r2_source.py \
+            --source "$RUNNER_TEMP/sp_convenios/staging.sqlite" \
+            --object-key "$PREFIX/staging.sqlite" \
+            --content-type application/x-sqlite3 \
+            --expected-sha256 "$DB_SHA"
+          python deployment/upload_r2_source.py \
+            --source "$(find "$RUNNER_TEMP/sp_convenios" -name '*.manifest.json' -print -quit)" \
+            --object-key "$PREFIX/source.manifest.json" \
+            --content-type application/json
+      - name: Conferir leitura de retorno do acervo privado
+        env:
+          PREFIX: ${{ steps.hashes.outputs.prefix }}
+          ZIP_SHA: ${{ steps.hashes.outputs.zip_sha }}
+          DB_SHA: ${{ steps.hashes.outputs.db_sha }}
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key "$PREFIX/convenio.zip" \
+            --output "$RUNNER_TEMP/sp_convenios/readback.zip" \
+            --expected-sha256 "$ZIP_SHA"
+          python deployment/download_r2_source.py \
+            --object-key "$PREFIX/staging.sqlite" \
+            --output "$RUNNER_TEMP/sp_convenios/readback.sqlite" \
+            --expected-sha256 "$DB_SHA"
+          python - <<'PY'
+          import glob,os,sqlite3
+          p=os.path.join(os.environ['RUNNER_TEMP'],'sp_convenios','readback.sqlite')
+          con=sqlite3.connect(p)
+          rows=con.execute('SELECT year,count(*) FROM sp_convenios_raw GROUP BY year ORDER BY year').fetchall()
+          assert sum(n for _,n in rows)==3618,rows
+          print('R2_READBACK_PASS','rows',sum(n for _,n in rows),'years',rows)
+          PY
+      # Nunca enviar ZIP ou SQLite como artifacts do GitHub ou modificar publicacao.

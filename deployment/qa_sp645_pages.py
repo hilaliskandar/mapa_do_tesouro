@@ -25,6 +25,32 @@ EXPECTED_PUBLICATION_UNIVERSES = {
     "CIDADES_MEDIAS": 33,
 }
 
+def expected_administrative_universes() -> dict[str, int]:
+    """Derive RA/RG counts from the versioned municipal direct-source dimension."""
+    import csv
+    from collections import Counter
+    source = (
+        Path(__file__).resolve().parents[1]
+        / "governance"
+        / "DIM_SP645_IBGE_RA_RG_SEMIL_SEADE_2026_11_14.csv"
+    )
+    with source.open(encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle, delimiter=";"))
+    if len(rows) != 645 or len({r["codigo_ibge"] for r in rows}) != 645:
+        raise ValueError("Invalid official municipality source; expected 645 IBGE7")
+    ra = Counter(r["ra_codigo"] for r in rows)
+    rg = Counter(r["rg_codigo"] for r in rows)
+    if len(ra) != 16 or len(rg) != 43:
+        raise ValueError("Unexpected RA/RG source cardinality")
+    expected = {
+        **{f"RA_SEADE_{int(code):02d}": number for code, number in ra.items()},
+        **{f"RG_SEADE_{int(code):02d}": number for code, number in rg.items()},
+    }
+    if len(expected) != 59 or sum(expected.values()) != 1290:
+        raise ValueError("RA/RG municipality membership conservation error")
+    return expected
+
+
 EXPECTED_UNIVERSES = {
     "SP_645": 645,
     "TIC_TIM_30": 30,
@@ -40,6 +66,8 @@ EXPECTED_UNIVERSES = {
     "RM_SAO_PAULO": 39,
     "RM_VALE_PARAIBA_LITORAL_NORTE": 39,
 }
+
+EXPECTED_UNIVERSES.update(expected_administrative_universes())
 
 
 def fail(message: str) -> None:

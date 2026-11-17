@@ -1,0 +1,35 @@
+name: INV SP645 - QA territorios EL2026
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/qa/audit_inv_sp645_el2026_territories.py
+      - governance/INV_SP645_CROSSWALK_RA_RG_RM_AU_EL2026_CANDIDATO_2026_11_14.csv
+      - governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv
+      - .github/workflows/inv-sp645-qa-territorios-el2026.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  territorial-crosswalk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify crosswalk and nested RG-RA, RM-AU, RMRP
+        run: |
+          python -m py_compile pipeline/qa/audit_inv_sp645_el2026_territories.py
+          python pipeline/qa/audit_inv_sp645_el2026_territories.py
+      - name: Archive QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-el2026-territorial-qa
+          path: governance/INV_SP645_QA_TERRITORIAL_EL2026_2026_11_14.json
+          retention-days: 30
+          if-no-files-found: warn

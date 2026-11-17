@@ -1,0 +1,110 @@
+name: SP645 - auditar ZIP oficial de convenios (sem publicacao)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - investimentos-territoriais-sp645-20261111
+    paths:
+      - .github/workflows/sp645-convenios-auditoria.yml
+      - pipeline/coleta/collect_sp_convenios_oficial.py
+      - pipeline/coleta/stage_sp_convenios.py
+
+permissions:
+  contents: read
+
+jobs:
+  auditar-convenios:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout do codigo
+        uses: actions/checkout@v4
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Adquirir ZIP oficial e verificar integridade
+        run: |
+          python pipeline/coleta/collect_sp_convenios_oficial.py --download --outdir "$RUNNER_TEMP/sp_convenios"
+      - name: Diagnosticar CSV sem cabecalho e distribuir por ano
+        run: |
+          python - <<'PY'
+          import csv,glob,io,os,re,zipfile,json
+          from collections import Counter
+          for path in glob.glob(os.path.join(os.environ['RUNNER_TEMP'],'sp_convenios','*.zip')):
+              with zipfile.ZipFile(path) as z:
+                  for filename in z.namelist():
+                      if not filename.lower().endswith('.csv'): continue
+                      raw=z.read(filename)
+                      enc=None
+                      for candidate in ('utf-8-sig','utf-8','cp1252','latin-1'):
+                          try: txt=raw.decode(candidate);enc=candidate;break
+                          except UnicodeDecodeError: pass
+                      delimiter=';'
+                      data=list(csv.reader(io.StringIO(txt,newline=''), delimiter=delimiter))
+                      if not data: raise RuntimeError('CSV vazio')
+                      first=data[0]
+                      no_header=bool(first and re.fullmatch(r'(19|20)\d{2}',first[0].strip()))
+                      rows=data if no_header else data[1:]
+                      widths=Counter(len(x) for x in rows)
+                      years=Counter(x[0].strip() if x else '<vazio>' for x in rows)
+                      kinds=Counter(x[1].strip() if len(x)>1 else '<vazio>' for x in rows)
+                      beneficiaries=len({x[4].strip() for x in rows if len(x)>4 and x[4].strip()})
+                      print('CSV_MEMBER:',filename)
+                      print('CSV_ENCODING:',enc,'CSV_DELIMITER:',repr(delimiter))
+                      print('CSV_NO_HEADER:',no_header)
+                      print('CSV_COLUMNS_FIRST_ROW:',len(first))
+                      print('CSV_ROWS_CORRECTED:',len(rows))
+                      print('CSV_WIDTHS:',json.dumps(widths,ensure_ascii=False))
+                      print('CSV_YEAR_COUNTS:',json.dumps(dict(sorted(years.items())),ensure_ascii=False))
+                      print('CSV_KIND_COUNTS:',json.dumps(kinds,ensure_ascii=False))
+                      print('CSV_DISTINCT_BENEFICIARY_TEXT_COUNT:',beneficiaries)
+          PY
+      - name: Conferir dicionario oficial XLSX do portal
+        run: |
+          python -m pip install --quiet openpyxl
+          python - <<'PY'
+          import io
+          import urllib.request
+          import openpyxl
+          url='https://www.transparencia.sp.gov.br/Dicionarios/Dicion%C3%A1rio%20de%20dados_conv%C3%AAnios.xlsx'
+          request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+          with urllib.request.urlopen(request,timeout=60) as response:
+              raw=response.read(10_000_000)
+              print('DICT_HTTP:',response.status,'DICT_BYTES:',len(raw),'DICT_CONTENT_TYPE:',response.headers.get('Content-Type'))
+          wb=openpyxl.load_workbook(io.BytesIO(raw),read_only=True,data_only=True)
+          for ws in wb.worksheets:
+              ws.reset_dimensions()
+              print('DICT_SHEET:',ws.title)
+              for number,row in enumerate(ws.iter_rows(values_only=True),1):
+                  values=[str(v).strip()[:180] if v is not None else '' for v in row]
+                  if any(values):print('DICT_ROW:',number,repr(values[:12]))
+                  if number>=40:break
+          PY
+      - name: Gerar staging SQLite temporario sem inferir valores financeiros
+        run: |
+          python pipeline/coleta/stage_sp_convenios.py \
+            --zip "$(find "$RUNNER_TEMP/sp_convenios" -maxdepth 1 -name '*.zip' -print -quit)" \
+            --db "$RUNNER_TEMP/sp_convenios/staging.sqlite"
+      - name: Publicar apenas metadados nao sensiveis no log
+        if: always()
+        run: |
+          python - <<'PY'
+          import glob,json,os
+          paths=glob.glob(os.path.join(os.environ['RUNNER_TEMP'],'sp_convenios','*.manifest.json'))
+          if not paths:
+              print('SEM_MANIFESTO: a aquisição não produziu arquivo verificável')
+              raise SystemExit(0)
+          for p in paths:
+              v=json.load(open(p,encoding='utf8'))
+              print('FONTE:',v.get('fonte_id'))
+              print('HTTP:',v.get('http_status'))
+              print('BYTES:',v.get('bytes'))
+              print('SHA256:',v.get('sha256'))
+              print('QA:',v.get('qa_status'))
+              print('MEMBROS_ZIP:',len(v.get('zip_members',[])))
+              print('ERROS:',v.get('errors',[]))
+          PY
+      # Não publicar o ZIP nem os microdados como artefato de um repositório.
+      # A persistência canônica privada no R2 requer workflow separado e homologação.

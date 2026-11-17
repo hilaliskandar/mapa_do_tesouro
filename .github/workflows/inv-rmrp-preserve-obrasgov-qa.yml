@@ -1,0 +1,67 @@
+name: INV RMRP - preservar QA amostra Obrasgov oficial
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/inv-rmrp-preserve-obrasgov-qa.yml
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+jobs:
+  preserve-api-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Retrieve verified sample artifact from completed workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p build/obrasgov_api_sample
+          gh run download 43661453030 -n inv-rmrp-obrasgov-api-project-sample -D build/obrasgov_api_sample
+      - name: Check provenance, counts and sanitize safe aggregate
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          src=Path("build/obrasgov_api_sample/manifest_sp645_proponent_obra_links.json")
+          doc=json.loads(src.read_text(encoding="utf-8"))
+          assert doc["status"]=="proponent_regional_coverage_candidate_counts_qa_pass"
+          assert doc["no_monetary_values"] and doc["not_location_of_work"]
+          assert doc["counts"]["obrasgov_general"]["rmrp_projects_unique_proponent"]==218
+          p=doc["obrasgov_public_api_sample"]
+          assert p["candidate_projects_rmrp"]==218 and p["projects_attempted"]==40
+          assert p["source_api"]=="https://api-publica.obrasgov.gestao.gov.br/obras"
+          assert sum(p["status_counts"].values())+p["api_missing_project"]+p["api_errors"]==40
+          assert p["geometry_coded_municipality_rows"]+p["geometry_missing_cod_ibge"]==p["geometry_rows"]
+          assert p["geometry_same_as_proponent_ibge"]+p["geometry_different_from_proponent_ibge"]==p["geometry_coded_municipality_rows"]
+          out={
+            "status":"QA_PASS_OFFICIAL_API_SAMPLE_NOT_FULL_218",
+            "run_id":43661453030,
+            "artifact_id":14139919271,
+            "audit_timestamp_utc":doc["time_utc"],
+            "source_version_date":"2026-11-13T00:00:00",
+            "source":{"url":"https://api-publica.obrasgov.gestao.gov.br/obras/openapi.json",
+                      "filter":"id_projeto_investimento",
+                      "sample_rule":"First 40 project IDs sorted lexicographically; NONPROBABILISTIC"},
+            "population_project_proponent_rmrp":218,
+            "results":p,
+            "limitations":["Proponent municipality is not physical work site",
+                           "Sample of 40 cannot estimate rates for all 218 projects",
+                           "Empty geometry does not imply no physical project",
+                           "No payment/investment value is classified or summed",
+                           "No individual project identifiers or personal data in output"]
+          }
+          target=Path("governance/INV_RMRP_OBRASGOV_API_AMOSTRA_40_2026_11_14.json")
+          target.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps(out,ensure_ascii=False))
+          PY
+      - name: Persist aggregated findings in development branch only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add governance/INV_RMRP_OBRASGOV_API_AMOSTRA_40_2026_11_14.json
+          git diff --cached --quiet || (git commit -m "data: preservar amostra auditada Obrasgov de 40 projetos RMRP" && git push)

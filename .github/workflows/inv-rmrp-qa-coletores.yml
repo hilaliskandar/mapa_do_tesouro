@@ -1,0 +1,50 @@
+name: INV RMRP - QA de coletores sem rede
+on:
+  pull_request:
+    paths:
+      - 'pipeline/acquire/collect_obrasgov_sp_rmrp.py'
+      - 'pipeline/acquire/test_collect_obrasgov_sp_rmrp.py'
+      - 'pipeline/acquire/collect_investimentos_rmrp.py'
+      - 'pipeline/acquire/test_collect_investimentos_rmrp.py'
+      - 'pipeline/acquire/collect_especiais_movimentacoes_rmrp.py'
+      - 'pipeline/acquire/test_collect_especiais_movimentacoes_rmrp.py'
+      - 'pipeline/build/territorializar_obrasgov_rmrp.py'
+      - 'pipeline/build/test_territorializar_obrasgov_rmrp.py'
+      - 'pipeline/build/import_inv_rmrp_obrasgov_dev.py'
+      - 'pipeline/build/test_import_inv_rmrp_obrasgov_dev.py'
+      - 'pipeline/build/export_inv_rmrp_consultas_dev.py'
+      - 'pipeline/build/test_export_inv_rmrp_consultas_dev.py'
+      - 'governance/proposals/INV_RMRP_SCHEMA_EXTENSAO_SQLITE_2026_11_11.sql'
+      - '.github/workflows/inv-rmrp-qa-coletores.yml'
+  workflow_dispatch:
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sintaxe Python
+        run: |
+          python -m py_compile pipeline/acquire/collect_obrasgov_sp_rmrp.py
+          python -m py_compile pipeline/acquire/collect_investimentos_rmrp.py
+          python -m py_compile pipeline/acquire/test_collect_obrasgov_sp_rmrp.py
+          python -m py_compile pipeline/acquire/test_collect_investimentos_rmrp.py
+          python -m py_compile pipeline/acquire/collect_especiais_movimentacoes_rmrp.py
+          python -m py_compile pipeline/acquire/test_collect_especiais_movimentacoes_rmrp.py
+          python -m py_compile pipeline/build/territorializar_obrasgov_rmrp.py
+          python -m py_compile pipeline/build/test_territorializar_obrasgov_rmrp.py
+          python -m py_compile pipeline/build/import_inv_rmrp_obrasgov_dev.py
+          python -m py_compile pipeline/build/test_import_inv_rmrp_obrasgov_dev.py
+          python -m py_compile pipeline/build/export_inv_rmrp_consultas_dev.py
+          python -m py_compile pipeline/build/test_export_inv_rmrp_consultas_dev.py
+      - name: Testes sem chamadas à API
+        run: |
+          python -m unittest discover -s pipeline/acquire -p 'test_collect_*.py' -v
+          python -m unittest discover -s pipeline/build -p 'test_*inv_rmrp*.py' -v
+          python -m unittest discover -s pipeline/build -p 'test_territorializar_obrasgov_rmrp.py' -v
+          python -m unittest discover -s pipeline/build -p 'test_export_inv_rmrp_consultas_dev.py' -v

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-15",
+  "project": "mapa_do_tesouro",
+  "branch": "investimentos-territoriais-sp645-20261111",
+  "gate": "G-FED-01",
+  "status": "metadata_verified_content_validation_pending",
+  "region": "RMRP",
+  "municipalities_expected": 34,
+  "source_files": [
+    {
+      "source": "transferegov",
+      "drive_id": "11iALaLrY5lnsghUsnbPr34mcNTfD5E6E",
+      "name": "RMRP_Transferegov_Aquisicao_2026-11-15.zip",
+      "bytes_reported": 2977843,
+      "private_verified": true,
+      "crc_verified_in_this_gate": false,
+      "sha256_verified_in_this_gate": false,
+      "municipalities_reported": 34,
+      "pages_reported": 80,
+      "municipality_module_pairs_reported": 68,
+      "discretionary_proposals_reported": 6410,
+      "partnership_proposals_reported": 743,
+      "agreements_reported": 1793,
+      "disbursement_rows_reported": 2537,
+      "amendment_rows_reported": 1240
+    },
+    {
+      "source": "obrasgov",
+      "drive_id": "1CuZfRUTv1Oa_Z9pHkctq48-q2KuCaIS1",
+      "name": "RMRP_Obrasgov_2026-11-15.zip",
+      "bytes_reported": 82065,
+      "private_verified": true,
+      "crc_verified_in_this_gate": false,
+      "sha256_verified_in_this_gate": false,
+      "project_candidates_reported": 218,
+      "project_details_queried_reported": 218,
+      "geometry_rows_reported": 0,
+      "contracts_current_rows_reported": 0,
+      "commitments_current_rows_reported": 0,
+      "commitments_prior_snapshot_rows_reported": 3
+    }
+  ],
+  "acceptance": [
+    "read ZIP bytes from authorized private Drive",
+    "verify CRC every ZIP member and record SHA256",
+    "inspect included manifests and snapshot timestamp",
+    "validate expected counts and unique keys without exposing private rows",
+    "compare 2026-11-12 and 2026-11-15 Obrasgov commitments as temporal source differences",
+    "do not treat zero API rows as zero expenditures",
+    "keep beneficiary, proposer and execution location distinct"
+  ],
+  "financial_guards": [
+    "do not sum GND4 PAD approved amounts as payments",
+    "NR_MOV_FIN payment is unique; OBTV child rows can multiply after JOIN",
+    "do not sum OBTV and payment as independent stages",
+    "do not mix disbursement, commitment, payment and municipal liquidated investment"
+  ],
+  "next_gate": "G-FED-02",
+  "production_modified": false
+}

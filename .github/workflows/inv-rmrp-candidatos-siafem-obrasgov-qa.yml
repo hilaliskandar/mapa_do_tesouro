@@ -1,0 +1,25 @@
+name: INV RMRP - QA candidatos de vinculos SIAFEM Obrasgov
+on:
+  pull_request:
+    paths:
+      - "pipeline/qa/qa_inv_rmrp_candidatos_siafem_obrasgov.py"
+      - "governance/INV_RMRP_SIAFEM_OBRASGOV_17_PARES_CANDIDATOS_NAO_HOMOLOGADOS_2026_11_12.csv"
+      - "governance/INV_RMRP_OBRASGOV_4_PROJETOS_DOCUMENTOS_MUNICIPAIS_FEDERAIS_2026_11_12.csv"
+      - "governance/INV_RMRP_SIAFEM_752_CONVENIOS_METADADOS_OBJETOS_ORGAOS_2026_11_12.csv"
+      - ".github/workflows/inv-rmrp-candidatos-siafem-obrasgov-qa.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Testar sintaxe
+        run: python -m py_compile pipeline/qa/qa_inv_rmrp_candidatos_siafem_obrasgov.py
+      - name: Validar objetos, orgaos, IDs e bloqueio de vínculos inferidos
+        run: python pipeline/qa/qa_inv_rmrp_candidatos_siafem_obrasgov.py

@@ -1,0 +1,23 @@
+name: SP645 - inspecao de resposta vazia SIAFEM Alambari
+on:
+  workflow_dispatch:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/sp645-siafem-empty-probe.yml
+      - pipeline/qa/probe_sp_siafem_empty.py
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests beautifulsoup4
+      - run: python -m pipeline.qa.probe_sp_siafem_empty

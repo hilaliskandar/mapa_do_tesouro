@@ -1,0 +1,512 @@
+[
+  {
+    "id": "30964.35-52",
+    "accessed_at": "2026-11-12",
+    "official_api_base": "https://api-publica.obrasgov.gestao.gov.br/obras",
+    "project": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/projeto-investimento?id_projeto_investimento=30964.35-52&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 1,
+      "total_pages": 1,
+      "data": [
+        {
+          "id_projeto_investimento": "30964.35-52",
+          "projeto_estruturante": null,
+          "desc_nome": "IMPLANTAÇÃO DE INFRAESTRUTURA URBANA (RECAPEAMENTO ASFÁLTICO, SINALIZAÇÃO VIÁRIA E RAMPAS DE ACESSIBILIDADE) EM VIAS PÚBLICAS LOCALIZADAS NO PERÍMETRO URBANO DO MUNICÍPIO DE GUARIBA/SP",
+          "nr_cep": null,
+          "desc_endereco": null,
+          "desc_projeto": "IMPLANTAÇÃO DE INFRAESTRUTURA URBANA (RECAPEAMENTO ASFÁLTICO, SINALIZAÇÃO VIÁRIA E RAMPAS DE ACESSIBILIDADE) EM VIAS PÚBLICAS LOCALIZADAS NO PERÍMETRO URBANO DO MUNICÍPIO DE GUARIBA/SP",
+          "desc_funcao_social": "Cerca de 1.200 famílias, haja vista tratar-se de vias públicas com grande fluxo de veículos e de interligação entre bairros. As vias públicas que serão beneficiadas,  possuem grande fluxo de veículos, sendo também, vias de interligação com outros bairros. Essas vias encontram-se seriamente deterioradas, seja por terem sido recapeadas há muito tempo, ou mesmo pelas torrentes chuvas que assolaram a região sudeste, ou ainda, devido ao grande número de veículos que por elas transitam, deixando buracos de difícil manutenção e trazendo insegurança ao trânsito de veículos e pedestres.. Pretende-se com esta obra promover melhorias e  recuperação do leito carroçável de importantes vias de nossa cidade, as quais localizadas dentro do perímetro urbano da cidade, resultando no desenvolvimento urbano local e sustentável, assim como, proporcionando melhoria da qualidade de vida dos munícipes a serem beneficiados com a obra.",
+          "desc_meta_global": "IMPLANTAÇÃO DE INFRAESTRUTURA URBANA (RECAPEAMENTO ASFÁLTICO, SINALIZAÇÃO VIÁRIA E RAMPAS DE ACESSIBILIDADE) EM VIAS PÚBLICAS LOCALIZADAS NO PERÍMETRO URBANO DO MUNICÍPIO DE GUARIBA/SP",
+          "dt_inicial_prevista": "2023-12-22",
+          "dt_final_prevista": "2026-12-22",
+          "dt_cadastro": "2023-12-22",
+          "ano_cadastro": 2023,
+          "natureza_intervencao": "Obra",
+          "id_natureza_intervencao": 2,
+          "especie_intervencao": "Recuperação",
+          "id_especie_intervencao": 4,
+          "situacao": "Em execução",
+          "uf_principal": "SP",
+          "organizacao_resp": "MINISTERIO DA ECONOMIA",
+          "cnpj_organizacao_resp": null,
+          "populacao_beneficiada": null,
+          "desc_populacao_beneficiada": null,
+          "qtd_empregos_gerados": null,
+          "ind_bim": 0,
+          "dt_inicial_efetiva": null,
+          "dt_final_efetiva": null,
+          "obs_pertinentes_intervencao": null,
+          "sistema_resp": "Transferegov.br",
+          "possui_estudo_viabilidade": "NÃO",
+          "repassadores": [
+            {
+              "organizacao_repassador": "MINISTÉRIO DAS CIDADES",
+              "cnpj_repassador": "05465986000199"
+            }
+          ],
+          "tomadores": [],
+          "executores": [
+            {
+              "organizacao_executor": "MUNICIPIO DE GUARIBA",
+              "cnpj_executor": "48664304000180"
+            }
+          ],
+          "investimentos_previstos": [
+            {
+              "vl_investimento_previsto": 1206756.55,
+              "desc_nome_fonte_recurso": "Federal"
+            }
+          ],
+          "ppas": [],
+          "eixos_tipos": [
+            {
+              "eixo": "Social",
+              "id_eixo": 4,
+              "tipo": "Infraestrutura Urbana e Mobilidade",
+              "id_tipo": 37,
+              "subtipo": "Corredor Viário",
+              "id_subtipo": 83
+            }
+          ],
+          "fotos": [],
+          "pins": [
+            {
+              "pin": "POINT (-48.22735 -21.36065)",
+              "latitude": "-21.36065",
+              "longitude": "-48.22735"
+            }
+          ],
+          "areas_restricao": []
+        }
+      ]
+    },
+    "contracts": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/contrato?id_projeto_investimento=30964.35-52&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 0,
+      "total_pages": 0,
+      "data": []
+    },
+    "commitments": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/empenho?id_projeto_investimento=30964.35-52&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 1,
+      "total_pages": 1,
+      "data": [
+        {
+          "ug_emitente": 175004,
+          "id_projeto_investimento": "30964.35-52",
+          "programa_trabalho": "226296",
+          "plano_interno": "MCID0000000",
+          "fonte": "1000000000",
+          "natureza_despesa": 444042,
+          "valor_empenho": 960019,
+          "sistema_origem_empenho": "Transferegov.br",
+          "bd_origem_empenho": "cipiws",
+          "id_minuta": "",
+          "organizacao_empenho": "",
+          "data_emissao": null,
+          "nome_situacao_minuta": "",
+          "unidade_orcamentaria": "",
+          "programa_trabalho_resumido": "",
+          "resultado_primario": "",
+          "acao_orcamentaria": "",
+          "codigo_autor_emenda": "0",
+          "nr_empenho": "2023NE002773",
+          "credor": null,
+          "aliquidar": null,
+          "liquidado": null,
+          "pago": null,
+          "rpinscrito": null,
+          "rpaliquidar": null,
+          "rpaliquidado": null,
+          "rppago": null,
+          "descricao_empenho": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "30692.35-17",
+    "accessed_at": "2026-11-12",
+    "official_api_base": "https://api-publica.obrasgov.gestao.gov.br/obras",
+    "project": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/projeto-investimento?id_projeto_investimento=30692.35-17&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 1,
+      "total_pages": 1,
+      "data": [
+        {
+          "id_projeto_investimento": "30692.35-17",
+          "projeto_estruturante": null,
+          "desc_nome": "RECAPEAMENTO ASFÁLTICO EM DIVERSOS TRECHOS DO MUNICÍPIO DE SANTA RITA DO PASSA QUATRO - SP",
+          "nr_cep": null,
+          "desc_endereco": null,
+          "desc_projeto": "RECAPEAMENTO ASFÁLTICO EM DIVERSOS TRECHOS DO MUNICÍPIO DE SANTA RITA DO PASSA QUATRO - SP",
+          "desc_funcao_social": "Todos os moradores do município de Santa Rita do Passa Quatro em especial aos moradores das imediações que receberão o benefício, bem como todos aqueles que usufruem dos serviços que estão localizados nessa região.. Manutenção e conservação da malha viária do município, melhorias nas condições de segurança no trânsito e trafegabilidade das vias para a circulação de pessoas e veículos, além de condições adequadas de acessibilidade nas vias dos Bairros.. Melhoria da mobilidade urbana, estruturação de atividades produtivas, arranjos produtivos e rotas de integração para promover o desenvolvimento urbano, regional e territorial, e melhoria da qualidade da população, em especial aos moradores das imediações que receberão os benefícios.",
+          "desc_meta_global": "RECAPEAMENTO ASFÁLTICO EM DIVERSOS TRECHOS DO MUNICÍPIO DE SANTA RITA DO PASSA QUATRO - SP",
+          "dt_inicial_prevista": "2023-12-27",
+          "dt_final_prevista": "2026-12-26",
+          "dt_cadastro": "2023-12-20",
+          "ano_cadastro": 2023,
+          "natureza_intervencao": "Obra",
+          "id_natureza_intervencao": 2,
+          "especie_intervencao": "Construção",
+          "id_especie_intervencao": 1,
+          "situacao": "Concluída",
+          "uf_principal": "SP",
+          "organizacao_resp": "MINISTERIO DA ECONOMIA",
+          "cnpj_organizacao_resp": null,
+          "populacao_beneficiada": null,
+          "desc_populacao_beneficiada": null,
+          "qtd_empregos_gerados": null,
+          "ind_bim": 0,
+          "dt_inicial_efetiva": null,
+          "dt_final_efetiva": null,
+          "obs_pertinentes_intervencao": null,
+          "sistema_resp": "Transferegov.br",
+          "possui_estudo_viabilidade": "NÃO",
+          "repassadores": [
+            {
+              "organizacao_repassador": "MINISTÉRIO DAS CIDADES",
+              "cnpj_repassador": "05465986000199"
+            }
+          ],
+          "tomadores": [],
+          "executores": [
+            {
+              "organizacao_executor": "MUNICIPIO DE SANTA RITA DO PASSA QUATRO",
+              "cnpj_executor": "45749819000194"
+            }
+          ],
+          "investimentos_previstos": [
+            {
+              "vl_investimento_previsto": 961019,
+              "desc_nome_fonte_recurso": "Federal"
+            }
+          ],
+          "ppas": [],
+          "eixos_tipos": [
+            {
+              "eixo": "Econômico",
+              "id_eixo": 3,
+              "tipo": "Infraestrutura Urbana e Mobilidade",
+              "id_tipo": 24,
+              "subtipo": "Pavimentação",
+              "id_subtipo": 58
+            }
+          ],
+          "fotos": [],
+          "pins": [
+            {
+              "pin": "POINT (-47.47873 -21.71204)",
+              "latitude": "-21.71204",
+              "longitude": "-47.47873"
+            },
+            {
+              "pin": "POINT (-47.47833 -21.70557)",
+              "latitude": "-21.70557",
+              "longitude": "-47.47833"
+            },
+            {
+              "pin": "POINT (-47.47969 -21.70592)",
+              "latitude": "-21.70592",
+              "longitude": "-47.47969"
+            },
+            {
+              "pin": "POINT (-47.47873 -21.7032)",
+              "latitude": "-21.7032",
+              "longitude": "-47.47873"
+            },
+            {
+              "pin": "POINT (-47.48273 -21.71142)",
+              "latitude": "-21.71142",
+              "longitude": "-47.48273"
+            },
+            {
+              "pin": "POINT (-47.47709 -21.70664)",
+              "latitude": "-21.70664",
+              "longitude": "-47.47709"
+            }
+          ],
+          "areas_restricao": [
+            {
+              "area_restricao": "Unidade de Conservação"
+            }
+          ]
+        }
+      ]
+    },
+    "contracts": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/contrato?id_projeto_investimento=30692.35-17&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 0,
+      "total_pages": 0,
+      "data": []
+    },
+    "commitments": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/empenho?id_projeto_investimento=30692.35-17&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 1,
+      "total_pages": 1,
+      "data": [
+        {
+          "ug_emitente": 175004,
+          "id_projeto_investimento": "30692.35-17",
+          "programa_trabalho": "226296",
+          "plano_interno": "MCID0000000",
+          "fonte": "1000000000",
+          "natureza_despesa": 444042,
+          "valor_empenho": 960019,
+          "sistema_origem_empenho": "Transferegov.br",
+          "bd_origem_empenho": "cipiws",
+          "id_minuta": "",
+          "organizacao_empenho": "",
+          "data_emissao": null,
+          "nome_situacao_minuta": "",
+          "unidade_orcamentaria": "",
+          "programa_trabalho_resumido": "",
+          "resultado_primario": "",
+          "acao_orcamentaria": "",
+          "codigo_autor_emenda": "0",
+          "nr_empenho": "2023NE002685",
+          "credor": null,
+          "aliquidar": null,
+          "liquidado": null,
+          "pago": null,
+          "rpinscrito": null,
+          "rpaliquidar": null,
+          "rpaliquidado": null,
+          "rppago": null,
+          "descricao_empenho": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "30461.35-22",
+    "accessed_at": "2026-11-12",
+    "official_api_base": "https://api-publica.obrasgov.gestao.gov.br/obras",
+    "project": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/projeto-investimento?id_projeto_investimento=30461.35-22&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 1,
+      "total_pages": 1,
+      "data": [
+        {
+          "id_projeto_investimento": "30461.35-22",
+          "projeto_estruturante": null,
+          "desc_nome": "Recapeamento Asfáltico e Substituição da Rede de Esgoto de Diversas Ruas do Município de Serrana SP",
+          "nr_cep": null,
+          "desc_endereco": null,
+          "desc_projeto": "Recapeamento asfáltico e substituição da rede de esgoto de diversas ruas do Município de Serrana SP.",
+          "desc_funcao_social": "Moradores dos bairros onde se localizam as ruas, motoristas, e pedestres que por elas trafegam.. Recuperação de diversas ruas do Município de Serrana, SP, que se encontram em situação precária devido a quantidade de buracos e vazamento de esgoto sanitário.. Melhorar a qualidade de vida de nossa população, evitando acidentes e melhorando a trafegabilidade de veículos e pedestres.",
+          "desc_meta_global": "Recapeamento asfáltico e substituição da rede de esgoto de diversas ruas do Município de Serrana SP.",
+          "dt_inicial_prevista": "2023-12-22",
+          "dt_final_prevista": "2026-12-22",
+          "dt_cadastro": "2023-12-19",
+          "ano_cadastro": 2023,
+          "natureza_intervencao": "Obra",
+          "id_natureza_intervencao": 2,
+          "especie_intervencao": "Reforma",
+          "id_especie_intervencao": 3,
+          "situacao": "Concluída",
+          "uf_principal": "SP",
+          "organizacao_resp": "MINISTERIO DA ECONOMIA",
+          "cnpj_organizacao_resp": null,
+          "populacao_beneficiada": 10000,
+          "desc_populacao_beneficiada": "Moradores das ruas, pedestres e motoristas que por elas trafegam.",
+          "qtd_empregos_gerados": 20,
+          "ind_bim": 0,
+          "dt_inicial_efetiva": null,
+          "dt_final_efetiva": null,
+          "obs_pertinentes_intervencao": null,
+          "sistema_resp": "Transferegov.br",
+          "possui_estudo_viabilidade": "NÃO",
+          "repassadores": [
+            {
+              "organizacao_repassador": "MINISTÉRIO DAS CIDADES",
+              "cnpj_repassador": "05465986000199"
+            }
+          ],
+          "tomadores": [],
+          "executores": [
+            {
+              "organizacao_executor": "MUNICIPIO DE SERRANA",
+              "cnpj_executor": "44229813000123"
+            }
+          ],
+          "investimentos_previstos": [
+            {
+              "vl_investimento_previsto": 962088.57,
+              "desc_nome_fonte_recurso": "Federal"
+            }
+          ],
+          "ppas": [],
+          "eixos_tipos": [
+            {
+              "eixo": "Econômico",
+              "id_eixo": 3,
+              "tipo": "Infraestrutura Urbana e Mobilidade",
+              "id_tipo": 24,
+              "subtipo": "Pavimentação",
+              "id_subtipo": 58
+            }
+          ],
+          "fotos": [],
+          "pins": [
+            {
+              "pin": "POINT (-47.5977 -21.21097)",
+              "latitude": "-21.21097",
+              "longitude": "-47.5977"
+            }
+          ],
+          "areas_restricao": []
+        }
+      ]
+    },
+    "contracts": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/contrato?id_projeto_investimento=30461.35-22&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 0,
+      "total_pages": 0,
+      "data": []
+    },
+    "commitments": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/empenho?id_projeto_investimento=30461.35-22&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 1,
+      "total_pages": 1,
+      "data": [
+        {
+          "ug_emitente": 175004,
+          "id_projeto_investimento": "30461.35-22",
+          "programa_trabalho": "226296",
+          "plano_interno": "MCID0000000",
+          "fonte": "1000000000",
+          "natureza_despesa": 444042,
+          "valor_empenho": 960019,
+          "sistema_origem_empenho": "Transferegov.br",
+          "bd_origem_empenho": "cipiws",
+          "id_minuta": "",
+          "organizacao_empenho": "",
+          "data_emissao": null,
+          "nome_situacao_minuta": "",
+          "unidade_orcamentaria": "",
+          "programa_trabalho_resumido": "",
+          "resultado_primario": "",
+          "acao_orcamentaria": "",
+          "codigo_autor_emenda": "0",
+          "nr_empenho": "2023NE002700",
+          "credor": null,
+          "aliquidar": null,
+          "liquidado": null,
+          "pago": null,
+          "rpinscrito": null,
+          "rpaliquidar": null,
+          "rpaliquidado": null,
+          "rppago": null,
+          "descricao_empenho": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "31536.35-60",
+    "accessed_at": "2026-11-12",
+    "official_api_base": "https://api-publica.obrasgov.gestao.gov.br/obras",
+    "project": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/projeto-investimento?id_projeto_investimento=31536.35-60&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 1,
+      "total_pages": 1,
+      "data": [
+        {
+          "id_projeto_investimento": "31536.35-60",
+          "projeto_estruturante": null,
+          "desc_nome": "Pavimentação, por meio de recapeamento asfáltico, de ruas compreendidas dentro do perímetro urbano, neste Município de Sertãozinho/SP",
+          "nr_cep": null,
+          "desc_endereco": null,
+          "desc_projeto": "Pavimentação, por meio de recapeamento asfáltico, de ruas compreendidas dentro do perímetro urbano, neste município de Sertãozinho/SP.",
+          "desc_funcao_social": "As obras beneficiarão toda a população sertanezina, as que se utilizam de transporte coletivo urbano, veículos particulares - carros, motos, caminhões e outros, turistas e também aqueles que diariamente trafegam a trabalho no município.. Recuperação de vias desgastadas dentro do perímetro urbano do Município que ocasionam transtornos e prejuízos aos motoristas.. Melhor qualidade das vias públicas e redução de danos a veículos, motoristas e passageiros.",
+          "desc_meta_global": "Pavimentação, por meio de recapeamento asfáltico, de ruas compreendidas dentro do perímetro urbano, neste município de Sertãozinho/SP.",
+          "dt_inicial_prevista": "2023-12-22",
+          "dt_final_prevista": "2026-12-22",
+          "dt_cadastro": "2023-12-27",
+          "ano_cadastro": 2023,
+          "natureza_intervencao": "Obra",
+          "id_natureza_intervencao": 2,
+          "especie_intervencao": "Construção",
+          "id_especie_intervencao": 1,
+          "situacao": "Em execução",
+          "uf_principal": "SP",
+          "organizacao_resp": "MINISTERIO DA ECONOMIA",
+          "cnpj_organizacao_resp": null,
+          "populacao_beneficiada": null,
+          "desc_populacao_beneficiada": null,
+          "qtd_empregos_gerados": null,
+          "ind_bim": 0,
+          "dt_inicial_efetiva": null,
+          "dt_final_efetiva": null,
+          "obs_pertinentes_intervencao": null,
+          "sistema_resp": "Transferegov.br",
+          "possui_estudo_viabilidade": "NÃO",
+          "repassadores": [
+            {
+              "organizacao_repassador": "MINISTÉRIO DAS CIDADES",
+              "cnpj_repassador": "05465986000199"
+            }
+          ],
+          "tomadores": [],
+          "executores": [
+            {
+              "organizacao_executor": "MUNICIPIO DE SERTAOZINHO",
+              "cnpj_executor": "45371820000128"
+            }
+          ],
+          "investimentos_previstos": [
+            {
+              "vl_investimento_previsto": 863243.24,
+              "desc_nome_fonte_recurso": "Federal"
+            }
+          ],
+          "ppas": [],
+          "eixos_tipos": [
+            {
+              "eixo": "Econômico",
+              "id_eixo": 3,
+              "tipo": "Infraestrutura Urbana e Mobilidade",
+              "id_tipo": 24,
+              "subtipo": "Pavimentação",
+              "id_subtipo": 58
+            }
+          ],
+          "fotos": [],
+          "pins": [
+            {
+              "pin": "POINT (-47.99287 -21.13707)",
+              "latitude": "-21.13707",
+              "longitude": "-47.99287"
+            }
+          ],
+          "areas_restricao": []
+        }
+      ]
+    },
+    "contracts": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/contrato?id_projeto_investimento=31536.35-60&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 0,
+      "total_pages": 0,
+      "data": []
+    },
+    "commitments": {
+      "url": "https://api-publica.obrasgov.gestao.gov.br/obras/empenho?id_projeto_investimento=31536.35-60&tamanho_da_pagina=200",
+      "http": 200,
+      "total_items": 0,
+      "total_pages": 0,
+      "data": []
+    }
+  }
+]

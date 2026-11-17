@@ -1,0 +1,266 @@
+{
+  "source": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx",
+  "updated": "2026-11-12",
+  "filters": {
+    "tipo": "Investimento",
+    "beneficiado": "Prefeituras",
+    "liberacao_inicio": "01/01/2020"
+  },
+  "municipios": [
+    {
+      "nome": "Altinópolis",
+      "ibge": "3501004",
+      "registros": 18,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "6.274.696,54",
+        "30",
+        "5.149.405,34",
+        "932.512,15"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Barrinha",
+      "ibge": "3505609",
+      "registros": 11,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "4.325.000,00",
+        "15",
+        "4.313.000,00",
+        "12.000,00"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Batatais",
+      "ibge": "3505906",
+      "registros": 27,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "22.673.658,07",
+        "47",
+        "16.972.500,88",
+        "2.218.693,31"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Brodowski",
+      "ibge": "3507803",
+      "registros": 21,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "8.764.872,34",
+        "27",
+        "5.538.948,89",
+        "1.849.638,32"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Cajuru",
+      "ibge": "3509403",
+      "registros": 14,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "6.310.041,42",
+        "21",
+        "5.721.572,89",
+        "478.468,53"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Cravinhos",
+      "ibge": "3513108",
+      "registros": 22,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "17.721.523,10",
+        "31",
+        "15.906.237,97",
+        "239.000,00"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Cássia dos Coqueiros",
+      "ibge": "3510906",
+      "registros": 11,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "3.549.058,58",
+        "12",
+        "3.021.031,24",
+        "528.027,34"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Dumont",
+      "ibge": "3514601",
+      "registros": 15,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "4.745.060,45",
+        "18",
+        "4.596.053,89",
+        "69.006,56"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Guariba",
+      "ibge": "3518602",
+      "registros": 28,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "10.898.868,14",
+        "35",
+        "9.870.666,46",
+        "1.028.201,68"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Guatapará",
+      "ibge": "3518859",
+      "registros": 12,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "4.469.000,56",
+        "14",
+        "3.210.874,31",
+        "222.022,31"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Jaboticabal",
+      "ibge": "3524303",
+      "registros": 28,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "19.257.104,96",
+        "36",
+        "14.509.179,50",
+        "4.303.005,46"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Jardinópolis",
+      "ibge": "3525102",
+      "registros": 6,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "1.171.947,47",
+        "8",
+        "1.071.947,47",
+        "100.000,00"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Luís Antônio",
+      "ibge": "3527603",
+      "registros": 18,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "5.780.293,81",
+        "18",
+        "5.528.619,23",
+        "131.674,58"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Mococa",
+      "ibge": "3530508",
+      "registros": 13,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "4.725.032,02",
+        "16",
+        "4.194.501,12",
+        "530.530,90"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Monte Alto",
+      "ibge": "3531308",
+      "registros": 44,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "15.462.325,34",
+        "58",
+        "13.876.486,69",
+        "1.295.838,65"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Morro Agudo",
+      "ibge": "3531902",
+      "registros": 20,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "6.217.889,80",
+        "26",
+        "6.111.709,42",
+        "106.180,38"
+      ],
+      "erro": null
+    },
+    {
+      "nome": "Nuporanga",
+      "ibge": "3533601",
+      "registros": 30,
+      "totais": [
+        "Total",
+        "",
+        "",
+        "16.242.240,18",
+        "52",
+        "13.961.623,89",
+        "2.200.616,29"
+      ],
+      "erro": null
+    }
+  ]
+}

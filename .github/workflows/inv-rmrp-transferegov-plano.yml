@@ -1,0 +1,49 @@
+name: INV RMRP - Transferegov plano capital candidates
+on:
+  push:
+    branches:
+      - investimentos-territoriais-sp645-20261111
+    paths:
+      - "pipeline/acquire/inv_rmrp_transferegov_plano.py"
+      - "pipeline/qa/audit_inv_rmrp_pad_cross_tab.py"
+      - ".github/workflows/inv-rmrp-transferegov-plano.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  plano:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Examine official proposal and plan ZIPs
+        run: |
+          python pipeline/acquire/inv_rmrp_transferegov_plano.py \
+            --out-dir "${RUNNER_TEMP}/inv_rmrp_transferegov_plano"
+      - name: Cross-check GND, item status and location
+        run: |
+          python pipeline/qa/audit_inv_rmrp_pad_cross_tab.py \
+            --input "${RUNNER_TEMP}/inv_rmrp_transferegov_plano/plano_rmrp_itens_nao_homologados.csv" \
+            --manifest "${RUNNER_TEMP}/inv_rmrp_transferegov_plano/manifest_plano.json" \
+            --output "${RUNNER_TEMP}/inv_rmrp_transferegov_plano/QA_PAD_GND_STATUS_LOCALIZACAO.json"
+      - name: Print QA
+        if: always()
+        run: |
+          if test -f "${RUNNER_TEMP}/inv_rmrp_transferegov_plano/manifest_plano.json"; then
+            python - <<'PY'
+          import json, os
+          d=json.load(open(os.environ["RUNNER_TEMP"]+"/inv_rmrp_transferegov_plano/manifest_plano.json"))
+          print(json.dumps({"status":d["status"],"errors":d["errors"],"coverage":{k:v for k,v in d["coverage"].items() if k!="municipalities"}},ensure_ascii=False))
+          PY
+          fi
+      - name: Archive territorial extraction and provenance (no national ZIP)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-transferegov-plano
+          path: |
+            ${{ runner.temp }}/inv_rmrp_transferegov_plano/manifest_plano.json
+            ${{ runner.temp }}/inv_rmrp_transferegov_plano/plano_rmrp_itens_nao_homologados.csv
+            ${{ runner.temp }}/inv_rmrp_transferegov_plano/QA_PAD_GND_STATUS_LOCALIZACAO.json
+          retention-days: 14
+          if-no-files-found: warn

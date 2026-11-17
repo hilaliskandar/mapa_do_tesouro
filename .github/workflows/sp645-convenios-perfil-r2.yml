@@ -1,0 +1,39 @@
+name: SP645 - perfil de campos de convenios estaduais no R2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/sp645-convenios-perfil-r2.yml
+      - pipeline/qa/profile_sp_convenios_sqlite.py
+
+permissions:
+  contents: read
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+      SNAPSHOT: 1cca0556f08a1378bae52465796188788a5b3bb21e1b26c30c8c5c7d9a6b2b8f
+      STAGING_SHA: 47b29b5d6c216be76cc473f987b250924ecb5b5ef65eb3df0b0911dfb3482bd6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Leitura verificada da base de staging do R2 privado
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/estadual/convenios/snapshots/$SNAPSHOT/staging.sqlite" \
+            --output "$RUNNER_TEMP/staging.sqlite" \
+            --expected-sha256 "$STAGING_SHA"
+      - name: Perfil de cada coluna sem linhas individuais
+        run: python pipeline/qa/profile_sp_convenios_sqlite.py --db "$RUNNER_TEMP/staging.sqlite"
+      # Sem publicação, sem acesso a produção, sem exposição de linhas.

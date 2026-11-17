@@ -1,0 +1,86 @@
+name: SP645 - lote anual parametrizado SIAFEM fora RMRP em R2 privado
+on:
+  workflow_dispatch:
+    inputs:
+      offset:
+        description: "Deslocamento no cadastro dos 611 municipios fora da RMRP"
+        required: true
+        default: "70"
+      limit:
+        description: "Municipios por lote (maximo 25, sem paralelismo)"
+        required: true
+        type: choice
+        options: ["5", "10", "15", "25"]
+        default: "25"
+      year:
+        description: "Exercicio da data de liberacao"
+        required: true
+        default: "2025"
+permissions:
+  contents: read
+concurrency:
+  group: siafem-sp645-${{ github.ref }}-${{ inputs.year }}-${{ inputs.offset }}
+  cancel-in-progress: false
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      BATCH_OFFSET: ${{ inputs.offset || '70' }}
+      BATCH_LIMIT: ${{ inputs.limit || '25' }}
+      BATCH_YEAR: ${{ inputs.year || '2025' }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests beautifulsoup4
+      - name: Consultar lote parametrizado de municipios fora da RMRP
+        run: |
+          python -m pipeline.coleta.collect_sp_siafem_annual_batch --acquire --year "$BATCH_YEAR" --offset "$BATCH_OFFSET" --limit "$BATCH_LIMIT" \
+            --crosswalk governance/controls/investimentos_sp645/crosswalk_ibge_siafem_2026_11_16.csv \
+            --existing-roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
+            --outdir "$RUNNER_TEMP/sp_siafem_annual"
+      - name: Registrar prefixo imutavel pelo hash
+        id: params
+        run: |
+          python - <<'PY'
+          import json,hashlib,os
+          root=os.environ['RUNNER_TEMP']+'/sp_siafem_annual'
+          qa=json.load(open(root+'/qa.json',encoding='utf-8'))
+          sha=hashlib.sha256(open(root+'/raw.json','rb').read()).hexdigest()
+          assert sha==qa['snapshot_sha256']
+          limit=int(os.environ['BATCH_LIMIT'])
+          assert 1 <= limit <= 25
+          assert qa['municipalities_requested']==limit
+          assert qa['municipalities_with_verified_table']+qa['municipalities_without_valid_result']==limit
+          requested=qa['requested_ibge7']
+          assert len(requested)==limit and len(set(requested))==limit
+          assert set(qa['verified_ibge7']).isdisjoint(set(qa['failed_ibge7']))
+          assert set(qa['verified_ibge7'])|set(qa['failed_ibge7'])==set(requested)
+          assert qa['queries_with_no_reconciliation_footer']==0
+          prefix=f'sp_645/estadual/siafem/batches/{qa["year"]}/piloto_extra_rmrp_offset_{qa["offset"]}_len{limit}/'+sha
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write(f'prefix={prefix}\nsha={sha}\n')
+          print('SIAFEM_BATCH_QA',json.dumps(qa,ensure_ascii=False))
+          PY
+      - name: Preservar piloto em acervo privado existente
+        env:
+          PREFIX: ${{ steps.params.outputs.prefix }}
+          SHA: ${{ steps.params.outputs.sha }}
+        run: |
+          python deployment/upload_r2_source.py --source "$RUNNER_TEMP/sp_siafem_annual/raw.json" \
+            --object-key "$PREFIX/raw.json" --content-type application/json \
+            --expected-sha256 "$SHA"
+          python deployment/upload_r2_source.py --source "$RUNNER_TEMP/sp_siafem_annual/qa.json" \
+            --object-key "$PREFIX/qa.json" --content-type application/json
+          python deployment/download_r2_source.py \
+            --object-key "$PREFIX/raw.json" --output "$RUNNER_TEMP/sp_siafem_annual/readback.json" \
+            --expected-sha256 "$SHA"
+          echo 'SP645_SIAFEM_PILOT_READBACK_PASS'
+      # Lote diagnostico: nenhuma promoção para SQLite fiscal produtivo, Pages ou D1.

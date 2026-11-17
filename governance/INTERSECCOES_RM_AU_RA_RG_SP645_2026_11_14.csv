@@ -1,0 +1,29 @@
+tipo_rm_au;codigo_rm_au;nome_rm_au;codigo_ra;nome_ra;codigo_rg;nome_rg;municipios_na_intersecao
+AU;00301;Aglomeração Urbana de Franca;6;RA de Franca;17;RG de Franca;16
+AU;00301;Aglomeração Urbana de Franca;2;RA de Barretos;7;RG de Barretos;1
+AU;00301;Aglomeração Urbana de Franca;6;RA de Franca;36;RG de São Joaquim da Barra;2
+RM;04901;Região Metropolitana de São Paulo;10;Região Metropolitana de São Paulo;40;RG de São Paulo;39
+RM;05001;Região Metropolitana da Baixada Santista;12;RA de Santos;33;RG de Santos;9
+RM;05101;Região Metropolitana de Campinas;4;RA de Campinas;11;RG de Campinas;18
+RM;05101;Região Metropolitana de Campinas;4;RA de Campinas;23;RG de Jundiaí;2
+RM;05201;Região Metropolitana do Vale do Paraíba e Litoral Norte;15;RA de São José dos Campos;18;RG de Guaratinguetá;9
+RM;05201;Região Metropolitana do Vale do Paraíba e Litoral Norte;15;RA de São José dos Campos;14;RG de Cruzeiro;8
+RM;05201;Região Metropolitana do Vale do Paraíba e Litoral Norte;15;RA de São José dos Campos;38;RG de São José dos Campos;8
+RM;05201;Região Metropolitana do Vale do Paraíba e Litoral Norte;15;RA de São José dos Campos;41;RG de Taubaté;10
+RM;05201;Região Metropolitana do Vale do Paraíba e Litoral Norte;15;RA de São José dos Campos;12;RG de Caraguatatuba;4
+RM;05301;Região Metropolitana de Sorocaba;13;RA de Sorocaba;19;RG de Itapetininga;9
+RM;05301;Região Metropolitana de Sorocaba;13;RA de Sorocaba;34;RG de Sorocaba;18
+RM;05401;Região Metropolitana de Ribeirão Preto;11;RA de Ribeirão Preto;31;RG de Ribeirão Preto;25
+RM;05401;Região Metropolitana de Ribeirão Preto;6;RA de Franca;17;RG de Franca;1
+RM;05401;Região Metropolitana de Ribeirão Preto;4;RA de Campinas;39;RG de São João da Boa Vista;2
+RM;05401;Região Metropolitana de Ribeirão Preto;6;RA de Franca;36;RG de São Joaquim da Barra;4
+RM;05401;Região Metropolitana de Ribeirão Preto;5;RA Central;35;RG de São Carlos;1
+RM;05401;Região Metropolitana de Ribeirão Preto;2;RA de Barretos;7;RG de Barretos;1
+RM;08002;Região Metropolitana de São José do Rio Preto;14;RA de São José do Rio Preto;37;RG de São José do Rio Preto;31
+RM;08002;Região Metropolitana de São José do Rio Preto;14;RA de São José do Rio Preto;13;RG de Catanduva;3
+RM;08002;Região Metropolitana de São José do Rio Preto;14;RA de São José do Rio Preto;43;RG de Votuporanga;1
+RM;08002;Região Metropolitana de São José do Rio Preto;2;RA de Barretos;7;RG de Barretos;2
+RM;08101;Região Metropolitana de Jundiaí;4;RA de Campinas;23;RG de Jundiaí;7
+RM;08201;Região Metropolitana de Piracicaba;4;RA de Campinas;28;RG de Piracicaba;11
+RM;08201;Região Metropolitana de Piracicaba;4;RA de Campinas;32;RG de Rio Claro;5
+RM;08201;Região Metropolitana de Piracicaba;4;RA de Campinas;24;RG de Limeira;8

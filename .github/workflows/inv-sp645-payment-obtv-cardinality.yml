@@ -1,0 +1,35 @@
+name: INV SP645 - pagamento versus OBTV cardinalidade
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/acquire/inv_sp645_payment_obtv_cardinality.py
+      - .github/workflows/inv-sp645-payment-obtv-cardinality.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cardinality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check syntax
+        run: python -m py_compile pipeline/acquire/inv_sp645_payment_obtv_cardinality.py
+      - name: Validate official national payment and OBTV movement identifiers
+        run: |
+          python pipeline/acquire/inv_sp645_payment_obtv_cardinality.py \
+            --out-dir "${RUNNER_TEMP}/payment_obtv_qa"
+      - name: Upload aggregate-only QA manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-payment-obtv-cardinality
+          path: ${{ runner.temp }}/payment_obtv_qa/manifest_payment_obtv_cardinality.json
+          retention-days: 30
+          if-no-files-found: warn

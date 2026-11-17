@@ -71,6 +71,14 @@ A partir dos **218 IDs únicos de projetos** do staging RMRP FED08B, registrados
 
 **Infraestrutura:** o acesso oficial por Crawl2AI permitiu aquisição real das fichas; o workflow novo `.github/workflows/rmrp-obrasgov-planned-values-r2.yml` e coletor Python foram preparados para preservação futura em R2, porém **o dispatch do workflow novo retornou 404 porque não está registrado como executável no catálogo de workflows da branch padrão**. Não houve execução desse workflow nem upload dos novos JSON brutos no R2. As séries filtradas e URLs oficiais foram efetivamente preservadas em CSVs na branch de desenvolvimento, sem publicação no site.
 
+## 4-A. Etapa adicional efetivamente executada — Especiais: cadeia monetária
+
+Em consulta posterior aos planos, foi adquirida a cadeia de documentos monetários **sem reconciliação** e com IDs oficiais: **284 registros de empenho/minuta** (252 `Enviado`, R$ 85.451.825,06; 32 `Minuta de Empenho`, R$ 10.851.500,00), **257 documentos hábeis em 252 planos**, no valor de **R$ 85.451.825,06** e **257 registros de OP/OB**. Entre as ordens, **253 aparecem como `OB Enviada à instituição bancária para pagamento`**, vinculadas a R$ 83.652.211,73 dos documentos hábeis, e **quatro aparecem como `OP Pendente (Retorno com erro no envio ao SIAFI)`**, vinculadas a R$ 1.799.613,33. Não presumir pagamento efetivamente creditado. Os 32 planos restantes não retornaram documento hábil, mas não devem receber valor zero imputado.
+
+O registro das ordens **não fornece um campo monetário próprio** no endpoint; os valores são os montantes dos documentos hábeis-pai, vinculados por `id_dh` e apresentados como medida associada, nunca como valor pago confirmado. Consultas e respostas tiveram QA de paginação, ID e cobertura completa. [Relatório específico da cadeia de Especiais](INV_RMRP_ESPECIAIS_CADEIA_MONETARIA_API_2026_11_17.md).
+
+Foi criado também o [quadro sintético por estágio e fonte](controls/investimentos_sp645/RMRP_FEDERAL_MEDIDAS_COMPILADAS_2026_11_17.csv), com **11 medidas não aditivas**, para apoiar a integração futura sem confundir previsão, empenho, DH, OP/OB, contrato, desembolso e investimento municipal executado.
+
 ## 5. Próximo passo recomendado
 
 Agora que **planos Especiais e projetos Obrasgov estão todos presentes com valores previstos**, priorizar consulta de valores de **empenhos e ordens bancárias** dessas modalidades, e eventos financeiros efetivos de Parcerias. Manter a ordem documental dos IDs, sem imputar valor zero a registros sem campo, sem reabrir reconciliação e sem alterar banco fiscal ou plataforma pública.

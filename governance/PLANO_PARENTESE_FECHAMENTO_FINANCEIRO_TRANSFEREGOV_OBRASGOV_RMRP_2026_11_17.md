@@ -2,6 +2,10 @@
 
 **Decisão de priorização:** 17/11/2026. **Projeto:** `hilaliskandar/mapa_do_tesouro`; branch `investimentos-territoriais-sp645-20261111`; PR #233 permanece em rascunho. **Regra de release:** `public_release_authorized=false`.
 
+## Atualização executada F00 em 17/11/2026
+
+O inventário F00 foi executado: metadados atuais do Google Drive confirmaram **nove objetos privados** na pasta canônica, incluindo **sete ZIPs nacionais**, staging FED03C/FED04B e pacote FED08B, sem mudança de compartilhamento. O relatório de 15/11 comprova SHA/CRC de readback dos sete ZIPs, **não recalculado nesta sessão**. São 28.503 pagamentos selecionados, 28.256 DL, 39.498 itens DL e 395 registros OBTV associados, já materializados em SQLite privado. Ver [auditoria F00](INV_RMRP_F00_AUDITORIA_ACERVO_FEDERAL_2026_11_17.md) e [inventário verificável](controls/investimentos_sp645/F00_RMRP_FEDERAL_PACOTES_VERIFICADOS_2026_11_17.csv). **F00 concluído no nível de metadados e proveniência; F01 e F02 continuam pendentes de recálculo monetário real.**
+
 ## 1. Objetivo e limite do parêntese
 
 Suspender **novos disparos manuais** de lotes SIAFEM da expansão estadual fora da RMRP para priorizar o fechamento da **coleta, conciliação e classificação monetária** das fontes federais **Transferegov e Obrasgov**, usando a RMRP (34 municípios, quatro sub-regiões) como piloto de integração à série FINBRA/SICONFI, TCESP e SIAFEM-SP. Sem necessidade de investigar contratos, endereços, geometrias, status físico, fotos, medições ou cada obra individual.
@@ -48,7 +52,7 @@ Distinções obrigatórias: previsto/celebrado; empenhado; desembolsado/transfer
 ## 6. Sequência imediata e ponto de retomada
 
 1. **F00:** inventariar e verificar bytes/hash de pacotes RMRP já preservados e os manifestos FED; classificar o que falta coletar e o que falta somente conciliar.
-2. **F01–F02:** fechar desembolsos e semântica de movimentos; obter, de fonte oficial e com snapshot privado, os membros de ZIP que ainda faltam (`siconv_itens_dl` e associados), sem repetir o universo já recuperado.
+2. **F01–F02:** fechar desembolsos e semântica de movimentos a partir dos **sete ZIPs oficiais já preservados e auditados**, inclusive `siconv_itens_dl` de 548.549.412 bytes, cujo SHA-256 de readback foi registrado em 15/11/2026. Não redownload, salvo prova de retificação/versionamento ou indisponibilidade da cópia privada.
 3. **F03–F04:** fechar modalidades financeiras e Obrasgov somente quanto a valores; registrar módulos sem cobertura como indisponíveis, não como ausência de obras.
 4. **F05–F06:** produzir quadro anual integrado e prévia privada, com limites explícitos e gate de homologação.
 5. Retomar SIAFEM externa no **offset 420** somente após o encerramento deste parêntese ou nova decisão de prioridade; preservar as 57 consultas inconclusivas em fila separada.

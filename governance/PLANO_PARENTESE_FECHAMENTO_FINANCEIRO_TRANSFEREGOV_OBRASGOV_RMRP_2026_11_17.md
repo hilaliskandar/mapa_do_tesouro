@@ -31,6 +31,12 @@ A orientação vigente suspende **temporariamente as reconciliações F01/F02**,
 
 **Próxima prioridade:** obter eventos monetários de empenhos/ordens bancárias de Especiais e Parcerias, sem reconciliação aprofundada por ora. Novo workflow R2 foi preparado na branch, mas o dispatch retornou 404 (não registrado no catálogo de workflows da branch padrão); não afirmar execução, upload R2 ou readback deste workflow. Dados resumidos filtrados e URLs foram preservados no GitHub; fonte oficial permanece acessível.
 
+## Consolidação complementar da aquisição Especiais — 17/11/2026
+
+As consultas oficiais adicionais avançaram dos 284 planos até **284 registros de empenho/minuta, 257 documentos hábeis e 257 registros de OP/OB**, utilizando exclusivamente chaves `id_plano_acao`, `id_empenho` e `id_dh`. **Todos os IDs recuperados foram consultados, sem erros de paginação ou chave.** Entre os 284 empenhos, 252 constam como `Enviado` e 32 como `Minuta`. Entre as ordens, **253 `OB Enviada à instituição bancária para pagamento`**, vinculadas a **R$ 83.652.211,73** em valores dos DH, e **quatro `OP Pendente (Retorno com erro no envio ao SIAFI)`**, vinculadas a **R$ 1.799.613,33** em DH. **Esses valores são de documentos-pai associados à situação da ordem, não `valor_pago` do endpoint ou crédito bancário confirmado**. As 32 minutas não retornaram documento hábil.
+
+[Relatório da cadeia Especiais](INV_RMRP_ESPECIAIS_CADEIA_MONETARIA_API_2026_11_17.md) e [quadro sintético de 11 medidas por estágio](controls/investimentos_sp645/RMRP_FEDERAL_MEDIDAS_COMPILADAS_2026_11_17.csv). **A sequência de aquisição Especiais por plano/empenho/DH/OP está fechada para os 34 beneficiários municipais da RMRP**, no recorte da API consultada; ainda faltam confirmações bancárias, eventuais devoluções e outras modalidades. A **próxima prioridade de aquisição é Gestão de Parcerias** (`id_proposta → id_parceria → id_documento_habil → id_op`) e, quando pertinente, Fundo a Fundo/TED, sem voltar à conciliação aprofundada até nova orientação.
+
 ## 1. Objetivo e limite do parêntese
 
 Suspender **novos disparos manuais** de lotes SIAFEM da expansão estadual fora da RMRP para priorizar o fechamento da **coleta, conciliação e classificação monetária** das fontes federais **Transferegov e Obrasgov**, usando a RMRP (34 municípios, quatro sub-regiões) como piloto de integração à série FINBRA/SICONFI, TCESP e SIAFEM-SP. Sem necessidade de investigar contratos, endereços, geometrias, status físico, fotos, medições ou cada obra individual.

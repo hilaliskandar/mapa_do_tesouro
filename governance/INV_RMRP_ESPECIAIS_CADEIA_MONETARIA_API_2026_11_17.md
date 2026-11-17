@@ -21,8 +21,8 @@ Todas as respostas foram inspecionadas quanto a `total_items`, `total_pages`, ca
 | Planos de ação: `valor_investimento_plano_acao` | 284 planos, sendo parte com valor de custeio | **R$ 93.046.325,06** | Investimento **previsto no plano**, não gasto |
 | Planos de ação: `valor_custeio_plano_acao` | 284 planos, com custeio em parte deles | **R$ 3.257.000,00** | Custeio previsto no plano |
 | Registros `empenhos-especiais` — categorias investimento e custeio juntas | 284 | **R$ 96.303.325,06** | Empenho/minuta, incluindo registros não enviados |
-| Empenhos `descricao_situacao_empenho=Enviado` | **252** | **R$ 85.659.825,06** | Registro enviado, sem prova isolada de pagamento |
-| Empenhos `Minuta de Empenho` | **32** | **R$ 10.643.500,00** | Minutas; não declarar empenho confirmado |
+| Empenhos `descricao_situacao_empenho=Enviado` | **252** | **R$ 85.451.825,06** | Registro enviado, sem prova isolada de pagamento |
+| Empenhos `Minuta de Empenho` | **32** | **R$ 10.851.500,00** | Minutas; não declarar empenho confirmado |
 | Documentos hábeis `Enviado com Sucesso` | **257** | **R$ 85.451.825,06** | Valor de documentos, inclusive vários por um mesmo plano |
 | Ordens OP/OB `OB Enviada à instituição bancária para pagamento` | **253** | **R$ 83.652.211,73** | Valor dos DH associados às ordens enviadas; **não comprova crédito definitivo** |
 | Ordens `OP Pendente (Retorno com erro no envio ao SIAFI)` | **4** | **R$ 1.799.613,33** | Valor dos DH associados às quatro operações com erro; nenhuma OB emitida registrada |

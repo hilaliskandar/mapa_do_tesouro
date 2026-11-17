@@ -1,0 +1,21 @@
+ibge7;id_plano_acao;ano_plano;id_empenho;data_emissao;categoria_despesa;valor_empenho_centavos;situacao_empenho;estado;url_fonte
+3547908;98635;2026;69240;2026-10-16;INVESTIMENTO;39800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=98635&pagina=1&tamanho_da_pagina=200
+3505906;10893;2021;11873;2021-06-30;INVESTIMENTO;10000000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=10893&pagina=1&tamanho_da_pagina=200
+3505906;13610;2021;14498;2021-09-06;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=13610&pagina=1&tamanho_da_pagina=200
+3505906;18078;2022;19477;2022-05-17;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=18078&pagina=1&tamanho_da_pagina=200
+3505906;38608;2023;32191;2023-07-05;INVESTIMENTO;25000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=38608&pagina=1&tamanho_da_pagina=200
+3505906;38820;2023;32403;2023-07-05;INVESTIMENTO;50000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=38820&pagina=1&tamanho_da_pagina=200
+3505906;17539;2022;18938;2022-05-17;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=17539&pagina=1&tamanho_da_pagina=200
+3505906;68461;2024;38996;2024-06-26;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=68461&pagina=1&tamanho_da_pagina=200
+3505906;74928;2024;45168;2024-06-26;INVESTIMENTO;35000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=74928&pagina=1&tamanho_da_pagina=200
+3505906;86162;2025;57039;2025-12-01;INVESTIMENTO;39600000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=86162&pagina=1&tamanho_da_pagina=200
+3505906;77628;2025;49105;2025-07-29;INVESTIMENTO;39600000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=77628&pagina=1&tamanho_da_pagina=200
+3505906;96605;2026;66835;2026-06-19;INVESTIMENTO;39800000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=96605&pagina=1&tamanho_da_pagina=200
+3505906;97752;2026;67979;2026-05-08;INVESTIMENTO;79600000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=97752&pagina=1&tamanho_da_pagina=200
+3530508;13175;2021;14065;2021-07-08;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=13175&pagina=1&tamanho_da_pagina=200
+3530508;19847;2022;21246;2022-05-17;INVESTIMENTO;100000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=19847&pagina=1&tamanho_da_pagina=200
+3530508;20428;2022;21827;2022-05-17;INVESTIMENTO;60000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=20428&pagina=1&tamanho_da_pagina=200
+3530508;33344;2023;26957;2023-07-05;INVESTIMENTO;65198900;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=33344&pagina=1&tamanho_da_pagina=200
+3530508;38247;2023;31829;2023-07-05;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=38247&pagina=1&tamanho_da_pagina=200
+3530508;33259;2023;26876;2023-07-05;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=33259&pagina=1&tamanho_da_pagina=200
+3530508;71955;2024;42195;2024-06-26;INVESTIMENTO;20158500;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=71955&pagina=1&tamanho_da_pagina=200

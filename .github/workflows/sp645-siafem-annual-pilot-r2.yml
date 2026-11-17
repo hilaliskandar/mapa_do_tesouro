@@ -1,27 +1,33 @@
-name: SP645 - primeiro lote anual SIAFEM fora RMRP em R2 privado
+name: SP645 - lote anual parametrizado SIAFEM fora RMRP em R2 privado
 on:
   workflow_dispatch:
     inputs:
       offset:
         description: "Deslocamento no cadastro dos 611 municipios fora da RMRP"
         required: true
-        default: "5"
+        default: "70"
+      limit:
+        description: "Municipios por lote (maximo 25, sem paralelismo)"
+        required: true
+        type: choice
+        options: ["5", "10", "15", "25"]
+        default: "25"
       year:
         description: "Exercicio da data de liberacao"
         required: true
         default: "2025"
-  push:
-    branches: [investimentos-territoriais-sp645-20261111]
-    paths:
-      - .github/workflows/sp645-siafem-annual-pilot-r2.yml
 permissions:
   contents: read
+concurrency:
+  group: siafem-sp645-${{ github.ref }}-${{ inputs.year }}-${{ inputs.offset }}
+  cancel-in-progress: false
 jobs:
   pilot:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
-      BATCH_OFFSET: ${{ inputs.offset || '5' }}
+      BATCH_OFFSET: ${{ inputs.offset || '70' }}
+      BATCH_LIMIT: ${{ inputs.limit || '25' }}
       BATCH_YEAR: ${{ inputs.year || '2025' }}
       CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -34,9 +40,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet requests beautifulsoup4
-      - name: Consultar cinco municipios nao incluidos na RMRP
+      - name: Consultar lote parametrizado de municipios fora da RMRP
         run: |
-          python -m pipeline.coleta.collect_sp_siafem_annual_batch --acquire --year "$BATCH_YEAR" --offset "$BATCH_OFFSET" --limit 5 \
+          python -m pipeline.coleta.collect_sp_siafem_annual_batch --acquire --year "$BATCH_YEAR" --offset "$BATCH_OFFSET" --limit "$BATCH_LIMIT" \
             --crosswalk governance/controls/investimentos_sp645/crosswalk_ibge_siafem_2026_11_16.csv \
             --existing-roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
             --outdir "$RUNNER_TEMP/sp_siafem_annual"
@@ -49,9 +55,16 @@ jobs:
           qa=json.load(open(root+'/qa.json',encoding='utf-8'))
           sha=hashlib.sha256(open(root+'/raw.json','rb').read()).hexdigest()
           assert sha==qa['snapshot_sha256']
-          assert qa['municipalities_requested']==5
-          assert qa['municipalities_with_verified_table']+qa['municipalities_without_valid_result']==5
-          prefix=f'sp_645/estadual/siafem/batches/{qa["year"]}/piloto_extra_rmrp_offset_{qa["offset"]}_len5/'+sha
+          limit=int(os.environ['BATCH_LIMIT'])
+          assert 1 <= limit <= 25
+          assert qa['municipalities_requested']==limit
+          assert qa['municipalities_with_verified_table']+qa['municipalities_without_valid_result']==limit
+          requested=qa['requested_ibge7']
+          assert len(requested)==limit and len(set(requested))==limit
+          assert set(qa['verified_ibge7']).isdisjoint(set(qa['failed_ibge7']))
+          assert set(qa['verified_ibge7'])|set(qa['failed_ibge7'])==set(requested)
+          assert qa['queries_with_no_reconciliation_footer']==0
+          prefix=f'sp_645/estadual/siafem/batches/{qa["year"]}/piloto_extra_rmrp_offset_{qa["offset"]}_len{limit}/'+sha
           with open(os.environ['GITHUB_OUTPUT'],'a') as f:
               f.write(f'prefix={prefix}\nsha={sha}\n')
           print('SIAFEM_BATCH_QA',json.dumps(qa,ensure_ascii=False))

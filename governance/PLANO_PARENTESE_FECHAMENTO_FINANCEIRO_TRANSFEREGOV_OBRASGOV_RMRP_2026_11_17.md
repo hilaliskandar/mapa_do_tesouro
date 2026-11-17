@@ -6,6 +6,12 @@
 
 O inventário F00 foi executado: metadados atuais do Google Drive confirmaram **nove objetos privados** na pasta canônica, incluindo **sete ZIPs nacionais**, staging FED03C/FED04B e pacote FED08B, sem mudança de compartilhamento. O relatório de 15/11 comprova SHA/CRC de readback dos sete ZIPs, **não recalculado nesta sessão**. São 28.503 pagamentos selecionados, 28.256 DL, 39.498 itens DL e 395 registros OBTV associados, já materializados em SQLite privado. Ver [auditoria F00](INV_RMRP_F00_AUDITORIA_ACERVO_FEDERAL_2026_11_17.md) e [inventário verificável](controls/investimentos_sp645/F00_RMRP_FEDERAL_PACOTES_VERIFICADOS_2026_11_17.csv). **F00 concluído no nível de metadados e proveniência; F01 e F02 continuam pendentes de recálculo monetário real.**
 
+## Atualização executada F01/F02 em 17/11/2026
+
+Foram recuperados e validados por SHA-256/CRC os **dois pacotes SQLite reais** FED08B e FED03C; QA `integrity_check=ok` e FKs válidas. Um processamento independente produziu **505 linhas município-ano observadas** para 34 municípios, separando evento de desembolso e movimento de pagamento. **Desembolsos:** 2.537 operações-pai, valor bruto total R$ 714.989.114,47; 2.535 reconciliadas com grupos de empenho, R$ 714.319.393,67; duas exceções mantidas sem correção forçada (R$ 475 mil com diferença de R$ 88 mil e R$ 194.720,80 sem ponte). **Pagamentos nominais brutos:** 28.503 movimentos distintos, R$ 627.287.678,10, sem homologação líquida nem capital GND4 pago. A matriz privada CSV por município-ano, resumo anual e QA foram salvos no Drive privado e recuperados por readback SHA-256 idêntico.
+
+[Relatório F01/F02, SQL, números e restrições](INV_RMRP_F01_F02_MATRIZ_FINANCEIRA_REAL_2026_11_17.md). [Pacote privado Drive](https://drive.google.com/file/d/1fM3fw-jnWEAE5EpUoJk7JTMJAkmzA4YL/view), 10.976 bytes, SHA-256 `5bf3385d7e170cd4e7b7911e933eb97c3be08db4aa677d0c8d1a4502aa3e4913`. **F01/F02 parciais**, pendentes duas exceções, conciliação líquida de estornos/devoluções, natureza efetivamente paga e modalidades F03. `public_release_authorized=false`.
+
 ## 1. Objetivo e limite do parêntese
 
 Suspender **novos disparos manuais** de lotes SIAFEM da expansão estadual fora da RMRP para priorizar o fechamento da **coleta, conciliação e classificação monetária** das fontes federais **Transferegov e Obrasgov**, usando a RMRP (34 municípios, quatro sub-regiões) como piloto de integração à série FINBRA/SICONFI, TCESP e SIAFEM-SP. Sem necessidade de investigar contratos, endereços, geometrias, status físico, fotos, medições ou cada obra individual.

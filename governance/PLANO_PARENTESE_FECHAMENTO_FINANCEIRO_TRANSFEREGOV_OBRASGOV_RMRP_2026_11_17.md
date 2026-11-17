@@ -20,6 +20,17 @@ A orientação vigente suspende **temporariamente as reconciliações F01/F02**,
 
 **Gate de interpretação:** valor do contrato, empenho, desembolso e pagamento são estágios separados e não devem ser somados. Dados sem totalizador, campos ausentes ou endpoints vazios permanecem `null`/pendentes, nunca zero presumido. Suspensão de reconciliação não autoriza chamar esses valores de investimento executado. A expansão estadual SIAFEM externa permanece suspensa no offset 420; `public_release_authorized=false`.
 
+## Atualização de aquisição API em 17/11/2026 — F03/F04
+
+**Acesso oficial recuperado via Crawl2AI; a limitação DNS do executor local não impede as consultas.** Foram efetivamente consultados e preservados, na branch de desenvolvimento, os valores previstos em três módulos:
+- **Transferências Especiais:** 628 beneficiários em SP em quatro páginas, 34 identificadores municipais RMRP correspondentes; **284 planos, IDs distintos e 34/34 municípios**, previstos **R$ 93.046.325,06 investimento e R$ 3.257.000,00 custeio**, 2020–2026.
+- **Gestão de Parcerias:** **743 propostas distintas**, 34/34 municípios, 2024–2026; `nr_vlr_total=null` em 743/743; `vl_total_planejamento_gastos` presente em **672/743**, somando **R$ 256.473.787,83** de planejamento misto (não pagamento ou capital confirmado).
+- **Obrasgov:** **218/218 IDs existentes** consultados por `id_projeto_investimento`, com investimento **previsto federal R$ 416.531.252,99**, anos de cadastro 2022–2026. Os registros por ID estão em 11 lotes, sem erro. Projeto por proponente **não** comprova local físico.
+
+[**Relatório detalhado, QA e referências aos 23 CSVs por fonte**](INV_RMRP_F03_F04_AQUISICAO_API_34_MUNICIPIOS_218_PROJETOS_2026_11_17.md). São três medidas **não aditivas entre si e com FINBRA/SIAFEM/convênios/desembolsos**, por serem estágios previstos ou de planejamento. Nenhum valor foi promovido a investimento executado nem ao painel público; `public_release_authorized=false`.
+
+**Próxima prioridade:** obter eventos monetários de empenhos/ordens bancárias de Especiais e Parcerias, sem reconciliação aprofundada por ora. Novo workflow R2 foi preparado na branch, mas o dispatch retornou 404 (não registrado no catálogo de workflows da branch padrão); não afirmar execução, upload R2 ou readback deste workflow. Dados resumidos filtrados e URLs foram preservados no GitHub; fonte oficial permanece acessível.
+
 ## 1. Objetivo e limite do parêntese
 
 Suspender **novos disparos manuais** de lotes SIAFEM da expansão estadual fora da RMRP para priorizar o fechamento da **coleta, conciliação e classificação monetária** das fontes federais **Transferegov e Obrasgov**, usando a RMRP (34 municípios, quatro sub-regiões) como piloto de integração à série FINBRA/SICONFI, TCESP e SIAFEM-SP. Sem necessidade de investigar contratos, endereços, geometrias, status físico, fotos, medições ou cada obra individual.

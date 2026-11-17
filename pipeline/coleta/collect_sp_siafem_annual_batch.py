@@ -148,7 +148,15 @@ def main():
         "failed_ibge7":[x["codigo_ibge"] for x in failures],
         "qa_status":"pilot_regional_expansion_not_financial_homologation"}
     (out/"qa.json").write_text(json.dumps(qa,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    # Diagnostico seguro de falhas, sem alterar o resultado ou imputar zero.
+    # Em falhas totais, o workflow interrompe antes do upload R2; expor causas no log.
+    from collections import Counter
+    failures_by_class=Counter(x["reason_class"] for x in failures)
+    qa["failed_reason_classes"]=dict(sorted(failures_by_class.items()))
+    (out/"qa.json").write_text(json.dumps(qa,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(qa,ensure_ascii=False))
+    if failures:
+        print("SIAFEM_FAILURE_DIAGNOSTIC",json.dumps(failures,ensure_ascii=False))
     if not data:raise SystemExit(3)  # lote sem nenhuma consulta validada
 if __name__=="__main__":
     main()

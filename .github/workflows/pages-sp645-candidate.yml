@@ -8,6 +8,11 @@ on:
         required: false
         default: "sp645-candidate"
         type: string
+      include_rmrp_territory:
+        description: "Include only validated territorial catalog RMRP"
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -105,6 +110,10 @@ jobs:
             --site-output build/site-sp645 \
             --geojson inputs/geojs-35-mun.json
 
+      - name: Include strictly territorial RMRP catalog
+        if: ${{ inputs.include_rmrp_territory }}
+        run: python deployment/materialize_rmrp_territorial_sp645.py --site build/site-sp645
+
       - name: Validate SP645 candidate locally
         run: python deployment/qa_sp645_pages.py --site build/site-sp645
 
@@ -137,6 +146,15 @@ jobs:
           DEPLOY_ALIAS: ${{ inputs.alias }}
         run: |
           python deployment/qa_sp645_pages.py \
+            --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+
+      - name: Validate RMRP territorial catalog remotely
+        if: ${{ inputs.include_rmrp_territory }}
+        shell: bash
+        env:
+          DEPLOY_ALIAS: ${{ inputs.alias }}
+        run: |
+          python deployment/materialize_rmrp_territorial_sp645.py \
             --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
 
       - name: Reject HTML fallback on external SP645 API v2 JSON

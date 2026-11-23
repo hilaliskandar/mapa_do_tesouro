@@ -21,6 +21,22 @@ def fetch(remote: str, path: str) -> bytes:
 
 
 def validate(read):
+    territorio_html = read("territorio-rmrp-validado.html").decode("utf-8")
+    if "Municípios e sub-regiões da RMRP" not in territorio_html:
+        raise RuntimeError("Página cadastral territorial ausente")
+    territorio = json.loads(read("data/api/v3/investimentos/rmrp/territorio-validado.json"))
+    if territorio["metadata"]["qa_status"] != "validado_dimensao_territorial_sem_homologacao_financeira":
+        raise RuntimeError("Catálogo territorial sem status correto")
+    expected_subregioes = {"Sub-região de Ribeirão Preto": 15, "Sub-região de Jaboticabal": 6,
+                          "Sub-região de Mococa": 6, "Sub-região de Batatais": 7}
+    if territorio["total_municipios"] != 34 or len(territorio["municipios"]) != 34:
+        raise RuntimeError("Catálogo territorial com município faltante")
+    if len({m["codigo_ibge"] for m in territorio["municipios"]}) != 34:
+        raise RuntimeError("Código IBGE7 duplicado no catálogo")
+    if {m["nome"]: m["municipios"] for m in territorio["sub_regioes"]} != expected_subregioes:
+        raise RuntimeError("Contagem territorial por sub-região divergente")
+    if any(set(m) != {"codigo_ibge", "municipio", "sub_regiao"} for m in territorio["municipios"]):
+        raise RuntimeError("Campos não cadastrais no catálogo territorial")
     html = read("obrasgov-rmrp-preview.html").decode("utf-8")
     html2 = read("investimentos-rmrp-preview.html").decode("utf-8")
     html3 = read("especiais-rmrp-preview.html").decode("utf-8")
@@ -49,6 +65,8 @@ def validate(read):
         raise RuntimeError("SIAFEM convênio-ano não concilia com total oficial")
     if sum(x["pagamentos"] for x in siafem["convenio_ano"]) != 1017:
         raise RuntimeError("SIAFEM pagamentos divergentes")
+    if {x["codigo_ibge"] for x in territorio["municipios"]} != {x["codigo_ibge"] for x in siafem["municipios"]}:
+        raise RuntimeError("Catálogo territorial não coincide com base RMRP")
     if {x["codigo_ibge"] for x in siafem["municipios"]} != {x["codigo_ibge"] for x in especiais["municipios"]}:
         raise RuntimeError("SIAFEM cadastro territorial inconsistente")
     if movimento["metadata"]["qa_status"] != "triagem_nao_conciliada_por_plano":

@@ -1,0 +1,25 @@
+name: RMRP Cadastro Browser QA
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install browser dependencies
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install chromium --with-deps
+      - name: Verify RMRP candidate desktop and mobile
+        env:
+          RMRP_PREVIEW_URL: https://sp645-rmrp-release.finbra-tic-tim-referencia.pages.dev
+        run: node deployment/qa_rmrp_territory_browser.cjs

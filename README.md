@@ -1,5 +1,7 @@
 # Finanças Municipais SP
 
+> **Gate adicional de navegador — 23/11/2026:** a [PR 234](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234) passou integralmente no [primeiro workflow isolado 45286673670](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45286673670), com QA estadual e API v2 local/remota. Integração adicional `deployment/qa_rmrp_territory_browser.cjs` agora testa Chromium desktop/mobile, filtros, erros de JavaScript e contrato JSON pelo próprio GitHub Actions; [segunda candidata 45293324821](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45293324821) foi disparada para validar esse gate. **Não há homologação visual concluída antes do resultado do novo run; produção v0.4.0 inalterada.**
+
 > **Candidata incremental RMRP — 23/11/2026:** [PR nº 234](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234), derivada da `main`, com somente 34 municípios, quatro sub-regiões e contratos de QA cadastral; nenhum pagamento, valor financeiro ou coordenada de obra. [Execução isolada 45286673670](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45286673670), alias de prévia previsto `sp645-rmrp-release`. **Teste em andamento; produção v0.4.0 permanece inalterada.**
 
 > **PLATAFORMA PÚBLICA:** **https://finbra-tic-tim-referencia.pages.dev/** — portal estadual SP645. **Release pública atual:** v0.4.0. A candidata cadastral da RMRP é independente dos dados financeiros não homologados. [Gate da candidata e plano de lançamento](governance/INV_RMRP_GATE_CADASTRAL_RELEASE_ISOLADA_2026_11_23.md).

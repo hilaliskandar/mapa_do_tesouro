@@ -1,5 +1,7 @@
 # Finanças Municipais SP
 
+> **Candidata incremental RMRP — 23/11/2026:** [PR nº 234](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234), derivada da `main`, com somente 34 municípios, quatro sub-regiões e contratos de QA cadastral; nenhum pagamento, valor financeiro ou coordenada de obra. [Execução isolada 45286673670](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45286673670), alias de prévia previsto `sp645-rmrp-release`. **Teste em andamento; produção v0.4.0 permanece inalterada.**
+
 > **PLATAFORMA PÚBLICA:** **https://finbra-tic-tim-referencia.pages.dev/** — portal estadual SP645. **Release pública atual:** v0.4.0. A candidata cadastral da RMRP é independente dos dados financeiros não homologados. [Gate da candidata e plano de lançamento](governance/INV_RMRP_GATE_CADASTRAL_RELEASE_ISOLADA_2026_11_23.md).
 
 **Guia canônico da RMJ:** [documentação operacional, metodologia, evidências e publicação](editorial/rmj/README.md). O boletim da RMJ é publicado separadamente em https://financas-rmj.pages.dev/; não se confunde com o portal estadual.

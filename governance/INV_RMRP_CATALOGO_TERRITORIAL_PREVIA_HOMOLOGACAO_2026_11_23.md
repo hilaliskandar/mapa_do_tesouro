@@ -18,7 +18,7 @@
 - Implantação Cloudflare Pages PR 233: ID `d4e037d0` (prefixo URL), commit `2e3b83bb25a6e2347fc923456fc6ae742207b27c`, estágio `deploy=success`.
 - Página no alias de prévia: **https://pr-233.finbra-tic-tim-referencia.pages.dev/territorio-rmrp-validado.html**.
 - JSON no alias de prévia: **https://pr-233.finbra-tic-tim-referencia.pages.dev/data/api/v3/investimentos/rmrp/territorio-validado.json**.
-- O job independente `rmj-browser-qa` estava **em andamento** no momento deste registro; não atribuir aprovação antecipada.
+- O job independente `rmj-browser-qa` foi **cancelado** durante a etapa de instalação do Chromium, com as etapas de navegação não executadas. Portanto, **não houve homologação visual/browser completa**. O QA local e remoto específico da camada de investimentos permaneceu aprovado no job `build-deploy-qa`.
 
 ## Gate público
 

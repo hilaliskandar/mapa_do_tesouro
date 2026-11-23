@@ -33,3 +33,14 @@ Candidata técnica: https://sp645-rmrp-cadastro.finbra-tic-tim-referencia.pages.
 - Preservar o rollback v0.4.0; **não** liberar os valores de SIAFEM, Transferegov e Obrasgov como investimentos executados.
 
 **Estado:** preparada para QA e revisão, `public_release_authorized=false` para novas medidas monetárias.
+
+
+## Resultado do gate na branch isolada
+
+- [GitHub Actions 45286673670](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45286673670): **job concluído com success**, em ref `release-rmrp-cadastro-sp645-20261123`, entrada `include_rmrp_territory=true`, alias `sp645-rmrp-release`.
+- Passaram testes gerais, hashes e download de insumos estaduais privados, build do SP645, overlay cadastral, `qa_sp645_pages.py` local e remoto, `qa_api_v2.py` local, `qa_remote_sp645_v2_json.py` remoto e validação HTTPS do catálogo territorial, além do deploy isolado.
+- [Cloudflare Pages, prévia isolada](https://sp645-rmrp-release.finbra-tic-tim-referencia.pages.dev/territorio-rmrp-validado.html): deploy `bec2619e`, ambiente `preview`, estágio `success`; SHA da candidata `7ed1976baeb9a3408c4f828702cac642f6d2465b`.
+- O teste adicional de navegador externo **não foi executado**, porque a conexão Browserless retornou HTTP 401 por esgotamento da cota do plano. Não declarar aprovação visual/responsiva independente.
+- [PR 234](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234) aberta como **draft**; nenhum merge, tag/release formal ou deploy de produção foi realizado. A produção continua `v0.4.0`.
+
+**Gate restante:** inspeção funcional de navegação/responsividade e revisão da PR isolada; após aceite, promoção por release SP645 formal e execução manual do workflow com `include_rmrp_territory=true`. Bloqueio monetário permanece.

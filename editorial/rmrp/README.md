@@ -1,5 +1,7 @@
 # Finanças municipais da RMRP — README operacional
 
+> **Plataforma pública estadual:** https://finbra-tic-tim-referencia.pages.dev/ (produção v0.4.0). **Atualização cadastral em preparação:** [PR 234 isolada da `main`](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234), com catálogo IBGE7 dos 34 municípios da RMRP e quatro sub-regiões, sem novos dados monetários nem localização de obras. [Workflow de candidata isolada 45286673670](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45286673670). [Relatório de governança](../../governance/INV_RMRP_GATE_CADASTRAL_RELEASE_ISOLADA_2026_11_23.md). Estado: QA em andamento; sem nova implantação produtiva.
+
 **Atualizado em 06/11/2026, após recuperação da G29.** Documento de continuidade e trilha de auditoria. A referência de procedimentos detalhados é o [README nativo do projeto no Google Drive](https://docs.google.com/document/d/1e4G6zFFG6bxz_NKJj6yOwiJbkMb2i_MuQ4JLo3DrwlU/edit).
 
 ## Regra obrigatória de persistência

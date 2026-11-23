@@ -24,6 +24,8 @@ FILES = (
     "data/api/v3/investimentos/rmrp/especiais-movimentacoes-resumo-preview.json",
     "siafem-investimentos-rmrp-preview.html",
     "data/api/v3/investimentos/rmrp/siafem-sp-investimentos-anual-preview.json",
+    "territorio-rmrp-validado.html",
+    "data/api/v3/investimentos/rmrp/territorio-validado.json",
 )
 
 
@@ -34,6 +36,17 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
     if missing:
         raise RuntimeError(f"Arquivos INV-RMRP ausentes: {missing}")
 
+    territorio = json.loads((source / "data/api/v3/investimentos/rmrp/territorio-validado.json").read_text(encoding="utf-8"))
+    if territorio["metadata"]["qa_status"] != "validado_dimensao_territorial_sem_homologacao_financeira":
+        raise RuntimeError("Dimensão territorial sem QA própria")
+    expected = {"Sub-região de Ribeirão Preto": 15, "Sub-região de Jaboticabal": 6,
+                "Sub-região de Mococa": 6, "Sub-região de Batatais": 7}
+    if territorio["total_municipios"] != 34 or len(territorio["municipios"]) != 34:
+        raise RuntimeError("Dimensão territorial não tem 34 municípios")
+    if len({m["codigo_ibge"] for m in territorio["municipios"]}) != 34:
+        raise RuntimeError("IBGE7 duplicado na dimensão territorial")
+    if {r["nome"]: r["municipios"] for r in territorio["sub_regioes"]} != expected:
+        raise RuntimeError("Contagem das quatro sub-regiões divergente")
     proposals = json.loads((source / FILES[4]).read_text(encoding="utf-8"))
     obras = json.loads((source / FILES[5]).read_text(encoding="utf-8"))
     especiais = json.loads((source / FILES[6]).read_text(encoding="utf-8"))
@@ -65,6 +78,8 @@ def overlay(site: Path, source: Path = FRONTEND) -> dict:
     special_codes = {m["codigo_ibge"] for m in especiais["municipios"]}
     movement_codes = {m["codigo_ibge"] for m in movimentacoes["categorias"]}
     siafem_codes = {m["codigo_ibge"] for m in siafem["municipios"]}
+    if {m["codigo_ibge"] for m in territorio["municipios"]} != codes:
+        raise RuntimeError("Dimensão territorial difere dos 34 municípios da prévia")
     if len(codes) != 34 or codes != geocodes or codes != special_codes or codes != movement_codes or codes != siafem_codes:
         raise RuntimeError("Os 34 municípios da RMRP não coincidem entre as bases")
     if len(proposals["propostas_amostrais"]) != 200:

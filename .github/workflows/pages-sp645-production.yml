@@ -7,6 +7,11 @@ on:
         description: "Statewide release tag, for example v0.2.0"
         required: true
         type: string
+      include_rmrp_territory:
+        description: "Publish only the approved RMRP territorial catalog, after separate acceptance"
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -130,6 +135,10 @@ jobs:
             --site-output build/site-sp645 \
             --geojson inputs/geojs-35-mun.json
 
+      - name: Include approved RMRP territorial catalog only when explicitly enabled
+        if: ${{ inputs.include_rmrp_territory }}
+        run: python deployment/materialize_rmrp_territorial_sp645.py --site build/site-sp645
+
       - name: Validate SP645 production candidate locally
         run: python deployment/qa_sp645_pages.py --site build/site-sp645
 
@@ -156,6 +165,12 @@ jobs:
       - name: Validate SP645 production remotely
         run: |
           python deployment/qa_sp645_pages.py \
+            --url "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+
+      - name: Validate RMRP territorial catalog in production
+        if: ${{ inputs.include_rmrp_territory }}
+        run: |
+          python deployment/materialize_rmrp_territorial_sp645.py \
             --url "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev"
 
       - name: Publish production URL

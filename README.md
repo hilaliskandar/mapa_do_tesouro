@@ -1,5 +1,7 @@
 # Finanças Municipais SP
 
+> **PLATAFORMA PÚBLICA:** **https://finbra-tic-tim-referencia.pages.dev/** — portal estadual SP645. **Release pública atual:** v0.4.0. A candidata cadastral da RMRP é independente dos dados financeiros não homologados. [Gate da candidata e plano de lançamento](governance/INV_RMRP_GATE_CADASTRAL_RELEASE_ISOLADA_2026_11_23.md).
+
 **Guia canônico da RMJ:** [documentação operacional, metodologia, evidências e publicação](editorial/rmj/README.md). O boletim da RMJ é publicado separadamente em https://financas-rmj.pages.dev/; não se confunde com o portal estadual.
 
 Plataforma auditável para ingestão, harmonização, análise e visualização territorial de finanças municipais, com base principal no FINBRA/Siconfi e integração progressiva de DCA, RREO, RGF, CAPAG, população e demais fontes oficiais.

@@ -1,5 +1,8 @@
 # Finanças Municipais SP
 
+> **PLATAFORMA PÚBLICA — [Mapa do Tesouro · Finanças Municipais SP](https://finbra-tic-tim-referencia.pages.dev/)**  
+> Endereço de produção documentado: **https://finbra-tic-tim-referencia.pages.dev/**. A base pública tem ciclo de homologação próprio; os snapshots federais e estaduais experimentais não são incorporados automaticamente. Prévia e estudos específicos não se confundem com a produção.
+
 **Pesquisa federal de investimentos — atualização de 14/11/2026.** A trilha SP645/RMRP de Transferegov e Obrasgov permanece em desenvolvimento. A nova API oficial Obrasgov (OpenAPI 3.1) declara atualização em 13/11/2026 e retornou **21.068 projetos com UF principal SP**; esse total não equivale aos **4.212 projetos ligados a proponentes paulistas**, nem aos **218 ligados a proponentes da RMRP**, recuperados pela cadeia documental Transferegov. Há auditoria de situação e geometria de 40 projetos da RMRP em [run 43661453030](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43661453030); seus resultados dependem de confirmação do job. **Leia antes de interpretar valores:** [relatório federal de continuidade](governance/RELATORIO_CONTINUIDADE_FEDERAL_TRANSFEREGOV_OBRASGOV_2026_11_14.md), [procedimento de conciliação](governance/PROCEDIMENTO_REVISTO_INVESTIMENTOS_FEDERAIS_ESTADUAIS_RMRP_2026_11_14.md) e [README operacional da RMRP](editorial/rmrp/README.md). Nenhuma publicação de gasto federal homologado foi realizada.
 
 

@@ -16,6 +16,7 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = "data/api/v3/investimentos/rmrp/territorio-validado.json"
 HTML = "territorio-rmrp-validado.html"
+SCRIPT = "territorio-rmrp-validado.js"
 CROSSWALK = ROOT / "governance/controls/rmrp_cadastro_ibge34_2026_11_23.csv"
 EXPECTED = {
     "Sub-região de Ribeirão Preto": 15,
@@ -62,6 +63,11 @@ def check(read):
     html = read(HTML).decode("utf-8")
     if "Cadastro territorial validado" not in html or CATALOG not in html:
         raise ValueError("HTML sem aviso cadastral ou vínculo com o JSON")
+    if '<script src="./territorio-rmrp-validado.js" defer></script>' not in html or "<script>" in html:
+        raise ValueError("Script territorial deve ser externo para respeitar CSP")
+    script = read(SCRIPT).decode("utf-8")
+    if CATALOG not in script or "textContent" not in script:
+        raise ValueError("Script territorial ausente ou incompatível")
     if "obra executada" in html.lower() and "não" not in html.lower():
         raise ValueError("HTML ambíguo sobre execução")
     return {"status": "pass", "municipios": 34, "sub_regioes": counts,
@@ -80,7 +86,7 @@ def main():
             raise SystemExit("Build SP645 preexistente não identificado")
         source = ROOT / "app/static"
         check(lambda rel: (source / rel).read_bytes())
-        for relative in (CATALOG, HTML):
+        for relative in (CATALOG, HTML, SCRIPT):
             dst = root / relative
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source / relative, dst)

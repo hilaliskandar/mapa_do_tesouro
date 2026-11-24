@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Municípios e sub-regiões da RMRP — Mapa do Tesouro</title>
+<style>
+:root{color-scheme:light;font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:#f4f6f8;color:#1d2b39}
+body{max-width:1100px;margin:auto;padding:24px 18px 64px}
+a{color:#155a88}h1{line-height:1.2;font-size:clamp(1.6rem,3vw,2.2rem);margin:.5rem 0}
+header p{color:#45596c}main{background:white;border:1px solid #dae2e8;border-radius:12px;padding:20px;margin-top:18px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:16px 0}
+label{display:flex;flex-direction:column;font-weight:600;gap:6px}select,input{padding:10px;font:inherit;border:1px solid #91a1b2;border-radius:6px}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid #e2e7eb}thead{background:#edf2f5}
+.scroll{overflow:auto}.meta{font-size:.9rem;color:#4a6074}.box{border-left:4px solid #3c718c;padding:8px 12px;background:#eef4f8}
+</style>
+</head>
+<body>
+<header>
+<p><a href="./index.html">Mapa do Tesouro — painel fiscal</a></p>
+<h1>Municípios e sub-regiões da RMRP</h1>
+<p>Região Metropolitana de Ribeirão Preto — dimensão territorial de referência para consultas de investimentos públicos.</p>
+<div class="box"><strong>Cadastro territorial validado.</strong> Não representa localização de obras nem comprovação de investimento executado. Nenhum valor financeiro é apresentado nesta consulta.</div>
+</header>
+<main>
+<h2>Consultar municípios</h2>
+<div class="controls">
+<label>Sub-região<select id="sub"><option value="">Todas as quatro sub-regiões</option></select></label>
+<label>Nome ou código IBGE<input id="q" type="search" placeholder="Pesquisar município"></label>
+</div>
+<p id="status" role="status" aria-live="polite">Carregando dados territoriais...</p>
+<div class="scroll"><table><thead><tr><th>Município</th><th>Código IBGE</th><th>Sub-região</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="meta">Fonte: IBGE, códigos municipais; Lei Complementar paulista nº 1.290/2016, art. 4º, subdivisão regional. <a href="./data/api/v3/investimentos/rmrp/territorio-validado.json">Dados e metadados JSON</a>.</p>
+</main>
+<script src="./territorio-rmrp-validado.js" defer></script>
+</body></html>

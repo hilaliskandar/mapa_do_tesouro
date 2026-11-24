@@ -44,3 +44,12 @@ Candidata técnica: https://sp645-rmrp-cadastro.finbra-tic-tim-referencia.pages.
 - [PR 234](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234) aberta como **draft**; nenhum merge, tag/release formal ou deploy de produção foi realizado. A produção continua `v0.4.0`.
 
 **Gate restante:** inspeção funcional de navegação/responsividade e revisão da PR isolada; após aceite, promoção por release SP645 formal e execução manual do workflow com `include_rmrp_territory=true`. Bloqueio monetário permanece.
+
+
+## Gate de navegador — diagnóstico e correção
+
+O segundo [workflow 45293324821](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45293324821) implantou a candidata e passou QA estadual, territorial e API v2, mas o **job global falhou na instalação do Chromium**, não no conteúdo: o runner padrão foi Ubuntu 26.04, não suportado por Playwright 1.56.1 (`Playwright does not support chromium on ubuntu26.04-x64`). O teste de navegação foi pulado; não declarar aprovação.
+
+Correção efetuada: fixado `runs-on: ubuntu-24.04` em `.github/workflows/pages-sp645-candidate.yml`. O [workflow 45293614540](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45293614540) foi disparado com `include_rmrp_territory=true`, visando concluir navegação desktop/mobile com o navegador compatível.
+
+A validação browser testa 34 linhas, cinco opções do seletor (todas + 4 sub-regiões), sete municípios em Batatais, busca nominal por Ribeirão Preto, ausência de erro JavaScript, overflow horizontal e contrato JSON. **Não realizar deploy de produção enquanto esse gate não for concluído.**

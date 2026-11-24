@@ -1,0 +1,71 @@
+tipologia;codigo;nome;municipios;reconciliados_fora_rmrp;inconclusivos_fora_rmrp;rmrp_serie_separada
+RA;1;RA de Araçatuba;43;34;9;0
+RA;2;RA de Barretos;19;17;1;1
+RA;3;RA de Bauru;39;29;10;0
+RA;4;RA de Campinas;90;80;8;2
+RA;5;RA Central;26;19;6;1
+RA;6;RA de Franca;23;15;3;5
+RA;7;RA de Itapeva;32;26;6;0
+RA;8;RA de Marília;51;39;12;0
+RA;9;RA de Presidente Prudente;53;48;5;0
+RA;10;Região Metropolitana de São Paulo;39;36;3;0
+RA;11;RA de Ribeirão Preto;25;0;0;25
+RA;12;RA de Santos;9;9;0;0
+RA;13;RA de Sorocaba;47;40;7;0
+RA;14;RA de São José do Rio Preto;96;81;15;0
+RA;15;RA de São José dos Campos;39;33;6;0
+RA;16;RA de Registro;14;14;0;0
+RG;1;RG de Adamantina;12;12;0;0
+RG;2;RG de Andradina;12;9;3;0
+RG;3;RG de Araraquara;19;16;3;0
+RG;4;RG de Araçatuba;31;25;6;0
+RG;5;RG de Assis;13;12;1;0
+RG;6;RG de Avaré;5;5;0;0
+RG;7;RG de Barretos;19;17;1;1
+RG;8;RG de Bauru;19;14;5;0
+RG;9;RG de Botucatu;13;10;3;0
+RG;10;RG de Bragança Paulista;16;14;2;0
+RG;11;RG de Campinas;22;21;1;0
+RG;12;RG de Caraguatatuba;4;3;1;0
+RG;13;RG de Catanduva;16;15;1;0
+RG;14;RG de Cruzeiro;8;6;2;0
+RG;15;RG de Dracena;10;9;1;0
+RG;16;RG de Fernandópolis;12;10;2;0
+RG;17;RG de Franca;17;14;2;1
+RG;18;RG de Guaratinguetá;9;7;2;0
+RG;19;RG de Itapetininga;11;9;2;0
+RG;20;RG de Itapeva;32;26;6;0
+RG;21;RG de Jales;22;15;7;0
+RG;22;RG de Jaú;10;7;3;0
+RG;23;RG de Jundiaí;9;8;1;0
+RG;24;RG de Limeira;8;7;1;0
+RG;25;RG de Lins;10;8;2;0
+RG;26;RG de Marília;14;9;5;0
+RG;27;RG de Ourinhos;12;10;2;0
+RG;28;RG de Piracicaba;11;11;0;0
+RG;29;RG de Presidente Prudente;31;27;4;0
+RG;30;RG de Registro;14;14;0;0
+RG;31;RG de Ribeirão Preto;25;0;0;25
+RG;32;RG de Rio Claro;8;7;1;0
+RG;33;RG de Santos;9;9;0;0
+RG;34;RG de Sorocaba;18;16;2;0
+RG;35;RG de São Carlos;7;3;3;1
+RG;36;RG de São Joaquim da Barra;6;1;1;4
+RG;37;RG de São José do Rio Preto;31;27;4;0
+RG;38;RG de São José dos Campos;8;8;0;0
+RG;39;RG de São João da Boa Vista;16;12;2;2
+RG;40;RG de São Paulo;39;36;3;0
+RG;41;RG de Taubaté;10;9;1;0
+RG;42;RG de Tupã;12;8;4;0
+RG;43;RG de Votuporanga;15;14;1;0
+RM_AU;FORA_RM_AU;Fora de RM/AU;390;322;68;0
+RM_AU;08002;Região Metropolitana de São José do Rio Preto;37;33;4;0
+RM_AU;08201;Região Metropolitana de Piracicaba;24;23;1;0
+RM_AU;05301;Região Metropolitana de Sorocaba;27;23;4;0
+RM_AU;05401;Região Metropolitana de Ribeirão Preto;34;0;0;34
+RM_AU;05101;Região Metropolitana de Campinas;20;19;1;0
+RM_AU;05201;Região Metropolitana do Vale do Paraíba e Litoral Norte;39;33;6;0
+RM_AU;00301;Aglomeração Urbana de Franca;19;16;3;0
+RM_AU;04901;Região Metropolitana de São Paulo;39;36;3;0
+RM_AU;05001;Região Metropolitana da Baixada Santista;9;9;0;0
+RM_AU;08101;Região Metropolitana de Jundiaí;7;6;1;0

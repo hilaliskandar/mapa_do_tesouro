@@ -53,3 +53,12 @@ O segundo [workflow 45293324821](https://github.com/hilaliskandar/mapa_do_tesour
 Correção efetuada: fixado `runs-on: ubuntu-24.04` em `.github/workflows/pages-sp645-candidate.yml`. O [workflow 45293614540](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45293614540) foi disparado com `include_rmrp_territory=true`, visando concluir navegação desktop/mobile com o navegador compatível.
 
 A validação browser testa 34 linhas, cinco opções do seletor (todas + 4 sub-regiões), sete municípios em Batatais, busca nominal por Ribeirão Preto, ausência de erro JavaScript, overflow horizontal e contrato JSON. **Não realizar deploy de produção enquanto esse gate não for concluído.**
+
+
+## Falha de JavaScript bloqueado por CSP e correção
+
+O terceiro [workflow 45293614540](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45293614540) completou build, deploy, QA estadual, API v2 local e verificação HTTPS do catálogo, mas o browser test falhou por timeout ao aguardar a renderização das 34 linhas. A página usava script `<script>...` inline, incompatível com a política publicada `Content-Security-Policy: script-src 'self'`. A falha foi detectada pelo teste real de navegação, embora o QA de conteúdo HTTP e JSON tivesse passado.
+
+Foi feita correção que **preserva a CSP estrita**, sem `unsafe-inline`: criada `app/static/territorio-rmrp-validado.js`, alterada a página para `<script src="./territorio-rmrp-validado.js" defer></script>` e atualizado o materializador para copiar e validar **três** arquivos (HTML, JSON e JS), com teste de ausência de script inline.
+
+A [quarta execução 45294130089](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45294130089) foi disparada no pipeline estadual após a correção. Não assumir gate de browser aprovado até o resultado efetivo.

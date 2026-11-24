@@ -28,7 +28,7 @@ FIELDS = {"codigo_ibge", "municipio", "sub_regiao"}
 QA_STATUS = "validado_dimensao_territorial_sem_homologacao_financeira"
 
 
-def check(read):
+def check(read, *, require_nav=False):
     catalog = json.loads(read(CATALOG))
     if catalog.get("total_municipios") != 34:
         raise ValueError("Catálogo exige exatamente 34 municípios")
@@ -60,6 +60,10 @@ def check(read):
     }
     if len(roster) != 34 or actual_rows != expected_rows:
         raise ValueError("Catálogo diverge do crosswalk IBGE oficial do projeto")
+    if require_nav:
+        home = read("index.html").decode("utf-8")
+        if '<a href="./territorio-rmrp-validado.html"' not in home:
+            raise ValueError("Catálogo territorial não aparece na navegação do portal estadual")
     html = read(HTML).decode("utf-8")
     if "Cadastro territorial validado" not in html or CATALOG not in html:
         raise ValueError("HTML sem aviso cadastral ou vínculo com o JSON")
@@ -90,7 +94,15 @@ def main():
             dst = root / relative
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source / relative, dst)
-        result = check(lambda rel: (root / rel).read_bytes())
+        home = root / "index.html"
+        home_html = home.read_text(encoding="utf-8")
+        needle = "</header>"
+        if home_html.count(needle) != 1:
+            raise ValueError("Cabeçalho estadual inesperado; recusa injeção de navegação")
+        link = '<p class="muted"><a href="./territorio-rmrp-validado.html">Municípios e sub-regiões da RMRP — cadastro territorial</a></p>'
+        if link not in home_html:
+            home.write_text(home_html.replace(needle, link + "\\n" + needle, 1), encoding="utf-8")
+        result = check(lambda rel: (root / rel).read_bytes(), require_nav=True)
     else:
         base = args.url.rstrip("/")
         def get(rel):
@@ -101,7 +113,7 @@ def main():
                 if rel.endswith(".json") and "json" not in response.headers.get("Content-Type", ""):
                     raise ValueError("MIME JSON inválido")
                 return response.read()
-        result = check(get)
+        result = check(get, require_nav=True)
     print(json.dumps(result, ensure_ascii=False))
 
 

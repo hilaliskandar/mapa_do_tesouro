@@ -8,7 +8,8 @@ def test_release_v0_4_0_publication_api_contract():
     manifest = (ROOT / "data" / "catalogs" / "release_v0_4_0.yml").read_text(encoding="utf-8")
     notes = (ROOT / "governance" / "RELEASE_NOTES_V0_4_0.md").read_text(encoding="utf-8")
 
-    assert version == "0.4.0"
+    assert tuple(map(int, version.split("."))) >= (0, 4, 0)
+    assert "version: 0.4.0" in manifest
     assert "release_universe: SP_645" in manifest
     assert "publication_universe_count: 11" in manifest
     assert "municipality_context_count: 287" in manifest

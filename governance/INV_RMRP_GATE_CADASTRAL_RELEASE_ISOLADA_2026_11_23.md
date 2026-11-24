@@ -62,3 +62,9 @@ O terceiro [workflow 45293614540](https://github.com/hilaliskandar/mapa_do_tesou
 Foi feita correção que **preserva a CSP estrita**, sem `unsafe-inline`: criada `app/static/territorio-rmrp-validado.js`, alterada a página para `<script src="./territorio-rmrp-validado.js" defer></script>` e atualizado o materializador para copiar e validar **três** arquivos (HTML, JSON e JS), com teste de ausência de script inline.
 
 A [quarta execução 45294130089](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45294130089) foi disparada no pipeline estadual após a correção. Não assumir gate de browser aprovado até o resultado efetivo.
+
+## Aceite técnico final de candidata v0.4.1 — 24/11/2026
+
+O [workflow 45295117443](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45295117443) concluiu **success**. Os testes de regressão gerais, recuperação de insumos com hashes, build SP645, overlay exclusivamente cadastral, `qa_sp645_pages.py`, `qa_api_v2.py`, QA HTTP remoto estadual, QA territorial remoto, verificação de JSON remoto sem fallback HTML e Chromium/Playwright em desktop e celular passaram. O log documenta `RMRP_BROWSER_QA_PASS`, com 34 linhas tanto em 1280×800 quanto em 375×812, filtro Batatais com 7 itens e busca nominal com um resultado. A navegação da home até a página de cadastro também foi testada.
+
+A candidata mantém `VERSION=0.4.1`, com notas em `governance/RELEASE_NOTES_V0_4_1.md`. O ajuste no teste histórico v0.4.0 preserva a exigência do manifesto congelado, sem bloquear versões posteriores. O estado técnico é **aprovado na prévia**, mas a promoção exige revisão/merge da PR 234, tag/release formal e `pages-sp645-production.yml` com entrada explícita `include_rmrp_territory=true`, seguido do QA produtivo. Até então, a produção v0.4.0 permanece vigente e todos os dados monetários não homologados ficam bloqueados.

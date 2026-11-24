@@ -2,6 +2,11 @@ name: SP645 - lote anual parametrizado SIAFEM fora RMRP em R2 privado
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: "Coleta anual ou diagnostico dirigido das pendencias"
+        type: choice
+        options: ["annual", "recovery"]
+        default: "annual"
       offset:
         description: "Deslocamento no cadastro dos 611 municipios fora da RMRP"
         required: true
@@ -19,13 +24,14 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: siafem-sp645-${{ github.ref }}-${{ inputs.year }}-${{ inputs.offset }}
+  group: siafem-sp645-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   pilot:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
+      BATCH_MODE: ${{ inputs.mode || 'annual' }}
       BATCH_OFFSET: ${{ inputs.offset || '70' }}
       BATCH_LIMIT: ${{ inputs.limit || '25' }}
       BATCH_YEAR: ${{ inputs.year || '2025' }}
@@ -42,10 +48,17 @@ jobs:
       - run: pip install --quiet requests beautifulsoup4
       - name: Consultar lote parametrizado de municipios fora da RMRP
         run: |
+          if [ "$BATCH_MODE" = recovery ]; then
+            python -m pipeline.coleta.diagnose_sp_siafem_pending --year "$BATCH_YEAR" --offset "$BATCH_OFFSET" --limit "$BATCH_LIMIT" \
+              --crosswalk governance/controls/investimentos_sp645/crosswalk_ibge_siafem_2026_11_16.csv \
+              --coverage governance/controls/investimentos_sp645/cobertura.csv \
+              --outdir "$RUNNER_TEMP/sp_siafem_annual"
+          else
           python -m pipeline.coleta.collect_sp_siafem_annual_batch --acquire --year "$BATCH_YEAR" --offset "$BATCH_OFFSET" --limit "$BATCH_LIMIT" \
             --crosswalk governance/controls/investimentos_sp645/crosswalk_ibge_siafem_2026_11_16.csv \
             --existing-roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
             --outdir "$RUNNER_TEMP/sp_siafem_annual"
+          fi
       - name: Registrar prefixo imutavel pelo hash
         id: params
         run: |
@@ -57,6 +70,20 @@ jobs:
           assert sha==qa['snapshot_sha256']
           limit=int(os.environ['BATCH_LIMIT'])
           assert 1 <= limit <= 25
+          if os.environ['BATCH_MODE']=='recovery':
+              raw=json.load(open(root+'/raw.json',encoding='utf-8'))
+              requested=qa['requested_ibge7']
+              assert len(requested)==limit and len(set(requested))==limit
+              assert [r['ibge7'] for r in raw['evidence']]==requested
+              assert set(qa['recovered_ibge7'])<=set(requested)
+              assert all(r['footer_checks'] and all(x['count_matches'] and x['value_matches'] for x in r['footer_checks']) for r in raw['recovered'])
+              assert all(hashlib.sha256(bytes.fromhex(r['html_hex'])).hexdigest()==r['html_sha256'] for r in raw['evidence'] if 'html_hex' in r)
+              assert not qa['public_release_authorized']
+              prefix=f'sp_645/estadual/siafem/recovery/{qa["year"]}/offset_{qa["offset"]}_len{limit}/'+sha
+              with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+                  f.write(f'prefix={prefix}\nsha={sha}\n')
+              print('SIAFEM_RECOVERY_QA',json.dumps(qa,ensure_ascii=False))
+              raise SystemExit(0)
           assert qa['municipalities_requested']==limit
           assert qa['municipalities_with_verified_table']+qa['municipalities_without_valid_result']==limit
           requested=qa['requested_ibge7']

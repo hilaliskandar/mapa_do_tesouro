@@ -10,7 +10,7 @@ on:
         description: "Municipios por lote (maximo 25, sem paralelismo)"
         required: true
         type: choice
-        options: ["5", "10", "15", "25"]
+        options: ["1", "5", "10", "15", "25"]
         default: "25"
       year:
         description: "Exercicio da data de liberacao"

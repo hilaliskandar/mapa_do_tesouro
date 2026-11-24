@@ -1,0 +1,7 @@
+# Expansão estadual do Mapa do Tesouro
+
+24/11/2026 — Escopo da plataforma ampliado a SP645 por orientação do usuário: Estado→16 RA→43 RG→município; RM/AU como dimensão alternativa, RMRP como piloto. Reutilizar dimensão SEMIL/Seade consolidada de 14/11, não proxy eleitoral. Join determinístico 645/645 (611 externos + 34 RMRP), sem duplicidade; cobertura regional materializada em INV_SP645_COBERTURA_SIAFEM_2025_RA_RG_RM_AU_2026_11_24.csv (70 grupos; 520 reconciliados externos, 91 inconclusivos, 34 série RMRP separada). Piloto recovery run 45458861802 SUCCESS/readback R2, 5/5 HTTP 200, grid 2 linhas, sem mensagem candidata, zero recuperados; preservar 91 pendências. SHA raw 1f6e637d215d3f6e4999e74b72e15b08c6917ba8b4dfd97680d97d6998b43468. Próximos gates: examinar células e estado dos filtros no HTML privado, controles positivos/negativos, fixar fila, consolidar valores no grão IBGE7/ano e materializar staging estadual; sem homologação financeira ou deploy.
+
+## Regras
+
+Agregações por tipologia independentes, sem somar RA e RM/AU. Referência RA/RG fotografia SEMIL/Seade 14/11/2026, RM/AU 2025; não presumir vigência histórica. Manter papel municipal e estágio financeiro separados em SIAFEM, Transferegov, Obrasgov e DCA. A tabela de cobertura não homologa valores. Próxima versão deve apresentar filtros estaduais, regionais e municipais, cobertura e proveniência por fonte, ausência comprovada distinta de inconclusiva. Validar conservação de totais e cardinalidade antes de publicação.

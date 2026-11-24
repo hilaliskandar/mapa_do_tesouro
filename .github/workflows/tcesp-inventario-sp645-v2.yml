@@ -40,10 +40,14 @@ jobs:
           PY
       - name: Build verified coverage and export CSV
         run: python3 editorial/rmrp/inventario_tcesp_sp645_v2.py --dca build/in/dca.csv --rmrp-historico build/in/historico.json --rmrp-2026 build/in/parcial.json --sao-carlos build/in/sao_carlos.json --output build/out
+      - name: Enumerate existing fiscal objects in R2
+        run: python3 pipeline/qa/inventory_r2_fiscal_2026.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: tcesp-inventario-sp645-v2
-          path: build/out/*
+          path: |
+            build/out/*
+            build/r2_inventory/*
           if-no-files-found: warn
           retention-days: 30

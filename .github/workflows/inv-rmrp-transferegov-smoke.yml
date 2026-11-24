@@ -1,0 +1,40 @@
+name: INV RMRP - Transferegov CSV official smoke
+on:
+  push:
+    branches:
+      - investimentos-territoriais-sp645-20261111
+    paths:
+      - "pipeline/acquire/inv_rmrp_transferegov_zip.py"
+      - ".github/workflows/inv-rmrp-transferegov-smoke.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python version
+        run: python --version
+      - name: Download national CSV ZIP and inspect coverage for RMRP
+        run: |
+          python pipeline/acquire/inv_rmrp_transferegov_zip.py \
+            --sets siconv_plano_aplicacao_detalhado \
+            --out-dir "${RUNNER_TEMP}/inv_rmrp_transferegov"
+      - name: Audit result summary without assuming investments
+        if: always()
+        run: |
+          if test -f "${RUNNER_TEMP}/inv_rmrp_transferegov/manifest.json"; then
+            python -m json.tool "${RUNNER_TEMP}/inv_rmrp_transferegov/manifest.json" | head -n 100
+          fi
+      - name: Preserve QA and selected CSV (no national ZIP copies)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-transferegov-smoke
+          path: |
+            ${{ runner.temp }}/inv_rmrp_transferegov/manifest.json
+            ${{ runner.temp }}/inv_rmrp_transferegov/*_rmrp.csv
+          retention-days: 14
+          if-no-files-found: warn

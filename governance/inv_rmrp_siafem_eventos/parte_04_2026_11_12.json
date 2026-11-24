@@ -1,0 +1,2166 @@
+{
+  "source": "SIAFEM-SP",
+  "time_filter": "liberacao a partir de 01/01/2020 (reaplicar sobre eventos)",
+  "part": 4,
+  "events": [
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011800172/20",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/11/2021",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "2901181533221/18",
+      "esperados": 1,
+      "valor_resumo": "125.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/01/2020",
+          "125.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "2901181615693/18",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/01/2020",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820220079061",
+      "esperados": 1,
+      "valor_resumo": "395.784,67",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/12/2022",
+          "395.785"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820220398581",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820220491021",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/12/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820220531448",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/06/2023",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820220537451",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/06/2023",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820220537648",
+      "esperados": 1,
+      "valor_resumo": "52.894,38",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/11/2022",
+          "52.894"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820220542531",
+      "esperados": 1,
+      "valor_resumo": "417.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/03/2023",
+          "417.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820221309941",
+      "esperados": 2,
+      "valor_resumo": "975.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/12/2023",
+          "525.000"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "450.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820221414633",
+      "esperados": 1,
+      "valor_resumo": "283.076,17",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "283.076"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "29011820221414651",
+      "esperados": 1,
+      "valor_resumo": "200.860,10",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "200.860"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "2901182071610/18",
+      "esperados": 2,
+      "valor_resumo": "495.905,97",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/12/2020",
+          "395.906"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/01/2020",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "2901182101721851",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/02/2022",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "2901182107531367",
+      "esperados": 1,
+      "valor_resumo": "439.843,11",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/07/2022",
+          "439.843"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "2901182595048/19",
+      "esperados": 2,
+      "valor_resumo": "420.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/04/2021",
+          "280.000"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2020",
+          "140.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "290118503960/18",
+      "esperados": 2,
+      "valor_resumo": "800.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/01/2021",
+          "400.000"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/01/2020",
+          "400.000"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/07/2018",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "41010120220435405",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/02/2023",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "5001022017PR441",
+      "esperados": 3,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/11/2020",
+          "50.000"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/09/2020",
+          "50.000"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/05/2020",
+          "50.000"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/11/2019",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "5001022018PR390",
+      "esperados": 4,
+      "valor_resumo": "550.614,14",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/04/2026",
+          "50.998"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/12/2025",
+          "285.495"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2025",
+          "95.165"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/01/2021",
+          "118.956"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "5001022021PR087",
+      "esperados": 2,
+      "valor_resumo": "615.073,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2024",
+          "307.537"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "307.537"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "50010220221275674",
+      "esperados": 1,
+      "valor_resumo": "307.536,98",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/06/2023",
+          "307.537"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "50010220231679042",
+      "esperados": 2,
+      "valor_resumo": "489.320,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2026",
+          "203.779"
+        ],
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/06/2024",
+          "285.541"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "5001023397882/19",
+      "esperados": 1,
+      "valor_resumo": "276.974,59",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/06/2022",
+          "276.975"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "51010120231387736",
+      "esperados": 1,
+      "valor_resumo": "183.506,20",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/10/2023",
+          "183.506"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "51010120240546288",
+      "esperados": 1,
+      "valor_resumo": "1.300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/11/2024",
+          "1.300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "51010120241001051",
+      "esperados": 1,
+      "valor_resumo": "78.529,63",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/09/2024",
+          "78.530"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "51010120250611272",
+      "esperados": 1,
+      "valor_resumo": "417.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/01/2026",
+          "417.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "51010120250622821",
+      "esperados": 1,
+      "valor_resumo": "43.616,21",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/06/2025",
+          "43.616"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "51010120251092129",
+      "esperados": 1,
+      "valor_resumo": "283.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/02/2026",
+          "283.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "51010920221316104",
+      "esperados": 1,
+      "valor_resumo": "441.699,63",
+      "status": "ok",
+      "eventos": [
+        [
+          "51816247000111",
+          "PREFEITURA MUNICIPAL MONTE ALTO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/10/2023",
+          "441.700"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id": "512803165957\\18C",
+      "esperados": 1,
+      "valor_resumo": "136.000,00",
+      "status": "erro",
+      "error": "Error: HTTP_500"
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "09019619SES1338",
+      "esperados": 1,
+      "valor_resumo": "85.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/04/2020",
+          "85.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "12010120240656127",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/07/2024",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "13010120230489203",
+      "esperados": 1,
+      "valor_resumo": "40.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2023",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "13010120240276398",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/07/2024",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "17003020240422914",
+      "esperados": 1,
+      "valor_resumo": "966.483,36",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "03/07/2026",
+          "966.483"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "25010120221391781",
+      "esperados": 1,
+      "valor_resumo": "183.708,49",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/08/2023",
+          "183.708"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "2601018542/20",
+      "esperados": 3,
+      "valor_resumo": "276.867,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/12/2023",
+          "93.926"
+        ],
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/01/2023",
+          "106.874"
+        ],
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/12/2022",
+          "76.067"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "26012820230562171",
+      "esperados": 1,
+      "valor_resumo": "28.216,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/12/2023",
+          "28.216"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "26013620251330051",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2026",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "29011800375/21",
+      "esperados": 2,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/05/2022",
+          "200.000"
+        ],
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/12/2021",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "29011801543/21",
+      "esperados": 3,
+      "valor_resumo": "657.108,81",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/03/2025",
+          "157.109"
+        ],
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/09/2023",
+          "200.000"
+        ],
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/06/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "29011801692/21",
+      "esperados": 2,
+      "valor_resumo": "670.227,45",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2022",
+          "320.227"
+        ],
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2022",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "2901181233785/18",
+      "esperados": 1,
+      "valor_resumo": "81.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/11/2020",
+          "81.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "2901181903025509",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/11/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "29011820220227019",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "29011820221379294",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "29011820221389684",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/11/2023",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "29011820221407245",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/11/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "51010120240380529",
+      "esperados": 1,
+      "valor_resumo": "570.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2024",
+          "570.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "id": "51010120250252907",
+      "esperados": 1,
+      "valor_resumo": "503.098,31",
+      "status": "ok",
+      "eventos": [
+        [
+          "45345899000112",
+          "PREFEITURA MUNICIPAL MORRO AGUDO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "06/03/2025",
+          "503.098"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "18010120220399041",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/07/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "250101SH-1189749",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/07/2023",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "29011800582/20",
+      "esperados": 2,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/05/2021",
+          "100.000"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2020",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "29011800957/21",
+      "esperados": 2,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/10/2022",
+          "100.000"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/03/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "29011820220163431",
+      "esperados": 1,
+      "valor_resumo": "420.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "420.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "29011820221376819",
+      "esperados": 1,
+      "valor_resumo": "417.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/07/2023",
+          "417.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "29011820221407399",
+      "esperados": 1,
+      "valor_resumo": "168.428,01",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/08/2023",
+          "168.428"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "29011820221407451",
+      "esperados": 1,
+      "valor_resumo": "129.916,78",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/07/2023",
+          "129.917"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "2901182106133741",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/07/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "290118644720/18",
+      "esperados": 1,
+      "valor_resumo": "314.713,22",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/01/2021",
+          "314.713"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/07/2019",
+          "80.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022017PR205",
+      "esperados": 1,
+      "valor_resumo": "166.654,48",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2020",
+          "166.654"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022017PR208",
+      "esperados": 4,
+      "valor_resumo": "853.636,13",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/03/2021",
+          "238.380"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/12/2020",
+          "134.300"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/08/2020",
+          "211.817"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2020",
+          "269.139"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022017PR347",
+      "esperados": 1,
+      "valor_resumo": "294.154,42",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/03/2021",
+          "294.154"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022018PR167",
+      "esperados": 4,
+      "valor_resumo": "669.578,80",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2024",
+          "203.999"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/05/2024",
+          "289.360"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2021",
+          "42.304"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2020",
+          "133.916"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022018PR168",
+      "esperados": 4,
+      "valor_resumo": "824.450,76",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2022",
+          "226.311"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/07/2021",
+          "199.380"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/05/2021",
+          "187.007"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/03/2020",
+          "211.753"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022018PR169",
+      "esperados": 1,
+      "valor_resumo": "65.112,77",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/10/2020",
+          "65.113"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022018PR170",
+      "esperados": 5,
+      "valor_resumo": "140.712,65",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "03/08/2022",
+          "21.170"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "02/08/2022",
+          "-21.170"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/12/2020",
+          "63.510"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "06/11/2020",
+          "44.989"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/10/2020",
+          "32.213"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022018PR171",
+      "esperados": 2,
+      "valor_resumo": "91.027,44",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/08/2020",
+          "69.611"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2020",
+          "21.416"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022021PR0267",
+      "esperados": 1,
+      "valor_resumo": "377.563,25",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2022",
+          "377.563"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022021PR0268",
+      "esperados": 2,
+      "valor_resumo": "641.249,13",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/03/2024",
+          "278.851"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/07/2022",
+          "362.398"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001022021PR0314",
+      "esperados": 2,
+      "valor_resumo": "766.302,80",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2023",
+          "272.258"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/07/2022",
+          "494.045"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "50010220221274372",
+      "esperados": 3,
+      "valor_resumo": "2.389.086,61",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2025",
+          "836.180"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/12/2024",
+          "836.180"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/05/2023",
+          "716.726"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "50010220231633212",
+      "esperados": 3,
+      "valor_resumo": "2.368.398,65",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2026",
+          "828.940"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/05/2025",
+          "828.940"
+        ],
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/11/2024",
+          "710.520"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001023239207/19",
+      "esperados": 1,
+      "valor_resumo": "170.933,90",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/09/2021",
+          "170.934"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001023239495/19",
+      "esperados": 1,
+      "valor_resumo": "57.709,55",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/08/2021",
+          "57.710"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "5001023239694/19",
+      "esperados": 1,
+      "valor_resumo": "41.154,38",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/09/2021",
+          "41.154"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "51010120240005869",
+      "esperados": 1,
+      "valor_resumo": "403.093,40",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/08/2024",
+          "403.093"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "51010120251091767",
+      "esperados": 1,
+      "valor_resumo": "237.701,75",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/02/2026",
+          "237.702"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "51010120251286427",
+      "esperados": 1,
+      "valor_resumo": "313.578,48",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/01/2026",
+          "313.578"
+        ]
+      ]
+    },
+    {
+      "ibge": "3533601",
+      "municipio": "Nuporanga",
+      "id": "51010120260417072",
+      "esperados": 1,
+      "valor_resumo": "338.966,53",
+      "status": "ok",
+      "eventos": [
+        [
+          "46754388000117",
+          "PREFEITURA MUNICIPAL NUPORANGA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/10/2026",
+          "338.967"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "08035805551/13",
+      "esperados": 1,
+      "valor_resumo": "163.169,56",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/05/2023",
+          "163.170"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "08035805551/13A",
+      "esperados": 3,
+      "valor_resumo": "734.263,02",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/12/2024",
+          "244.754"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/05/2023",
+          "244.754"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/12/2022",
+          "244.754"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/01/2017",
+          "326.339"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/10/2015",
+          "326.339"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/04/2014",
+          "244.754"
+        ]
+      ]
+    }
+  ]
+}

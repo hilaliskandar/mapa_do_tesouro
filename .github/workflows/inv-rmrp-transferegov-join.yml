@@ -1,0 +1,42 @@
+name: INV RMRP - Transferegov join proposal convenio
+on:
+  push:
+    branches:
+      - investimentos-territoriais-sp645-20261111
+    paths:
+      - "pipeline/acquire/inv_rmrp_transferegov_join.py"
+      - ".github/workflows/inv-rmrp-transferegov-join.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link four official datasets by source IDs
+        run: |
+          python pipeline/acquire/inv_rmrp_transferegov_join.py \
+            --out-dir "${RUNNER_TEMP}/inv_rmrp_transferegov_join"
+      - name: Show manifest summary
+        if: always()
+        run: |
+          if test -f "${RUNNER_TEMP}/inv_rmrp_transferegov_join/manifest_join.json"; then
+            python - <<'PY'
+          import json, os
+          p = os.environ["RUNNER_TEMP"]+"/inv_rmrp_transferegov_join/manifest_join.json"
+          d = json.load(open(p))
+          print(json.dumps({"status":d["status"],"counts":d["counts"],"failures":d["failures"]}, ensure_ascii=False))
+          PY
+          fi
+      - name: Archive QA and selected territorial records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-transferegov-join
+          path: |
+            ${{ runner.temp }}/inv_rmrp_transferegov_join/manifest_join.json
+            ${{ runner.temp }}/inv_rmrp_transferegov_join/*_rmrp.csv
+          retention-days: 14
+          if-no-files-found: warn

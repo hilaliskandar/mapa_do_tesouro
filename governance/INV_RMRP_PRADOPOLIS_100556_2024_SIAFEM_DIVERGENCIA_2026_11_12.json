@@ -1,0 +1,44 @@
+{
+  "reference_date": "2026-11-12",
+  "municipio": "Pradópolis",
+  "codigo_ibge": "3540903",
+  "status": "CANDIDATO_DATA_OBJETO_COM_VALOR_DIVERGENTE_SEM_CROSSWALK",
+  "official_public_document": {
+    "convenio_publico": "100556/2024",
+    "processo": "SGRI-PRC-2024-00085-DM",
+    "assinatura": "2024-04-12",
+    "data_publicacao_diario": "2024-04-22",
+    "orgao": "Secretaria de Governo e Relações Institucionais",
+    "objeto": "Pavimentação asfáltica e sinalização viária na Rua Eureste Barbeta e Rua Abundio Del Campo Monsalve - Distrito Industrial",
+    "valor_estadual_previsto_ate_centavos": 99753327,
+    "source": "https://do-api-publication-pdf.doe.sp.gov.br/v1/editions/8920e39b-38e0-4e50-a304-9569c61b6b02",
+    "page_original": "182/242",
+    "provenance": "Extrato oficial publicado no DOE SP 22/04/2024"
+  },
+  "internal_siafem_examined": {
+    "id": "51010120240425077",
+    "url": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/Convenio.aspx?Convenio=51010120240425077",
+    "data_celebracao": "2024-04-12",
+    "data_publicacao_ficha": "2024-04-13",
+    "orgao": "SECRETARIA DE GOVERNO E REL.INSTITUCIONAIS",
+    "objeto": "PAVIMENTACAO, RECAPEAMENTO, GUIAS E SARJETAS N.",
+    "valor_convenio_centavos": 49876664,
+    "valor_liberado_centavos": 49500000,
+    "saldo_a_liberar_centavos": 376664
+  },
+  "differences": {
+    "valor_termo_publico_menos_valor_ficha_centavos": 49876663,
+    "data_assinatura_coincide": true,
+    "data_publicacao_nao_coincide": true,
+    "objeto_ficha_generico_sem_vias": true,
+    "numero_publico_no_cadastro_siafem": false
+  },
+  "state_other_sgri_instruments_reviewed": [
+    "51010120240530537",
+    "51010120240546911",
+    "51010120241177723",
+    "51010120251140084"
+  ],
+  "conclusion": "Não homologar identificação. Não assumir divisão por dois, parcelamento, segundo convênio ou execução. Requer referência cruzada formal no sistema Demandas/SP Sem Papel, termo integral ou demonstrativo SIAFEM contendo número público.",
+  "double_count": "Nenhum valor novo acrescentado à base financeira RMRP."
+}

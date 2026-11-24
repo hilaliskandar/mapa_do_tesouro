@@ -1,0 +1,44 @@
+rg_codigo;rg_nome;ra_codigo;ra_nome;proporcao_intersecao
+1;RG de Adamantina;9;RA de Presidente Prudente;1.0
+2;RG de Andradina;1;RA de Araçatuba;1.0
+3;RG de Araraquara;5;RA Central;1.0
+4;RG de Araçatuba;1;RA de Araçatuba;1.0
+5;RG de Assis;8;RA de Marília;1.0
+6;RG de Avaré;13;RA de Sorocaba;1.0
+7;RG de Barretos;2;RA de Barretos;1.0
+8;RG de Bauru;3;RA de Bauru;1.0
+9;RG de Botucatu;13;RA de Sorocaba;1.0
+10;RG de Bragança Paulista;4;RA de Campinas;1.0
+11;RG de Campinas;4;RA de Campinas;1.0
+12;RG de Caraguatatuba;15;RA de São José dos Campos;1.0
+13;RG de Catanduva;14;RA de São José do Rio Preto;1.0
+14;RG de Cruzeiro;15;RA de São José dos Campos;1.0
+15;RG de Dracena;9;RA de Presidente Prudente;1.0
+16;RG de Fernandópolis;14;RA de São José do Rio Preto;1.0
+17;RG de Franca;6;RA de Franca;1.0
+18;RG de Guaratinguetá;15;RA de São José dos Campos;1.0
+19;RG de Itapetininga;13;RA de Sorocaba;1.0
+20;RG de Itapeva;7;RA de Itapeva;1.0
+21;RG de Jales;14;RA de São José do Rio Preto;1.0
+22;RG de Jaú;3;RA de Bauru;1.0
+23;RG de Jundiaí;4;RA de Campinas;1.0
+24;RG de Limeira;4;RA de Campinas;1.0
+25;RG de Lins;3;RA de Bauru;1.0
+26;RG de Marília;8;RA de Marília;1.0
+27;RG de Ourinhos;8;RA de Marília;1.0
+28;RG de Piracicaba;4;RA de Campinas;1.0
+29;RG de Presidente Prudente;9;RA de Presidente Prudente;1.0
+30;RG de Registro;16;RA de Registro;1.0
+31;RG de Ribeirão Preto;11;RA de Ribeirão Preto;1.0
+32;RG de Rio Claro;4;RA de Campinas;1.0
+33;RG de Santos;12;RA de Santos;1.0
+34;RG de Sorocaba;13;RA de Sorocaba;1.0
+35;RG de São Carlos;5;RA Central;1.0
+36;RG de São Joaquim da Barra;6;RA de Franca;1.0
+37;RG de São José do Rio Preto;14;RA de São José do Rio Preto;1.0
+38;RG de São José dos Campos;15;RA de São José dos Campos;1.0
+39;RG de São João da Boa Vista;4;RA de Campinas;1.0
+40;RG de São Paulo;10;RM de São Paulo;1.0
+41;RG de Taubaté;15;RA de São José dos Campos;1.0
+42;RG de Tupã;8;RA de Marília;1.0
+43;RG de Votuporanga;14;RA de São José do Rio Preto;1.0

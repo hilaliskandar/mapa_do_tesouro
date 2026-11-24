@@ -1,0 +1,271 @@
+{
+  "municipios": 34,
+  "lancamentos": 2385,
+  "ids_unicos": 2385,
+  "ids_duplicados": [],
+  "valores_invalidos": [],
+  "municipios_incompletos": [],
+  "divergencia_contagens_previas": [],
+  "tipos": {
+    "C": 924,
+    "D": 1461
+  },
+  "anos": {
+    "2020": 137,
+    "2021": 142,
+    "2022": 226,
+    "2023": 700,
+    "2024": 869,
+    "2025": 202,
+    "2026": 109
+  },
+  "creditos_contabeis_centavos": 11680697412,
+  "debitos_contabeis_centavos": 11679504489,
+  "candidatos_creditos": {
+    "n": 282,
+    "cents": 6832720537
+  },
+  "categorias": {
+    "D|envio ted": {
+      "n": 320,
+      "centavos": 1950065336
+    },
+    "C|rsg fundo": {
+      "n": 288,
+      "centavos": 1930327999
+    },
+    "D|doc/ted internet": {
+      "n": 188,
+      "centavos": 212785
+    },
+    "C|cred ted": {
+      "n": 166,
+      "centavos": 4906861538
+    },
+    "C|resgate automatico": {
+      "n": 140,
+      "centavos": 741723678
+    },
+    "D|tev mesm t": {
+      "n": 115,
+      "centavos": 190401442
+    },
+    "D|transferencia enviada": {
+      "n": 113,
+      "centavos": 111466027
+    },
+    "D|deb fornec": {
+      "n": 107,
+      "centavos": 231610458
+    },
+    "D|ted transf.eletr.disponivel": {
+      "n": 92,
+      "centavos": 616487953
+    },
+    "D|apl autom": {
+      "n": 83,
+      "centavos": 2746237644
+    },
+    "C|resgate": {
+      "n": 71,
+      "centavos": 803539095
+    },
+    "D|aplicacao": {
+      "n": 67,
+      "centavos": 1586777422
+    },
+    "D|emissao de ordem bancaria": {
+      "n": 66,
+      "centavos": 349497138
+    },
+    "D|apl fundo": {
+      "n": 54,
+      "centavos": 1020449106
+    },
+    "D|bb-aplic c.prz-apl.aut": {
+      "n": 48,
+      "centavos": 1626514825
+    },
+    "C|resg autom": {
+      "n": 41,
+      "centavos": 282510099
+    },
+    "C|ordem bancaria": {
+      "n": 41,
+      "centavos": 1344386500
+    },
+    "D|impostos": {
+      "n": 39,
+      "centavos": 16459327
+    },
+    "C|cred tev": {
+      "n": 38,
+      "centavos": 28733029
+    },
+    "C|resgate bb fix": {
+      "n": 35,
+      "centavos": 340016424
+    },
+    "C|resgate automtico": {
+      "n": 32,
+      "centavos": 245322040
+    },
+    "D|transferncia enviada": {
+      "n": 30,
+      "centavos": 47466629
+    },
+    "D|envio tev": {
+      "n": 26,
+      "centavos": 273292318
+    },
+    "D|pag gps": {
+      "n": 25,
+      "centavos": 3780495
+    },
+    "C|ordem bancria": {
+      "n": 21,
+      "centavos": 516900000
+    },
+    "D|doc/ted eletronico": {
+      "n": 18,
+      "centavos": 14557
+    },
+    "C|transferencia recebida": {
+      "n": 15,
+      "centavos": 5794298
+    },
+    "D|pag boleto": {
+      "n": 12,
+      "centavos": 4085557
+    },
+    "D|aplicao em bb fix": {
+      "n": 9,
+      "centavos": 180054057
+    },
+    "C|devol ted": {
+      "n": 9,
+      "centavos": 70491433
+    },
+    "D|aplicacao em bb fix": {
+      "n": 9,
+      "centavos": 276823309
+    },
+    "D|pg org gov": {
+      "n": 7,
+      "centavos": 2712680
+    },
+    "D|pg prefeit": {
+      "n": 7,
+      "centavos": 899793
+    },
+    "D|movimento do dia": {
+      "n": 5,
+      "centavos": 1191838
+    },
+    "D|deb.autor.": {
+      "n": 5,
+      "centavos": 8505336
+    },
+    "C|cred.autor": {
+      "n": 4,
+      "centavos": 6778
+    },
+    "D|debito bloq. judicial": {
+      "n": 3,
+      "centavos": 1189222
+    },
+    "C|dep cheque caixa agencia": {
+      "n": 3,
+      "centavos": 1189222
+    },
+    "D|doc/ted pessoal": {
+      "n": 3,
+      "centavos": 4400
+    },
+    "D|inss arrecadacao": {
+      "n": 3,
+      "centavos": 270204
+    },
+    "C|depsito bloquead.20dias teis": {
+      "n": 2,
+      "centavos": 915417
+    },
+    "C|transferncia recebida": {
+      "n": 2,
+      "centavos": 915417
+    },
+    "D|aplic retr": {
+      "n": 2,
+      "centavos": 40000000
+    },
+    "C|dp dinh ag": {
+      "n": 2,
+      "centavos": 608580
+    },
+    "C|resgate poupana": {
+      "n": 2,
+      "centavos": 19243000
+    },
+    "C|es cx prog": {
+      "n": 2,
+      "centavos": 971177
+    },
+    "D|deb. conv.": {
+      "n": 2,
+      "centavos": 11045600
+    },
+    "D|ap cdb flx": {
+      "n": 1,
+      "centavos": 360000000
+    },
+    "C|rg cdb flx": {
+      "n": 1,
+      "centavos": 395819770
+    },
+    "C|deposito bloquead.20dias uteis": {
+      "n": 1,
+      "centavos": 273805
+    },
+    "D|transferido para poupana": {
+      "n": 1,
+      "centavos": 20005062
+    },
+    "C|ted devolvida": {
+      "n": 1,
+      "centavos": 1469217
+    },
+    "C|c val fin": {
+      "n": 1,
+      "centavos": 3244160
+    },
+    "C|es pr empr": {
+      "n": 1,
+      "centavos": 6360336
+    },
+    "C|ted transferencia eletr.dispon": {
+      "n": 1,
+      "centavos": 460491
+    },
+    "C|ordem banc cancelada": {
+      "n": 1,
+      "centavos": 30045172
+    },
+    "C|est db ted": {
+      "n": 1,
+      "centavos": 624636
+    },
+    "C|depsito online": {
+      "n": 1,
+      "centavos": 10
+    },
+    "C|estorno de debito": {
+      "n": 1,
+      "centavos": 1944091
+    },
+    "D|estorno resgate automatico": {
+      "n": 1,
+      "centavos": 1983969
+    }
+  },
+  "observation": "Lancamentos incluem aplicações/resgates, transferências internas, descontos e rendimentos; total de créditos/debitos não deve ser considerado transferência federal ou execução."
+}

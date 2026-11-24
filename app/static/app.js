@@ -751,9 +751,37 @@ function updateBuildMeta() {
 
 function populateUniverseSelect() {
   const select = $("#universe-select");
-  select.innerHTML = state.universes.map((item) =>
-    `<option value="${item.universo_id}">${item.nome} (${item.municipality_count})</option>`
-  ).join("");
+  select.replaceChildren();
+  // Separate analytical, metropolitan and administrative classifications.
+  // RA/RG and RM/AU are alternative territorial cuts, never additive.
+  const categories = [
+    ["estadual", "Estado"],
+    ["projeto", "Universos de projetos"],
+    ["analitico", "Universos analíticos"],
+    ["regiao_metropolitana", "Regiões Metropolitanas"],
+    ["aglomeracao_urbana", "Aglomerações Urbanas"],
+    ["regiao_administrativa", "Regiões Administrativas — Seade"],
+    ["regiao_governo", "Regiões de Governo — Seade"],
+  ];
+  const groups = new Map();
+  for (const [key, label] of categories) {
+    const optgroup = document.createElement("optgroup");
+    optgroup.label = label;
+    groups.set(key, optgroup);
+  }
+  const other = document.createElement("optgroup");
+  other.label = "Outros universos";
+  for (const item of state.universes) {
+    const option = document.createElement("option");
+    option.value = item.universo_id;
+    option.textContent = `${item.nome} (${item.municipality_count})`;
+    (groups.get(item.tipo) || other).appendChild(option);
+  }
+  for (const [key] of categories) {
+    const group = groups.get(key);
+    if (group.children.length) select.appendChild(group);
+  }
+  if (other.children.length) select.appendChild(other);
   select.value = state.currentUniverse;
 }
 

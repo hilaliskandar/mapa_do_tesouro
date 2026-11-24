@@ -1,0 +1,21 @@
+ibge7;id_plano_acao;ano_plano;id_empenho;data_emissao;categoria_despesa;valor_empenho_centavos;situacao_empenho;estado;url_fonte
+3550902;11370;2021;12329;2021-07-09;INVESTIMENTO;35000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=11370&pagina=1&tamanho_da_pagina=200
+3550902;17046;2022;18445;2022-05-17;INVESTIMENTO;50000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=17046&pagina=1&tamanho_da_pagina=200
+3550902;17061;2022;18460;2022-05-17;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=17061&pagina=1&tamanho_da_pagina=200
+3550902;34092;2023;27670;2023-07-05;INVESTIMENTO;25000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=34092&pagina=1&tamanho_da_pagina=200
+3550902;70990;2024;41230;2024-06-26;INVESTIMENTO;35000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=70990&pagina=1&tamanho_da_pagina=200
+3550902;71959;2024;42199;2024-06-26;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=71959&pagina=1&tamanho_da_pagina=200
+3550902;81691;2025;51985;2025-09-10;INVESTIMENTO;84150000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=81691&pagina=1&tamanho_da_pagina=200
+3550902;98864;2026;69395;2026-10-16;INVESTIMENTO;54725000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=98864&pagina=1&tamanho_da_pagina=200
+3550902;94354;2026;64587;2026-03-30;INVESTIMENTO;54725000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=94354&pagina=1&tamanho_da_pagina=200
+3543402;4414;2020;3981;2020-05-18;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=4414&pagina=1&tamanho_da_pagina=200
+3543402;4768;2020;4837;2020-05-18;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=4768&pagina=1&tamanho_da_pagina=200
+3543402;9900;2021;10941;2021-08-09;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=9900&pagina=1&tamanho_da_pagina=200
+3543402;12357;2021;13269;2021-08-09;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=12357&pagina=1&tamanho_da_pagina=200
+3543402;12476;2021;13384;2021-08-09;INVESTIMENTO;50000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=12476&pagina=1&tamanho_da_pagina=200
+3543402;13931;2021;14836;2021-12-09;INVESTIMENTO;50000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=13931&pagina=1&tamanho_da_pagina=200
+3543402;15888;2022;17386;2022-05-17;INVESTIMENTO;18000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=15888&pagina=1&tamanho_da_pagina=200
+3543402;16606;2022;18014;2022-05-17;INVESTIMENTO;12000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=16606&pagina=1&tamanho_da_pagina=200
+3543402;17446;2022;18845;2022-05-17;INVESTIMENTO;100000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=17446&pagina=1&tamanho_da_pagina=200
+3543402;21475;2022;22874;2022-05-17;INVESTIMENTO;15000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=21475&pagina=1&tamanho_da_pagina=200
+3543402;21941;2022;23340;2022-05-17;INVESTIMENTO;15000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=21941&pagina=1&tamanho_da_pagina=200

@@ -1,0 +1,838 @@
+{
+  "time_utc": "2026-11-14T19:14:11.600576+00:00",
+  "status": "proponent_regional_coverage_candidate_counts_qa_pass",
+  "scope": "SP645 and RMRP34 by MUNICIPALITY OF PROPONENT",
+  "not_location_of_work": true,
+  "no_monetary_values": true,
+  "dimension_sha256": "a3a2ce26bbe94a7bf2334c47ef9abd4623e65a25917add7738f920b0878b83ea",
+  "sources": {
+    "siconv_proposta": {
+      "sha256_zip": "dd10ed93f319fec4eda39e31e19a64ea2df4aa07da4cb381ceb4b97a384a3495",
+      "zip_bytes": 206287309,
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_proposta.zip"
+    },
+    "siconv_convenio": {
+      "sha256_zip": "781286b755807fd32411325d9dbaa5011eff965c5c38ffeda3ed78b7954837c0",
+      "zip_bytes": 18501744,
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_convenio.zip"
+    },
+    "siconv_coordenadas_obra": {
+      "sha256_zip": "b4698dc27a6fb433254458295460d75013a3fcc2cea2f53cdfcf1475c69e84bf",
+      "zip_bytes": 2996307,
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_coordenadas_obra.zip"
+    },
+    "siconv_dados_obrasgov_geral": {
+      "sha256_zip": "af53a9b93ca095e5a81363ca9713e7167bece9b7c78cfc7dcffecad96c299c58",
+      "zip_bytes": 785514,
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_dados_obrasgov_geral.zip"
+    },
+    "siconv_contrato_cipi": {
+      "sha256_zip": "f9f8566d78af6b53f4242ac69300e9d0435596c65d42eb90cfbfe94fbe3079ad",
+      "zip_bytes": 4275091,
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_contrato_cipi.zip"
+    }
+  },
+  "counts": {
+    "proposals": {
+      "national_rows": 1160558,
+      "sp_proponent_unique": 134452,
+      "rmrp_proponent_unique": 6410,
+      "sp_duplicate_proposal_ids": 0,
+      "sp_empty_id_rows": 0
+    },
+    "convenios": {
+      "national_rows": 288852,
+      "sp_proponent_unique": 34447,
+      "rmrp_proponent_unique": 1793
+    },
+    "coordinates": {
+      "national_rows": 132102,
+      "sp_rows_linked_by_proposal": 10567,
+      "rmrp_rows_linked_by_proposal": 441,
+      "sp_proposals_with_coordinates": 5169,
+      "sp_rows_with_both_coord_strings_nonempty": 10567
+    },
+    "obrasgov_general": {
+      "national_rows": 48086,
+      "sp_rows_matched_exact_instrument_number": 4212,
+      "sp_projects_with_unique_proponent_ibge": 4212,
+      "sp_projects_with_multiple_proponent_ibge": 0,
+      "rmrp_projects_unique_proponent": 218
+    },
+    "contracts_cipi": {
+      "national_rows": 39099,
+      "sp_rows_linked_through_project_instrument": 3730,
+      "rmrp_rows_linked_through_project_instrument": 150
+    }
+  },
+  "regional_coverage": [
+    {
+      "dimension": "RA",
+      "code": "1",
+      "name": "RA de Araçatuba",
+      "municipios": 43,
+      "propostas": 8717,
+      "convenios": 1466,
+      "coordenadas": 354,
+      "projetos_obrasgov": 172,
+      "contratos_cipi": 114
+    },
+    {
+      "dimension": "RA",
+      "code": "10",
+      "name": "Região Metropolitana de São Paulo",
+      "municipios": 39,
+      "propostas": 18405,
+      "convenios": 8132,
+      "coordenadas": 3564,
+      "projetos_obrasgov": 666,
+      "contratos_cipi": 459
+    },
+    {
+      "dimension": "RA",
+      "code": "11",
+      "name": "RA de Ribeirão Preto",
+      "municipios": 25,
+      "propostas": 5010,
+      "convenios": 1402,
+      "coordenadas": 348,
+      "projetos_obrasgov": 167,
+      "contratos_cipi": 108
+    },
+    {
+      "dimension": "RA",
+      "code": "12",
+      "name": "RA de Santos",
+      "municipios": 9,
+      "propostas": 2965,
+      "convenios": 908,
+      "coordenadas": 249,
+      "projetos_obrasgov": 159,
+      "contratos_cipi": 329
+    },
+    {
+      "dimension": "RA",
+      "code": "13",
+      "name": "RA de Sorocaba",
+      "municipios": 47,
+      "propostas": 8584,
+      "convenios": 2218,
+      "coordenadas": 636,
+      "projetos_obrasgov": 399,
+      "contratos_cipi": 315
+    },
+    {
+      "dimension": "RA",
+      "code": "14",
+      "name": "RA de São José do Rio Preto",
+      "municipios": 96,
+      "propostas": 19003,
+      "convenios": 3340,
+      "coordenadas": 768,
+      "projetos_obrasgov": 370,
+      "contratos_cipi": 289
+    },
+    {
+      "dimension": "RA",
+      "code": "15",
+      "name": "RA de São José dos Campos",
+      "municipios": 39,
+      "propostas": 5901,
+      "convenios": 1833,
+      "coordenadas": 551,
+      "projetos_obrasgov": 233,
+      "contratos_cipi": 197
+    },
+    {
+      "dimension": "RA",
+      "code": "16",
+      "name": "RA de Registro",
+      "municipios": 14,
+      "propostas": 2340,
+      "convenios": 625,
+      "coordenadas": 220,
+      "projetos_obrasgov": 132,
+      "contratos_cipi": 112
+    },
+    {
+      "dimension": "RA",
+      "code": "2",
+      "name": "RA de Barretos",
+      "municipios": 19,
+      "propostas": 4229,
+      "convenios": 886,
+      "coordenadas": 240,
+      "projetos_obrasgov": 103,
+      "contratos_cipi": 122
+    },
+    {
+      "dimension": "RA",
+      "code": "3",
+      "name": "RA de Bauru",
+      "municipios": 39,
+      "propostas": 8348,
+      "convenios": 1657,
+      "coordenadas": 341,
+      "projetos_obrasgov": 196,
+      "contratos_cipi": 142
+    },
+    {
+      "dimension": "RA",
+      "code": "4",
+      "name": "RA de Campinas",
+      "municipios": 90,
+      "propostas": 16436,
+      "convenios": 4879,
+      "coordenadas": 1602,
+      "projetos_obrasgov": 677,
+      "contratos_cipi": 609
+    },
+    {
+      "dimension": "RA",
+      "code": "5",
+      "name": "RA Central",
+      "municipios": 26,
+      "propostas": 5018,
+      "convenios": 1229,
+      "coordenadas": 391,
+      "projetos_obrasgov": 149,
+      "contratos_cipi": 133
+    },
+    {
+      "dimension": "RA",
+      "code": "6",
+      "name": "RA de Franca",
+      "municipios": 23,
+      "propostas": 2956,
+      "convenios": 833,
+      "coordenadas": 169,
+      "projetos_obrasgov": 118,
+      "contratos_cipi": 134
+    },
+    {
+      "dimension": "RA",
+      "code": "7",
+      "name": "RA de Itapeva",
+      "municipios": 32,
+      "propostas": 4211,
+      "convenios": 1151,
+      "coordenadas": 326,
+      "projetos_obrasgov": 202,
+      "contratos_cipi": 151
+    },
+    {
+      "dimension": "RA",
+      "code": "8",
+      "name": "RA de Marília",
+      "municipios": 51,
+      "propostas": 12317,
+      "convenios": 2170,
+      "coordenadas": 426,
+      "projetos_obrasgov": 245,
+      "contratos_cipi": 342
+    },
+    {
+      "dimension": "RA",
+      "code": "9",
+      "name": "RA de Presidente Prudente",
+      "municipios": 53,
+      "propostas": 10012,
+      "convenios": 1718,
+      "coordenadas": 382,
+      "projetos_obrasgov": 224,
+      "contratos_cipi": 174
+    },
+    {
+      "dimension": "RG",
+      "code": "1",
+      "name": "RG de Adamantina",
+      "municipios": 12,
+      "propostas": 2396,
+      "convenios": 353,
+      "coordenadas": 54,
+      "projetos_obrasgov": 39,
+      "contratos_cipi": 32
+    },
+    {
+      "dimension": "RG",
+      "code": "10",
+      "name": "RG de Bragança Paulista",
+      "municipios": 16,
+      "propostas": 2428,
+      "convenios": 705,
+      "coordenadas": 216,
+      "projetos_obrasgov": 103,
+      "contratos_cipi": 135
+    },
+    {
+      "dimension": "RG",
+      "code": "11",
+      "name": "RG de Campinas",
+      "municipios": 22,
+      "propostas": 5519,
+      "convenios": 1805,
+      "coordenadas": 771,
+      "projetos_obrasgov": 263,
+      "contratos_cipi": 224
+    },
+    {
+      "dimension": "RG",
+      "code": "12",
+      "name": "RG de Caraguatatuba",
+      "municipios": 4,
+      "propostas": 862,
+      "convenios": 268,
+      "coordenadas": 79,
+      "projetos_obrasgov": 43,
+      "contratos_cipi": 27
+    },
+    {
+      "dimension": "RG",
+      "code": "13",
+      "name": "RG de Catanduva",
+      "municipios": 16,
+      "propostas": 3264,
+      "convenios": 462,
+      "coordenadas": 90,
+      "projetos_obrasgov": 51,
+      "contratos_cipi": 36
+    },
+    {
+      "dimension": "RG",
+      "code": "14",
+      "name": "RG de Cruzeiro",
+      "municipios": 8,
+      "propostas": 658,
+      "convenios": 142,
+      "coordenadas": 66,
+      "projetos_obrasgov": 24,
+      "contratos_cipi": 14
+    },
+    {
+      "dimension": "RG",
+      "code": "15",
+      "name": "RG de Dracena",
+      "municipios": 10,
+      "propostas": 1601,
+      "convenios": 265,
+      "coordenadas": 81,
+      "projetos_obrasgov": 41,
+      "contratos_cipi": 23
+    },
+    {
+      "dimension": "RG",
+      "code": "16",
+      "name": "RG de Fernandópolis",
+      "municipios": 12,
+      "propostas": 2511,
+      "convenios": 443,
+      "coordenadas": 49,
+      "projetos_obrasgov": 37,
+      "contratos_cipi": 34
+    },
+    {
+      "dimension": "RG",
+      "code": "17",
+      "name": "RG de Franca",
+      "municipios": 17,
+      "propostas": 2314,
+      "convenios": 609,
+      "coordenadas": 113,
+      "projetos_obrasgov": 83,
+      "contratos_cipi": 79
+    },
+    {
+      "dimension": "RG",
+      "code": "18",
+      "name": "RG de Guaratinguetá",
+      "municipios": 9,
+      "propostas": 1413,
+      "convenios": 450,
+      "coordenadas": 99,
+      "projetos_obrasgov": 44,
+      "contratos_cipi": 21
+    },
+    {
+      "dimension": "RG",
+      "code": "19",
+      "name": "RG de Itapetininga",
+      "municipios": 11,
+      "propostas": 1719,
+      "convenios": 512,
+      "coordenadas": 152,
+      "projetos_obrasgov": 102,
+      "contratos_cipi": 73
+    },
+    {
+      "dimension": "RG",
+      "code": "2",
+      "name": "RG de Andradina",
+      "municipios": 12,
+      "propostas": 2233,
+      "convenios": 455,
+      "coordenadas": 147,
+      "projetos_obrasgov": 52,
+      "contratos_cipi": 33
+    },
+    {
+      "dimension": "RG",
+      "code": "20",
+      "name": "RG de Itapeva",
+      "municipios": 32,
+      "propostas": 4211,
+      "convenios": 1151,
+      "coordenadas": 326,
+      "projetos_obrasgov": 202,
+      "contratos_cipi": 151
+    },
+    {
+      "dimension": "RG",
+      "code": "21",
+      "name": "RG de Jales",
+      "municipios": 22,
+      "propostas": 3221,
+      "convenios": 686,
+      "coordenadas": 233,
+      "projetos_obrasgov": 87,
+      "contratos_cipi": 62
+    },
+    {
+      "dimension": "RG",
+      "code": "22",
+      "name": "RG de Jaú",
+      "municipios": 10,
+      "propostas": 1754,
+      "convenios": 589,
+      "coordenadas": 104,
+      "projetos_obrasgov": 60,
+      "contratos_cipi": 46
+    },
+    {
+      "dimension": "RG",
+      "code": "23",
+      "name": "RG de Jundiaí",
+      "municipios": 9,
+      "propostas": 1727,
+      "convenios": 496,
+      "coordenadas": 103,
+      "projetos_obrasgov": 57,
+      "contratos_cipi": 38
+    },
+    {
+      "dimension": "RG",
+      "code": "24",
+      "name": "RG de Limeira",
+      "municipios": 8,
+      "propostas": 1480,
+      "convenios": 467,
+      "coordenadas": 161,
+      "projetos_obrasgov": 76,
+      "contratos_cipi": 82
+    },
+    {
+      "dimension": "RG",
+      "code": "25",
+      "name": "RG de Lins",
+      "municipios": 10,
+      "propostas": 2418,
+      "convenios": 312,
+      "coordenadas": 60,
+      "projetos_obrasgov": 41,
+      "contratos_cipi": 27
+    },
+    {
+      "dimension": "RG",
+      "code": "26",
+      "name": "RG de Marília",
+      "municipios": 14,
+      "propostas": 4297,
+      "convenios": 569,
+      "coordenadas": 131,
+      "projetos_obrasgov": 73,
+      "contratos_cipi": 213
+    },
+    {
+      "dimension": "RG",
+      "code": "27",
+      "name": "RG de Ourinhos",
+      "municipios": 12,
+      "propostas": 2388,
+      "convenios": 507,
+      "coordenadas": 74,
+      "projetos_obrasgov": 57,
+      "contratos_cipi": 43
+    },
+    {
+      "dimension": "RG",
+      "code": "28",
+      "name": "RG de Piracicaba",
+      "municipios": 11,
+      "propostas": 1547,
+      "convenios": 409,
+      "coordenadas": 130,
+      "projetos_obrasgov": 56,
+      "contratos_cipi": 35
+    },
+    {
+      "dimension": "RG",
+      "code": "29",
+      "name": "RG de Presidente Prudente",
+      "municipios": 31,
+      "propostas": 6015,
+      "convenios": 1100,
+      "coordenadas": 247,
+      "projetos_obrasgov": 144,
+      "contratos_cipi": 119
+    },
+    {
+      "dimension": "RG",
+      "code": "3",
+      "name": "RG de Araraquara",
+      "municipios": 19,
+      "propostas": 3556,
+      "convenios": 831,
+      "coordenadas": 308,
+      "projetos_obrasgov": 101,
+      "contratos_cipi": 94
+    },
+    {
+      "dimension": "RG",
+      "code": "30",
+      "name": "RG de Registro",
+      "municipios": 14,
+      "propostas": 2340,
+      "convenios": 625,
+      "coordenadas": 220,
+      "projetos_obrasgov": 132,
+      "contratos_cipi": 112
+    },
+    {
+      "dimension": "RG",
+      "code": "31",
+      "name": "RG de Ribeirão Preto",
+      "municipios": 25,
+      "propostas": 5010,
+      "convenios": 1402,
+      "coordenadas": 348,
+      "projetos_obrasgov": 167,
+      "contratos_cipi": 108
+    },
+    {
+      "dimension": "RG",
+      "code": "32",
+      "name": "RG de Rio Claro",
+      "municipios": 8,
+      "propostas": 1317,
+      "convenios": 347,
+      "coordenadas": 63,
+      "projetos_obrasgov": 45,
+      "contratos_cipi": 39
+    },
+    {
+      "dimension": "RG",
+      "code": "33",
+      "name": "RG de Santos",
+      "municipios": 9,
+      "propostas": 2965,
+      "convenios": 908,
+      "coordenadas": 249,
+      "projetos_obrasgov": 159,
+      "contratos_cipi": 329
+    },
+    {
+      "dimension": "RG",
+      "code": "34",
+      "name": "RG de Sorocaba",
+      "municipios": 18,
+      "propostas": 3316,
+      "convenios": 991,
+      "coordenadas": 360,
+      "projetos_obrasgov": 202,
+      "contratos_cipi": 140
+    },
+    {
+      "dimension": "RG",
+      "code": "35",
+      "name": "RG de São Carlos",
+      "municipios": 7,
+      "propostas": 1462,
+      "convenios": 398,
+      "coordenadas": 83,
+      "projetos_obrasgov": 48,
+      "contratos_cipi": 39
+    },
+    {
+      "dimension": "RG",
+      "code": "36",
+      "name": "RG de São Joaquim da Barra",
+      "municipios": 6,
+      "propostas": 642,
+      "convenios": 224,
+      "coordenadas": 56,
+      "projetos_obrasgov": 35,
+      "contratos_cipi": 55
+    },
+    {
+      "dimension": "RG",
+      "code": "37",
+      "name": "RG de São José do Rio Preto",
+      "municipios": 31,
+      "propostas": 7193,
+      "convenios": 1127,
+      "coordenadas": 261,
+      "projetos_obrasgov": 115,
+      "contratos_cipi": 93
+    },
+    {
+      "dimension": "RG",
+      "code": "38",
+      "name": "RG de São José dos Campos",
+      "municipios": 8,
+      "propostas": 1315,
+      "convenios": 565,
+      "coordenadas": 182,
+      "projetos_obrasgov": 53,
+      "contratos_cipi": 90
+    },
+    {
+      "dimension": "RG",
+      "code": "39",
+      "name": "RG de São João da Boa Vista",
+      "municipios": 16,
+      "propostas": 2418,
+      "convenios": 650,
+      "coordenadas": 158,
+      "projetos_obrasgov": 77,
+      "contratos_cipi": 56
+    },
+    {
+      "dimension": "RG",
+      "code": "4",
+      "name": "RG de Araçatuba",
+      "municipios": 31,
+      "propostas": 6484,
+      "convenios": 1011,
+      "coordenadas": 207,
+      "projetos_obrasgov": 120,
+      "contratos_cipi": 81
+    },
+    {
+      "dimension": "RG",
+      "code": "40",
+      "name": "RG de São Paulo",
+      "municipios": 39,
+      "propostas": 18405,
+      "convenios": 8132,
+      "coordenadas": 3564,
+      "projetos_obrasgov": 666,
+      "contratos_cipi": 459
+    },
+    {
+      "dimension": "RG",
+      "code": "41",
+      "name": "RG de Taubaté",
+      "municipios": 10,
+      "propostas": 1653,
+      "convenios": 408,
+      "coordenadas": 125,
+      "projetos_obrasgov": 69,
+      "contratos_cipi": 45
+    },
+    {
+      "dimension": "RG",
+      "code": "42",
+      "name": "RG de Tupã",
+      "municipios": 12,
+      "propostas": 2640,
+      "convenios": 456,
+      "coordenadas": 111,
+      "projetos_obrasgov": 75,
+      "contratos_cipi": 51
+    },
+    {
+      "dimension": "RG",
+      "code": "43",
+      "name": "RG de Votuporanga",
+      "municipios": 15,
+      "propostas": 2814,
+      "convenios": 622,
+      "coordenadas": 135,
+      "projetos_obrasgov": 80,
+      "contratos_cipi": 64
+    },
+    {
+      "dimension": "RG",
+      "code": "5",
+      "name": "RG de Assis",
+      "municipios": 13,
+      "propostas": 2992,
+      "convenios": 638,
+      "coordenadas": 110,
+      "projetos_obrasgov": 40,
+      "contratos_cipi": 35
+    },
+    {
+      "dimension": "RG",
+      "code": "6",
+      "name": "RG de Avaré",
+      "municipios": 5,
+      "propostas": 960,
+      "convenios": 207,
+      "coordenadas": 36,
+      "projetos_obrasgov": 26,
+      "contratos_cipi": 16
+    },
+    {
+      "dimension": "RG",
+      "code": "7",
+      "name": "RG de Barretos",
+      "municipios": 19,
+      "propostas": 4229,
+      "convenios": 886,
+      "coordenadas": 240,
+      "projetos_obrasgov": 103,
+      "contratos_cipi": 122
+    },
+    {
+      "dimension": "RG",
+      "code": "8",
+      "name": "RG de Bauru",
+      "municipios": 19,
+      "propostas": 4176,
+      "convenios": 756,
+      "coordenadas": 177,
+      "projetos_obrasgov": 95,
+      "contratos_cipi": 69
+    },
+    {
+      "dimension": "RG",
+      "code": "9",
+      "name": "RG de Botucatu",
+      "municipios": 13,
+      "propostas": 2589,
+      "convenios": 508,
+      "coordenadas": 88,
+      "projetos_obrasgov": 69,
+      "contratos_cipi": 86
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "AU_00301",
+      "name": "Aglomeração Urbana de Franca",
+      "municipios": 19,
+      "propostas": 2557,
+      "convenios": 675,
+      "coordenadas": 143,
+      "projetos_obrasgov": 102,
+      "contratos_cipi": 121
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_04901",
+      "name": "Região Metropolitana de São Paulo",
+      "municipios": 39,
+      "propostas": 18405,
+      "convenios": 8132,
+      "coordenadas": 3564,
+      "projetos_obrasgov": 666,
+      "contratos_cipi": 459
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_05001",
+      "name": "Região Metropolitana da Baixada Santista",
+      "municipios": 9,
+      "propostas": 2965,
+      "convenios": 908,
+      "coordenadas": 249,
+      "projetos_obrasgov": 159,
+      "contratos_cipi": 329
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_05101",
+      "name": "Região Metropolitana de Campinas",
+      "municipios": 20,
+      "propostas": 4976,
+      "convenios": 1676,
+      "coordenadas": 555,
+      "projetos_obrasgov": 245,
+      "contratos_cipi": 182
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_05201",
+      "name": "Região Metropolitana do Vale do Paraíba e Litoral Norte",
+      "municipios": 39,
+      "propostas": 5901,
+      "convenios": 1833,
+      "coordenadas": 551,
+      "projetos_obrasgov": 233,
+      "contratos_cipi": 197
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_05301",
+      "name": "Região Metropolitana de Sorocaba",
+      "municipios": 27,
+      "propostas": 4848,
+      "convenios": 1459,
+      "coordenadas": 494,
+      "projetos_obrasgov": 292,
+      "contratos_cipi": 204
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_05401",
+      "name": "Região Metropolitana de Ribeirão Preto",
+      "municipios": 34,
+      "propostas": 6410,
+      "convenios": 1793,
+      "coordenadas": 441,
+      "projetos_obrasgov": 218,
+      "contratos_cipi": 150
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_08002",
+      "name": "Região Metropolitana de São José do Rio Preto",
+      "municipios": 37,
+      "propostas": 8830,
+      "convenios": 1327,
+      "coordenadas": 294,
+      "projetos_obrasgov": 141,
+      "contratos_cipi": 109
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_08101",
+      "name": "Região Metropolitana de Jundiaí",
+      "municipios": 7,
+      "propostas": 1415,
+      "convenios": 416,
+      "coordenadas": 83,
+      "projetos_obrasgov": 47,
+      "contratos_cipi": 27
+    },
+    {
+      "dimension": "RM_AU",
+      "code": "RM_08201",
+      "name": "Região Metropolitana de Piracicaba",
+      "municipios": 24,
+      "propostas": 3890,
+      "convenios": 1103,
+      "coordenadas": 330,
+      "projetos_obrasgov": 157,
+      "contratos_cipi": 136
+    }
+  ],
+  "warnings": [
+    "All municipal and RA/RG/RM/AU counts refer to the MUNICIPAL PROPONENT, never geographic investment location",
+    "Exact instrument number match is a candidate link; IDs and collisions audited, but it is not monetary spending",
+    "Coordinates may be outside the municipality of proposal; no geospatial attribution or amounts are inferred",
+    "SP and regional groups are alternative counts, not additive across different regional typologies",
+    "No financial stage or nature inferred from instrument, project or contract metadata"
+  ],
+  "evidence_run": "https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43630964784",
+  "evidence_artifact_id": "14127424244"
+}

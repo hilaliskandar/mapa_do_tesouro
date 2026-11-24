@@ -1,0 +1,2257 @@
+{
+  "source": "SIAFEM-SP",
+  "time_filter": "liberacao a partir de 01/01/2020 (reaplicar sobre eventos)",
+  "part": 5,
+  "events": [
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "08035806152/13",
+      "esperados": 3,
+      "valor_resumo": "728.621,54",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/04/2025",
+          "242.874"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/10/2024",
+          "242.874"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/09/2024",
+          "242.874"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2016",
+          "323.832"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2016",
+          "323.832"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/05/2014",
+          "242.874"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "08035806152/13A",
+      "esperados": 1,
+      "valor_resumo": "161.915,90",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/10/2024",
+          "161.916"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "08035806153/13",
+      "esperados": 4,
+      "valor_resumo": "1.052.453,33",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/07/2024",
+          "242.874"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2023",
+          "242.874"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/11/2022",
+          "242.874"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2022",
+          "323.832"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2016",
+          "323.832"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/05/2014",
+          "242.874"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "08035806153/13A",
+      "esperados": 1,
+      "valor_resumo": "161.915,90",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2023",
+          "161.916"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "13022320240640996",
+      "esperados": 1,
+      "valor_resumo": "90.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/11/2024",
+          "90.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "29011800307/20",
+      "esperados": 1,
+      "valor_resumo": "138.700,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/01/2021",
+          "138.700"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "29011820220716602",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/12/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "29011820220716676",
+      "esperados": 1,
+      "valor_resumo": "499.229,47",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/07/2023",
+          "499.229"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "29011820221447321",
+      "esperados": 1,
+      "valor_resumo": "202.900,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/06/2024",
+          "202.900"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "29011820-2918092",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/06/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "4101012021/00231",
+      "esperados": 1,
+      "valor_resumo": "80.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/06/2022",
+          "80.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "5001022018PR469",
+      "esperados": 1,
+      "valor_resumo": "60.430,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/04/2020",
+          "60.430"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "5001022018PR470",
+      "esperados": 1,
+      "valor_resumo": "58.704,48",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/03/2021",
+          "58.704"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "5001022018PR471",
+      "esperados": 2,
+      "valor_resumo": "237.198,66",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2022",
+          "146.332"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/04/2020",
+          "90.867"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "04/01/2019",
+          "62.217"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "5001022018PR548",
+      "esperados": 1,
+      "valor_resumo": "124.141,10",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/02/2021",
+          "124.141"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "5001022021PR0139",
+      "esperados": 1,
+      "valor_resumo": "307.536,98",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/06/2022",
+          "307.537"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "50010220221343569",
+      "esperados": 2,
+      "valor_resumo": "615.073,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/09/2025",
+          "307.537"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/01/2024",
+          "307.537"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "50010220231704234",
+      "esperados": 1,
+      "valor_resumo": "285.540,81",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/07/2025",
+          "285.541"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "5001022265051/19",
+      "esperados": 2,
+      "valor_resumo": "307.691,16",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/02/2022",
+          "7.691"
+        ],
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2021",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3534302",
+      "municipio": "Orlândia",
+      "id": "51010120240298573",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45351749000111",
+          "PREFEITURA MUNICIPAL ORLANDIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/03/2024",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "18010100027/21DM",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/03/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "18010120240414271",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2024",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011800217/20",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/07/2021",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011800900/21",
+      "esperados": 2,
+      "valor_resumo": "386.239,85",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/09/2022",
+          "86.240"
+        ],
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/04/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011801800/21",
+      "esperados": 1,
+      "valor_resumo": "385.782,39",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/05/2022",
+          "385.782"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011820220511964",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/08/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011820220602451",
+      "esperados": 2,
+      "valor_resumo": "975.554,30",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/03/2024",
+          "475.554"
+        ],
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/12/2022",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011820220703491",
+      "esperados": 1,
+      "valor_resumo": "750.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/12/2022",
+          "750.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011820220718106",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/05/2023",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011820220718161",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/05/2023",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011820221414689",
+      "esperados": 1,
+      "valor_resumo": "393.316,13",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/06/2023",
+          "393.316"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011820221414713",
+      "esperados": 1,
+      "valor_resumo": "93.999,84",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/05/2023",
+          "94.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "29011820221414731",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/05/2023",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "2901182105622495",
+      "esperados": 1,
+      "valor_resumo": "242.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/01/2022",
+          "242.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "2901182108723350",
+      "esperados": 2,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2022",
+          "200.000"
+        ],
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/02/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "2901183423582/19",
+      "esperados": 1,
+      "valor_resumo": "112.278,15",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/11/2020",
+          "112.278"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "51010120230989354",
+      "esperados": 1,
+      "valor_resumo": "875.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/08/2023",
+          "875.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "51010120231185211",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/08/2024",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "51010120240490861",
+      "esperados": 1,
+      "valor_resumo": "328.896,04",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/05/2024",
+          "328.896"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "51010120240512011",
+      "esperados": 1,
+      "valor_resumo": "341.471,27",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/05/2024",
+          "341.471"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "51010120240528978",
+      "esperados": 1,
+      "valor_resumo": "355.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/08/2024",
+          "355.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "51010120240530386",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2024",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "51010120240547472",
+      "esperados": 1,
+      "valor_resumo": "950.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/08/2024",
+          "950.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "id": "51010120241376253",
+      "esperados": 1,
+      "valor_resumo": "128.989,99",
+      "status": "ok",
+      "eventos": [
+        [
+          "45370707000128",
+          "PREFEITURA MUNICIPAL PITANGUEIRAS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/08/2025",
+          "128.990"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "08035803537/11",
+      "esperados": 1,
+      "valor_resumo": "259.112,93",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2020",
+          "259.113"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/02/2016",
+          "259.113"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2015",
+          "345.484"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/11/2014",
+          "345.484"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/07/2013",
+          "259.113"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "08035803537/11A",
+      "esperados": 1,
+      "valor_resumo": "172.741,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/10/2020",
+          "172.742"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "18010100042/21DM",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/03/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "2901181907525446",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/06/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "29011820221148761",
+      "esperados": 1,
+      "valor_resumo": "900.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "900.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "2901182105722521",
+      "esperados": 1,
+      "valor_resumo": "133.979,21",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/06/2022",
+          "133.979"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "2901182870464/19",
+      "esperados": 2,
+      "valor_resumo": "199.688,14",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/06/2021",
+          "159.688"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2020",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "2901182870626/19",
+      "esperados": 2,
+      "valor_resumo": "180.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2020",
+          "120.000"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "290118509730/18",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/01/2020",
+          "400.000"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2019",
+          "400.000"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/12/2018",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "51010120230626591",
+      "esperados": 2,
+      "valor_resumo": "2.100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/12/2023",
+          "1.050.000"
+        ],
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/05/2023",
+          "1.050.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540200",
+      "municipio": "Pontal",
+      "id": "51010120240547552",
+      "esperados": 1,
+      "valor_resumo": "600.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45352267000186",
+          "PREFEITURA MUNICIPAL PONTAL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2026",
+          "600.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "08035802142/19",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "0803585458000012",
+      "esperados": 1,
+      "valor_resumo": "229.758,04",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/06/2020",
+          "229.758"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/10/2019",
+          "229.758"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/07/2019",
+          "229.758"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/03/2019",
+          "306.344"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2018",
+          "306.344"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/12/2017",
+          "42.013"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "06/07/2012",
+          "187.746"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "1700301278949/17",
+      "esperados": 4,
+      "valor_resumo": "999.213,73",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/10/2021",
+          "100.114"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/02/2021",
+          "291.022"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/06/2020",
+          "408.078"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "02/03/2020",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "17003020240434782",
+      "esperados": 1,
+      "valor_resumo": "633.525,20",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/02/2026",
+          "633.525"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "26010120240565158",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/12/2025",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "2621013014775/19",
+      "esperados": 15,
+      "valor_resumo": "9.060.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/07/2024",
+          "273.215"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/05/2024",
+          "668.619"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/12/2023",
+          "1.174.841"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2023",
+          "659.528"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/04/2023",
+          "151.632"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/10/2022",
+          "200.737"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/09/2022",
+          "617.392"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/08/2022",
+          "269.270"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/07/2022",
+          "324.020"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "480.000"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/03/2022",
+          "1.200.000"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/02/2022",
+          "1.003.490"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/01/2022",
+          "537.256"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/12/2021",
+          "700.000"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/10/2021",
+          "800.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011800541/21",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/01/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011801593/21",
+      "esperados": 1,
+      "valor_resumo": "231.797,01",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "231.797"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011801595/21",
+      "esperados": 1,
+      "valor_resumo": "216.045,77",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/04/2022",
+          "216.046"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "2901181613523/18",
+      "esperados": 1,
+      "valor_resumo": "59.804,77",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/01/2020",
+          "59.805"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2019",
+          "60.195"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820-0321814",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/08/2021",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "2901182006419274",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820220137001",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/07/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820220428812",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/03/2023",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820220525182",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/03/2023",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820220597904",
+      "esperados": 1,
+      "valor_resumo": "452.076,85",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/05/2025",
+          "452.077"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820220607081",
+      "esperados": 2,
+      "valor_resumo": "600.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/11/2023",
+          "300.000"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/03/2023",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820220718821",
+      "esperados": 1,
+      "valor_resumo": "382.500,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/03/2023",
+          "382.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820221375286",
+      "esperados": 2,
+      "valor_resumo": "687.939,46",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/12/2023",
+          "187.939"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/07/2023",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820221414751",
+      "esperados": 1,
+      "valor_resumo": "267.129,32",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/07/2023",
+          "267.129"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "29011820221414787",
+      "esperados": 1,
+      "valor_resumo": "365.657,85",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/07/2023",
+          "365.658"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "2901182102421982",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/02/2022",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "2901182105622490",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "2901182106422645",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/09/2022",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "2901182107824459",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/02/2022",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "2901182669418/19",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/09/2020",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "290118303491/18",
+      "esperados": 1,
+      "valor_resumo": "52.133,21",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/01/2020",
+          "52.133"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/10/2019",
+          "52.133"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/07/2019",
+          "37.867"
+        ],
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/05/2019",
+          "37.867"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "51010120240425077",
+      "esperados": 1,
+      "valor_resumo": "495.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/12/2024",
+          "495.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "51010120240530537",
+      "esperados": 1,
+      "valor_resumo": "175.964,76",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/11/2024",
+          "175.965"
+        ]
+      ]
+    },
+    {
+      "ibge": "3540903",
+      "municipio": "Pradópolis",
+      "id": "51010120240546911",
+      "esperados": 1,
+      "valor_resumo": "445.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "48664296000171",
+          "PREFEITURA MUNICIPAL PRADOPOLIS",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/12/2024",
+          "445.000"
+        ]
+      ]
+    }
+  ]
+}

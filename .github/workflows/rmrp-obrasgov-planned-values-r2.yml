@@ -1,0 +1,56 @@
+name: RMRP - valores previstos Obrasgov 218 projetos em R2 privado
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rmrp-obrasgov-monetario-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests
+      - name: Adquirir as 218 fichas pelo identificador exato
+        run: |
+          python pipeline/acquire/collect_rmrp_obrasgov_planned_values.py \
+            --ids governance/controls/investimentos_sp645/RMRP_OBRASGOV_218_IDS_2026_11_17.csv \
+            --outdir "$RUNNER_TEMP/rmrp_obrasgov_values"
+      - name: Registrar prefixo imutavel
+        id: qa
+        run: |
+          python - <<'PY'
+          import json,os
+          p=os.environ['RUNNER_TEMP']+'/rmrp_obrasgov_values/qa.json'
+          j=json.load(open(p,encoding='utf-8'))
+          assert j['requested']==218 and j['unique_requested']==218
+          sha=j['raw_sha256']
+          prefix='sp_645/federal/obrasgov/rmrp34/valores_previstos_218_ids_2026_11_17/'+sha
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write(f'prefix={prefix}\nsha={sha}\n')
+          PY
+      - name: Preservar bruto e QA privados com readback
+        env:
+          PREFIX: ${{ steps.qa.outputs.prefix }}
+          SHA: ${{ steps.qa.outputs.sha }}
+        run: |
+          python deployment/upload_r2_source.py --source "$RUNNER_TEMP/rmrp_obrasgov_values/raw.json" \
+            --object-key "$PREFIX/raw.json" --content-type application/json \
+            --expected-sha256 "$SHA"
+          python deployment/upload_r2_source.py --source "$RUNNER_TEMP/rmrp_obrasgov_values/qa.json" \
+            --object-key "$PREFIX/qa.json" --content-type application/json
+          python deployment/download_r2_source.py --object-key "$PREFIX/raw.json" \
+            --output "$RUNNER_TEMP/rmrp_obrasgov_values/readback.json" --expected-sha256 "$SHA"
+          echo 'RMRP_OBRASGOV_VALUES_R2_READBACK_PASS'
+      # Nenhum deploy fiscal produtivo, D1, Pages ou API publica.

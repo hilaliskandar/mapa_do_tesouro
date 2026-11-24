@@ -1,0 +1,5666 @@
+{
+  "source": "Transferegov Especiais gestao-financeira-lancamentos-especiais",
+  "extraction": "2026-11-11",
+  "record_status": "movimentacao_conta_nao_pagamento_despesa",
+  "privacy": "omitidos banco agencia conta CPF CNPJ e favorecidos",
+  "items": [
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 16,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "001-1155201",
+          "origem": "TE",
+          "descricao": "TED Transf.Eletr.Disponivel",
+          "data": "2023-11-29",
+          "tipo": "D",
+          "valor_centavos": 28488980,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1155203",
+          "origem": "TE",
+          "descricao": "Resgate Automtico",
+          "data": "2023-11-29",
+          "tipo": "C",
+          "valor_centavos": 28488980,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-2670391",
+          "origem": "TE",
+          "descricao": "Ordem Bancária",
+          "data": "2020-06-29",
+          "tipo": "C",
+          "valor_centavos": 13000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-2670392",
+          "origem": "TE",
+          "descricao": "Aplicação em BB Fix",
+          "data": "2020-06-29",
+          "tipo": "D",
+          "valor_centavos": 13000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-2670393",
+          "origem": "TE",
+          "descricao": "TED Transf.Eletr.Disponivel",
+          "data": "2020-08-21",
+          "tipo": "D",
+          "valor_centavos": 9674874,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-2670394",
+          "origem": "TE",
+          "descricao": "Resgate BB Fix",
+          "data": "2020-08-21",
+          "tipo": "C",
+          "valor_centavos": 9674874,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-2670395",
+          "origem": "TE",
+          "descricao": "TED Transf.Eletr.Disponivel",
+          "data": "2020-10-22",
+          "tipo": "D",
+          "valor_centavos": 3325126,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-2670396",
+          "origem": "TE",
+          "descricao": "Resgate BB Fix",
+          "data": "2020-10-22",
+          "tipo": "C",
+          "valor_centavos": 3325126,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3080048",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2022-11-22",
+          "tipo": "C",
+          "valor_centavos": 7515638,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3080050",
+          "origem": "TE",
+          "descricao": "Transferência enviada",
+          "data": "2022-11-22",
+          "tipo": "D",
+          "valor_centavos": 7515638,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-755780",
+          "origem": "TE",
+          "descricao": "Ordem Bancria",
+          "data": "2022-07-04",
+          "tipo": "C",
+          "valor_centavos": 8900000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-755781",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2022-07-04",
+          "tipo": "D",
+          "valor_centavos": 8900000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-831950",
+          "origem": "TE",
+          "descricao": "Transferência enviada",
+          "data": "2022-12-22",
+          "tipo": "D",
+          "valor_centavos": 1739909,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-831952",
+          "origem": "TE",
+          "descricao": "Resgate Automtico",
+          "data": "2022-12-22",
+          "tipo": "C",
+          "valor_centavos": 1739909,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-857264",
+          "origem": "TE",
+          "descricao": "Ordem Bancria",
+          "data": "2023-03-30",
+          "tipo": "C",
+          "valor_centavos": 30000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-857267",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2023-03-30",
+          "tipo": "D",
+          "valor_centavos": 30000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        }
+      ],
+      "errors": [],
+      "complete": true
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 112,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "001-1488163",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-02-21",
+          "tipo": "D",
+          "valor_centavos": 4919944,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-1488164",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-02-21",
+          "tipo": "C",
+          "valor_centavos": 4919944,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1488165",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-01-25",
+          "tipo": "D",
+          "valor_centavos": 7004920,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-1488166",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-05-13",
+          "tipo": "C",
+          "valor_centavos": 568000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1488167",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-02-27",
+          "tipo": "D",
+          "valor_centavos": 85080,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-1488169",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-02-27",
+          "tipo": "C",
+          "valor_centavos": 85080,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1488170",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-01-25",
+          "tipo": "C",
+          "valor_centavos": 7004920,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1488172",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-02-02",
+          "tipo": "D",
+          "valor_centavos": 1250000,
+          "categoria": 0,
+          "numero_subtransacoes": 2
+        },
+        {
+          "id_lancamento": "001-1488176",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-02-02",
+          "tipo": "C",
+          "valor_centavos": 1250000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1488179",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-04-29",
+          "tipo": "D",
+          "valor_centavos": 59756,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-1488185",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-04-29",
+          "tipo": "C",
+          "valor_centavos": 59756,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1488188",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-05-13",
+          "tipo": "D",
+          "valor_centavos": 568000,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-1509609",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-05-23",
+          "tipo": "D",
+          "valor_centavos": 988000,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-1509614",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-05-23",
+          "tipo": "C",
+          "valor_centavos": 988000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1512423",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-06-04",
+          "tipo": "D",
+          "valor_centavos": 177817,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-1512426",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-06-04",
+          "tipo": "C",
+          "valor_centavos": 177817,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1513154",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-06-05",
+          "tipo": "D",
+          "valor_centavos": 4838224,
+          "categoria": 0,
+          "numero_subtransacoes": 2
+        },
+        {
+          "id_lancamento": "001-1513161",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-06-05",
+          "tipo": "C",
+          "valor_centavos": 4838224,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1514025",
+          "origem": "TE",
+          "descricao": "Transferência recebida",
+          "data": "2024-06-06",
+          "tipo": "C",
+          "valor_centavos": 177817,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1514026",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2024-06-06",
+          "tipo": "D",
+          "valor_centavos": 177817,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1521901",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-06-18",
+          "tipo": "D",
+          "valor_centavos": 3288000,
+          "categoria": 0,
+          "numero_subtransacoes": 2
+        },
+        {
+          "id_lancamento": "001-1521904",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-06-18",
+          "tipo": "C",
+          "valor_centavos": 3288000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1529141",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-06-28",
+          "tipo": "D",
+          "valor_centavos": 3276,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-1529145",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-06-28",
+          "tipo": "C",
+          "valor_centavos": 3276,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3106810",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-05-29",
+          "tipo": "C",
+          "valor_centavos": 2522500,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3106817",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-05-29",
+          "tipo": "D",
+          "valor_centavos": 2522500,
+          "categoria": 0,
+          "numero_subtransacoes": 3
+        },
+        {
+          "id_lancamento": "001-3422224",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2025-06-05",
+          "tipo": "D",
+          "valor_centavos": 4127766,
+          "categoria": 0,
+          "numero_subtransacoes": 3
+        },
+        {
+          "id_lancamento": "001-3422225",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2025-06-05",
+          "tipo": "C",
+          "valor_centavos": 4127766,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3423062",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2024-10-21",
+          "tipo": "C",
+          "valor_centavos": 3000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3423074",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2024-10-21",
+          "tipo": "D",
+          "valor_centavos": 3000000,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-3544056",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2025-07-11",
+          "tipo": "D",
+          "valor_centavos": 510173,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-3544058",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2025-07-11",
+          "tipo": "C",
+          "valor_centavos": 510173,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3556071",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2025-07-15",
+          "tipo": "D",
+          "valor_centavos": 270320,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-3556072",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2025-07-15",
+          "tipo": "C",
+          "valor_centavos": 270320,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3582540",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2025-07-23",
+          "tipo": "D",
+          "valor_centavos": 473645,
+          "categoria": 0,
+          "numero_subtransacoes": 2
+        },
+        {
+          "id_lancamento": "001-3582541",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2025-07-23",
+          "tipo": "C",
+          "valor_centavos": 473645,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3624063",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2025-08-11",
+          "tipo": "D",
+          "valor_centavos": 266000,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-3624064",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2025-08-11",
+          "tipo": "C",
+          "valor_centavos": 266000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3745495",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2025-12-05",
+          "tipo": "D",
+          "valor_centavos": 125000,
+          "categoria": 0,
+          "numero_subtransacoes": 2
+        },
+        {
+          "id_lancamento": "001-3745496",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2025-12-05",
+          "tipo": "C",
+          "valor_centavos": 125000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4730422",
+          "origem": "TE",
+          "descricao": "Resgate BB Fix",
+          "data": "2026-08-20",
+          "tipo": "C",
+          "valor_centavos": 714501,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4755551",
+          "origem": "TE",
+          "descricao": "Transferência enviada",
+          "data": "2026-08-28",
+          "tipo": "D",
+          "valor_centavos": 242209,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4778401",
+          "origem": "TE",
+          "descricao": "Transferência enviada",
+          "data": "2026-09-10",
+          "tipo": "D",
+          "valor_centavos": 472292,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-722639",
+          "origem": "TE",
+          "descricao": "Transferência recebida",
+          "data": "2022-05-11",
+          "tipo": "C",
+          "valor_centavos": 100,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-722640",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2022-05-11",
+          "tipo": "D",
+          "valor_centavos": 100,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-860676",
+          "origem": "TE",
+          "descricao": "Ordem Bancária",
+          "data": "2023-03-30",
+          "tipo": "C",
+          "valor_centavos": 30000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-860678",
+          "origem": "TE",
+          "descricao": "Ordem Bancária",
+          "data": "2023-03-30",
+          "tipo": "C",
+          "valor_centavos": 42000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-860679",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2023-03-30",
+          "tipo": "D",
+          "valor_centavos": 72000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-892605",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2023-07-11",
+          "tipo": "D",
+          "valor_centavos": 7000000,
+          "categoria": 0,
+          "numero_subtransacoes": 1
+        },
+        {
+          "id_lancamento": "001-892609",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2023-07-11",
+          "tipo": "C",
+          "valor_centavos": 7000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-894835",
+          "origem": "TE",
+          "descricao": "Emissão de Ordem Bancária",
+          "data": "2023-07-13",
+          "tipo": "D",
+          "valor_centavos": 35000000,
+          "categoria": 0,
+          "numero_subtransacoes": 4
+        },
+        {
+          "id_lancamento": "001-894843",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2023-07-13",
+          "tipo": "C",
+          "valor_centavos": 35000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "104-1083309",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2020-07-01",
+          "tipo": "D",
+          "valor_centavos": 17000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083310",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2020-06-29",
+          "tipo": "C",
+          "valor_centavos": 17000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083311",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2021-06-30",
+          "tipo": "D",
+          "valor_centavos": 17079981,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083312",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2021-06-30",
+          "tipo": "C",
+          "valor_centavos": 17079981,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083313",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2021-08-03",
+          "tipo": "C",
+          "valor_centavos": 15000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083314",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2021-08-03",
+          "tipo": "D",
+          "valor_centavos": 15000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083315",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-12-04",
+          "tipo": "C",
+          "valor_centavos": 1125,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083316",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-11-11",
+          "tipo": "C",
+          "valor_centavos": 3407699,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083317",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2024-11-11",
+          "tipo": "D",
+          "valor_centavos": 3407699,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083318",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-11-18",
+          "tipo": "D",
+          "valor_centavos": 3411042,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083319",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-11-18",
+          "tipo": "C",
+          "valor_centavos": 3411042,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083320",
+          "origem": "TE",
+          "descricao": "PG ORG GOV",
+          "data": "2024-01-19",
+          "tipo": "D",
+          "valor_centavos": 1209827,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083321",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-01-19",
+          "tipo": "D",
+          "valor_centavos": 8930723,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083322",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-01-19",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083323",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-01-19",
+          "tipo": "D",
+          "valor_centavos": 329953,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083324",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-01-19",
+          "tipo": "D",
+          "valor_centavos": 527924,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083325",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-01-19",
+          "tipo": "C",
+          "valor_centavos": 10999527,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083326",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-07-26",
+          "tipo": "D",
+          "valor_centavos": 4499680,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083327",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-07-26",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083328",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-07-26",
+          "tipo": "C",
+          "valor_centavos": 4500880,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083329",
+          "origem": "TE",
+          "descricao": "DEVOL TED",
+          "data": "2024-12-09",
+          "tipo": "C",
+          "valor_centavos": 6560889,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083330",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-12-09",
+          "tipo": "D",
+          "valor_centavos": 6560889,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083331",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-12-09",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083332",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-12-09",
+          "tipo": "D",
+          "valor_centavos": 5200282,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083333",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-12-09",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083334",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-12-09",
+          "tipo": "C",
+          "valor_centavos": 5202682,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083335",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-12-10",
+          "tipo": "D",
+          "valor_centavos": 161333,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083336",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-12-10",
+          "tipo": "D",
+          "valor_centavos": 129424,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083337",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-12-10",
+          "tipo": "D",
+          "valor_centavos": 85400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083338",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-12-10",
+          "tipo": "D",
+          "valor_centavos": 6560889,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083339",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-12-10",
+          "tipo": "D",
+          "valor_centavos": 4184621,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083340",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-12-10",
+          "tipo": "C",
+          "valor_centavos": 11121667,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083341",
+          "origem": "TE",
+          "descricao": "CRED.AUTOR",
+          "data": "2024-12-12",
+          "tipo": "C",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083342",
+          "origem": "TE",
+          "descricao": "CRED.AUTOR",
+          "data": "2024-12-12",
+          "tipo": "C",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083343",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2024-12-12",
+          "tipo": "D",
+          "valor_centavos": 2400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083344",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2025-01-21",
+          "tipo": "D",
+          "valor_centavos": 2947652,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083345",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2025-01-21",
+          "tipo": "C",
+          "valor_centavos": 2947652,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083346",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-07-26",
+          "tipo": "D",
+          "valor_centavos": 5208985,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083347",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-07-26",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083348",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-07-26",
+          "tipo": "D",
+          "valor_centavos": 217041,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083349",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-07-26",
+          "tipo": "C",
+          "valor_centavos": 5427226,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083350",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-12-27",
+          "tipo": "C",
+          "valor_centavos": 30000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083351",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2023-12-27",
+          "tipo": "D",
+          "valor_centavos": 30000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083352",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2025-01-28",
+          "tipo": "D",
+          "valor_centavos": 118196,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083353",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2025-01-28",
+          "tipo": "D",
+          "valor_centavos": 4214790,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083354",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2025-01-28",
+          "tipo": "C",
+          "valor_centavos": 4332986,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083355",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-08-28",
+          "tipo": "D",
+          "valor_centavos": 5851548,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083356",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-08-28",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083357",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-08-28",
+          "tipo": "D",
+          "valor_centavos": 119419,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083358",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-08-28",
+          "tipo": "C",
+          "valor_centavos": 5972167,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083359",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-08-31",
+          "tipo": "C",
+          "valor_centavos": 20000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083360",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2023-08-31",
+          "tipo": "D",
+          "valor_centavos": 20000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083361",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2024-07-04",
+          "tipo": "C",
+          "valor_centavos": 20000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083362",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2024-07-04",
+          "tipo": "D",
+          "valor_centavos": 20000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083363",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-11-06",
+          "tipo": "D",
+          "valor_centavos": 156736,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083364",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-11-06",
+          "tipo": "C",
+          "valor_centavos": 156736,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083365",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2024-10-30",
+          "tipo": "D",
+          "valor_centavos": 261227,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083366",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-10-30",
+          "tipo": "D",
+          "valor_centavos": 7582037,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083367",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-10-30",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1083368",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-10-30",
+          "tipo": "C",
+          "valor_centavos": 7844464,
+          "categoria": null,
+          "numero_subtransacoes": null
+        }
+      ],
+      "errors": [],
+      "complete": true
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 96,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "001-1156162",
+          "origem": "TE",
+          "descricao": "Transferência enviada",
+          "data": "2023-11-28",
+          "tipo": "D",
+          "valor_centavos": 8410457,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1156165",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2023-11-28",
+          "tipo": "C",
+          "valor_centavos": 8410457,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1534999",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2024-07-04",
+          "tipo": "D",
+          "valor_centavos": 14084583,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1535001",
+          "origem": "TE",
+          "descricao": "Ordem Bancria",
+          "data": "2024-07-04",
+          "tipo": "C",
+          "valor_centavos": 15000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1535004",
+          "origem": "TE",
+          "descricao": "Depsito bloquead.20dias teis",
+          "data": "2024-07-04",
+          "tipo": "C",
+          "valor_centavos": 756106,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1535007",
+          "origem": "TE",
+          "descricao": "Depsito bloquead.20dias teis",
+          "data": "2024-07-04",
+          "tipo": "C",
+          "valor_centavos": 159311,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1535009",
+          "origem": "TE",
+          "descricao": "DEBITO BLOQ. JUDICIAL",
+          "data": "2024-07-04",
+          "tipo": "D",
+          "valor_centavos": 756106,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1535014",
+          "origem": "TE",
+          "descricao": "DEBITO BLOQ. JUDICIAL",
+          "data": "2024-07-04",
+          "tipo": "D",
+          "valor_centavos": 159311,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1585681",
+          "origem": "TE",
+          "descricao": "Transferncia recebida",
+          "data": "2024-08-27",
+          "tipo": "C",
+          "valor_centavos": 159311,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1585684",
+          "origem": "TE",
+          "descricao": "Transferncia recebida",
+          "data": "2024-08-27",
+          "tipo": "C",
+          "valor_centavos": 756106,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1585686",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2024-08-27",
+          "tipo": "D",
+          "valor_centavos": 915417,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3028187",
+          "origem": "TE",
+          "descricao": "Dep cheque caixa agencia",
+          "data": "2024-08-26",
+          "tipo": "C",
+          "valor_centavos": 159311,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3028190",
+          "origem": "TE",
+          "descricao": "Movimento do Dia",
+          "data": "2024-08-26",
+          "tipo": "D",
+          "valor_centavos": 756106,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3028193",
+          "origem": "TE",
+          "descricao": "Movimento do Dia",
+          "data": "2024-08-26",
+          "tipo": "D",
+          "valor_centavos": 159311,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3029521",
+          "origem": "TE",
+          "descricao": "Dep cheque caixa agencia",
+          "data": "2024-08-26",
+          "tipo": "C",
+          "valor_centavos": 756106,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4419156",
+          "origem": "TE",
+          "descricao": "Transferência enviada",
+          "data": "2026-03-17",
+          "tipo": "D",
+          "valor_centavos": 16180397,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4419157",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2026-03-17",
+          "tipo": "C",
+          "valor_centavos": 16180397,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4552419",
+          "origem": "TE",
+          "descricao": "Ordem Bancária",
+          "data": "2026-06-23",
+          "tipo": "C",
+          "valor_centavos": 99500000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4552420",
+          "origem": "TE",
+          "descricao": "Depósito bloquead.20dias úteis",
+          "data": "2026-06-23",
+          "tipo": "C",
+          "valor_centavos": 273805,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4552421",
+          "origem": "TE",
+          "descricao": "DEBITO BLOQ. JUDICIAL",
+          "data": "2026-06-23",
+          "tipo": "D",
+          "valor_centavos": 273805,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4552422",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2026-06-23",
+          "tipo": "D",
+          "valor_centavos": 99226195,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4561353",
+          "origem": "TE",
+          "descricao": "Dep cheque caixa agencia",
+          "data": "2026-06-25",
+          "tipo": "C",
+          "valor_centavos": 273805,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4561354",
+          "origem": "TE",
+          "descricao": "Movimento do Dia",
+          "data": "2026-06-25",
+          "tipo": "D",
+          "valor_centavos": 273805,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4620798",
+          "origem": "TE",
+          "descricao": "Transferência recebida",
+          "data": "2026-07-15",
+          "tipo": "C",
+          "valor_centavos": 273805,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4620799",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2026-07-15",
+          "tipo": "D",
+          "valor_centavos": 273805,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-757359",
+          "origem": "TE",
+          "descricao": "Ordem Bancária",
+          "data": "2022-07-04",
+          "tipo": "C",
+          "valor_centavos": 8000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-757362",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2022-07-04",
+          "tipo": "D",
+          "valor_centavos": 8000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "104-1207622",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-03-01",
+          "tipo": "D",
+          "valor_centavos": 9237845,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207623",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-03-01",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207624",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-03-01",
+          "tipo": "C",
+          "valor_centavos": 9238945,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207625",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2021-07-01",
+          "tipo": "D",
+          "valor_centavos": 1600000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207626",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2021-07-01",
+          "tipo": "D",
+          "valor_centavos": 1045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207627",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2021-07-01",
+          "tipo": "C",
+          "valor_centavos": 1601045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207628",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2021-09-03",
+          "tipo": "C",
+          "valor_centavos": 2090,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207629",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2021-09-03",
+          "tipo": "D",
+          "valor_centavos": 2090,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207630",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2023-04-04",
+          "tipo": "C",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207631",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-04-04",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207632",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2021-05-07",
+          "tipo": "D",
+          "valor_centavos": 438866,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207633",
+          "origem": "TE",
+          "descricao": "DOC/TED PESSOAL",
+          "data": "2021-05-07",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207634",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2021-05-07",
+          "tipo": "D",
+          "valor_centavos": 1000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207635",
+          "origem": "TE",
+          "descricao": "DOC/TED PESSOAL",
+          "data": "2021-05-07",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207636",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2021-05-07",
+          "tipo": "C",
+          "valor_centavos": 1441066,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207637",
+          "origem": "TE",
+          "descricao": "APLIC RETR",
+          "data": "2020-07-07",
+          "tipo": "D",
+          "valor_centavos": 15000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207638",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2021-08-09",
+          "tipo": "C",
+          "valor_centavos": 2090,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207639",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2021-08-09",
+          "tipo": "D",
+          "valor_centavos": 2090,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207640",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2021-08-11",
+          "tipo": "D",
+          "valor_centavos": 1315000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207641",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2021-08-11",
+          "tipo": "D",
+          "valor_centavos": 1045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207642",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2021-08-11",
+          "tipo": "C",
+          "valor_centavos": 1316045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207643",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2021-08-13",
+          "tipo": "D",
+          "valor_centavos": 480000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207644",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2021-08-13",
+          "tipo": "D",
+          "valor_centavos": 1045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207645",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2021-08-13",
+          "tipo": "C",
+          "valor_centavos": 481045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207646",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2021-06-14",
+          "tipo": "C",
+          "valor_centavos": 2200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207647",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2021-06-14",
+          "tipo": "D",
+          "valor_centavos": 2200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207648",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2021-07-16",
+          "tipo": "D",
+          "valor_centavos": 91650,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207649",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2021-07-16",
+          "tipo": "D",
+          "valor_centavos": 1045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207650",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2021-07-16",
+          "tipo": "C",
+          "valor_centavos": 92695,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207651",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2021-08-16",
+          "tipo": "C",
+          "valor_centavos": 1090000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207652",
+          "origem": "TE",
+          "descricao": "PAG BOLETO",
+          "data": "2021-08-16",
+          "tipo": "D",
+          "valor_centavos": 1090000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207653",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2020-06-29",
+          "tipo": "C",
+          "valor_centavos": 15000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207654",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2021-06-30",
+          "tipo": "D",
+          "valor_centavos": 13627850,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207655",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2021-06-30",
+          "tipo": "C",
+          "valor_centavos": 13627850,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207656",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-11-30",
+          "tipo": "D",
+          "valor_centavos": 200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207657",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-11-30",
+          "tipo": "C",
+          "valor_centavos": 1136282,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207658",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2023-11-30",
+          "tipo": "D",
+          "valor_centavos": 1136082,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207659",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2024-01-03",
+          "tipo": "C",
+          "valor_centavos": 2200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207660",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2024-01-03",
+          "tipo": "D",
+          "valor_centavos": 2200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207661",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-10-03",
+          "tipo": "C",
+          "valor_centavos": 25000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207662",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2023-10-03",
+          "tipo": "D",
+          "valor_centavos": 25000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207663",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2024-01-08",
+          "tipo": "C",
+          "valor_centavos": 4400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207664",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2024-01-08",
+          "tipo": "D",
+          "valor_centavos": 4400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207665",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-14",
+          "tipo": "D",
+          "valor_centavos": 59425,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207666",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-14",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207667",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-14",
+          "tipo": "D",
+          "valor_centavos": 1288071,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207668",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-14",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207669",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-12-14",
+          "tipo": "C",
+          "valor_centavos": 1349696,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207670",
+          "origem": "TE",
+          "descricao": "ENVIO TEV",
+          "data": "2024-01-18",
+          "tipo": "D",
+          "valor_centavos": 1273776,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207671",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-01-18",
+          "tipo": "D",
+          "valor_centavos": 64224,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207672",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-01-18",
+          "tipo": "C",
+          "valor_centavos": 1338000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207673",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-11-27",
+          "tipo": "D",
+          "valor_centavos": 202088,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207674",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-11-27",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207675",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-11-27",
+          "tipo": "D",
+          "valor_centavos": 4380408,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207676",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-11-27",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207677",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2023-11-27",
+          "tipo": "D",
+          "valor_centavos": 25000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207678",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-11-27",
+          "tipo": "C",
+          "valor_centavos": 29584696,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207679",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2023-12-28",
+          "tipo": "C",
+          "valor_centavos": 2200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207680",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-28",
+          "tipo": "D",
+          "valor_centavos": 399486,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207681",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-28",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207682",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-28",
+          "tipo": "D",
+          "valor_centavos": 103804,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207683",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-28",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207684",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-28",
+          "tipo": "D",
+          "valor_centavos": 17514,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207685",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-28",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207686",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-28",
+          "tipo": "D",
+          "valor_centavos": 2288007,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207687",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-28",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207688",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-12-28",
+          "tipo": "C",
+          "valor_centavos": 2811011,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207689",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-08-31",
+          "tipo": "C",
+          "valor_centavos": 10000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1207690",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2023-08-31",
+          "tipo": "D",
+          "valor_centavos": 10000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        }
+      ],
+      "errors": [],
+      "complete": true
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 38,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "104-1376781",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-07-06",
+          "tipo": "D",
+          "valor_centavos": 50000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376782",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-02-07",
+          "tipo": "D",
+          "valor_centavos": 44053835,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376783",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-02-07",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376784",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-02-07",
+          "tipo": "C",
+          "valor_centavos": 44054935,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376785",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-03-30",
+          "tipo": "C",
+          "valor_centavos": 50000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376786",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-08-31",
+          "tipo": "D",
+          "valor_centavos": 200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376787",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-08-31",
+          "tipo": "C",
+          "valor_centavos": 50795136,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376788",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2023-08-31",
+          "tipo": "D",
+          "valor_centavos": 50794936,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376789",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-07-02",
+          "tipo": "D",
+          "valor_centavos": 5733557,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376790",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-07-02",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376791",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-07-02",
+          "tipo": "C",
+          "valor_centavos": 5734757,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376792",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-10-02",
+          "tipo": "C",
+          "valor_centavos": 40000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376793",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2023-10-02",
+          "tipo": "D",
+          "valor_centavos": 40000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376794",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2025-04-10",
+          "tipo": "D",
+          "valor_centavos": 12225740,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376795",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2025-04-10",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376796",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2025-04-10",
+          "tipo": "C",
+          "valor_centavos": 12226940,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376797",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2025-04-11",
+          "tipo": "C",
+          "valor_centavos": 250778,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376798",
+          "origem": "TE",
+          "descricao": "PG PREFEIT",
+          "data": "2025-04-11",
+          "tipo": "D",
+          "valor_centavos": 250778,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376799",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-09-13",
+          "tipo": "D",
+          "valor_centavos": 2366602,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376800",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-09-13",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376801",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-09-13",
+          "tipo": "C",
+          "valor_centavos": 2367802,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376802",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2025-02-14",
+          "tipo": "D",
+          "valor_centavos": 3167278,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376803",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2025-02-14",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376804",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2025-02-14",
+          "tipo": "C",
+          "valor_centavos": 3268861,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376805",
+          "origem": "TE",
+          "descricao": "PG PREFEIT",
+          "data": "2025-02-14",
+          "tipo": "D",
+          "valor_centavos": 100383,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376806",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2025-02-19",
+          "tipo": "D",
+          "valor_centavos": 1726500,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376807",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2025-02-19",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376808",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2025-02-19",
+          "tipo": "C",
+          "valor_centavos": 1727700,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376809",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-12-20",
+          "tipo": "D",
+          "valor_centavos": 24833763,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376810",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-12-20",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376811",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-12-20",
+          "tipo": "C",
+          "valor_centavos": 24834963,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376812",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-08-30",
+          "tipo": "D",
+          "valor_centavos": 5036096,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376813",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-08-30",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376814",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-08-30",
+          "tipo": "C",
+          "valor_centavos": 5037296,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376815",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-08-31",
+          "tipo": "C",
+          "valor_centavos": 60000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376816",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2023-08-31",
+          "tipo": "D",
+          "valor_centavos": 60000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376817",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2024-12-13",
+          "tipo": "C",
+          "valor_centavos": 25000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1376818",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2024-12-18",
+          "tipo": "D",
+          "valor_centavos": 25000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        }
+      ],
+      "errors": [],
+      "complete": true
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 68,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "104-1084444",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2021-08-03",
+          "tipo": "C",
+          "valor_centavos": 10000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084445",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2021-08-03",
+          "tipo": "D",
+          "valor_centavos": 10000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084446",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2022-09-05",
+          "tipo": "D",
+          "valor_centavos": 3022000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084447",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2022-09-05",
+          "tipo": "C",
+          "valor_centavos": 3022000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084448",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2022-08-12",
+          "tipo": "D",
+          "valor_centavos": 7722000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084449",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2022-08-12",
+          "tipo": "C",
+          "valor_centavos": 7722000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084450",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-07-03",
+          "tipo": "D",
+          "valor_centavos": 324444,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084451",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-07-03",
+          "tipo": "C",
+          "valor_centavos": 324444,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084452",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-07-03",
+          "tipo": "D",
+          "valor_centavos": 3172497,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084453",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-07-03",
+          "tipo": "D",
+          "valor_centavos": 171492,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084454",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-07-03",
+          "tipo": "C",
+          "valor_centavos": 3343989,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084455",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2022-07-04",
+          "tipo": "C",
+          "valor_centavos": 100000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084456",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2022-07-04",
+          "tipo": "C",
+          "valor_centavos": 60000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084457",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2022-07-04",
+          "tipo": "D",
+          "valor_centavos": 160000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084458",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-11-08",
+          "tipo": "D",
+          "valor_centavos": 2712250,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084459",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-11-08",
+          "tipo": "D",
+          "valor_centavos": 142750,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084460",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-11-08",
+          "tipo": "C",
+          "valor_centavos": 2855000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084461",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-03-09",
+          "tipo": "D",
+          "valor_centavos": 9199979,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084462",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2023-03-09",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084463",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-03-09",
+          "tipo": "C",
+          "valor_centavos": 9201079,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084464",
+          "origem": "TE",
+          "descricao": "PG ORG GOV",
+          "data": "2024-04-12",
+          "tipo": "D",
+          "valor_centavos": 582229,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084465",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-04-12",
+          "tipo": "C",
+          "valor_centavos": 582229,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084466",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-04-13",
+          "tipo": "D",
+          "valor_centavos": 7057833,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084467",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2023-04-13",
+          "tipo": "D",
+          "valor_centavos": 1089,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084468",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-04-13",
+          "tipo": "C",
+          "valor_centavos": 7058922,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084469",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2023-07-13",
+          "tipo": "D",
+          "valor_centavos": 4909563,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084470",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2023-07-13",
+          "tipo": "D",
+          "valor_centavos": 5891475,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084471",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2023-07-13",
+          "tipo": "D",
+          "valor_centavos": 981913,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084472",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-07-13",
+          "tipo": "C",
+          "valor_centavos": 11782951,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084473",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-05-17",
+          "tipo": "D",
+          "valor_centavos": 10671430,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084474",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2023-05-17",
+          "tipo": "D",
+          "valor_centavos": 1089,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084475",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2023-05-17",
+          "tipo": "D",
+          "valor_centavos": 50000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084476",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2023-05-17",
+          "tipo": "D",
+          "valor_centavos": 60000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084477",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2023-05-17",
+          "tipo": "D",
+          "valor_centavos": 10000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084478",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-05-17",
+          "tipo": "C",
+          "valor_centavos": 130672519,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084479",
+          "origem": "TE",
+          "descricao": "PG ORG GOV",
+          "data": "2024-07-17",
+          "tipo": "D",
+          "valor_centavos": 194624,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084480",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-07-17",
+          "tipo": "C",
+          "valor_centavos": 194624,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084481",
+          "origem": "TE",
+          "descricao": "CRED.AUTOR",
+          "data": "2023-05-18",
+          "tipo": "C",
+          "valor_centavos": 3278,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084482",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2023-05-18",
+          "tipo": "D",
+          "valor_centavos": 3278,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084483",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-05-22",
+          "tipo": "D",
+          "valor_centavos": 100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084484",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-05-22",
+          "tipo": "C",
+          "valor_centavos": 100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084485",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-03-26",
+          "tipo": "D",
+          "valor_centavos": 9474448,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084486",
+          "origem": "TE",
+          "descricao": "DEVOL TED",
+          "data": "2024-03-26",
+          "tipo": "C",
+          "valor_centavos": 529299,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084487",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-03-26",
+          "tipo": "D",
+          "valor_centavos": 529299,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084488",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-03-26",
+          "tipo": "C",
+          "valor_centavos": 9474448,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084489",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-03-28",
+          "tipo": "D",
+          "valor_centavos": 529299,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084490",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-03-28",
+          "tipo": "C",
+          "valor_centavos": 529299,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084491",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2024-07-04",
+          "tipo": "C",
+          "valor_centavos": 10498711,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084492",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2024-07-04",
+          "tipo": "D",
+          "valor_centavos": 10498711,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084493",
+          "origem": "TE",
+          "descricao": "ENVIO TEV",
+          "data": "2024-05-10",
+          "tipo": "D",
+          "valor_centavos": 3770000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084494",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-05-10",
+          "tipo": "C",
+          "valor_centavos": 3770000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084495",
+          "origem": "TE",
+          "descricao": "ENVIO TEV",
+          "data": "2024-06-10",
+          "tipo": "D",
+          "valor_centavos": 5300000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084496",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-06-10",
+          "tipo": "C",
+          "valor_centavos": 5300000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084497",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-12-12",
+          "tipo": "C",
+          "valor_centavos": 65198900,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084498",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-12-12",
+          "tipo": "C",
+          "valor_centavos": 20000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084499",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2023-12-12",
+          "tipo": "D",
+          "valor_centavos": 85198900,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084500",
+          "origem": "TE",
+          "descricao": "ENVIO TEV",
+          "data": "2023-12-14",
+          "tipo": "D",
+          "valor_centavos": 11228711,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084501",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-12-14",
+          "tipo": "C",
+          "valor_centavos": 11228711,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084502",
+          "origem": "TE",
+          "descricao": "ENVIO TEV",
+          "data": "2024-08-19",
+          "tipo": "D",
+          "valor_centavos": 8600000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084503",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-08-19",
+          "tipo": "C",
+          "valor_centavos": 8600000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084504",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2025-03-20",
+          "tipo": "C",
+          "valor_centavos": 8600000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084505",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2025-03-20",
+          "tipo": "D",
+          "valor_centavos": 8600000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084506",
+          "origem": "TE",
+          "descricao": "ENVIO TEV",
+          "data": "2023-11-27",
+          "tipo": "D",
+          "valor_centavos": 10200000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084507",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-11-27",
+          "tipo": "C",
+          "valor_centavos": 10200000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084508",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-08-31",
+          "tipo": "C",
+          "valor_centavos": 10000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084509",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2023-08-31",
+          "tipo": "D",
+          "valor_centavos": 10000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084510",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2024-07-04",
+          "tipo": "C",
+          "valor_centavos": 20158500,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084511",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2024-07-04",
+          "tipo": "D",
+          "valor_centavos": 20158500,
+          "categoria": null,
+          "numero_subtransacoes": null
+        }
+      ],
+      "errors": [],
+      "complete": true
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 66,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "001-2227655",
+          "origem": "TE",
+          "descricao": "Ordem Bancária",
+          "data": "2024-12-13",
+          "tipo": "C",
+          "valor_centavos": 40000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-2227658",
+          "origem": "TE",
+          "descricao": "Aplicação em BB Fix",
+          "data": "2024-12-13",
+          "tipo": "D",
+          "valor_centavos": 40000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4482610",
+          "origem": "TE",
+          "descricao": "Ordem Bancária",
+          "data": "2026-05-13",
+          "tipo": "C",
+          "valor_centavos": 99500000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4482611",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2026-05-13",
+          "tipo": "D",
+          "valor_centavos": 99500000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "104-1177046",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2020-07-02",
+          "tipo": "D",
+          "valor_centavos": 37000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177047",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-08-09",
+          "tipo": "D",
+          "valor_centavos": 2665258,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177048",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-08-09",
+          "tipo": "C",
+          "valor_centavos": 2665258,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177049",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-07-11",
+          "tipo": "D",
+          "valor_centavos": 4919048,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177050",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-07-11",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177051",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-07-11",
+          "tipo": "C",
+          "valor_centavos": 4920148,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177052",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-04-13",
+          "tipo": "D",
+          "valor_centavos": 12370130,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177053",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-04-13",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177054",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-04-13",
+          "tipo": "C",
+          "valor_centavos": 12371230,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177055",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2021-03-29",
+          "tipo": "D",
+          "valor_centavos": 19706114,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177056",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2021-03-29",
+          "tipo": "D",
+          "valor_centavos": 209,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177057",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2021-03-29",
+          "tipo": "D",
+          "valor_centavos": 219178,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177058",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2021-03-29",
+          "tipo": "C",
+          "valor_centavos": 19925501,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177059",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2020-06-29",
+          "tipo": "C",
+          "valor_centavos": 20000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177060",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2020-06-29",
+          "tipo": "C",
+          "valor_centavos": 17000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177061",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2021-06-30",
+          "tipo": "D",
+          "valor_centavos": 17177992,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177062",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2021-06-30",
+          "tipo": "C",
+          "valor_centavos": 17177992,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177091",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2022-07-04",
+          "tipo": "C",
+          "valor_centavos": 20000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177092",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-05",
+          "tipo": "D",
+          "valor_centavos": 164000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177093",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-05",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177094",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-12-05",
+          "tipo": "C",
+          "valor_centavos": 150000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177095",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-01-11",
+          "tipo": "D",
+          "valor_centavos": 18347786,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177096",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-01-11",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177097",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-01-11",
+          "tipo": "D",
+          "valor_centavos": 308695,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177098",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-01-11",
+          "tipo": "D",
+          "valor_centavos": 185217,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177099",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-01-11",
+          "tipo": "D",
+          "valor_centavos": 169782,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177100",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-01-11",
+          "tipo": "D",
+          "valor_centavos": 74749,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177101",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-01-11",
+          "tipo": "D",
+          "valor_centavos": 44849,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177102",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-01-11",
+          "tipo": "D",
+          "valor_centavos": 41112,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177103",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-01-11",
+          "tipo": "C",
+          "valor_centavos": 20000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177104",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-06-14",
+          "tipo": "D",
+          "valor_centavos": 136253,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177105",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-06-14",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177106",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-06-14",
+          "tipo": "D",
+          "valor_centavos": 7318,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177107",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-06-14",
+          "tipo": "D",
+          "valor_centavos": 1756,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177108",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-06-14",
+          "tipo": "D",
+          "valor_centavos": 1025,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177109",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-06-14",
+          "tipo": "C",
+          "valor_centavos": 150000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177110",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2024-01-17",
+          "tipo": "D",
+          "valor_centavos": 829110,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177111",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-10-24",
+          "tipo": "D",
+          "valor_centavos": 25000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177112",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-04-25",
+          "tipo": "D",
+          "valor_centavos": 3397068,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177113",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-04-25",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177114",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-04-25",
+          "tipo": "D",
+          "valor_centavos": 182442,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177115",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-04-25",
+          "tipo": "D",
+          "valor_centavos": 43786,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177116",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-04-25",
+          "tipo": "D",
+          "valor_centavos": 25542,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177117",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2024-04-25",
+          "tipo": "C",
+          "valor_centavos": 3649938,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177118",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-03-30",
+          "tipo": "C",
+          "valor_centavos": 5000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177119",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-10-30",
+          "tipo": "D",
+          "valor_centavos": 531400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177120",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-10-30",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177121",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-10-30",
+          "tipo": "C",
+          "valor_centavos": 550000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177122",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-12-12",
+          "tipo": "C",
+          "valor_centavos": 40000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177123",
+          "origem": "TE",
+          "descricao": "ENVIO TEV",
+          "data": "2024-11-13",
+          "tipo": "D",
+          "valor_centavos": 918840,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177124",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-11-13",
+          "tipo": "D",
+          "valor_centavos": 11160,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177125",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-11-13",
+          "tipo": "C",
+          "valor_centavos": 930000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177126",
+          "origem": "TE",
+          "descricao": "ENVIO TEV",
+          "data": "2025-03-18",
+          "tipo": "D",
+          "valor_centavos": 4673018,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177127",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2025-03-18",
+          "tipo": "C",
+          "valor_centavos": 4673018,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177128",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-12-18",
+          "tipo": "D",
+          "valor_centavos": 40000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177129",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-12-20",
+          "tipo": "D",
+          "valor_centavos": 200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177130",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-12-20",
+          "tipo": "C",
+          "valor_centavos": 40027023,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177131",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2023-12-20",
+          "tipo": "D",
+          "valor_centavos": 40026823,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177132",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2025-03-27",
+          "tipo": "D",
+          "valor_centavos": 4587284,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177133",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2025-03-27",
+          "tipo": "C",
+          "valor_centavos": 4587284,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177134",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2023-12-27",
+          "tipo": "C",
+          "valor_centavos": 35000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1177135",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-12-27",
+          "tipo": "D",
+          "valor_centavos": 35000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        }
+      ],
+      "errors": [],
+      "complete": true
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 141,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "104-1206136",
+          "origem": "TE",
+          "descricao": "APLIC RETR",
+          "data": "2020-07-02",
+          "tipo": "D",
+          "valor_centavos": 25000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206137",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2020-12-07",
+          "tipo": "C",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206138",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2020-12-07",
+          "tipo": "D",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206139",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2020-12-08",
+          "tipo": "C",
+          "valor_centavos": 900,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206140",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2020-12-08",
+          "tipo": "D",
+          "valor_centavos": 900,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206141",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-11-09",
+          "tipo": "D",
+          "valor_centavos": 76996,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206142",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-11-09",
+          "tipo": "D",
+          "valor_centavos": 53897,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206143",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2020-11-09",
+          "tipo": "D",
+          "valor_centavos": 3718884,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206144",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2020-11-09",
+          "tipo": "D",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206145",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2020-11-09",
+          "tipo": "C",
+          "valor_centavos": 3850077,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206146",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2021-01-12",
+          "tipo": "C",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206147",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2021-02-12",
+          "tipo": "D",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206148",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-12-18",
+          "tipo": "D",
+          "valor_centavos": 95730,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206149",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-12-18",
+          "tipo": "D",
+          "valor_centavos": 54703,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206150",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2020-12-18",
+          "tipo": "C",
+          "valor_centavos": 150433,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206151",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2020-10-19",
+          "tipo": "D",
+          "valor_centavos": 3806040,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206152",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2020-10-19",
+          "tipo": "D",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206153",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-10-19",
+          "tipo": "D",
+          "valor_centavos": 78800,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206154",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-10-19",
+          "tipo": "D",
+          "valor_centavos": 55160,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206155",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2020-10-19",
+          "tipo": "C",
+          "valor_centavos": 3940300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206156",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2020-08-21",
+          "tipo": "D",
+          "valor_centavos": 8338777,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206157",
+          "origem": "TE",
+          "descricao": "DOC/TED PESSOAL",
+          "data": "2020-08-21",
+          "tipo": "D",
+          "valor_centavos": 2200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206158",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2020-08-21",
+          "tipo": "C",
+          "valor_centavos": 8340977,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206159",
+          "origem": "TE",
+          "descricao": "DEVOL TED",
+          "data": "2020-09-22",
+          "tipo": "C",
+          "valor_centavos": 3519215,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206160",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2020-09-22",
+          "tipo": "D",
+          "valor_centavos": 3519215,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206161",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2020-09-22",
+          "tipo": "D",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206162",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2020-09-22",
+          "tipo": "C",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206163",
+          "origem": "TE",
+          "descricao": "DP DINH AG",
+          "data": "2020-12-22",
+          "tipo": "C",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206164",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2020-12-22",
+          "tipo": "C",
+          "valor_centavos": 4474022,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206165",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2020-09-23",
+          "tipo": "D",
+          "valor_centavos": 3519215,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206166",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2020-09-23",
+          "tipo": "D",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206167",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2020-09-23",
+          "tipo": "C",
+          "valor_centavos": 3519515,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206168",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2020-12-23",
+          "tipo": "D",
+          "valor_centavos": 4473994,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206169",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2020-12-23",
+          "tipo": "D",
+          "valor_centavos": 300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206170",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2020-06-29",
+          "tipo": "C",
+          "valor_centavos": 25000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206171",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-09-30",
+          "tipo": "D",
+          "valor_centavos": 444958,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206172",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-09-30",
+          "tipo": "D",
+          "valor_centavos": 143664,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206173",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-09-30",
+          "tipo": "D",
+          "valor_centavos": 80901,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206174",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2020-09-30",
+          "tipo": "D",
+          "valor_centavos": 65302,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206175",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2020-09-30",
+          "tipo": "C",
+          "valor_centavos": 2200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206176",
+          "origem": "TE",
+          "descricao": "RESG AUTOM",
+          "data": "2020-09-30",
+          "tipo": "C",
+          "valor_centavos": 732625,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206177",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2021-08-03",
+          "tipo": "C",
+          "valor_centavos": 18000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206178",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2021-08-03",
+          "tipo": "C",
+          "valor_centavos": 15000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206179",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2021-08-03",
+          "tipo": "D",
+          "valor_centavos": 33000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206180",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2022-07-07",
+          "tipo": "D",
+          "valor_centavos": 5000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206181",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2022-07-07",
+          "tipo": "D",
+          "valor_centavos": 1045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206182",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2022-07-07",
+          "tipo": "C",
+          "valor_centavos": 5001045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206183",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2022-07-11",
+          "tipo": "D",
+          "valor_centavos": 6390000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206184",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2022-07-11",
+          "tipo": "D",
+          "valor_centavos": 1045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206185",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2022-07-11",
+          "tipo": "C",
+          "valor_centavos": 6391045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206186",
+          "origem": "TE",
+          "descricao": "DEVOL TED",
+          "data": "2023-05-15",
+          "tipo": "C",
+          "valor_centavos": 1639000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206187",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-05-15",
+          "tipo": "D",
+          "valor_centavos": 1639000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206188",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2023-05-15",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206189",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-05-15",
+          "tipo": "C",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206190",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2022-08-16",
+          "tipo": "C",
+          "valor_centavos": 2090,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206191",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2022-08-16",
+          "tipo": "D",
+          "valor_centavos": 2090,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206192",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2023-08-16",
+          "tipo": "C",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206193",
+          "origem": "TE",
+          "descricao": "APL FUNDO",
+          "data": "2023-08-16",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206194",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-05-17",
+          "tipo": "D",
+          "valor_centavos": 580000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206195",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2023-05-17",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206196",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-05-17",
+          "tipo": "C",
+          "valor_centavos": 581100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206197",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-06-28",
+          "tipo": "D",
+          "valor_centavos": 1639000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206198",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-06-28",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206199",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2023-06-28",
+          "tipo": "C",
+          "valor_centavos": 3300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206200",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-06-28",
+          "tipo": "C",
+          "valor_centavos": 1636800,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206201",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-05-29",
+          "tipo": "D",
+          "valor_centavos": 1700000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206202",
+          "origem": "TE",
+          "descricao": "DOC/TED ELETRONICO",
+          "data": "2023-05-29",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206203",
+          "origem": "TE",
+          "descricao": "RSG FUNDO",
+          "data": "2023-05-29",
+          "tipo": "C",
+          "valor_centavos": 1701100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206204",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-05-02",
+          "tipo": "D",
+          "valor_centavos": 110809,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206205",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-05-02",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206206",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-05-02",
+          "tipo": "C",
+          "valor_centavos": 111909,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206207",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2022-07-04",
+          "tipo": "C",
+          "valor_centavos": 30000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206208",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-07-05",
+          "tipo": "D",
+          "valor_centavos": 6517336,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206209",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-07-05",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206210",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-07-05",
+          "tipo": "C",
+          "valor_centavos": 6518536,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206211",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2024-02-09",
+          "tipo": "C",
+          "valor_centavos": 4400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206212",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2024-02-09",
+          "tipo": "D",
+          "valor_centavos": 4400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206213",
+          "origem": "TE",
+          "descricao": "DEVOL TED",
+          "data": "2023-10-09",
+          "tipo": "C",
+          "valor_centavos": 9093078,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206214",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-10-09",
+          "tipo": "D",
+          "valor_centavos": 9093078,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206215",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-10-09",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206216",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-10-09",
+          "tipo": "C",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206217",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-10-10",
+          "tipo": "D",
+          "valor_centavos": 9093078,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206218",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-10-10",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206219",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-10-10",
+          "tipo": "C",
+          "valor_centavos": 9094178,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206220",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-10-11",
+          "tipo": "D",
+          "valor_centavos": 9093078,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206221",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-10-11",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206222",
+          "origem": "TE",
+          "descricao": "DEVOL TED",
+          "data": "2023-10-11",
+          "tipo": "C",
+          "valor_centavos": 9093078,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206223",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-10-11",
+          "tipo": "C",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206224",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2023-12-11",
+          "tipo": "C",
+          "valor_centavos": 3300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206225",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2023-12-11",
+          "tipo": "D",
+          "valor_centavos": 3300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206226",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-02-15",
+          "tipo": "D",
+          "valor_centavos": 3866608,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206227",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-02-15",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206228",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-02-15",
+          "tipo": "C",
+          "valor_centavos": 3867708,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206229",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2022-08-15",
+          "tipo": "D",
+          "valor_centavos": 30000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206230",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2024-08-16",
+          "tipo": "C",
+          "valor_centavos": 2400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206231",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2024-08-16",
+          "tipo": "D",
+          "valor_centavos": 2400,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206232",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-07-17",
+          "tipo": "D",
+          "valor_centavos": 686807,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206233",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-07-17",
+          "tipo": "D",
+          "valor_centavos": 1200,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206234",
+          "origem": "TE",
+          "descricao": "TEV MESM T",
+          "data": "2024-07-17",
+          "tipo": "D",
+          "valor_centavos": 208123,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206235",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-07-17",
+          "tipo": "C",
+          "valor_centavos": 896130,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206236",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-04-19",
+          "tipo": "D",
+          "valor_centavos": 2490749,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206237",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-04-19",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206238",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-04-19",
+          "tipo": "C",
+          "valor_centavos": 2491849,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206239",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-19",
+          "tipo": "D",
+          "valor_centavos": 2485892,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206240",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-19",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206241",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2023-12-19",
+          "tipo": "C",
+          "valor_centavos": 3300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206242",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-12-19",
+          "tipo": "C",
+          "valor_centavos": 2483692,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206243",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-02-20",
+          "tipo": "D",
+          "valor_centavos": 85046,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206244",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-02-20",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206245",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-02-20",
+          "tipo": "D",
+          "valor_centavos": 280652,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206246",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-02-20",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206247",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-02-20",
+          "tipo": "C",
+          "valor_centavos": 367898,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206248",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2024-06-20",
+          "tipo": "C",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206249",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2024-06-20",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206250",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-21",
+          "tipo": "D",
+          "valor_centavos": 181895,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206251",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-21",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206252",
+          "origem": "TE",
+          "descricao": "DEVOL TED",
+          "data": "2023-12-21",
+          "tipo": "C",
+          "valor_centavos": 133913,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206253",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-21",
+          "tipo": "D",
+          "valor_centavos": 133913,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206254",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-21",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206255",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-12-21",
+          "tipo": "D",
+          "valor_centavos": 232045,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206256",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-12-21",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206257",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-12-21",
+          "tipo": "C",
+          "valor_centavos": 417240,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206258",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-04-24",
+          "tipo": "D",
+          "valor_centavos": 185813,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206259",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-04-24",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206260",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-04-24",
+          "tipo": "C",
+          "valor_centavos": 186913,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206261",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2024-05-24",
+          "tipo": "C",
+          "valor_centavos": 3300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206262",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2024-05-24",
+          "tipo": "D",
+          "valor_centavos": 3300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206263",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-11-24",
+          "tipo": "D",
+          "valor_centavos": 3000728,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206264",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-11-24",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206265",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-11-24",
+          "tipo": "C",
+          "valor_centavos": 3001828,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206266",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2024-03-27",
+          "tipo": "D",
+          "valor_centavos": 2593237,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206267",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2024-03-27",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206268",
+          "origem": "TE",
+          "descricao": "CRED TEV",
+          "data": "2024-03-27",
+          "tipo": "C",
+          "valor_centavos": 3300,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206269",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2024-03-27",
+          "tipo": "C",
+          "valor_centavos": 2591037,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206270",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-11-28",
+          "tipo": "D",
+          "valor_centavos": 216683,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206271",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-11-28",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206272",
+          "origem": "TE",
+          "descricao": "ENVIO TED",
+          "data": "2023-11-28",
+          "tipo": "D",
+          "valor_centavos": 656612,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206273",
+          "origem": "TE",
+          "descricao": "DOC/TED INTERNET",
+          "data": "2023-11-28",
+          "tipo": "D",
+          "valor_centavos": 1100,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206274",
+          "origem": "TE",
+          "descricao": "RESGATE",
+          "data": "2023-11-28",
+          "tipo": "C",
+          "valor_centavos": 875495,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206275",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2024-12-13",
+          "tipo": "C",
+          "valor_centavos": 15000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1206276",
+          "origem": "TE",
+          "descricao": "APL AUTOM",
+          "data": "2024-12-13",
+          "tipo": "D",
+          "valor_centavos": 15000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        }
+      ],
+      "errors": [],
+      "complete": true
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 7,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "001-1166719",
+          "origem": "TE",
+          "descricao": "Ordem Bancária",
+          "data": "2023-12-12",
+          "tipo": "C",
+          "valor_centavos": 25000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-1166722",
+          "origem": "TE",
+          "descricao": "BB-APLIC C.PRZ-APL.AUT",
+          "data": "2023-12-12",
+          "tipo": "D",
+          "valor_centavos": 25000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3323999",
+          "origem": "TE",
+          "descricao": "Transferência enviada",
+          "data": "2025-03-06",
+          "tipo": "D",
+          "valor_centavos": 346308,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3324001",
+          "origem": "TE",
+          "descricao": "TED Transf.Eletr.Disponivel",
+          "data": "2025-03-06",
+          "tipo": "D",
+          "valor_centavos": 26754909,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-3324003",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2025-03-06",
+          "tipo": "C",
+          "valor_centavos": 27101217,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4795300",
+          "origem": "TE",
+          "descricao": "Transferência enviada",
+          "data": "2026-09-16",
+          "tipo": "D",
+          "valor_centavos": 508131,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-4795301",
+          "origem": "TE",
+          "descricao": "Resgate Automático",
+          "data": "2026-09-16",
+          "tipo": "C",
+          "valor_centavos": 508131,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        }
+      ],
+      "errors": [],
+      "complete": true
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "query": "cnpj_ente_solicitante_gestao_financeira",
+      "total_items": 11,
+      "total_pages": 1,
+      "pages_fetched": 1,
+      "records": [
+        {
+          "id_lancamento": "001-649770",
+          "origem": "TE",
+          "descricao": "Ordem Bancria",
+          "data": "2021-12-27",
+          "tipo": "C",
+          "valor_centavos": 30000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-649773",
+          "origem": "TE",
+          "descricao": "Aplicao em BB Fix",
+          "data": "2021-12-27",
+          "tipo": "D",
+          "valor_centavos": 30000000,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-704863",
+          "origem": "TE",
+          "descricao": "Resgate BB Fix",
+          "data": "2022-04-04",
+          "tipo": "C",
+          "valor_centavos": 30624986,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-704865",
+          "origem": "TE",
+          "descricao": "Aplicao em BB Fix",
+          "data": "2022-04-04",
+          "tipo": "D",
+          "valor_centavos": 30624986,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-887866",
+          "origem": "TE",
+          "descricao": "Transferncia enviada",
+          "data": "2023-06-29",
+          "tipo": "D",
+          "valor_centavos": 687479,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-887870",
+          "origem": "TE",
+          "descricao": "TED Transf.Eletr.Disponivel",
+          "data": "2023-06-29",
+          "tipo": "D",
+          "valor_centavos": 33042320,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-887872",
+          "origem": "TE",
+          "descricao": "Resgate Automtico",
+          "data": "2023-06-29",
+          "tipo": "C",
+          "valor_centavos": 33729799,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-898894",
+          "origem": "TE",
+          "descricao": "Transferncia enviada",
+          "data": "2023-07-20",
+          "tipo": "D",
+          "valor_centavos": 644127,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "001-898897",
+          "origem": "TE",
+          "descricao": "Resgate Automtico",
+          "data": "2023-07-20",
+          "tipo": "C",
+          "valor_centavos": 644127,
+          "categoria": 0,
+          "numero_subtransacoes": 0
+        },
+        {
+          "id_lancamento": "104-1084740",
+          "origem": "TE",
+          "descricao": "CRED TED",
+          "data": "2024-12-13",
+          "tipo": "C",
+          "valor_centavos": 50000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        },
+        {
+          "id_lancamento": "104-1084741",
+          "origem": "TE",
+          "descricao": "APLICACAO",
+          "data": "2024-12-13",
+          "tipo": "D",
+          "valor_centavos": 50000000,
+          "categoria": null,
+          "numero_subtransacoes": null
+        }
+      ],
+      "errors": [],
+      "complete": true
+    }
+  ]
+}

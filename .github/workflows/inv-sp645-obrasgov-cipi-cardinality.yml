@@ -1,0 +1,36 @@
+name: INV SP645 - cruzamento nacional Obrasgov CIPI
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/qa/audit_inv_sp645_obrasgov_cipi_join.py
+      - pipeline/acquire/inv_sp645_transferegov_new_source_layout.py
+      - .github/workflows/inv-sp645-obrasgov-cipi-cardinality.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-key-joins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source parsing
+        run: python -m py_compile pipeline/qa/audit_inv_sp645_obrasgov_cipi_join.py
+      - name: Inspect IDs and fanout (no personal or project details)
+        run: |
+          python pipeline/qa/audit_inv_sp645_obrasgov_cipi_join.py \
+            --out-dir "${RUNNER_TEMP}/sp645_obrasgov_cipi"
+      - name: Archive key-level QA metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-obrasgov-cipi-cardinality
+          path: ${{ runner.temp }}/sp645_obrasgov_cipi/manifest_obra_cipi_key_qa.json
+          retention-days: 30
+          if-no-files-found: warn

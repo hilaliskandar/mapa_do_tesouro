@@ -1,0 +1,21 @@
+ibge7;id_plano_acao;id_empenho;id_dh;data_emissao_dh;situacao_dh;valor_dh_centavos;numero_documento;estado;url_fonte
+3551504;80185;50711;63245;2025-09-08;Enviado com Sucesso;39600000;2025TF002777;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=50711&pagina=1&tamanho_da_pagina=200
+3551504;82458;52747;66204;2025-10-20;Enviado com Sucesso;19800000;2025TF006169;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=52747&pagina=1&tamanho_da_pagina=200
+3551504;87773;58070;70257;2025-12-17;Enviado com Sucesso;19800000;2025TF009838;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=58070&pagina=1&tamanho_da_pagina=200
+3551504;82457;52746;;;;;;sem_documento;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=52746&pagina=1&tamanho_da_pagina=200
+3551504;93199;63558;72330;2026-05-11;Enviado com Sucesso;39800000;2026TF001018;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=63558&pagina=1&tamanho_da_pagina=200
+3533601;38827;32410;42545;2023-12-05;Enviado com Sucesso;25000000;2023TF013495;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=32410&pagina=1&tamanho_da_pagina=200
+3527603;17032;18431;28309;2023-03-28;Enviado com Sucesso;50000000;2023TF000241;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=18431&pagina=1&tamanho_da_pagina=200
+3527603;34095;27673;41656;2023-09-28;Enviado com Sucesso;40000000;2023TF010144;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=27673&pagina=1&tamanho_da_pagina=200
+3527603;38824;32407;41648;2023-08-21;Enviado com Sucesso;60000000;2023TF006984;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=32407&pagina=1&tamanho_da_pagina=200
+3527603;70996;41236;50945;2024-12-11;Enviado com Sucesso;25000000;2024TF007077;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=41236&pagina=1&tamanho_da_pagina=200
+3527603;77642;49116;62730;2025-09-08;Enviado com Sucesso;34650000;2025TF002365;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=49116&pagina=1&tamanho_da_pagina=200
+3527603;87571;57866;68652;2025-12-02;Enviado com Sucesso;49500000;2025TF008918;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=57866&pagina=1&tamanho_da_pagina=200
+3527603;81693;51987;;;;;;sem_documento;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=51987&pagina=1&tamanho_da_pagina=200
+3539509;3593;3591;21925;2020-06-25;Enviado com Sucesso;15000000;2020TF000906;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=3591&pagina=1&tamanho_da_pagina=200
+3539509;4556;3640;21924;2020-06-25;Enviado com Sucesso;20000000;2020TF000905;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=3640&pagina=1&tamanho_da_pagina=200
+3539509;16875;18274;30655;2023-03-28;Enviado com Sucesso;10000000;2023TF001565;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=18274&pagina=1&tamanho_da_pagina=200
+3539509;20087;21486;33306;2023-03-28;Enviado com Sucesso;14000000;2023TF003184;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=21486&pagina=1&tamanho_da_pagina=200
+3539509;33310;26925;41451;2023-12-05;Enviado com Sucesso;25000000;2023TF013051;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=26925&pagina=1&tamanho_da_pagina=200
+3539509;67701;35516;49702;2024-12-11;Enviado com Sucesso;15000000;2024TF006381;ok;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=35516&pagina=1&tamanho_da_pagina=200
+3539509;83712;53973;;;;;;sem_documento;https://api-publica.transferegov.gestao.gov.br/especiais/documentos-habeis-especiais?id_empenho=53973&pagina=1&tamanho_da_pagina=200

@@ -1,0 +1,24 @@
+name: INV RMRP - QA serie estadual anual exata
+on:
+  pull_request:
+    paths:
+      - "pipeline/qa/qa_siafem_rmrp_anual_exato.py"
+      - "governance/INV_RMRP_SIAFEM_*"
+      - "governance/inv_rmrp_siafem_anuais_exatos/**"
+      - ".github/workflows/inv-rmrp-qa-siafem-anual-exato.yml"
+  workflow_dispatch:
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validar sintaxe
+        run: python -m py_compile pipeline/qa/qa_siafem_rmrp_anual_exato.py
+      - name: Reproduzir serie estadual anual com centavos e QA de nao duplicacao
+        run: python pipeline/qa/qa_siafem_rmrp_anual_exato.py

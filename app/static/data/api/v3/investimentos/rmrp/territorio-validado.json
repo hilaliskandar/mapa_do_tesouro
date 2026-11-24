@@ -1,0 +1,206 @@
+{
+  "metadata": {
+    "tipo": "dimensao_territorial_cadastral",
+    "universe": "RMRP_34",
+    "fonte": "IBGE códigos municipais; divisão oficial LC paulista 1.290/2016, art. 4",
+    "origem_repositorio": "governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv",
+    "qa_status": "validado_dimensao_territorial_sem_homologacao_financeira",
+    "data_verificacao": "2026-11-23",
+    "limites": [
+      "Lista cadastral de municípios e sub-regiões; não é localização física de investimentos.",
+      "Não inclui valores, pagamentos, instrumentos ou coordenadas geográficas.",
+      "Não altera indicadores fiscais nem os dados já publicados na API v1."
+    ]
+  },
+  "total_municipios": 34,
+  "sub_regioes": [
+    {
+      "nome": "Sub-região de Batatais",
+      "municipios": 7
+    },
+    {
+      "nome": "Sub-região de Jaboticabal",
+      "municipios": 6
+    },
+    {
+      "nome": "Sub-região de Mococa",
+      "municipios": 6
+    },
+    {
+      "nome": "Sub-região de Ribeirão Preto",
+      "municipios": 15
+    }
+  ],
+  "municipios": [
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "sub_regiao": "Sub-região de Batatais"
+    },
+    {
+      "codigo_ibge": "3505609",
+      "municipio": "Barrinha",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "sub_regiao": "Sub-região de Batatais"
+    },
+    {
+      "codigo_ibge": "3507803",
+      "municipio": "Brodowski",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3509403",
+      "municipio": "Cajuru",
+      "sub_regiao": "Sub-região de Mococa"
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "sub_regiao": "Sub-região de Mococa"
+    },
+    {
+      "codigo_ibge": "3513108",
+      "municipio": "Cravinhos",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3514601",
+      "municipio": "Dumont",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "sub_regiao": "Sub-região de Jaboticabal"
+    },
+    {
+      "codigo_ibge": "3518859",
+      "municipio": "Guatapará",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3524303",
+      "municipio": "Jaboticabal",
+      "sub_regiao": "Sub-região de Jaboticabal"
+    },
+    {
+      "codigo_ibge": "3525102",
+      "municipio": "Jardinópolis",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3527603",
+      "municipio": "Luís Antônio",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3530508",
+      "municipio": "Mococa",
+      "sub_regiao": "Sub-região de Mococa"
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "sub_regiao": "Sub-região de Jaboticabal"
+    },
+    {
+      "codigo_ibge": "3531902",
+      "municipio": "Morro Agudo",
+      "sub_regiao": "Sub-região de Batatais"
+    },
+    {
+      "codigo_ibge": "3533601",
+      "municipio": "Nuporanga",
+      "sub_regiao": "Sub-região de Batatais"
+    },
+    {
+      "codigo_ibge": "3534302",
+      "municipio": "Orlândia",
+      "sub_regiao": "Sub-região de Batatais"
+    },
+    {
+      "codigo_ibge": "3539509",
+      "municipio": "Pitangueiras",
+      "sub_regiao": "Sub-região de Jaboticabal"
+    },
+    {
+      "codigo_ibge": "3540200",
+      "municipio": "Pontal",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3540903",
+      "municipio": "Pradópolis",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3543402",
+      "municipio": "Ribeirão Preto",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3544905",
+      "municipio": "Sales Oliveira",
+      "sub_regiao": "Sub-região de Batatais"
+    },
+    {
+      "codigo_ibge": "3546256",
+      "municipio": "Santa Cruz da Esperança",
+      "sub_regiao": "Sub-região de Mococa"
+    },
+    {
+      "codigo_ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "sub_regiao": "Sub-região de Mococa"
+    },
+    {
+      "codigo_ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "sub_regiao": "Sub-região de Batatais"
+    },
+    {
+      "codigo_ibge": "3550902",
+      "municipio": "São Simão",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3551405",
+      "municipio": "Serra Azul",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3551504",
+      "municipio": "Serrana",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3551702",
+      "municipio": "Sertãozinho",
+      "sub_regiao": "Sub-região de Ribeirão Preto"
+    },
+    {
+      "codigo_ibge": "3553203",
+      "municipio": "Taiúva",
+      "sub_regiao": "Sub-região de Jaboticabal"
+    },
+    {
+      "codigo_ibge": "3553302",
+      "municipio": "Tambaú",
+      "sub_regiao": "Sub-região de Mococa"
+    },
+    {
+      "codigo_ibge": "3553658",
+      "municipio": "Taquaral",
+      "sub_regiao": "Sub-região de Jaboticabal"
+    }
+  ]
+}

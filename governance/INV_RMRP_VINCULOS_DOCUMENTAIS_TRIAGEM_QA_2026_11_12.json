@@ -1,0 +1,17 @@
+{
+  "escopo": "amostra_Obrasgov_nome_224_e_convenios_prefeituras_SIAFEM_752",
+  "obras_total": 224,
+  "obras_localizadas_unico": 130,
+  "obras_estaduais_localizadas_unico": 55,
+  "obras_estaduais_outside": 15,
+  "convenios_siafem": 752,
+  "planos_federais": 284,
+  "correspondencias_documentais_siafem_obrasgov": 0,
+  "correspondencias_documentais_federal_obrasgov": 0,
+  "orgs_estado_unico": 8,
+  "obras_estaduais_responsavel_prefeitura": 0,
+  "municipios_estado_unico": 22,
+  "municipios_ambas": 22,
+  "indicacao": "zero chaves documentais diretas no texto disponível; não implica que inexista vínculo nos documentos não recuperados",
+  "restricao": "origem Estadual Obrasgov não identifica pagamento SIAFEM ao município nem execução municipal"
+}

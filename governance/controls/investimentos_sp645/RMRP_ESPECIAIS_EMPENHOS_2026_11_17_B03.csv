@@ -1,0 +1,21 @@
+ibge7;id_plano_acao;ano_plano;id_empenho;data_emissao;categoria_despesa;valor_empenho_centavos;situacao_empenho;estado;url_fonte
+3543402;84801;2025;55045;2025-07-29;INVESTIMENTO;49500000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=84801&pagina=1&tamanho_da_pagina=200
+3543402;84802;2025;55046;2025-07-29;INVESTIMENTO;49500000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=84802&pagina=1&tamanho_da_pagina=200
+3543402;97410;2026;67640;2026-06-19;INVESTIMENTO;29850000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=97410&pagina=1&tamanho_da_pagina=200
+3543402;96120;2026;66351;2026-06-19;INVESTIMENTO;19900000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=96120&pagina=1&tamanho_da_pagina=200
+3543402;78772;2025;49716;2025-07-29;INVESTIMENTO;39600000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=78772&pagina=1&tamanho_da_pagina=200
+3543402;98955;2026;69486;2026-10-16;INVESTIMENTO;39800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=98955&pagina=1&tamanho_da_pagina=200
+3524303;3647;2020;4749;2020-05-18;INVESTIMENTO;17000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=3647&pagina=1&tamanho_da_pagina=200
+3524303;12073;2021;12985;2021-07-09;INVESTIMENTO;15000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=12073&pagina=1&tamanho_da_pagina=200
+3524303;17444;2022;18843;2022-05-17;INVESTIMENTO;42000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=17444&pagina=1&tamanho_da_pagina=200
+3524303;17052;2022;18451;2022-05-17;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=17052&pagina=1&tamanho_da_pagina=200
+3524303;35658;2023;29237;2023-07-05;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=35658&pagina=1&tamanho_da_pagina=200
+3524303;41893;2023;33205;2023-12-13;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=41893&pagina=1&tamanho_da_pagina=200
+3524303;71939;2024;42179;2024-06-26;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=71939&pagina=1&tamanho_da_pagina=200
+3524303;80179;2025;50706;2025-09-10;INVESTIMENTO;39600000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=80179&pagina=1&tamanho_da_pagina=200
+3524303;81682;2025;51976;2025-10-17;INVESTIMENTO;43717806;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=81682&pagina=1&tamanho_da_pagina=200
+3524303;83708;2025;53969;2025-07-29;INVESTIMENTO;19800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=83708&pagina=1&tamanho_da_pagina=200
+3524303;88095;2025;58478;2025-10-30;INVESTIMENTO;19800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=88095&pagina=1&tamanho_da_pagina=200
+3524303;94344;2026;64578;2026-06-19;INVESTIMENTO;49750000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=94344&pagina=1&tamanho_da_pagina=200
+3518859;3868;2020;4371;2020-05-18;INVESTIMENTO;13000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=3868&pagina=1&tamanho_da_pagina=200
+3518859;16033;2022;17508;2022-05-17;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=16033&pagina=1&tamanho_da_pagina=200

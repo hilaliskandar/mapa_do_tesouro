@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-15",
+  "catalog_url": "https://api-publica.transferegov.gestao.gov.br/downloads",
+  "catalog_records_reported": 65,
+  "extracted_records": 7,
+  "acquisition_status": "pending",
+  "runner_dns_status": "failed",
+  "browserless_fallback_status": "rate_limit_401",
+  "data_kind": "official_siconv_csv_zip",
+  "expected_scope": "national",
+  "not_rmrp_only": true,
+  "files": [
+    {
+      "name": "siconv_contrato_cipi.zip",
+      "advertised_size": "4.1 MB",
+      "advertised_update_date": "15/11/2026",
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_contrato_cipi.zip",
+      "status": "catalog_verified_binary_not_fetched"
+    },
+    {
+      "name": "siconv_coordenadas_obra.zip",
+      "advertised_size": "2.9 MB",
+      "advertised_update_date": "15/11/2026",
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_coordenadas_obra.zip",
+      "status": "catalog_verified_binary_not_fetched"
+    },
+    {
+      "name": "siconv_dados_obrasgov_geral.zip",
+      "advertised_size": "767 KB",
+      "advertised_update_date": "15/11/2026",
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_dados_obrasgov_geral.zip",
+      "status": "catalog_verified_binary_not_fetched"
+    },
+    {
+      "name": "siconv_dl.zip",
+      "advertised_size": "206.4 MB",
+      "advertised_update_date": "15/11/2026",
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_dl.zip",
+      "status": "catalog_verified_binary_not_fetched"
+    },
+    {
+      "name": "siconv_itens_dl.zip",
+      "advertised_size": "523.1 MB",
+      "advertised_update_date": "15/11/2026",
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_itens_dl.zip",
+      "status": "catalog_verified_binary_not_fetched"
+    },
+    {
+      "name": "siconv_obtv_convenente.zip",
+      "advertised_size": "56.0 MB",
+      "advertised_update_date": "15/11/2026",
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_obtv_convenente.zip",
+      "status": "catalog_verified_binary_not_fetched"
+    },
+    {
+      "name": "siconv_pagamento.zip",
+      "advertised_size": "357.3 MB",
+      "advertised_update_date": "15/11/2026",
+      "source_url": "https://api-publica.transferegov.gestao.gov.br/downloads/dadosgov/siconv_pagamento.zip",
+      "status": "catalog_verified_binary_not_fetched"
+    }
+  ],
+  "qa_notes": [
+    "Catalog items are public national snapshots; download and CRC/SHA-256 must be separately verified.",
+    "Do not publish national microdata or sum OBTV child lines with payment parent.",
+    "A source listing does not demonstrate successful binary acquisition."
+  ]
+}

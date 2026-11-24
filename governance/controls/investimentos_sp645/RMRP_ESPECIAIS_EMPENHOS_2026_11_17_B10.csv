@@ -1,0 +1,21 @@
+ibge7;id_plano_acao;ano_plano;id_empenho;data_emissao;categoria_despesa;valor_empenho_centavos;situacao_empenho;estado;url_fonte
+3507803;68483;2024;39018;2024-06-26;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=68483&pagina=1&tamanho_da_pagina=200
+3513108;13822;2021;14768;2021-12-10;INVESTIMENTO;25000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=13822&pagina=1&tamanho_da_pagina=200
+3513108;41898;2023;33210;2023-12-13;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=41898&pagina=1&tamanho_da_pagina=200
+3513108;70993;2024;41233;2024-06-26;INVESTIMENTO;60000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=70993&pagina=1&tamanho_da_pagina=200
+3513108;17045;2022;18444;2022-05-17;INVESTIMENTO;100000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=17045&pagina=1&tamanho_da_pagina=200
+3513108;71961;2024;42201;2024-06-26;INVESTIMENTO;50000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=71961&pagina=1&tamanho_da_pagina=200
+3513108;73637;2024;43877;2024-06-26;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=73637&pagina=1&tamanho_da_pagina=200
+3513108;94137;2026;64386;2026-06-19;INVESTIMENTO;99500000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=94137&pagina=1&tamanho_da_pagina=200
+3513108;94641;2026;64873;2026-03-30;INVESTIMENTO;39800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=94641&pagina=1&tamanho_da_pagina=200
+3513108;98305;2026;69063;2026-10-16;INVESTIMENTO;39800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=98305&pagina=1&tamanho_da_pagina=200
+3544905;39103;2023;32686;2023-07-05;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=39103&pagina=1&tamanho_da_pagina=200
+3544905;10324;2021;11334;2021-07-09;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=10324&pagina=1&tamanho_da_pagina=200
+3544905;21971;2022;14886;2022-05-17;INVESTIMENTO;15000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=21971&pagina=1&tamanho_da_pagina=200
+3544905;32200;2023;26028;2023-07-05;INVESTIMENTO;7000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=32200&pagina=1&tamanho_da_pagina=200
+3544905;69034;2024;39481;2024-06-26;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=69034&pagina=1&tamanho_da_pagina=200
+3547908;11369;2021;12328;2021-08-09;INVESTIMENTO;35000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=11369&pagina=1&tamanho_da_pagina=200
+3547908;36397;2023;29976;2023-07-05;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=36397&pagina=1&tamanho_da_pagina=200
+3547908;71958;2024;42198;2024-06-26;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=71958&pagina=1&tamanho_da_pagina=200
+3547908;67022;2024;35202;2024-05-07;CUSTEIO;24000000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=67022&pagina=1&tamanho_da_pagina=200
+3547908;90211;2026;59711;2026-03-30;CUSTEIO;39800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=90211&pagina=1&tamanho_da_pagina=200

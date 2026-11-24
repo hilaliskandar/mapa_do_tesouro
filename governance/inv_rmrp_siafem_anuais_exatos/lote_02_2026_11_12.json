@@ -1,0 +1,2100 @@
+{
+  "fonte": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx",
+  "atualizacao_fonte": "2026-11-12",
+  "filtros": {
+    "Beneficiado": "Prefeituras",
+    "Tipo": "Investimento",
+    "LiberacaoInicio": "01/01/AAAA",
+    "LiberacaoFim": "31/12/AAAA (2026:12/11/2026)"
+  },
+  "consultas": [
+    {
+      "municipio": "Dumont",
+      "codigo_ibge": "3514601",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.065.243,97",
+        "4",
+        "453.676,98",
+        "61.778,90"
+      ],
+      "records": [
+        [
+          "1700301330921/17",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "749.015,27",
+          "1",
+          "137.448,28",
+          "61.778,90"
+        ],
+        [
+          "2901181533175/18",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "59.657,20",
+          "1",
+          "59.657,20",
+          "0,00"
+        ],
+        [
+          "2901182383190/19",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "256.571,50",
+          "2",
+          "256.571,50",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Dumont",
+      "codigo_ibge": "3514601",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.278.831,75",
+        "4",
+        "992.376,91",
+        "69.006,56"
+      ],
+      "records": [
+        [
+          "1700301330921/17",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "749.015,27",
+          "2",
+          "549.788,09",
+          "61.778,90"
+        ],
+        [
+          "29011820-5618220",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "130.000,00",
+          "1",
+          "122.772,34",
+          "7.227,66"
+        ],
+        [
+          "290118503961/18",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "399.816,48",
+          "1",
+          "319.816,48",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Dumont",
+      "codigo_ibge": "3514601",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "500.000,00",
+        "2",
+        "500.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "18010120220399013",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "29011800599/21",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Dumont",
+      "codigo_ibge": "3514601",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "650.000,00",
+        "4",
+        "650.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "29011820220724758",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220724811",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221414544",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "41010120220270922",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Dumont",
+      "codigo_ibge": "3514601",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "950.000,00",
+        "2",
+        "950.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010120231759804",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240425068",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "450.000,00",
+          "1",
+          "450.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Dumont",
+      "codigo_ibge": "3514601",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.050.000,00",
+        "2",
+        "1.050.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010100232/2024N",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "525.000,00",
+          "1",
+          "525.000,00",
+          "0,00"
+        ],
+        [
+          "510101425068/24",
+          "46940888000143",
+          "PREFEITURA MUNICIPAL DUMONT",
+          "525.000,00",
+          "1",
+          "525.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Dumont",
+      "codigo_ibge": "3514601",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Guariba",
+      "codigo_ibge": "3518602",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.307.375,74",
+        "5",
+        "612.650,02",
+        "254.225,65"
+      ],
+      "records": [
+        [
+          "2901181956536/19",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "108.000,00",
+          "1",
+          "107.999,96",
+          "0,04"
+        ],
+        [
+          "2901182669187/19",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "250.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ],
+        [
+          "2901182739674/19",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "350.000,00",
+          "2",
+          "350.000,00",
+          "0,00"
+        ],
+        [
+          "5128031465476\\19",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "599.375,74",
+          "1",
+          "104.650,06",
+          "254.225,61"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guariba",
+      "codigo_ibge": "3518602",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "999.375,74",
+        "3",
+        "490.500,07",
+        "254.225,61"
+      ],
+      "records": [
+        [
+          "29011800352/21",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "2901182669187/19",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "250.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "5128031465476\\19",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "599.375,74",
+          "1",
+          "240.500,07",
+          "254.225,61"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guariba",
+      "codigo_ibge": "3518602",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.339.698,78",
+        "9",
+        "1.678.698,78",
+        "21.000,00"
+      ],
+      "records": [
+        [
+          "09020519036-2021",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "12010120-000006",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "1301752021/13812",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "40.000,00",
+          "1",
+          "40.000,00",
+          "0,00"
+        ],
+        [
+          "29011800339/21",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "350.000,00",
+          "1",
+          "329.000,00",
+          "21.000,00"
+        ],
+        [
+          "29011801149/21",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "790.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220421713",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "163.500,00",
+          "1",
+          "163.500,00",
+          "0,00"
+        ],
+        [
+          "2901182106133746",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "2901182669187/19",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "250.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "51010920220543832",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "346.198,78",
+          "1",
+          "346.198,78",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guariba",
+      "codigo_ibge": "3518602",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "3.157.018,03",
+        "6",
+        "1.901.103,62",
+        "665.914,41"
+      ],
+      "records": [
+        [
+          "25010120221180973",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "467.018,03",
+          "1",
+          "467.018,03",
+          "0,00"
+        ],
+        [
+          "29011801149/21",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "790.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221282955",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221310414",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "1.000.000,00",
+          "1",
+          "500.000,00",
+          "500.000,00"
+        ],
+        [
+          "29011820221414571",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221414606",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "500.000,00",
+          "1",
+          "334.085,59",
+          "165.914,41"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guariba",
+      "codigo_ibge": "3518602",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "4.781.480,32",
+        "10",
+        "3.987.917,98",
+        "15.541,32"
+      ],
+      "records": [
+        [
+          "29011801149/21",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "790.000,00",
+          "1",
+          "290.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240002464",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "500.000,00",
+          "1",
+          "495.044,57",
+          "4.955,43"
+        ],
+        [
+          "51010120240005931",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "250.000,00",
+          "1",
+          "239.414,11",
+          "10.585,89"
+        ],
+        [
+          "51010120240335121",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "107.000,00",
+          "1",
+          "107.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240380556",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "678.021,02",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240530368",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240547301",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "909.000,00",
+          "1",
+          "909.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240547463",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "805.132,51",
+          "1",
+          "805.132,51",
+          "0,00"
+        ],
+        [
+          "51010120240802842",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "142.326,79",
+          "1",
+          "142.326,79",
+          "0,00"
+        ],
+        [
+          "51010120240849591",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guariba",
+      "codigo_ibge": "3518602",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.671.316,29",
+        "2",
+        "1.199.795,99",
+        "71.520,30"
+      ],
+      "records": [
+        [
+          "17003020240450661",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "993.295,27",
+          "1",
+          "921.774,97",
+          "71.520,30"
+        ],
+        [
+          "51010120240380556",
+          "48664304000180",
+          "PREFEITURA MUNICIPAL GUARIBA",
+          "678.021,02",
+          "1",
+          "278.021,02",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guariba",
+      "codigo_ibge": "3518602",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Guatapará",
+      "codigo_ibge": "3518859",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.155.255,99",
+        "4",
+        "897.129,74",
+        "222.022,31"
+      ],
+      "records": [
+        [
+          "0803583291000011A",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "1.480.148,52",
+          "1",
+          "222.022,27",
+          "222.022,31"
+        ],
+        [
+          "0803583291000011B",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "125.163,67",
+          "1",
+          "125.163,67",
+          "0,00"
+        ],
+        [
+          "29011800213/20",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "199.943,80",
+          "1",
+          "199.943,80",
+          "0,00"
+        ],
+        [
+          "2901182661962/19",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "350.000,00",
+          "1",
+          "350.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guatapará",
+      "codigo_ibge": "3518859",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Guatapará",
+      "codigo_ibge": "3518859",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.380.000,00",
+        "7",
+        "1.380.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "29011801589/21",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "400.000,00",
+          "2",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220147651",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220522645",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "2901182110631837",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "2901182113232334",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "4101012021/00215",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "80.000,00",
+          "1",
+          "80.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guatapará",
+      "codigo_ibge": "3518859",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "340.104,19",
+        "1",
+        "340.104,19",
+        "0,00"
+      ],
+      "records": [
+        [
+          "25010120221170431",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "340.104,19",
+          "1",
+          "340.104,19",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guatapará",
+      "codigo_ibge": "3518859",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "593.640,38",
+        "1",
+        "300.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010120231760574",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "593.640,38",
+          "1",
+          "300.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guatapará",
+      "codigo_ibge": "3518859",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "593.640,38",
+        "1",
+        "293.640,38",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010120231760574",
+          "68319748000195",
+          "PREFEITURA MUNICIPAL GUATAPARA",
+          "593.640,38",
+          "1",
+          "293.640,38",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Guatapará",
+      "codigo_ibge": "3518859",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Jaboticabal",
+      "codigo_ibge": "3524303",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.550.000,00",
+        "4",
+        "1.350.000,00",
+        "800.000,00"
+      ],
+      "records": [
+        [
+          "290118557299/18",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "150.000,00",
+          "1",
+          "150.000,00",
+          "0,00"
+        ],
+        [
+          "290118557827/18",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "290118709704-18",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "2.000.000,00",
+          "1",
+          "800.000,00",
+          "800.000,00"
+        ],
+        [
+          "5001023164111/19",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jaboticabal",
+      "codigo_ibge": "3524303",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.000.000,00",
+        "1",
+        "200.000,00",
+        "800.000,00"
+      ],
+      "records": [
+        [
+          "2901182219564/19",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.000.000,00",
+          "1",
+          "200.000,00",
+          "800.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jaboticabal",
+      "codigo_ibge": "3524303",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "4.210.000,00",
+        "6",
+        "2.610.000,00",
+        "587.291,34"
+      ],
+      "records": [
+        [
+          "1301752021/15501",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "60.000,00",
+          "1",
+          "60.000,00",
+          "0,00"
+        ],
+        [
+          "29011820-2018067",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220511919",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "600.000,00",
+          "1",
+          "600.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220516381",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "800.000,00",
+          "1",
+          "400.000,00",
+          "37.291,34"
+        ],
+        [
+          "29011820220528783",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.500.000,00",
+          "1",
+          "1.050.000,00",
+          "0,00"
+        ],
+        [
+          "2901182100623707",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.050.000,00",
+          "1",
+          "300.000,00",
+          "550.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jaboticabal",
+      "codigo_ibge": "3524303",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.838.141,25",
+        "7",
+        "1.774.684,90",
+        "223.712,96"
+      ],
+      "records": [
+        [
+          "29011820221351865",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "700.000,00",
+          "1",
+          "350.000,00",
+          "153.477,86"
+        ],
+        [
+          "29011820221351874",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "150.000,00",
+          "1",
+          "123.960,89",
+          "26.039,11"
+        ],
+        [
+          "29011820221351883",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "400.000,00",
+          "1",
+          "355.804,01",
+          "44.195,99"
+        ],
+        [
+          "2901182103333485",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "3500331717264/19",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "89.840,00",
+          "1",
+          "44.920,00",
+          "0,00"
+        ],
+        [
+          "51010120230626572",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.398.301,25",
+          "2",
+          "800.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jaboticabal",
+      "codigo_ibge": "3524303",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "6.918.040,15",
+        "8",
+        "4.127.270,95",
+        "190.769,20"
+      ],
+      "records": [
+        [
+          "25010120221180392",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "269.738,90",
+          "1",
+          "269.738,90",
+          "0,00"
+        ],
+        [
+          "29011820220516381",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "800.000,00",
+          "1",
+          "362.708,66",
+          "37.291,34"
+        ],
+        [
+          "29011820220528783",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.500.000,00",
+          "1",
+          "450.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220727197",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221351865",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "700.000,00",
+          "1",
+          "196.522,14",
+          "153.477,86"
+        ],
+        [
+          "51010120230626572",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.398.301,25",
+          "1",
+          "598.301,25",
+          "0,00"
+        ],
+        [
+          "51010120240769158",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "2.000.000,00",
+          "2",
+          "2.000.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jaboticabal",
+      "codigo_ibge": "3524303",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "4.789.224,81",
+        "7",
+        "2.997.223,65",
+        "1.492.001,16"
+      ],
+      "records": [
+        [
+          "2901182100623707",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.050.000,00",
+          "1",
+          "200.000,00",
+          "550.000,00"
+        ],
+        [
+          "41010120250656597",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "41010120250777494",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "51010120231767601",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.000.000,00",
+          "1",
+          "500.000,00",
+          "500.000,00"
+        ],
+        [
+          "51010120240382588",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "939.224,81",
+          "2",
+          "874.223,65",
+          "65.001,16"
+        ],
+        [
+          "51010120240547543",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.500.000,00",
+          "1",
+          "1.123.000,00",
+          "377.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jaboticabal",
+      "codigo_ibge": "3524303",
+      "sub_regiao": "Sub-região de Jaboticabal",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.400.000,00",
+        "3",
+        "1.450.000,00",
+        "950.000,00"
+      ],
+      "records": [
+        [
+          "18010120260424146",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240530608",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "500.000,00",
+          "1",
+          "250.000,00",
+          "250.000,00"
+        ],
+        [
+          "51010120240547525",
+          "50387844000105",
+          "PREFEITURA MUNICIPAL JABOTICABAL",
+          "1.400.000,00",
+          "1",
+          "700.000,00",
+          "700.000,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jardinópolis",
+      "codigo_ibge": "3525102",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "300.000,00",
+        "2",
+        "180.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "2901182220737/19",
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "300.000,00",
+          "2",
+          "180.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jardinópolis",
+      "codigo_ibge": "3525102",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Jardinópolis",
+      "codigo_ibge": "3525102",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.021.947,47",
+        "4",
+        "741.947,47",
+        "100.000,00"
+      ],
+      "records": [
+        [
+          "29011800380/21",
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "400.000,00",
+          "1",
+          "300.000,00",
+          "100.000,00"
+        ],
+        [
+          "2901182105622493",
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "300.000,00",
+          "1",
+          "300.000,00",
+          "0,00"
+        ],
+        [
+          "2901182220737/19",
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "300.000,00",
+          "1",
+          "120.000,00",
+          "0,00"
+        ],
+        [
+          "35003420220109795",
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "21.947,47",
+          "1",
+          "21.947,47",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jardinópolis",
+      "codigo_ibge": "3525102",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "50.000,00",
+        "1",
+        "50.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "41010120231079952",
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "50.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jardinópolis",
+      "codigo_ibge": "3525102",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "100.000,00",
+        "1",
+        "100.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010120240852871",
+          "44229821000170",
+          "PREFEITURA MUNICIPAL JARDINOPOLIS",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Jardinópolis",
+      "codigo_ibge": "3525102",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Jardinópolis",
+      "codigo_ibge": "3525102",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Luís Antônio",
+      "codigo_ibge": "3527603",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "600.000,00",
+        "1",
+        "480.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "290118622270/18",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "600.000,00",
+          "1",
+          "480.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Luís Antônio",
+      "codigo_ibge": "3527603",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Luís Antônio",
+      "codigo_ibge": "3527603",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "2.600.000,00",
+        "7",
+        "2.563.190,94",
+        "36.809,06"
+      ],
+      "records": [
+        [
+          "09020518799-2021",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "250.000,00",
+          "1",
+          "250.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220176054",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "350.000,00",
+          "1",
+          "350.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220207473",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220228025",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "400.000,00",
+          "1",
+          "400.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220429515",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220440291",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "400.000,00",
+          "1",
+          "363.190,94",
+          "36.809,06"
+        ],
+        [
+          "2901182111032741",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Luís Antônio",
+      "codigo_ibge": "3527603",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "900.000,00",
+        "3",
+        "805.134,48",
+        "94.865,52"
+      ],
+      "records": [
+        [
+          "29011820220525351",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ],
+        [
+          "29011820221248532",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "500.000,00",
+          "1",
+          "405.134,48",
+          "94.865,52"
+        ],
+        [
+          "41010120230765834",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Luís Antônio",
+      "codigo_ibge": "3527603",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.400.293,82",
+        "5",
+        "1.400.293,82",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010120240370872",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "375.451,24",
+          "1",
+          "375.451,24",
+          "0,00"
+        ],
+        [
+          "51010120240370891",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "252.700,84",
+          "1",
+          "252.700,84",
+          "0,00"
+        ],
+        [
+          "51010120240380663",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "350.000,00",
+          "1",
+          "350.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240679972",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "252.141,74",
+          "1",
+          "252.141,74",
+          "0,00"
+        ],
+        [
+          "51010120240701035",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "170.000,00",
+          "1",
+          "170.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Luís Antônio",
+      "codigo_ibge": "3527603",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "79.999,99",
+        "1",
+        "79.999,99",
+        "0,00"
+      ],
+      "records": [
+        [
+          "51010120250376717",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "79.999,99",
+          "1",
+          "79.999,99",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Luís Antônio",
+      "codigo_ibge": "3527603",
+      "sub_regiao": "Sub-região de Ribeirão Preto",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "200.000,00",
+        "1",
+        "200.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "09019620231747189",
+          "45368016000190",
+          "PREFEITURA MUNICIPAL LUIZ ANTONIO",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Mococa",
+      "codigo_ibge": "3530508",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2020,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "records": []
+    },
+    {
+      "municipio": "Mococa",
+      "codigo_ibge": "3530508",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2021,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "100.000,00",
+        "1",
+        "100.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "1301012021/09549",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Mococa",
+      "codigo_ibge": "3530508",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2022,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.850.000,00",
+        "5",
+        "1.300.000,00",
+        "230.530,90"
+      ],
+      "records": [
+        [
+          "09020520220416203",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "50.000,00",
+          "1",
+          "50.000,00",
+          "0,00"
+        ],
+        [
+          "1201012021-00072",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "29011801583/21",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "500.000,00",
+          "1",
+          "300.000,00",
+          "200.000,00"
+        ],
+        [
+          "29011820220334126",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "500.000,00",
+          "1",
+          "500.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220402281",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "700.000,00",
+          "1",
+          "350.000,00",
+          "30.530,90"
+        ]
+      ]
+    },
+    {
+      "municipio": "Mococa",
+      "codigo_ibge": "3530508",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2023,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "700.000,00",
+        "1",
+        "319.469,10",
+        "30.530,90"
+      ],
+      "records": [
+        [
+          "29011820220402281",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "700.000,00",
+          "1",
+          "319.469,10",
+          "30.530,90"
+        ]
+      ]
+    },
+    {
+      "municipio": "Mococa",
+      "codigo_ibge": "3530508",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2024,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "300.000,00",
+        "2",
+        "300.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "12010120220460239",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "100.000,00",
+          "1",
+          "100.000,00",
+          "0,00"
+        ],
+        [
+          "51010120240119968",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "200.000,00",
+          "1",
+          "200.000,00",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Mococa",
+      "codigo_ibge": "3530508",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2025,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "1.545.032,02",
+        "4",
+        "1.245.032,02",
+        "300.000,00"
+      ],
+      "records": [
+        [
+          "51010120240004692",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "900.000,00",
+          "2",
+          "600.000,00",
+          "300.000,00"
+        ],
+        [
+          "51010120240374423",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "645.032,02",
+          "2",
+          "645.032,02",
+          "0,00"
+        ]
+      ]
+    },
+    {
+      "municipio": "Mococa",
+      "codigo_ibge": "3530508",
+      "sub_regiao": "Sub-região de Mococa",
+      "ano": 2026,
+      "status": "OK",
+      "total": [
+        "Total",
+        "",
+        "",
+        "930.000,00",
+        "3",
+        "930.000,00",
+        "0,00"
+      ],
+      "records": [
+        [
+          "08036420260173585",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "350.000,00",
+          "1",
+          "350.000,00",
+          "0,00"
+        ],
+        [
+          "18010120260422640",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "130.000,00",
+          "1",
+          "130.000,00",
+          "0,00"
+        ],
+        [
+          "29011820220479161",
+          "44763928000101",
+          "PREFEITURA MUNICIPAL MOCOCA",
+          "450.000,00",
+          "1",
+          "450.000,00",
+          "0,00"
+        ]
+      ]
+    }
+  ]
+}

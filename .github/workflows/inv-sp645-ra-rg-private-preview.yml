@@ -1,0 +1,409 @@
+name: INV SP645 RA RG Full Private Integration QA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - ".github/workflows/inv-sp645-ra-rg-private-preview.yml"
+      - "pipeline/build/sp645_private_input.py"
+      - "pipeline/build/build_sp645_private_site.py"
+      - "pipeline/build/export_state_api_v2.py"
+      - "pipeline/build/export_regional_api_v2.py"
+      - "deployment/qa_api_v2.py"
+      - "pipeline/qa/audit_api_readiness_v2.py"
+      - "pipeline/qa/audit_percentage_import_scale.py"
+      - "pipeline/qa/audit_derived_ratio_parity.py"
+      - "pipeline/qa/audit_percentage_provenance.py"
+      - "pipeline/qa/audit_stn_sp645_crosswalk.py"
+      - "deployment/qa_api_v2.py"
+      - "data/catalogs/indicators_documentation_v7.yml"
+      - "data/catalogs/accounts_documentation_v7_*.yml"
+      - "pipeline/transform/calculate_annual.py"
+      - "pipeline/ingest/import_multifuentes.py"
+      - "data/mappings/base_multifuentes_sp645_2025.yml"
+      - "app/static/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: inv-sp645-regional-private-qa
+  cancel-in-progress: false
+
+jobs:
+  build-private:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install build dependencies
+        run: |
+          pip install -e . --no-deps
+          pip install openpyxl pyyaml pytest
+
+      - name: Download and verify canonical SP645 inputs from private R2
+        run: |
+          mkdir -p inputs build
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/site_inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx" \
+            --output inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx \
+            --expected-sha256 72e6302e5331ba05f066eebe55df914a7fc2dd7b6d2114e6df374bfc606977ce
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/site_inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx" \
+            --output inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx \
+            --expected-sha256 ffd626cfde3fa1c79d7a552d5b3a8ad2e3509dce5efcc9c62c39eb76c3796566
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/site_inputs/FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx" \
+            --output inputs/FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx \
+            --expected-sha256 adb9b5b6abbd3f439f3b39cc356522d21430de74117de4bf9ca1589c40e9c161
+
+      - name: Download pinned SP cartography
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.request import urlopen
+
+          url = "https://raw.githubusercontent.com/tbrugz/geodata-br/c39dfb040bfd466fe2a476bafed00749c5c42f16/geojson/geojs-35-mun.json"
+          target = Path("inputs/geojs-35-mun.json")
+          with urlopen(url, timeout=120) as response:
+              data = response.read()
+          if len(data) < 1000000:
+              raise SystemExit(f"Cartography download too small: {len(data)}")
+          target.write_bytes(data)
+          print(f"cartography_bytes={len(data)}")
+          PY
+
+      - name: Prepare combined 2021-2025 private-site input
+        run: |
+          python -m pipeline.build.sp645_private_input             --typology-input inputs/SP645_TYPOLOGY_INPUT_2021_2025.xlsx             --multisource-2025 inputs/FINBRA_SP645_BASE_MULTIFONTES_2025_GATE_C.xlsx             --base-mapping data/mappings/base_multifuentes_sp645_2025.yml             --output-workbook build/SP645_PRIVATE_SITE_INPUT_2021_2025.xlsx             --output-mapping build/SP645_PRIVATE_SITE_MAPPING.yml             --manifest build/SP645_PRIVATE_SITE_INPUT_MANIFEST.json
+
+      - name: Build SP645 private site
+        run: |
+          python -m pipeline.build.build_sp645_private_site             --workbook build/SP645_PRIVATE_SITE_INPUT_2021_2025.xlsx             --mapping build/SP645_PRIVATE_SITE_MAPPING.yml             --database build/sp645_private.sqlite             --site-output build/site-sp645             --geojson inputs/geojs-35-mun.json
+
+      - name: Retrieve STN SP645 identity candidate from canonical R2
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key "sp_645/federal/stn/2026_09/candidates/STN_IBGE_SP_MATCH_CANDIDATE_20c80f6464de.csv" \
+            --output build/stn_ibge_sp_candidate.csv \
+            --expected-sha256 20c80f6464de30f899430327db569fd7a52610c14bfc88678b769638572f036c
+
+      - name: Compare STN candidate IDs with actual SP645 SQLite (read-only)
+        run: |
+          python -m pipeline.qa.audit_stn_sp645_crosswalk \
+            --database build/sp645_private.sqlite \
+            --candidate build/stn_ibge_sp_candidate.csv \
+            --output build/qa_stn_sqlite_identity_sp645.json
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fed00-stn-sqlite-identity-${{ github.run_id }}
+          path: build/qa_stn_sqlite_identity_sp645.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Validate SP645 private build
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          import sqlite3
+          from pathlib import Path
+
+          import openpyxl
+
+          site = Path("build/site-sp645")
+          meta = json.loads((site / "data" / "metadata.json").read_text(encoding="utf-8"))
+          if meta["municipality_count"] != 645:
+              raise SystemExit(f"municipality_count={meta['municipality_count']}")
+          if meta["years"] != [2021, 2022, 2023, 2024, 2025]:
+              raise SystemExit(f"years={meta['years']}")
+
+          geo = json.loads((site / "data" / "maps" / "municipalities.geojson").read_text(encoding="utf-8"))
+          if len(geo["features"]) != 645:
+              raise SystemExit(f"map_features={len(geo['features'])}")
+
+          db = sqlite3.connect("build/sp645_private.sqlite")
+          try:
+              typology_expected = {
+                  "receita_tributaria": 645,
+                  "investimento": 645,
+                  "territorial": 56,
+                  "dtp": 505,
+                  "dc": 439,
+                  "dcl": 505,
+                  "caixa": 0,
+              }
+              typology_actual = dict(
+                  db.execute(
+                      """
+                      SELECT dimensao_id,COUNT(*)
+                      FROM classificacao_relativa
+                      WHERE universo_id='SP_645'
+                        AND janela_id='2021_2025'
+                        AND status='observado'
+                      GROUP BY dimensao_id
+                      """
+                  ).fetchall()
+              )
+              for key, expected in typology_expected.items():
+                  observed = typology_actual.get(key, 0)
+                  if observed != expected:
+                      raise SystemExit(f"typology {key}: {observed} != {expected}")
+
+              marker_expected = {
+                  "base": 645,
+                  "invest": 645,
+                  "territ": 56,
+                  "pessoal": 505,
+                  "divida": 439,
+                  "liquidez": 0,
+              }
+              marker_actual = dict(
+                  db.execute(
+                      """
+                      SELECT marcador_id,COUNT(*)
+                      FROM marcador_comparavel
+                      WHERE universo_id='SP_645'
+                        AND janela_id='2021_2025'
+                        AND status='observado'
+                      GROUP BY marcador_id
+                      """
+                  ).fetchall()
+              )
+              for key, expected in marker_expected.items():
+                  observed = marker_actual.get(key, 0)
+                  if observed != expected:
+                      raise SystemExit(f"marker {key}: {observed} != {expected}")
+
+              prioritized = db.execute(
+                  """
+                  SELECT COUNT(*)
+                  FROM par_municipal
+                  WHERE universo_id='SP_645'
+                    AND janela_id='2021_2025'
+                    AND ordem_prioritaria IS NOT NULL
+                  """
+              ).fetchone()[0]
+              eligible = db.execute(
+                  """
+                  SELECT COUNT(DISTINCT codigo_ibge_referencia)
+                  FROM par_municipal
+                  WHERE universo_id='SP_645'
+                    AND janela_id='2021_2025'
+                    AND ordem_prioritaria IS NOT NULL
+                  """
+              ).fetchone()[0]
+              if prioritized != 1320 or eligible != 440:
+                  raise SystemExit(f"pairs prioritized={prioritized}, eligible={eligible}")
+
+              capag_observed = db.execute(
+                  """
+                  SELECT COUNT(*)
+                  FROM observacao
+                  WHERE ano=2025
+                    AND variavel_id='capag'
+                    AND status='observado'
+                  """
+              ).fetchone()[0]
+              if capag_observed != 645:
+                  raise SystemExit(f"capag_observed={capag_observed}")
+
+              indicator_ids = [
+                  "receita_tributaria_pct_receita_corrente",
+                  "iptu_pc",
+                  "itbi_pc",
+                  "iss_pc",
+                  "fpm_pct_receita_corrente",
+                  "icms_pct_receita_corrente",
+                  "ipva_pct_receita_corrente",
+                  "tributos_imobiliarios_pct_receita_tributaria",
+                  "transferencias_selecionadas_pct_receita_corrente",
+                  "investimento_pct_receita_corrente",
+                  "investimento_pc",
+                  "despesa_territorial_pct_despesa",
+                  "despesa_territorial_pc",
+                  "urbanismo_pct_territorial",
+                  "habitacao_pct_territorial",
+                  "saneamento_pct_territorial",
+                  "gestao_ambiental_pct_territorial",
+                  "transporte_pct_territorial",
+                  "dtp_pct_rcl",
+                  "dc_pct_rcl",
+                  "dcl_pct_rcl",
+                  "caixa_pos_rpnp_pct_rcl",
+                  "indicador_1",
+                  "indicador_2",
+                  "indicador_3",
+              ]
+              pct_ids = {
+                  "receita_tributaria_pct_receita_corrente",
+                  "fpm_pct_receita_corrente",
+                  "icms_pct_receita_corrente",
+                  "ipva_pct_receita_corrente",
+                  "tributos_imobiliarios_pct_receita_tributaria",
+                  "transferencias_selecionadas_pct_receita_corrente",
+                  "investimento_pct_receita_corrente",
+                  "despesa_territorial_pct_despesa",
+                  "urbanismo_pct_territorial",
+                  "habitacao_pct_territorial",
+                  "saneamento_pct_territorial",
+                  "gestao_ambiental_pct_territorial",
+                  "transporte_pct_territorial",
+                  "dtp_pct_rcl",
+                  "dc_pct_rcl",
+                  "dcl_pct_rcl",
+                  "caixa_pos_rpnp_pct_rcl",
+              }
+
+              gate = openpyxl.load_workbook(
+                  "inputs/FINBRA_SP645_INDICADORES_2025_GATE_D.xlsx",
+                  read_only=True,
+                  data_only=True,
+              )
+              try:
+                  ws = gate["Indicadores"]
+                  rows = ws.iter_rows(values_only=True)
+                  header = [str(v) if v is not None else "" for v in next(rows)]
+                  gate_rows = {
+                      str(row[0]).strip(): dict(zip(header, row))
+                      for row in rows
+                  }
+              finally:
+                  gate.close()
+
+              if len(gate_rows) != 645:
+                  raise SystemExit(f"Gate D rows={len(gate_rows)}")
+
+              db_rows = {
+                  (code, var): (status, value)
+                  for code, var, status, value in db.execute(
+                      f"""
+                      SELECT codigo_ibge,variavel_id,status,valor_num
+                      FROM observacao
+                      WHERE ano=2025
+                        AND variavel_id IN ({','.join('?' for _ in indicator_ids)})
+                      """,
+                      indicator_ids,
+                  ).fetchall()
+              }
+
+              compared = 0
+              for code, source in gate_rows.items():
+                  for variable in indicator_ids:
+                      target = source.get(variable)
+                      status, value = db_rows.get((code, variable), ("ausente", None))
+                      target_is_missing = (
+                          target in (None, "")
+                          or (
+                              isinstance(target, str)
+                              and target.strip().casefold() == "n.d."
+                          )
+                      )
+                      if target_is_missing:
+                          if status == "observado" and value is not None:
+                              raise SystemExit(f"Unexpected observed {code}/{variable}: {value}")
+                          continue
+                      expected = float(target)
+                      if variable in pct_ids:
+                          expected *= 0.01
+                      if status != "observado" or value is None:
+                          raise SystemExit(f"Missing DB value {code}/{variable}")
+                      if not math.isclose(float(value), expected, rel_tol=1e-10, abs_tol=1e-10):
+                          raise SystemExit(
+                              f"Gate D parity {code}/{variable}: {value} != {expected}"
+                          )
+                      compared += 1
+          finally:
+              db.close()
+
+          print({
+              "municipalities": meta["municipality_count"],
+              "years": meta["years"],
+              "map_features": len(geo["features"]),
+              "typologies": typology_actual,
+              "markers": marker_actual,
+              "prioritized_pairs": prioritized,
+              "eligible_pair_municipalities": eligible,
+              "capag_observed": capag_observed,
+              "gate_d_cells_compared": compared,
+          })
+          PY
+
+      - name: Validate complete API v2 from canonical private build
+        run: python deployment/qa_api_v2.py --site build/site-sp645
+
+      - name: Audit six percentage scales against canonical imported values
+        run: |
+          python -m pipeline.qa.audit_percentage_import_scale \
+            --database build/sp645_private.sqlite \
+            --workbook build/SP645_PRIVATE_SITE_INPUT_2021_2025.xlsx \
+            --mapping build/SP645_PRIVATE_SITE_MAPPING.yml \
+            --output build/qa_percentage_scale_parity.json
+
+      - name: Reconcile derived ratios with canonical numerator and denominator
+        run: |
+          python -m pipeline.qa.audit_derived_ratio_parity \
+            --database build/sp645_private.sqlite \
+            --output build/qa_derived_ratio_parity.json
+
+      - name: Inventory percent provenance by exercise
+        run: |
+          python -m pipeline.qa.audit_percentage_provenance \
+            --database build/sp645_private.sqlite \
+            --output build/qa_percentage_provenance.json
+
+      - name: Validate all 72 selectable regions and municipal maps
+        run: python deployment/qa_sp645_pages.py --site build/site-sp645
+
+      - name: Extract compact real-data universe QA manifest
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("build/site-sp645/data")
+          items = json.loads((root/"universes.json").read_text(encoding="utf-8"))
+          ra = [x for x in items if x["universo_id"].startswith("RA_SEADE_")]
+          rg = [x for x in items if x["universo_id"].startswith("RG_SEADE_")]
+          assert len(items) == 72 and len(ra) == 16 and len(rg) == 43
+          assert sum(x["municipality_count"] for x in ra) == 645
+          assert sum(x["municipality_count"] for x in rg) == 645
+          assert all((root/x["data_path"]/"metadata.json").is_file() for x in items if x["data_path"]!=".")
+          assert all((root/x["data_path"]/"maps"/"municipalities.geojson").is_file() for x in items if x["data_path"]!=".")
+          output = {
+              "status":"QA_PASS_PRIVATE_REAL_FINANCIAL_BUILD",
+              "universes":len(items), "ra":len(ra), "rg":len(rg),
+              "members_ra":sum(x["municipality_count"] for x in ra),
+              "members_rg":sum(x["municipality_count"] for x in rg),
+              "default":next(x["universo_id"] for x in items if x.get("default")),
+              "all_ids":[x["universo_id"] for x in items],
+              "public_deployment":False
+          }
+          Path("build/qa_ra_rg_private_real_build.json").write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(output)
+          PY
+
+      - name: Upload private SP645 site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-regional-private-qa-${{ github.run_id }}
+          path: |
+            build/qa_ra_rg_private_real_build.json
+            build/site-sp645/data/universes.json
+            build/qa_percentage_scale_parity.json
+            build/qa_derived_ratio_parity.json
+            build/qa_percentage_provenance.json
+          if-no-files-found: error
+          retention-days: 14

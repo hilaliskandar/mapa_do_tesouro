@@ -1,0 +1,69 @@
+{
+  "verified_at": "2026-11-12",
+  "scope": "Municipio Serrana, convenios e contratos para obras de recapeamento 2024, não aditividade",
+  "records": [
+    {
+      "municipio": "Serrana",
+      "ibge": "3551504",
+      "procurement": "Concorrência 014/2024",
+      "administrative_process": "135/2024",
+      "municipal_contract": "117/2024",
+      "federal_agreement": "952816/2023",
+      "state_agreement": null,
+      "procurement_catalog_discrepancy": "952819/2023",
+      "executing_company": "DGB Engenharia e Construções Ltda.",
+      "contract_amount_centavos": 96208857,
+      "source_federal_amount_centavos": 96001900,
+      "source_municipal_amount_centavos": 206957,
+      "contract_url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_014_2024/117_-_2024_-_dgb.pdf",
+      "sha256": "fe09a75265b7338aa5301c349bb9e91be7bc746240e47143d616dc2364a84824",
+      "status": "FEDERAL_IDENTIFICADOR_COMPROVADO_EM_EDITAL_AVISO_MINUTA_CONTRATO_ADITIVO",
+      "notes": "Portal descritivo cita repasse 952819/2023. Anexo I é imagem sem texto; localização precisa e medições não verificadas."
+    },
+    {
+      "municipio": "Serrana",
+      "ibge": "3551504",
+      "procurement": "Concorrência 007/2024",
+      "municipal_contract": "078/2024",
+      "federal_agreement": null,
+      "state_agreement": "100540/2024",
+      "executing_company": "JTR Construções Ltda.",
+      "contract_amount_centavos": 67895571,
+      "asphalt_surface_m2": 20603.14,
+      "contract_url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorr%C3%AAncia_007_2024/078_-_2024_-_jtr_-_assinado.pdf",
+      "sha256": "47267ef1ac7170b471e82f170a083dad2f341d5295daba4ba4399867f828d532",
+      "status": "VINCULO_CONTRATO_ESTADUAL_DIRETO_DOCUMENTADO_SEM_CHAVE_SIAFEM",
+      "notes": "Convênio estadual explicitamente no contrato, mas nenhum número equivalente à chave SIAFEM dos 752 instrumentos foi encontrado nos metadados. Não atribuir liberações."
+    },
+    {
+      "municipio": "Serrana",
+      "ibge": "3551504",
+      "procurement": "Concorrência 015/2024",
+      "municipal_contract": "126/2024",
+      "federal_agreement": null,
+      "state_agreement": "101375/2024",
+      "executing_company": "JTR Construções Ltda.",
+      "contract_amount_centavos": 25862491,
+      "asphalt_surface_m2": 7888.89,
+      "contract_url": "https://www.serrana.sp.gov.br/media/uploads/licitacao/concorrencia_015_2024/126-2024_-_contrato_recape_-_jtr.pdf",
+      "sha256": "ee9d5cd3186943d0917fb41fe9b3b80415e2c970c6b82ef54fa69fc0db5fd6f9",
+      "status": "VINCULO_CONTRATO_ESTADUAL_DIRETO_DOCUMENTADO_SEM_CHAVE_SIAFEM",
+      "notes": "Convênio estadual explicitamente no contrato; não transformar total contratual em repasse efetivamente liberado."
+    }
+  ],
+  "cross_source_control": {
+    "municipal_state_contracts_with_state_numbers": 2,
+    "matching_to_siafem_752_by_exact_public_id": 0,
+    "confirmed_siafem_transfer_to_contract": 0,
+    "do_not_sum_or_merge": true
+  },
+  "sources": [
+    "https://www.serrana.sp.gov.br/licitacoes/1594",
+    "https://www.serrana.sp.gov.br/licitacoes/1538",
+    "https://www.serrana.sp.gov.br/licitacoes/1622"
+  ],
+  "pending": [
+    "Reconciliação dos números estaduais 100540/2024 e 101375/2024 com eventual cadastro de convênios em outra secretaria ou identificador SIAFEM",
+    "Confrontar desenhos e trechos das obras em seus anexos e registros de medições"
+  ]
+}

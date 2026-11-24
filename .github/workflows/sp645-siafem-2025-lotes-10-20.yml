@@ -1,0 +1,69 @@
+name: SP645 - SIAFEM 2025 lotes 10 a 20 fora RMRP
+on:
+  workflow_dispatch:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/sp645-siafem-2025-lotes-10-20.yml
+permissions:
+  contents: read
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        offset: [10, 15, 20]
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --quiet requests beautifulsoup4
+      - name: Cinco consultas anuais e conciliacao da origem
+        run: |
+          python -m pipeline.coleta.collect_sp_siafem_annual_batch \
+            --acquire --year 2025 --offset ${{ matrix.offset }} --limit 5 \
+            --crosswalk governance/controls/investimentos_sp645/crosswalk_ibge_siafem_2026_11_16.csv \
+            --existing-roster governance/INV_RMRP_34_MUNICIPIOS_PILOTO_IBGE_VERIFICADO_2026_11_11.csv \
+            --outdir "$RUNNER_TEMP/siafem"
+      - name: Inventariar por hash, offset, ano e IBGE
+        id: meta
+        run: |
+          python - <<'PY'
+          import hashlib,json,os
+          root=os.environ["RUNNER_TEMP"]+"/siafem"
+          qa=json.load(open(root+"/qa.json",encoding="utf-8"))
+          raw=open(root+"/raw.json","rb").read()
+          sha=hashlib.sha256(raw).hexdigest()
+          assert qa["snapshot_sha256"]==sha
+          assert qa["municipalities_requested"]==5
+          assert qa["municipalities_with_verified_table"]+qa["municipalities_without_valid_result"]==5
+          assert qa["queries_with_footer_reconciliation"]==qa["municipalities_with_verified_table"]
+          assert len(set(qa["requested_ibge7"]))==5
+          prefix=f'sp_645/estadual/siafem/batches/2025/extra_rmrp_offset_{qa["offset"]}_len5/'+sha
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+              f.write(f"prefix={prefix}\nsha={sha}\n")
+          print("BATCH_QA",json.dumps(qa,ensure_ascii=False))
+          PY
+      - name: Guardar bruto e manifestos no R2 existente com leitura verificada
+        env:
+          PREFIX: ${{ steps.meta.outputs.prefix }}
+          SHA: ${{ steps.meta.outputs.sha }}
+        run: |
+          python deployment/upload_r2_source.py --source "$RUNNER_TEMP/siafem/raw.json" \
+            --object-key "$PREFIX/raw.json" --expected-sha256 "$SHA" --content-type application/json
+          python deployment/upload_r2_source.py --source "$RUNNER_TEMP/siafem/qa.json" \
+            --object-key "$PREFIX/qa.json" --content-type application/json
+          python deployment/download_r2_source.py --object-key "$PREFIX/raw.json" \
+            --output "$RUNNER_TEMP/readback.json" --expected-sha256 "$SHA"
+          echo "SIAFEM_R2_READBACK_OK"
+      # Sem alteração da base fiscal, API v3 ou produção.

@@ -1,0 +1,2137 @@
+{
+  "source": "SIAFEM-SP",
+  "time_filter": "liberacao a partir de 01/01/2020 (reaplicar sobre eventos)",
+  "part": 7,
+  "events": [
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "2901183131278/19",
+      "esperados": 1,
+      "valor_resumo": "94.108,18",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/09/2020",
+          "94.108"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "2901183354726/19",
+      "esperados": 1,
+      "valor_resumo": "80.688,83",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/08/2020",
+          "80.689"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "2901183414566/19",
+      "esperados": 1,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/09/2020",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "5001022017PR0067",
+      "esperados": 2,
+      "valor_resumo": "1.128.404,29",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "06/11/2020",
+          "331.085"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2020",
+          "797.319"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/09/2019",
+          "164.228"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "5001022017PR067",
+      "esperados": 1,
+      "valor_resumo": "525.974,43",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/04/2020",
+          "525.974"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "5001022018PR051",
+      "esperados": 1,
+      "valor_resumo": "51.404,86",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/02/2020",
+          "51.405"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/11/2019",
+          "310.095"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/05/2019",
+          "188.741"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/12/2018",
+          "167.147"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "5001022018PR112",
+      "esperados": 1,
+      "valor_resumo": "375.910,63",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/07/2020",
+          "375.911"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/11/2019",
+          "322.455"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2019",
+          "639.034"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2019",
+          "169.311"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/12/2018",
+          "390.631"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "5001022021PR0256",
+      "esperados": 3,
+      "valor_resumo": "1.707.495,23",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/01/2024",
+          "597.623"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/10/2023",
+          "597.623"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/07/2022",
+          "512.249"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "5001022021PR0343",
+      "esperados": 2,
+      "valor_resumo": "989.768,98",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/10/2023",
+          "494.884"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/06/2022",
+          "494.884"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "50010220221343237",
+      "esperados": 3,
+      "valor_resumo": "2.677.204,30",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/08/2026",
+          "937.022"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/06/2024",
+          "937.022"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/08/2023",
+          "803.161"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "50010220231688301",
+      "esperados": 2,
+      "valor_resumo": "729.900,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/08/2025",
+          "290.433"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/06/2024",
+          "439.467"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "50010220231689826",
+      "esperados": 2,
+      "valor_resumo": "801.316,76",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/08/2025",
+          "400.658"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/06/2024",
+          "400.658"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "50010220231689951",
+      "esperados": 2,
+      "valor_resumo": "838.672,90",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/07/2025",
+          "419.336"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/07/2024",
+          "419.336"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "50010220231690971",
+      "esperados": 1,
+      "valor_resumo": "148.994,06",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/06/2024",
+          "148.994"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "5001022693413/19",
+      "esperados": 4,
+      "valor_resumo": "569.398,83",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/12/2020",
+          "282.318"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/11/2020",
+          "287.081"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2020",
+          "164.339"
+        ],
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/05/2020",
+          "-164.339"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "51010120240530626",
+      "esperados": 1,
+      "valor_resumo": "315.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2024",
+          "315.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "51010120240547392",
+      "esperados": 1,
+      "valor_resumo": "2.500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "22/11/2024",
+          "2.500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547502",
+      "municipio": "Santa Rita do Passa Quatro",
+      "id": "51010120251239688",
+      "esperados": 1,
+      "valor_resumo": "320.362,59",
+      "status": "ok",
+      "eventos": [
+        [
+          "45749819000194",
+          "PREFEITURA MUNICIPAL SANTA RITA DO PASSA QUATRO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/05/2026",
+          "320.363"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "1301012020/11427",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2020",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "13010120240252501",
+      "esperados": 1,
+      "valor_resumo": "5.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "33403001",
+          "TRANSF.PARA MATERIAL DE CONSUMO",
+          "CUSTEIO",
+          "PREFEITURAS",
+          "05/07/2024",
+          "25.000"
+        ],
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "05/07/2024",
+          "5.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "13010120240688131",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "31/10/2024",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "13022520260406909",
+      "esperados": 2,
+      "valor_resumo": "30.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "33403001",
+          "TRANSF.PARA MATERIAL DE CONSUMO",
+          "CUSTEIO",
+          "PREFEITURAS",
+          "19/06/2026",
+          "40.000"
+        ],
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/06/2026",
+          "28.000"
+        ],
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/06/2026",
+          "2.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "17003020240443585",
+      "esperados": 1,
+      "valor_resumo": "768.401,68",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/09/2025",
+          "768.402"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "25010120221397265",
+      "esperados": 1,
+      "valor_resumo": "196.976,92",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/06/2023",
+          "196.977"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "250101SH1232187",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/11/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011800273/20",
+      "esperados": 1,
+      "valor_resumo": "75.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "75.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011800855/21",
+      "esperados": 2,
+      "valor_resumo": "425.858,05",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/03/2023",
+          "125.858"
+        ],
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "2901181519055/18",
+      "esperados": 1,
+      "valor_resumo": "50.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/01/2020",
+          "50.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011820-1418364",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/07/2022",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011820220235665",
+      "esperados": 1,
+      "valor_resumo": "383.291,48",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/08/2022",
+          "383.291"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011820220274851",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/07/2022",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011820220391786",
+      "esperados": 2,
+      "valor_resumo": "835.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/02/2025",
+          "417.500"
+        ],
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/09/2022",
+          "417.500"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011820220525422",
+      "esperados": 1,
+      "valor_resumo": "275.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/07/2022",
+          "275.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011820220527786",
+      "esperados": 1,
+      "valor_resumo": "384.530,16",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "11/11/2022",
+          "384.530"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011820220534056",
+      "esperados": 1,
+      "valor_resumo": "350.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/07/2022",
+          "350.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "29011820-7518277",
+      "esperados": 1,
+      "valor_resumo": "198.492,14",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/09/2022",
+          "198.492"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "2901182116125504",
+      "esperados": 1,
+      "valor_resumo": "238.638,93",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2022",
+          "238.639"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "290118622360/18",
+      "esperados": 1,
+      "valor_resumo": "438.162,99",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/11/2020",
+          "438.163"
+        ],
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/01/2019",
+          "120.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "4101011834229/19",
+      "esperados": 1,
+      "valor_resumo": "200.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "01/07/2022",
+          "200.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "51010120240374666",
+      "esperados": 2,
+      "valor_resumo": "606.568,03",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/12/2024",
+          "156.568"
+        ],
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/07/2024",
+          "450.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "51010120241165464",
+      "esperados": 1,
+      "valor_resumo": "319.790,31",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/11/2024",
+          "319.790"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "51010120241318189",
+      "esperados": 1,
+      "valor_resumo": "275.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/12/2024",
+          "275.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547601",
+      "municipio": "Santa Rosa de Viterbo",
+      "id": "51010120251091838",
+      "esperados": 1,
+      "valor_resumo": "405.900,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45368545000193",
+          "PREFEITURA MUNICIPAL SANTA ROSA VITERBO",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/06/2026",
+          "405.900"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "13010111449/2020",
+      "esperados": 1,
+      "valor_resumo": "40.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/12/2020",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "1301752021/15586",
+      "esperados": 1,
+      "valor_resumo": "60.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/01/2022",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "17003020240427741",
+      "esperados": 1,
+      "valor_resumo": "829.710,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "12/03/2026",
+          "829.710"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "29011820220084159",
+      "esperados": 1,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/05/2022",
+          "500.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "29011820220547341",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/11/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "29011820221205876",
+      "esperados": 1,
+      "valor_resumo": "240.741,38",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/04/2023",
+          "240.741"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "29011820221414938",
+      "esperados": 1,
+      "valor_resumo": "100.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/06/2023",
+          "100.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "29011820221414956",
+      "esperados": 1,
+      "valor_resumo": "250.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "28/04/2023",
+          "250.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "2901182102924767",
+      "esperados": 2,
+      "valor_resumo": "500.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/04/2023",
+          "200.000"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/06/2022",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "2901183655149/19",
+      "esperados": 2,
+      "valor_resumo": "236.637,91",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/05/2020",
+          "176.638"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/05/2020",
+          "60.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "5001022018PR165",
+      "esperados": 2,
+      "valor_resumo": "208.173,55",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/11/2020",
+          "163.563"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/07/2020",
+          "44.610"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "5001022018PR166",
+      "esperados": 4,
+      "valor_resumo": "386.608,04",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/03/2022",
+          "148.976"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/08/2021",
+          "121.409"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "15/01/2021",
+          "38.901"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/09/2020",
+          "77.322"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "5001022021PR0112",
+      "esperados": 1,
+      "valor_resumo": "361.108,44",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "361.108"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "5001022021PR0306",
+      "esperados": 1,
+      "valor_resumo": "253.965,52",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/05/2022",
+          "253.966"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "50010220221343442",
+      "esperados": 2,
+      "valor_resumo": "615.073,96",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "16/08/2024",
+          "307.537"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2023",
+          "307.537"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "50010220231678761",
+      "esperados": 2,
+      "valor_resumo": "421.819,22",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/08/2024",
+          "136.278"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/04/2024",
+          "285.541"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "5001022342652/19",
+      "esperados": 2,
+      "valor_resumo": "301.272,91",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/03/2022",
+          "222.087"
+        ],
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/08/2020",
+          "79.186"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "51010120231154117",
+      "esperados": 1,
+      "valor_resumo": "148.900,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/06/2024",
+          "148.900"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "51010120240002419",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "19/04/2024",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "51010120240585802",
+      "esperados": 1,
+      "valor_resumo": "360.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/08/2024",
+          "360.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "51010120240585867",
+      "esperados": 1,
+      "valor_resumo": "412.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/08/2024",
+          "412.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "51010120241376692",
+      "esperados": 1,
+      "valor_resumo": "164.372,39",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "27/06/2025",
+          "164.372"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "51010120250297856",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/03/2025",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "51010120251320289",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/03/2026",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3547908",
+      "municipio": "Santo Antônio da Alegria",
+      "id": "51010120260436397",
+      "esperados": 1,
+      "valor_resumo": "283.407,85",
+      "status": "ok",
+      "eventos": [
+        [
+          "45302130000117",
+          "PREFEITURA MUNICIPAL SANTO ANTONIO ALEGRIA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "29/10/2026",
+          "283.408"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "29011800410/22",
+      "esperados": 1,
+      "valor_resumo": "377.976,82",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/07/2022",
+          "377.977"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "29011820221261211",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/06/2023",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "29011820221415013",
+      "esperados": 1,
+      "valor_resumo": "300.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "30/06/2023",
+          "300.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "29011820221415031",
+      "esperados": 1,
+      "valor_resumo": "132.487,89",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "14/07/2023",
+          "132.488"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "29011820221415041",
+      "esperados": 1,
+      "valor_resumo": "175.273,38",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "23/06/2023",
+          "175.273"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "2901182108122942",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/07/2022",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "2901182313951/19",
+      "esperados": 1,
+      "valor_resumo": "150.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/03/2020",
+          "150.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "2901182776893/19",
+      "esperados": 2,
+      "valor_resumo": "333.600,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/07/2020",
+          "3.000"
+        ],
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/07/2020",
+          "330.600"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "41010100012/21",
+      "esperados": 1,
+      "valor_resumo": "40.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "10/12/2021",
+          "40.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "51010120240679604",
+      "esperados": 1,
+      "valor_resumo": "324.640,59",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/11/2025",
+          "324.641"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "51010120240679669",
+      "esperados": 1,
+      "valor_resumo": "435.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "21/11/2025",
+          "435.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551405",
+      "municipio": "Serra Azul",
+      "id": "5101091603308/19",
+      "esperados": 1,
+      "valor_resumo": "21.778,97",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229839000171",
+          "PREFEITURA MUNICIPAL SERRA AZUL",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "20/03/2020",
+          "21.779"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551504",
+      "municipio": "Serrana",
+      "id": "08036420260275692",
+      "esperados": 1,
+      "valor_resumo": "52.807,69",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "33403001",
+          "TRANSF.PARA MATERIAL DE CONSUMO",
+          "CUSTEIO",
+          "PREFEITURAS",
+          "26/06/2026",
+          "47.192"
+        ],
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/06/2026",
+          "52.808"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551504",
+      "municipio": "Serrana",
+      "id": "1700301326749/17",
+      "esperados": 6,
+      "valor_resumo": "948.228,39",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/08/2025",
+          "127.770"
+        ],
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "25/08/2022",
+          "152.317"
+        ],
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "13/12/2021",
+          "172.595"
+        ],
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "26/11/2021",
+          "117.681"
+        ],
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "24/09/2021",
+          "180.565"
+        ],
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "09/04/2020",
+          "197.301"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551504",
+      "municipio": "Serrana",
+      "id": "17003020240440369",
+      "esperados": 1,
+      "valor_resumo": "687.855,78",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405101",
+          "TRANSFERENCIAS A MUNICIPIOS-OBRAS",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "17/09/2025",
+          "687.856"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551504",
+      "municipio": "Serrana",
+      "id": "18010100029/21DM",
+      "esperados": 1,
+      "valor_resumo": "400.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "08/04/2022",
+          "400.000"
+        ]
+      ]
+    },
+    {
+      "ibge": "3551504",
+      "municipio": "Serrana",
+      "id": "18010100032/21DM",
+      "esperados": 1,
+      "valor_resumo": "130.000,00",
+      "status": "ok",
+      "eventos": [
+        [
+          "44229813000123",
+          "PREFEITURA MUNICIPAL SERRANA",
+          "44405201",
+          "TRANSF.A MUNICIPIOS-EQUIP.MATER.PERMANENTE",
+          "INVESTIMENTO",
+          "PREFEITURAS",
+          "18/03/2022",
+          "130.000"
+        ]
+      ]
+    }
+  ]
+}

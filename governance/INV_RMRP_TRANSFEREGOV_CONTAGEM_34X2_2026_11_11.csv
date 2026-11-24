@@ -1,0 +1,69 @@
+codigo_ibge;municipio;sub_regiao;modulo;http_status;total_itens_api;pagina_total_api;amostra_id;amostra_ano;amostra_categoria;amostra_valor;estado_auditoria
+3501004;Altinópolis;Sub-região de Batatais;parcerias;200;18;18;24715;2025;;399546;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3501004;Altinópolis;Sub-região de Batatais;discricionarias;200;172;172;92132;;;228100.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3505609;Barrinha;Sub-região de Ribeirão Preto;parcerias;200;8;8;92149;2026;;182000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3505609;Barrinha;Sub-região de Ribeirão Preto;discricionarias;200;83;83;2032641;;Obras e Serviços de Engenharia;7167204.65;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3505906;Batatais;Sub-região de Batatais;parcerias;200;27;27;294;2024;;;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3505906;Batatais;Sub-região de Batatais;discricionarias;200;184;184;70691;;;115000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3507803;Brodowski;Sub-região de Ribeirão Preto;parcerias;200;21;21;90369;2026;;;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3507803;Brodowski;Sub-região de Ribeirão Preto;discricionarias;200;183;183;1323691;;Equipamentos;168810.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3509403;Cajuru;Sub-região de Mococa;parcerias;200;15;15;13622;2025;;100000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3509403;Cajuru;Sub-região de Mococa;discricionarias;200;97;97;1270641;;;250000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3513108;Cravinhos;Sub-região de Ribeirão Preto;parcerias;200;28;28;56013;2026;;100000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3513108;Cravinhos;Sub-região de Ribeirão Preto;discricionarias;200;179;179;1237272;;;125000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3510906;Cássia dos Coqueiros;Sub-região de Mococa;parcerias;200;9;9;35753;2025;;20000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3510906;Cássia dos Coqueiros;Sub-região de Mococa;discricionarias;200;80;80;1916116;;Obras e Serviços de Engenharia;200000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3514601;Dumont;Sub-região de Ribeirão Preto;parcerias;200;10;10;92167;2026;;200000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3514601;Dumont;Sub-região de Ribeirão Preto;discricionarias;200;96;96;61217;;;130000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3518602;Guariba;Sub-região de Jaboticabal;parcerias;200;31;31;6572;2025;;200000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3518602;Guariba;Sub-região de Jaboticabal;discricionarias;200;391;391;1453364;;Obras e Serviços de Engenharia;1229308.15;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3518859;Guatapará;Sub-região de Ribeirão Preto;parcerias;200;4;4;17788;2025;;100000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3518859;Guatapará;Sub-região de Ribeirão Preto;discricionarias;200;134;134;1997454;;Equipamentos;301000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3524303;Jaboticabal;Sub-região de Jaboticabal;parcerias;200;29;29;92407;2026;;300000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3524303;Jaboticabal;Sub-região de Jaboticabal;discricionarias;200;263;263;104905;;;225000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3525102;Jardinópolis;Sub-região de Ribeirão Preto;parcerias;200;11;11;21661;2025;;50000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3525102;Jardinópolis;Sub-região de Ribeirão Preto;discricionarias;200;84;84;969574;;;2500000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3527603;Luís Antônio;Sub-região de Ribeirão Preto;parcerias;200;10;10;32536;2025;;200000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3527603;Luís Antônio;Sub-região de Ribeirão Preto;discricionarias;200;118;118;192857;;;100000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3530508;Mococa;Sub-região de Mococa;parcerias;200;32;32;24533;2025;;;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3530508;Mococa;Sub-região de Mococa;discricionarias;200;269;269;2080098;;Obras e Serviços de Engenharia;7200000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3531308;Monte Alto;Sub-região de Jaboticabal;parcerias;200;27;27;75085;2026;;398000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3531308;Monte Alto;Sub-região de Jaboticabal;discricionarias;200;360;360;115929;;;148254.4;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3531902;Morro Agudo;Sub-região de Batatais;parcerias;200;15;15;40596;2025;;100000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3531902;Morro Agudo;Sub-região de Batatais;discricionarias;200;140;140;343366;;;308000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3533601;Nuporanga;Sub-região de Batatais;parcerias;200;9;9;70219;2026;;100000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3533601;Nuporanga;Sub-região de Batatais;discricionarias;200;42;42;1360599;;;101000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3534302;Orlândia;Sub-região de Batatais;parcerias;200;30;30;19672;2025;;;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3534302;Orlândia;Sub-região de Batatais;discricionarias;200;134;134;287177;;;105000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3539509;Pitangueiras;Sub-região de Jaboticabal;parcerias;200;26;26;76044;2026;;100000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3539509;Pitangueiras;Sub-região de Jaboticabal;discricionarias;200;141;141;353492;;;220000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3540200;Pontal;Sub-região de Ribeirão Preto;parcerias;200;25;25;90101;2026;;;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3540200;Pontal;Sub-região de Ribeirão Preto;discricionarias;200;118;118;1878251;;Obras e Serviços de Engenharia;600601.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3540903;Pradópolis;Sub-região de Ribeirão Preto;parcerias;200;13;13;23214;2025;;199854;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3540903;Pradópolis;Sub-região de Ribeirão Preto;discricionarias;200;106;106;1197719;;;700000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3543402;Ribeirão Preto;Sub-região de Ribeirão Preto;parcerias;200;154;154;90024;2026;;;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3543402;Ribeirão Preto;Sub-região de Ribeirão Preto;discricionarias;200;822;822;2215198;;Obras e Serviços de Engenharia;510432.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3544905;Sales Oliveira;Sub-região de Batatais;parcerias;200;11;11;4575;2025;;500000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3544905;Sales Oliveira;Sub-região de Batatais;discricionarias;200;109;109;1453556;;Equipamentos;300000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3546256;Santa Cruz da Esperança;Sub-região de Mococa;parcerias;200;8;8;18207;2025;;;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3546256;Santa Cruz da Esperança;Sub-região de Mococa;discricionarias;200;195;195;1313572;;Obras e Serviços de Engenharia;800000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3547502;Santa Rita do Passa Quatro;Sub-região de Ribeirão Preto;parcerias;200;19;19;84851;2026;;250000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3547502;Santa Rita do Passa Quatro;Sub-região de Ribeirão Preto;discricionarias;200;225;225;1014968;;;130070.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3547601;Santa Rosa de Viterbo;Sub-região de Mococa;parcerias;200;22;22;92230;2026;;300000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3547601;Santa Rosa de Viterbo;Sub-região de Mococa;discricionarias;200;152;152;491140;;;200000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3547908;Santo Antônio da Alegria;Sub-região de Batatais;parcerias;200;11;11;18256;2025;;50000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3547908;Santo Antônio da Alegria;Sub-região de Batatais;discricionarias;200;270;270;471754;;;140841.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3551405;Serra Azul;Sub-região de Ribeirão Preto;parcerias;200;4;4;35815;2025;;100000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3551405;Serra Azul;Sub-região de Ribeirão Preto;discricionarias;200;141;141;31034;;;106036.79;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3551504;Serrana;Sub-região de Ribeirão Preto;parcerias;200;31;31;90169;2026;;;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3551504;Serrana;Sub-região de Ribeirão Preto;discricionarias;200;240;240;148358;;;120000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3551702;Sertãozinho;Sub-região de Ribeirão Preto;parcerias;200;23;23;24520;2025;;272600;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3551702;Sertãozinho;Sub-região de Ribeirão Preto;discricionarias;200;309;309;815638;;;1507000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3550902;São Simão;Sub-região de Ribeirão Preto;parcerias;200;20;20;14325;2025;;300000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3550902;São Simão;Sub-região de Ribeirão Preto;discricionarias;200;152;152;841528;;;3074305.6;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3553203;Taiúva;Sub-região de Jaboticabal;parcerias;200;8;8;8924;2025;;200000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3553203;Taiúva;Sub-região de Jaboticabal;discricionarias;200;149;149;2073894;;Equipamentos;373428.6;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3553302;Tambaú;Sub-região de Mococa;parcerias;200;29;29;8925;2025;;100000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3553302;Tambaú;Sub-região de Mococa;discricionarias;200;148;148;1354535;;;1063500.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3553658;Taquaral;Sub-região de Jaboticabal;parcerias;200;5;5;92241;2026;;392000;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL
+3553658;Taquaral;Sub-região de Jaboticabal;discricionarias;200;124;124;1202845;;;202000.0;CONTAGEM_API_NAO_EXTRACAO_INTEGRAL

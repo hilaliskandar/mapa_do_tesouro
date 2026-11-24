@@ -1,0 +1,76 @@
+{
+  "date_checked": "2026-11-12",
+  "status": "VINCULO_FEDERAL_OBRASGOV_LICITACAO_COMPROVADO_SEM_SIAFEM",
+  "municipio": "Sertãozinho",
+  "codigo_ibge": "3551702",
+  "obrasgov_project_id": "31536.35-60",
+  "municipal_bid": {
+    "type": "Concorrência Eletrônica",
+    "number": "004/2025",
+    "public_process": "119/2025",
+    "internal_project_basic_process": "20/2025",
+    "url": "https://www.sertaozinho.sp.gov.br/portal/editais/0/1/2845/"
+  },
+  "archive": {
+    "url": "https://www.sertaozinho.sp.gov.br/editais/004_-_recapeamento_asfaltico_15120805.zip",
+    "sha256": "b2889b5cf4a06c75fa8f1e1304d26d1127d15130553f139ea97b86212b30a173",
+    "size_bytes": 2888706
+  },
+  "project_basic": {
+    "filename": "PB - Recapeamento asfáltico.docx",
+    "sha256": "4b4ab2b72fb36d841db01fd4744ee866b943ebf72368d73fb34c7077b3a70490",
+    "source_internal_file": "word/document.xml",
+    "program": "2219",
+    "action": "00T1",
+    "federal_transfer_agreement": "953043/2023/MCidades",
+    "typo_anomaly": "O mesmo documento também cita 95043/2023 em trecho introdutório; número 953043/2023 confirmado em seção financeira e por extrato federal",
+    "budget_cents": 64204659,
+    "federal_cents": 57800300,
+    "municipal_contribution_cents": 6404359,
+    "streets": [
+      {
+        "name": "Rua Augusto Zanini",
+        "latitude_dms": "21°08'29.20\"S",
+        "longitude_dms": "47°59'52.74\"O"
+      },
+      {
+        "name": "Rua Jordão Borguetti",
+        "latitude_dms": "21°08'31.81\"S",
+        "longitude_dms": "47°59'54.83\"O"
+      },
+      {
+        "name": "Rua José Bonini",
+        "latitude_dms": "21°08'27.53\"S",
+        "longitude_dms": "47°59'55.33\"O"
+      },
+      {
+        "name": "Travessa Luiz Guidugli",
+        "latitude_dms": "21°08'18.71\"S",
+        "longitude_dms": "47°59'45.91\"O"
+      },
+      {
+        "name": "Rua Antônio Carotini",
+        "latitude_dms": "21°08'20.63\"S",
+        "longitude_dms": "47°59'47.48\"O"
+      },
+      {
+        "name": "Rua Keitaro Hatajima",
+        "latitude_dms": "21°07'45.55\"S",
+        "longitude_dms": "48°01'08.00\"O"
+      }
+    ]
+  },
+  "qa": {
+    "sum_source_budget_matches": true,
+    "obrasgov_federal_repass_link": "confirmado_pelo_projeto_basico",
+    "state_siafem_link": "nao_comprovado",
+    "municipal_budget_execution": "nao_avaliada",
+    "caution": "Coordenadas são pontos referenciais das ruas, não traçados da obra. Não somar valor orçado a liberações, empenhos ou execução municipal."
+  },
+  "state_candidates": [
+    "290118662729/18",
+    "290118688542/18",
+    "51010120231760627",
+    "51010120240542814"
+  ]
+}

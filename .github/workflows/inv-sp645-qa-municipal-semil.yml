@@ -1,0 +1,36 @@
+name: INV SP645 - QA municipal IBGE SEMIL Seade
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/qa/audit_sp645_ibge_seade_semil_regionalizacao.py
+      - governance/DIM_SP645_IBGE_RA_RG_SEMIL_SEADE_2026_11_14.csv
+      - governance/DIM_SP645_IBGE_RA_RG_RM_AU_CONSOLIDADA_2026_11_14.csv
+      - governance/DIM_HIERARQUIA_SEADE_RG_RA_GEOMETRIA_2026_11_14.csv
+      - .github/workflows/inv-sp645-qa-municipal-semil.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa-regionalizacao:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source municipal IBGE and region memberships
+        run: |
+          python -m py_compile pipeline/qa/audit_sp645_ibge_seade_semil_regionalizacao.py
+          python pipeline/qa/audit_sp645_ibge_seade_semil_regionalizacao.py
+      - name: Upload QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-qa-ibge-semil-20261114
+          path: /tmp/inv_sp645_regionalizacao_qa.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -1,0 +1,33 @@
+name: INV SP645 - sondagem Seade municipal oficial
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/qa/probe_seade_sp645_regionalizacao_municipal.py
+      - .github/workflows/inv-sp645-seade-regionalizacao-municipal.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-official-seade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probe official Seade municipal/regional CSV and dictionary
+        run: |
+          python -m py_compile pipeline/qa/probe_seade_sp645_regionalizacao_municipal.py
+          python pipeline/qa/probe_seade_sp645_regionalizacao_municipal.py --out-dir "${RUNNER_TEMP}/seade_sp645"
+      - name: Archive source schema metadata only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-seade-municipal-source-qa
+          path: ${{ runner.temp }}/seade_sp645/manifest_seade_municipios_regioes.json
+          retention-days: 30
+          if-no-files-found: warn

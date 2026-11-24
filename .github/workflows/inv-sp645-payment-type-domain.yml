@@ -1,0 +1,35 @@
+name: INV SP645 - dominio financeiro pagamentos Transferegov
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/acquire/inv_sp645_payment_type_domain.py
+      - .github/workflows/inv-sp645-payment-type-domain.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit-payment-types:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate audit script
+        run: python -m py_compile pipeline/acquire/inv_sp645_payment_type_domain.py
+      - name: Count national payment event types without personal data or financial sums
+        run: |
+          python pipeline/acquire/inv_sp645_payment_type_domain.py \
+            --out-dir "${RUNNER_TEMP}/federal_payment_domains"
+      - name: Archive aggregate report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-transferegov-payment-type-domain
+          path: ${{ runner.temp }}/federal_payment_domains/manifest_payment_type_qa.json
+          retention-days: 30
+          if-no-files-found: warn

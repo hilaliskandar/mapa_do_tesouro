@@ -1,0 +1,40 @@
+name: INV SP645 - layouts complementares Transferegov
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/acquire/inv_sp645_transferegov_new_source_layout.py
+      - .github/workflows/inv-sp645-transferegov-auxiliary-layouts.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate script syntax
+        run: python -m py_compile pipeline/acquire/inv_sp645_transferegov_new_source_layout.py
+      - name: Inspect official ZIP files and verify CRC; no payment microdata
+        run: |
+          python pipeline/acquire/inv_sp645_transferegov_new_source_layout.py \
+            --out-dir "${RUNNER_TEMP}/transferegov_complementares" \
+            --dataset siconv_pagamento_tributo \
+            --dataset siconv_ingresso_contrapartida \
+            --dataset siconv_coordenadas_obra \
+            --dataset siconv_contrato_cipi \
+            --dataset siconv_dados_obrasgov_geral
+      - name: Publish metadata report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-complementares-source-metadata
+          path: ${{ runner.temp }}/transferegov_complementares/manifest_new_sources.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -1,0 +1,67 @@
+{
+  "captured_source_updated_at": "2026-11-12",
+  "fonte": "https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx",
+  "metodo": "filtro de municipio + beneficiario prefeitura + investimento + liberacoes a partir de 2020; detalhe por convenio; reaplicar ano e natureza evento",
+  "universo_convenios": 752,
+  "detalhes_acessiveis": 747,
+  "detalhes_http500": [
+    {
+      "codigo_ibge": "3501004",
+      "municipio": "Altinópolis",
+      "id_convenio": "5128032684769\\19",
+      "valor_exato_resumo_centavos": 19834648,
+      "quantidade_pagamentos": 1,
+      "erro": "Error: HTTP_500"
+    },
+    {
+      "codigo_ibge": "3505906",
+      "municipio": "Batatais",
+      "id_convenio": "5128032447861\\19",
+      "valor_exato_resumo_centavos": 38500000,
+      "quantidade_pagamentos": 2,
+      "erro": "Error: HTTP_500"
+    },
+    {
+      "codigo_ibge": "3510906",
+      "municipio": "Cássia dos Coqueiros",
+      "id_convenio": "51010936677718 A",
+      "valor_exato_resumo_centavos": 5500267,
+      "quantidade_pagamentos": 1,
+      "erro": "Error: HTTP_500"
+    },
+    {
+      "codigo_ibge": "3518602",
+      "municipio": "Guariba",
+      "id_convenio": "5128031465476\\19",
+      "valor_exato_resumo_centavos": 34515013,
+      "quantidade_pagamentos": 2,
+      "erro": "Error: HTTP_500"
+    },
+    {
+      "codigo_ibge": "3531308",
+      "municipio": "Monte Alto",
+      "id_convenio": "512803165957\\18C",
+      "valor_exato_resumo_centavos": 13600000,
+      "quantidade_pagamentos": 1,
+      "erro": "Error: HTTP_500"
+    }
+  ],
+  "valor_exato_detalhes_acessiveis_centavos": 30440152992,
+  "soma_valores_visuais_centavos": 30440152700,
+  "diferenca_centavos": -292,
+  "eventos_investimento_desde2020": 1010,
+  "registros_anteriores_2020_excluidos": 103,
+  "custeio_desde2020_excluidos": 6,
+  "custeio_valores_visuais_excluidos_centavos": 20051200,
+  "contagem_ano": {
+    "2020": 201,
+    "2021": 111,
+    "2022": 233,
+    "2023": 174,
+    "2024": 150,
+    "2025": 90,
+    "2026": 51
+  },
+  "problemas": [],
+  "politica": "Valores anuais extraidos de tabela individual sao inteiros SEM CENTAVOS e nao podem substituir totais financeiros exatos do resumo; cinco convenios nao territorializaveis por ano"
+}

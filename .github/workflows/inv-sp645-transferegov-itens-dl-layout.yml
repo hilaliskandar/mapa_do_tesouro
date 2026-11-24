@@ -1,0 +1,36 @@
+name: INV SP645 - esquema itens de liquidacao DL
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - pipeline/acquire/inv_sp645_transferegov_new_source_layout.py
+      - .github/workflows/inv-sp645-transferegov-itens-dl-layout.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate script syntax
+        run: python -m py_compile pipeline/acquire/inv_sp645_transferegov_new_source_layout.py
+      - name: Inspect official ZIP files and verify CRC; no payment microdata
+        run: |
+          python pipeline/acquire/inv_sp645_transferegov_new_source_layout.py \
+            --out-dir "${RUNNER_TEMP}/transferegov_itens-dl" \
+            --dataset siconv_itens_dl
+      - name: Publish metadata report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-sp645-itens-dl-source-metadata
+          path: ${{ runner.temp }}/transferegov_itens-dl/manifest_new_sources.json
+          retention-days: 30
+          if-no-files-found: warn

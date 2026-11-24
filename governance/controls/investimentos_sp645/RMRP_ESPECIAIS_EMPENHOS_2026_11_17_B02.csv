@@ -1,0 +1,21 @@
+ibge7;id_plano_acao;ano_plano;id_empenho;data_emissao;categoria_despesa;valor_empenho_centavos;situacao_empenho;estado;url_fonte
+3543402;16748;2022;18149;2022-05-17;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=16748&pagina=1&tamanho_da_pagina=200
+3543402;33247;2023;26864;2023-07-05;INVESTIMENTO;40000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=33247&pagina=1&tamanho_da_pagina=200
+3543402;37788;2023;31369;2023-07-06;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=37788&pagina=1&tamanho_da_pagina=200
+3543402;38819;2023;32402;2023-07-05;INVESTIMENTO;50000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=38819&pagina=1&tamanho_da_pagina=200
+3543402;36383;2023;29962;2023-07-05;INVESTIMENTO;31500000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=36383&pagina=1&tamanho_da_pagina=200
+3543402;36970;2023;30551;2023-07-05;INVESTIMENTO;80000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=36970&pagina=1&tamanho_da_pagina=200
+3543402;68457;2024;38993;2024-06-26;INVESTIMENTO;55000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=68457&pagina=1&tamanho_da_pagina=200
+3543402;71089;2024;41329;2024-06-26;INVESTIMENTO;40000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=71089&pagina=1&tamanho_da_pagina=200
+3543402;68737;2024;35800;2024-06-26;CUSTEIO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=68737&pagina=1&tamanho_da_pagina=200
+3543402;35661;2023;29240;2023-07-05;INVESTIMENTO;50000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=35661&pagina=1&tamanho_da_pagina=200
+3543402;71943;2024;42183;2024-06-26;INVESTIMENTO;80000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=71943&pagina=1&tamanho_da_pagina=200
+3543402;65884;2024;37226;2024-06-26;INVESTIMENTO;167000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=65884&pagina=1&tamanho_da_pagina=200
+3543402;90795;2026;60640;2026-06-19;INVESTIMENTO;49750000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=90795&pagina=1&tamanho_da_pagina=200
+3543402;87770;2025;58067;2025-12-01;INVESTIMENTO;19800000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=87770&pagina=1&tamanho_da_pagina=200
+3543402;88374;2025;58674;2025-12-01;INVESTIMENTO;49500000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=88374&pagina=1&tamanho_da_pagina=200
+3543402;82452;2025;52741;2025-09-26;INVESTIMENTO;39600000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=82452&pagina=1&tamanho_da_pagina=200
+3543402;78886;2025;47206;2025-09-26;CUSTEIO;39600000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=78886&pagina=1&tamanho_da_pagina=200
+3543402;88375;2025;58675;2025-12-01;INVESTIMENTO;49500000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=88375&pagina=1&tamanho_da_pagina=200
+3543402;87566;2025;57861;2025-10-30;INVESTIMENTO;19800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=87566&pagina=1&tamanho_da_pagina=200
+3543402;82453;2025;52742;2025-07-29;INVESTIMENTO;19800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=82453&pagina=1&tamanho_da_pagina=200

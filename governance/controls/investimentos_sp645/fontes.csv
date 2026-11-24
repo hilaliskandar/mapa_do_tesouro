@@ -1,0 +1,13 @@
+fonte_id;orgao;sistema;modalidade;url_oficial;formato;granularidade;periodo_inicio;periodo_fim;escopo;status;verificado_em
+BR_TFG_DL;MGI;Transferegov;discricionarias_legais;https://www.gov.br/transferegov/pt-br;API_CSV;proposta_instrumento_evento;;;nacional;coleta_regional_documentada;2026-11-16
+BR_TFG_PAR;MGI;Transferegov;gestao_parcerias;https://www.gov.br/transferegov/pt-br;API;proposta_parceria_evento;;;nacional;coleta_regional_documentada;2026-11-16
+BR_TFG_ESP;MGI;Transferegov;transferencias_especiais;https://www.gov.br/transferegov/pt-br;API;plano_emenda_evento;;;nacional;coleta_parcial_documentada;2026-11-16
+BR_TESOURO;STN;Tesouro Nacional;constitucionais_legais;https://www.tesourotransparente.gov.br/;API_CSV;municipio_periodo;;;nacional;verificacao_pendente;2026-11-16
+BR_CGU;CGU;Portal da Transparencia;pagamentos_transferencias;https://portaldatransparencia.gov.br/download-de-dados/;CSV;documento_financeiro;;;nacional;verificacao_pendente;2026-11-16
+BR_OBRAS;MGI;Obrasgov;projetos_investimento;https://api-publica.obrasgov.gestao.gov.br/obras;API;projeto;;;nacional;coleta_parcial_regional_documentada;2026-11-16
+SP_CONV;Governo de Sao Paulo;Portal da Transparencia SP;convenios_transferencias;https://www.transparencia.sp.gov.br/Convenios;ZIP_CSV;instrumento;2023;2026;estadual;3618_registros_zip_r2_validado_estrutura_sem_homologacao_financeira;2026-11-16
+SP_SEFAZ;Sefaz-SP;Transferencias Voluntarias;liberacoes_estornos;https://www.fazenda.sp.gov.br/TransferenciaVoluntaria/Sistema/Novo/PesquisaComposta.aspx;WebForms_POST;convenio_ano_e_evento;2007-08;;estadual;RMRP34_2020_2026_238_consultas_1017_pagamentos_30552102920_centavos_QA_12_11_2026_SP645_pendente;2026-11-16
+BR_FINBRA;STN;FINBRA_SICONFI;financas_municipais;https://siconfi.tesouro.gov.br/;API_CSV;municipio_ano;;;nacional;base_fiscal_existente_reusar;2026-11-16
+SP_TCESP;TCESP;Dados Abertos TCESP;investimentos_municipais;https://www.tce.sp.gov.br/;CSV_SQLite;municipio_ano_estagio;;;estadual;base_fiscal_existente_reusar;2026-11-16
+SP_EMENDAS_CONC;Governo de Sao Paulo;Portal da Transparencia SP;emendas_estaduais_concedidas;https://www.transparencia.sp.gov.br/EmendasParlamentares/Concedidas;CSV_consulta_web;emenda_beneficiario_valor;;;estadual;pagina_e_exportacao_identificadas_sem_csv;2026-11-16
+SP_EMENDAS_REAL;Governo de Sao Paulo;Portal da Transparencia SP;transferencias_especiais_federais_realizadas_por_orgao_estadual;https://www.transparencia.sp.gov.br/EmendasParlamentares/Realizadas;CSV_consulta_web;emenda_plano_de_acao;;;estadual;pagina_e_exportacao_identificadas_sem_csv;2026-11-16

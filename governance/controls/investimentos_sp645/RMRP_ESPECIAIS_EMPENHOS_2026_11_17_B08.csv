@@ -1,0 +1,21 @@
+ibge7;id_plano_acao;ano_plano;id_empenho;data_emissao;categoria_despesa;valor_empenho_centavos;situacao_empenho;estado;url_fonte
+3551504;80185;2025;50711;2025-09-02;INVESTIMENTO;39600000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=80185&pagina=1&tamanho_da_pagina=200
+3551504;82458;2025;52747;2025-10-17;INVESTIMENTO;19800000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=82458&pagina=1&tamanho_da_pagina=200
+3551504;87773;2025;58070;2025-12-15;INVESTIMENTO;19800000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=87773&pagina=1&tamanho_da_pagina=200
+3551504;82457;2025;52746;2025-07-29;INVESTIMENTO;19800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=82457&pagina=1&tamanho_da_pagina=200
+3551504;93199;2026;63558;2026-05-08;INVESTIMENTO;39800000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=93199&pagina=1&tamanho_da_pagina=200
+3533601;38827;2023;32410;2023-07-05;INVESTIMENTO;25000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=38827&pagina=1&tamanho_da_pagina=200
+3527603;17032;2022;18431;2022-05-17;INVESTIMENTO;50000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=17032&pagina=1&tamanho_da_pagina=200
+3527603;34095;2023;27673;2023-07-05;INVESTIMENTO;40000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=34095&pagina=1&tamanho_da_pagina=200
+3527603;38824;2023;32407;2023-07-05;INVESTIMENTO;60000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=38824&pagina=1&tamanho_da_pagina=200
+3527603;70996;2024;41236;2024-06-26;INVESTIMENTO;25000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=70996&pagina=1&tamanho_da_pagina=200
+3527603;77642;2025;49116;2025-09-02;INVESTIMENTO;34650000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=77642&pagina=1&tamanho_da_pagina=200
+3527603;87571;2025;57866;2025-12-01;INVESTIMENTO;49500000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=87571&pagina=1&tamanho_da_pagina=200
+3527603;81693;2025;51987;2025-07-29;INVESTIMENTO;49500000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=81693&pagina=1&tamanho_da_pagina=200
+3539509;3593;2020;3591;2020-05-18;INVESTIMENTO;15000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=3593&pagina=1&tamanho_da_pagina=200
+3539509;4556;2020;3640;2020-05-18;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=4556&pagina=1&tamanho_da_pagina=200
+3539509;16875;2022;18274;2022-05-17;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=16875&pagina=1&tamanho_da_pagina=200
+3539509;20087;2022;21486;2022-05-17;INVESTIMENTO;14000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=20087&pagina=1&tamanho_da_pagina=200
+3539509;33310;2023;26925;2023-07-05;INVESTIMENTO;25000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=33310&pagina=1&tamanho_da_pagina=200
+3539509;67701;2024;35516;2024-06-26;CUSTEIO;15000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=67701&pagina=1&tamanho_da_pagina=200
+3539509;83712;2025;53973;2025-07-29;INVESTIMENTO;19800000;Minuta de Empenho;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=83712&pagina=1&tamanho_da_pagina=200

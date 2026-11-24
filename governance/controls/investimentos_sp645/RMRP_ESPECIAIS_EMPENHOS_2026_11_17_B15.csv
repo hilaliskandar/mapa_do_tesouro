@@ -1,0 +1,5 @@
+ibge7;id_plano_acao;ano_plano;id_empenho;data_emissao;categoria_despesa;valor_empenho_centavos;situacao_empenho;estado;url_fonte
+3546256;32190;2023;26019;2023-07-05;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=32190&pagina=1&tamanho_da_pagina=200
+3546256;35654;2023;29233;2023-07-05;INVESTIMENTO;10000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=35654&pagina=1&tamanho_da_pagina=200
+3546256;37189;2023;30770;2023-07-05;INVESTIMENTO;30000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=37189&pagina=1&tamanho_da_pagina=200
+3546256;38234;2023;31816;2023-07-05;INVESTIMENTO;20000000;Enviado;ok;https://api-publica.transferegov.gestao.gov.br/especiais/empenhos-especiais?id_plano_acao=38234&pagina=1&tamanho_da_pagina=200

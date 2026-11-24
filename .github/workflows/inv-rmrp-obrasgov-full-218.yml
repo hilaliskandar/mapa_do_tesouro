@@ -1,0 +1,35 @@
+name: INV RMRP - Obrasgov verificacao completa 218 projetos
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths:
+      - .github/workflows/inv-rmrp-obrasgov-full-218.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  complete-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate script syntax
+        run: python -m py_compile pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py
+      - name: Audit all 218 RMRP-linked project IDs from official Obrasgov API
+        run: |
+          python pipeline/acquire/inv_sp645_proponent_obrasgov_regional_coverage.py \
+            --out-dir "${RUNNER_TEMP}/rmrp_obrasgov_full" \
+            --api-sample 218
+      - name: Archive aggregated status / geo evidence only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inv-rmrp-obrasgov-full-218
+          path: ${{ runner.temp }}/rmrp_obrasgov_full/manifest_sp645_proponent_obra_links.json
+          retention-days: 30
+          if-no-files-found: warn

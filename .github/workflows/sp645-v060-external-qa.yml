@@ -60,7 +60,9 @@ jobs:
               paths.extend([f'data/api/v2/tcesp/{year}/municipios.json',f'data/api/v2/tcesp/{year}/municipios/3543402.json'])
           result=[]
           for path in paths:
-              with urllib.request.urlopen(base+'/'+path,timeout=45) as r:
+              print('Checking',path,flush=True)
+              req=urllib.request.Request(base+'/'+path,headers={'Accept':'application/json','User-Agent':'sp645-v2-json-qa/1'})
+              with urllib.request.urlopen(req,timeout=45) as r:
                   assert r.status==200 and 'json' in r.headers.get('Content-Type','').lower(),path
                   raw=r.read()
               assert json.loads(raw) and raw==(root/path).read_bytes(),path

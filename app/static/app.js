@@ -749,6 +749,25 @@ function updateBuildMeta() {
   ].filter(Boolean).join(" · ");
 }
 
+// SEMIL/Seade municipal snapshot 2026-11-14; reconciled against canonical IDs.
+const RG_PARENT = Object.freeze({"RG_SEADE_01":"RA_SEADE_09","RG_SEADE_37":"RA_SEADE_14","RG_SEADE_39":"RA_SEADE_04","RG_SEADE_10":"RA_SEADE_04","RG_SEADE_06":"RA_SEADE_13","RG_SEADE_28":"RA_SEADE_04","RG_SEADE_08":"RA_SEADE_03","RG_SEADE_19":"RA_SEADE_13","RG_SEADE_29":"RA_SEADE_09","RG_SEADE_07":"RA_SEADE_02","RG_SEADE_31":"RA_SEADE_11","RG_SEADE_04":"RA_SEADE_01","RG_SEADE_34":"RA_SEADE_13","RG_SEADE_43":"RA_SEADE_14","RG_SEADE_26":"RA_SEADE_08","RG_SEADE_11":"RA_SEADE_04","RG_SEADE_03":"RA_SEADE_05","RG_SEADE_32":"RA_SEADE_04","RG_SEADE_02":"RA_SEADE_01","RG_SEADE_20":"RA_SEADE_07","RG_SEADE_09":"RA_SEADE_13","RG_SEADE_18":"RA_SEADE_15","RG_SEADE_21":"RA_SEADE_14","RG_SEADE_17":"RA_SEADE_06","RG_SEADE_14":"RA_SEADE_15","RG_SEADE_24":"RA_SEADE_04","RG_SEADE_42":"RA_SEADE_08","RG_SEADE_13":"RA_SEADE_14","RG_SEADE_40":"RA_SEADE_10","RG_SEADE_05":"RA_SEADE_08","RG_SEADE_22":"RA_SEADE_03","RG_SEADE_30":"RA_SEADE_16","RG_SEADE_27":"RA_SEADE_08","RG_SEADE_33":"RA_SEADE_12","RG_SEADE_23":"RA_SEADE_04","RG_SEADE_38":"RA_SEADE_15","RG_SEADE_25":"RA_SEADE_03","RG_SEADE_41":"RA_SEADE_15","RG_SEADE_12":"RA_SEADE_15","RG_SEADE_35":"RA_SEADE_05","RG_SEADE_15":"RA_SEADE_09","RG_SEADE_16":"RA_SEADE_14","RG_SEADE_36":"RA_SEADE_06"});
+function populateRegionalHierarchy() {
+  const label = $("#regional-hierarchy-label");
+  const select = $("#regional-hierarchy-select");
+  const uid = state.currentUniverse;
+  const parent = RG_PARENT[uid] || (uid.startsWith("RA_SEADE_") ? uid : null);
+  label.hidden = !parent;
+  select.replaceChildren();
+  if (!parent) return;
+  const members = state.universes.filter(x => x.universo_id === parent || RG_PARENT[x.universo_id] === parent);
+  for (const item of members) {
+    const option = document.createElement("option");
+    option.value = item.universo_id;
+    option.textContent = item.nome + " (" + item.municipality_count + ")";
+    select.appendChild(option);
+  }
+  select.value = uid;
+}
 function populateUniverseSelect() {
   const select = $("#universe-select");
   select.replaceChildren();
@@ -846,6 +865,7 @@ async function loadUniverse(universeId, { initial = false } = {}) {
     : state.municipalities[0]?.codigo_ibge || null;
 
   populateUniverseSelect();
+  populateRegionalHierarchy();
   populateMunicipalitySelect();
   populateYearSelect();
   updateBuildMeta();
@@ -930,6 +950,10 @@ async function init() {
     await loadUniverse(state.currentUniverse, { initial: true });
 
     $("#universe-select").addEventListener("change", async (event) => {
+      await loadUniverse(event.target.value);
+    });
+
+    $("#regional-hierarchy-select").addEventListener("change", async (event) => {
       await loadUniverse(event.target.value);
     });
 

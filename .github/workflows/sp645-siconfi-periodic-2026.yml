@@ -1,0 +1,66 @@
+name: SP645 Siconfi 2026 periodic RMRP pilot
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/sp645-siconfi-periodic-2026.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sp645-siconfi-periodic-2026
+  cancel-in-progress: false
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect RMRP periodic reports using pinned inventory
+        run: |
+          python -m pipeline.acquire.siconfi_periodic_2026 --limit 34 --output build/periodic
+      - name: Validate selection and preserve evidence
+        run: |
+          python - <<'PY'
+          import csv,json,pathlib,hashlib
+          root=pathlib.Path('build/periodic')
+          rows=list(csv.DictReader(open('governance/DIM_SP645_IBGE_RA_RG_RM_AU_CONSOLIDADA_2026_11_14.csv',encoding='utf-8-sig'),delimiter=';'))
+          expected={r['codigo_ibge'] for r in rows if r['rm_au_nome']=='Região Metropolitana de Ribeirão Preto'}
+          assert len(expected)==34
+          plan=json.loads((root/'plan.json').read_text())
+          collection=json.loads((root/'collection.json').read_text())
+          tasks=[r for r in plan['requests'] if r['codigo_ibge'] in expected]
+          key=lambda r:tuple(r[k] for k in ('codigo_ibge','endpoint','periodicity','period','annex'))
+          actual=collection['results']
+          assert len({key(r) for r in tasks})==len(tasks)
+          assert sorted(map(key,tasks))==sorted(map(key,actual))
+          assert len(actual)>0
+          for r in actual:
+              if r['status']!='unavailable':
+                  assert hashlib.sha256((root/r['file']).read_bytes()).hexdigest()==r['sha256']
+          from collections import Counter
+          counts=Counter((r['endpoint'],r['periodicity'],r['period'],r['annex'],r['status']) for r in actual)
+          report={'scope':'RMRP','municipalities_expected':34,'municipalities_with_planned_requests':len({r['codigo_ibge'] for r in tasks}),'without_plan':sorted(expected-{r['codigo_ibge'] for r in tasks}),'coverage':[{'endpoint':k[0],'periodicity':k[1],'period':k[2],'annex':k[3],'status':k[4],'requests':v} for k,v in sorted(counts.items())],'publication_authorized':False}
+          (root/'qa.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          print('RMRP_PERIODIC_QA',json.dumps(report,ensure_ascii=False))
+          PY
+          tar -czf build/periodic-pilot.tar.gz -C build/periodic plan.json collection.json qa.json raw
+          sha="$(sha256sum build/periodic-pilot.tar.gz | cut -d' ' -f1)"
+          key="sp_645/federal/siconfi/periodic/2026/rmrp/run_${{ github.run_id }}/${sha}.tar.gz"
+          python deployment/upload_r2_source.py --source build/periodic-pilot.tar.gz --object-key "$key" --expected-sha256 "$sha" --content-type application/gzip
+          python deployment/download_r2_source.py --object-key "$key" --output build/periodic-readback.tar.gz --expected-sha256 "$sha"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmrp-siconfi-periodic-2026-evidence
+          path: |
+            build/periodic/plan.json
+            build/periodic/collection.json
+            build/periodic/qa.json
+          retention-days: 30

@@ -125,6 +125,18 @@ jobs:
         run: python pipeline/qa/audit_dca_history_current.py --history build/dca_history --api build/site-sp645/data/api/v2 --output build/private_history/qa_current_parity.json
       - name: Aggregate historical DCA by territorial universe
         run: python pipeline/qa/aggregate_dca_history_regions.py --history build/dca_history --database build/sp645_candidate.sqlite --output build/private_history/history/dca/regional
+      - name: Assemble historical interface for local browser QA only
+        run: |
+          cp -r build/private_history/history build/site-sp645/data/api/v2/
+          cp build/private_history/catalog/historical_sources.json build/site-sp645/data/api/v2/catalog/
+          cmp build/site-sp645/data/api/v2/manifest.json build/private_history/manifest.json
+          node --check build/site-sp645/app.js
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Test historical interface locally
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 --directory build/site-sp645 > build/history-http.log 2>&1 &
+          python deployment/qa_dca_history_browser.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

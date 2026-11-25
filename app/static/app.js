@@ -884,6 +884,7 @@ async function refresh() {
   renderThemes();
   renderSourcesAndCoverage();
   renderCrosswalk();
+  await refreshHistory();
 }
 
 function bindTabs() {
@@ -907,6 +908,107 @@ function bindDelegatedHelp() {
   });
 }
 
+const HISTORY_ROOT = "./data/api/v2/history/dca";
+let historicalManifest = null;
+let historicalRows = [];
+let historicalRequest = 0;
+async function initHistory() {
+  try {
+    const response = await fetch(HISTORY_ROOT + "/manifest.json");
+    if (!response.ok || !response.headers.get("content-type")?.includes("json")) return;
+    const manifest = await response.json();
+    if (manifest.contract !== "dca-history-v2-candidate" || manifest.years.length !== 13) return;
+    historicalManifest = manifest;
+    const select = $("#history-variable");
+    for (const id of Object.keys(manifest.coverage)) {
+      const option = document.createElement("option");
+      option.value = id;
+      option.textContent = catalogItem(id)?.titulo_publico || id;
+      select.appendChild(option);
+    }
+    select.value = "dca_investimentos_liquidada";
+    $("#history-tab").hidden = false;
+    $("#history-tab").addEventListener("click", refreshHistory);
+    select.addEventListener("change", refreshHistory);
+    $("#history-scope").addEventListener("change", refreshHistory);
+    $("#history-export").addEventListener("click", exportHistory);
+  } catch (error) {
+    console.warn("Camada histórica indisponível", error);
+  }
+}
+async function refreshHistory() {
+  if (!historicalManifest || !$("#history").classList.contains("is-active")) return;
+  const request = ++historicalRequest;
+  const regional = $("#history-scope").value === "regional";
+  const variable = $("#history-variable").value;
+  const id = regional ? state.currentUniverse : state.currentMunicipality;
+  $("#history-status").textContent = "Carregando série…";
+  $("#history-export").disabled = true;
+  historicalRows = [];
+  try {
+    const data = await getJSON(HISTORY_ROOT + (regional ? "/regional/" : "/municipalities/") + id + ".json");
+    if (request !== historicalRequest) return;
+    const member = state.municipalities.find(m => m.codigo_ibge === id);
+    $("#history-title").textContent = (regional ? selectedUniverse()?.nome : member?.nome) + " — " + (catalogItem(variable)?.titulo_publico || variable);
+    historicalRows = historicalManifest.years.map(year => {
+      const cell = data.years[String(year)][variable];
+      const observed = regional ? cell.observed : Number(cell.status === "observado");
+      return {year, value: regional ? cell.observed_sum_decimal : cell.value_decimal ?? null, observed, total: regional ? cell.municipality_count : 1, id, variable};
+    });
+    const tbody = $("#history-body");
+    tbody.replaceChildren();
+    for (const row of historicalRows) {
+      const tr = document.createElement("tr");
+      for (const value of [row.year, row.value === null ? "NA" : new Intl.NumberFormat("pt-BR",{style:variable==="populacao_dca"?"decimal":"currency",currency:"BRL",maximumFractionDigits:2}).format(Number(row.value)), row.observed + "/" + row.total + (row.observed < row.total ? " — " + (row.observed ? "parcial" : "ausente") : "")]) {
+        const td = document.createElement("td"); td.textContent = value; tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+    drawHistory();
+    $("#history-status").textContent = "Fonte: FINBRA/DCA. Valores observados; cobertura indicada por exercício.";
+    $("#history-export").disabled = false;
+  } catch (error) {
+    if (request === historicalRequest) {
+      $("#history-status").textContent = "Não foi possível carregar a série histórica.";
+      $("#history-body").replaceChildren();
+      $("#history-chart").replaceChildren();
+    }
+  }
+}
+function drawHistory() {
+  const svg = $("#history-chart"); svg.replaceChildren();
+  const ns = "http://www.w3.org/2000/svg";
+  const valid = historicalRows.filter(r => r.value !== null);
+  if (!valid.length) return;
+  const nums = valid.map(r => Number(r.value));
+  const min = Math.min(0,...nums), max = Math.max(0,...nums);
+  const x = i => 45 + i * 810 / 12;
+  const y = v => 265 - (v-min)/(max-min || 1)*225;
+  const add = (tag, attrs, label) => {
+    const node = document.createElementNS(ns,tag);
+    for (const [key,val] of Object.entries(attrs)) node.setAttribute(key,val);
+    if (label !== undefined) node.textContent = label;
+    svg.appendChild(node); return node;
+  };
+  add("line",{x1:45,x2:855,y1:y(0),y2:y(0),stroke:"#9ca3af"});
+  historicalRows.forEach((row,i) => {
+    add("text",{x:x(i),y:295,"text-anchor":"middle","font-size":12,fill:"currentColor"},row.year);
+    if (row.value===null) return;
+    const yy=y(Number(row.value));
+    const prev=historicalRows[i-1];
+    if (prev && prev.value!==null) add("line",{x1:x(i-1),y1:y(Number(prev.value)),x2:x(i),y2:yy,stroke:"#173f5f","stroke-width":2,"stroke-dasharray":row.observed<row.total||prev.observed<prev.total?"5 4":"none"});
+    const point=add("circle",{cx:x(i),cy:yy,r:5,fill:row.observed===row.total?"#173f5f":"#fff",stroke:"#173f5f","stroke-width":2});
+    const title=document.createElementNS(ns,"title");title.textContent=row.year+": "+row.value+" ("+row.observed+"/"+row.total+")";point.appendChild(title);
+  });
+}
+function exportHistory() {
+  if (!historicalRows.length) return;
+  const lines=[["recorte","variavel","ano","valor_decimal","observados","municipios"],...historicalRows.map(r=>[r.id,r.variable,r.year,r.value===null?"":r.value.replace(".",","),r.observed,r.total])];
+  const blob=new Blob(["\ufeff",lines.map(r=>r.join(";")).join("\r\n")],{type:"text/csv;charset=utf-8"});
+  const url=URL.createObjectURL(blob), link=document.createElement("a");
+  link.href=url;link.download="finbra_historico_"+historicalRows[0].id+"_"+historicalRows[0].variable+".csv";
+  document.body.appendChild(link);link.click();link.remove();URL.revokeObjectURL(url);
+}
 async function init() {
   try {
     const universeCatalog = await getOptionalJSON("./data/universes.json");
@@ -964,6 +1066,7 @@ async function init() {
       renderSeries();
       renderMap();
       renderThemes();
+      await refreshHistory();
     });
 
     $("#year-select").addEventListener("change", async (event) => {
@@ -1000,6 +1103,7 @@ async function init() {
     );
 
     bindTabs();
+    await initHistory();
     bindDelegatedHelp();
     renderDictionary();
     renderMethodology();

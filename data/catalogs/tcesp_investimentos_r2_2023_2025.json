@@ -1,0 +1,27 @@
+{
+  "source_runs": [
+    40263996213,
+    40262193781
+  ],
+  "readback_runs": [
+    40266854279,
+    40263720734
+  ],
+  "objects": {
+    "tcesp/estadual/despesas/2023/run_40263996213/qa.json": "ceb63c155bd756d2afaddfd783e4bf2b8bea3ab46c21498e2ac84f1f90d0e094",
+    "tcesp/estadual/despesas/2023/run_40263996213/investimentos_grupo44_por_municipio_mes_estagio.csv": "df0796b956b9056966afbc8c277473eab5ad71641e4ed089c966d966791f6aed",
+    "tcesp/estadual/despesas/2023/run_40263996213/investimentos_grupo44_por_programa.csv": "44da7c8b9d557b561da82155d50e7513ba1bdfcaf3d11ebc9cf444eb57a93196",
+    "tcesp/estadual/despesas/2023/run_40263996213/investimentos_grupo44_por_acao.csv": "b40ef2161c0d9cbb4a41910e0c78d007eb0788470871256974e9ec69b4aa2dbd",
+    "tcesp/estadual/despesas/2023/run_40263996213/r2_manifest.json": "02d9b04f61abfb7df1af80b265ce7dc9123732302cf62c895acb4389703055dc",
+    "tcesp/estadual/despesas/2024/run_40263996213/qa.json": "070939071a9cd517c155e1bc97b1e44aed3d4b89810473926923391738505517",
+    "tcesp/estadual/despesas/2024/run_40263996213/investimentos_grupo44_por_municipio_mes_estagio.csv": "76fa779d0dfcc85d0a9b18fc8ded23345f499e124268ca9283d7f4e4a1791e16",
+    "tcesp/estadual/despesas/2024/run_40263996213/investimentos_grupo44_por_programa.csv": "4578d1bc2128e9e3d51379b07b37b75b2d9d29159d1930febea052461aaec8eb",
+    "tcesp/estadual/despesas/2024/run_40263996213/investimentos_grupo44_por_acao.csv": "dc8802f30d5646d43cbef0326aec3adf33cdcdce2a7cd95a7139d0b74119f3eb",
+    "tcesp/estadual/despesas/2024/run_40263996213/r2_manifest.json": "0ce9f8634f39a18180150c024412062b8fe65b328388232abb3c548d367464dd",
+    "tcesp/estadual/despesas/2025/run_40262193781/qa.json": "4f2779b129be7fc1ed64f7555a606e35305a47942f47e3539648b40bb743351c",
+    "tcesp/estadual/despesas/2025/run_40262193781/investimentos_grupo44_por_municipio_mes_estagio.csv": "d721b041bb2f0ae501a44a12d19925ee2c079bbf80ea45176dd0499f443716cc",
+    "tcesp/estadual/despesas/2025/run_40262193781/investimentos_grupo44_por_programa.csv": "7bd1595f710cf541168aaae7c8e76a8a20f39e2a277b13d4da04599b1ae2ccbf",
+    "tcesp/estadual/despesas/2025/run_40262193781/investimentos_grupo44_por_acao.csv": "2d7e7dd87c76ae5da79db2f44707f5aad98b09d092cc03a68fd98daa4d80a98e",
+    "tcesp/estadual/despesas/2025/run_40262193781/r2_manifest.json": "678849e7b3431e929815852dfb91dff3b68f4089e2c45106f92f1885468be9a6"
+  }
+}

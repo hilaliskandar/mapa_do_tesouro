@@ -368,6 +368,9 @@ jobs:
       - name: Validate all 72 selectable regions and municipal maps
         run: python deployment/qa_sp645_pages.py --site build/site-sp645
 
+      - name: Check RA RG monetary conservation
+        run: python pipeline/qa/audit_ra_rg_conservation.py --database build/sp645_private.sqlite --output build/qa_ra_rg_conservation.json
+
       - name: Extract compact real-data universe QA manifest
         run: |
           python - <<'PY'
@@ -400,6 +403,7 @@ jobs:
         with:
           name: inv-sp645-regional-private-qa-${{ github.run_id }}
           path: |
+            build/qa_ra_rg_conservation.json
             build/qa_ra_rg_private_real_build.json
             build/site-sp645/data/universes.json
             build/qa_percentage_scale_parity.json

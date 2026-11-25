@@ -1,0 +1,72 @@
+name: Siconfi 2026 RMRP excluded municipality recovery
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/sp645-siconfi-periodic-recovery-2026.yml']
+permissions:
+  contents: read
+concurrency:
+  group: sp645-siconfi-periodic-2026
+  cancel-in-progress: false
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover excluded RMRP cities directly and inspect inventory labels
+        run: |
+          mkdir -p build/recovery
+          python deployment/download_r2_source.py --object-key sp_645/federal/siconfi/periodic/2026/rmrp/run_45714145039/992c3385b06e8444027aa0af39fc111239f79ee211e53f57f6a4f17470a07932.tar.gz --expected-sha256 992c3385b06e8444027aa0af39fc111239f79ee211e53f57f6a4f17470a07932 --output build/pilot.tar.gz
+          python - <<'PY'
+          import json,tarfile,pathlib,hashlib,collections
+          from pipeline.sources.siconfi import SiconfiClient
+          from pipeline.acquire.siconfi_legal_reports import write_raw
+          root=pathlib.Path('build/recovery')
+          with tarfile.open('build/pilot.tar.gz') as tf:
+              qa=json.load(tf.extractfile('./qa.json'))
+          codes=qa['without_plan']
+          assert len(codes)==8
+          client=SiconfiClient(min_interval=1.1,timeout=25,max_retries=1)
+          results=[]
+          for code in codes:
+              for typ,freq,periods,annexes in [('rreo','B',[5,4,3,2,1],['01','02','03']),('rgf','Q',[2,1],['01','02','04']),('rgf','S',[1],['01','02','04'])]:
+                  for period in periods:
+                      found=False
+                      for annex in annexes:
+                          name=typ.upper()+'-Anexo '+annex
+                          params={'nr_periodo':period,'no_anexo':name,'co_esfera':'M','co_tipo_demonstrativo':typ.upper()}
+                          row={'codigo_ibge':code,'endpoint':typ,'periodicity':freq,'period':period,'annex':name}
+                          try:
+                              if typ=='rreo': r=client.fetch_rreo(year=2026,period=period,entity_id=code,annex=name)
+                              else:
+                                  params.update({'in_periodicidade':freq,'co_poder':'E'})
+                                  r=client.fetch_rgf(year=2026,periodicity=freq,period=period,entity_id=code,annex=name)
+                              path=root/'raw'/typ/'2026'/freq/str(period)/annex/(code+'.json.gz')
+                              write_raw(path,endpoint=typ,year=2026,entity_id=code,params=params,result=r)
+                              row.update(status='observed_rows' if r.items else 'empty_not_zero',rows=len(r.items),file=str(path.relative_to(root)),sha256=hashlib.sha256(path.read_bytes()).hexdigest())
+                              found|=bool(r.items)
+                          except Exception as e: row.update(status='unavailable',error=str(e)[:200])
+                          results.append(row)
+                      if found:break
+          summary={'municipalities':len(codes),'status_counts':dict(collections.Counter(r['status'] for r in results)),'observed_cities':sorted({r['codigo_ibge'] for r in results if r['status']=='observed_rows'}),'publication_authorized':False}
+          (root/'recovery.json').write_text(json.dumps({'summary':summary,'results':results},ensure_ascii=False,indent=2))
+          print('RMRP_RECOVERY',json.dumps(summary))
+          PY
+          tar -czf build/recovery.tar.gz -C build/recovery .
+          sha="$(sha256sum build/recovery.tar.gz | cut -d' ' -f1)"
+          key="sp_645/federal/siconfi/periodic/2026/rmrp/recovery/run_${{ github.run_id }}/${sha}.tar.gz"
+          python deployment/upload_r2_source.py --source build/recovery.tar.gz --object-key "$key" --expected-sha256 "$sha" --content-type application/gzip
+          python deployment/download_r2_source.py --object-key "$key" --output build/recovery-readback.tar.gz --expected-sha256 "$sha"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rmrp-periodic-recovery-evidence
+          path: build/recovery/recovery.json

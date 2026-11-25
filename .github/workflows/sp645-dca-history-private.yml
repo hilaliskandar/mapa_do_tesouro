@@ -121,7 +121,10 @@ jobs:
           cp build/site-sp645/data/api/v2/manifest.json build/private_history/manifest.json
           python -m pipeline.build.stage_dca_history_v2 build/dca_history build/private_history
           cmp build/site-sp645/data/api/v2/manifest.json build/private_history/manifest.json
+      - name: Reconcile current API with historical DCA
+        run: python pipeline/qa/audit_dca_history_current.py --history build/dca_history --api build/site-sp645/data/api/v2 --output build/private_history/qa_current_parity.json
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: sp645-dca-history-private-qa
           path: build/private_history

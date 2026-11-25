@@ -49,4 +49,9 @@ write_csv("municipal.csv",list(rows.values()))
 write_csv("regional.csv",regional)
 report={"status":"diagnostic_complete","municipality_years":len(rows),"regional_years":len(regional),"state":[r for r in regional if r["universo_id"]=="SP_645"],"policy":"matched observations only; nominal BRL; TCESP group 44 liquidado versus DCA investimentos liquidada; no inferred equivalence, no missing as zero; no publication authorization"}
 (a.output/"manifest.json").write_text(json.dumps(report,default=str,ensure_ascii=False,indent=2))
+divergent=sorted((r for r in rows.values() if r["status"]=="divergente"),key=lambda r:abs(r["diferenca_brl"]),reverse=True)
+write_csv("divergencias_ordenadas.csv",divergent)
+unmatched=[r for r in rows.values() if r["status"] not in ("igual","divergente")]
+print("TCESP_DCA_TOP_DIFFERENCES",json.dumps(divergent[:15],default=str,ensure_ascii=False))
+print("TCESP_DCA_UNMATCHED",json.dumps(unmatched,default=str,ensure_ascii=False))
 print("TCESP_DCA_COMPARISON",json.dumps(report,default=str,ensure_ascii=False))

@@ -1,5 +1,7 @@
 # Finanças Municipais SP
 
+> QA histórico real aprovado: run 45540182687, fonte R2 SHA-256 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5, 645 municípios, 13 exercícios, 26 variáveis, 218010 células verificadas; stage() executado literalmente, manifesto principal preservado por cmp, artifact 14988323520. Gatilho push resolveu 404. Sem deploy ou autorização de publicação histórica; próximo gate: conciliação temporal 2021–2025 e agregação histórica RA/RG.
+
 > v0.6: staging DCA 2013–2025 privado, workflow sp645-dca-history-private.yml; fonte R2 SHA fixado; 645 municípios, 26 variáveis, sem alteração do manifesto v2. Dispatch inicial 404 por workflow novo; adicionado gatilho push, execução a confirmar. Produção v0.5.1 preservada.
 
 > Produção v0.5.1 confirmada em 25/11/2026 UTC: run 45537933507 success, 194 testes aprovados e 3 skipped, QA local e remoto aprovados, cadastro RMRP preservado, artifact 14987901682. Release v0.5.0 não implantado por teste legado de VERSION; correção 93b0437 e release v0.5.1 no commit 158fb5de. Homologação hierárquica run 45534881706 com 10 cenários aprovados. URL https://finbra-tic-tim-referencia.pages.dev/. Escopo fiscal permanece 2021–2025; sem promoção de novos dados financeiros. Rollback v0.4.1. [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/QA_REGIONALIZACAO_SP645_V050_2026_11_24.md).

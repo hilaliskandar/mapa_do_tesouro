@@ -108,6 +108,9 @@ jobs:
       - name: Include only approved RMRP territorial catalog
         run: python deployment/materialize_rmrp_territorial_sp645.py --site build/site-sp645
 
+      - name: Verify regional monetary conservation
+        run: python pipeline/qa/audit_ra_rg_conservation.py --database build/sp645_candidate.sqlite --output build/qa_ra_rg_conservation.json
+
       - name: Validate SP645 candidate locally
         run: python deployment/qa_sp645_pages.py --site build/site-sp645
 
@@ -127,6 +130,7 @@ jobs:
         env:
           DEPLOY_ALIAS: ${{ inputs.alias }}
         run: |
+          case "$DEPLOY_ALIAS" in sp645-regional-v050-qa) ;; *) echo "Unapproved regional preview alias"; exit 1 ;; esac
           npx --yes wrangler@4.148.0 pages deploy build/site-sp645 \
             --project-name="$CLOUDFLARE_PAGES_PROJECT" \
             --branch="$DEPLOY_ALIAS" \

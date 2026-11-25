@@ -1,0 +1,42 @@
+name: SP645 Siconfi 2026 delivery inventory
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/sp645-siconfi-delivery-2026.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sp645-siconfi-delivery-2026
+  cancel-in-progress: false
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect delivery metadata in sequential batches
+        run: |
+          set -euo pipefail
+          for offset in 0 100 200 300 400 500 600; do
+            dir="build/siconfi-delivery/$offset"
+            python pipeline/acquire/siconfi_delivery_inventory_2026.py --offset "$offset" --limit 100 --output "$dir"
+            tar -czf "$dir.tar.gz" -C "$dir" .
+            sha="$(sha256sum "$dir.tar.gz" | cut -d' ' -f1)"
+            key="sp_645/federal/siconfi/extrato_entregas/2026/run_${{ github.run_id }}/offset_${offset}_${sha}.tar.gz"
+            python deployment/upload_r2_source.py --source "$dir.tar.gz" --object-key "$key" --expected-sha256 "$sha" --content-type application/gzip
+            python deployment/download_r2_source.py --object-key "$key" --output "$dir.readback.tar.gz" --expected-sha256 "$sha"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-siconfi-2026-delivery-inventory
+          path: build/siconfi-delivery/*/inventory.json
+          retention-days: 30

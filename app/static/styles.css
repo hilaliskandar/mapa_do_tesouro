@@ -486,3 +486,8 @@ dialog::backdrop {
     grid-template-columns: 1fr;
   }
 }
+
+[hidden] { display: none !important; }
+.history-panel { padding: 20px; }
+.history-table-scroll { overflow-x: auto; }
+#history-chart { width: 100%; height: auto; }

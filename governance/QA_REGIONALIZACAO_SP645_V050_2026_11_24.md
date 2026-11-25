@@ -1,3 +1,7 @@
 # Regionalização estadual — candidata v0.5.0
 
 Confronto integral em 24/11/2026 dos catálogos administrative_universes_sp_2026.yml e regional_universes_sp_seade_2026.yml: 59/59 nomes e conjuntos de membros iguais, zero divergências. Manter o primeiro como único catálogo operacional, IDs RA_SEADE e RG_SEADE; segundo somente evidência de conferência e hierarquia. Não importar ambos. Workflow inv-sp645-ra-rg-private-preview.yml contempla build real, 72 universos, mapas, API e paridade Gate D. Próximo gate: executar e verificar QA, conservação de valores por partição, teste de navegador e prévia isolada. Não promover dados financeiros novos nem alterar produção v0.4.1.
+
+## Build real aprovado
+
+Build real run 45526052647: success, 72 universos, 16 RA e 43 RG, 645 membros em cada partição, 645 geometrias estaduais, 11.501 células Gate D comparadas, QA estático aprovado; artifact 14982431513. Implementado gate adicional de conservação monetária e correspondência exata das listas municipais (f99721fc e 63952291); execução ainda a confirmar. Produção v0.4.1 preservada. Próximos gates: QA de conservação, hierarquia navegável, teste Chromium e prévia isolada.

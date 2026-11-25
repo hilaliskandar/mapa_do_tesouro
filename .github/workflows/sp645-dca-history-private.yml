@@ -139,6 +139,8 @@ jobs:
           python deployment/qa_dca_history_browser.py
       - name: Rebuild complementary TCESP from permanent R2
         run: python deployment/rebuild_tcesp_r2.py
+      - name: Compare TCESP and DCA liquidated investments
+        run: python pipeline/qa/audit_tcesp_dca_investments.py --history build/dca_history --tcesp build/tcesp_r2/tcesp.sqlite --core build/sp645_candidate.sqlite --output build/private_history/qa_tcesp_dca
       - name: Stage TCESP and validate both historical layers locally
         run: |
           python pipeline/build/export_tcesp_investimentos_api_v2.py --database build/tcesp_r2/tcesp.sqlite --output build/tcesp-preview

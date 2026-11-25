@@ -31,7 +31,9 @@ jobs:
           from pipeline.acquire.siconfi_legal_reports import write_raw
           root=pathlib.Path('build/recovery')
           with tarfile.open('build/pilot.tar.gz') as tf:
-              qa=json.load(tf.extractfile('./qa.json'))
+              members=[m for m in tf.getmembers() if m.isfile() and pathlib.Path(m.name).name=='qa.json']
+              assert len(members)==1
+              qa=json.load(tf.extractfile(members[0]))
           codes=qa['without_plan']
           assert len(codes)==8
           client=SiconfiClient(min_interval=1.1,timeout=25,max_retries=1)

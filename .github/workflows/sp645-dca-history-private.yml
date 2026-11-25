@@ -150,6 +150,27 @@ jobs:
           python deployment/qa_tcesp_http_staging.py --site build/site-sp645 --report build/private_history/qa_tcesp_http.json
           python deployment/qa_tcesp_browser.py --site build/site-sp645 --report build/private_history/qa_tcesp_browser.json
           cp build/tcesp_r2/qa_reconstruction.json build/private_history/qa_tcesp_reconstruction.json
+      - name: Finalize approved release metadata only
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          root=pathlib.Path('build/site-sp645')
+          assert pathlib.Path('VERSION').read_text().strip()=='0.6.0'
+          for name in ('data/api/v2/history/dca/manifest.json','data/api/v2/history/dca/regional/manifest.json','data/api/v2/catalog/historical_sources.json','data/api/v2/tcesp/manifest.json'):
+              p=root/name
+              x=json.loads(p.read_text())
+              x['publication_authorized']=True
+              x['publication_qa']='approved_for_v0.6.0'
+              x['release_qa_run']=45583691853
+              if name.endswith('/tcesp/manifest.json'): x['status']='approved_for_release'
+              p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          p=root/'index.html'
+          p.write_text(p.read_text().replace('TCESP (prévia)','TCESP').replace('</p>\\n    <nav','</p>\n    <nav'),encoding='utf-8')
+          p=root/'tcesp-investimentos.html'
+          p.write_text(p.read_text().replace('TCESP — prévia','TCESP').replace('Consulta experimental','Consulta complementar'),encoding='utf-8')
+          PY
+          python deployment/qa_sp645_pages.py --site build/site-sp645
+          python deployment/qa_api_v2.py --site build/site-sp645
       - name: Archive integrated candidate without deployment
         uses: actions/upload-artifact@v4
         with:

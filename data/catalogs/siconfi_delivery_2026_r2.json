@@ -1,0 +1,40 @@
+{
+  "source_run": 45704566274,
+  "objects": [
+    {
+      "key": "sp_645/federal/siconfi/extrato_entregas/2026/run_45704566274/offset_0_5efbedd8f62a64bb657b2d934050639a3a3fa79c56544a760ba6f7bc5cdf62b5.tar.gz",
+      "offset": 0,
+      "sha256": "5efbedd8f62a64bb657b2d934050639a3a3fa79c56544a760ba6f7bc5cdf62b5"
+    },
+    {
+      "key": "sp_645/federal/siconfi/extrato_entregas/2026/run_45704566274/offset_100_e81bab84798488ce2b7e2cf3426168bdb572b28ec3a0e0d02938cb7fd8599cb4.tar.gz",
+      "offset": 100,
+      "sha256": "e81bab84798488ce2b7e2cf3426168bdb572b28ec3a0e0d02938cb7fd8599cb4"
+    },
+    {
+      "key": "sp_645/federal/siconfi/extrato_entregas/2026/run_45704566274/offset_200_f8f1124ef4335a85127d6c7b3b78ebaacf7a1984e8d060f64162578aaad74413.tar.gz",
+      "offset": 200,
+      "sha256": "f8f1124ef4335a85127d6c7b3b78ebaacf7a1984e8d060f64162578aaad74413"
+    },
+    {
+      "key": "sp_645/federal/siconfi/extrato_entregas/2026/run_45704566274/offset_300_35809c115825606ccef3b455c3bd4eaf13f7065426e811f9343cbf1ecaa865f4.tar.gz",
+      "offset": 300,
+      "sha256": "35809c115825606ccef3b455c3bd4eaf13f7065426e811f9343cbf1ecaa865f4"
+    },
+    {
+      "key": "sp_645/federal/siconfi/extrato_entregas/2026/run_45704566274/offset_400_9188084731dfcde293c4b8f8134405669e3a2557d2fba0e646f9fa205df6e6db.tar.gz",
+      "offset": 400,
+      "sha256": "9188084731dfcde293c4b8f8134405669e3a2557d2fba0e646f9fa205df6e6db"
+    },
+    {
+      "key": "sp_645/federal/siconfi/extrato_entregas/2026/run_45704566274/offset_500_77d1690c9ccf3e7a4f0071dd8ecf428b996770167ecf06aedc0496039e81d1ce.tar.gz",
+      "offset": 500,
+      "sha256": "77d1690c9ccf3e7a4f0071dd8ecf428b996770167ecf06aedc0496039e81d1ce"
+    },
+    {
+      "key": "sp_645/federal/siconfi/extrato_entregas/2026/run_45704566274/offset_600_c85bf854362d1ef63fa19cb975ebf66a86ceb25d8084d980131fe99c5502b9d9.tar.gz",
+      "offset": 600,
+      "sha256": "c85bf854362d1ef63fa19cb975ebf66a86ceb25d8084d980131fe99c5502b9d9"
+    }
+  ]
+}

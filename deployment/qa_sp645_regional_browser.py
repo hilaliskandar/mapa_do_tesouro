@@ -29,6 +29,14 @@ with sync_playwright() as p:
             assert len(rows)==count and len({r["codigo_ibge"] for r in rows})==count
             assert uid in d.suggested_filename
             checks.append({"viewport":viewport,"universe":uid,"municipalities":count,"map_csv_series":"pass"})
+        page.select_option("#universe-select","RA_SEADE_09")
+        page.wait_for_function("document.querySelector('#regional-hierarchy-select').value==='RA_SEADE_09' && document.querySelectorAll('#municipal-map path').length===53")
+        assert page.locator("#regional-hierarchy-select").locator("option[value='RG_SEADE_01']").count()==1
+        page.select_option("#regional-hierarchy-select","RG_SEADE_01")
+        page.wait_for_function("document.querySelector('#universe-select').value==='RG_SEADE_01' && document.querySelectorAll('#municipal-map path').length===12")
+        page.select_option("#regional-hierarchy-select","RA_SEADE_09")
+        page.wait_for_function("document.querySelector('#universe-select').value==='RA_SEADE_09' && document.querySelectorAll('#municipal-map path').length===53")
+        checks.append({"viewport":viewport,"hierarchy":"RA_SEADE_09 -> RG_SEADE_01 -> RA_SEADE_09","status":"pass"})
         assert not errors,errors
         page.close()
     browser.close()

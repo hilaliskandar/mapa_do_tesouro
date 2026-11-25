@@ -2,6 +2,9 @@ name: SP645 DCA historical private integration QA
 
 on:
   workflow_dispatch:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/sp645-dca-history-private.yml']
 permissions:
   contents: read
 

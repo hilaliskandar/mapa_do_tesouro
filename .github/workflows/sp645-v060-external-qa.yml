@@ -1,0 +1,79 @@
+name: SP645 v060 integrated isolated external QA
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/sp645-v060-external-qa.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: sp645-v060-isolated
+  cancel-in-progress: false
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+      PREVIEW_ALIAS: sp645-v060-integrated-qa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve exact validated integrated artifact
+        run: |
+          set -euo pipefail
+          test "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/45578949089 --jq .conclusion)" = success
+          gh run download 45578949089 --repo "$GITHUB_REPOSITORY" --name sp645-v060-integrated-candidate --dir build/site
+          test -f build/site/data/api/v2/history/dca/manifest.json
+          test -f build/site/data/api/v2/tcesp/manifest.json
+          python deployment/qa_sp645_pages.py --site build/site
+          python deployment/qa_api_v2.py --site build/site
+          python deployment/qa_tcesp_http_staging.py --site build/site --report build/local-tcesp-http.json
+      - name: Deploy only to dedicated isolated alias
+        run: |
+          set -euo pipefail
+          test "$PREVIEW_ALIAS" = sp645-v060-integrated-qa
+          test "$PREVIEW_ALIAS" != main
+          npx --yes wrangler@4.148.0 pages deploy build/site --project-name="$CLOUDFLARE_PAGES_PROJECT" --branch="$PREVIEW_ALIAS" --commit-hash=fb8f77139b2598f9ec35ed92fc3220bdc958c696 --commit-message="v060 integrated QA only, no production promotion" --commit-dirty=false
+      - name: Validate external fiscal contracts and RMRP
+        run: |
+          python deployment/qa_sp645_pages.py --url "https://$PREVIEW_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+          python deployment/qa_remote_sp645_v2_json.py --url "https://$PREVIEW_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev" --report build/remote-v2.json
+          python deployment/materialize_rmrp_territorial_sp645.py --url "https://$PREVIEW_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+      - name: Verify historical and TCESP remote JSON byte parity
+        run: |
+          python - <<'PY'
+          import os,json,hashlib,pathlib,urllib.request
+          root=pathlib.Path('build/site')
+          base='https://'+os.environ['PREVIEW_ALIAS']+'.'+os.environ['CLOUDFLARE_PAGES_PROJECT']+'.pages.dev'
+          paths=['data/api/v2/history/dca/manifest.json','data/api/v2/history/dca/regional/manifest.json','data/api/v2/history/dca/regional/SP_645.json','data/api/v2/history/dca/regional/RA_SEADE_04.json','data/api/v2/history/dca/municipalities/3543402.json','data/api/v2/catalog/historical_sources.json','data/api/v2/tcesp/manifest.json']
+          for year in (2023,2024,2025):
+              paths.extend([f'data/api/v2/tcesp/{year}/municipios.json',f'data/api/v2/tcesp/{year}/municipios/3543402.json'])
+          result=[]
+          for path in paths:
+              with urllib.request.urlopen(base+'/'+path,timeout=45) as r:
+                  assert r.status==200 and 'json' in r.headers.get('Content-Type','').lower(),path
+                  raw=r.read()
+              assert json.loads(raw) and raw==(root/path).read_bytes(),path
+              result.append({'path':path,'sha256':hashlib.sha256(raw).hexdigest()})
+          pathlib.Path('build/remote-integrated.json').write_text(json.dumps({'status':'pass','endpoints':result,'production_promoted':False},indent=2))
+          print('V060_REMOTE_JSON_PASS',len(result))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-v060-external-qa-evidence
+          path: |
+            build/local-tcesp-http.json
+            build/remote-v2.json
+            build/remote-integrated.json
+          if-no-files-found: warn

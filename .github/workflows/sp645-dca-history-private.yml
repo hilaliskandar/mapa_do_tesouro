@@ -137,6 +137,17 @@ jobs:
         run: |
           python -m http.server 8765 --bind 127.0.0.1 --directory build/site-sp645 > build/history-http.log 2>&1 &
           python deployment/qa_dca_history_browser.py
+      - name: Rebuild complementary TCESP from permanent R2
+        run: python deployment/rebuild_tcesp_r2.py
+      - name: Stage TCESP and validate both historical layers locally
+        run: |
+          python pipeline/build/export_tcesp_investimentos_api_v2.py --database build/tcesp_r2/tcesp.sqlite --output build/tcesp-preview
+          python deployment/stage_tcesp_api_v2.py --preview build/tcesp-preview --site build/site-sp645 --enable-tcesp
+          cmp build/site-sp645/data/api/v2/manifest.json build/private_history/manifest.json
+          python deployment/qa_api_v2.py --site build/site-sp645
+          python deployment/qa_tcesp_http_staging.py --site build/site-sp645 --report build/private_history/qa_tcesp_http.json
+          python deployment/qa_tcesp_browser.py --site build/site-sp645 --report build/private_history/qa_tcesp_browser.json
+          cp build/tcesp_r2/qa_reconstruction.json build/private_history/qa_tcesp_reconstruction.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

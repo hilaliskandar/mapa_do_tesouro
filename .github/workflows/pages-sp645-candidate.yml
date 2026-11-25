@@ -170,6 +170,21 @@ jobs:
           path: build/sp645-v2-remote-qa.json
           if-no-files-found: warn
 
+      - name: Install Chromium browser QA
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Verify regional interactions in Chromium
+        run: python deployment/qa_sp645_regional_browser.py
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-regional-browser-qa
+          path: build/qa_regional_browser.json
+          if-no-files-found: warn
+
       - name: Publish preview URL
         shell: bash
         env:

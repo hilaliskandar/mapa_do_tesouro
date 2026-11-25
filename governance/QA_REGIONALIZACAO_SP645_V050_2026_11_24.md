@@ -1,0 +1,3 @@
+# Regionalização estadual — candidata v0.5.0
+
+Confronto integral em 24/11/2026 dos catálogos administrative_universes_sp_2026.yml e regional_universes_sp_seade_2026.yml: 59/59 nomes e conjuntos de membros iguais, zero divergências. Manter o primeiro como único catálogo operacional, IDs RA_SEADE e RG_SEADE; segundo somente evidência de conferência e hierarquia. Não importar ambos. Workflow inv-sp645-ra-rg-private-preview.yml contempla build real, 72 universos, mapas, API e paridade Gate D. Próximo gate: executar e verificar QA, conservação de valores por partição, teste de navegador e prévia isolada. Não promover dados financeiros novos nem alterar produção v0.4.1.

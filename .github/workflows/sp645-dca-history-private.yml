@@ -150,6 +150,12 @@ jobs:
           python deployment/qa_tcesp_http_staging.py --site build/site-sp645 --report build/private_history/qa_tcesp_http.json
           python deployment/qa_tcesp_browser.py --site build/site-sp645 --report build/private_history/qa_tcesp_browser.json
           cp build/tcesp_r2/qa_reconstruction.json build/private_history/qa_tcesp_reconstruction.json
+      - name: Archive integrated candidate without deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: sp645-v060-integrated-candidate
+          path: build/site-sp645
+          retention-days: 30
       - uses: actions/upload-artifact@v4
         if: always()
         with:

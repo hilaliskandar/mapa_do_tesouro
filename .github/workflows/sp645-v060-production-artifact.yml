@@ -1,0 +1,94 @@
+name: SP645 v060 approved artifact production
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        required: true
+        type: string
+      approve_promotion:
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: sp645-pages-production
+  cancel-in-progress: false
+jobs:
+  promote:
+    if: ${{ inputs.approve_promotion && inputs.release_tag == 'v0.6.0' }}
+    environment: production
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: v0.6.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify release and retrieve exact final artifact
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = ae755215cebc071800253ce278a0765353ed4165
+          test "$(cat VERSION)" = 0.6.0
+          gh release view v0.6.0 --json body --jq .body | grep -F 'release_universe: SP_645'
+          test "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/45583691853 --jq .conclusion)" = success
+          test "$(gh api repos/$GITHUB_REPOSITORY/actions/runs/45591975254 --jq .conclusion)" = success
+          gh run download 45591975254 --repo "$GITHUB_REPOSITORY" --name sp645-v060-integrated-candidate --dir build/site
+          python deployment/qa_sp645_pages.py --site build/site
+          python deployment/qa_api_v2.py --site build/site
+          python deployment/qa_tcesp_http_staging.py --site build/site --report build/local-tcesp-http.json
+          python - <<'PY'
+          import json,pathlib
+          root=pathlib.Path('build/site/data/api/v2')
+          for path in ('history/dca/manifest.json','history/dca/regional/manifest.json','catalog/historical_sources.json','tcesp/manifest.json'):
+              x=json.loads((root/path).read_text())
+              assert x['publication_authorized'] is True and x['release_qa_run']==45583691853,path
+          assert len(list((root/'history/dca/municipalities').glob('*.json')))==645
+          assert len(list((root/'tcesp').glob('*/municipios/*.json')))==1932
+          PY
+      - name: Deploy exact approved artifact to production
+        run: |
+          npx --yes wrangler@4.148.0 pages deploy build/site --project-name="$CLOUDFLARE_PAGES_PROJECT" --branch=main --commit-hash=ae755215cebc071800253ce278a0765353ed4165 --commit-message="SP645 production v0.6.0 approved artifact" --commit-dirty=false
+      - name: Validate production remotely
+        run: |
+          python deployment/qa_sp645_pages.py --url "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+          python deployment/qa_remote_sp645_v2_json.py --url "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev" --report build/remote-v2.json
+          python deployment/materialize_rmrp_territorial_sp645.py --url "https://$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+          python - <<'PY'
+          import os,json,hashlib,pathlib,urllib.request
+          root=pathlib.Path('build/site')
+          base='https://'+os.environ['CLOUDFLARE_PAGES_PROJECT']+'.pages.dev'
+          paths=['data/api/v2/history/dca/manifest.json','data/api/v2/history/dca/regional/manifest.json','data/api/v2/history/dca/regional/SP_645.json','data/api/v2/history/dca/regional/RA_SEADE_04.json','data/api/v2/history/dca/municipalities/3543402.json','data/api/v2/catalog/historical_sources.json','data/api/v2/tcesp/manifest.json']
+          for year in (2023,2024,2025):
+              paths.extend([f'data/api/v2/tcesp/{year}/municipios.json',f'data/api/v2/tcesp/{year}/municipios/3543402.json'])
+          result=[]
+          for path in paths:
+              req=urllib.request.Request(base+'/'+path,headers={'Accept':'application/json','User-Agent':'sp645-v2-json-qa/1'})
+              with urllib.request.urlopen(req,timeout=45) as r:
+                  assert r.status==200 and 'json' in r.headers.get('Content-Type','').lower(),path
+                  raw=r.read()
+              assert json.loads(raw) and raw==(root/path).read_bytes(),path
+              result.append({'path':path,'sha256':hashlib.sha256(raw).hexdigest()})
+          pathlib.Path('build/remote-integrated.json').write_text(json.dumps({'status':'pass','endpoints':result},indent=2))
+          print('V060_PRODUCTION_JSON_PASS',len(result))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-v060-production-evidence
+          path: |
+            build/local-tcesp-http.json
+            build/remote-v2.json
+            build/remote-integrated.json
+          if-no-files-found: warn

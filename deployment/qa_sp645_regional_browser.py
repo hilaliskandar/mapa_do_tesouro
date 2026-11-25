@@ -1,7 +1,7 @@
 """Read-only browser regression of the isolated regional preview."""
 import csv,json,io
 from pathlib import Path
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 BASE="https://sp645-regional-v050-qa.finbra-tic-tim-referencia.pages.dev"
 out=Path("build/qa_regional_browser.json");out.parent.mkdir(parents=True,exist_ok=True)
 checks=[]
@@ -30,12 +30,15 @@ with sync_playwright() as p:
             assert uid in d.suggested_filename
             checks.append({"viewport":viewport,"universe":uid,"municipalities":count,"map_csv_series":"pass"})
         page.select_option("#universe-select","RA_SEADE_09")
-        page.wait_for_function("document.querySelector('#regional-hierarchy-select').value==='RA_SEADE_09' && document.querySelectorAll('#municipal-map path').length===53")
+        expect(page.locator("#regional-hierarchy-select")).to_have_value("RA_SEADE_09",timeout=90000)
+        expect(page.locator("#municipal-map path")).to_have_count(53,timeout=90000)
         assert page.locator("#regional-hierarchy-select").locator("option[value='RG_SEADE_01']").count()==1
         page.select_option("#regional-hierarchy-select","RG_SEADE_01")
-        page.wait_for_function("document.querySelector('#universe-select').value==='RG_SEADE_01' && document.querySelectorAll('#municipal-map path').length===12")
+        expect(page.locator("#universe-select")).to_have_value("RG_SEADE_01",timeout=90000)
+        expect(page.locator("#municipal-map path")).to_have_count(12,timeout=90000)
         page.select_option("#regional-hierarchy-select","RA_SEADE_09")
-        page.wait_for_function("document.querySelector('#universe-select').value==='RA_SEADE_09' && document.querySelectorAll('#municipal-map path').length===53")
+        expect(page.locator("#universe-select")).to_have_value("RA_SEADE_09",timeout=90000)
+        expect(page.locator("#municipal-map path")).to_have_count(53,timeout=90000)
         checks.append({"viewport":viewport,"hierarchy":"RA_SEADE_09 -> RG_SEADE_01 -> RA_SEADE_09","status":"pass"})
         assert not errors,errors
         page.close()

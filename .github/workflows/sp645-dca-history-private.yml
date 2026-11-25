@@ -123,6 +123,8 @@ jobs:
           cmp build/site-sp645/data/api/v2/manifest.json build/private_history/manifest.json
       - name: Reconcile current API with historical DCA
         run: python pipeline/qa/audit_dca_history_current.py --history build/dca_history --api build/site-sp645/data/api/v2 --output build/private_history/qa_current_parity.json
+      - name: Aggregate historical DCA by territorial universe
+        run: python pipeline/qa/aggregate_dca_history_regions.py --history build/dca_history --database build/sp645_candidate.sqlite --output build/private_history/history/dca/regional
       - uses: actions/upload-artifact@v4
         if: always()
         with:

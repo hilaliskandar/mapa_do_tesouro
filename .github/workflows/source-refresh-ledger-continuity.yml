@@ -1,0 +1,74 @@
+name: Source refresh ledger cross-run continuity
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/source-refresh-ledger-continuity.yml']
+permissions:
+  contents: read
+concurrency:
+  group: source-refresh-ledger-continuity
+  cancel-in-progress: false
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore immutable QA predecessor
+        run: |
+          python deployment/download_r2_source.py --object-key sp_645/maintenance/ledger/qa/run_45891737136/67884f23e81a5b3c52b1fab798acf972090ddf302e90392a35c3b21e2e3e1e03.sqlite --expected-sha256 67884f23e81a5b3c52b1fab798acf972090ddf302e90392a35c3b21e2e3e1e03 --output build/continuity/ledger.sqlite
+      - name: Extend simulated horizon and preserve history
+        run: |
+          python -m pipeline.refresh_calendar --start 2027-12-01 --end 2028-01-31 --output build/continuity/plan.json
+          python - <<'PY'
+          import datetime as dt,json,sqlite3
+          from pathlib import Path
+          from pipeline.refresh_ledger import connect,seed,summary
+          root=Path('build/continuity')
+          db=connect(root/'ledger.sqlite')
+          before=summary(db)
+          assert before['states']=={'planned':966} and before['events']==966
+          original=[tuple(r) for r in db.execute('SELECT * FROM operations ORDER BY operation_key')]
+          tasks=json.loads((root/'plan.json').read_text())['tasks']
+          assert all(not t['dispatch'] and not t['enabled'] for t in tasks)
+          expected=sum(len(t['actions']) for t in tasks if t['date']>='2028-01-01')
+          assert expected>0
+          now=dt.datetime.now(dt.timezone.utc)
+          added=seed(db,tasks,now)
+          assert added==expected and seed(db,tasks,now)==0
+          assert original==[tuple(r) for r in db.execute("SELECT * FROM operations WHERE scheduled_date<'2028-01-01' ORDER BY operation_key")]
+          after=summary(db)
+          assert after['operations']==966+expected and after['events']==966+expected
+          assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert not db.execute('PRAGMA foreign_key_check').fetchall()
+          db.close()
+          report={'mode':'qa_only','predecessor_run':45891737136,'before':before,'after':after,'new_operations':added,'original_rows_unchanged':True,'publication_authorized':False}
+          (root/'report.json').write_text(json.dumps(report,indent=2))
+          print('LEDGER_CONTINUITY_QA',json.dumps(report))
+          PY
+      - name: Persist immutable successor and verify
+        run: |
+          sha="$(sha256sum build/continuity/ledger.sqlite | cut -d' ' -f1)"
+          key="sp_645/maintenance/ledger/qa/run_${{ github.run_id }}/${sha}.sqlite"
+          python deployment/upload_r2_source.py --source build/continuity/ledger.sqlite --object-key "$key" --expected-sha256 "$sha" --content-type application/octet-stream
+          python deployment/download_r2_source.py --object-key "$key" --expected-sha256 "$sha" --output build/continuity/restored.sqlite
+          python - <<'PY'
+          import sqlite3,json
+          c=sqlite3.connect('build/continuity/restored.sqlite')
+          assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert c.execute('SELECT count(*) FROM operations').fetchone()[0]==json.load(open('build/continuity/report.json'))['after']['operations']
+          assert not c.execute('PRAGMA foreign_key_check').fetchall()
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source-refresh-ledger-continuity
+          path: build/continuity/report.json
+          retention-days: 30

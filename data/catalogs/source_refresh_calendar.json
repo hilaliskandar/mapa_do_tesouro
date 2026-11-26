@@ -1,6 +1,6 @@
 {
-  "version": "0.1",
-  "status": "proposed_not_enabled",
+  "version": "0.2",
+  "status": "dry_run_only",
   "timezone": "America/Sao_Paulo",
   "scope": "SP645; RMRP priority; TCE-SP 644 plus TCM-SP capital",
   "created": "2026-11-26",
@@ -11,7 +11,42 @@
       "check_cadence": "weekly Feb-Jul; monthly Aug-Jan; historical quarterly",
       "window": "previous fiscal year and revisions",
       "trigger": "metadata delivery or changed source",
-      "implementation": "active_collector_needs_scheduler"
+      "implementation": "active_collector_needs_scheduler",
+      "schedule": [
+        {
+          "cadence": "weekly",
+          "weekday": 0,
+          "months": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "action": "delivery_probe"
+        },
+        {
+          "cadence": "monthly",
+          "weekday": 0,
+          "months": [
+            1,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "action": "delivery_probe"
+        },
+        {
+          "cadence": "quarterly",
+          "weekday": 0,
+          "months": null,
+          "action": "historical_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "siconfi_rreo",
@@ -19,7 +54,16 @@
       "check_cadence": "weekly Monday",
       "window": "current and previous period; 2, 7, 14, 30 days after official deadline",
       "trigger": "delivery/version change or missing",
-      "implementation": "active_collector_needs_scheduler"
+      "implementation": "active_collector_needs_scheduler",
+      "schedule": [
+        {
+          "cadence": "weekly",
+          "weekday": 0,
+          "months": null,
+          "action": "delivery_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "siconfi_rgf",
@@ -27,7 +71,16 @@
       "check_cadence": "weekly Monday",
       "window": "current and previous actual periodicity; 2, 7, 14, 30 days after official deadline",
       "trigger": "delivery/version change or missing",
-      "implementation": "active_collector_needs_scheduler"
+      "implementation": "active_collector_needs_scheduler",
+      "schedule": [
+        {
+          "cadence": "weekly",
+          "weekday": 0,
+          "months": null,
+          "action": "delivery_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "siconfi_msc",
@@ -35,7 +88,16 @@
       "check_cadence": "weekly Friday",
       "window": "latest 3 reference months; closure separate",
       "trigger": "delivery/version change or missing",
-      "implementation": "collector_pending"
+      "implementation": "collector_pending",
+      "schedule": [
+        {
+          "cadence": "weekly",
+          "weekday": 4,
+          "months": null,
+          "action": "delivery_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "tcesp_receitas",
@@ -43,7 +105,28 @@
       "check_cadence": "weekly Tuesday metadata; monthly full on first Tuesday after day 20",
       "window": "current fiscal year; previous year quarterly",
       "trigger": "changed object or monthly refresh if metadata unreliable",
-      "implementation": "rmrp_refresh_validated_state_pending"
+      "implementation": "rmrp_refresh_validated_state_pending",
+      "schedule": [
+        {
+          "cadence": "weekly",
+          "weekday": 1,
+          "months": null,
+          "action": "metadata_probe"
+        },
+        {
+          "cadence": "monthly_after20",
+          "weekday": 1,
+          "months": null,
+          "action": "refresh"
+        },
+        {
+          "cadence": "quarterly",
+          "weekday": 1,
+          "months": null,
+          "action": "prior_year_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "tcesp_despesas",
@@ -51,7 +134,28 @@
       "check_cadence": "weekly Tuesday metadata; monthly full on first Tuesday after day 20",
       "window": "current fiscal year; previous year quarterly",
       "trigger": "changed object or monthly refresh if metadata unreliable",
-      "implementation": "rmrp_refresh_validated_state_pending"
+      "implementation": "rmrp_refresh_validated_state_pending",
+      "schedule": [
+        {
+          "cadence": "weekly",
+          "weekday": 1,
+          "months": null,
+          "action": "metadata_probe"
+        },
+        {
+          "cadence": "monthly_after20",
+          "weekday": 1,
+          "months": null,
+          "action": "refresh"
+        },
+        {
+          "cadence": "quarterly",
+          "weekday": 1,
+          "months": null,
+          "action": "prior_year_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "tcesp_rcl",
@@ -59,7 +163,16 @@
       "check_cadence": "monthly Tuesday",
       "window": "current source",
       "trigger": "changed source",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "monthly",
+          "weekday": 1,
+          "months": null,
+          "action": "probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "tcesp_programas_acoes",
@@ -67,7 +180,16 @@
       "check_cadence": "monthly Tuesday",
       "window": "current PPA and amendments",
       "trigger": "changed source",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "monthly",
+          "weekday": 1,
+          "months": null,
+          "action": "probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "siafem",
@@ -75,7 +197,16 @@
       "check_cadence": "weekly Thursday",
       "window": "open instruments and current/prior year",
       "trigger": "new or changed record; retry gaps",
-      "implementation": "partial_collector"
+      "implementation": "partial_collector",
+      "schedule": [
+        {
+          "cadence": "weekly",
+          "weekday": 3,
+          "months": null,
+          "action": "probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "transferegov",
@@ -83,7 +214,28 @@
       "check_cadence": "daily lightweight; weekly Wednesday ingestion",
       "window": "open instruments and financial events; quarterly historical reconciliation",
       "trigger": "new or changed record or file",
-      "implementation": "migration_validation_required"
+      "implementation": "migration_validation_required",
+      "schedule": [
+        {
+          "cadence": "daily",
+          "weekday": null,
+          "months": null,
+          "action": "metadata_probe"
+        },
+        {
+          "cadence": "weekly",
+          "weekday": 2,
+          "months": null,
+          "action": "refresh"
+        },
+        {
+          "cadence": "quarterly",
+          "weekday": 2,
+          "months": null,
+          "action": "historical_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "obrasgov",
@@ -91,7 +243,22 @@
       "check_cadence": "weekly Thursday; monthly full inventory",
       "window": "active and recently changed projects",
       "trigger": "new or changed record; fallback snapshot",
-      "implementation": "migration_validation_required"
+      "implementation": "migration_validation_required",
+      "schedule": [
+        {
+          "cadence": "weekly",
+          "weekday": 3,
+          "months": null,
+          "action": "probe"
+        },
+        {
+          "cadence": "monthly",
+          "weekday": 3,
+          "months": null,
+          "action": "inventory"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "tcm_sp",
@@ -99,7 +266,16 @@
       "check_cadence": "monthly provisional",
       "window": "capital; current fiscal year",
       "trigger": "source verification",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "monthly",
+          "weekday": 1,
+          "months": null,
+          "action": "probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "ibge_population",
@@ -107,7 +283,16 @@
       "check_cadence": "monthly release check; quarterly otherwise",
       "window": "latest and revisions",
       "trigger": "new release",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "monthly",
+          "weekday": 4,
+          "months": null,
+          "action": "release_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "ibge_pib",
@@ -115,7 +300,16 @@
       "check_cadence": "monthly release check; quarterly otherwise",
       "window": "latest and revisions",
       "trigger": "new release",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "monthly",
+          "weekday": 4,
+          "months": null,
+          "action": "release_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "seade",
@@ -123,7 +317,16 @@
       "check_cadence": "monthly",
       "window": "series-specific",
       "trigger": "new release",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "monthly",
+          "weekday": 4,
+          "months": null,
+          "action": "probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "rais",
@@ -131,7 +334,16 @@
       "check_cadence": "monthly release check",
       "window": "latest and revisions",
       "trigger": "new release",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "monthly",
+          "weekday": 4,
+          "months": null,
+          "action": "release_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "novo_caged",
@@ -139,7 +351,16 @@
       "check_cadence": "monthly",
       "window": "latest and revisions",
       "trigger": "new release",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "monthly",
+          "weekday": 4,
+          "months": null,
+          "action": "release_probe"
+        }
+      ],
+      "enabled": false
     },
     {
       "id": "territorial_dimensions",
@@ -147,7 +368,16 @@
       "check_cadence": "quarterly",
       "window": "IBGE SEADE SEMIL official reference",
       "trigger": "new boundary or classification",
-      "implementation": "pending"
+      "implementation": "pending",
+      "schedule": [
+        {
+          "cadence": "quarterly",
+          "weekday": 5,
+          "months": null,
+          "action": "probe"
+        }
+      ],
+      "enabled": false
     }
   ],
   "policies": {
@@ -170,5 +400,6 @@
     "siconfi_2026_run": 45804816212,
     "tcesp_rmrp_refresh_run": 45858905499,
     "tcesp_rmrp_refresh_coverage_key": "tcesp/rmrp/2026/refresh/run_45858905499/coverage_b7e61233879fdaab9cd04a6c8655400f23b2b1c212b3a356837614029a92e90e.json"
-  }
+  },
+  "schedule_notes": "ISO-like Python weekday Monday=0; monthly first designated weekday; quarterly Jan/Apr/Jul/Oct; monthly_after20 first designated weekday strictly after day 20. Official fiscal deadlines are not yet ingested; deadline-relative rules deferred."
 }

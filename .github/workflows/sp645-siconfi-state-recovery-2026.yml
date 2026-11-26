@@ -1,0 +1,59 @@
+name: SP645 Siconfi 2026 missing-only recovery
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/sp645-siconfi-state-recovery-2026.yml']
+permissions:
+  contents: read
+concurrency:
+  group: sp645-siconfi-periodic-2026
+  cancel-in-progress: false
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover sequentially and persist each batch
+        run: |
+          set -euo pipefail
+          for offset in 0 20 40 60 80; do
+            dir="build/state-recovery/$offset"
+            python -m pipeline.acquire.siconfi_periodic_state_recovery_2026 --offset "$offset" --limit 20 --output "$dir"
+            mkdir -p "$dir/raw"
+            tar -czf "$dir.tar.gz" -C "$dir" recovery.json raw
+            sha="$(sha256sum "$dir.tar.gz" | cut -d' ' -f1)"
+            key="sp_645/federal/siconfi/periodic/2026/state/recovery/run_${{ github.run_id }}/offset_${offset}_${sha}.tar.gz"
+            python deployment/upload_r2_source.py --source "$dir.tar.gz" --object-key "$key" --expected-sha256 "$sha" --content-type application/gzip
+            python deployment/download_r2_source.py --object-key "$key" --expected-sha256 "$sha" --output "$dir.readback.tar.gz"
+          done
+      - name: Consolidate coverage
+        run: |
+          python - <<'PY'
+          import json,pathlib,collections
+          root=pathlib.Path('build/state-recovery')
+          batches=[json.loads((root/str(i)/'recovery.json').read_text()) for i in (0,20,40,60,80)]
+          codes=[c for b in batches for c in b['summary']['selected_codes']]
+          assert len(codes)==len(set(codes))==98
+          rows=[r for b in batches for r in b['results']]
+          keys=[(r['codigo_ibge'],r['endpoint'],r['periodicity'],r['period'],r['annex']) for r in rows]
+          assert len(keys)==len(set(keys))
+          found={r['codigo_ibge'] for r in rows if r['status']=='observed_rows'}
+          report={'municipalities_examined':98,'requests':len(rows),'status_counts':dict(collections.Counter(r['status'] for r in rows)),'new_municipalities':sorted(found.intersection(codes)),'remaining_without_rows':sorted(set(codes)-found),'publication_authorized':False}
+          (root/'summary.json').write_text(json.dumps(report,indent=2))
+          print('STATE_RECOVERY_SUMMARY',json.dumps(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-siconfi-state-recovery-2026
+          path: |
+            build/state-recovery/*/recovery.json
+            build/state-recovery/summary.json

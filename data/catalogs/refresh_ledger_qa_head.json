@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "environment": "qa",
+  "generation": 2,
+  "run_id": 45897126627,
+  "object_key": "sp_645/maintenance/ledger/qa/run_45897126627/40832b0871f9cd7d80a3699e774693308b3ca53cc0776949d13ccada57a27211.sqlite",
+  "sha256": "40832b0871f9cd7d80a3699e774693308b3ca53cc0776949d13ccada57a27211",
+  "operations": 1048,
+  "events": 1048,
+  "predecessor": {
+    "run_id": 45891737136,
+    "sha256": "67884f23e81a5b3c52b1fab798acf972090ddf302e90392a35c3b21e2e3e1e03",
+    "object_key": "sp_645/maintenance/ledger/qa/run_45891737136/67884f23e81a5b3c52b1fab798acf972090ddf302e90392a35c3b21e2e3e1e03.sqlite",
+    "operations": 966,
+    "events": 966
+  },
+  "publication_authorized": false
+}

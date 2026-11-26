@@ -1,0 +1,90 @@
+name: SP645 Siconfi 2026 periodic statewide expansion
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/sp645-siconfi-periodic-state-2026.yml']
+permissions:
+  contents: read
+concurrency:
+  group: sp645-siconfi-periodic-2026
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sequential batches outside RMRP
+        run: |
+          set -euo pipefail
+          for offset in 34 134 234 334 434 534 634; do
+            dir="build/state/$offset"
+            python -m pipeline.acquire.siconfi_periodic_2026 --offset "$offset" --limit 100 --output "$dir"
+            python - "$dir" "$offset" <<'PY'
+          import csv,json,pathlib,hashlib,sys,collections,gzip
+          root=pathlib.Path(sys.argv[1]); offset=int(sys.argv[2])
+          with open('governance/DIM_SP645_IBGE_RA_RG_RM_AU_CONSOLIDADA_2026_11_14.csv',encoding='utf-8-sig') as f:
+              roster=list(csv.DictReader(f,delimiter=';'))
+          roster.sort(key=lambda r:(r['rm_au_nome']!='Região Metropolitana de Ribeirão Preto',r['codigo_ibge']))
+          assert len(roster)==645 and len({r['codigo_ibge'] for r in roster})==645
+          assert all(r['rm_au_nome']=='Região Metropolitana de Ribeirão Preto' for r in roster[:34])
+          selected=roster[offset:offset+100]; codes={r['codigo_ibge'] for r in selected}
+          assert not codes.intersection(r['codigo_ibge'] for r in roster[:34])
+          plan=json.loads((root/'plan.json').read_text()); coll=json.loads((root/'collection.json').read_text())
+          assert plan['summary']['plan_requests']==3225
+          tasks=[r for r in plan['requests'] if r['codigo_ibge'] in codes]
+          key=lambda r:tuple(r[k] for k in ('codigo_ibge','endpoint','periodicity','period','annex'))
+          actual=coll['results']
+          assert len(set(map(key,tasks)))==len(tasks)
+          assert sorted(map(key,tasks))==sorted(map(key,actual))
+          for r in actual:
+              if r['status']=='unavailable':continue
+              path=root/r['file']; assert hashlib.sha256(path.read_bytes()).hexdigest()==r['sha256']
+              with gzip.open(path,'rt',encoding='utf-8') as f: payload=json.load(f)
+              assert payload['entity_id']==r['codigo_ibge'] and payload['year']==2026
+              assert payload['parameters']['nr_periodo']==r['period'] and payload['parameters']['no_anexo']==r['annex']
+              assert len(payload['items'])==r['row_count']
+          by=collections.Counter((r['endpoint'],r['periodicity'],r['period'],r['annex'],r['status']) for r in actual)
+          report={'offset':offset,'selected_codes':sorted(codes),'municipalities':len(codes),'planned':len(tasks),'without_plan':sorted(codes-{r['codigo_ibge'] for r in tasks}),'observed_codes':sorted({r['codigo_ibge'] for r in actual if r['status']=='observed_rows'}),'status_counts':dict(collections.Counter(r['status'] for r in actual)),'coverage':[{'endpoint':k[0],'periodicity':k[1],'period':k[2],'annex':k[3],'status':k[4],'count':v} for k,v in sorted(by.items())],'publication_authorized':False}
+          (root/'qa.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          print('STATE_PERIODIC_BATCH',json.dumps({k:v for k,v in report.items() if k not in ('selected_codes','observed_codes','without_plan','coverage')}))
+          PY
+            mkdir -p "$dir/raw"
+            tar -czf "$dir.tar.gz" -C "$dir" collection.json qa.json raw
+            sha="$(sha256sum "$dir.tar.gz" | cut -d' ' -f1)"
+            key="sp_645/federal/siconfi/periodic/2026/state/run_${{ github.run_id }}/offset_${offset}_${sha}.tar.gz"
+            python deployment/upload_r2_source.py --source "$dir.tar.gz" --object-key "$key" --expected-sha256 "$sha" --content-type application/gzip
+            python deployment/download_r2_source.py --object-key "$key" --output "$dir.readback.tar.gz" --expected-sha256 "$sha"
+          done
+      - name: Consolidate coverage
+        run: |
+          python - <<'PY'
+          import json,pathlib,collections
+          root=pathlib.Path('build/state')
+          batches=[json.loads((root/str(i)/'qa.json').read_text()) for i in (34,134,234,334,434,534,634)]
+          codes=[c for b in batches for c in b['selected_codes']]
+          assert len(codes)==len(set(codes))==611
+          assert sum(b['planned'] for b in batches)==3069
+          counts=collections.Counter()
+          for b in batches:counts.update(b['status_counts'])
+          assert sum(counts.values())==3069
+          report={'municipalities':611,'planned':3069,'status_counts':dict(counts),'observed_municipalities':sum(len(b['observed_codes']) for b in batches),'without_plan':sorted(c for b in batches for c in b['without_plan']),'publication_authorized':False}
+          (root/'summary.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          print('STATE_PERIODIC_SUMMARY',json.dumps(report,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-periodic-2026-state-evidence
+          path: |
+            build/state/*/qa.json
+            build/state/*/collection.json
+            build/state/summary.json
+          retention-days: 30

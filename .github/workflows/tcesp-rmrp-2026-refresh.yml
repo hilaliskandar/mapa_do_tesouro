@@ -1,0 +1,56 @@
+name: TCESP RMRP 2026 refresh partial snapshots
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/tcesp-rmrp-2026-refresh.yml']
+permissions:
+  contents: read
+concurrency:
+  group: tcesp-rmrp-2026-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh and compare source versions
+        run: python -m pipeline.acquire.tcesp_rmrp_refresh_2026
+      - name: Preserve each changed source and derived record independently
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib,subprocess,sys,os
+          root=pathlib.Path('build/tcesp-refresh')
+          report=json.loads((root/'coverage.json').read_text())
+          assert len(report['results'])==68
+          assert len({(r['codigo_ibge'],r['domain']) for r in report['results']})==68
+          for r in report['results']:
+              for field,hashfield in [('raw_file','source_sha256'),('file','derived_sha256')]:
+                  if field not in r:continue
+                  p=root/r[field];sha=hashlib.sha256(p.read_bytes()).hexdigest();assert sha==r[hashfield]
+                  key=f"tcesp/rmrp/2026/refresh/run_{os.environ['GITHUB_RUN_ID']}/{r['codigo_ibge']}/{r['domain']}/{sha}{p.suffix}"
+                  subprocess.run([sys.executable,'deployment/upload_r2_source.py','--source',str(p),'--object-key',key,'--expected-sha256',sha,'--content-type','application/zip' if p.suffix=='.zip' else 'application/json'],check=True)
+                  subprocess.run([sys.executable,'deployment/download_r2_source.py','--object-key',key,'--output',str(root/'readback.tmp'),'--expected-sha256',sha],check=True)
+                  r[field+'_r2']=key
+          report['previous_snapshot_preserved']=True
+          report['publication_authorized']=False
+          p=root/'coverage.json';p.write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          sha=hashlib.sha256(p.read_bytes()).hexdigest()
+          key=f"tcesp/rmrp/2026/refresh/run_{os.environ['GITHUB_RUN_ID']}/coverage_{sha}.json"
+          subprocess.run([sys.executable,'deployment/upload_r2_source.py','--source',str(p),'--object-key',key,'--expected-sha256',sha,'--content-type','application/json'],check=True)
+          subprocess.run([sys.executable,'deployment/download_r2_source.py','--object-key',key,'--output',str(root/'readback.tmp'),'--expected-sha256',sha],check=True)
+          print('TCESP_REFRESH_PERSISTED',key)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-rmrp-refresh-2026-coverage
+          path: build/tcesp-refresh/coverage.json
+          retention-days: 30

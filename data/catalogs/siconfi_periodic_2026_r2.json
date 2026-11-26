@@ -1,0 +1,52 @@
+{
+  "state_run": 45804816212,
+  "pilot_run": 45714145039,
+  "recovery_run": 45716930292,
+  "objects": [
+    {
+      "offset": 0,
+      "key": "sp_645/federal/siconfi/periodic/2026/rmrp/run_45714145039/992c3385b06e8444027aa0af39fc111239f79ee211e53f57f6a4f17470a07932.tar.gz",
+      "sha256": "992c3385b06e8444027aa0af39fc111239f79ee211e53f57f6a4f17470a07932"
+    },
+    {
+      "key": "sp_645/federal/siconfi/periodic/2026/state/run_45804816212/offset_34_471e73530a3699e3359bd6613bc48e36c317c21d5209e2a6e107adf13a42dfa6.tar.gz",
+      "offset": 34,
+      "sha256": "471e73530a3699e3359bd6613bc48e36c317c21d5209e2a6e107adf13a42dfa6"
+    },
+    {
+      "key": "sp_645/federal/siconfi/periodic/2026/state/run_45804816212/offset_134_c8ce03c0e04e1defa72c195a34db9a51a0b96356ab096c05bbc5df7a64658a56.tar.gz",
+      "offset": 134,
+      "sha256": "c8ce03c0e04e1defa72c195a34db9a51a0b96356ab096c05bbc5df7a64658a56"
+    },
+    {
+      "key": "sp_645/federal/siconfi/periodic/2026/state/run_45804816212/offset_234_6f09a6b4c816676ebffdb59d077d5209e507f0a59d590d32e0b68f5c751c02a4.tar.gz",
+      "offset": 234,
+      "sha256": "6f09a6b4c816676ebffdb59d077d5209e507f0a59d590d32e0b68f5c751c02a4"
+    },
+    {
+      "key": "sp_645/federal/siconfi/periodic/2026/state/run_45804816212/offset_334_6d01f2547d3bbe42aec7dbc68dd51f9d0baafcb8afe754554af6a92756026b23.tar.gz",
+      "offset": 334,
+      "sha256": "6d01f2547d3bbe42aec7dbc68dd51f9d0baafcb8afe754554af6a92756026b23"
+    },
+    {
+      "key": "sp_645/federal/siconfi/periodic/2026/state/run_45804816212/offset_434_b5e976d7e70e4bb31785aa2893a58dccfadaefc742d91e6490bee7bf12fbd2a6.tar.gz",
+      "offset": 434,
+      "sha256": "b5e976d7e70e4bb31785aa2893a58dccfadaefc742d91e6490bee7bf12fbd2a6"
+    },
+    {
+      "key": "sp_645/federal/siconfi/periodic/2026/state/run_45804816212/offset_534_eef942431e9e7ccca7a5fdcd1ddb96ad6052ef6cd893e45a1effd528da6cd400.tar.gz",
+      "offset": 534,
+      "sha256": "eef942431e9e7ccca7a5fdcd1ddb96ad6052ef6cd893e45a1effd528da6cd400"
+    },
+    {
+      "key": "sp_645/federal/siconfi/periodic/2026/state/run_45804816212/offset_634_49d6a8b46f7c1a6e577439655bbbbe8d50e3904a88ea247f4c8970a3e83fa17c.tar.gz",
+      "offset": 634,
+      "sha256": "49d6a8b46f7c1a6e577439655bbbbe8d50e3904a88ea247f4c8970a3e83fa17c"
+    }
+  ],
+  "recovery": {
+    "key": "sp_645/federal/siconfi/periodic/2026/rmrp/recovery/run_45716930292/66c4c98fade52c03699d7f91e9ce629f988cb39bdb0f0769c465dee874296b98.tar.gz",
+    "sha256": "66c4c98fade52c03699d7f91e9ce629f988cb39bdb0f0769c465dee874296b98"
+  },
+  "publication_authorized": false
+}

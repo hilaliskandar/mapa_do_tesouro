@@ -1,0 +1,22 @@
+name: Source refresh calendar dry run
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/source-refresh-calendar-dry-run.yml']
+permissions:
+  contents: read
+jobs:
+  simulation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p test_refresh_calendar.py -v
+      - run: python -m pipeline.refresh_calendar --start 2027-01-01 --end 2027-12-31 --output build/calendar/2027.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-refresh-calendar-2027
+          path: build/calendar/2027.json

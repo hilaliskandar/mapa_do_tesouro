@@ -1,0 +1,58 @@
+name: Source refresh ledger manifest restore QA
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/source-refresh-ledger-restore-qa.yml']
+permissions:
+  contents: read
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore current QA head
+        run: python -m pipeline.refresh_ledger_restore --manifest data/catalogs/refresh_ledger_qa_head.json --output build/restore/current.sqlite --report build/restore/current.json
+      - name: Exercise corruption, fallback and environment isolation
+        run: |
+          python - <<'PY'
+          import json,pathlib,os,copy
+          from pipeline.refresh_ledger_restore import restore
+          from deployment.download_r2_source import download_r2_object
+          root=pathlib.Path('build/restore')
+          m=json.load(open('data/catalogs/refresh_ledger_qa_head.json'))
+          a=json.loads((root/'current.json').read_text())
+          assert a['operations']==1048 and not a['fallback']
+          def fetch(key,path):
+              if key==m['object_key']:
+                  path.write_bytes(b'corrupt fixture')
+              else:
+                  download_r2_object(account_id=os.environ['CLOUDFLARE_ACCOUNT_ID'],api_token=os.environ['CLOUDFLARE_API_TOKEN'],bucket=os.environ['CLOUDFLARE_R2_BUCKET'],object_key=key,output=path)
+          b=restore(m,root/'fallback.sqlite',fetch)
+          assert b['fallback'] and b['operations']==966
+          def bad(key,path):path.write_bytes(b'bad')
+          try:restore(m,root/'invalid.sqlite',bad)
+          except RuntimeError:pass
+          else:raise AssertionError('invalid snapshots accepted')
+          assert not (root/'invalid.sqlite').exists()
+          n=copy.deepcopy(m);n['environment']='production'
+          try:restore(n,root/'production.sqlite',bad)
+          except ValueError:pass
+          else:raise AssertionError('wrong environment accepted')
+          assert not (root/'production.sqlite').exists()
+          report={'current':a,'fallback':b,'all_invalid_rejected':True,'production_rejected':True,'dispatch_count':0}
+          (root/'report.json').write_text(json.dumps(report,indent=2))
+          print('LEDGER_RESTORE_SCENARIOS',json.dumps(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source-refresh-ledger-restore-qa
+          path: build/restore/*.json

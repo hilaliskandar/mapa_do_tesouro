@@ -1,0 +1,60 @@
+name: Source refresh ledger isolated QA
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/source-refresh-ledger-qa.yml']
+permissions:
+  contents: read
+concurrency:
+  group: source-refresh-ledger-qa
+  cancel-in-progress: false
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test calendar and ledger
+        run: python -m unittest discover -s tests -p 'test_refresh_*.py' -v
+      - name: Seed simulation and prove idempotence after reopening
+        run: |
+          python -m pipeline.refresh_calendar --start 2027-01-01 --end 2027-12-31 --output build/ledger/plan.json
+          python -m pipeline.refresh_ledger --plan build/ledger/plan.json --ledger build/ledger/ledger.sqlite --summary build/ledger/first.json
+          python -m pipeline.refresh_ledger --plan build/ledger/plan.json --ledger build/ledger/ledger.sqlite --summary build/ledger/second.json
+          python - <<'PY'
+          import json
+          a=json.load(open('build/ledger/first.json'));b=json.load(open('build/ledger/second.json'))
+          assert a['new_operations']==966 and b['new_operations']==0
+          assert a['states']==b['states']=={'planned':966}
+          assert a['events']==b['events']==966
+          PY
+      - name: Persist isolated simulation ledger and verify readback
+        run: |
+          sha="$(sha256sum build/ledger/ledger.sqlite | cut -d' ' -f1)"
+          key="sp_645/maintenance/ledger/qa/run_${{ github.run_id }}/${sha}.sqlite"
+          python deployment/upload_r2_source.py --source build/ledger/ledger.sqlite --object-key "$key" --expected-sha256 "$sha" --content-type application/octet-stream
+          python deployment/download_r2_source.py --object-key "$key" --expected-sha256 "$sha" --output build/ledger/restored.sqlite
+          python -m pipeline.refresh_ledger --plan build/ledger/plan.json --ledger build/ledger/restored.sqlite --summary build/ledger/restored.json
+          python - <<'PY'
+          import json,sqlite3
+          r=json.load(open('build/ledger/restored.json'))
+          assert r['new_operations']==0 and r['states']=={'planned':966}
+          with sqlite3.connect('build/ledger/restored.sqlite') as c:
+              assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+              assert not c.execute('PRAGMA foreign_key_check').fetchall()
+          print('LEDGER_READBACK_QA',json.dumps(r))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source-refresh-ledger-qa
+          path: |
+            build/ledger/*.json
+          retention-days: 30

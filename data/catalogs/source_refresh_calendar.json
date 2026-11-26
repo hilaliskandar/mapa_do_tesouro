@@ -1,0 +1,174 @@
+{
+  "version": "0.1",
+  "status": "proposed_not_enabled",
+  "timezone": "America/Sao_Paulo",
+  "scope": "SP645; RMRP priority; TCE-SP 644 plus TCM-SP capital",
+  "created": "2026-11-26",
+  "sources": [
+    {
+      "id": "finbra_dca",
+      "reference_period": "annual",
+      "check_cadence": "weekly Feb-Jul; monthly Aug-Jan; historical quarterly",
+      "window": "previous fiscal year and revisions",
+      "trigger": "metadata delivery or changed source",
+      "implementation": "active_collector_needs_scheduler"
+    },
+    {
+      "id": "siconfi_rreo",
+      "reference_period": "bimonthly",
+      "check_cadence": "weekly Monday",
+      "window": "current and previous period; 2, 7, 14, 30 days after official deadline",
+      "trigger": "delivery/version change or missing",
+      "implementation": "active_collector_needs_scheduler"
+    },
+    {
+      "id": "siconfi_rgf",
+      "reference_period": "four_monthly_or_semester",
+      "check_cadence": "weekly Monday",
+      "window": "current and previous actual periodicity; 2, 7, 14, 30 days after official deadline",
+      "trigger": "delivery/version change or missing",
+      "implementation": "active_collector_needs_scheduler"
+    },
+    {
+      "id": "siconfi_msc",
+      "reference_period": "monthly",
+      "check_cadence": "weekly Friday",
+      "window": "latest 3 reference months; closure separate",
+      "trigger": "delivery/version change or missing",
+      "implementation": "collector_pending"
+    },
+    {
+      "id": "tcesp_receitas",
+      "reference_period": "monthly",
+      "check_cadence": "weekly Tuesday metadata; monthly full on first Tuesday after day 20",
+      "window": "current fiscal year; previous year quarterly",
+      "trigger": "changed object or monthly refresh if metadata unreliable",
+      "implementation": "rmrp_refresh_validated_state_pending"
+    },
+    {
+      "id": "tcesp_despesas",
+      "reference_period": "monthly",
+      "check_cadence": "weekly Tuesday metadata; monthly full on first Tuesday after day 20",
+      "window": "current fiscal year; previous year quarterly",
+      "trigger": "changed object or monthly refresh if metadata unreliable",
+      "implementation": "rmrp_refresh_validated_state_pending"
+    },
+    {
+      "id": "tcesp_rcl",
+      "reference_period": "monthly",
+      "check_cadence": "monthly Tuesday",
+      "window": "current source",
+      "trigger": "changed source",
+      "implementation": "pending"
+    },
+    {
+      "id": "tcesp_programas_acoes",
+      "reference_period": "multiannual",
+      "check_cadence": "monthly Tuesday",
+      "window": "current PPA and amendments",
+      "trigger": "changed source",
+      "implementation": "pending"
+    },
+    {
+      "id": "siafem",
+      "reference_period": "continuous",
+      "check_cadence": "weekly Thursday",
+      "window": "open instruments and current/prior year",
+      "trigger": "new or changed record; retry gaps",
+      "implementation": "partial_collector"
+    },
+    {
+      "id": "transferegov",
+      "reference_period": "continuous",
+      "check_cadence": "daily lightweight; weekly Wednesday ingestion",
+      "window": "open instruments and financial events; quarterly historical reconciliation",
+      "trigger": "new or changed record or file",
+      "implementation": "migration_validation_required"
+    },
+    {
+      "id": "obrasgov",
+      "reference_period": "variable",
+      "check_cadence": "weekly Thursday; monthly full inventory",
+      "window": "active and recently changed projects",
+      "trigger": "new or changed record; fallback snapshot",
+      "implementation": "migration_validation_required"
+    },
+    {
+      "id": "tcm_sp",
+      "reference_period": "to_verify",
+      "check_cadence": "monthly provisional",
+      "window": "capital; current fiscal year",
+      "trigger": "source verification",
+      "implementation": "pending"
+    },
+    {
+      "id": "ibge_population",
+      "reference_period": "annual",
+      "check_cadence": "monthly release check; quarterly otherwise",
+      "window": "latest and revisions",
+      "trigger": "new release",
+      "implementation": "pending"
+    },
+    {
+      "id": "ibge_pib",
+      "reference_period": "annual",
+      "check_cadence": "monthly release check; quarterly otherwise",
+      "window": "latest and revisions",
+      "trigger": "new release",
+      "implementation": "pending"
+    },
+    {
+      "id": "seade",
+      "reference_period": "series_specific",
+      "check_cadence": "monthly",
+      "window": "series-specific",
+      "trigger": "new release",
+      "implementation": "pending"
+    },
+    {
+      "id": "rais",
+      "reference_period": "annual",
+      "check_cadence": "monthly release check",
+      "window": "latest and revisions",
+      "trigger": "new release",
+      "implementation": "pending"
+    },
+    {
+      "id": "novo_caged",
+      "reference_period": "monthly",
+      "check_cadence": "monthly",
+      "window": "latest and revisions",
+      "trigger": "new release",
+      "implementation": "pending"
+    },
+    {
+      "id": "territorial_dimensions",
+      "reference_period": "eventual",
+      "check_cadence": "quarterly",
+      "window": "IBGE SEADE SEMIL official reference",
+      "trigger": "new boundary or classification",
+      "implementation": "pending"
+    }
+  ],
+  "policies": {
+    "metadata_first": true,
+    "source_hash_fallback": true,
+    "immutable_snapshots": true,
+    "missing_is_not_zero": true,
+    "keep_last_valid": true,
+    "official_calendar_overrides": true,
+    "public_release_requires_qa_and_authorization": true,
+    "avoid_parallel_same_source": true
+  },
+  "official_sources": [
+    "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm",
+    "https://siconfi.tesouro.gov.br/",
+    "https://www.gov.br/transferegov/pt-br/ferramentas-gestao/api-de-dados-abertos-transferegov.br",
+    "https://www.gov.br/transferegov/pt-br/comunicados/comunicados-gerais/2026/comunicado-no-23-2026-do-portal-do-transferegov.br"
+  ],
+  "evidence": {
+    "siconfi_2026_run": 45804816212,
+    "tcesp_rmrp_refresh_run": 45858905499,
+    "tcesp_rmrp_refresh_coverage_key": "tcesp/rmrp/2026/refresh/run_45858905499/coverage_b7e61233879fdaab9cd04a6c8655400f23b2b1c212b3a356837614029a92e90e.json"
+  }
+}

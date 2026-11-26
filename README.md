@@ -1,5 +1,7 @@
 # Finanças Municipais SP
 
+> **Recuperação SP645:** [plano permanente de passivos](governance/PLANO_RECUPERACAO_PASSIVOS_SP645.md), complementar ao calendário recorrente. Recuperação Siconfi 2026 acionada por workflow missing-only; não considerar ausência como zero. Agendamentos de produção ainda desabilitados.
+
 > **26/11/2026 — v0.7 em desenvolvimento:** [calendário permanente de atualização das fontes](governance/CALENDARIO_ATUALIZACAO_FONTES_SP645.md) e [catálogo de periodicidades](data/catalogs/source_refresh_calendar.json) registrados, ainda sem agendamentos habilitados. TCE-SP RMRP: 68/68 extratos atualizados e verificados em R2 (run 45858905499); Siconfi 2026: 3220 demonstrativos, 539 municípios.
 
 > 25/11/2026 — v0.6.0 publicada e homologada em produção (run 45594094214 success; evidências 15013120329; 13/13 endpoints novos, API fiscal e cadastro RMRP aprovados). Artefato final 15012300428, release ae755215cebc071800253ce278a0765353ed4165, rollback v0.5.1. Próxima frente v0.7.0: 2026 e transferências, sem promoção financeira automática.

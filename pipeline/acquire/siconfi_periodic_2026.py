@@ -7,6 +7,7 @@ from pipeline.acquire.siconfi_legal_reports import write_raw
 p=argparse.ArgumentParser()
 p.add_argument("--output",type=Path,required=True)
 p.add_argument("--limit",type=int,default=34)
+p.add_argument("--offset",type=int,default=0)
 p.add_argument("--plan-only",action="store_true")
 a=p.parse_args()
 a.output.mkdir(parents=True,exist_ok=True)
@@ -53,7 +54,8 @@ report={"municipalities":645,"empty":[r["codigo_ibge"] for r in municipalities i
 (a.output/"plan.json").write_text(json.dumps({"summary":report,"requests":plan},ensure_ascii=False,indent=2))
 print("SICONFI_PERIOD_PLAN",json.dumps(report,ensure_ascii=False))
 if a.plan_only:sys.exit(0)
-codes={r["codigo_ibge"] for r in municipalities[:a.limit]}
+assert 0<=a.offset<645 and 1<=a.limit<=645
+codes={r["codigo_ibge"] for r in municipalities[a.offset:a.offset+a.limit]}
 client=SiconfiClient(min_interval=1.1,timeout=35,max_retries=1)
 results=[]
 for task in plan:
@@ -70,6 +72,6 @@ for task in plan:
         results.append({**task,"status":"observed_rows" if result.items else "empty_not_zero","row_count":len(result.items),"sha256":hashlib.sha256(path.read_bytes()).hexdigest(),"file":str(path.relative_to(a.output))})
     except Exception as exc:
         results.append({**task,"status":"unavailable","error":f"{type(exc).__name__}: {str(exc)[:200]}"})
-summary={"municipalities_selected":len(codes),"requests_planned":len([t for t in plan if t["codigo_ibge"] in codes]),"status_counts":dict(collections.Counter(r["status"] for r in results)),"publication_authorized":False}
+summary={"offset":a.offset,"municipalities_selected":len(codes),"requests_planned":len([t for t in plan if t["codigo_ibge"] in codes]),"status_counts":dict(collections.Counter(r["status"] for r in results)),"publication_authorized":False}
 (a.output/"collection.json").write_text(json.dumps({"summary":summary,"results":results},ensure_ascii=False,indent=2))
 print("SICONFI_PERIOD_COLLECTION",json.dumps(summary))

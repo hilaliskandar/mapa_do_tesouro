@@ -1,5 +1,7 @@
 # Finanças Municipais SP
 
+> **26/11/2026 — v0.7 em desenvolvimento:** [calendário permanente de atualização das fontes](governance/CALENDARIO_ATUALIZACAO_FONTES_SP645.md) e [catálogo de periodicidades](data/catalogs/source_refresh_calendar.json) registrados, ainda sem agendamentos habilitados. TCE-SP RMRP: 68/68 extratos atualizados e verificados em R2 (run 45858905499); Siconfi 2026: 3220 demonstrativos, 539 municípios.
+
 > 25/11/2026 — v0.6.0 publicada e homologada em produção (run 45594094214 success; evidências 15013120329; 13/13 endpoints novos, API fiscal e cadastro RMRP aprovados). Artefato final 15012300428, release ae755215cebc071800253ce278a0765353ed4165, rollback v0.5.1. Próxima frente v0.7.0: 2026 e transferências, sem promoção financeira automática.
 
 > v0.6.0 candidata: FINBRA 2013–2025 (218010 células, 72 universos, 24336 agregados), TCESP 2023–2025 (644 municípios, 1932 detalhes anuais, 15 objetos R2 verificados), paridade 1876/1931; 55 divergências preservadas. Run 45578949089 success, artifact 15005133443. Preview externo run 45581272755 deploy e QA fiscal/RMRP aprovados; último controle JSON HTTP 403; corrigido cliente HTTP para padrão já homologado, execução pendente. Produção v0.5.1 preservada. Relatório governance/QA_V060_FINBRA_TCESP_2026_11_25.md.

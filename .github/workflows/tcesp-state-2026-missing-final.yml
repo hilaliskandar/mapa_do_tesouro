@@ -1,0 +1,67 @@
+name: TCESP 2026 statewide missing final 399
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/tcesp-state-2026-missing-final.yml']
+permissions:
+  contents: read
+concurrency:
+  group: tcesp-state-2026
+  cancel-in-progress: false
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect and verify each independent batch
+        run: |
+          set -euo pipefail
+          for offset in 200 220 240 260 280 300 320 340 360 380 400 420 440 460 480 500 520 540 560 580; do
+            dir="build/tcesp-final/$offset"
+            python -m pipeline.acquire.tcesp_state_missing_2026 --remaining-priority --offset "$offset" --limit 20 --output "$dir"
+            python - "$dir" <<'PY'
+          import sys,json,pathlib,hashlib
+          root=pathlib.Path(sys.argv[1])
+          rows=json.loads((root/'coverage.json').read_text())['results']
+          assert len(rows)==len({(r['codigo_ibge'],r['dominio']) for r in rows})== (38 if root.name == '580' else 40)
+          for r in rows:
+              if r['status']!='updated':continue
+              assert hashlib.sha256((root/r['raw_file']).read_bytes()).hexdigest()==r['source_sha256']
+              assert hashlib.sha256((root/r['file']).read_bytes()).hexdigest()==r['derived_sha256']
+              x=json.loads((root/r['file']).read_text())
+              assert x['identity_status'] in ('ibge_verified','source_name_verified') and not x['errors']
+          PY
+            tar -czf "$dir.tar.gz" -C "$dir" .
+            sha="$(sha256sum "$dir.tar.gz" | cut -d' ' -f1)"
+            key="tcesp/estadual/2026/missing-final/run_${{ github.run_id }}/offset_${offset}_${sha}.tar.gz"
+            python deployment/upload_r2_source.py --source "$dir.tar.gz" --object-key "$key" --expected-sha256 "$sha" --content-type application/gzip
+            python deployment/download_r2_source.py --object-key "$key" --expected-sha256 "$sha" --output "$dir.readback.tar.gz"
+            rm -rf "$dir/raw" "$dir/derived" "$dir.tar.gz" "$dir.readback.tar.gz"
+          done
+      - name: Consolidate coverage
+        run: |
+          python - <<'PY'
+          import pathlib,json,collections
+          root=pathlib.Path('build/tcesp-final')
+          rows=[r for p in sorted(root.glob('*/coverage.json')) for r in json.loads(p.read_text())['results']]
+          assert len(rows)==len({(r['codigo_ibge'],r['dominio']) for r in rows})==798
+          counts=collections.Counter(r['codigo_ibge'] for r in rows if r['status']=='updated')
+          report={'examined_municipalities':399,'complete_pairs':sum(v==2 for v in counts.values()),'status_counts':dict(collections.Counter(r['status'] for r in rows)),'publication_authorized':False}
+          (root/'summary.json').write_text(json.dumps(report,indent=2))
+          print('TCESP_EXPANSION_SUMMARY',json.dumps(report))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-state-2026-final
+          path: |
+            build/tcesp-final/*/coverage.json
+            build/tcesp-final/summary.json

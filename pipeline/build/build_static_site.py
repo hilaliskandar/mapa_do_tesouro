@@ -73,7 +73,7 @@ def build_static_site(
         shutil.rmtree(output)
     output.mkdir(parents=True, exist_ok=True)
 
-    for filename in ("index.html", "styles.css", "app.js"):
+    for filename in ("index.html", "styles.css", "app.js", "transferegov-financeiro.html", "transferegov-financeiro.js"):
         shutil.copy2(FRONTEND / filename, output / filename)
 
     headers = """/*

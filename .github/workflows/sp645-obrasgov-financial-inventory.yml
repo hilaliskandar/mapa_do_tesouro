@@ -1,0 +1,37 @@
+name: SP645 ObrasGov financial missing inventory
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/sp645-obrasgov-financial-inventory.yml']
+permissions:
+  contents: read
+concurrency:
+  group: sp645-obrasgov-financial
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - run: python -m pipeline.acquire.sp645_obrasgov_financial_inventory --out build/obras-sp645 --limit 100
+      - name: Persist inventory and pilot
+        run: |
+          tar -czf build/obras-sp645.tar.gz -C build/obras-sp645 inventory.json values.json qa.json
+          sha="$(sha256sum build/obras-sp645.tar.gz | cut -d' ' -f1)"
+          key="sp_645/federal/obrasgov/financial/inventory/run_${{ github.run_id }}/${sha}.tar.gz"
+          python deployment/upload_r2_source.py --source build/obras-sp645.tar.gz --object-key "$key" --expected-sha256 "$sha" --content-type application/gzip
+          python deployment/download_r2_source.py --object-key "$key" --expected-sha256 "$sha" --output build/readback.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sp645-obrasgov-financial-qa
+          path: build/obras-sp645/qa.json

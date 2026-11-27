@@ -1,5 +1,7 @@
 # Pendências operacionais
 
+> **Aviso de atualização:** a fila abaixo é histórica e foi atualizada em 2026-10-09. A fila vigente e a integração entre frentes estão em [`WORKSTREAMS_AND_INTEGRATION_2026_11_27.md`](WORKSTREAMS_AND_INTEGRATION_2026_11_27.md); não reabrir itens antigos sem conferir esse quadro.
+
 Atualizado em 2026-10-09.
 
 Este arquivo é a fila canônica de tarefas do projeto. Ele não substitui issues do GitHub: uma tarefa só deve virar issue quando houver escopo executável, critério de aceite e dependências definidas.

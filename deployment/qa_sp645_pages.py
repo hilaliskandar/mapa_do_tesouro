@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import time
 from pathlib import Path
 from urllib.error import HTTPError, URLError
@@ -120,6 +121,141 @@ def _universe_path(item: dict) -> str:
     return f"/data/{data_path}"
 
 
+TRANSFEREGOV_ALLOWED_STAGES = {"desembolso", "pagamento"}
+TRANSFEREGOV_RECORD_FIELDS = {
+    "codigo_ibge", "municipio", "year", "stage", "event_count",
+    "instrument_count", "net_amount_brl", "negative_events", "zero_events",
+}
+TRANSFEREGOV_FORBIDDEN_FIELDS = {
+    "nr_mov_fin", "nr_convenio", "convenio", "id_dl", "nr_dl",
+    "fornecedor", "nome_fornecedor", "identif_fornecedor", "row_number",
+}
+
+
+def validate_transferegov_financial(document: dict) -> None:
+    expected_root_fields = {
+        "schema_version", "universe", "title", "geographic_basis", "period_basis",
+        "value_basis", "stage_policy", "interpretation", "source",
+        "municipality_count", "municipalities", "years", "coverage", "records",
+    }
+    if not isinstance(document, dict) or set(document) != expected_root_fields:
+        fail("Transferegov aggregate contains unexpected root fields")
+    if document.get("schema_version") != "1.0.0":
+        fail("Transferegov aggregate schema_version mismatch")
+    if document.get("universe") != "SP_645" or document.get("municipality_count") != 645:
+        fail("Transferegov aggregate universe mismatch")
+
+    municipality_rows = document.get("municipalities")
+    if not isinstance(municipality_rows, list) or len(municipality_rows) != 645:
+        fail("Transferegov municipality dimension must contain 645 rows")
+    municipalities = {}
+    for item in municipality_rows:
+        if not isinstance(item, dict) or set(item) != {"codigo_ibge", "municipio"}:
+            fail("Transferegov municipality dimension contains unexpected fields")
+        code = item["codigo_ibge"]
+        name = item["municipio"]
+        if not isinstance(code, str) or len(code) != 7 or not code.isdigit():
+            fail("Transferegov municipality code is invalid")
+        if not isinstance(name, str) or not name.strip() or code in municipalities:
+            fail("Transferegov municipality dimension has invalid or duplicate rows")
+        municipalities[code] = name
+
+    years = document.get("years")
+    if (not isinstance(years, list) or not years or
+            any(not isinstance(year, int) or year < 2000 or year > 2100 for year in years) or
+            years != sorted(set(years))):
+        fail("Transferegov aggregate years are invalid")
+
+    records = document.get("records")
+    if not isinstance(records, list) or not records:
+        fail("Transferegov aggregate records are missing")
+    seen = set()
+    sums = {stage: 0 for stage in TRANSFEREGOV_ALLOWED_STAGES}
+    municipality_coverage = {stage: set() for stage in TRANSFEREGOV_ALLOWED_STAGES}
+    issue_counts = {"negative_events": 0, "zero_events": 0}
+    per_year_stage = {}
+    for row in records:
+        if not isinstance(row, dict) or set(row) != TRANSFEREGOV_RECORD_FIELDS:
+            fail("Transferegov record is not a municipality-year-stage aggregate")
+        if set(key.casefold() for key in row).intersection(TRANSFEREGOV_FORBIDDEN_FIELDS):
+            fail("Transferegov aggregate contains a forbidden identifying field")
+        code = row["codigo_ibge"]
+        year = row["year"]
+        stage = row["stage"]
+        if code not in municipalities or row["municipio"] != municipalities[code]:
+            fail("Transferegov aggregate municipality does not match the dimension")
+        if year not in years or stage not in TRANSFEREGOV_ALLOWED_STAGES:
+            fail("Transferegov aggregate has an unexpected year or stage")
+        key = (code, year, stage)
+        if key in seen:
+            fail("Transferegov aggregate contains duplicate municipality-year-stage keys")
+        seen.add(key)
+        for field in ("event_count", "instrument_count", "negative_events", "zero_events"):
+            value = row[field]
+            if not isinstance(value, int) or value < 0:
+                fail(f"Transferegov aggregate field {field} is invalid")
+        if row["event_count"] < 1 or row["instrument_count"] > row["event_count"]:
+            fail("Transferegov aggregate counts are inconsistent")
+        amount = row["net_amount_brl"]
+        if not isinstance(amount, (int, float)) or not math.isfinite(amount):
+            fail("Transferegov aggregate amount is invalid")
+        sums[stage] += row["event_count"]
+        municipality_coverage[stage].add(code)
+        issue_counts["negative_events"] += row["negative_events"]
+        issue_counts["zero_events"] += row["zero_events"]
+        metric = (year, stage)
+        current = per_year_stage.setdefault(metric, {"events": 0, "municipalities": set()})
+        current["events"] += row["event_count"]
+        current["municipalities"].add(code)
+
+    if sums != {"desembolso": 47392, "pagamento": 945970}:
+        fail("Transferegov aggregate event totals differ from the audited snapshot")
+    if {stage: len(codes) for stage, codes in municipality_coverage.items()} != {
+        "desembolso": 645, "pagamento": 644
+    }:
+        fail("Transferegov aggregate municipal coverage differs from the audited snapshot")
+    if issue_counts != {"negative_events": 5, "zero_events": 2194}:
+        fail("Transferegov aggregate negative/zero payment counts differ from QA")
+
+    coverage = document.get("coverage")
+    if not isinstance(coverage, list) or len(coverage) != len(years) * len(TRANSFEREGOV_ALLOWED_STAGES):
+        fail("Transferegov aggregate coverage table is incomplete")
+    coverage_seen = set()
+    for item in coverage:
+        if not isinstance(item, dict) or set(item) != {
+            "year", "stage", "expected_municipalities",
+            "municipalities_with_events", "event_count",
+        }:
+            fail("Transferegov coverage contains unexpected fields")
+        key = (item["year"], item["stage"])
+        if key in coverage_seen or key[0] not in years or key[1] not in TRANSFEREGOV_ALLOWED_STAGES:
+            fail("Transferegov coverage has duplicate or unsupported year-stage rows")
+        coverage_seen.add(key)
+        actual = per_year_stage.get(key, {"events": 0, "municipalities": set()})
+        if (item["expected_municipalities"] != 645 or
+                item["municipalities_with_events"] != len(actual["municipalities"]) or
+                item["event_count"] != actual["events"]):
+            fail("Transferegov coverage does not reconcile to aggregate records")
+    expected_coverage_pairs = {(year, stage) for year in years for stage in TRANSFEREGOV_ALLOWED_STAGES}
+    if coverage_seen != expected_coverage_pairs:
+        fail("Transferegov coverage does not reconcile to all year-stage pairs")
+
+    source = document.get("source")
+    if (not isinstance(source, dict) or set(source) != {
+            "name", "snapshot_archive_sha256", "staging_run"
+    } or not isinstance(source.get("staging_run"), int) or
+            source.get("snapshot_archive_sha256") != (
+        "d7c0d8758fca9434e5c348e8f2be8905d443b1737ecc31b6aaffa33ddeaf77cc"
+    )):
+        fail("Transferegov aggregate source snapshot hash mismatch")
+    if not isinstance(document.get("interpretation"), list):
+        fail("Transferegov interpretation notes are missing")
+    if "municipio proponente" not in document.get("geographic_basis", ""):
+        fail("Transferegov geographic basis must identify the proponent municipality")
+    if "nao aditivas" not in document.get("stage_policy", ""):
+        fail("Transferegov stage policy must prohibit summing stages")
+
+
 def validate_local(site: Path) -> None:
     required = [
         site / "index.html",
@@ -136,6 +272,7 @@ def validate_local(site: Path) -> None:
         site / "data" / "universes.json",
         site / "data" / "api" / "v1" / "publication" / "contract.json",
         site / "data" / "api" / "v1" / "publication" / "universes.json",
+        site / "data" / "transferegov" / "financial_sp645.json",
     ]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
@@ -147,6 +284,7 @@ def validate_local(site: Path) -> None:
         read_json(site / "data" / "annual" / "2025.json"),
         read_json(site / "data" / "maps" / "municipalities.geojson"),
     )
+    validate_transferegov_financial(read_json(site / "data" / "transferegov" / "financial_sp645.json"))
 
     universes = read_json(site / "data" / "universes.json")
     _validate_universe_catalog(universes)
@@ -255,6 +393,8 @@ def validate_remote(base_url: str) -> None:
         fetch_json(base_url, "/data/annual/2025.json"),
         fetch_json(base_url, "/data/maps/municipalities.geojson"),
     )
+
+    validate_transferegov_financial(fetch_json(base_url, "/data/transferegov/financial_sp645.json"))
 
     universes = fetch_json(base_url, "/data/universes.json")
     _validate_universe_catalog(universes)

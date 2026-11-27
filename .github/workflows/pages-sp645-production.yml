@@ -139,7 +139,7 @@ jobs:
         if: ${{ inputs.include_rmrp_territory }}
         run: python deployment/materialize_rmrp_territorial_sp645.py --site build/site-sp645
 
-      - name: Download public Transferegov snapshot and build municipal aggregates
+      - name: Build public Transferegov aggregates by proponent, year, and stage
         run: |
           python deployment/download_r2_source.py \
             --object-key 'sp_645/federal/transferegov/financial/staging/run_46006854691/d7c0d8758fca9434e5c348e8f2be8905d443b1737ecc31b6aaffa33ddeaf77cc.tar.gz' \

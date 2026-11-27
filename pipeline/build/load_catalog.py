@@ -38,6 +38,17 @@ def read_catalogs(catalogs: list[Path]) -> dict:
     return merged
 
 
+
+def _catalog_flag(item: dict, name: str) -> tuple[int, int]:
+    """Value and explicitness: omitted flags preserve existing SQLite states."""
+    if name not in item:
+        return 1, 0
+    value = item[name]
+    if type(value) not in (bool, int) or value not in (0, 1):
+        raise ValueError(f"Catalogo: {name} deve ser 0 ou 1: {item.get('variavel_id')}")
+    return int(value), 1
+
+
 def load_catalog(
     database: Path,
     catalogs: Path | list[Path] | None = None,
@@ -77,12 +88,15 @@ def load_catalog(
             )
 
         for item in payload.get("variaveis", []):
+            publicavel, publicavel_explicito = _catalog_flag(item, "publicavel")
+            ativo, ativo_explicito = _catalog_flag(item, "ativo")
             connection.execute(
                 """
                 INSERT INTO variavel(
                     variavel_id,nome,grupo,tipo,natureza,unidade,definicao,
-                    formula,como_ler,cautelas,fonte_preferencial_id
-                ) VALUES (?,?,?,?,?,?,?,?,?,?,?)
+                    formula,como_ler,cautelas,fonte_preferencial_id,
+                    publicavel,ativo
+                ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
                 ON CONFLICT(variavel_id) DO UPDATE SET
                     nome=excluded.nome,
                     grupo=excluded.grupo,
@@ -93,7 +107,9 @@ def load_catalog(
                     formula=excluded.formula,
                     como_ler=excluded.como_ler,
                     cautelas=excluded.cautelas,
-                    fonte_preferencial_id=excluded.fonte_preferencial_id
+                    fonte_preferencial_id=excluded.fonte_preferencial_id,
+                    publicavel=CASE WHEN ?=1 THEN excluded.publicavel ELSE variavel.publicavel END,
+                    ativo=CASE WHEN ?=1 THEN excluded.ativo ELSE variavel.ativo END
                 """,
                 (
                     item["variavel_id"],
@@ -107,6 +123,10 @@ def load_catalog(
                     item.get("como_ler"),
                     item.get("cautelas"),
                     item.get("fonte_preferencial_id"),
+                    publicavel,
+                    ativo,
+                    publicavel_explicito,
+                    ativo_explicito,
                 ),
             )
         connection.commit()

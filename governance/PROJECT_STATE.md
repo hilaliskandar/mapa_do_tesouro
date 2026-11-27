@@ -1,5 +1,7 @@
 # Estado do projeto
 
+> **Aviso de atualização:** este arquivo conserva o registro histórico iniciado em 2026-10-09 e não representa sozinho a situação atual. Para estado operacional, frentes paralelas, release e próximos gates, consulte [`WORKSTREAMS_AND_INTEGRATION_2026_11_27.md`](WORKSTREAMS_AND_INTEGRATION_2026_11_27.md).
+
 Data de referência: 2026-10-09.
 
 ## Estado operacional

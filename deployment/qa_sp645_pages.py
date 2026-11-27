@@ -133,6 +133,13 @@ TRANSFEREGOV_FORBIDDEN_FIELDS = {
 
 
 def validate_transferegov_financial(document: dict) -> None:
+    expected_root_fields = {
+        "schema_version", "universe", "title", "geographic_basis", "period_basis",
+        "value_basis", "stage_policy", "interpretation", "source",
+        "municipality_count", "municipalities", "years", "coverage", "records",
+    }
+    if not isinstance(document, dict) or set(document) != expected_root_fields:
+        fail("Transferegov aggregate contains unexpected root fields")
     if document.get("schema_version") != "1.0.0":
         fail("Transferegov aggregate schema_version mismatch")
     if document.get("universe") != "SP_645" or document.get("municipality_count") != 645:
@@ -221,21 +228,25 @@ def validate_transferegov_financial(document: dict) -> None:
         }:
             fail("Transferegov coverage contains unexpected fields")
         key = (item["year"], item["stage"])
-        if key in coverage_seen or key not in per_year_stage:
+        if key in coverage_seen or key[0] not in years or key[1] not in TRANSFEREGOV_ALLOWED_STAGES:
             fail("Transferegov coverage has duplicate or unsupported year-stage rows")
         coverage_seen.add(key)
-        actual = per_year_stage[key]
+        actual = per_year_stage.get(key, {"events": 0, "municipalities": set()})
         if (item["expected_municipalities"] != 645 or
                 item["municipalities_with_events"] != len(actual["municipalities"]) or
                 item["event_count"] != actual["events"]):
             fail("Transferegov coverage does not reconcile to aggregate records")
-    if coverage_seen != set(per_year_stage):
+    expected_coverage_pairs = {(year, stage) for year in years for stage in TRANSFEREGOV_ALLOWED_STAGES}
+    if coverage_seen != expected_coverage_pairs:
         fail("Transferegov coverage does not reconcile to all year-stage pairs")
 
     source = document.get("source")
-    if not isinstance(source, dict) or source.get("snapshot_archive_sha256") != (
+    if (not isinstance(source, dict) or set(source) != {
+            "name", "snapshot_archive_sha256", "staging_run"
+    } or not isinstance(source.get("staging_run"), int) or
+            source.get("snapshot_archive_sha256") != (
         "d7c0d8758fca9434e5c348e8f2be8905d443b1737ecc31b6aaffa33ddeaf77cc"
-    ):
+    )):
         fail("Transferegov aggregate source snapshot hash mismatch")
     if not isinstance(document.get("interpretation"), list):
         fail("Transferegov interpretation notes are missing")

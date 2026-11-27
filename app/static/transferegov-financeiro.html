@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluxos federais · Finanças Municipais SP</title>
+  <meta name="description" content="Consulta agregada de desembolsos e pagamentos do Transferegov por município proponente em São Paulo.">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .finance-map-wrap { overflow: auto; }
+    #finance-map { width: 100%; min-width: 320px; max-height: 680px; }
+    .finance-feature { fill: #dfe4e9; stroke: #fff; stroke-width: .35; cursor: pointer; }
+    .finance-feature:hover, .finance-feature:focus { stroke: #142b3a; stroke-width: 1.2; }
+    .finance-legend { display:flex; flex-wrap:wrap; gap:.55rem 1rem; margin-top:.75rem; }
+    .finance-legend i { display:inline-block; width:.8rem; height:.8rem; margin-right:.35rem; border:1px solid #b7c2cc; }
+    .finance-layout { display:grid; grid-template-columns:minmax(0, 1.35fr) minmax(280px, .65fr); gap:1rem; }
+    .finance-table-wrap { overflow-x:auto; }
+    .finance-table { width:100%; border-collapse:collapse; }
+    .finance-table th,.finance-table td { padding:.6rem .55rem; border-bottom:1px solid #e3e8ed; text-align:left; }
+    .finance-table th { white-space:nowrap; }
+    .finance-table td.num { text-align:right; font-variant-numeric:tabular-nums; }
+    .finance-table tr[data-code] { cursor:pointer; }
+    .finance-table tr[data-code]:hover { background:#f3f7fa; }
+    .finance-table tr.selected { background:#eaf2f7; }
+    .notice { border-left:4px solid #bb7a1b; padding:.8rem 1rem; background:#fff8eb; }
+    .toolbar { display:flex; align-items:end; flex-wrap:wrap; gap:.8rem; }
+    .toolbar label { min-width:190px; }
+    @media(max-width:850px) { .finance-layout { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Finanças Municipais SP · Transferegov</p>
+      <h1>Fluxos financeiros federais</h1>
+      <p class="muted"><a href="./index.html">Voltar ao painel fiscal municipal</a></p>
+    </div>
+  </header>
+  <main>
+    <article class="panel notice">
+      <strong>Como interpretar</strong>
+      <p>O recorte identifica o município proponente do convênio, não necessariamente o local da obra, bem ou serviço. Os registros não comprovam natureza de capital nem investimento executado. Desembolso e pagamento são etapas distintas: não some as séries. Valores nominais; município sem evento selecionado aparece como “sem registro”, não como zero.</p>
+    </article>
+    <section class="panel">
+      <div class="toolbar">
+        <label>Etapa financeira
+          <select id="stage-select">
+            <option value="desembolso">Desembolso</option>
+            <option value="pagamento">Pagamento</option>
+          </select>
+        </label>
+        <label>Exercício
+          <select id="year-select"></select>
+        </label>
+        <label>Buscar município
+          <input id="municipality-search" type="search" placeholder="Nome do município">
+        </label>
+        <button id="export-csv" type="button">Exportar agregados CSV</button>
+      </div>
+      <p id="load-status" class="muted" role="status">Carregando dados agregados…</p>
+      <div class="kpi-grid">
+        <article class="kpi panel"><div class="label">Valor nominal registrado</div><div id="kpi-amount" class="value">—</div></article>
+        <article class="kpi panel"><div class="label">Eventos financeiros</div><div id="kpi-events" class="value">—</div></article>
+        <article class="kpi panel"><div class="label">Municípios com eventos</div><div id="kpi-coverage" class="value">—</div></article>
+      </div>
+    </section>
+    <div class="finance-layout">
+      <section class="panel">
+        <div class="section-heading"><div><p class="eyebrow">Distribuição territorial</p><h2 id="map-title">—</h2></div></div>
+        <div class="finance-map-wrap"><svg id="finance-map" viewBox="0 0 960 620" role="img" aria-label="Mapa municipal dos fluxos financeiros agregados"></svg></div>
+        <div id="map-legend" class="finance-legend"></div>
+        <p id="map-note" class="muted"></p>
+      </section>
+      <section class="panel">
+        <h2 id="municipality-title">Selecione um município</h2>
+        <p id="municipality-summary" class="muted">A seleção exibe o agregado do exercício e da etapa escolhidos.</p>
+        <div id="municipality-detail"></div>
+      </section>
+    </div>
+    <section class="panel finance-table-wrap">
+      <div class="section-heading"><div><p class="eyebrow">Comparação municipal</p><h2>Valores agregados no exercício</h2></div></div>
+      <table class="finance-table">
+        <thead><tr><th>Município proponente</th><th>Eventos</th><th>Convênios</th><th>Valor nominal</th><th>Eventos negativos</th><th>Eventos zerados</th></tr></thead>
+        <tbody id="municipality-rows"></tbody>
+      </table>
+      <p id="table-empty" class="muted" hidden>Nenhum município tem registro selecionado nessa etapa e exercício.</p>
+    </section>
+    <footer class="muted"><p id="source-note"></p></footer>
+  </main>
+  <script src="./transferegov-financeiro.js"></script>
+</body>
+</html>

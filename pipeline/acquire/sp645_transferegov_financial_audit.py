@@ -9,6 +9,7 @@ import argparse
 import collections
 import csv
 import decimal
+import datetime
 import json
 import sqlite3
 import tarfile
@@ -116,14 +117,24 @@ def payment_document_linkage(db_path: Path, payment_zip: Path,
             raise ValueError("non-finite or sub-cent payment value in selected row")
         return int(amount * 100)
 
+    def normalized_date(value: str) -> str:
+        value = value.strip()
+        for fmt in ("%d/%m/%Y", "%Y-%m-%d", "%d/%m/%Y %H:%M:%S"):
+            try:
+                return datetime.datetime.strptime(value, fmt).date().isoformat()
+            except ValueError:
+                continue
+        raise ValueError("unrecognized date in selected source payment")
+
     for row in read(payment_zip, required):
         event_id = row["NR_MOV_FIN"].strip()
         if event_id not in negatives:
             continue
         expected = negatives[event_id]
-        if (row["NR_CONVENIO"].strip() != expected["convenio"] or
-                row["DATA_PAG"].strip() not in (expected["date"],)):
-            raise ValueError("selected negative-payment source linkage mismatch")
+        if row["NR_CONVENIO"].strip() != expected["convenio"]:
+            raise ValueError("selected negative-payment instrument linkage mismatch")
+        if normalized_date(row["DATA_PAG"]) != expected["date"]:
+            raise ValueError("selected negative-payment date linkage mismatch")
         parsed = cents(row["VL_PAGO"])
         if parsed != expected["cents"]:
             raise ValueError("selected negative-payment amount mismatch")

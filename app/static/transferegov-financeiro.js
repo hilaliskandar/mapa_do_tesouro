@@ -238,7 +238,7 @@ async function init() {
     $("#year-select").innerHTML = years.map(year => `<option value="${year}">${year}</option>`).join("");
     $("#source-note").textContent =
       `Fonte: ${data.source.name}. Recorte pelo município proponente; atualização vinculada ao staging ${data.source.staging_run}. Valores nominais e agregados por ano e etapa.`;
-    const defaultYear = years[years.length - 1];
+    const defaultYear = years[0];
     $("#year-select").value = String(defaultYear);
     $("#stage-select").addEventListener("change", () => {
       renderTable(); renderMap(); renderDetails();

@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import collections
 import csv
+import decimal
 import json
 import sqlite3
 import tarfile
@@ -16,6 +17,7 @@ import zipfile
 from pathlib import Path
 
 from pipeline.acquire.inv_sp645_transferegov_new_source_layout import acquire
+from pipeline.acquire.inv_sp645_proponent_obrasgov_regional_coverage import read
 
 ARCHIVE_MEMBERS = {"financial.sqlite", "qa.json", "municipio_ano.csv"}
 
@@ -78,6 +80,113 @@ def payment_source_schema(work: Path) -> dict:
         "rows_read": 0,
         "purpose": "schema only; no payment rows or values exported",
     }
+
+
+def payment_document_linkage(db_path: Path, payment_zip: Path,
+                            source_qa: dict, expected_source_hash: str) -> dict:
+    db = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+    db.row_factory = sqlite3.Row
+    negatives = {
+        row["id"]: {
+            "convenio": row["convenio"],
+            "date": row["date"],
+            "cents": row["cents"],
+        }
+        for row in db.execute("""
+            SELECT id, convenio, date, cents
+            FROM event WHERE stage='pagamento' AND cents < 0
+        """)
+    }
+    db.close()
+
+    required = {"NR_MOV_FIN", "NR_CONVENIO", "TP_MOV_FINANCEIRA",
+                "DATA_PAG", "VL_PAGO", "NR_DL", "ID_DL"}
+    expected_payment_meta = source_qa["sources"]["siconv_pagamento"]
+    actual_hash = expected_payment_meta["sha256_zip"]
+    if actual_hash != expected_source_hash:
+        raise ValueError("payment source archive hash differs from staged QA")
+    found = {}
+
+    def cents(value: str) -> int:
+        value = value.strip()
+        if "," in value:
+            value = value.replace(".", "").replace(",", ".")
+        amount = decimal.Decimal(value)
+        if not amount.is_finite() or amount * 100 != (amount * 100).to_integral_value():
+            raise ValueError("non-finite or sub-cent payment value in selected row")
+        return int(amount * 100)
+
+    for row in read(payment_zip, required):
+        event_id = row["NR_MOV_FIN"].strip()
+        if event_id not in negatives:
+            continue
+        expected = negatives[event_id]
+        if (row["NR_CONVENIO"].strip() != expected["convenio"] or
+                row["DATA_PAG"].strip() not in (expected["date"],)):
+            raise ValueError("selected negative-payment source linkage mismatch")
+        parsed = cents(row["VL_PAGO"])
+        if parsed != expected["cents"]:
+            raise ValueError("selected negative-payment amount mismatch")
+        found[event_id] = {
+            "convenio": row["NR_CONVENIO"].strip(),
+            "nr_dl": row["NR_DL"].strip(),
+            "id_dl": row["ID_DL"].strip(),
+        }
+
+    if len(found) != len(negatives):
+        raise ValueError("not all staged negative payments matched the source snapshot")
+
+    stats = {
+        event_id: {
+            "nr_dl_positive_same_instrument": False,
+            "id_dl_positive_same_instrument": False,
+            "equal_opposite_positive_same_id_dl_same_instrument": False,
+        }
+        for event_id in negatives
+    }
+
+    for row in read(payment_zip, required):
+        event_id = row["NR_MOV_FIN"].strip()
+        if event_id in negatives:
+            continue
+        value = cents(row["VL_PAGO"])
+        if value <= 0:
+            continue
+        convention = row["NR_CONVENIO"].strip()
+        nr_dl = row["NR_DL"].strip()
+        id_dl = row["ID_DL"].strip()
+        for negative_id, detail in found.items():
+            same_convenio = convention == detail["convenio"]
+            same_nr_dl = bool(detail["nr_dl"]) and nr_dl == detail["nr_dl"]
+            same_id_dl = bool(detail["id_dl"]) and id_dl == detail["id_dl"]
+            if not same_convenio:
+                continue
+            if same_nr_dl:
+                stats[negative_id]["nr_dl_positive_same_instrument"] = True
+            if same_id_dl:
+                stats[negative_id]["id_dl_positive_same_instrument"] = True
+                if value == -negatives[negative_id]["cents"]:
+                    stats[negative_id][
+                        "equal_opposite_positive_same_id_dl_same_instrument"
+                    ] = True
+
+    output = {
+        "source_sha256_matches_staged_snapshot": True,
+        "negative_events_matched_back_to_source": len(found),
+        "negative_events_with_nr_dl": sum(bool(x["nr_dl"]) for x in found.values()),
+        "negative_events_with_id_dl": sum(bool(x["id_dl"]) for x in found.values()),
+    }
+    for key in next(iter(stats.values()), {}):
+        output[key] = sum(item[key] for item in stats.values())
+    output["negative_events_without_positive_same_doc_instrument"] = sum(
+        not (item["nr_dl_positive_same_instrument"] or
+             item["id_dl_positive_same_instrument"])
+        for item in stats.values()
+    )
+    output["interpretation"] = (
+        "document linkage is descriptive and does not by itself establish a reversal"
+    )
+    return output
 
 
 def audit(db_path: Path, geo_csv: Path, source_qa: dict) -> dict:
@@ -290,6 +399,9 @@ def main() -> None:
         payment_schema = payment_source_schema(work)
         result = audit(db_path, args.geo, source_qa)
         result["current_payment_source_schema"] = payment_schema
+        result["negative_payment_document_linkage"] = payment_document_linkage(
+            db_path, work / "siconv_pagamento.zip", source_qa,
+            payment_schema["source_sha256_zip"])
     if not result["source_qa_event_counts_match"]:
         raise SystemExit("database event counts differ from source QA")
     args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",

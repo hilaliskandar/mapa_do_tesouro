@@ -46,8 +46,8 @@ db.executescript("CREATE TABLE convenio(numero TEXT PRIMARY KEY,ibge TEXT NOT NU
 db.execute("PRAGMA foreign_keys=ON")
 db.executemany("INSERT INTO convenio VALUES(?,?)",sorted(conv.items()))
 for stage,name,idcol,dates,values in [
-    ("desembolso","siconv_desembolso","ID_DESEMBOLSO",("DATA_DESEMBOLSO","DT_DESEMBOLSO"),("VALOR_DESEMBOLSO","VL_DESEMBOLSO")),
-    ("pagamento","siconv_pagamento","NR_MOV_FIN",("DT_PAG","DATA_PAGAMENTO","DT_PAGAMENTO","DATA_PAG","DT_MOV_FIN"),("VL_PAGO","VALOR_PAGAMENTO","VL_PAGAMENTO","VALOR_PAGO","VL_PAG","VL_MOV_FIN"))]:
+    ("desembolso","siconv_desembolso","ID_DESEMBOLSO",("DATA_DESEMBOLSO",),("VL_DESEMBOLSADO",)),
+    ("pagamento","siconv_pagamento","NR_MOV_FIN",("DATA_PAG",),("VL_PAGO",))]:
     for r in source(name,{"NR_CONVENIO",idcol}):
         k=r["NR_CONVENIO"].strip()
         if k not in conv:continue

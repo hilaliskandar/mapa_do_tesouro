@@ -1,242 +1,263 @@
-# Finanças Municipais SP — Mapa do Tesouro
+# Finanças Municipais SP
 
-> **Estado da plataforma em 27/11/2026.** A produção está na release **v0.6.0**, homologada em 25/11. A versão **v0.7** está em desenvolvimento nesta branch; código e dados em experimento não são promovidos automaticamente. O calendário recorrente está especificado, mas os agendamentos de produção seguem desabilitados.
+> **Recuperação SP645:** [plano permanente de passivos](governance/PLANO_RECUPERACAO_PASSIVOS_SP645.md), complementar ao calendário recorrente. Recuperação Siconfi 2026 acionada por workflow missing-only; não considerar ausência como zero. Agendamentos de produção ainda desabilitados.
 
-Este README descreve a plataforma: arquitetura, contratos de dados, algoritmos de transformação, QA, publicação e integração entre camadas. Estudos regionais, boletins, cadernos e frentes temáticas são consumidores ou extensões da plataforma; seus resultados não definem, por si só, o núcleo nem o estado da produção.
+> **26/11/2026 — v0.7 em desenvolvimento:** [calendário permanente de atualização das fontes](governance/CALENDARIO_ATUALIZACAO_FONTES_SP645.md) e [catálogo de periodicidades](data/catalogs/source_refresh_calendar.json) registrados, ainda sem agendamentos habilitados. TCE-SP RMRP: 68/68 extratos atualizados e verificados em R2 (run 45858905499); Siconfi 2026: 3220 demonstrativos, 539 municípios.
 
-## Visão geral
+> 25/11/2026 — v0.6.0 publicada e homologada em produção (run 45594094214 success; evidências 15013120329; 13/13 endpoints novos, API fiscal e cadastro RMRP aprovados). Artefato final 15012300428, release ae755215cebc071800253ce278a0765353ed4165, rollback v0.5.1. Próxima frente v0.7.0: 2026 e transferências, sem promoção financeira automática.
 
-O Mapa do Tesouro é uma plataforma auditável para adquirir, preservar, harmonizar, analisar e apresentar dados fiscais municipais. Seu núcleo separa observações oficiais, variáveis harmonizadas, agregações analíticas, indicadores derivados, classificações oficiais e produtos editoriais. O pipeline pode produzir uma base SQLite canônica e, a partir dela, arquivos JSON estáticos e um site sem dependência de API em tempo de execução.
+> v0.6.0 candidata: FINBRA 2013–2025 (218010 células, 72 universos, 24336 agregados), TCESP 2023–2025 (644 municípios, 1932 detalhes anuais, 15 objetos R2 verificados), paridade 1876/1931; 55 divergências preservadas. Run 45578949089 success, artifact 15005133443. Preview externo run 45581272755 deploy e QA fiscal/RMRP aprovados; último controle JSON HTTP 403; corrigido cliente HTTP para padrão já homologado, execução pendente. Produção v0.5.1 preservada. Relatório governance/QA_V060_FINBRA_TCESP_2026_11_25.md.
 
-### Estado do produto
+> QA histórico real aprovado: run 45540182687, fonte R2 SHA-256 67a94313e0f0557bc23f48c78a1396fd02ae10ad7923ea2ac2e5c9f2726f65d5, 645 municípios, 13 exercícios, 26 variáveis, 218010 células verificadas; stage() executado literalmente, manifesto principal preservado por cmp, artifact 14988323520. Gatilho push resolveu 404. Sem deploy ou autorização de publicação histórica; próximo gate: conciliação temporal 2021–2025 e agregação histórica RA/RG.
 
-- **Produção:** release v0.6.0 homologada; funcionalidades em produção têm ciclo de release e rollback próprios.
-- **Desenvolvimento:** v0.7 e expansão multifuentes em branch/PR; prévias não equivalem à produção.
-- **Universos:** `TIC_TIM_30` funciona como baseline de regressão; `SP_645` é a expansão estadual. Universos metropolitanos e por porte são filtros analíticos coexistentes, não esquemas de banco distintos.
-- **Dados novos:** cada série precisa de cobertura, proveniência, versão, QA e gate de promoção próprios. Um workflow bem-sucedido pode apenas provar aquisição ou staging.
-- **Agendamento:** catálogo e planejador de atualização existem; despachos recorrentes permanecem desligados até generalização e validação dos coletores e dos gates.
+> v0.6: staging DCA 2013–2025 privado, workflow sp645-dca-history-private.yml; fonte R2 SHA fixado; 645 municípios, 26 variáveis, sem alteração do manifesto v2. Dispatch inicial 404 por workflow novo; adicionado gatilho push, execução a confirmar. Produção v0.5.1 preservada.
 
-Para o estado detalhado por fonte, versão e execução, consultar `governance/PROJECT_STATE.md`, `governance/INVENTORY.md` e os relatórios vinculados nas seções abaixo.
+> Produção v0.5.1 confirmada em 25/11/2026 UTC: run 45537933507 success, 194 testes aprovados e 3 skipped, QA local e remoto aprovados, cadastro RMRP preservado, artifact 14987901682. Release v0.5.0 não implantado por teste legado de VERSION; correção 93b0437 e release v0.5.1 no commit 158fb5de. Homologação hierárquica run 45534881706 com 10 cenários aprovados. URL https://finbra-tic-tim-referencia.pages.dev/. Escopo fiscal permanece 2021–2025; sem promoção de novos dados financeiros. Rollback v0.4.1. [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/QA_REGIONALIZACAO_SP645_V050_2026_11_24.md).
 
-## Arquitetura da plataforma
+> Build real run 45526052647: success, 72 universos, 16 RA e 43 RG, 645 membros em cada partição, 645 geometrias estaduais, 11.501 células Gate D comparadas, QA estático aprovado; artifact 14982431513. Implementado gate adicional de conservação monetária e correspondência exata das listas municipais (f99721fc e 63952291); execução ainda a confirmar. Produção v0.4.1 preservada. Próximos gates: QA de conservação, hierarquia navegável, teste Chromium e prévia isolada. [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/QA_REGIONALIZACAO_SP645_V050_2026_11_24.md).
 
-```mermaid
-flowchart TD
-    A["Fontes oficiais e snapshots aprovados"] --> B["Aquisição e preservação do bruto"]
-    B --> C["Contrato de esquema, hash e manifesto"]
-    C --> D["Normalização e crosswalk"]
-    D --> E["SQLite canônico e proveniência"]
-    E --> F["Agregações, indicadores e estatísticas"]
-    F --> G["Cobertura, QA e gates"]
-    G --> H["Exportação JSON / API estática"]
-    H --> I["Frontend estático"]
-    I --> J["Cloudflare Pages / CDN"]
-    G --> K["Quarentena, correção ou recuperação"]
+> 24/11/2026 — Escopo da plataforma ampliado a SP645 por orientação do usuário: Estado→16 RA→43 RG→município; RM/AU como dimensão alternativa, RMRP como piloto. Reutilizar dimensão SEMIL/Seade consolidada de 14/11, não proxy eleitoral. Join determinístico 645/645 (611 externos + 34 RMRP), sem duplicidade; cobertura regional materializada em INV_SP645_COBERTURA_SIAFEM_2025_RA_RG_RM_AU_2026_11_24.csv (70 grupos; 520 reconciliados externos, 91 inconclusivos, 34 série RMRP separada). Piloto recovery run 45458861802 SUCCESS/readback R2, 5/5 HTTP 200, grid 2 linhas, sem mensagem candidata, zero recuperados; preservar 91 pendências. SHA raw 1f6e637d215d3f6e4999e74b72e15b08c6917ba8b4dfd97680d97d6998b43468. Próximos gates: examinar células e estado dos filtros no HTML privado, controles positivos/negativos, fixar fila, consolidar valores no grão IBGE7/ano e materializar staging estadual; sem homologação financeira ou deploy. [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/INV_SP645_EXPANSAO_PLATAFORMA_RA_RG_2026_11_24.md).
+
+> S03 recuperação dirigida — 24/11/2026: cobertura inicial 611/611, 520 reconciliados e 91 inconclusivos (75 consulta_sem_totalizador, 15 resposta_ValueError, 1 ConnectionError). Implementados coletor diagnóstico 074707bc911135e1a1ab219a0f7b9c69dbbc7693 e modo recovery 0649eb54f9eec25f669fee3b6c2b1da456c4ab1e. Disparo aceito para offset=0,limit=5,year=2025,mode=recovery; resultado e readback pendentes. Não promover dados financeiros ou imputar zero por palavras-chave. Preservar fila de 91 até evidência; não avançar offset em fila mutável sem fixar o universo. Plataforma v0.4.1 preservada. [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/INV_SP645_S03_RECUPERACAO_PILOTO_2026_11_24.md).
+
+> **S03 CHECKPOINT 611 — 24/11/2026: lote unitário offset=610,limit=1,year=2025 concluído no [run 45453762714](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45453762714), IBGE7 3557303 reconciliado, 2 convênios-ano, 2 pagamentos e R$ 627.739,67; readback R2 aprovado. Acumulado: 611/611 consultados, 520 reconciliados, 91 inconclusivos, zero não consultados, 1.584 convênios-ano, 1.711 pagamentos e R$ 1.127.383.689,47; sem homologação financeira. Primeira passagem territorial concluída. Próximo gate: diagnosticar e recuperar 91 inconclusivos sem imputar zero; testar lote histórico de 25. Produção v0.4.1 preservada.** [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/INV_SP645_S03_FECHAMENTO_PRIMEIRA_PASSAGEM_2025_2026_11_24.md).
+
+> **S03 CHECKPOINT 610 — 24/11/2026: lote offset=605,limit=5,year=2025 concluído no [run 45451693987](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45451693987), cinco reconciliados, zero novas inconclusivas, 18 convênios-ano, 21 pagamentos e R$ 10.026.873,01; readback R2 aprovado. Acumulado: 610/611 consultados, 519 reconciliados, 91 inconclusivos, 1 não consultado, 1.582 convênios-ano, 1.709 pagamentos e R$ 1.126.755.949,80; sem homologação financeira. Próximo offset=610,limit=1,year=2025; opção unitária incluída no workflow da branch operacional pelo commit e6ce001eefe1f982d7bb8c287cabbf87c522fb49. Produção v0.4.1 preservada.** [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/INV_SP645_S03_LOTE_605_RETOMADA_2026_11_24.md).
+
+> **S03 CHECKPOINT 605 — 24/11/2026: lote ampliado offset=590,limit=15,year=2025 concluído no [run 45450574721](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45450574721) em 38 s, 15 reconciliados, zero novas inconclusivas, 34 convênios-ano, 37 pagamentos e R$ 16.711.554,63; readback R2 aprovado. Acumulado: 605/611 consultados, 514 reconciliados, 91 inconclusivos, 6 não consultados, 1.564 convênios-ano, 1.688 pagamentos e R$ 1.116.729.076,79; sem homologação financeira. Próximo offset=605,limit=5,year=2025; depois offset=610,limit=1 sujeito a ajuste de workflow. Produção v0.4.1 preservada.** [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/INV_SP645_S03_LOTE_590_RETOMADA_2026_11_24.md).
+
+> **S03 CHECKPOINT 590 — 24/11/2026: lote offset=585,limit=5,year=2025 concluído no [run 45442371592](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45442371592), com cinco reconciliados, zero novas inconclusivas, 21 convênios-ano, 25 pagamentos e R$ 16.001.234,06. SHA-256 e readback R2 aprovados. Acumulado: 590/611 consultados, 499 reconciliados, 91 inconclusivos, 21 não consultados, 1.530 convênios-ano, 1.651 pagamentos e R$ 1.100.017.522,16; sem homologação financeira. Próximo teste offset=590,limit=15,year=2025 após idempotência. Produção v0.4.1 preservada.** [Relatório](https://github.com/hilaliskandar/mapa_do_tesouro/blob/investimentos-territoriais-sp645-20261111/governance/INV_SP645_S03_LOTE_585_RETOMADA_2026_11_24.md).
+
+> **S03 CHECKPOINT 585 — 24/11/2026:** lotes SIAFEM/SP 2025 `offset=575` e `offset=580` concluídos nos [runs 45422449524](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45422449524) e [45422686722](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45422686722), ambos com `SP645_SIAFEM_PILOT_READBACK_PASS` e hash verificado no R2 privado. Incremento: dez consultados, seis reconciliados, quatro inconclusivos IBGE7 `3554656`, `3554706`, `3554755`, `3554953` (`ValueError`, não imputar zero), 24 convênios-ano, 27 pagamentos, R$ 19.611.755,18. **Acumulado: 585/611 consultados, 494 reconciliados, 91 inconclusivos, 26 ainda não consultados, 1.509 convênios-ano, 1.626 pagamentos, R$ 1.084.016.288,10 nas respostas verificadas.** Controles CSV +2 execuções, +2 snapshots, +10 cobertura, +4 pendências (`S03-100/103`). [Relatório auditável](governance/INV_SP645_S03_LOTES_575_580_RETOMADA_2026_11_24.md). Próximo lote `offset=585,limit=5,year=2025` após verificação de idempotência; sem promoção financeira à produção v0.4.1.
+
+> **S03 CHECKPOINT 575 — 24/11/2026:** lotes estaduais SIAFEM 2025 `offset=565` e `offset=570` concluídos em [run 45417260570](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45417260570) e [run 45417520351](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45417520351), com `SP645_SIAFEM_PILOT_READBACK_PASS` e SHA-256 verificado no R2 privado. Incremento: dez consultas, oito reconciliadas, duas inconclusivas IBGE7 `3553906` e `3554201` (`ValueError`, sem imputar zero), 17 convênios-ano, 17 pagamentos e R$ 8.629.074,15. **Acumulado: 575/611 consultados, 488 reconciliados, 87 inconclusivos, 36 ainda não consultados; 1.485 convênios-ano, 1.599 pagamentos e R$ 1.064.404.532,92 das respostas verificadas.** Controles CSV: execuções +2, snapshots +2, cobertura +10, pendências +2 (`S03-98/99`). [Relatório auditável](governance/INV_SP645_S03_LOTES_565_570_RETOMADA_2026_11_24.md). Próxima consulta `offset=575,limit=5,year=2025` após idempotência; sem promoção financeira à produção v0.4.1.
+
+> **S03 CHECKPOINT 565 — 24/11/2026:** lotes SIAFEM/SP 2025 `offset=555` e `offset=560` concluídos com [run 45413350381](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45413350381) e [run 45413587161](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45413587161), `SP645_SIAFEM_PILOT_READBACK_PASS` e hashes no R2 privado. Incremento: dez consultados, oito reconciliados, dois inconclusivos IBGE7 `3552908` e `3553104` (`ValueError`, sem imputar zero), 21 convênios-ano, 22 pagamentos, R$ 9.415.875,21. **Acumulado: 565/611 consultados, 480 reconciliados, 85 inconclusivos, 46 ainda não consultados, 1.468 convênios-ano, 1.582 pagamentos, R$ 1.055.775.458,77 das respostas verificadas.** Controles CSV +2 execuções, +2 snapshots, +10 cobertura, +2 pendências (`S03-96/97`). [Relatório auditável](governance/INV_SP645_S03_LOTES_555_560_RETOMADA_2026_11_24.md). Próximo `offset=565,limit=5,year=2025`, após idempotência; não houve promoção financeira à produção v0.4.1.
+
+> **S03 CHECKPOINT 555 — 24/11/2026:** lotes SIAFEM/SP 2025 `offset=545` e `offset=550` concluídos em [run 45405898519](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45405898519) e [run 45406223157](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45406223157), com `SP645_SIAFEM_PILOT_READBACK_PASS` e SHA-256 no R2 privado. Incremento: dez municípios consultados, nove reconciliados, um inconclusivo IBGE7 `3552551` (`ValueError`, não imputar zero), 34 convênios-ano, 34 pagamentos, R$ 28.425.543,80. **Acumulado: 555/611 consultados, 472 reconciliados, 83 inconclusivos, 56 não consultados, 1.447 convênios-ano, 1.560 pagamentos, R$ 1.046.359.583,56 nas respostas verificadas.** Controles CSV +2 execuções, +2 snapshots, +10 cobertura, +1 pendência (`S03-95`). [Relatório de auditoria](governance/INV_SP645_S03_LOTES_545_550_RETOMADA_2026_11_24.md). Próximo `offset=555,limit=5,year=2025`, após idempotência; sem promoção financeira à produção v0.4.1.
+
+> **S03 CHECKPOINT 550 — 24/11/2026:** lote `offset=545,limit=5,year=2025` concluído com [run 45405898519](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45405898519) e `SP645_SIAFEM_PILOT_READBACK_PASS`, cinco respostas reconciliadas, nenhum inconclusivo novo, 18 convênios-ano, 18 pagamentos agregados, R$ 14.446.321,31. **Acumulado fora da RMRP: 550/611 consultados, 468 reconciliados, 82 inconclusivos, 61 não consultados; 1.431 convênios-ano, 1.544 pagamentos, R$ 1.032.380.361,07** das respostas verificadas. Controles CSV `execucoes/snapshots/cobertura` atualizados (1/1/5), nenhuma nova pendência. [Relatório auditável](governance/INV_SP645_S03_LOTE_545_RETOMADA_2026_11_24.md). Próxima consulta `offset=550,limit=5,year=2025` após idempotência. Sem promoção financeira à produção v0.4.1.
+
+> **S03 CHECKPOINT 545 — 24/11/2026:** execução dos lotes SIAFEM/SP 2025 `offset=535` e `offset=540`, `limit=5`, com [runs 45401228164](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45401228164) e [45401451460](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45401451460) aprovados, inclusive hash e `SP645_SIAFEM_PILOT_READBACK_PASS` no R2 privado. Incremento: 10 consultados, 9 reconciliados, 1 inconclusivo IBGE7 `3551306` (`ValueError`, não imputar zero), 42 convênios-ano, 47 pagamentos agregados, R$ 43.632.540,63. **Acumulado: 545/611 consultados, 463 reconciliados, 82 inconclusivos, 66 não consultados, 1.413 convênios-ano, 1.526 pagamentos, R$ 1.017.934.039,76** das respostas verificadas. Controles CSV sincronizados: execuções +2, snapshots +2, cobertura +10, pendências +1 (`S03-94`). [Relatório auditável](governance/INV_SP645_S03_LOTES_535_540_RETOMADA_2026_11_24.md). Próximo lote `offset=545, limit=5, year=2025` após idempotência. Não houve incorporação dos valores financeiros à produção v0.4.1.
+
+> **S03 CHECKPOINT 535 — 24/11/2026:** retomada SIAFEM/SP 2025 no [run 45399204887](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45399204887), `offset=530,limit=5,year=2025`, sucesso e `SP645_SIAFEM_PILOT_READBACK_PASS` com hash no R2 privado. Cinco respostas reconciliadas, nenhum inconclusivo novo, 15 convênios-ano, 18 pagamentos agregados e R$ 9.907.173,56 no lote. **Acumulado: 535/611 municípios consultados, 454 reconciliados, 81 inconclusivos, 76 não consultados, 1.371 convênios-ano, 1.479 pagamentos, R$ 974.301.499,13 nas respostas verificadas.** Controles de execução/snapshot/cobertura atualizados (1/1/5); nenhuma nova pendência. [Relatório auditável](governance/INV_SP645_S03_LOTE_530_RETOMADA_2026_11_24.md). Próxima janela `offset=535,limit=5,year=2025`, após idempotência; publicação monetária permanece bloqueada.
+
+> **S03 CHECKPOINT 530 — 24/11/2026:** lote `offset=525, limit=5, year=2025` concluído no [run 45396257323](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45396257323) com `SP645_SIAFEM_PILOT_READBACK_PASS` em R2 privado. **530/611 municípios consultados, 449 reconciliados, 81 inconclusivos, 81 não consultados; 1.356 convênios-ano, 1.461 pagamentos agregados, R$ 964.394.325,57 em liberações líquidas/estornos nas respostas verificadas.** Lote: quatro reconciliados e um `ValueError` (IBGE7 `3549607`, não imputar zero). CSVs `execucoes/snapshots/cobertura/pendencias` sincronizados; [relatório auditável](governance/INV_SP645_S03_LOTE_525_RETOMADA_2026_11_24.md). Próximo `offset=530, limit=5, year=2025`, mediante checagem de idempotência. Estes valores **não estão homologados como execução municipal nem incorporados à produção v0.4.1**.
+
+> **ATUALIZAÇÃO PÚBLICA CONCLUÍDA — 24/11/2026:** após [PR #234](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234), foi publicada a [release v0.4.1](https://github.com/hilaliskandar/mapa_do_tesouro/releases/tag/v0.4.1) no endereço https://finbra-tic-tim-referencia.pages.dev/. A [consulta cadastral da RMRP](https://finbra-tic-tim-referencia.pages.dev/territorio-rmrp-validado.html) apresenta 34 municípios e quatro sub-regiões, sem valores financeiros. [QA produtivo 45395727209](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45395727209) encerrou com `success`, verificado também na Cloudflare. [Relatório técnico na main](https://github.com/hilaliskandar/mapa_do_tesouro/blob/main/governance/INV_RMRP_RELEASE_V0_4_1_PRODUCAO_2026_11_24.md). A coleta estadual SIAFEM/2025 fora da RMRP continua em 525/611; não publicar pagamentos/obras sem homologação.
+
+> **PLATAFORMA PÚBLICA — [Mapa do Tesouro · Finanças Municipais SP](https://finbra-tic-tim-referencia.pages.dev/)**  
+> Endereço de produção documentado: **https://finbra-tic-tim-referencia.pages.dev/**. A base pública tem ciclo de homologação próprio; os snapshots federais e estaduais experimentais não são incorporados automaticamente. Prévia e estudos específicos não se confundem com a produção.
+> **Auditoria de atualização pública em 23/11/2026:** [matriz de elegibilidade e gates de publicação](governance/INV_RMRP_AUDITORIA_ELEGIBILIDADE_PUBLICACAO_2026_11_23.md). A produção permanece na release v0.4.0; os novos dados de investimentos ainda estão em prévia/QA, sem promoção monetária automática.
+> **Avanço da incorporação cadastral — 23/11/2026:** criada em `app/static/data/api/v3/investimentos/rmrp/territorio-validado.json` uma dimensão territorial validada dos **34 municípios e quatro sub-regiões legais (15/6/6/7)**, sem valores monetários, pontos geográficos ou classificação de execução. Adicionada a página `territorio-rmrp-validado.html` e integração à prévia PR 233 pelos scripts `deployment/materialize_investimentos_preview.py` e `deployment/qa_investimentos_preview.py`, com QA de unicidade IBGE7, cardinalidade legal, campos estritamente cadastrais e correspondência ao cadastro preexistente. **Estado:** commits realizados e testes remotos aguardando verificação; nenhuma promoção de produção. **Prévia prevista:** https://pr-233.finbra-tic-tim-referencia.pages.dev/territorio-rmrp-validado.html. **Produção:** https://finbra-tic-tim-referencia.pages.dev/. `public_release_authorized=false` para medidas financeiras ainda não homologadas. 
+> **Gate cadastral RMRP — prévia validada em 23/11/2026:** [consulta territorial dos 34 municípios e quatro sub-regiões](https://pr-233.finbra-tic-tim-referencia.pages.dev/territorio-rmrp-validado.html) e [JSON](https://pr-233.finbra-tic-tim-referencia.pages.dev/data/api/v3/investimentos/rmrp/territorio-validado.json). Build, QA local e QA HTTP remoto do job `build-deploy-qa` aprovados no [run 45283751255](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45283751255). [Relatório do gate](governance/INV_RMRP_CATALOGO_TERRITORIAL_PREVIA_HOMOLOGACAO_2026_11_23.md). **A versão de produção continua v0.4.0; não houve promoção de dados financeiros experimentais.** O job independente `rmj-browser-qa` foi cancelado e não comprova QA visual.
+> **Candidata estadual SP645 com cadastro RMRP — 23/11/2026:** constatou-se que o workflow genérico da PR 233 não substitui o build estadual. Criado o overlay restrito `deployment/materialize_rmrp_territorial_sp645.py` e acrescidos gates local e remoto ao `pages-sp645-candidate.yml`. [Execução de QA 45285817646](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45285817646), alias isolado previsto `sp645-rmrp-cadastro`. [Relatório e condições de publicação](governance/INV_RMRP_GATE_CADASTRAL_CANDIDATA_SP645_2026_11_23.md). **A candidata foi disparada; aprovação final depende do resultado dos testes. A produção v0.4.0 permanece inalterada e não foi autorizada a promoção dos indicadores financeiros provisórios.**
+> **Continuidade 23/11/2026 — release isolada:** a candidata SP645 na branch de pesquisa concluiu [run 45285817646](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45285817646) com **success**, incluindo QA local/remoto SP645, API v2 e catálogo RMRP. Criada a [PR 234](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234), **draft e derivada da main**, com apenas a dimensão territorial cadastral e workflows opt-in; o primeiro teste isolado [run 45286673670](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45286673670) também terminou **success**. Prévia isolada: https://sp645-rmrp-release.finbra-tic-tim-referencia.pages.dev/territorio-rmrp-validado.html. Foi integrado QA desktop/mobile via Playwright ao workflow estadual; nova [execução 45293324821](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45293324821) ainda sem aceite final nesta anotação. Nenhuma promoção financeira ou deploy produtivo; v0.4.0 preservada.
+> **Gate cadastral de release isolada — 23/11/2026:** a [PR 234](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234) superou QA estadual e API v2, mas o navegador identificou bloqueio CSP de script inline. A correção está na branch isolada: `territorio-rmrp-validado.js` externo e HTML associado, sem relaxar a CSP. O [run 45294130089](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45294130089) valida a correção e mantém o gate de produção fechado. Documentação da [release isolada](https://github.com/hilaliskandar/mapa_do_tesouro/blob/release-rmrp-cadastro-sp645-20261123/governance/INV_RMRP_GATE_CADASTRAL_RELEASE_ISOLADA_2026_11_23.md). Produção v0.4.0; coleta SIAFEM fora da RMRP preservada no checkpoint 525.
+> **Candidata pública v0.4.1 — 23/11/2026:** [PR 234 de release isolada](https://github.com/hilaliskandar/mapa_do_tesouro/pull/234) com `VERSION=0.4.1`, [notas de release](https://github.com/hilaliskandar/mapa_do_tesouro/blob/release-rmrp-cadastro-sp645-20261123/governance/RELEASE_NOTES_V0_4_1.md), catálogo territorial RMRP34 e link no início do portal. Os testes estaduais, de API v2 e QA remoto tiveram sucesso na prévia; última [execução 45295117443](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/45295117443) repete QA de navegador desktop/mobile após resolver script CSP e teste histórico de versão. `public_release_authorized=false` continua para finanças de investimentos; **produção v0.4.0 ainda preservada**.
+
+
+
+
+
+
+
+
+
+**Pesquisa federal de investimentos — atualização de 14/11/2026.** A trilha SP645/RMRP de Transferegov e Obrasgov permanece em desenvolvimento. A nova API oficial Obrasgov (OpenAPI 3.1) declara atualização em 13/11/2026 e retornou **21.068 projetos com UF principal SP**; esse total não equivale aos **4.212 projetos ligados a proponentes paulistas**, nem aos **218 ligados a proponentes da RMRP**, recuperados pela cadeia documental Transferegov. Há auditoria de situação e geometria de 40 projetos da RMRP em [run 43661453030](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/43661453030); seus resultados dependem de confirmação do job. **Leia antes de interpretar valores:** [relatório federal de continuidade](governance/RELATORIO_CONTINUIDADE_FEDERAL_TRANSFEREGOV_OBRASGOV_2026_11_14.md), [procedimento de conciliação](governance/PROCEDIMENTO_REVISTO_INVESTIMENTOS_FEDERAIS_ESTADUAIS_RMRP_2026_11_14.md) e [README operacional da RMRP](editorial/rmrp/README.md). Nenhuma publicação de gasto federal homologado foi realizada.
+
+
+**Guia canônico da RMJ:** [documentação operacional, metodologia, evidências e publicação](editorial/rmj/README.md). O boletim da RMJ é publicado separadamente em https://financas-rmj.pages.dev/; não se confunde com o portal estadual.
+
+Plataforma auditável para ingestão, harmonização, análise e visualização territorial de finanças municipais, com base principal no FINBRA/Siconfi e integração progressiva de DCA, RREO, RGF, CAPAG, população e demais fontes oficiais.
+
+O repositório nasceu do projeto `mapa_do_tesouro`, cuja metodologia e rotinas históricas permanecem como ancestral do núcleo atual. A arquitetura vigente, porém, separa dados, regras analíticas, documentação, build estático e publicação.
+
+## Estado canônico
+
+A produção pública vigente é a release `v0.4.0`, com:
+
+- universo estadual `SP_645` como padrão;
+- 13 universos analíticos sobrepostos no painel;
+- API editorial estática v1;
+- 11 universos editoriais para boletins fiscais;
+- 287 contextos município × universo;
+- RMSP editorial com 38 municípios, excluindo a capital;
+- Cidades Médias com 33 municípios, inclusive as sobreposições com RM/AU;
+- frontend e API publicados no Cloudflare Pages;
+- QA automatizado local e remoto.
+
+O baseline `TIC_TIM_30` permanece preservado como referência histórica de regressão e rollback.
+
+## Arquitetura atual
+
+```text
+fontes oficiais / snapshots aprovados
+            ↓
+        ingestão
+            ↓
+ normalização + harmonização
+            ↓
+       proveniência
+            ↓
+     SQLite canônico
+            ↓
+ agregações / indicadores
+            ↓
+ estatísticas / tipologias / pares
+            ↓
+       QA e hashes
+            ↓
+      JSON static-first
+            ↓
+      frontend estático
+            ↓
+ Cloudflare Pages / CDN
 ```
 
-Cada camada tem uma responsabilidade verificável. A aquisição não interpreta resultados; a normalização não decide publicação; os algoritmos analíticos não substituem valores oficiais; o build não aprova sozinho uma mudança de método ou uma nova fonte.
+Consultas dinâmicas e D1 permanecem opcionais. A API editorial v1 é formada por JSONs estáticos publicados no mesmo build e não introduz servidor de API em runtime.
 
-### Camadas e contratos
+## Universos
 
-| Camada | Responsabilidade | Artefatos / regra de passagem |
-|---|---|---|
-| Fontes | Declarar origem, periodicidade, referência temporal e conceito medido | Catálogos em `data/catalogs/` e documentação em `governance/SOURCES.md` |
-| Aquisição | Baixar ou consultar, aplicar retry controlado, preservar resposta e falha | Bruto ou snapshot, URL/identificação da fonte, data, tamanho, SHA-256 e manifesto |
-| Normalização | Padronizar tipos, códigos, períodos e valores sem apagar campos originais | Código da regra, mapeamentos/crosswalk e QA de esquema |
-| Ingestão | Carregar observações e dimensão de universos no modelo canônico | Chaves estrangeiras, unicidade, contagens e estados de observação |
-| Transformação analítica | Produzir agregações, diferenças, razões, janelas, tipologias, marcadores e pares | Catálogo de variáveis, método versionado, linhagem e status |
-| QA | Verificar completude, consistência, paridade, conservação, regressão e contrato de API | Relatórios, testes, hashes e decisão explícita de gate |
-| Exportação e apresentação | Materializar JSONs e frontend a partir da base aprovada | `data_version`, `methodology_version`, `schema_version`, hashes e build identificável |
-| Publicação | Promover o artefato aprovado e preservar rollback | Release/deploy separado da coleta e do rebuild |
+### TIC_TIM_30
 
-## Algoritmos e integração entre fontes
+É o baseline de regressão e o universo atualmente publicado. Qualquer expansão deve preservar sua paridade ou explicar formalmente as divergências.
 
-### Desenho do pipeline analítico
+### SP_645
 
-```mermaid
-flowchart TD
-    A["Fontes e snapshots"] --> B["Aquisição específica por fonte"]
-    B --> C["Arquivo / planilha conforme contrato"]
-    C --> D["import_multifuentes + catálogo"]
-    D --> E["load_documentation"]
-    E --> F["calculate_annual"]
-    F --> G["refresh_coverage"]
-    G --> H["calculate_window_statistics"]
-    H --> I["calculate_typologies"]
-    I --> J["calculate_markers"]
-    J --> K["calculate_pairs"]
-    K --> L["JSON estático e/ou site, se solicitados"]
+É o universo estadual em preparação. A prova de escala já valida 645 municípios, mas a primeira release estadual exige cobertura multifuentes compatível com o contrato conceitual do baseline.
+
+## Princípios obrigatórios
+
+- ausência nunca é zero;
+- dados oficiais, agregações analíticas, indicadores derivados, indicadores legais e classificações oficiais são objetos distintos;
+- indicadores legais usam seus demonstrativos próprios;
+- mudanças de código, estágio ou fonte devem permanecer visíveis no crosswalk;
+- conta-pai e conta-filha não podem ser somadas sem regra de hierarquia;
+- valores, status e proveniência são versionados;
+- ranking e pares são instrumentos comparativos, não avaliação normativa;
+- uma funcionalidade aprovada não pode desaparecer silenciosamente de uma versão futura;
+- artefatos publicados devem ser relacionáveis ao build por SHA-256.
+
+## Regra territorial
+
+`despesa_territorial` usa a regra canônica `strict_complete`:
+
+```text
+Urbanismo
++ Habitação
++ Saneamento
++ Gestão Ambiental
++ Transporte
 ```
 
-O diagrama mostra a sequência implementada por `pipeline/build/build_analytical_database.py`. A aquisição das fontes é específica por workflow; o build analítico recebe uma planilha e mapeamento contratados, carrega catálogo/documentação e executa as transformações na ordem indicada. Coletores diretos e artefatos em staging não entram automaticamente nesse build. Sua integração exige contrato semântico, crosswalk e gate próprios. A identidade de um município ou a coincidência de um nome não basta para combinar valores: fonte, conceito, unidade, exercício, período, estágio e cobertura precisam ser compatíveis.
+O agregado só é observado quando os cinco componentes estão observados. Caso contrário, permanece `NA`. A regra histórica parcial é preservada apenas para regressão.
 
-### Algoritmos implementados no núcleo
+## Fontes fiscais
 
-| Etapa | Algoritmo | Decisão metodológica | Saída |
-|---|---|---|---|
-| Ingestão multifuentes | Lê as planilhas/artefatos definidos pelo mapeamento e carrega entidades, universos, observações e proveniência | Chave lógica municipal + exercício + variável; campos de origem e status preservados | SQLite canônico |
-| Agregação anual | Calcula totais conceituais, diferenças e razões a partir do catálogo de componentes | Não somar conta-pai com filhas; razões só quando numerador e denominador são observados e válidos | Variáveis anuais derivadas |
-| Cobertura | Recalcula município × universo × variável × período e estados de observação | Distingue observado, ausente, não aplicável e em revisão; zero é observado | Matrizes de cobertura |
-| Estatística de janela | Calcula média, amplitude, desvio-padrão, coeficiente de variação, mudança entre pontas e anos acima da mediana anual do grupo | Usa anos observados e grava `n_observacoes`; mudança só é calculada se primeiro e último ano da janela estiverem observados | Estatísticas por janela |
-| Tipologia | Classifica nível e estabilidade relativamente à distribuição do universo | Nível compara com mediana; estabilidade compara coeficiente de variação com sua mediana; exige mínimo de anos configurado | Classificações relativas |
-| Marcadores | Converte quadrantes de seis dimensões em rótulos interpretáveis | Sem classificação permanece explícita; marcador não é nota geral de desempenho | Marcadores textuais por município |
-| Pares | Compara marcadores de cada município com os demais | Exige ao menos quatro dimensões comparáveis; calcula coincidência nas dimensões disponíveis e seleciona até três pares prioritários/recíprocos conforme regra | Pares comparativos auditáveis |
-| Exportação | Materializa dados estáticos por universo/ano/município e monta o site | Artefato deriva da base e das versões registradas; nenhuma consulta externa ocorre no navegador | JSON estático e frontend |
+- Siconfi/FINBRA — DCA;
+- RREO — inclusive RCL quando aplicável;
+- RGF Anexo 01 — Despesa Total com Pessoal;
+- RGF Anexo 02 — dívida;
+- RGF Anexo 05 — disponibilidade de caixa e restos a pagar;
+- Tesouro Transparente — CAPAG;
+- IBGE — população e demais denominadores quando incorporados.
 
-#### 1. Ingestão e modelo longo
+A documentação detalhada está em `governance/SOURCES.md`.
 
-1. O catálogo identifica fonte, campo original, variável de destino, finalidade e faixa temporal de validade.
-2. A carga valida os códigos municipais, universo, ano, tipo de valor, duplicidades e relações entre entidades antes de persistir.
-3. A observação mantém valor e status separados. Os estados previstos incluem `observado`, `ausente`, `nao_aplicavel` e `em_revisao`; um número zero permanece valor observado.
-4. A proveniência acompanha a observação: artefato, hash, campo/linha de origem ou, quando derivada, regra e observações antecedentes.
-5. A atualização usa versão e chave lógica para reconstrução controlada. A mesma fonte bruta pode ser reinterpretada por nova regra sem substituir a evidência original.
+## Aquisição direta Siconfi
 
-#### 2. Harmonização entre fontes e tempo
+O repositório já possui aquisição direta para DCA e clientes para demonstrativos legais. A expansão estadual deve usar essa rota preferencialmente a planilhas intermediárias quando houver equivalência semântica validada.
 
-- O crosswalk explicita como códigos, contas, rubricas, anexos, estágios e campos de cada fonte correspondem às variáveis canônicas.
-- Mudança de código, classificação ou layout gera mapeamento versionado e pode marcar quebra de série; não é corrigida silenciosamente.
-- Uma variável legal é lida do demonstrativo que a define. Por exemplo, DTP segue o RGF e RCL segue o demonstrativo e a regra temporal aplicáveis; DCA não funciona como proxy legal.
-- Dados de naturezas ou estágios diferentes permanecem em objetos separados até haver regra documentada de equivalência. Valores nominais, reais, per capita e percentuais também são medidas distintas.
-- Se duas fontes divergirem, o pipeline preserva a diferença e sua cobertura para diagnóstico; não escolhe automaticamente uma fonte nem calcula média.
+O smoke estadual DCA valida:
 
-#### 3. Agregações e indicadores anuais
+- lista de 645 municípios;
+- anexos I-C, I-D e I-E;
+- armazenamento de artefatos brutos;
+- normalização;
+- hashes;
+- manifestos;
+- retries para falhas transitórias.
 
-`pipeline/transform/calculate_annual.py` calcula grupos de variáveis a partir dos componentes declarados no próprio algoritmo. Entre os conjuntos previstos estão tributos imobiliários/selecionados, transferências selecionadas, despesa territorial, serviço da dívida, receitas e despesas de capital e gasto social selecionado. Calcula também diferenças conceituais e razões como tributo sobre receita corrente, investimento per capita e proporções territoriais.
+Também existe crosscheck direto entre Siconfi e o baseline publicado para municípios sentinela.
 
-Em `strict_sum`, o resultado é observado somente quando todos os componentes têm status observado e valor; se todos forem `nao_aplicavel`, o derivado também fica `nao_aplicavel`; nos demais casos fica ausente. Diferenças seguem a mesma exigência de dois operandos observados. Razões requerem numerador e denominador observados e denominador diferente de zero. A medida canônica `despesa_territorial` exige Urbanismo + Habitação + Saneamento + Gestão Ambiental + Transporte; se algum componente faltar, o resultado fica ausente (`NA` na apresentação). Uma regra parcial histórica só pode existir identificada como outra medida, para regressão.
+## Snapshot privado estadual
 
-#### 4. Janela, tipologia, marcadores e pares
+O piloto estadual atual está em objeto privado versionado no R2. O GitHub conserva apenas contrato, manifesto, hashes, código e testes.
 
-1. **Janela analítica:** para cada variável e município, seleciona os valores observados dentro dos exercícios definidos na tabela de janelas. Calcula média e amplitude quando há ao menos um ano, desvio-padrão e CV quando há ao menos dois, conta anos acima da mediana anual do universo e só calcula a mudança entre pontas quando início e fim estão observados. Registra `n_observacoes`; portanto, uma média de janela pode usar menos anos que o período completo. A janela, o universo e o build são chaves do resultado.
-2. **Tipologia:** lê dimensões do catálogo YAML. O nível é classificado relativamente à mediana do universo; a estabilidade compara o coeficiente de variação municipal à mediana do coeficiente de variação. O mínimo padrão é três anos observados, salvo regra diferente no catálogo. A tipologia é descritiva e relativa, não avaliação normativa.
-3. **Marcadores:** converte seis dimensões — base tributária, investimento, território, pessoal, dívida e liquidez — em rótulos, preservando “sem classificação” quando não há quadrante válido.
-4. **Pares:** cruza os seis marcadores observados, exclui comparação consigo próprio, calcula `coincidentes / comparáveis` e só prioriza candidatos com pelo menos quatro dimensões comparáveis. A ordenação é: proporção de coincidência decrescente, número coincidente decrescente, número comparável decrescente e nome/código municipal crescente. Guarda até três por município; marca como recíproco o par em que cada município escolheu o outro como principal. Registra também pares dirigidos sem prioridade quando a cobertura é insuficiente, identificando a limitação.
-5. Cada resultado derivado está ligado a universo, janela e build. A exportação não deve recalcular uma regra diferente da registrada na base.
+Escopo validado:
 
-### Algoritmos de aquisição por família de fonte
+- 645 municípios;
+- 2020–2023;
+- 2.580 município-ano;
+- receita corrente;
+- receita tributária;
+- IPTU;
+- ITBI;
+- ISS;
+- 12.900 observações;
+- 12.900 registros de proveniência.
 
-| Família | Passos do algoritmo de aquisição | Integração no núcleo |
-|---|---|---|
-| FINBRA / Siconfi DCA | Solicitar município, exercício e anexo; preservar bruto; repetir falhas transitórias; normalizar a resposta e mapear contas/campos pelo catálogo | Crosswalk conta/campo → variável; ingestão de observações e proveniência |
-| RREO | Selecionar demonstrativo, anexo, período, poder e linha oficial aplicáveis; validar status de entrega e cobertura | Indicador legal/financeiro próprio com conceito e referência preservados |
-| RGF | Selecionar anexo/período e taxonomia vigente no exercício; usar os totais oficiais quando a regra os define | DTP, dívida, caixa/restos a pagar e demais objetos legais, sem substituição por DCA |
-| CAPAG | Preservar o snapshot oficial, ano-base, posição, classificação e hash de arquivo | Classificação oficial tipada separadamente de indicador calculado localmente |
-| TCESP | Inventariar extratos, comparar hashes, baixar ZIP quando alterado, validar CSV/colunas/competência e normalizar valores | Crosswalk contábil e conciliação diagnóstica com fonte federal em conceitos compatíveis |
-| Dimensões territoriais | Carregar lista oficial de municípios e relações administrativas/metropolitanas com vigência e fonte | Atribuição de universo e agregação; sobreposições permanecem dimensões alternativas |
+Despesas, população fixa de 2024, RREO, RGF e CAPAG são deliberadamente excluídos desse piloto por incompatibilidade ou ausência de contrato estadual aprovado.
 
-A tabela descreve contratos e rotinas existentes por família, não significa que todo coletor esteja conectado ao `build_analytical_database` nem que todas as fontes estejam homologadas. Fontes ou produtos em staging (por exemplo, SIAFEM, Transferegov ou ObrasGov) só integram a camada canônica após definição de contrato semântico, cobertura, identificadores, proveniência e aprovação do gate pertinente. Sua existência no repositório não os torna componentes da produção.
+## Documentação canônica
 
-### Integração territorial
+Para retomar o projeto em nova conversa ou ambiente, consultar nesta ordem:
 
-```mermaid
-flowchart LR
-    A["Observação municipal + IBGE7"] --> B["Crosswalk territorial versionado"]
-    B --> C["Universo analítico"]
-    C --> D["Agregação por partição RA/RG"]
-    C --> E["Universos RM/AU sobrepostos"]
-    D --> F["QA de cobertura e conservação"]
-    E --> G["QA de composição do universo"]
-    F --> H["API / apresentação"]
-    G --> H
-```
-
-Os universos são filtros sobre as mesmas entidades municipais, não bancos independentes. RA e RG constituem níveis de uma partição territorial quando o crosswalk os define como tal; RM/AU são dimensões que podem se sobrepor. Para somar por partição, o QA compara lista exata de membros e conservação monetária. Um agregado de RM/AU é uma visão própria e nunca é somado a outras RMs/AUs para reconstruir o total estadual.
-
-### Atualização recorrente e idempotência
-
-1. `data/catalogs/source_refresh_calendar.json` declara cadência, janela, ação, gatilho, implementação e se a programação está habilitada.
-2. `pipeline/refresh_calendar.py` valida IDs/cadências e produz plano determinístico em dry-run, usando `America/Sao_Paulo`; o plano não consulta a fonte nem despacha workflow.
-3. `pipeline/refresh_ledger.py` persiste operações pela chave fonte + data + ação, estados, tentativas, retry, lease, worker, versão e evidência. Restrições únicas e transações evitam duplicação e concorrência indevida.
-4. Coletas distinguem `unchanged`, `persisted`, `quarantined` e `failed`. Uma versão válida não é substituída antes de a nova passar pelos controles.
-5. A periodicidade é uma política de sondagem, não garantia de publicação. Faltas, atrasos legais, indisponibilidade da API e mudança de layout têm estados próprios.
-
-O catálogo e o [calendário permanente](governance/CALENDARIO_ATUALIZACAO_FONTES_SP645.md) descrevem o desenho; **não há agendamentos recorrentes de produção habilitados**.
-
-## Modelo de dados, ausência e proveniência
-
-- Modelo longo: município + ano + variável formam a chave lógica para observações anuais; dimensões adicionais são explicitadas para período, universo, versão e fonte.
-- Zero é valor numérico observado. Ausente, não aplicável, em revisão e falha de aquisição são estados distintos.
-- Tipos de variável distinguem conta oficial, agregado analítico, indicador derivado, indicador legal, classificação oficial e variável contextual.
-- Crosswalk guarda fonte, demonstrativo, estágio, código, descrição, campo bruto, finalidade, regra de harmonização, prioridade e confiança.
-- `artefato_fonte` identifica arquivo/versão/hash/data; `observacao_proveniencia` liga observação a campo-fonte, outra observação ou regra.
-- Build registra versões da aplicação, schema, dados e metodologia, SHA-256 da base e resultado de QA.
-
-Consultar `governance/DATA_MODEL.md` para o contrato completo.
-
-## QA, gates e promoção
-
-```mermaid
-flowchart TD
-    A["Aquisição concluída"] --> B["QA do esquema, chaves e cobertura"]
-    B --> C{"Contrato da fonte aprovado?"}
-    C -- "não" --> Q["Quarentena / diligência"]
-    C -- "sim" --> D["QA metodológico e paridade"]
-    D --> E{"Invariantes e regressão aprovados?"}
-    E -- "não" --> Q
-    E -- "sim" --> F["Artefato candidato identificado por hashes"]
-    F --> G{"Revisão e autorização explícitas?"}
-    G -- "não" --> Q
-    G -- "sim" --> H["Release, deploy e rollback"]
-```
-
-Gates podem incluir universo e cobertura variável a variável, unicidade/cardinalidade, esquema e domínio, ausência, invariantes contábeis, paridade com baseline, comparação entre fontes, conservação RA/RG, APIs, QA remoto/navegador e hashes. QA técnico é necessário, mas não substitui decisão metodológica ou autorização de publicação. A [checklist de QA](governance/QA_CHECKLIST.md) e o [inventário](governance/INVENTORY.md) distinguem capacidades aprovadas, candidatas e legadas.
-
-## Produção e publicação
-
-- **Portal de produção:** [Mapa do Tesouro — Finanças Municipais SP](https://finbra-tic-tim-referencia.pages.dev/).
-- **Preview estável:** https://preview.finbra-tic-tim-referencia.pages.dev.
-- O modelo é static-first: JSONs previsíveis são gerados no build e servidos pelo CDN. D1 ou API dinâmica são opcionais e exigem caso de uso específico.
-- Rebuild de dados, build de interface, promoção e deploy são etapas distintas. Um preview aprovado não altera a versão produtiva.
-- Cada release deve indicar artefato, commit, versões de aplicação/dados/método/schema, hashes, QA, ambiente e rollback.
+1. `governance/PROJECT_STATE.md` — estado operacional e próximo gate;
+2. `governance/INVENTORY.md` — inventário do que existe e do que é legado;
+3. `governance/ARCHITECTURE.md` — arquitetura vigente;
+4. `governance/METHODOLOGY.md` — princípios metodológicos;
+5. `governance/DATA_MODEL.md` — modelo de dados e proveniência;
+6. `governance/EXPANSAO_SP_645.md` — expansão estadual;
+7. `governance/QA_CHECKLIST.md` — gates de promoção;
+8. `CHANGELOG.md` — histórico de versões.
 
 ## Estrutura principal
 
 ```text
-governance/       estado, arquitetura, método, fontes, decisões e QA
-pipeline/acquire/    aquisição por fonte
-pipeline/coleta/     coletores operacionais e formulários
-pipeline/sources/    clientes de fonte
-pipeline/ingest/     carga para o modelo canônico
-pipeline/normalize/  normalização e regras de harmonização
-pipeline/transform/  agregações, estatísticas, tipologias, marcadores e pares
-pipeline/qa/         cobertura, paridade, cardinalidade e invariantes
-pipeline/build/      SQLite, exportação estática, API e site
-pipeline/            planejador e ledger de atualização
-data/catalogs/    contratos, mapeamentos, dimensões e periodicidades
-data/schema/      esquema e migrações
-app/              frontend estático e dados exportados
-deployment/       publicação e acesso controlado a snapshots
-tests/            regressão e contratos de dados
-editorial/        produtos e estudos consumidores da plataforma
+governance/          documentação, decisões e QA
+pipeline/
+  acquire/           aquisição das fontes
+  ingest/            ingestão para o núcleo
+  normalize/         normalização
+  accounting/        regras contábeis
+  harmonization/     harmonização temporal
+  aggregations/      agregações
+  indicators/        indicadores
+  build/             SQLite, JSON e site
+data/
+  schema/            migrations
+  catalogs/          catálogos e contratos
+  mappings/          mappings de fontes
+  snapshots/         manifestos versionados
+app/                 frontend estático
+deployment/          publicação e acesso a snapshots privados
+tests/               regressão, metodologia, dados e frontend
+reference/           material legado e de referência
 ```
 
-## Documentação canônica para retomada
+## Publicação
 
-1. `governance/PROJECT_STATE.md` — estado operacional e próximo gate;
-2. `governance/INVENTORY.md` — implementado, experimental e legado;
-3. `governance/ARCHITECTURE.md` — camadas e publicação;
-4. `governance/METHODOLOGY.md` e `governance/DATA_MODEL.md` — regras e proveniência;
-5. `governance/EXPANSAO_SP_645.md` — expansão do universo;
-6. `governance/QA_CHECKLIST.md` — gates de validação e promoção;
-7. `governance/SOURCES.md` e `data/catalogs/` — fontes, variáveis, periodicidades e mapeamentos;
-8. `governance/CALENDARIO_ATUALIZACAO_FONTES_SP645.md` — proposta de atualização recorrente;
-9. `governance/PENDING_TASKS.md` e `CHANGELOG.md` — pendências e histórico de versões.
+Produção:
 
-## Regras metodológicas invariantes
+`https://finbra-tic-tim-referencia.pages.dev`
 
-1. **Ausência não é zero.** Não transformar resposta vazia, falha de consulta, período não vencido ou caso inconclusivo em zero.
-2. **Fonte oficial e derivação são objetos diferentes.** Indicadores legais usam seus demonstrativos próprios; classificações oficiais não são escores locais.
-3. **Evitar dupla contagem.** Conta-pai e contas-filhas não são somadas sem regra explícita; estágios financeiros e períodos ficam separados.
-4. **Preservar divergências.** Diferenças entre fontes ou versões são evidência para análise, não ruído a apagar.
-5. **Manter comparabilidade explícita.** Universo, período, unidade, deflator, denominador, classificação e cobertura devem acompanhar indicadores e rankings.
-6. **Não interpretar associação como causalidade ou avaliação normativa.** Tipologias, marcadores e pares são ferramentas descritivas/comparativas.
-7. **Publicar só artefato rastreável e autorizado.** Código, dados, método, QA, hashes e decisão de promoção devem convergir na release.
+Preview estável:
 
-## Registro histórico
+`https://preview.finbra-tic-tim-referencia.pages.dev`
 
-As seções seguintes são registros cronológicos de decisões e execuções. Preservam o contexto da data em que foram anotadas; para o estado vigente da plataforma, prevalecem as seções iniciais e a documentação canônica acima.
+O deployment é separado do rebuild dos dados. Alterações de interface podem ser promovidas sem reconstruir a base; atualizações de dados exigem pipeline, QA, hash e nova versão de dados.
 
----
+## Próximo gate
+
+A infraestrutura estadual, multiuniverso e a API editorial v1 estão em produção. O próximo ciclo é editorial: validar os templates de publicação com um caderno-piloto, congelar regras de narrativa e preparar a primeira Edição de Referência dos 11 universos.
+
+A fila administrativa está limpa em 2026-10-09: zero issues abertas e zero pull requests abertos. As pendências operacionais estão consolidadas em `governance/PENDING_TASKS.md`.
+
+## Legado
+
+As rotinas antigas de Streamlit, hierarquia, mapa semântico, normalização e agregações continuam úteis como referência metodológica e de regressão, mas não definem sozinhas a arquitetura de produção atual.
 
 ## ATENÇÃO — retomada da frente editorial RM/AU (18/10/2026)
 

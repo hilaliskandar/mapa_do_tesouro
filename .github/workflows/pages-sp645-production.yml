@@ -139,6 +139,18 @@ jobs:
         if: ${{ inputs.include_rmrp_territory }}
         run: python deployment/materialize_rmrp_territorial_sp645.py --site build/site-sp645
 
+      - name: Download public Transferegov snapshot and build municipal aggregates
+        run: |
+          python deployment/download_r2_source.py \
+            --object-key 'sp_645/federal/transferegov/financial/staging/run_46006854691/d7c0d8758fca9434e5c348e8f2be8905d443b1737ecc31b6aaffa33ddeaf77cc.tar.gz' \
+            --expected-sha256 'd7c0d8758fca9434e5c348e8f2be8905d443b1737ecc31b6aaffa33ddeaf77cc' \
+            --output build/transferegov-financial-staging.tar.gz
+          python -m pipeline.build.export_sp645_transferegov_financial \
+            --archive build/transferegov-financial-staging.tar.gz \
+            --geo governance/DIM_SP645_IBGE_RA_RG_RM_AU_CONSOLIDADA_2026_11_14.csv \
+            --output build/site-sp645/data/transferegov/financial_sp645.json \
+            --expected-sha256 'd7c0d8758fca9434e5c348e8f2be8905d443b1737ecc31b6aaffa33ddeaf77cc'
+
       - name: Validate SP645 production candidate locally
         run: python deployment/qa_sp645_pages.py --site build/site-sp645
 

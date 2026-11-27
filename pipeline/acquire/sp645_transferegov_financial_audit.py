@@ -12,7 +12,10 @@ import json
 import sqlite3
 import tarfile
 import tempfile
+import zipfile
 from pathlib import Path
+
+from pipeline.acquire.inv_sp645_transferegov_new_source_layout import acquire
 
 ARCHIVE_MEMBERS = {"financial.sqlite", "qa.json", "municipio_ano.csv"}
 
@@ -39,6 +42,42 @@ def load_archive(archive_path: Path, work: Path) -> tuple[Path, dict]:
         copy_member(tar, "financial.sqlite", db_path)
         copy_member(tar, "qa.json", qa_path)
     return db_path, json.loads(qa_path.read_text(encoding="utf-8"))
+
+
+
+def payment_source_schema(work: Path) -> dict:
+    path, metadata = acquire(work, "siconv_pagamento", 650)
+    with zipfile.ZipFile(path) as archive:
+        members = [item for item in archive.infolist()
+                   if not item.is_dir() and item.filename.lower().endswith(".csv")]
+        if len(members) != 1:
+            raise ValueError("expected one payment CSV in the official ZIP")
+        with archive.open(members[0], "r") as binary:
+            header_bytes = binary.readline(262145)
+            if len(header_bytes) > 262144:
+                raise ValueError("payment CSV header exceeds 256 KiB")
+        columns = None
+        for encoding in ("utf-8-sig", "cp1252"):
+            try:
+                header = header_bytes.decode(encoding, errors="strict")
+                delimiter = ";" if header.count(";") >= header.count(",") else ","
+                columns = next(csv.reader([header], delimiter=delimiter))
+                break
+            except UnicodeDecodeError:
+                continue
+        if columns is None or any(not column.strip() for column in columns):
+            raise ValueError("payment CSV header encoding or fields are invalid")
+        if len(columns) != len(set(columns)):
+            raise ValueError("duplicate payment CSV column names")
+        if archive.testzip() is not None:
+            raise ValueError("payment ZIP CRC verification failed")
+    return {
+        "source_sha256_zip": metadata["sha256_zip"],
+        "source_zip_bytes": metadata["zip_bytes"],
+        "csv_columns": columns,
+        "rows_read": 0,
+        "purpose": "schema only; no payment rows or values exported",
+    }
 
 
 def audit(db_path: Path, geo_csv: Path, source_qa: dict) -> dict:
@@ -246,8 +285,11 @@ def main() -> None:
     args = parser.parse_args()
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="sp645-financial-audit-") as temp:
-        db_path, source_qa = load_archive(args.archive, Path(temp))
+        work = Path(temp)
+        db_path, source_qa = load_archive(args.archive, work)
+        payment_schema = payment_source_schema(work)
         result = audit(db_path, args.geo, source_qa)
+        result["current_payment_source_schema"] = payment_schema
     if not result["source_qa_event_counts_match"]:
         raise SystemExit("database event counts differ from source QA")
     args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",

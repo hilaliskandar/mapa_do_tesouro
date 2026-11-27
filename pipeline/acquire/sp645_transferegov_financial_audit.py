@@ -1,0 +1,204 @@
+"""Aggregate QA of the already-staged SP645 Transferegov financial archive.
+
+This emits only aggregate counts and movement categories. It never writes
+transaction identifiers, instrument numbers, row numbers, or exact amounts.
+"""
+from __future__ import annotations
+
+import argparse
+import collections
+import csv
+import json
+import sqlite3
+import tarfile
+import tempfile
+from pathlib import Path
+
+ARCHIVE_MEMBERS = {"financial.sqlite", "qa.json", "municipio_ano.csv"}
+
+
+def copy_member(archive: tarfile.TarFile, name: str, destination: Path) -> None:
+    matches = [m for m in archive.getmembers() if m.name == name]
+    if len(matches) != 1 or not matches[0].isfile():
+        raise ValueError(f"expected one regular archive member: {name}")
+    source = archive.extractfile(matches[0])
+    if source is None:
+        raise ValueError(f"could not read archive member: {name}")
+    with source, destination.open("wb") as target:
+        while chunk := source.read(1024 * 1024):
+            target.write(chunk)
+
+
+def load_archive(archive_path: Path, work: Path) -> tuple[Path, dict]:
+    with tarfile.open(archive_path, "r:gz") as tar:
+        names = [m.name for m in tar.getmembers() if m.isfile()]
+        if set(names) != ARCHIVE_MEMBERS or len(names) != len(ARCHIVE_MEMBERS):
+            raise ValueError("staging archive members differ from the expected set")
+        db_path = work / "financial.sqlite"
+        qa_path = work / "source_qa.json"
+        copy_member(tar, "financial.sqlite", db_path)
+        copy_member(tar, "qa.json", qa_path)
+    return db_path, json.loads(qa_path.read_text(encoding="utf-8"))
+
+
+def audit(db_path: Path, geo_csv: Path, source_qa: dict) -> dict:
+    municipalities = {}
+    with geo_csv.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter=";"):
+            code = row["codigo_ibge"].strip()
+            if code in municipalities:
+                raise ValueError(f"duplicate IBGE code in territorial dimension: {code}")
+            municipalities[code] = row["municipio"].strip()
+    if len(municipalities) != 645:
+        raise ValueError(f"expected 645 municipalities, got {len(municipalities)}")
+
+    db = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+    db.row_factory = sqlite3.Row
+    integrity = db.execute("PRAGMA integrity_check").fetchone()[0]
+    fk_issues = db.execute("PRAGMA foreign_key_check").fetchall()
+    if integrity != "ok" or fk_issues:
+        raise ValueError("staged SQLite integrity check failed")
+
+    stages = {}
+    for row in db.execute("""
+        SELECT stage, COUNT(*) events, COUNT(DISTINCT c.ibge) municipalities,
+               COUNT(DISTINCT e.convenio) instruments,
+               SUM(CASE WHEN e.cents < 0 THEN 1 ELSE 0 END) negatives,
+               SUM(CASE WHEN e.cents = 0 THEN 1 ELSE 0 END) zeros
+        FROM event e JOIN convenio c ON c.numero=e.convenio
+        GROUP BY stage ORDER BY stage
+    """):
+        stages[row["stage"]] = {k: row[k] for k in
+                                ("events", "municipalities", "instruments",
+                                 "negatives", "zeros")}
+
+    negative_types = {}
+    for row in db.execute("""
+        SELECT COALESCE(NULLIF(TRIM(kind), ''), '[vazio]') kind, COUNT(*) events
+        FROM event
+        WHERE stage='pagamento' AND cents < 0
+        GROUP BY 1 ORDER BY 1
+    """):
+        label = row["kind"]
+        lower = label.casefold()
+        reversal_hint = any(term in lower for term in
+                            ("estorn", "anula", "cancel", "revers", "devol"))
+        negative_types[label] = {"events": row["events"],
+                                 "type_name_suggests_reversal": reversal_hint}
+
+    zero_types = {}
+    for row in db.execute("""
+        SELECT COALESCE(NULLIF(TRIM(kind), ''), '[vazio]') kind, COUNT(*) events
+        FROM event
+        WHERE stage='pagamento' AND cents = 0
+        GROUP BY 1 ORDER BY 1
+    """):
+        zero_types[row["kind"]] = row["events"]
+
+    municipality_payment_counts = {
+        row["ibge"]: row["events"]
+        for row in db.execute("""
+            SELECT c.ibge, COUNT(*) events
+            FROM event e JOIN convenio c ON c.numero=e.convenio
+            WHERE e.stage='pagamento'
+            GROUP BY c.ibge
+        """)
+    }
+    missing_payment = [
+        {"codigo_ibge": code, "municipio": name}
+        for code, name in sorted(municipalities.items())
+        if code not in municipality_payment_counts
+    ]
+
+    instrument_counts = {
+        row["stage"]: row["n"]
+        for row in db.execute("""
+            SELECT stage, COUNT(DISTINCT convenio) n
+            FROM event GROUP BY stage
+        """)
+    }
+    overlap = db.execute("""
+        WITH by_instrument AS (
+            SELECT convenio,
+                   MAX(stage='pagamento') has_pagamento,
+                   MAX(stage='desembolso') has_desembolso
+            FROM event GROUP BY convenio
+        )
+        SELECT SUM(has_pagamento=1 AND has_desembolso=1) both,
+               SUM(has_pagamento=1 AND has_desembolso=0) pagamento_only,
+               SUM(has_pagamento=0 AND has_desembolso=1) desembolso_only
+        FROM by_instrument
+    """).fetchone()
+
+    chronology = db.execute("""
+        WITH first_dates AS (
+            SELECT convenio, stage, MIN(date) first_date
+            FROM event GROUP BY convenio, stage
+        )
+        SELECT COUNT(*) matched_instruments,
+               SUM(p.first_date < d.first_date) payment_first_before_disbursement
+        FROM first_dates p
+        JOIN first_dates d ON d.convenio=p.convenio
+        WHERE p.stage='pagamento' AND d.stage='desembolso'
+    """).fetchone()
+
+    db.close()
+    baseline = {
+        item["stage"]: item["events"]
+        for item in source_qa.get("summary", [])
+    }
+    database_events = {stage: item["events"] for stage, item in stages.items()}
+    baseline_matches = all(database_events.get(stage) == count
+                           for stage, count in baseline.items())
+
+    return {
+        "scope": "SP645 financial staging, by proponent municipality",
+        "territorial_universe": len(municipalities),
+        "database_integrity": integrity,
+        "source_qa_event_counts_match": baseline_matches,
+        "stages": stages,
+        "negative_payment_type_counts": negative_types,
+        "zero_payment_type_counts": zero_types,
+        "payment_municipalities_without_selected_events": missing_payment,
+        "instruments_by_stage": instrument_counts,
+        "instrument_overlap": dict(overlap),
+        "chronology": {
+            "instruments_with_both_stages": chronology["matched_instruments"],
+            "payment_first_date_before_disbursement_first_date":
+                chronology["payment_first_before_disbursement"],
+            "interpretation": "descriptive only; stages are not additive",
+        },
+        "source_qa_publication_authorized":
+            source_qa.get("publication_authorized", False),
+        "privacy": {
+            "transaction_ids_in_output": False,
+            "instrument_numbers_in_output": False,
+            "row_numbers_in_output": False,
+            "exact_transaction_amounts_in_output": False,
+        },
+        "classification_status":
+            "movement-type labels are screening clues, not final adjudication",
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--archive", type=Path, required=True)
+    parser.add_argument("--geo", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    args = parser.parse_args()
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix="sp645-financial-audit-") as temp:
+        db_path, source_qa = load_archive(args.archive, Path(temp))
+        result = audit(db_path, args.geo, source_qa)
+    if not result["source_qa_event_counts_match"]:
+        raise SystemExit("database event counts differ from source QA")
+    args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+                        encoding="utf-8")
+    print("SP645_FINANCIAL_AUDIT_SUMMARY " +
+          json.dumps(result, ensure_ascii=False, separators=(",", ":")),
+          flush=True)
+
+
+if __name__ == "__main__":
+    main()

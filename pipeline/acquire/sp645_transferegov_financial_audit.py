@@ -110,6 +110,23 @@ def audit(db_path: Path, geo_csv: Path, source_qa: dict) -> dict:
         if code not in municipality_payment_counts
     ]
 
+    missing_payment_coverage = []
+    for item in missing_payment:
+        code = item["codigo_ibge"]
+        row = db.execute("""
+            SELECT c.ibge, COUNT(DISTINCT c.numero) instruments,
+                   SUM(CASE WHEN e.stage='desembolso' THEN 1 ELSE 0 END) desembolso_events
+            FROM convenio c
+            LEFT JOIN event e ON e.convenio=c.numero
+            WHERE c.ibge=?
+            GROUP BY c.ibge
+        """, (code,)).fetchone()
+        missing_payment_coverage.append({
+            **item,
+            "convenios_in_staging": row["instruments"] if row else 0,
+            "desembolso_events": row["desembolso_events"] if row else 0,
+        })
+
     instrument_counts = {
         row["stage"]: row["n"]
         for row in db.execute("""
@@ -130,15 +147,50 @@ def audit(db_path: Path, geo_csv: Path, source_qa: dict) -> dict:
         FROM by_instrument
     """).fetchone()
 
+    negative_counterparts = collections.Counter()
+    negative_rows = list(db.execute("""
+        SELECT convenio, date, cents
+        FROM event
+        WHERE stage='pagamento' AND cents < 0
+    """))
+    for negative in negative_rows:
+        matches = [
+            row["date"]
+            for row in db.execute("""
+                SELECT date FROM event
+                WHERE stage='pagamento' AND convenio=? AND cents=?
+            """, (negative["convenio"], -negative["cents"]))
+        ]
+        if not matches:
+            category = "no_equal_opposite_payment_same_instrument"
+        else:
+            before = any(day < negative["date"] for day in matches)
+            after = any(day > negative["date"] for day in matches)
+            same_day = any(day == negative["date"] for day in matches)
+            if before and after:
+                category = "equal_opposite_payments_before_and_after"
+            elif before:
+                category = "equal_opposite_payment_before"
+            elif after:
+                category = "equal_opposite_payment_after"
+            elif same_day:
+                category = "equal_opposite_payment_same_day"
+            else:
+                category = "equal_opposite_payment_date_unclassified"
+        negative_counterparts[category] += 1
+
     chronology = db.execute("""
-        WITH first_dates AS (
-            SELECT convenio, stage, MIN(date) first_date
+        WITH date_ranges AS (
+            SELECT convenio, stage, MIN(date) first_date, MAX(date) last_date
             FROM event GROUP BY convenio, stage
         )
         SELECT COUNT(*) matched_instruments,
-               SUM(p.first_date < d.first_date) payment_first_before_disbursement
-        FROM first_dates p
-        JOIN first_dates d ON d.convenio=p.convenio
+               SUM(p.last_date < d.first_date) payments_entirely_before_disbursement,
+               SUM(d.last_date < p.first_date) disbursements_entirely_before_payment,
+               SUM(NOT (p.last_date < d.first_date OR d.last_date < p.first_date))
+                   date_ranges_interleaved_or_touching
+        FROM date_ranges p
+        JOIN date_ranges d ON d.convenio=p.convenio
         WHERE p.stage='pagamento' AND d.stage='desembolso'
     """).fetchone()
 
@@ -159,13 +211,18 @@ def audit(db_path: Path, geo_csv: Path, source_qa: dict) -> dict:
         "stages": stages,
         "negative_payment_type_counts": negative_types,
         "zero_payment_type_counts": zero_types,
-        "payment_municipalities_without_selected_events": missing_payment,
+        "payment_municipalities_without_selected_events": missing_payment_coverage,
+        "negative_same_instrument_equal_opposite_match_counts": dict(negative_counterparts),
         "instruments_by_stage": instrument_counts,
         "instrument_overlap": dict(overlap),
         "chronology": {
             "instruments_with_both_stages": chronology["matched_instruments"],
-            "payment_first_date_before_disbursement_first_date":
-                chronology["payment_first_before_disbursement"],
+            "payments_entirely_before_disbursement":
+                chronology["payments_entirely_before_disbursement"],
+            "disbursements_entirely_before_payment":
+                chronology["disbursements_entirely_before_payment"],
+            "date_ranges_interleaved_or_touching":
+                chronology["date_ranges_interleaved_or_touching"],
             "interpretation": "descriptive only; stages are not additive",
         },
         "source_qa_publication_authorized":

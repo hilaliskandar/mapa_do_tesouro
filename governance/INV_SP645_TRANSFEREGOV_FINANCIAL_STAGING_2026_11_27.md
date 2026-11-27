@@ -41,7 +41,7 @@ O artefato de QA da execução está associado ao run indicado acima (`sp645-tra
 - O recorte territorial indica o proponente. Ele não demonstra onde a obra, bem ou serviço foi executado.
 - Os arquivos não informam natureza de capital nesse conjunto; portanto, os totais não podem ser rotulados como investimento executado, obra entregue ou benefício territorial.
 - O QA encontrou **5 pagamentos com valor negativo**, **2.194 pagamentos de valor zero** e registros de pagamento para **644 dos 645 municípios** do universo estadual. Esses casos e a diferença de cobertura precisam ser examinados antes de consolidação analítica.
-- O campo `natureza_capital_pago` permanece nulo. A publicação permanece **não autorizada** e não houve alteração de produção.
+- O campo `natureza_capital_pago` permanece nulo. Na data deste relatório, a publicação ainda não estava autorizada e não houve alteração de produção. A autorização posterior refere-se à divulgação dos resultados agregados desta auditoria; não classifica os fluxos como investimento executado.
 
 ## Próximas verificações
 
@@ -51,4 +51,18 @@ O artefato de QA da execução está associado ao run indicado acima (`sp645-tra
 4. Definir e validar a classificação de natureza de capital e a ligação com localização de execução antes de produzir qualquer indicador de investimento territorial.
 5. Após a QA, avaliar a agregação regional mantendo explícita a dimensão de município proponente e as limitações de cobertura.
 
-**Estado:** workflow de coleta e staging validado; análise substantiva, classificação de capital e autorização para publicação seguem pendentes.
+**Estado do staging:** workflow de coleta validado; classificação de capital e localização da execução permanecem pendentes. A autorização posterior para publicar os resultados desta auditoria está registrada no complemento abaixo.
+
+
+## Auditoria agregada complementar e autorização de divulgação — 27/11/2026
+
+A auditoria foi executada sobre o pacote de staging identificado pelo SHA-256 acima, sem reexportar registros individuais. A execução [GitHub Actions 46015207806](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/46015207806) concluiu com sucesso, verificou a integridade do banco e confirmou a correspondência das contagens com o QA de origem. O resumo agregado foi preservado no R2 com leitura de retorno e no artefato [sp645-transferegov-financial-aggregate-audit](https://github.com/hilaliskandar/mapa_do_tesouro/actions/runs/46015207806/artifacts/15205168746), sem identificadores de transação ou convênio, nomes de fornecedores, números de linha ou valores individuais.
+
+- Os cinco pagamentos negativos e os 2.194 pagamentos zerados compartilham a categoria genérica “pagamento a favorecido com OBTV”; a categoria não caracteriza estorno ou cancelamento.
+- Os cinco pagamentos negativos foram ligados aos campos de documento de liquidação presentes na fonte. Nenhum encontrou pagamento positivo no mesmo documento e convênio, nem contraparte positiva de igual valor no mesmo convênio. Isso não basta para concluir que os lançamentos sejam inválidos ou estornos.
+- Pirapora do Bom Jesus é o único município sem evento de pagamento selecionado. O staging contém 13 convênios e dois eventos de desembolso associados ao município, de modo que a lacuna observada é específica da etapa de pagamento.
+- Há 22.557 instrumentos presentes nas duas etapas; as distribuições cronológicas foram calculadas apenas como descrição. Pagamento e desembolso continuam sendo etapas distintas e não aditivas.
+
+**Autorização:** foi autorizada a publicação destes resultados agregados. Permanecem fora desta divulgação os registros individuais e qualquer afirmação de investimento executado, localização física ou natureza de capital. O fluxo de produção existente do site SP645 não incorpora este staging financeiro; por isso, esta atualização publica o relatório de auditoria no repositório e não altera o site de produção.
+
+**Pendência analítica:** classificar individualmente os cinco pagamentos negativos com documentação oficial complementar e validar natureza de capital e localização antes de qualquer indicador de investimento territorial.

@@ -9,7 +9,7 @@
 
 - A última base de produção documentada é a release `v0.6.0`, publicada e homologada em 25/11/2026. O README registra o run 45594094214 e o artefato 15012300428.
 - `VERSION` é a versão da release do site e é validada pelo workflow de Pages. A versão em `pyproject.toml` identifica o pacote Python; elas têm funções diferentes e não devem ser comparadas como se fossem um único campo.
-- A `main` e a linha de produção têm históricos diferentes. Esta branch registra ambas como ancestrais, sem reescrever refs, e parte do código da linha de produção mais recente.
+- A `main` e a linha de produção têm históricos diferentes. Esta branch parte da linha de produção mais recente e consolida os avanços selecionados da `main` e das frentes federais em um commit de integração; ela preserva o conteúdo integrado, não a cadeia completa de commits da `main`.
 - `README.md`, `governance/PROJECT_STATE.md` e `governance/PENDING_TASKS.md` continham anotações de épocas distintas. Este documento passa a ser o quadro operacional atual; os registros anteriores ficam como histórico, não como fila vigente.
 
 ## O que foi reunido

@@ -55,22 +55,20 @@ Cada camada tem uma responsabilidade verificável. A aquisição não interpreta
 
 ```mermaid
 flowchart TD
-    A["DCA / FINBRA"] --> N["Observações normalizadas"]
-    B["RREO / RGF / CAPAG"] --> N
-    C["Outras fontes fiscais validadas"] --> N
-    N --> X["Modelo longo + proveniência"]
-    X --> V["Validação, classificação e hierarquia"]
-    V --> H["Harmonização temporal e de conceitos"]
-    H --> G["Agregações anuais"]
-    G --> I["Indicadores e denominadores"]
-    I --> W["Estatísticas da janela analítica"]
-    W --> T["Tipologias relativas"]
-    T --> M["Marcadores comparáveis"]
-    M --> P["Pares municipais"]
-    P --> Q["Cobertura, QA e exportação"]
+    A["Fontes e snapshots"] --> B["Aquisição específica por fonte"]
+    B --> C["Arquivo / planilha conforme contrato"]
+    C --> D["import_multifuentes + catálogo"]
+    D --> E["load_documentation"]
+    E --> F["calculate_annual"]
+    F --> G["refresh_coverage"]
+    G --> H["calculate_window_statistics"]
+    H --> I["calculate_typologies"]
+    I --> J["calculate_markers"]
+    J --> K["calculate_pairs"]
+    K --> L["JSON estático e/ou site, se solicitados"]
 ```
 
-Os fluxos de fontes paralelas se integram pelo crosswalk e pelos contratos semânticos. A identidade de um município ou a coincidência de um nome não basta para combinar valores: fonte, conceito, unidade, exercício, período, estágio e cobertura precisam ser compatíveis.
+O diagrama mostra a sequência implementada por `pipeline/build/build_analytical_database.py`. A aquisição das fontes é específica por workflow; o build analítico recebe uma planilha e mapeamento contratados, carrega catálogo/documentação e executa as transformações na ordem indicada. Coletores diretos e artefatos em staging não entram automaticamente nesse build. Sua integração exige contrato semântico, crosswalk e gate próprios. A identidade de um município ou a coincidência de um nome não basta para combinar valores: fonte, conceito, unidade, exercício, período, estágio e cobertura precisam ser compatíveis.
 
 ### Algoritmos implementados no núcleo
 
@@ -79,7 +77,7 @@ Os fluxos de fontes paralelas se integram pelo crosswalk e pelos contratos semâ
 | Ingestão multifuentes | Lê as planilhas/artefatos definidos pelo mapeamento e carrega entidades, universos, observações e proveniência | Chave lógica municipal + exercício + variável; campos de origem e status preservados | SQLite canônico |
 | Agregação anual | Calcula totais conceituais, diferenças e razões a partir do catálogo de componentes | Não somar conta-pai com filhas; razões só quando numerador e denominador são observados e válidos | Variáveis anuais derivadas |
 | Cobertura | Recalcula município × universo × variável × período e estados de observação | Distingue observado, ausente, não aplicável e em revisão; zero é observado | Matrizes de cobertura |
-| Estatística de janela | Resume séries municipais para uma janela definida e para variáveis selecionadas | Guarda número de observações; séries incompletas não são tratadas como janela completa | Estatísticas por janela |
+| Estatística de janela | Calcula média, amplitude, desvio-padrão, coeficiente de variação, mudança entre pontas e anos acima da mediana anual do grupo | Usa anos observados e grava `n_observacoes`; mudança só é calculada se primeiro e último ano da janela estiverem observados | Estatísticas por janela |
 | Tipologia | Classifica nível e estabilidade relativamente à distribuição do universo | Nível compara com mediana; estabilidade compara coeficiente de variação com sua mediana; exige mínimo de anos configurado | Classificações relativas |
 | Marcadores | Converte quadrantes de seis dimensões em rótulos interpretáveis | Sem classificação permanece explícita; marcador não é nota geral de desempenho | Marcadores textuais por município |
 | Pares | Compara marcadores de cada município com os demais | Exige ao menos quatro dimensões comparáveis; calcula coincidência nas dimensões disponíveis e seleciona até três pares prioritários/recíprocos conforme regra | Pares comparativos auditáveis |
@@ -105,14 +103,14 @@ Os fluxos de fontes paralelas se integram pelo crosswalk e pelos contratos semâ
 
 `pipeline/transform/calculate_annual.py` calcula grupos de variáveis a partir dos componentes declarados no próprio algoritmo. Entre os conjuntos previstos estão tributos imobiliários/selecionados, transferências selecionadas, despesa territorial, serviço da dívida, receitas e despesas de capital e gasto social selecionado. Calcula também diferenças conceituais e razões como tributo sobre receita corrente, investimento per capita e proporções territoriais.
 
-Para qualquer total, o algoritmo aplica regra de cobertura: componentes obrigatórios precisam estar presentes. A medida canônica `despesa_territorial` exige Urbanismo + Habitação + Saneamento + Gestão Ambiental + Transporte; se algum componente faltar, o resultado é `NA`. Uma regra parcial histórica só pode existir identificada como outra medida, para regressão.
+Em `strict_sum`, o resultado é observado somente quando todos os componentes têm status observado e valor; se todos forem `nao_aplicavel`, o derivado também fica `nao_aplicavel`; nos demais casos fica ausente. Diferenças seguem a mesma exigência de dois operandos observados. Razões requerem numerador e denominador observados e denominador diferente de zero. A medida canônica `despesa_territorial` exige Urbanismo + Habitação + Saneamento + Gestão Ambiental + Transporte; se algum componente faltar, o resultado fica ausente (`NA` na apresentação). Uma regra parcial histórica só pode existir identificada como outra medida, para regressão.
 
 #### 4. Janela, tipologia, marcadores e pares
 
-1. **Janela analítica:** para cada variável e município, seleciona os exercícios de início/fim definidos na tabela de janelas, calcula as métricas configuradas e registra `n_observacoes`. A janela, o universo e o build são chaves do resultado.
+1. **Janela analítica:** para cada variável e município, seleciona os valores observados dentro dos exercícios definidos na tabela de janelas. Calcula média e amplitude quando há ao menos um ano, desvio-padrão e CV quando há ao menos dois, conta anos acima da mediana anual do universo e só calcula a mudança entre pontas quando início e fim estão observados. Registra `n_observacoes`; portanto, uma média de janela pode usar menos anos que o período completo. A janela, o universo e o build são chaves do resultado.
 2. **Tipologia:** lê dimensões do catálogo YAML. O nível é classificado relativamente à mediana do universo; a estabilidade compara o coeficiente de variação municipal à mediana do coeficiente de variação. O mínimo padrão é três anos observados, salvo regra diferente no catálogo. A tipologia é descritiva e relativa, não avaliação normativa.
 3. **Marcadores:** converte seis dimensões — base tributária, investimento, território, pessoal, dívida e liquidez — em rótulos, preservando “sem classificação” quando não há quadrante válido.
-4. **Pares:** cruza os marcadores observados entre municípios, exclui comparação consigo próprio, calcula quantas dimensões são comparáveis e coincidentes e exige pelo menos quatro comparáveis. A ordenação seleciona até três candidatos por município, preservando coincidência, denominador comparável e critério de reciprocidade.
+4. **Pares:** cruza os seis marcadores observados, exclui comparação consigo próprio, calcula `coincidentes / comparáveis` e só prioriza candidatos com pelo menos quatro dimensões comparáveis. A ordenação é: proporção de coincidência decrescente, número coincidente decrescente, número comparável decrescente e nome/código municipal crescente. Guarda até três por município; marca como recíproco o par em que cada município escolheu o outro como principal. Registra também pares dirigidos sem prioridade quando a cobertura é insuficiente, identificando a limitação.
 5. Cada resultado derivado está ligado a universo, janela e build. A exportação não deve recalcular uma regra diferente da registrada na base.
 
 ### Algoritmos de aquisição por família de fonte
@@ -126,7 +124,7 @@ Para qualquer total, o algoritmo aplica regra de cobertura: componentes obrigat�
 | TCESP | Inventariar extratos, comparar hashes, baixar ZIP quando alterado, validar CSV/colunas/competência e normalizar valores | Crosswalk contábil e conciliação diagnóstica com fonte federal em conceitos compatíveis |
 | Dimensões territoriais | Carregar lista oficial de municípios e relações administrativas/metropolitanas com vigência e fonte | Atribuição de universo e agregação; sobreposições permanecem dimensões alternativas |
 
-Fontes ou produtos em staging (por exemplo, SIAFEM, Transferegov ou ObrasGov) só integram a camada canônica após definição de contrato semântico, cobertura, identificadores, proveniência e aprovação do gate pertinente. Sua existência no repositório não os torna componentes da produção.
+A tabela descreve contratos e rotinas existentes por família, não significa que todo coletor esteja conectado ao `build_analytical_database` nem que todas as fontes estejam homologadas. Fontes ou produtos em staging (por exemplo, SIAFEM, Transferegov ou ObrasGov) só integram a camada canônica após definição de contrato semântico, cobertura, identificadores, proveniência e aprovação do gate pertinente. Sua existência no repositório não os torna componentes da produção.
 
 ### Integração territorial
 

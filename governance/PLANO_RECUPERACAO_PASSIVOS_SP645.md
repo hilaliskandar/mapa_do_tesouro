@@ -17,3 +17,11 @@ Fila independente de manutenção: chave fonte/IBGE/exercício/período/produto;
 | Auxiliares | Cobertura a inventariar | Classificar fontes por aplicabilidade e período |
 
 A fila de passivos deverá integrar o orquestrador sem usar o ledger simulado QA como produção. Regras de execução: checkpoints por lote, exclusão por fonte, limites API, prioridade a lacunas efetivas, evidência de consulta, reprogramação controlada e publicação somente após QA. Agendamento recorrente ainda não habilitado. Produção v0.6.0 preservada.
+
+## Atualização de 27/11/2026
+
+- TCE-SP 2026: 644 municípios jurisdicionados com ambos os domínios recuperados; piloto 10, expansão 200 e final 399, além dos 35 anteriores. Runs 45922343693, 45924519271, 45925931531; 798/798 extratos na expansão final, 20 lotes com readback R2. Ainda não integrados à plataforma; capital TCM-SP separada.
+- Siconfi 2026: run 45925913226, 3.220 demonstrativos e 836.951 linhas normalizadas, cinco respostas vazias, 539 municípios, hash staging bd58cc084ea10d21203d3a0f2f02e39a233926844d41a06f79e313189b1eae0b. Recuperação convencional adicional 2.549 consultas vazias; mudar estratégia para simplificados e MSC.
+- ObrasGov: inventário 4.224 projetos por proponente, 625 municípios; 218 anteriores + 100 piloto + 1.000 + 2.906 fichas previstas recuperadas, runs 45927622363, 45928187001, 45928847777; 30 lotes finais readback R2. Não equivale à execução financeira nem localização física.
+- Transferegov: novo workflow sp645-transferegov-financial.yml para eventos-pai de desembolsos e pagamentos por proponente, com centavos, data, identificador e proveniência; sem dados pessoais de favorecidos. Nova leitura oficial necessária porque não está comprovada autorização do runner para ZIPs privados Drive. Preservar snapshots anteriores e não confundir estágios.
+- Agendamento permanente e integração pública continuam pendentes; v0.6.0 preservada.

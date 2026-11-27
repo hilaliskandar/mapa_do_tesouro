@@ -117,7 +117,7 @@ Em `strict_sum`, o resultado é observado somente quando todos os componentes t�
 
 | Família | Passos do algoritmo de aquisição | Integração no núcleo |
 |---|---|---|
-| FINBRA / Siconfi DCA | Selecionar município, exercício, anexo e contas; solicitar dados; preservar bruto; repetir falhas transitórias; normalizar e gerar manifesto/hash | Crosswalk conta/campo → variável; ingestão de observações e proveniência |
+| FINBRA / Siconfi DCA | Solicitar município, exercício e anexo; preservar bruto; repetir falhas transitórias; normalizar a resposta e mapear contas/campos pelo catálogo | Crosswalk conta/campo → variável; ingestão de observações e proveniência |
 | RREO | Selecionar demonstrativo, anexo, período, poder e linha oficial aplicáveis; validar status de entrega e cobertura | Indicador legal/financeiro próprio com conceito e referência preservados |
 | RGF | Selecionar anexo/período e taxonomia vigente no exercício; usar os totais oficiais quando a regra os define | DTP, dívida, caixa/restos a pagar e demais objetos legais, sem substituição por DCA |
 | CAPAG | Preservar o snapshot oficial, ano-base, posição, classificação e hash de arquivo | Classificação oficial tipada separadamente de indicador calculado localmente |
@@ -193,13 +193,15 @@ Gates podem incluir universo e cobertura variável a variável, unicidade/cardin
 
 ```text
 governance/       estado, arquitetura, método, fontes, decisões e QA
-pipeline/acquire/ aquisição por fonte
-pipeline/ingest/  carga para o modelo canônico
-pipeline/normalize/normalização e harmonização
-pipeline/transform/ agregações, estatísticas, tipologias, marcadores e pares
-pipeline/qa/      cobertura, paridade, cardinalidade e invariantes
-pipeline/build/   SQLite, exportação estática, API e site
-pipeline/         planejador e ledger de atualização
+pipeline/acquire/    aquisição por fonte
+pipeline/coleta/     coletores operacionais e formulários
+pipeline/sources/    clientes de fonte
+pipeline/ingest/     carga para o modelo canônico
+pipeline/normalize/  normalização e regras de harmonização
+pipeline/transform/  agregações, estatísticas, tipologias, marcadores e pares
+pipeline/qa/         cobertura, paridade, cardinalidade e invariantes
+pipeline/build/      SQLite, exportação estática, API e site
+pipeline/            planejador e ledger de atualização
 data/catalogs/    contratos, mapeamentos, dimensões e periodicidades
 data/schema/      esquema e migrações
 app/              frontend estático e dados exportados

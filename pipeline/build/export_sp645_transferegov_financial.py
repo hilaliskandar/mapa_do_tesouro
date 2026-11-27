@@ -11,7 +11,6 @@ import json
 import sqlite3
 import tarfile
 import tempfile
-from collections import defaultdict
 from pathlib import Path
 
 STAGES = ("desembolso", "pagamento")
@@ -103,6 +102,19 @@ def build(archive_path: Path, geo_path: Path, output_path: Path,
                 })
         finally:
             con.close()
+
+    expected_event_totals = {"desembolso": 47392, "pagamento": 945970}
+    expected_municipal_coverage = {"desembolso": 645, "pagamento": 644}
+    for stage in STAGES:
+        stage_rows = [item for item in records if item["stage"] == stage]
+        if sum(item["event_count"] for item in stage_rows) != expected_event_totals[stage]:
+            raise ValueError("aggregated event count differs from audited staging")
+        if len({item["codigo_ibge"] for item in stage_rows}) != expected_municipal_coverage[stage]:
+            raise ValueError("municipal event coverage differs from audited staging")
+    payment_rows = [item for item in records if item["stage"] == "pagamento"]
+    if (sum(item["negative_events"] for item in payment_rows) != 5 or
+            sum(item["zero_events"] for item in payment_rows) != 2194):
+        raise ValueError("negative or zero payment counts differ from audited staging")
 
     years = sorted({item["year"] for item in records})
     coverage = []

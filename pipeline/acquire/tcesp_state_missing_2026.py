@@ -1,6 +1,6 @@
 """Initial TCESP 2026 missing-only acquisition, candidate slug verified against source."""
 import argparse,collections,csv,datetime,decimal,hashlib,io,json,pathlib,time,urllib.request,zipfile,unicodedata,re
-p=argparse.ArgumentParser();p.add_argument("--offset",type=int,required=True);p.add_argument("--limit",type=int,default=10);p.add_argument("--output",type=pathlib.Path,required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument("--offset",type=int,required=True);p.add_argument("--limit",type=int,default=10);p.add_argument("--output",type=pathlib.Path,required=True);p.add_argument("--remaining-priority",action="store_true");a=p.parse_args()
 root=a.output;root.mkdir(parents=True,exist_ok=True)
 def sha(b):return hashlib.sha256(b).hexdigest()
 def normalize(s):return re.sub(r"[^a-z0-9]+"," ",unicodedata.normalize("NFKD",s.casefold()).encode("ascii","ignore").decode()).strip()
@@ -65,6 +65,11 @@ assert len(roster)==645
 pending=[r for r in roster if r["rm_au_nome"]!="Região Metropolitana de Ribeirão Preto" and r["codigo_ibge"] not in {"3550308","3548906"}]
 assert len(pending)==609
 pending.sort(key=lambda r:r["codigo_ibge"])
+if a.remaining_priority:
+    pending=pending[10:]
+    priority=set(["3500105","3500204","3500402","3500709","3501509","3503000","3503505","3503703","3504206","3504602","3504800","3504909","3506409","3507308","3508108","3508306","3509304","3509452","3510708","3511201","3511300","3511706","3512100","3512506","3513850","3514403","3514700","3514924","3514957","3515608","3515806","3516507","3517109","3517505","3519402","3519808","3520202","3520707","3521200","3521507","3521903","3522901","3523008","3524907","3525706","3526308","3526506","3526605","3528007","3528106","3529104","3529609","3529708","3530102","3530409","3531001","3531407","3532306","3532405","3532504","3533007","3534104","3535002","3536109","3536257","3536406","3536901","3537701","3538105","3539004","3539400","3540309","3540754","3540804","3540853","3541109","3541505","3541703","3542305","3542800","3543105","3543600","3543808","3544103","3544400","3545159","3545605","3546504","3547007","3548203","3548401","3548609","3549003","3549409","3550001","3551900","3555356","3556305"])
+    pending.sort(key=lambda r:(r["codigo_ibge"] not in priority,r["codigo_ibge"]))
+    assert len(pending)==599
 selected=pending[a.offset:a.offset+a.limit]
 results=[]
 for city in selected:

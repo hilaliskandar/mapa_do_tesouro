@@ -2,7 +2,7 @@ name: SP645 Siconfi 2026 periodic normalized staging
 on:
   push:
     branches: [investimentos-territoriais-sp645-20261111]
-    paths: ['.github/workflows/sp645-siconfi-periodic-normalize-2026.yml']
+    paths: ['.github/workflows/sp645-siconfi-periodic-normalize-2026.yml', 'pipeline/normalize/siconfi_periodic_2026.py']
 permissions:
   contents: read
 jobs:

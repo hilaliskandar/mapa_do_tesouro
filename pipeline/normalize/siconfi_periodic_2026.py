@@ -39,7 +39,7 @@ for obj in catalog["objects"]:
             assert params.get("in_periodicidade", "B")==freq
             assert len(items)==r["row_count"] and bool(items)==(r["status"]=="observed_rows")
             key=f"{code}:2026:{typ}:{freq}:{period}:{annex}"
-            db.execute("INSERT INTO reports VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",(key,code,2026,typ,freq,period,annex,r["status"],obj["key"],member.name,r["sha256"],canonical(params),len(items),canonical(r.get("delivery_metadata",[]))))
+            db.execute("INSERT INTO reports VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",(key,code,2026,typ,freq,period,annex,r["status"],obj["key"],member.name,r["sha256"],canonical(params),len(items),canonical(r.get("delivery_metadata",[]))))
             seen=set()
             for i,item in enumerate(items):
                 assert isinstance(item,dict)

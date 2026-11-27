@@ -1,0 +1,50 @@
+name: TCESP 2026 statewide missing-only pilot
+on:
+  push:
+    branches: [investimentos-territoriais-sp645-20261111]
+    paths: ['.github/workflows/tcesp-state-2026-missing-pilot.yml']
+permissions:
+  contents: read
+concurrency:
+  group: tcesp-state-2026
+  cancel-in-progress: false
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_BUCKET: financas-municipais-sp-canonico
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pipeline.acquire.tcesp_state_missing_2026 --offset 0 --limit 10 --output build/tcesp-state
+      - name: Validate and preserve evidence
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          root=pathlib.Path('build/tcesp-state')
+          report=json.loads((root/'coverage.json').read_text())
+          rows=report['results']
+          assert len(rows)==len({(r['codigo_ibge'],r['dominio']) for r in rows})==20
+          for r in rows:
+              if r['status']!='updated':continue
+              assert hashlib.sha256((root/r['raw_file']).read_bytes()).hexdigest()==r['source_sha256']
+              assert hashlib.sha256((root/r['file']).read_bytes()).hexdigest()==r['derived_sha256']
+              x=json.loads((root/r['file']).read_text())
+              assert x['identity_status'] in ('ibge_verified','source_name_verified') and not x['errors']
+          print('TCESP_STATE_PILOT_QA',json.dumps(report['summary']))
+          PY
+          tar -czf build/tcesp-state.tar.gz -C build/tcesp-state .
+          sha="$(sha256sum build/tcesp-state.tar.gz | cut -d' ' -f1)"
+          key="tcesp/estadual/2026/missing-pilot/run_${{ github.run_id }}/${sha}.tar.gz"
+          python deployment/upload_r2_source.py --source build/tcesp-state.tar.gz --object-key "$key" --expected-sha256 "$sha" --content-type application/gzip
+          python deployment/download_r2_source.py --object-key "$key" --expected-sha256 "$sha" --output build/readback.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcesp-state-2026-missing-pilot
+          path: build/tcesp-state/coverage.json

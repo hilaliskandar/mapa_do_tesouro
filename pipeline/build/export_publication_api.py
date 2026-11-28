@@ -96,7 +96,7 @@ def _variable_metadata(
         SELECT variavel_id,nome,grupo,tipo,natureza,unidade,definicao,
                formula,como_ler,cautelas,fonte_preferencial_id,periodicidade
         FROM variavel
-        WHERE variavel_id IN ({placeholders})
+        WHERE variavel_id IN ({placeholders}) AND publicavel=1 AND ativo=1
         """,
         tuple(variable_ids),
     ).fetchall()

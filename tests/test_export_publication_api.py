@@ -151,3 +151,32 @@ def test_publication_catalog_has_11_groups_and_rmsp_excludes_capital():
     assert next(
         item for item in groups if item["publication_id"] == "CIDADES_MEDIAS"
     )["source_universe_id"] == "CIDADES_MEDIAS"
+
+
+def test_publication_export_refuses_unpublished_or_inactive_variable(tmp_path):
+    """FED04: editorial selection cannot override SQLite publication gates."""
+    import pytest
+
+    db = tmp_path / "db.sqlite"
+    make_db(db)
+    universes = tmp_path / "universes.yml"
+    variables = tmp_path / "variables.yml"
+    universes.write_text(
+        "publication_universes:\n"
+        "  - publication_id: U_PUBLIC\n"
+        "    name: Teste\n"
+        "    source_universe_id: U\n"
+        "    type: ANALITICO\n", encoding="utf-8")
+    variables.write_text("groups:\n  receitas:\n    - v_receita\n", encoding="utf-8")
+    for publicavel, ativo in ((0, 1), (1, 0), (0, 0)):
+        with sqlite3.connect(db) as con:
+            con.execute("UPDATE variavel SET publicavel=?,ativo=? "
+                        "WHERE variavel_id='v_receita'", (publicavel, ativo))
+        with pytest.raises(ValueError, match="Variaveis editoriais ausentes"):
+            export_publication_api(
+                db, tmp_path / f"api_{publicavel}_{ativo}",
+                universes_catalog=universes,
+                variables_catalog=variables,
+            )
+        assert not (tmp_path / f"api_{publicavel}_{ativo}" /
+                    "publication" / "universes.json").exists()

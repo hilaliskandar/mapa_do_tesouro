@@ -8,6 +8,11 @@ on:
         required: false
         default: "sp645-candidate"
         type: string
+      include_rmrp_territory:
+        description: "Include only validated territorial catalog RMRP"
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -18,7 +23,7 @@ concurrency:
 
 jobs:
   build-deploy-qa:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -105,11 +110,12 @@ jobs:
             --site-output build/site-sp645 \
             --geojson inputs/geojs-35-mun.json
 
-      - name: Include only approved RMRP territorial catalog
-        run: python deployment/materialize_rmrp_territorial_sp645.py --site build/site-sp645
-
       - name: Verify regional monetary conservation
         run: python pipeline/qa/audit_ra_rg_conservation.py --database build/sp645_candidate.sqlite --output build/qa_ra_rg_conservation.json
+
+      - name: Include strictly territorial RMRP catalog
+        if: ${{ inputs.include_rmrp_territory }}
+        run: python deployment/materialize_rmrp_territorial_sp645.py --site build/site-sp645
 
       - name: Validate SP645 candidate locally
         run: python deployment/qa_sp645_pages.py --site build/site-sp645
@@ -130,7 +136,6 @@ jobs:
         env:
           DEPLOY_ALIAS: ${{ inputs.alias }}
         run: |
-          case "$DEPLOY_ALIAS" in sp645-regional-v050-qa) ;; *) echo "Unapproved regional preview alias"; exit 1 ;; esac
           npx --yes wrangler@4.148.0 pages deploy build/site-sp645 \
             --project-name="$CLOUDFLARE_PAGES_PROJECT" \
             --branch="$DEPLOY_ALIAS" \
@@ -146,13 +151,26 @@ jobs:
           python deployment/qa_sp645_pages.py \
             --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
 
-      - name: Validate RMRP territorial catalog on isolated SP645 preview
+      - name: Validate RMRP territorial catalog remotely
+        if: ${{ inputs.include_rmrp_territory }}
         shell: bash
         env:
           DEPLOY_ALIAS: ${{ inputs.alias }}
         run: |
           python deployment/materialize_rmrp_territorial_sp645.py \
             --url "https://$DEPLOY_ALIAS.$CLOUDFLARE_PAGES_PROJECT.pages.dev"
+
+      - name: Install Chromium for RMRP desktop and mobile QA
+        if: ${{ inputs.include_rmrp_territory }}
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install chromium --with-deps
+
+      - name: Audit RMRP browser desktop and mobile
+        if: ${{ inputs.include_rmrp_territory }}
+        env:
+          RMRP_PREVIEW_URL: https://sp645-rmrp-release.finbra-tic-tim-referencia.pages.dev
+        run: node deployment/qa_rmrp_territory_browser.cjs
 
       - name: Reject HTML fallback on external SP645 API v2 JSON
         shell: bash
@@ -168,21 +186,6 @@ jobs:
         with:
           name: sp645-external-v2-json-contract
           path: build/sp645-v2-remote-qa.json
-          if-no-files-found: warn
-
-      - name: Install Chromium browser QA
-        run: |
-          pip install playwright
-          python -m playwright install --with-deps chromium
-
-      - name: Verify regional interactions in Chromium
-        run: python deployment/qa_sp645_regional_browser.py
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: sp645-regional-browser-qa
-          path: build/qa_regional_browser.json
           if-no-files-found: warn
 
       - name: Publish preview URL

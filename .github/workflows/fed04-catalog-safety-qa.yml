@@ -1,0 +1,36 @@
+name: FED04 catalog safety QA
+
+on:
+  push:
+    branches:
+      - fed04-catalog-safety-20261110
+    paths:
+      - "pipeline/build/load_catalog.py"
+      - "tests/test_fed04_catalog_flags.py"
+      - ".github/workflows/fed04-catalog-safety-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test requirements
+        run: |
+          python -m pip install --disable-pip-version-check pyyaml pytest
+      - name: Compile Python modules
+        run: |
+          python -m compileall -q pipeline/build/load_catalog.py tests/test_fed04_catalog_flags.py
+      - name: Run FED04 visibility and idempotence regression
+        run: |
+          python -m pytest -q tests/test_fed04_catalog_flags.py
+      - name: Run existing schema and catalog tests
+        run: |
+          python -m pytest -q tests/test_schema.py
